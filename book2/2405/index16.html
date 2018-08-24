@@ -234,12 +234,12 @@ for i in range(100):
   kvadrati.append(Kvadrat(random.choice(barve), \
                           random.randrange(20, 80)))
 
-# Določi krmilnik animacije
+# Določi rokovalnik animacije
 def draw(platno):
   for kvadrat in kvadrati:
     kvadrat.premakni(platno)
 
-# Ustvari okvir in ga poveži s krmilnikom animacije
+# Ustvari okvir in ga poveži s rokovalnikom animacije
 okvir = simplegui.create_frame("Kvadrati", SIRINA, VISINA)
 okvir.set_draw_handler(draw)
 
@@ -384,13 +384,13 @@ class Kvadrat:
 barve  = ["red", "green", "blue", "yellow", \
           "orange", "magenta", "cyan"]
 
-# Določi krmilnik animacije
+# Določi rokovalnik animacije
 def draw(platno):
   global kvadrati
   for kvadrat in kvadrati:
     kvadrat.premakni(platno)
 
-# Določi krmilnik vnosa
+# Določi rokovalnik vnosa
 def vnos(vrednost="100"):
   global kvadrati, stevilo
   kvadrati = []
@@ -401,11 +401,11 @@ def vnos(vrednost="100"):
     kvadrati.append(Kvadrat(random.choice(barve), \
                             random.randrange(20, 80)))
 
-# Ustvari okvir in ga poveži s krmilnikom animacije
+# Ustvari okvir in ga poveži s rokovalnikom animacije
 okvir = simplegui.create_frame("Kvadrati", SIRINA, VISINA)
 okvir.set_draw_handler(draw)
 
-# Ustvari vnosno polje in ga poveži s krmilnikom
+# Ustvari vnosno polje in ga poveži s rokovalnikom
 okvir.add_input("Vnesi število kvadratov", vnos, 100)
 
 # Zaženi animacijo okvirja
@@ -453,13 +453,13 @@ platno = tk.Canvas(okno, width=SIRINA, height=VISINA)
 platno.configure(bg="black")
 platno.grid(row=0, column=1, pady=20)
 
-# Poveži funkcije z dogodkovnimi krmilniki
+# Poveži funkcije z dogodkovnimi rokovalniki
 opis = tk.Label(okvir, text="Vnesi število kvadratov")
 opis.configure(width=20)
 opis.grid(row=0, column=0, padx=45)
 vnos = tk.Entry(okvir, width=10)
 vnos.grid(row=1, column=0, padx=45)
-vnos.bind('<Return>', (lambda _: krmilnik(vnos)))
+vnos.bind('<Return>', (lambda _: rokovalnik(vnos)))
 
 
 # Definicija razreda 'Kvadrat'
@@ -491,8 +491,8 @@ for i in range(100):
   kvadrati.append(Kvadrat(random.choice(barve), \
                           random.randrange(20, 80)))
 
-# Določi krmilnik vnosa
-def krmilnik(vnos):
+# Določi rokovalnik vnosa
+def rokovalnik(vnos):
   global kvadrati
 
   # Izbriši vsebino platna

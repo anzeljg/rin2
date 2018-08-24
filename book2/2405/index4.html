@@ -208,7 +208,7 @@ def izpis(platno):
 </pre>
 </p>
 
-<p align="justify">Zadnja naloga pa bo vzpostavitev dogodkovne zanke, ki bo čakala na to, da uporabnik klikne na gumb ter nato sprožila ustrezni dogodkovni krmilnik.</p>
+<p align="justify">Zadnja naloga pa bo vzpostavitev dogodkovne zanke, ki bo čakala na to, da uporabnik klikne na gumb ter nato sprožila ustrezni dogodkovni rokovalnik.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -231,16 +231,16 @@ import simplegui
 
 sporocilo = "Lep pozdrav!"
 
-# Krmilnik za klik miške
+# Rokovalnik za klik miške
 def klik():
   global sporocilo
   sporocilo = "Bravo!"
 
-# Krmilnik za risanje na platno
+# Rokovalnik za risanje na platno
 def izpis(platno):
   platno.draw_text(sporocilo, [50, 100], 36, "red")
 
-# Ustvari okvir, poveži funkcije z dogodkovnimi krmilniki
+# Ustvari okvir, poveži funkcije z dogodkovnimi rokovalniki
 okvir = simplegui.create_frame("Okno", 300, 200)
 okvir.set_canvas_background("black")
 okvir.add_button("Klikni", klik)
@@ -269,7 +269,7 @@ okvir.start()
 <span class="hl lin">  3 </span>
 <span class="hl lin">  4 </span>besedilo <span class="hl opt">=</span> <span class="hl str">&quot;Lep pozdrav!&quot;</span>
 <span class="hl lin">  5 </span>
-<span class="hl lin">  6 </span><span class="hl slc"># Krmilnik za klik miške na gumb</span>
+<span class="hl lin">  6 </span><span class="hl slc"># Rokovalnik za klik miške na gumb</span>
 <span class="hl lin">  7 </span><span class="hl kwa">def</span> <span class="hl kwd">klik</span><span class="hl opt">():</span>
 <span class="hl lin">  8 </span>  <span class="hl kwa">global</span> besedilo
 <span class="hl lin">  9 </span>  besedilo <span class="hl opt">=</span> <span class="hl str">&quot;Bravo!&quot;</span>
@@ -293,7 +293,7 @@ okvir.start()
 <span class="hl lin"> 27 </span>platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">150</span><span class="hl opt">,</span> <span class="hl num">100</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;red&quot;</span><span class="hl opt">,</span> text<span class="hl opt">=</span>besedilo<span class="hl opt">,</span> \
 <span class="hl lin"> 28 </span>  font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">27</span><span class="hl opt">))</span>
 <span class="hl lin"> 29 </span>
-<span class="hl lin"> 30 </span><span class="hl slc"># Poveži funkcije z dogodkovnimi krmilniki</span>
+<span class="hl lin"> 30 </span><span class="hl slc"># Poveži funkcije z dogodkovnimi rokovalniki</span>
 <span class="hl lin"> 31 </span>gumb <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl str">&quot;Klikni&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>klik<span class="hl opt">)</span>
 <span class="hl lin"> 32 </span>gumb<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
 <span class="hl lin"> 33 </span>gumb<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>

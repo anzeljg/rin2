@@ -231,9 +231,9 @@ def oblikuj_cas(t):
   C = S % 10
   return str(A) + ":" + str(B) + str(C) + "." + str(D)
 
-# Določi časovni krmilnik za števec z intervalom
+# Določi časovni rokovalnik za števec z intervalom
 # 0.1 sekunde (desetinka sekunde)
-def casovni_krmilnik():
+def casovni_rokovalnik():
   global cas10
   # Ponastavi čas, ko doseže 10 minut
   if (cas10 == 5999):
@@ -241,7 +241,7 @@ def casovni_krmilnik():
   else:
     cas10 = cas10 + 1
 
-# Določi krmilnik izpisovanja na platno
+# Določi rokovalnik izpisovanja na platno
 def izpis(platno):
   global cas10, celih, skupaj
   platno.draw_text(oblikuj_cas(cas10), \
@@ -249,11 +249,11 @@ def izpis(platno):
   platno.draw_text(str(celih) + "/" + str(skupaj), \
     (145, 30), 20, "white")
 
-# Določi krmilnik gumba 'Začni'
+# Določi rokovalnik gumba 'Začni'
 def zacni():
   stevec.start()
     
-# Določi krmilnik gumba 'Ustavi'
+# Določi rokovalnik gumba 'Ustavi'
 def ustavi():
   if (stevec.is_running()):
     stevec.stop()
@@ -264,7 +264,7 @@ def ustavi():
     if (cas10 % 10 == 0):
       celih = celih + 1
     
-# Določi krmilnik gumba 'Nastavi'
+# Določi rokovalnik gumba 'Nastavi'
 def nastavi():
   stevec.stop()
   global cas10, celih, skupaj
@@ -275,8 +275,8 @@ def nastavi():
 # Ustvari okvir
 okvir = simplegui.create_frame("Štoparica", 200, 200)
 
-# Poveži funkcije z dogodkovnimi krmilniki
-stevec = simplegui.create_timer(100, casovni_krmilnik)
+# Poveži funkcije z dogodkovnimi rokovalniki
+stevec = simplegui.create_timer(100, casovni_rokovalnik)
 okvir.add_button("Začni", zacni, 100)
 okvir.add_button("Ustavi", ustavi, 100)
 okvir.add_button("Nastavi", nastavi, 100)
@@ -320,9 +320,9 @@ okvir.set_draw_handler(izpis)
 <span class="hl lin"> 18 </span>  C <span class="hl opt">=</span> S <span class="hl opt">%</span> <span class="hl num">10</span>
 <span class="hl lin"> 19 </span>  <span class="hl kwa">return</span> <span class="hl kwb">str</span><span class="hl opt">(</span>A<span class="hl opt">) +</span> <span class="hl str">&quot;:&quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>B<span class="hl opt">) +</span> <span class="hl kwb">str</span><span class="hl opt">(</span>C<span class="hl opt">) +</span> <span class="hl str">&quot;.&quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>D<span class="hl opt">)</span>
 <span class="hl lin"> 20 </span>
-<span class="hl lin"> 21 </span><span class="hl slc"># Določi časovni krmilnik za števec z intervalom</span>
+<span class="hl lin"> 21 </span><span class="hl slc"># Določi časovni rokovalnik za števec z intervalom</span>
 <span class="hl lin"> 22 </span><span class="hl slc"># 100 milisekund (desetinka sekunde)</span>
-<span class="hl lin"> 23 </span><span class="hl kwa">def</span> <span class="hl kwd">casovni_krmilnik</span><span class="hl opt">():</span>
+<span class="hl lin"> 23 </span><span class="hl kwa">def</span> <span class="hl kwd">casovni_rokovalnik</span><span class="hl opt">():</span>
 <span class="hl lin"> 24 </span>  <span class="hl kwa">global</span> cas10<span class="hl opt">,</span> stevec
 <span class="hl lin"> 25 </span>  <span class="hl slc"># Ponastavi čas, ko doseže 10 minut</span>
 <span class="hl lin"> 26 </span>  <span class="hl kwa">if</span> <span class="hl opt">(</span>cas10 <span class="hl opt">==</span> <span class="hl num">5999</span><span class="hl opt">):</span>
@@ -331,9 +331,9 @@ okvir.set_draw_handler(izpis)
 <span class="hl lin"> 29 </span>    cas10 <span class="hl opt">=</span> cas10 <span class="hl opt">+</span> <span class="hl num">1</span>
 <span class="hl lin"> 30 </span>  <span class="hl kwa">if</span> stevec<span class="hl opt">:</span>
 <span class="hl lin"> 31 </span>    <span class="hl kwd">izpis</span><span class="hl opt">()</span>
-<span class="hl lin"> 32 </span>    okvir<span class="hl opt">.</span><span class="hl kwd">after</span><span class="hl opt">(</span><span class="hl num">100</span><span class="hl opt">,</span> casovni_krmilnik<span class="hl opt">)</span>
+<span class="hl lin"> 32 </span>    okvir<span class="hl opt">.</span><span class="hl kwd">after</span><span class="hl opt">(</span><span class="hl num">100</span><span class="hl opt">,</span> casovni_rokovalnik<span class="hl opt">)</span>
 <span class="hl lin"> 33 </span>
-<span class="hl lin"> 34 </span><span class="hl slc"># Določi krmilnik izpisovanja na platno</span>
+<span class="hl lin"> 34 </span><span class="hl slc"># Določi rokovalnik izpisovanja na platno</span>
 <span class="hl lin"> 35 </span><span class="hl kwa">def</span> <span class="hl kwd">izpis</span><span class="hl opt">():</span>
 <span class="hl lin"> 36 </span>  <span class="hl slc"># Izbriši vsebino platna</span>
 <span class="hl lin"> 37 </span>  platno<span class="hl opt">.</span><span class="hl kwd">delete</span><span class="hl opt">(</span><span class="hl str">&quot;all&quot;</span><span class="hl opt">)</span>
@@ -345,13 +345,13 @@ okvir.set_draw_handler(izpis)
 <span class="hl lin"> 43 </span>  platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">100</span><span class="hl opt">,</span> <span class="hl num">100</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> text<span class="hl opt">=</span>niz2<span class="hl opt">,</span> \
 <span class="hl lin"> 44 </span>    font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">36</span><span class="hl opt">))</span>
 <span class="hl lin"> 45 </span>
-<span class="hl lin"> 46 </span><span class="hl slc"># Določi krmilnik gumba &apos;Začni&apos;</span>
+<span class="hl lin"> 46 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Začni&apos;</span>
 <span class="hl lin"> 47 </span><span class="hl kwa">def</span> <span class="hl kwd">zacni</span><span class="hl opt">():</span>
 <span class="hl lin"> 48 </span>  <span class="hl kwa">global</span> stevec
 <span class="hl lin"> 49 </span>  stevec <span class="hl opt">=</span> <span class="hl num">1</span> <span class="hl slc"># Začni ali nadaljuj štopanje</span>
-<span class="hl lin"> 50 </span>  <span class="hl kwd">casovni_krmilnik</span><span class="hl opt">()</span>
+<span class="hl lin"> 50 </span>  <span class="hl kwd">casovni_rokovalnik</span><span class="hl opt">()</span>
 <span class="hl lin"> 51 </span>
-<span class="hl lin"> 52 </span><span class="hl slc"># Določi krmilnik gumba &apos;Ustavi&apos;</span>
+<span class="hl lin"> 52 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Ustavi&apos;</span>
 <span class="hl lin"> 53 </span><span class="hl kwa">def</span> <span class="hl kwd">ustavi</span><span class="hl opt">():</span>
 <span class="hl lin"> 54 </span>  <span class="hl kwa">global</span> cas10<span class="hl opt">,</span> celih<span class="hl opt">,</span> skupaj<span class="hl opt">,</span> stevec
 <span class="hl lin"> 55 </span>  <span class="hl kwa">if</span> stevec<span class="hl opt">:</span>
@@ -363,7 +363,7 @@ okvir.set_draw_handler(izpis)
 <span class="hl lin"> 61 </span>      celih <span class="hl opt">=</span> celih <span class="hl opt">+</span> <span class="hl num">1</span>
 <span class="hl lin"> 62 </span>    <span class="hl kwd">izpis</span><span class="hl opt">()</span>
 <span class="hl lin"> 63 </span>
-<span class="hl lin"> 64 </span><span class="hl slc"># Določi krmilnik gumba &apos;Nastavi&apos;</span>
+<span class="hl lin"> 64 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Nastavi&apos;</span>
 <span class="hl lin"> 65 </span><span class="hl kwa">def</span> <span class="hl kwd">nastavi</span><span class="hl opt">():</span>
 <span class="hl lin"> 66 </span>  <span class="hl kwa">global</span> cas10<span class="hl opt">,</span> celih<span class="hl opt">,</span> skupaj<span class="hl opt">,</span> stevec
 <span class="hl lin"> 67 </span>  cas10  <span class="hl opt">=</span> <span class="hl num">0</span>
@@ -388,7 +388,7 @@ okvir.set_draw_handler(izpis)
 <span class="hl lin"> 86 </span>platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">100</span><span class="hl opt">,</span> <span class="hl num">100</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl str">&quot;0:00.0&quot;</span><span class="hl opt">,</span> \
 <span class="hl lin"> 87 </span>  font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">36</span><span class="hl opt">))</span>
 <span class="hl lin"> 88 </span>
-<span class="hl lin"> 89 </span><span class="hl slc"># Poveži funkcije z dogodkovnimi krmilniki</span>
+<span class="hl lin"> 89 </span><span class="hl slc"># Poveži funkcije z dogodkovnimi rokovalniki</span>
 <span class="hl lin"> 90 </span>gumb1 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl str">&quot;Začni&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>zacni<span class="hl opt">)</span>
 <span class="hl lin"> 91 </span>gumb1<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
 <span class="hl lin"> 92 </span>gumb1<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>

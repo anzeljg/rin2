@@ -207,7 +207,7 @@
 <!-- Left column start -->
 <h1>Igra spomina</h1>
 
-<p align="justify">Naslednji GUI program bo igra spomina. Ta program bo služil kot zgled, kako uporabljamo krmilnik dogodka miškin klik, ki se zgodi, ko z miško kliknemo na določeno mesto na platnu.</p>
+<p align="justify">Naslednji GUI program bo igra spomina. Ta program bo služil kot zgled, kako uporabljamo rokovalnik dogodka miškin klik, ki se zgodi, ko z miško kliknemo na določeno mesto na platnu.</p>
 
 <p align="justify">Ogledali si bomo, kako ugotovimo na katero mesto na platnu smo kliknili ter kako ta podatek uporabimo za ustrezno delovanje oziroma odzivanje programa.</p>
 
@@ -272,7 +272,7 @@ def narisi(platno):
       platno.draw_text(str(komplet[i]), polozaj, \
         VEL*3//4, "white")
 
-# Krmilnik za klik miške na gumb 'Znova'
+# Rokovalnik za klik miške na gumb 'Znova'
 def znova():
   global komplet, odkrito, stanje
   global poteza, prva, druga
@@ -287,7 +287,7 @@ def znova():
   prva = -1  # Prva izbrana ploščica
   druga = -1 # Druga izbrana ploščica
 
-# Krmilnik za klik miške na ploščico
+# Rokovalnik za klik miške na ploščico
 def klik(polozaj):
   global komplet, odkrito, stanje
   global poteza, prva, druga
@@ -317,7 +317,7 @@ frame = simplegui.create_frame("Spomin", SIRINA, VISINA)
 frame.add_button("Znova", znova)
 napis = frame.add_label("Št. potez = 0")
 
-# Poveži funkcije z dogodkovnimi krmilniki
+# Poveži funkcije z dogodkovnimi rokovalniki
 frame.set_mouseclick_handler(klik)
 frame.set_draw_handler(narisi)
 
@@ -370,7 +370,7 @@ frame.start()
 <span class="hl lin"> 28 </span>      platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span>polozaj<span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> \
 <span class="hl lin"> 29 </span>        text<span class="hl opt">=</span><span class="hl kwb">str</span><span class="hl opt">(</span>komplet<span class="hl opt">[</span>i<span class="hl opt">]),</span> font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> VEL <span class="hl opt">//</span> <span class="hl num">2</span><span class="hl opt">))</span>
 <span class="hl lin"> 30 </span>
-<span class="hl lin"> 31 </span><span class="hl slc"># Krmilnik za klik miške na gumb &apos;Znova&apos;</span>
+<span class="hl lin"> 31 </span><span class="hl slc"># Rokovalnik za klik miške na gumb &apos;Znova&apos;</span>
 <span class="hl lin"> 32 </span><span class="hl kwa">def</span> <span class="hl kwd">znova</span><span class="hl opt">():</span>
 <span class="hl lin"> 33 </span>  <span class="hl kwa">global</span> komplet<span class="hl opt">,</span> odkrito<span class="hl opt">,</span> stanje
 <span class="hl lin"> 34 </span>  <span class="hl kwa">global</span> poteza<span class="hl opt">,</span> prva<span class="hl opt">,</span> druga
@@ -386,7 +386,7 @@ frame.start()
 <span class="hl lin"> 44 </span>  druga <span class="hl opt">= -</span><span class="hl num">1</span> <span class="hl slc"># Druga izbrana ploščica</span>
 <span class="hl lin"> 45 </span>  <span class="hl kwd">narisi</span><span class="hl opt">(</span>platno<span class="hl opt">)</span>
 <span class="hl lin"> 46 </span>
-<span class="hl lin"> 47 </span><span class="hl slc"># Krmilnik za klik miške na ploščico</span>
+<span class="hl lin"> 47 </span><span class="hl slc"># Rokovalnik za klik miške na ploščico</span>
 <span class="hl lin"> 48 </span><span class="hl kwa">def</span> <span class="hl kwd">klik</span><span class="hl opt">(</span>polozaj<span class="hl opt">):</span>
 <span class="hl lin"> 49 </span>  <span class="hl kwa">global</span> komplet<span class="hl opt">,</span> odkrito<span class="hl opt">,</span> stanje
 <span class="hl lin"> 50 </span>  <span class="hl kwa">global</span> poteza<span class="hl opt">,</span> prva<span class="hl opt">,</span> druga
@@ -420,7 +420,7 @@ frame.start()
 <span class="hl lin"> 78 </span>okvir <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Frame</span><span class="hl opt">(</span>okno<span class="hl opt">)</span>
 <span class="hl lin"> 79 </span>okvir<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> pady<span class="hl opt">=</span><span class="hl num">20</span><span class="hl opt">)</span>
 <span class="hl lin"> 80 </span>
-<span class="hl lin"> 81 </span><span class="hl slc"># Poveži funkcije z dogodkovnimi krmilniki</span>
+<span class="hl lin"> 81 </span><span class="hl slc"># Poveži funkcije z dogodkovnimi rokovalniki</span>
 <span class="hl lin"> 82 </span>platno <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Canvas</span><span class="hl opt">(</span>okno<span class="hl opt">,</span> width<span class="hl opt">=</span>SIRINA<span class="hl opt">,</span> height<span class="hl opt">=</span>VISINA<span class="hl opt">)</span>
 <span class="hl lin"> 83 </span>platno<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>bg<span class="hl opt">=</span><span class="hl str">&quot;black&quot;</span><span class="hl opt">)</span>
 <span class="hl lin"> 84 </span>platno<span class="hl opt">.</span><span class="hl kwd">bind</span><span class="hl opt">(</span><span class="hl str">&quot;&lt;Button-1&gt;&quot;</span><span class="hl opt">,</span> klik<span class="hl opt">)</span> <span class="hl slc"># Klik na levi gumb miške</span>

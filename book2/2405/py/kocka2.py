@@ -11,7 +11,7 @@ kocka2 = 0 # Druga kocka
 izid = ""
 REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global kocka1, kocka2, izid
   # Naključni met obeh kock
@@ -39,7 +39,7 @@ def vrzi():
   izpis()
 
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis():
   global kocka1, kocka2, izid
 
@@ -88,7 +88,7 @@ KOCKA = {
   '5': tk.PhotoImage(file="kocka/kocka6.gif")
 }
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 gumb = tk.Button(okvir, text="Vrzi", command=vrzi)
 gumb.configure(width=10)
 gumb.grid(row=0, column=0, padx=45)

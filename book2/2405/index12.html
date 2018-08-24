@@ -252,12 +252,12 @@ for i in range(100):
   zogice.append(Zoga(random.choice(barve), \
                      random.randrange(20, 80)))
 
-# Določi krmilnik animacije
+# Določi rokovalnik animacije
 def draw(platno):
   for zogica in zogice:
     zogica.premakni(platno)
 
-# Ustvari okvir in ga poveži s krmilnikom animacije
+# Ustvari okvir in ga poveži s rokovalnikom animacije
 okvir = simplegui.create_frame("Žogice", SIRINA, VISINA)
 okvir.set_draw_handler(draw)
 

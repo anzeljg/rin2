@@ -18,9 +18,9 @@ def oblikuj_cas(t):
   C = S % 10
   return str(A) + ":" + str(B) + str(C) + "." + str(D)
 
-# Določi časovni krmilnik za števec z intervalom
+# Določi časovni rokovalnik za števec z intervalom
 # 100 milisekund (desetinka sekunde)
-def casovni_krmilnik():
+def casovni_rokovalnik():
   global cas10, stevec
   # Ponastavi čas, ko doseže 10 minut
   if (cas10 == 5999):
@@ -29,9 +29,9 @@ def casovni_krmilnik():
     cas10 = cas10 + 1
   if stevec:
     izpis()
-    okvir.after(100, casovni_krmilnik)
+    okvir.after(100, casovni_rokovalnik)
 
-# Določi krmilnik izpisovanja na platno
+# Določi rokovalnik izpisovanja na platno
 def izpis():
   # Izbriši vsebino platna
   platno.delete("all")
@@ -43,13 +43,13 @@ def izpis():
   platno.create_text(100, 100, fill="white", text=niz2, \
     font=("Times", 36))
 
-# Določi krmilnik gumba 'Začni'
+# Določi rokovalnik gumba 'Začni'
 def zacni():
   global stevec
   stevec = 1 # Začni ali nadaljuj štopanje
-  casovni_krmilnik()
+  casovni_rokovalnik()
 
-# Določi krmilnik gumba 'Ustavi'
+# Določi rokovalnik gumba 'Ustavi'
 def ustavi():
   global cas10, celih, skupaj, stevec
   if stevec:
@@ -61,7 +61,7 @@ def ustavi():
       celih = celih + 1
     izpis()
 
-# Določi krmilnik gumba 'Nastavi'
+# Določi rokovalnik gumba 'Nastavi'
 def nastavi():
   global cas10, celih, skupaj, stevec
   cas10  = 0
@@ -86,7 +86,7 @@ platno.create_text(160, 30, fill="white", text="0/0", \
 platno.create_text(100, 100, fill="white", text="0:00.0", \
   font=("Times", 36))
 
-# Poveži funkcije z dogodkovnimi krmilniki
+# Poveži funkcije z dogodkovnimi rokovalniki
 gumb1 = tk.Button(okvir, text="Začni", command=zacni)
 gumb1.configure(width=10)
 gumb1.grid(row=0, column=0, padx=45)

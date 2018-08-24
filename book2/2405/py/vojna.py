@@ -141,7 +141,7 @@ class Igralec(Komplet):
       i += 1
 
 
-# Določi krmilnik gumba 'Deli'
+# Določi rokovalnik gumba 'Deli'
 def deli():
   global komplet
   komplet = Komplet()
@@ -160,7 +160,7 @@ def deli():
   izpis()
 
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global igra_poteka, vojna_poteka
   global izid, igralec, delivec
@@ -216,7 +216,7 @@ def vrzi():
     izpis()
 
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis():
   # Izbriši vsebino platna
   platno.delete("all")
@@ -264,7 +264,7 @@ for barva in BARVE:
     datoteka = "karte/" + karta + ".gif"
     KARTE[karta] = tk.PhotoImage(file=datoteka)
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 gumb1 = tk.Button(okvir, text="Deli", command=deli)
 gumb1.configure(width=10)
 gumb1.grid(row=0, column=0, padx=45)

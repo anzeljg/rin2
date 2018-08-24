@@ -202,7 +202,7 @@ kovanec = simplegui.load_image("http://tiny.cc/kovanec")
 stran = 0 # Stran kovanca: cifra ali mož
 REZULTAT = {"CIFRA":0, "MOZ":0}
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global stran
   stran = random.randint(0, 1)
@@ -213,7 +213,7 @@ def vrzi():
     REZULTAT["MOZ"] += 1
   print(REZULTAT)
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis(platno):
   global stran
 
@@ -226,7 +226,7 @@ def izpis(platno):
 frame = simplegui.create_frame("Kovanec", 200, 200)
 frame.set_canvas_background("lightgray")
 
-# Ustvari gumb in ga poveži z dogodkovnim krmilnikom
+# Ustvari gumb in ga poveži z dogodkovnim rokovalnikom
 frame.add_button("Vrzi", vrzi, 200)
 frame.set_draw_handler(izpis)
 
@@ -267,7 +267,7 @@ stran = 0 # Stran kovanca: cifra ali mož
 REZULTAT = {"CIFRA":0, "MOZ":0}
 
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global stran
   stran = random.randint(0, 1)
@@ -280,7 +280,7 @@ def vrzi():
   izpis()
 
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis():
   global stran
 
@@ -311,7 +311,7 @@ KOVANEC = {
   '1': tk.PhotoImage(file="2euro_front.gif")
 }
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 gumb = tk.Button(okvir, text="Vrzi", command=vrzi)
 gumb.configure(width=10)
 gumb.grid(row=0, column=0, padx=45)
@@ -342,7 +342,7 @@ okno.mainloop()
 	<span class="label label-primary"><b>1</b></span>
 	<span class="fa fa-star pull-right"></span>
 </p>
-<p align="justify">Napiši program z GUI vmesnikom za <i>met kovanca</i>. Program naj vsebuje gumb 'Vrzi'. Ko uporabnik klikne ta gumb, naj računalnik naključno izbere stran kovanca ter prikaže sliko ustrezne strani kovanca.</p>
+<p align="justify">Napiši program z GUI vmesnikom za <i>met kovanca</i>. Program naj vsebuje gumb »Vrzi«. Ko uporabnik klikne ta gumb, naj računalnik naključno izbere stran kovanca ter prikaže sliko ustrezne strani kovanca.</p>
 
 <p align="justify">Izgled GUI vmesnika programa naj bo podoben spodnjemu modelu.</p>
 

@@ -186,9 +186,9 @@
 <!-- Left column start -->
 <h1>Igra Black Jack</h1>
 
-<p align="justify">Oglejmo si krmilnike vseh treh gumbov, ki jih bomo uporabljali v igri.</p>
+<p align="justify">Oglejmo si rokovalnike vseh treh gumbov, ki jih bomo uporabljali v igri.</p>
 
-<p align="justify">Krmilnik gumba 'Deli' mora končati igro, če uporabnik gumb klikne medtem, ko igra poteka. Krmilnik mora nastaviti ustrezni izid in povečati skupno število odigranih iger. Nato nastavi nov komplet igralnih kart in ga premeša. Ustvari igralca in delivca ter vsakemu izmed njiju izmenično razdeli dve karti. Nazadnje nastavi še spremenljivko, ki beleži stanje igre &ndash; ali igra poteka, ali ne.</p>
+<p align="justify">Rokovalnik gumba »Deli« mora končati igro, če uporabnik gumb klikne medtem, ko igra poteka. Rokovalnik mora nastaviti ustrezni izid in povečati skupno število odigranih iger. Nato nastavi nov komplet igralnih kart in ga premeša. Ustvari igralca in delivca ter vsakemu izmed njiju izmenično razdeli dve karti. Nazadnje nastavi še spremenljivko, ki beleži stanje igre &ndash; ali igra poteka, ali ne.</p>
 
 <pre>
 def deli():
@@ -214,7 +214,7 @@ def deli():
   igra_poteka = True
 </pre>
 
-<p align="justify">Krmilnik gumba 'Vleci' igralcu doda novo karto. Nato preveri, ali skupna vrednost kart igralca presega 21 in v tem primeru konča igro.</p>
+<p align="justify">Rokovalnik gumba »Vleci« igralcu doda novo karto. Nato preveri, ali skupna vrednost kart igralca presega 21 in v tem primeru konča igro.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -233,7 +233,7 @@ def vleci():
     REZULTAT["SKUPAJ"] += 1
 </pre>
 
-<p align="justify">Krmilnik gumba 'Obdrži' začne delivcu dodajati nove karte, dokler je njihova skupna vrednost manjša od 17. Nato preveri, ali skupna vrednost kart delivca presega 21 &ndash; v tem primeru je igralec zmagovalec igre. V nasprotnem primeru pa preveri, kdo ima višjo skupno vrednost kart ter tako določi zmagovalca.</p>
+<p align="justify">Rokovalnik gumba »Obdrži« začne delivcu dodajati nove karte, dokler je njihova skupna vrednost manjša od 17. Nato preveri, ali skupna vrednost kart delivca presega 21 &ndash; v tem primeru je igralec zmagovalec igre. V nasprotnem primeru pa preveri, kdo ima višjo skupno vrednost kart ter tako določi zmagovalca.</p>
 
 <pre>
 def obdrzi():

@@ -180,7 +180,7 @@ class Igralec(Komplet):
       i += 1
 
 
-# Določi krmilnik gumba 'Deli'
+# Določi rokovalnik gumba 'Deli'
 def deli():
   global komplet, odlozene
   komplet = Komplet()
@@ -218,7 +218,7 @@ def deli():
       komplet.karte.insert(0, karta)
   izpis()
 
-# Krmilnik za klik miške na karto, igralec vrže karto
+# Rokovalnik za klik miške na karto, igralec vrže karto
 def vrzi(polozaj):
   print(polozaj)
   global igralec, delivec, izid, igra_poteka
@@ -275,7 +275,7 @@ def vrzi(polozaj):
       REZULTAT["SKUPAJ"] += 1
   izpis()
 
-# Krmilnik štoparice/timer-ja, delivec vrže karto
+# Rokovalnik štoparice/timer-ja, delivec vrže karto
 def vrzi2():
   global igralec, delivec, izid, igra_poteka, napoved_ena
 
@@ -387,14 +387,14 @@ def vrzi2():
       REZULTAT["SKUPAJ"] += 1
   izpis()
 
-# Določi krmilnik gumba 'Vleci'
+# Določi rokovalnik gumba 'Vleci'
 def vleci():
   global igralec, komplet
   igralec.dodaj_karto(komplet.deli_karto())
   igralec.karte = sorted(igralec.karte)
   izpis()
 
-# Določi krmilnik gumba 'Naprej'
+# Določi rokovalnik gumba 'Naprej'
 def naprej():
   vrzi2()
 
@@ -407,7 +407,7 @@ def napoved():
     napoved_ena = True
     oznaka.configure(text="Ena!")
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis():
   # Izbriši vsebino platna
   platno.delete("all")
@@ -463,7 +463,7 @@ for barva in BARVE:
     datoteka = "uno/" + karta + ".gif"
     KARTE[karta] = tk.PhotoImage(file=datoteka)
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 gumb1 = tk.Button(okvir, text="Deli", command=deli)
 gumb1.configure(width=10)
 gumb1.grid(row=0, column=0, padx=45)

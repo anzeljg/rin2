@@ -10,7 +10,7 @@ stran = 0 # Stran kovanca: cifra ali mož
 REZULTAT = {"CIFRA":0, "MOZ":0}
 
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global stran
   stran = random.randint(0, 1)
@@ -23,7 +23,7 @@ def vrzi():
   izpis()
 
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis():
   global stran
 
@@ -54,7 +54,7 @@ KOVANEC = {
   '1': tk.PhotoImage(file="2euro_front.gif")
 }
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 gumb = tk.Button(okvir, text="Vrzi", command=vrzi)
 gumb.configure(width=10)
 gumb.grid(row=0, column=0, padx=45)

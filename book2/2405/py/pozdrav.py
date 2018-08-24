@@ -3,7 +3,7 @@ import tkinter as tk
 
 besedilo = "Lep pozdrav!"
 
-# Krmilnik za klik miške na gumb
+# Rokovalnik za klik miške na gumb
 def klik():
   global besedilo
   besedilo = "Bravo!"
@@ -27,7 +27,7 @@ platno.grid(row=0, column=1, pady=20)
 platno.create_text(150, 100, fill="red", text=besedilo, \
   font=("Times", 27))
 
-# Poveži funkcije z dogodkovnimi krmilniki
+# Poveži funkcije z dogodkovnimi rokovalniki
 gumb = tk.Button(okvir, text="Klikni", command=klik)
 gumb.configure(width=10)
 gumb.grid(row=0, column=0, padx=45)

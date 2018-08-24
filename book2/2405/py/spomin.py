@@ -28,7 +28,7 @@ def narisi(platno):
       platno.create_text(polozaj, fill="white", \
         text=str(komplet[i]), font=("Times", VEL // 2))
 
-# Krmilnik za klik miške na gumb 'Znova'
+# Rokovalnik za klik miške na gumb 'Znova'
 def znova():
   global komplet, odkrito, stanje
   global poteza, prva, druga
@@ -44,7 +44,7 @@ def znova():
   druga = -1 # Druga izbrana ploščica
   narisi(platno)
 
-# Krmilnik za klik miške na ploščico
+# Rokovalnik za klik miške na ploščico
 def klik(polozaj):
   global komplet, odkrito, stanje
   global poteza, prva, druga
@@ -78,7 +78,7 @@ okno.geometry(str(SIRINA + 190) + "x" + str(VISINA + 40))
 okvir = tk.Frame(okno)
 okvir.grid(row=0, column=0, pady=20)
 
-# Poveži funkcije z dogodkovnimi krmilniki
+# Poveži funkcije z dogodkovnimi rokovalniki
 platno = tk.Canvas(okno, width=SIRINA, height=VISINA)
 platno.configure(bg="black")
 platno.bind("<Button-1>", klik) # Klik na levi gumb miške

@@ -202,7 +202,7 @@ kocka = simplegui.load_image("http://tiny.cc/kocka")
 kocka1 = 0 # Prva kocka
 kocka2 = 0 # Druga kocka
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global kocka1, kocka2
   # Naključni met obeh kock
@@ -214,7 +214,7 @@ def vrzi():
   pike2 = kocka2 + 1
   print("Kocka 2: ", pike2)
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis(platno):
   global kocka1, kocka2
 
@@ -231,7 +231,7 @@ def izpis(platno):
 frame = simplegui.create_frame("Kocke", 280, 160)
 frame.set_canvas_background("darkgreen")
 
-# Ustvari gumb in ga poveži z dogodkovnim krmilnikom
+# Ustvari gumb in ga poveži z dogodkovnim rokovalnikom
 frame.add_button("Vrzi", vrzi, 200)
 frame.set_draw_handler(izpis)
 
@@ -272,7 +272,7 @@ kocka1 = 0 # Prva kocka
 kocka2 = 0 # Druga kocka
 
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global kocka1, kocka2
   # Naključni met obeh kock
@@ -286,7 +286,7 @@ def vrzi():
   izpis()
 
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis():
   global kocka1, kocka2
 
@@ -324,7 +324,7 @@ KOCKA = {
   '5': tk.PhotoImage(file="kocka/kocka6.gif")
 }
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 gumb = tk.Button(okvir, text="Vrzi", command=vrzi)
 gumb.configure(width=10)
 gumb.grid(row=0, column=0, padx=45)
@@ -368,7 +368,7 @@ kocka2 = 0 # Druga kocka
 izid = ""
 REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global kocka1, kocka2, izid
   # Naključni met obeh kock
@@ -394,7 +394,7 @@ def vrzi():
     # Igraj naprej...
     izid = "Vrzi ponovno..."
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis(platno):
   global kocka1, kocka2, izid
 
@@ -418,7 +418,7 @@ def izpis(platno):
 frame = simplegui.create_frame("Kocke", 280, 240)
 frame.set_canvas_background("darkgreen")
 
-# Ustvari gumb in ga poveži z dogodkovnim krmilnikom
+# Ustvari gumb in ga poveži z dogodkovnim rokovalnikom
 frame.add_button("Vrzi", vrzi, 200)
 frame.set_draw_handler(izpis)
 
@@ -465,7 +465,7 @@ kocka2 = 0 # Druga kocka
 izid = ""
 REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
 
-# Določi krmilnik gumba 'Vrzi'
+# Določi rokovalnik gumba 'Vrzi'
 def vrzi():
   global kocka1, kocka2, izid
   # Naključni met obeh kock
@@ -493,7 +493,7 @@ def vrzi():
   izpis()
 
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis():
   global kocka1, kocka2, izid
 
@@ -542,7 +542,7 @@ KOCKA = {
   '5': tk.PhotoImage(file="kocka/kocka6.gif")
 }
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 gumb = tk.Button(okvir, text="Vrzi", command=vrzi)
 gumb.configure(width=10)
 gumb.grid(row=0, column=0, padx=45)
@@ -581,7 +581,7 @@ okno.mainloop()
 	<span class="label label-primary"><b>2</b></span>
 	<span class="fa fa-star pull-right"></span>
 </p>
-<p align="justify">Napiši program z GUI vmesnikom za <i>met dveh kock</i>. Program naj vsebuje gumb 'Vrzi'. Ko uporabnik klikne ta gumb, naj računalnik naključno izbere vrednost dveh kock ter prikaže sliki ustreznih strani kock.</p>
+<p align="justify">Napiši program z GUI vmesnikom za <i>met dveh kock</i>. Program naj vsebuje gumb »Vrzi«. Ko uporabnik klikne ta gumb, naj računalnik naključno izbere vrednost dveh kock ter prikaže sliki ustreznih strani kock.</p>
 
 <p align="justify">Izgled GUI vmesnika programa naj bo podoben modelu v naslednji nalogi, le da naj ne vsebuje besedil.</p>
 

@@ -186,7 +186,7 @@
 <!-- Left column start -->
 <h1>Igra Black Jack</h1>
 
-<p align="justify">Krmilnik izpisa na platno izpiše ustrezno besedilo. Za izris kart pa pokliče metodo <code>izpis</code> razreda <code>Igralec</code>, ki poskrbi za izpis vseh kart, ki jih ima igralec v roki. Metoda <code>Igralec.izpis()</code> pa nadalje pokliče metodo <code>izpis</code> razreda <code>Karta</code>, ki poskrbi za izpis oziroma izris slike karte na ustreznem mestu na platnu.</p>
+<p align="justify">Rokovalnik izpisa na platno izpiše ustrezno besedilo. Za izris kart pa pokliče metodo <code>izpis</code> razreda <code>Igralec</code>, ki poskrbi za izpis vseh kart, ki jih ima igralec v roki. Metoda <code>Igralec.izpis()</code> pa nadalje pokliče metodo <code>izpis</code> razreda <code>Karta</code>, ki poskrbi za izpis oziroma izris slike karte na ustreznem mestu na platnu.</p>
 
 <pre>
 def izpis(platno):
@@ -372,7 +372,7 @@ class Igralec(Komplet):
       i += 1
 
 
-# Določi krmilnik gumba 'Deli'
+# Določi rokovalnik gumba 'Deli'
 def deli():
   # Če kliknemo gumb medtem, ko igra poteka
   global izid, REZULTAT, igra_poteka
@@ -399,7 +399,7 @@ def deli():
   igra_poteka = True
 
 
-# Določi krmilnik gumba 'Vleci'
+# Določi rokovalnik gumba 'Vleci'
 def vleci():
   # Če igra poteka, potem igralec vleče karto
   global izid, REZULTAT, igra_poteka, komplet, igralec
@@ -418,7 +418,7 @@ def vleci():
     print(REZULTAT)
 
 
-# Določi krmilnik gumba 'Obdrži'
+# Določi rokovalnik gumba 'Obdrži'
 def obdrzi():
   # Če igra poteka, potem delivec vleče karte, dokler
   # ni njihova skupna vrednost 17 ali več
@@ -448,7 +448,7 @@ def obdrzi():
     print(REZULTAT)
 
 
-# Določi krmilnik izpisa/izrisa
+# Določi rokovalnik izpisa/izrisa
 def izpis(platno):
   global izid, igralec, delivec
   igralec.izpis(platno, [50, 220])
@@ -471,7 +471,7 @@ def izpis(platno):
 frame = simplegui.create_frame("Black Jack", 650, 600)
 frame.set_canvas_background("green")
 
-# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
 frame.add_button("Deli", deli, 200)
 frame.add_button("Vleci",  vleci, 200)
 frame.add_button("Obdrži", obdrzi, 200)
@@ -637,7 +637,7 @@ frame.start()
 <span class="hl lin">139 </span>      i <span class="hl opt">+=</span> <span class="hl num">1</span>
 <span class="hl lin">140 </span>
 <span class="hl lin">141 </span>
-<span class="hl lin">142 </span><span class="hl slc"># Določi krmilnik gumba &apos;Deli&apos;</span>
+<span class="hl lin">142 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Deli&apos;</span>
 <span class="hl lin">143 </span><span class="hl kwa">def</span> <span class="hl kwd">deli</span><span class="hl opt">():</span>
 <span class="hl lin">144 </span>  <span class="hl slc"># Če kliknemo gumb medtem, ko igra poteka</span>
 <span class="hl lin">145 </span>  <span class="hl kwa">global</span> izid<span class="hl opt">,</span> REZULTAT<span class="hl opt">,</span> igra_poteka
@@ -665,7 +665,7 @@ frame.start()
 <span class="hl lin">167 </span>  <span class="hl kwd">izpis</span><span class="hl opt">()</span>
 <span class="hl lin">168 </span>
 <span class="hl lin">169 </span>
-<span class="hl lin">170 </span><span class="hl slc"># Določi krmilnik gumba &apos;Vleci&apos;</span>
+<span class="hl lin">170 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Vleci&apos;</span>
 <span class="hl lin">171 </span><span class="hl kwa">def</span> <span class="hl kwd">vleci</span><span class="hl opt">():</span>
 <span class="hl lin">172 </span>  <span class="hl slc"># Če igra poteka, potem igralec vleče karto</span>
 <span class="hl lin">173 </span>  <span class="hl kwa">global</span> izid<span class="hl opt">,</span> REZULTAT<span class="hl opt">,</span> igra_poteka<span class="hl opt">,</span> komplet<span class="hl opt">,</span> igralec
@@ -685,7 +685,7 @@ frame.start()
 <span class="hl lin">187 </span>  <span class="hl kwd">izpis</span><span class="hl opt">()</span>
 <span class="hl lin">188 </span>
 <span class="hl lin">189 </span>
-<span class="hl lin">190 </span><span class="hl slc"># Določi krmilnik gumba &apos;Obdrži&apos;</span>
+<span class="hl lin">190 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Obdrži&apos;</span>
 <span class="hl lin">191 </span><span class="hl kwa">def</span> <span class="hl kwd">obdrzi</span><span class="hl opt">():</span>
 <span class="hl lin">192 </span>  <span class="hl slc"># Če igra poteka, potem delivec vleče karte, dokler</span>
 <span class="hl lin">193 </span>  <span class="hl slc"># ni njihova skupna vrednost 17 ali več</span>
@@ -716,7 +716,7 @@ frame.start()
 <span class="hl lin">218 </span>  <span class="hl kwd">izpis</span><span class="hl opt">()</span>
 <span class="hl lin">219 </span>
 <span class="hl lin">220 </span>
-<span class="hl lin">221 </span><span class="hl slc"># Določi krmilnik izpisa/izrisa</span>
+<span class="hl lin">221 </span><span class="hl slc"># Določi rokovalnik izpisa/izrisa</span>
 <span class="hl lin">222 </span><span class="hl kwa">def</span> <span class="hl kwd">izpis</span><span class="hl opt">():</span>
 <span class="hl lin">223 </span>  <span class="hl slc"># Izbriši vsebino platna</span>
 <span class="hl lin">224 </span>  platno<span class="hl opt">.</span><span class="hl kwd">delete</span><span class="hl opt">(</span><span class="hl str">&quot;all&quot;</span><span class="hl opt">)</span>
@@ -764,7 +764,7 @@ frame.start()
 <span class="hl lin">266 </span>    datoteka <span class="hl opt">=</span> <span class="hl str">&quot;karte/&quot;</span> <span class="hl opt">+</span> karta <span class="hl opt">+</span> <span class="hl str">&quot;.gif&quot;</span>
 <span class="hl lin">267 </span>    KARTE<span class="hl opt">[</span>karta<span class="hl opt">] =</span> tk<span class="hl opt">.</span><span class="hl kwd">PhotoImage</span><span class="hl opt">(</span><span class="hl kwb">file</span><span class="hl opt">=</span>datoteka<span class="hl opt">)</span>
 <span class="hl lin">268 </span>
-<span class="hl lin">269 </span><span class="hl slc"># Ustvari gumbe in jih poveži z dogodkovnimi krmilniki</span>
+<span class="hl lin">269 </span><span class="hl slc"># Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki</span>
 <span class="hl lin">270 </span>gumb1 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl str">&quot;Deli&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>deli<span class="hl opt">)</span>
 <span class="hl lin">271 </span>gumb1<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
 <span class="hl lin">272 </span>gumb1<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>

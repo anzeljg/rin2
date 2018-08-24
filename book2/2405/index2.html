@@ -189,7 +189,7 @@
 						<h4 class="modal-title">Primer</h4>
 					</div>
 					<div class="modal-body">
-                      <p>Gumb "Zapri" zapre okno in ustavi izvajanje programa ...</p>
+                      <p>Gumb »Zapri« zapre okno in ustavi izvajanje programa ...</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
@@ -210,9 +210,9 @@
 <p align="justify">Pri razvoju uporabniškega vmesnika (<i>angl. UI &ndash; user interface</i>) je potrebno dokončati štiri naloge.
 <ol align="justify">
   <li>Določiti je potrebno, kako bo uporabniški vmesnik <b>izgledal</b>. To pomeni napisati kodo, ki bo določala, kaj bo uporabnik videl na zaslonu.</li>
-  <li>Odločiti se je potrebno, kaj bo uporabniški vmesnik <b>naredil</b>. To pomeni napisati podprograme oziroma rutine, ki bodo izvedle naloge programa.</li>
-  <li>Povezati je potrebno "izgled" z "delovanjem". To pomeni napisati kodo, ki bo povezovala stvari, ki jih uporabnik vidi na zaslonu, s podprogrami, ki bodo izvedli naloge programa.</li>
-  <li>In nazadnje, napisati je potrebno kodo, ki bo "sedela in čakala" na uporabnikov vnos.</li>
+  <li>Odločiti se je potrebno, kaj bo uporabniški vmesnik <b>naredil</b>. To pomeni napisati podprograme oziroma rokovalnike, ki bodo izvedli naloge programa.</li>
+  <li>Povezati je potrebno »izgled« z »delovanjem«. To pomeni napisati kodo, ki bo povezovala stvari, ki jih uporabnik vidi na zaslonu, s podprogrami oziroma rokovalniki, ki bodo izvedli naloge programa.</li>
+  <li>In nazadnje, napisati je potrebno kodo, ki bo »sedela in čakala« na uporabnikov vnos.</li>
 </ol>
 </p>
 
@@ -220,7 +220,7 @@
 
 <p align="justify">GUI programiranje pozna posebne izraze, povezane s prej omenjenimi štirimi nalogami.
 <ol align="justify">
-  <li>Izgled GUI opredelimo tako, da opišemo <b>gradnike</b> (<i>angl. widgets</i>), ki jih želimo prikazati ter njihova prostorska razmerja (na primer, da je gradnik levo, desno, nad ali pod glede na druge gradnike). Angleška beseda <b>widget</b> je nesmiselna beseda, ki je postala sinonim oziroma skupni izraz za "elemente grafičnega uporabniškega vmesnika". Gradniki so na primer okna, gumbi, meniji, elementi menijev, ikone, padajoči seznami, drsniki itd.</li>
+  <li>Izgled GUI opredelimo tako, da opišemo <b>gradnike</b> (<i>angl. widgets</i>), ki jih želimo prikazati ter njihova prostorska razmerja (na primer, da je gradnik levo, desno, nad ali pod glede na druge gradnike). Angleška beseda <b>widget</b> je nesmiselna beseda, ki je postala sinonim oziroma skupni izraz za »elemente grafičnega uporabniškega vmesnika«. Gradniki so na primer okna, gumbi, meniji, elementi menijev, ikone, padajoči seznami, drsniki itd.</li>
 </ol>
 </p>
 <!-- Left column end -->
@@ -230,16 +230,16 @@
 <!-- Right column start -->
 <p>
 <ol align="justify" start="3">
-  <li>Podprograme oziroma rutine, ki dejansko opravljajo naloge GUI, imenujemo <b>povratni krmilniki</b> (<i>angl. callback handlers</i>) ali <b>dogodkovni krmilniki</b> (<i>angl. event handlers</i>). "Dogodki" so vhodni dogodki, kot na primer klik miške, pritisk tipke na tipkovnici itd. Podprograme oziroma rutine pa imenujemo "krmilniki", saj "krmilijo" (oziroma se odzivajo na) takšne dogodke.</li>
-  <li>Postopek <b>povezovanja</b> (<i>angl. binding</i>) gradnika s krmilnikom dogodkov običajno vključuje povezovanje treh različnih stvari:
+  <li>Podprograme oziroma rutine, ki dejansko opravljajo naloge GUI, imenujemo <b>povratni rokovalniki</b> (<i>angl. callback handlers</i>) ali <b>dogodkovni rokovalniki</b> (<i>angl. event handlers</i>). »Dogodki« so vhodni dogodki, kot na primer klik miške, pritisk tipke na tipkovnici itd. Podprograme oziroma rutine pa imenujemo »rokovalniki«, saj »rokujejo« s takšnimi dogodki (oziroma se nanje odzivajo).</li>
+  <li>Postopek <b>povezovanja</b> (<i>angl. binding</i>) gradnika s rokovalnikom dogodkov običajno vključuje povezovanje treh različnih stvari:
     <ol align="justify" type="a">
 	  <li>vrste dogodka (na primer klik na lebi gumb miške ali pritisk na tipko ENTER na tipkovnici),</li>
 	  <li>gradnika (na primer gumb ali padajoči seznam) in</li>
 	  <li>podprograma za krmiljenje dogodka.</li>
 	</ol>
-	Lahko bi <a href="#" data-toggle="modal" data-target="#closeProgram">na primer</a> povezali (a) enojni klik na levi gumb miške z (b) gumbom ali gradnikom "Zapri" na zaslonu in (c) podprogramom "zapriProgram", ki bi zaprl okno in ustavil izvajanje programa.
+	Lahko bi <a href="#" data-toggle="modal" data-target="#closeProgram">na primer</a> povezali (a) enojni klik na levi gumb miške z (b) gumbom ali gradnikom »Zapri« na zaslonu in (c) podprogramom »zapriProgram«, ki bi zaprl okno in ustavil izvajanje programa.
   </li>
-  <li>Kodo, ki "sedi in čaka" imenujemo <b>dogodkovna zanka</b> (<i>angl. event loop</i>).</li>
+  <li>Kodo, ki »sedi in čaka« imenujemo <b>dogodkovna zanka</b> (<i>angl. event loop</i>).</li>
 </ol>
 </p>
 
@@ -248,7 +248,7 @@
   <form>
   <table border="0" width="100%">
     <tr>
-	  <td style="padding:5px" colspan="2">V obrazec vnesi svoje ime in geslo, nato klikni gumb "V redu".</td>
+	  <td style="padding:5px" colspan="2">V obrazec vnesi svoje ime in geslo, nato klikni gumb »V redu«.</td>
 	</tr>
     <tr>
 	  <td style="padding:5px"><label for="name">Ime:</label></td>

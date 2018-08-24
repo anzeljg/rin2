@@ -18,13 +18,13 @@ platno = tk.Canvas(okno, width=SIRINA, height=VISINA)
 platno.configure(bg="black")
 platno.grid(row=0, column=1, pady=20)
 
-# Poveži funkcije z dogodkovnimi krmilniki
+# Poveži funkcije z dogodkovnimi rokovalniki
 opis = tk.Label(okvir, text="Vnesi število kvadratov")
 opis.configure(width=20)
 opis.grid(row=0, column=0, padx=45)
 vnos = tk.Entry(okvir, width=10)
 vnos.grid(row=1, column=0, padx=45)
-vnos.bind('<Return>', (lambda _: krmilnik(vnos)))
+vnos.bind('<Return>', (lambda _: rokovalnik(vnos)))
 
 
 # Definicija razreda 'Kvadrat'
@@ -56,8 +56,8 @@ for i in range(100):
   kvadrati.append(Kvadrat(random.choice(barve), \
                           random.randrange(20, 80)))
 
-# Določi krmilnik vnosa
-def krmilnik(vnos):
+# Določi rokovalnik vnosa
+def rokovalnik(vnos):
   global kvadrati
 
   # Izbriši vsebino platna

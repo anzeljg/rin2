@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>*Predstavitev realnih števil s plavajočo vejico</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- IEEE 754 Calculator -->
+	<link href="css/calc-ieee-754.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li class="active"><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: Example -->
+		<div id="example" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Primer pretvorbe</h4>
+					</div>
+					<div class="modal-body">
+<p align="justify">Zapišimo število $183,625$ v 32-bitni predstavitvi s plavajočo vejico.</p>
+
+<br />
+<p align="justify">Predznak števila je pozitiven, zato ima bit $p$ na mestu predznaka vrednost $0$ ($p = 0$).</p>
+
+<p align="justify">Pri pretvorbi števila pretvorimo posebej celi del $183$ in posebej decimalni del $0,625$.</p>
+
+<p align="justify">Tako je $183_{10} = (11 \times 16) + 7$, torej $B7_{16}$, oziroma $1011\,0111_{2}$.</p>
+
+<p align="justify">V dvojiško obliko pretvorimo še decimalni del $0,625_{10}$:
+<pre>
+0,625 × 2 = 1,25 &rarr; 1  &darr;
+0,25  × 2 = 0,5  &rarr; 0
+0,5   × 2 = 1,0  &rarr; 1
+</pre>
+Dobimo, da $0,625_{10} = 0,101_{2}$.
+</p>
+
+<p align="justify">Celotno število, pretvorjeno v dvojiško obliko s stalno vejico je torej $1100\,0101,101_{2}$. </p>
+
+<p align="justify">V zapisu s plavajočo vejico moramo obvezno uporabiti normalizirano obliko $1,m \times 2^{n}$.</p>
+
+<p align="justify">Preštejemo, za koliko mest moramo premakniti dvojiško število v desno (oziroma dvojiško vejico v levo), da bomo dobili
+željeno obliko. Premikov je $7$, zato bo eksponent tudi $n = 7$. Upoštevati moramo še obliko zapisa eksponenta z odmikom, moramo prišteti še 127:
+$$E = 7 + 127 = 134_{10} = 1000\,0110_{2}$$</p>
+
+<p align="justify">Ker prve enice v mantisi ne pišemo, je končni zapis po standardu ANSI/IEEE 754 enak:
+$$183,625_{10} = \underbrace{0}_{\text{predznak}} \quad \underbrace{1000\,0110}_{\text{eksponent}} \quad \underbrace{100\,0101\,1010\,0000\,0000\,0000}_{\text{normaliziran zapis mantise brez prve enice}}$$
+oziroma:
+<pre>
+0100 0011 0100 0101 1010 0000 0000 0000
+</pre>
+</p>
+ 					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Catalogue -->
+		<div id="catalogue" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+					</div>
+					<div class="modal-body">
+						CIP - Kataložni zapis o publikaciji<br>
+						Narodna in univerzitetna knjižnica, Ljubljana<br>
+						<br>
+						659.2:004(075.3)(0.034.2)<br>
+						004(075.3)(0.034.2)<br>
+						<br>
+						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
+						<br>
+						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
+						<br>
+						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
+						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
+						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
+						<br>
+						1. Anželj, Gregor<br>
+						282126848<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>*Predstavitev realnih števil s plavajočo vejico &ndash; nadaljevanje</h1>
+
+<table border="0" width="100%">
+<tr>
+<th width="34%" style="padding-right:10px">denormalizirana oblika</th>
+<th width="33%" style="padding:0px 10px">normalizirana oblika</th>
+<th width="33%" style="padding-left:10px">normalizirana oblika<br /><span style="font-weight:normal;font-size:smaller">(računalniški zapis)</span></th>
+</tr>
+<tr>
+<td style="padding-right:10px">
+<pre style="text-align:right">
+3,14159
+  0,007
+ 1749,0
+  -36,9
+</pre>
+</td>
+<td style="padding:0px 10px">
+<pre>
+ 3,14159 × 10<sup>0</sup>
+ 7,00000 × 10<sup>-3</sup>
+ 1,74900 × 10<sup>3</sup>
+-3,69000 × 10<sup>1</sup>
+</pre>
+</td>
+<td style="padding-left:10px">
+<pre>
+3,14159e0
+7e-3
+1,749e3
+-3,69e1
+</pre>
+</td>
+</tr>
+</table>
+ 
+<p align="justify">Na enak način predstavimo tudi dvojiška števila v obliki:
+$$(+/-) 1,mmm...m \times 2^{(+/-)nnn...n}$$
+V tem zapisu so $m$ in $n$ dvojiške števke.</p>
+
+<p align="justify">Uporablja se več vrst različnih zapisov v plavajoči vejici, od leta 1985 pa prevladuje zapis določen s <b>standardom ANSI/IEEE 754</b>.</p>
+
+<center>
+<table width="320" style="border-collapse: collapse;">
+<tr>
+  <td align="center" width="20" style="border:1px solid #333">$p$</td>
+  <td align="center" width="100" style="border:1px solid #333">$E = n - 127$</td>
+  <td align="center" width="200" style="border:1px solid #333">$m$</td>
+</tr>
+</table>
+</center>
+<br />
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Najbolj uporabljani predstavitvi tega standarda sta predstavitev z enojno natančnostjo (<i>ang. single precision</i>) in predstavitev z dvojno natančnostjo (<i>ang. double precision</i>).</p>
+
+<p align="justify">Predstavitev z enojno natančnostjo (32 bitov) vsebuje 1 bit za predznak $p$, 8 bitov za eksponent $E$ in 23 bitov za mantiso $m$. Predstavitev z dvojno natančnostjo (64 bitov) pa vsebuje 1 bit za predznak $p$, 11 bitov za eksponent $E$ in 52 bitov za mantiso $m$.</p>
+
+<p align="justify">Eksponent $n$ je zapisan z odmikom 127</b>. To pomeni, da računalnik obravnava vrednost $n$ kot eksponent, ko od njega odšteje vrednost 127 ($E = n - 127$). Tako eksponent 0 zapišemo kot 127, oz. dvojiško kot <tt>01111111</tt>. Tak način omogoča zapis eksponentov od -127 do +128.</p>
+
+<p align="justify">Mantiso $m$ vedno najprej normaliziramo, da dobimo zaporedje bitov $1,mmm...m$ &ndash; zato prvi bit (ki je vedno enak 1) ni zajet v delu mantise $m$, ki je zapisana. Ko realno število zapisujemo v znanstveni notaciji, pa ta prvi bit (in dvojiško vejico) samodejno pripišemo na začetek mantise.</p>
+
+<p align="right"><button class="btn btn-primary" data-toggle="modal" data-target="#example">Primer pretvorbe</button></p>
+<!-- Right column end -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+<!-- Calculator row start -->
+<div class="alert alert-info" role="alert">
+
+<p align="justify">Vnesi realno število v polje spodaj, za prikaz in pretvorbo med realnim številom in njegovo predstavitvijo s plavajočo vejico po standardu IEEE 754.</p>
+
+<br />
+<div class="form-inline">
+	<div class="input-group">
+		<div class="input-group-addon">Vnesi število</div>
+		<input type="text" id="input-float" class="form-control" autofocus="autofocus" />
+	</div>
+
+	<select class="form-control" id="special-input-value">
+		<option value="number">Število</option>
+		<option value="positive-0">Pozitivna ničla</option>
+		<option value="negative-0">Negativna ničla</option>
+		<option value="positive-inf">Pozitivna neskončnost</option>
+		<option value="negative-inf">Negativna neskončnost</option>
+		<option value="nan" selected>Ni število (NaN)</option>
+	</select>
+
+    <div id="string-output"></div>
+</div>
+
+<br />
+<p>Predstavitev z enojno natančnostjo (<i>ang. single precision</i>) &ndash; 32 bitov</p>
+<table id="float-output-table" class="float-output-table">
+	<tr id="float-marker-row" class="float-marker-row"><td></td><td></td><td></td><td></td></tr>
+	<tr id="float-output-row" class="float-output-row"><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<p>redstavitev z dvojno natančnostjo (<i>ang. double precision</i>) &ndash; 64 bitov</p>
+<table id="double-output-table" class="double-output-table">
+	<tr id="double-marker-row" class="double-marker-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	<tr id="double-output-row" class="double-output-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+</div>
+<!-- Calculator row end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2201/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2202/index9.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2202/index.html">1</a></li>
+					<li><a href="../2202/index1.html">2</a></li>
+					<li><a href="../2202/index2.html">3</a></li>
+					<li><a href="../2202/index3.html">4</a></li>
+					<li><a href="../2202/index4.html">5</a></li>
+					<li><a href="../2202/index5.html">6</a></li>
+					<li><a href="../2202/index6.html">7</a></li>
+					<li><a href="../2202/index7.html">8</a></li>
+					<li><a href="../2202/index8.html">9</a></li>
+					<li><a href="../2202/index9.html">10</a></li>
+					<li class="active"><a href="#">11</a></li>
+					<li><a href="../2202/index11.html">12</a></li>
+					<li><a href="../2202/index12.html">13</a></li>
+					<li><a href="../2202/index13.html">14</a></li>
+					<li><a href="../2202/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2203/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- jQuery QuickFlip -->
+	<script src="../js/jquery.quickflip.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- IEEE 754 Calculator -->
+	<script src="js/calc-ieee-754.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

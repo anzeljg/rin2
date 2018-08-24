@@ -1,0 +1,117 @@
+/*   --- BITS ---  */
+
+#b0,#b1, #b2, #b3,
+#b8, #b9, #b10, #b11,
+#b16, #b17, #b18, #b19,
+#b24, #b25, #b26, #b27,
+#b32, #b33, #b34, #b35,
+#b40, #b41, #b42, #b43,
+#b48, #b49, #b50, #b51,
+#b56, #b57, #b58, #b59 {
+    color: crimson !important;    
+}
+
+/* end BITS */
+
+.float-output-table,
+.double-output-table {
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    -webkit-font-feature-settings: 'tnum';
+    -moz-font-feature-settings: 'tnum';
+    -ms-font-feature-settings: 'tnum';
+}
+
+.float-output-table {
+    /* width = 32×20px + 2px */
+    min-width: 642px;
+    width: 642px;
+}
+
+.double-output-table {
+    /* width = 64×15px + 2px */
+    min-width: 962px;
+    width: 962px;
+}
+
+.float-output-row td span,
+.double-output-row td span {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 1px 0 2px 0;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.42857143;
+}
+
+.float-output-row td span {
+    width: 20px;
+}
+
+.double-output-row td span {
+    width: 15px;
+}
+
+.float-marker-row td,
+.double-marker-row td {
+    text-align: center;
+    font-size: 65%;
+}
+
+.float-marker-row td span,
+.double-marker-row td span {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 2px 0 1px 0;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 1.42857143;
+}
+
+.float-marker-row td span {
+    width: 20px;
+}
+
+.double-marker-row td span {
+    width: 15px;
+}
+
+.sign,
+.mantissa {
+    background-color: #F8F8F8;
+}
+
+.exponent {
+    background-color: #E7E7E7;
+}
+
+#string-output {
+    float: right;
+	width: 45%;
+	font-weight: 700;
+	font-size: 1.5em;
+    margin-bottom: 0;
+	padding-top: 2px;
+}
+
+/* Small devices (tablets, @screen-sm-min and up) */
+@media (max-width: 767px) {
+    .float-output-row td, .float-marker-row td,
+    .double-output-row td, .double-marker-row td {
+        float: left;
+        width: 25%;
+        display: block;
+    }
+}
+
+/* Large devices only (large desktops, @screen-lg-min) */
+@media (min-width: 992px) { 
+    .float-output-row td span,
+    .double-output-row td span {
+        font-size: 14px;
+    }
+}

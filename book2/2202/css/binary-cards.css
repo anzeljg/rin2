@@ -1,0 +1,7 @@
+.card10,.card1,.card2,.card3,.card4,.card5,.card6,.card7,.card8,.card9{width:80px;height:120px;color:#fff;margin:6px;float:left;}
+.front{text-align:center;color:#000;background-color:#000;border:1px outset #000;}
+.back{text-align:center;color:#000;background-color:#fff;border:1px outset #000;}
+.card10 a,.card1 a,.card2 a,.card3 a,.card4 a,.card5 a,.card6 a,.card7 a,.card8 a,.card9 a{color:#222}
+.term{font-size:1.4em;margin-top:10px;}
+.front p,.back p{margin:10px}
+.quickFlipCta{cursor: pointer;}

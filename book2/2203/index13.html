@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Urejanje besedila</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="css/office.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li class="active"><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Catalogue -->
+		<div id="catalogue" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+					</div>
+					<div class="modal-body">
+						CIP - Kataložni zapis o publikaciji<br>
+						Narodna in univerzitetna knjižnica, Ljubljana<br>
+						<br>
+						659.2:004(075.3)(0.034.2)<br>
+						004(075.3)(0.034.2)<br>
+						<br>
+						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
+						<br>
+						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
+						<br>
+						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
+						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
+						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
+						<br>
+						1. Anželj, Gregor<br>
+						282126848<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Urejanje besedila</h1>
+
+<p align="justify">Program za urejanje besedil je računalniški program, ki zagotavlja funkcije za obdelavo in urejanje besedil. Prvotno so bili računalniški programi za urejanje besedil in za namizno založništvo ločeni, zdaj pa se v mnogočem prekrivajo. Sodobni urejevalniki besedil vsebujejo funkcije, ki so jih včasih vsebovali izključno programi za namizno založništvo (<i>ang. Desktop publishing &ndash; DTP</i>).</p>
+
+<p align="justify">Večina urejevalnikov besedil vsebuje naslednje funkcije:</p>
+
+<div class="panel-group" id="accordion">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse01">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse01">Prelom vrstic</a>
+      </h4>
+    </div>
+    <div id="collapse01" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Samodejna razporeditev besedila v vrsticah določene dolžine brez pritiskanja na tipko <code>Enter</code> (ki naj bi jo pritisnili le ob koncu odstavka). Ko je dosežena določena dolžina vrstice, se besedilo nadaljuje v naslednji vstici.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse02">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse02">Pogojni vezaj</a>
+      </h4>
+    </div>
+    <div id="collapse02" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Možnost vstavljanja vezaja, ki razdeli besedo, če se beseda pojavi na koncu vrstice. Če se beseda kasneje, med urejanjem, premakne na sredino vrstice, se vezaj ne izpiše.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse03">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse03">Poravnava besedila</a>
+      </h4>
+    </div>
+    <div id="collapse03" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Samodejno prilagajanje besedila levem robu, desnem robu ali obema robovoma. Besedilo pa je lahko poravnano tudi sredinsko. Samodejno prilagajanje besedila se zgodi tudi, če spremenimo robove strani in tabulatorje.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse04">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse04">Zamikanje besedila</a>
+      </h4>
+    </div>
+    <div id="collapse04" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Nastavljanje začasnih robov v dokumentu, ki se razlikuje od uporabljenih, privzetih robov. Vsakemu odstavku lahko nastavimo zamik celotnega odstavka, zamik prve vrstice ali viseči zamik (zamik vseh vrstic razen prve).</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse05">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse05">Urejanje besedila</a>
+      </h4>
+    </div>
+    <div id="collapse05" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify"><b>Vstavljanje:</b> vnos novega besedila v obstoječe besedilo, brez brisanja obstoječega besedila.</p>
+		<p align="justify"><b>Prepisovanje:</b> zamenjava starega besedila z novim tako, da novo besedilo vnašamo preko starega besedila.</p>
+		<p align="justify"><b>Brisanje:</b> brisanje besedila z zaslona ali brisanje celotnih dokumentov z diska.</p>
+		<p align="justify"><b>Kopiranje ali izrezovanje:</b> podvajanje ali premikanje blokov besedila znotraj dokumenta.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse06">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse06">Iskanje in zamenjava besedila</a>
+      </h4>
+    </div>
+    <div id="collapse06" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Premikanje neposredno na določene besede, besedne zveze ali dele besed v dokumentu in njihova zamenjava z različnimi drugimi besedami, besednimi zvezami ali deli besed.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse07">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse07">Postavitev besedila</a>
+      </h4>
+    </div>
+    <div id="collapse07" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify"><b>Delitev besedila na strani:</b> samodejno deljenje dokumenta na strani, ki vsebujejo določeno število vrstic (oziroma določeno količino besedila).</p>
+		<p align="justify"><b>Številčenje strani:</b> samodejno zaporedno številčenje strani.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse08">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse08">Glava in noga dokumenta</a>
+      </h4>
+    </div>
+    <div id="collapse08" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Možnost ustvarjanja standardnih blokov besedila, ki se samodejno prikažejo na vrhu ali na dnu vsake strani v dokumentu.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse09">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse09">Opombe v besedilu</a>
+      </h4>
+    </div>
+    <div id="collapse09" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Samodejno zaporedno številčenje opomb in izpis opomb na dnu ustreznih strani dokumenta.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse10">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Kazalo vsebine in druga kazala</a>
+      </h4>
+    </div>
+    <div id="collapse10" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Kazalo vsebine in druga kazala lahko program na podlagi dokumenta ustvari samodejno, vendar morajo biti deli besedila ustrezno označeni (najpogosteje z uporabo ustreznih slogov).</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse11">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">Spajanje dokumentov</a>
+      </h4>
+    </div>
+    <div id="collapse11" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Samodejno združevanje obrazca oziroma predloge z virom podatkov. Tako lahko ustvarimo več kopij pisma (ali drugačnega besedila) pri katerih se spremenljivke v besedilu nadomestijo z ustreznimi podatki iz vira podatkov.</p>
+	  </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title collapse-chevron">
+        <a data-toggle="collapse" data-parent="#accordion" class="collapsed" href="#collapse12">
+           <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">Samodejno preverjanje črkovanja</a>
+      </h4>
+    </div>
+    <div id="collapse12" class="panel-collapse collapse">
+      <div class="panel-body">
+	    <p align="justify">Program, ki primerja besede v besedilu s spletnim slovarjem; označuje elemente, ki jih v slovarju ne najde; ponuja alternativne besede oziroma načine za popravljanje napak.</p>
+	  </div>
+    </div>
+  </div>
+
+  <!-- Manjka OBLIKOVANJE BESEDILA: fizično vs. oblikovanje s slogi -->
+</div>
+
+<p align="justify">
+  <a class="btn btn-default" href="https://www.dlib.si/details/URN:NBN:SI:DOC-KA3XN9TN/" target="_blank"><span class="fa fa-book"></span> Urejanje besedil z odprtokodnimi urejevalniki</a>
+  <a class="btn btn-default" href="https://www.dlib.si/details/URN:NBN:SI:DOC-4L8DDVK8/" target="_blank"><span class="fa fa-book"></span> Urejevalniki besedil</a>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Funkcije za urejanje besedil so bistveni del vsake pisarniške zbirke in lahko obstajajo kot samostojni program (na primer <a href="https://support.office.com/sl-si/word" target="_blank">Microsoft Word</a> v pisarniški zbirki Microsoft Office) ali kot funkcija splošnejšega programa (na primer <a href="https://wiki.documentfoundation.org/images/0/0d/WG54-WriterGuideLO.pdf" target="_blank">LibreOffice Writer</a> v pisarniški zbirki LibreOffice).</p>
+
+<p align="justify">Že nekaj let so na voljo tudi spletne različice urejevalnikov besedil, ki tečejo kot storitve v oblaku in ljudem omogočajo hitrejše in učinkovitejše delo. Najbolj znana spletna urejevalnika besedil sta <a href="https://gsuite.google.com/learning-center/products/docs/" target="_blank">Google Docs</a>, del spletne pisarniške zbirke G Suite in Microsoft Word App, del spletne pisarniške zbirke Microsoft Office 365.</p>
+
+<h4>OpenOffice ali LibreOffice?</h4>
+
+<div class="alert alert-success">
+  <div class="clearfix" style="padding-bottom:5px">
+    <img src="img/OpenOffice.png" border="0" class="pull-left" />
+    <img src="img/LibreOffice.png" border="0" class="pull-right" />
+  </div>
+<p align="justify">Licenci obeh zbirk pisarniških programov se razlikujeta v tem, da je mogoče izvorno kodo posodobitev zbirke OpenOffice dodati v LibreOffice, v obratni smeri pa to ne gre. To je razlog, da mnogo ljudi raje izbere in uporablja LibreOffice.</p>
+<p align="justify">Čez čas bodo razlike med obema zbirkama verjetno še večje, ravno zaradi prej omenjenih licenc, v katerih se obe zbirki razlikujeta. LibreOffice se bo razvijal hitreje, saj bo lahko uporabljal tudi vse novosti zbirke OpenOffice.</p>
+</div>
+
+<div class="alert alert-word">
+  <p align="justify"><a href="https://support.office.com/sl-si/word" target="_blank">Pomoč</a> za urejevalnik besedil Microsoft Word</p><br />
+  <a class="btn btn-word" href="https://support.office.com/sl-si/article/dobrodo%C5%A1li-v-programu-word-2016-aafc163a-3a06-45a9-b451-cb7250dcbaa1?ui=sl-SI&rs=sl-SI&ad=SI" target="_blank"><span class="fa fa-check"></span><br />Uvod</a>
+  <a class="btn btn-word" href="https://support.office.com/sl-si/article/format-text-6f439b67-cf21-4dd5-9397-76256905fbc6?redirectSourcePath=%252fsl-si%252farticle%252f6bb766ce-2765-4015-b80e-8d3eca55dab7&ui=sl-SI&rs=sl-SI&ad=SI" target="_blank"><span class="fa fa-font"></span><br />Besedilo</a>
+  <a class="btn btn-word" href="https://support.office.com/sl-si/article/strani-in-postavitev-strani-e6a9a592-e87a-46fe-9f78-e4f542b6e545?ui=sl-SI&rs=sl-SI&ad=SI" target="_blank"><span class="fa fa-file-text-o"></span><br />Postavitev</a>
+  <a class="btn btn-word" href="https://support.office.com/sl-si/article/vodni-%C5%BEigi-in-slike-53c0abb1-164a-4e80-a6bb-a77001e0280c?ui=sl-SI&rs=sl-SI&ad=SI" target="_blank"><span class="fa fa-picture-o"></span><br />Slike</a>
+  <a class="btn btn-word" href="https://support.office.com/sl-si/article/predloge-oznake-in-obrazci-6a5d59d0-b496-4195-bdd6-60ea4c1a3a28?ui=sl-SI&rs=sl-SI&ad=SI" target="_blank"><span class="fa fa-list"></span><br />Predloge</a>
+  <a class="btn btn-word" href="https://support.office.com/sl-si/article/spajanje-dokumentov-c14950eb-fd73-4386-9bba-6482295fb1e6?ui=sl-SI&rs=sl-SI&ad=SI" target="_blank"><span class="fa fa-envelope-o"></span><br />Spajanje</a>
+</div>
+
+<div class="alert alert-writer">
+  <p align="justify"><a href="https://wiki.documentfoundation.org/images/0/0d/WG54-WriterGuideLO.pdf" target="_blank">Pomoč</a> za urejevalnik besedil LibreOffice Writer</p><br />
+  <a class="btn btn-writer" href="https://wiki.documentfoundation.org/images/f/f4/WG5401-IntroducingWriter.pdf" target="_blank"><span class="fa fa-check"></span><br />Uvod</a>
+  <a class="btn btn-writer" href="https://wiki.documentfoundation.org/images/4/48/WG5404-FormattingText.pdf" target="_blank"><span class="fa fa-font"></span><br />Besedilo</a>
+  <a class="btn btn-writer" href="https://wiki.documentfoundation.org/images/2/2c/WG5405-FormattingPages_1.pdf" target="_blank"><span class="fa fa-file-text-o"></span><br />Postavitev</a>
+  <a class="btn btn-writer" href="https://wiki.documentfoundation.org/images/1/1e/WG5411-Images.pdf" target="_blank"><span class="fa fa-picture-o"></span><br />Slike</a>
+  <a class="btn btn-writer" href="https://wiki.documentfoundation.org/images/9/9f/WG5410-WorkingWithTemplates.pdf" target="_blank"><span class="fa fa-list"></span><br />Predloge</a>
+  <a class="btn btn-writer" href="https://wiki.documentfoundation.org/images/6/68/WG5414-MailMerge.pdf" target="_blank"><span class="fa fa-envelope-o"></span><br />Spajanje</a>
+</div>
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2202/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2203/index12.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2203/index.html">1</a></li>
+					<li><a href="../2203/index1.html">2</a></li>
+					<li><a href="../2203/index2.html">3</a></li>
+					<li><a href="../2203/index3.html">4</a></li>
+					<li><a href="../2203/index4.html">5</a></li>
+					<li><a href="../2203/index5.html">6</a></li>
+					<li><a href="../2203/index6.html">7</a></li>
+					<li><a href="../2203/index7.html">8</a></li>
+					<li><a href="../2203/index8.html">9</a></li>
+					<li><a href="../2203/index9.html">10</a></li>
+					<li><a href="../2203/index10.html">11</a></li>
+					<li><a href="../2203/index11.html">12</a></li>
+					<li><a href="../2203/index12.html">13</a></li>
+					<li class="active"><a href="#">14</a></li>
+					<li><a href="../2203/index14.html">15</a></li>
+					<li><a href="../2203/index15.html">16</a></li>
+					<li><a href="../2203/index14.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2204/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

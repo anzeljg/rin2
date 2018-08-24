@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Standard ASCII</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+    <style>
+	.description {
+	  font-size: 0.8em;
+	}
+	.codevalue {
+	  font-size: 1.5em;
+	  font-family: monospace;
+	  line-height: 0.8em;
+	}
+	</style>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li class="active"><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Catalogue -->
+		<div id="catalogue" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+					</div>
+					<div class="modal-body">
+						CIP - Kataložni zapis o publikaciji<br>
+						Narodna in univerzitetna knjižnica, Ljubljana<br>
+						<br>
+						659.2:004(075.3)(0.034.2)<br>
+						004(075.3)(0.034.2)<br>
+						<br>
+						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
+						<br>
+						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
+						<br>
+						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
+						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
+						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
+						<br>
+						1. Anželj, Gregor<br>
+						282126848<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Standard ASCII</h1>
+
+<p align="justify">V enem izmed prejšnjih poglavij smo si ogledali, kako lahko v brajici s šestimi pikami predstavimo 64 edinstvenih vzorcev. Posamezna pika ustreza enemu bitu, saj lahko imajo tako pike, kot biti natanko dve različni vrednosti.</p>
+
+<p align="justify">Preštej, koliko različnih znakov &ndash; velikih črk, malih črk, številk in simbolov &ndash; lahko s tipkovnico natipkaš v urejevalnik besedil. (Ločil, ki jih najdeš nad številkami in simbolov ob strani tipkovnice, ne pozabi prišteti k simbolom!)</p>
+
+<p align="justify">Ugotoviš lahko, da je znakov več kot 64, pravzaprav jih lahko najdeš do 95. Ker lahko s 6 biti predstavimo samo 64 znakov, potrebujemo za predstavitev več kot 6 bitov. Izkaže se, da za predstavitev vseh teh znakov potrebujemo vsaj 7 bitov, s katerimi lahko predstavimo 128 različnih znakov &ndash; 95 natisljivih znakov in 33 »kontrolnih« znakov. Točno tako je besedilo predstavljeno s standardom ASCII (<i>ang. American Standard Code for Information Interchange</i>).</p>
+
+<p align="justify">Za shranjevanje vsakega znaka po standardu ASCII potrebujemo 8 namesto 7 bitov, pri čemer je najbolj levi not neporabljen in ima vrednost 0. Kjer se le da, pri delu z računalniki uporabljamo cele bajte oziroma zloge (8 bitov), zato shranjujemo znake po standardu ASCII z 8 biti.</p>
+
+<p align="justify">Tabela prikazuje vzorce bitov, ki jih ASCII uporablja za predstavitev znakov.</p>
+
+<p align="justify">Na primer, mali črki b je v tabeli prirejen vzorec bitov <tt>01100010</tt> (0 na začetku je predpona, da dobimo vzorec, dolg 8 bitov). Mali črki »e« je prirejen vzorec <tt>01100101</tt>. Če bi dano besedo zapisali s to kodo, bi jo lahko nekdo drug natančno odkodiral.</p>
+
+<p align="justify">Računalniki lahko predstavijo dele besedila z zaporedjem vzorcev, podobno, kot to počnemo pri brajici.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Na primer, besedo »beseda« (same male črke) lahko zakodiramo, kot zaporedje</p>
+
+<pre>01100010 01100101 01110011 01100101 01100100 01100001</pre>
+
+<p align="justify">To je zato, ker je »b« enak <tt>01100010</tt>, »e« enak <tt>01100101</tt> itd. V ASCII tabeli klikni posamezen znak in preveri, da se nismo zmotili!</p>
+
+<table width="450" border="0">
+<tr>
+  <td width="320">
+    <img src="img/ascii.png" class="pointer" usemap="#m" width="316" height="392" alt="ASCII Table" title="ASCII Table" />
+  </td>
+  <td width="100" style="vertical-align:middle">
+    <p class="description">Desetiško</p>
+    <p class="codevalue" id="decValue">0</p>
+    <br>
+    <p class="description">Šestnajstiško</p>
+    <p class="codevalue" id="hexValue">0</p>
+    <br>
+    <p class="description">Osmiško</p>
+    <p class="codevalue" id="octValue">0</p>
+    <br>
+    <p class="description">Dvojiško</p>
+    <tt><p class="codevalue" id="binValue">00000000</p></tt>
+  </td>
+</tr>
+</table>
+
+<map name="m">
+  <area nohref="nohref" onclick="display(0);" alt="klikni..." coords="36,24,70,46" />
+  <area nohref="nohref" onclick="display(1);" alt="klikni..." coords="36,47,70,69" />
+  <area nohref="nohref" onclick="display(2);" alt="klikni..." coords="36,70,70,92" />
+  <area nohref="nohref" onclick="display(3);" alt="klikni..." coords="36,93,70,115" />
+  <area nohref="nohref" onclick="display(4);" alt="klikni..." coords="36,116,70,138" />
+  <area nohref="nohref" onclick="display(5);" alt="klikni..." coords="36,139,70,161" />
+  <area nohref="nohref" onclick="display(6);" alt="klikni..." coords="36,162,70,184" />
+  <area nohref="nohref" onclick="display(7);" alt="klikni..." coords="36,185,70,207" />
+  <area nohref="nohref" onclick="display(8);" alt="klikni..." coords="36,208,70,230" />
+  <area nohref="nohref" onclick="display(9);" alt="klikni..." coords="36,231,70,253" />
+  <area nohref="nohref" onclick="display(10);" alt="klikni..." coords="36,254,70,276" />
+  <area nohref="nohref" onclick="display(11);" alt="klikni..." coords="36,277,70,299" />
+  <area nohref="nohref" onclick="display(12);" alt="klikni..." coords="36,300,70,322" />
+  <area nohref="nohref" onclick="display(13);" alt="klikni..." coords="36,323,70,345" />
+  <area nohref="nohref" onclick="display(14);" alt="klikni..." coords="36,346,70,368" />
+  <area nohref="nohref" onclick="display(15);" alt="klikni..." coords="36,369,70,391" />
+  <area nohref="nohref" onclick="display(16);" alt="klikni..." coords="71,24,105,46" />
+  <area nohref="nohref" onclick="display(17);" alt="klikni..." coords="71,47,105,69" />
+  <area nohref="nohref" onclick="display(18);" alt="klikni..." coords="71,70,105,92" />
+  <area nohref="nohref" onclick="display(19);" alt="klikni..." coords="71,93,105,115" />
+  <area nohref="nohref" onclick="display(20);" alt="klikni..." coords="71,116,105,138" />
+  <area nohref="nohref" onclick="display(21);" alt="klikni..." coords="71,139,105,161" />
+  <area nohref="nohref" onclick="display(22);" alt="klikni..." coords="71,162,105,184" />
+  <area nohref="nohref" onclick="display(23);" alt="klikni..." coords="71,185,105,207" />
+  <area nohref="nohref" onclick="display(24);" alt="klikni..." coords="71,208,105,230" />
+  <area nohref="nohref" onclick="display(25);" alt="klikni..." coords="71,231,105,253" />
+  <area nohref="nohref" onclick="display(26);" alt="klikni..." coords="71,254,105,276" />
+  <area nohref="nohref" onclick="display(27);" alt="klikni..." coords="71,277,105,299" />
+  <area nohref="nohref" onclick="display(28);" alt="klikni..." coords="71,300,105,322" />
+  <area nohref="nohref" onclick="display(29);" alt="klikni..." coords="71,323,105,345" />
+  <area nohref="nohref" onclick="display(30);" alt="klikni..." coords="71,346,105,368" />
+  <area nohref="nohref" onclick="display(31);" alt="klikni..." coords="71,369,105,391" />
+  <area nohref="nohref" onclick="display(32);" alt="klikni..." coords="106,24,140,46" />
+  <area nohref="nohref" onclick="display(33);" alt="klikni..." coords="106,47,140,69" />
+  <area nohref="nohref" onclick="display(34);" alt="klikni..." coords="106,70,140,92" />
+  <area nohref="nohref" onclick="display(35);" alt="klikni..." coords="106,93,140,115" />
+  <area nohref="nohref" onclick="display(36);" alt="klikni..." coords="106,116,140,138" />
+  <area nohref="nohref" onclick="display(37);" alt="klikni..." coords="106,139,140,161" />
+  <area nohref="nohref" onclick="display(38);" alt="klikni..." coords="106,162,140,184" />
+  <area nohref="nohref" onclick="display(39);" alt="klikni..." coords="106,185,140,207" />
+  <area nohref="nohref" onclick="display(40);" alt="klikni..." coords="106,208,140,230" />
+  <area nohref="nohref" onclick="display(41);" alt="klikni..." coords="106,231,140,253" />
+  <area nohref="nohref" onclick="display(42);" alt="klikni..." coords="106,254,140,276" />
+  <area nohref="nohref" onclick="display(43);" alt="klikni..." coords="106,277,140,299" />
+  <area nohref="nohref" onclick="display(44);" alt="klikni..." coords="106,300,140,322" />
+  <area nohref="nohref" onclick="display(45);" alt="klikni..." coords="106,323,140,345" />
+  <area nohref="nohref" onclick="display(46);" alt="klikni..." coords="106,346,140,368" />
+  <area nohref="nohref" onclick="display(47);" alt="klikni..." coords="106,369,140,391" />
+  <area nohref="nohref" onclick="display(48);" alt="klikni..." coords="141,24,175,46" />
+  <area nohref="nohref" onclick="display(49);" alt="klikni..." coords="141,47,175,69" />
+  <area nohref="nohref" onclick="display(50);" alt="klikni..." coords="141,70,175,92" />
+  <area nohref="nohref" onclick="display(51);" alt="klikni..." coords="141,93,175,115" />
+  <area nohref="nohref" onclick="display(52);" alt="klikni..." coords="141,116,175,138" />
+  <area nohref="nohref" onclick="display(53);" alt="klikni..." coords="141,139,175,161" />
+  <area nohref="nohref" onclick="display(54);" alt="klikni..." coords="141,162,175,184" />
+  <area nohref="nohref" onclick="display(55);" alt="klikni..." coords="141,185,175,207" />
+  <area nohref="nohref" onclick="display(56);" alt="klikni..." coords="141,208,175,230" />
+  <area nohref="nohref" onclick="display(57);" alt="klikni..." coords="141,231,175,253" />
+  <area nohref="nohref" onclick="display(58);" alt="klikni..." coords="141,254,175,276" />
+  <area nohref="nohref" onclick="display(59);" alt="klikni..." coords="141,277,175,299" />
+  <area nohref="nohref" onclick="display(60);" alt="klikni..." coords="141,300,175,322" />
+  <area nohref="nohref" onclick="display(61);" alt="klikni..." coords="141,323,175,345" />
+  <area nohref="nohref" onclick="display(62);" alt="klikni..." coords="141,346,175,368" />
+  <area nohref="nohref" onclick="display(63);" alt="klikni..." coords="141,369,175,391" />
+  <area nohref="nohref" onclick="display(64);" alt="klikni..." coords="176,24,210,46" />
+  <area nohref="nohref" onclick="display(65);" alt="klikni..." coords="176,47,210,69" />
+  <area nohref="nohref" onclick="display(66);" alt="klikni..." coords="176,70,210,92" />
+  <area nohref="nohref" onclick="display(67);" alt="klikni..." coords="176,93,210,115" />
+  <area nohref="nohref" onclick="display(68);" alt="klikni..." coords="176,116,210,138" />
+  <area nohref="nohref" onclick="display(69);" alt="klikni..." coords="176,139,210,161" />
+  <area nohref="nohref" onclick="display(70);" alt="klikni..." coords="176,162,210,184" />
+  <area nohref="nohref" onclick="display(71);" alt="klikni..." coords="176,185,210,207" />
+  <area nohref="nohref" onclick="display(72);" alt="klikni..." coords="176,208,210,230" />
+  <area nohref="nohref" onclick="display(73);" alt="klikni..." coords="176,231,210,253" />
+  <area nohref="nohref" onclick="display(74);" alt="klikni..." coords="176,254,210,276" />
+  <area nohref="nohref" onclick="display(75);" alt="klikni..." coords="176,277,210,299" />
+  <area nohref="nohref" onclick="display(76);" alt="klikni..." coords="176,300,210,322" />
+  <area nohref="nohref" onclick="display(77);" alt="klikni..." coords="176,323,210,345" />
+  <area nohref="nohref" onclick="display(78);" alt="klikni..." coords="176,346,210,368" />
+  <area nohref="nohref" onclick="display(79);" alt="klikni..." coords="176,369,210,391" />
+  <area nohref="nohref" onclick="display(80);" alt="klikni..." coords="211,24,245,46" />
+  <area nohref="nohref" onclick="display(81);" alt="klikni..." coords="211,47,245,69" />
+  <area nohref="nohref" onclick="display(82);" alt="klikni..." coords="211,70,245,92" />
+  <area nohref="nohref" onclick="display(83);" alt="klikni..." coords="211,93,245,115" />
+  <area nohref="nohref" onclick="display(84);" alt="klikni..." coords="211,116,245,138" />
+  <area nohref="nohref" onclick="display(85);" alt="klikni..." coords="211,139,245,161" />
+  <area nohref="nohref" onclick="display(86);" alt="klikni..." coords="211,162,245,184" />
+  <area nohref="nohref" onclick="display(87);" alt="klikni..." coords="211,185,245,207" />
+  <area nohref="nohref" onclick="display(88);" alt="klikni..." coords="211,208,245,230" />
+  <area nohref="nohref" onclick="display(89);" alt="klikni..." coords="211,231,245,253" />
+  <area nohref="nohref" onclick="display(90);" alt="klikni..." coords="211,254,245,276" />
+  <area nohref="nohref" onclick="display(91);" alt="klikni..." coords="211,277,245,299" />
+  <area nohref="nohref" onclick="display(92);" alt="klikni..." coords="211,300,245,322" />
+  <area nohref="nohref" onclick="display(93);" alt="klikni..." coords="211,323,245,345" />
+  <area nohref="nohref" onclick="display(94);" alt="klikni..." coords="211,346,245,368" />
+  <area nohref="nohref" onclick="display(95);" alt="klikni..." coords="211,369,245,391" />
+  <area nohref="nohref" onclick="display(96);" alt="klikni..." coords="246,24,280,46" />
+  <area nohref="nohref" onclick="display(97);" alt="klikni..." coords="246,47,280,69" />
+  <area nohref="nohref" onclick="display(98);" alt="klikni..." coords="246,70,280,92" />
+  <area nohref="nohref" onclick="display(99);" alt="klikni..." coords="246,93,280,115" />
+  <area nohref="nohref" onclick="display(100);" alt="klikni..." coords="246,116,280,138" />
+  <area nohref="nohref" onclick="display(101);" alt="klikni..." coords="246,139,280,161" />
+  <area nohref="nohref" onclick="display(102);" alt="klikni..." coords="246,162,280,184" />
+  <area nohref="nohref" onclick="display(103);" alt="klikni..." coords="246,185,280,207" />
+  <area nohref="nohref" onclick="display(104);" alt="klikni..." coords="246,208,280,230" />
+  <area nohref="nohref" onclick="display(105);" alt="klikni..." coords="246,231,280,253" />
+  <area nohref="nohref" onclick="display(106);" alt="klikni..." coords="246,254,280,276" />
+  <area nohref="nohref" onclick="display(107);" alt="klikni..." coords="246,277,280,299" />
+  <area nohref="nohref" onclick="display(108);" alt="klikni..." coords="246,300,280,322" />
+  <area nohref="nohref" onclick="display(109);" alt="klikni..." coords="246,323,280,345" />
+  <area nohref="nohref" onclick="display(110);" alt="klikni..." coords="246,346,280,368" />
+  <area nohref="nohref" onclick="display(111);" alt="klikni..." coords="246,369,280,391" />
+  <area nohref="nohref" onclick="display(112);" alt="klikni..." coords="281,24,315,46" />
+  <area nohref="nohref" onclick="display(113);" alt="klikni..." coords="281,47,315,69" />
+  <area nohref="nohref" onclick="display(114);" alt="klikni..." coords="281,70,315,92" />
+  <area nohref="nohref" onclick="display(115);" alt="klikni..." coords="281,93,315,115" />
+  <area nohref="nohref" onclick="display(116);" alt="klikni..." coords="281,116,315,138" />
+  <area nohref="nohref" onclick="display(117);" alt="klikni..." coords="281,139,315,161" />
+  <area nohref="nohref" onclick="display(118);" alt="klikni..." coords="281,162,315,184" />
+  <area nohref="nohref" onclick="display(119);" alt="klikni..." coords="281,185,315,207" />
+  <area nohref="nohref" onclick="display(120);" alt="klikni..." coords="281,208,315,230" />
+  <area nohref="nohref" onclick="display(121);" alt="klikni..." coords="281,231,315,253" />
+  <area nohref="nohref" onclick="display(122);" alt="klikni..." coords="281,254,315,276" />
+  <area nohref="nohref" onclick="display(123);" alt="klikni..." coords="281,277,315,299" />
+  <area nohref="nohref" onclick="display(124);" alt="klikni..." coords="281,300,315,322" />
+  <area nohref="nohref" onclick="display(125);" alt="klikni..." coords="281,323,315,345" />
+  <area nohref="nohref" onclick="display(126);" alt="klikni..." coords="281,346,315,368" />
+  <area nohref="nohref" onclick="display(127);" alt="klikni..." coords="281,369,315,391" />
+</map>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2202/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2203/index.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2203/index.html">1</a></li>
+					<li class="active"><a href="#">2</a></li>
+					<li><a href="../2203/index2.html">3</a></li>
+					<li><a href="../2203/index3.html">4</a></li>
+					<li><a href="../2203/index4.html">5</a></li>
+					<li><a href="../2203/index5.html">6</a></li>
+					<li><a href="../2203/index6.html">7</a></li>
+					<li><a href="../2203/index7.html">8</a></li>
+					<li><a href="../2203/index8.html">9</a></li>
+					<li><a href="../2203/index9.html">10</a></li>
+					<li><a href="../2203/index10.html">11</a></li>
+					<li><a href="../2203/index11.html">12</a></li>
+					<li><a href="../2203/index12.html">13</a></li>
+					<li><a href="../2203/index13.html">14</a></li>
+					<li><a href="../2203/index14.html">15</a></li>
+					<li><a href="../2203/index15.html">16</a></li>
+					<li><a href="../2203/index2.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2204/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- ASCII Interactive Table -->
+	<script src="js/codepage.js"></script>
+	<script>
+	  basicASCII();
+	</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

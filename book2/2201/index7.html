@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Pretvorbe med različnimi številskimi sistemi</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+    <!-- Hexadecimal Decimal Binary & Octal Converter -->
+	<link id="css" href="css/calc-50x-eu.css" rel="stylesheet">
+
+	<!-- Video playlist -->
+	<style>
+#playlist {
+    display:table;
+	margin: 10px;
+    -webkit-padding-start: 0px;
+}
+#playlist li{
+    cursor:pointer;
+    padding:8px;
+	list-style-type: none;
+}
+
+#playlist li:hover{
+    color:#999;
+}
+#videoarea {
+    float:left;
+    width:640px;
+    height:360px;
+    margin:10px;    
+    border:1px solid silver;
+}
+    </style>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li class="active"><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Catalogue -->
+		<div id="catalogue" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+					</div>
+					<div class="modal-body">
+						CIP - Kataložni zapis o publikaciji<br>
+						Narodna in univerzitetna knjižnica, Ljubljana<br>
+						<br>
+						659.2:004(075.3)(0.034.2)<br>
+						004(075.3)(0.034.2)<br>
+						<br>
+						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
+						<br>
+						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
+						<br>
+						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
+						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
+						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
+						<br>
+						1. Anželj, Gregor<br>
+						282126848<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Source -->
+		<div id="source" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Vir videoposnetkov</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><ul>
+							<li>Computer Science GSCE GURU. <i>Converting decimal to binary.</i> pridobljeno [1. 3. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=1TxAm9931TE" target="_blank">https://www.youtube.com/watch?v=1TxAm9931TE</a> [citat]</li>
+							<li>Computer Science GSCE GURU. <i>Converting decimal to hexadecimal.</i> pridobljeno [1. 3. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=0J6BceurLbg" target="_blank">https://www.youtube.com/watch?v=0J6BceurLbg</a> [citat]</li>
+							<li>Computer Science GSCE GURU. <i>Converting binary to decimal.</i> pridobljeno [1. 3. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=Aw6wd_WE-n8" target="_blank">https://www.youtube.com/watch?v=Aw6wd_WE-n8</a> [citat]</li>
+							<li>Computer Science GSCE GURU. <i>Converting binary to hexadecimal.</i> pridobljeno [1. 3. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=jVPT2Lwelko" target="_blank">https://www.youtube.com/watch?v=jVPT2Lwelko</a> [citat]</li>
+							<li>Computer Science GSCE GURU. <i>Converting hexadecimal to binary.</i> pridobljeno [1. 3. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=QJmSps4iewQ" target="_blank">https://www.youtube.com/watch?v=QJmSps4iewQ</a> [citat]</li>
+							<li>Computer Science GSCE GURU. <i>Converting hexadecimal to decimal.</i> pridobljeno [1. 3. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=CnvFy75ks_A" target="_blank">https://www.youtube.com/watch?v=CnvFy75ks_A</a> [citat]</li>
+						</ul></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+                        <h1>Pretvorbe med različnimi številskimi sistemi</h1>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Spodnji pretvornik ti omogoča, da pretvarjaš isto število med različnimi številskimi sistemi. Nastaviš lahko dolžino zapisa od 8 do 32 bitov. Pretvornik bo pri 8 bitih prikazoval še ustrezen ASCII (<i>ang. American Standard Code for Information Interchange</i>) znak.</p>
+
+<div class="form-inline" align="right">
+  <select class="form-control" id="size" name="size">
+    <option value="1">8 bitov</option>
+    <option value="2">16 bitov</option>
+    <option value="3" selected="selected">24 bitov</option>
+    <option value="4">32 bitov</option>
+  </select>
+  <input class="btn btn-primary" id="clear" type="button" value="Počisti" />
+</div>
+
+<!--
+<div>
+  <label title="Šestnajstiški pretvornik">Hex<br />
+  <input type="text" id="f16" name="hex"  maxlength="9" title="vnesi šestnajstiško število, števke od 0 do 9 in od A do F" />
+  </label>
+
+  <label title="Desetiški pretvornik">Dec<br />
+  <input type="text" id="f10" name="dec" maxlength="11" title="vnesi desetiško število, števke od 0 do 9" />
+  </label>
+
+  <label title="Osmiški pretvornik">Oct<br />
+  <input type="text" id="f8" name="oct" maxlength="12" title="vnesi osmiško število, števke od 0 do 7" />
+  </label>
+
+  <label title="Dvojiški pretvornik">Bin<br />
+  <input type="text" id="f2" name="bin" maxlength="33" title="vnesi dvojiško število, števki 0 ali 1" />
+  </label>
+
+  <label id="ascii" title="ASCII pretvornik">ASCII<br />
+  <input type="text" id="fa" name="ascii" maxlength="2" title="vnesi ASCII znak" />
+  </label>
+</div>
+//-->
+<div>
+  <label title="Šestnajstiški pretvornik">&nbsp;Hex<br />
+  <input type="text" id="f16" name="hex"  maxlength="9" title="vnesi šestnajstiško število, števke od 0 do 9 in od A do F" />
+  </label>
+
+  <label title="Desetiški pretvornik">&nbsp;Dec<br />
+  <input type="text" id="f10" name="dec" maxlength="11" title="vnesi desetiško število, števke od 0 do 9" />
+  </label>
+
+  <label title="Osmiški pretvornik">&nbsp;Oct<br />
+  <input type="text" id="f8" name="oct" maxlength="12" title="vnesi osmiško število, števke od 0 do 7" />
+  </label>
+
+  <label title="Dvojiški pretvornik">&nbsp;Bin<br />
+  <input type="text" id="f2" name="bin" maxlength="33" title="vnesi dvojiško število, števki 0 ali 1" />
+  </label>
+
+  <label id="ascii" title="ASCII pretvornik">&nbsp;ASCII<br />
+  <input type="text" id="fa" name="ascii" maxlength="2" title="vnesi ASCII znak" />
+  </label>
+</div>
+
+
+<div id="bitframe">
+  <h3>Neposredno nastavi ali počisti bite</h3>
+  <div id="bits">
+	<div id="bits_3">
+	<div class="bd"><span class="bdl">31</span><span class="bdr">24</span></div><b id="b31">0</b><b id="b30">0</b><b id="b29">0</b><b id="b28">0</b><b id="b27">0</b><b id="b26">0</b><b id="b25">0</b><b id="b24">0</b></div>
+	<div id="bits_2">
+	<div class="bd"><span class="bdl">23</span><span class="bdr">16</span></div><b id="b23">0</b><b id="b22">0</b><b id="b21">0</b><b id="b20">0</b><b id="b19">0</b><b id="b18">0</b><b id="b17">0</b><b id="b16">0</b></div>
+	<div id="bits_1">
+	<div class="bd"><span class="bdl">15</span><span class="bdr">8</span></div>
+	<b id="b15">0</b><b id="b14">0</b><b id="b13">0</b><b id="b12">0</b><b id="b11">0</b><b id="b10">0</b><b id="b9">0</b><b id="b8">0</b></div>
+	<div id="bits_0">
+	<div class="bd"><span class="bdl">7</span><span class="bdr">0</span></div>
+	<b id="b7">0</b><b id="b6">0</b><b id="b5">0</b><b id="b4">0</b><b id="b3">0</b><b id="b2">0</b><b id="b1">0</b><b id="b0">0</b></div>
+  </div>
+</div>
+
+</div>
+
+                        <br />
+            			<video id="videoarea" controls="controls" poster="" src=""></video>
+                        <ul id="playlist">
+                            <li movieurl="video/dec2bin.mp4" moviesposter="img/CSGG_intro.png">Iz desetiškega v dvojiški sistem</li>      
+                            <li movieurl="video/dec2hex.mp4">Iz desetiškega v šestnajstiški sistem</li>
+                            <li movieurl="video/bin2dec.mp4">Iz dvojiškega v desetiški sistem</li>
+                            <li movieurl="video/bin2hex.mp4">Iz dvojiškega v šestnajstiški sistem</li>          
+                            <li movieurl="video/hex2bin.mp4">Iz šestnajstiškega v dvojiški sistem</li>      
+                            <li movieurl="video/hex2dec.mp4">Iz šestnajstiškega v desetiški sistem</li>
+                        </ul>
+						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir videoposnetkov</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2101/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2201/index6.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2201/index.html">1</a></li>
+					<li><a href="../2201/index1.html">2</a></li>
+					<li><a href="../2201/index2.html">3</a></li>
+					<li><a href="../2201/index3.html">4</a></li>
+					<li><a href="../2201/index4.html">5</a></li>
+					<li><a href="../2201/index5.html">6</a></li>
+					<li><a href="../2201/index6.html">7</a></li>
+					<li class="active"><a href="#">8</a></li>
+					<li><a href="../2201/index8.html">9</a></li>
+					<li><a href="../2201/index9.html">10</a></li>
+					<li><a href="../2201/index8.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2202/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- jQuery QuickFlip -->
+	<script src="../js/jquery.quickflip.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+    <!-- Hexadecimal Decimal Binary & Octal Converter -->
+    <script type="text/javascript" src="js/calc-50x-eu.js"></script>
+
+	<!-- Video playlist -->
+	<script>
+	$(function() {
+        $("#playlist li").on("click", function() {
+            $("#videoarea").attr({
+                "src": $(this).attr("movieurl"),
+                "poster": "",
+                "autoplay": "autoplay"
+            })
+			for (i = 0; i <= 5; i++) {
+			    $("#playlist li").eq(i).css("font-weight", "normal");
+			}
+			$(this).css("font-weight", "bold");
+        })
+        $("#videoarea").attr({
+            "src": $("#playlist li").eq(0).attr("movieurl"),
+            "poster": $("#playlist li").eq(0).attr("moviesposter")
+        })
+    })
+	</script>
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

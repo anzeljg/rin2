@@ -1,0 +1,124 @@
+/*   --- BITS ---  */
+#bitframe h3 {
+    font-size: 12px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    text-align: center;
+}
+#bits, #bitframe {
+    display:table;
+    width:auto !important;
+    padding: 0;
+}
+#bits {
+    border: 1px solid #CCC;
+}
+#bits b {
+    display: block;
+    width: 20px;
+    margin: 3px 0 0 0;
+    padding: 0;
+    text-align: center;
+    float: left;
+    cursor: pointer; cursor: hand;
+}
+#bits_0, #bits_1, #bits_2, #bits_3 {
+    float: left;
+    margin: 0;
+    padding: 0;
+    display: table;
+    width: 160px;
+}
+#bits_0, #bits_2  {
+    background: #f8f8f8;
+}
+#bits_1, #bits_3  {
+    background: #e7e7e7;
+}
+
+.bd {
+    width: 160px;
+    display: table;
+    padding-top: 3px;
+}
+.bdl {
+    float: left;
+    font-size: 9px;
+    padding-left: 7px;
+}
+.bdr {
+    float: right;
+    font-size: 9px;
+    padding-right: 7px;
+}
+#bdetails {}
+#bimage {
+    float: left;
+}
+#bdesc {
+    margin-top: 7px;
+    float: left;
+    padding: 0;
+}
+
+
+#b0,#b1, #b2, #b3,
+#b8, #b9, #b10, #b11,
+#b16, #b17, #b18, #b19,
+#b24, #b25, #b26, #b27 {
+    color: crimson;    
+}
+
+/* end BITS */
+
+.bit {
+    border-top: 1px solid #C3C3C3;
+    border-bottom: 1px solid #C3C3C3;
+    background: #C3C3C3;
+    cursor: default;
+    margin: 0;
+}
+.bit span {
+    background: #E1E1E1;
+    margin: 0;
+}
+
+#f16, #f10, #f8, #f2, #fa {
+    font-family: Lucidatypewriter, monospace;
+    text-transform: uppercase;
+    /* Mimic Bootstrap's input elements */
+    display: block;
+	height: 34px;
+    padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+    -moz-border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+#f16 {
+    background: #F2DEDE;
+}
+#f10 {
+    background: #EEEEEE;
+}
+#f8 {
+    background: #D9EDF7;
+}
+#f2 {
+    background: #DFF0D8;
+}
+#fa {
+    width: 50px;
+    text-align: center;
+    text-transform: none;
+}
+#fa.off {
+    background: #eee;
+    color: #888;
+}

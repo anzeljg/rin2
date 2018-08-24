@@ -1,6 +1,6 @@
 # Based on HTML5 Deck of Cards #
 
-Pure vanilla JS (+ CSS3) – no dependencies, by [Juha Lindstedt](https://github.com/pakastin) & [contributors](https://github.com/pakastin/deck-of-cards/graphs/contributors).
+Pure vanilla JS (+ CSS3) â€“ no dependencies, by [Juha Lindstedt](https://github.com/pakastin) & [contributors](https://github.com/pakastin/deck-of-cards/graphs/contributors).
 
 https://deck-of-cards.js.org
 

@@ -1,0 +1,137 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-layouts.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>50.1. ttk layouts: Structuring a style</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="ttk-element-layer.html" title="50. The ttk element layer"><link rel="prev" href="ttk-element-layer.html" title="50. The ttk element layer"><link rel="next" href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes"></head><body><div class="topnavbar"><a href="ttk-map.html">Next</a> / <a href="ttk-element-layer.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ttk-layouts"></a>50.1. <span class="application">ttk</span> layouts: Structuring a style</h3></div></div></div><p>
+        In general, the pieces of a widget are assembled using the
+        idea of a <em class="firstterm">cavity</em>, an empty space that
+        is to be filled with elements.
+      </p><p>
+        For example, in the <code class="code">classic</code> theme, a button has
+        four concentric elements.  From the outside in, they are the
+        <em class="firstterm">focus highlight</em>, <em class="firstterm">border</em>, <em class="firstterm">padding</em>, and
+        <em class="firstterm">label</em> elements.
+      </p><p>
+        Each of these elements has a <code class="code">'sticky'</code> attribute
+        that specifies how many of the four sides of the cavity it
+        “sticks” to.  For example, if an element has a
+        <code class="code">sticky='ew'</code> attribute, that means it must
+        stretch in order to stick to the left (west) and right (east)
+        sides of its cavity, but it does not have to stretch
+        vertically.
+      </p><p>
+        Most of the built-in <span class="application">ttk</span> styles use the idea of a
+        <em class="firstterm">layout</em> to organize the different
+        layers that make up a widget.  Assuming that <code class="code"><em class="replaceable"><code>S</code></em></code> is an instance of
+        <code class="code">ttk.Style</code>, to retrieve that style's layout
+        use a method call of this form, where <code class="code"><em class="replaceable"><code>widgetClass</code></em></code> is the name of the
+        widget class.
+      </p><pre class="programlisting"><em class="replaceable"><code>S</code></em>.layout(<em class="replaceable"><code>widgetClass</code></em>)
+</pre><p>
+        Some widget classes don't have a layout; in those cases, this
+        method call will raise a <code class="code">tk.TclError</code> exception.
+      </p><p>
+        For the widget classes that have a layout, the returned
+        value is a list of tuples <code class="code">(<em class="replaceable"><code>eltName</code></em>, <em class="replaceable"><code>d</code></em>)</code>.  Within each tuple, <code class="code"><em class="replaceable"><code>eltName</code></em></code> is the name of an
+        element and <code class="code"><em class="replaceable"><code>d</code></em></code>
+        is a dictionary that describes the element.
+      </p><p>
+        This dictionary may have values for the following keys:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">'sticky'</code>
+          </span></dt><dd><p>
+              A string that defines how this element is to be
+              positioned within its parent.  This string may contain
+              zero or more of the characters <code class="code">'n'</code>, <code class="code">'s'</code>, <code class="code">'e'</code>, and <code class="code">'w'</code>, referring to the sides of the box with the same
+              conventions as for <a href="anchors.html" title="5.5. Anchors">anchors</a>.  For example, the value <code class="code">sticky='nsw'</code> would stretch this element to
+              adhere to the north, south, and west sides of the cavity
+              within its parent element.
+            </p></dd><dt><span class="term">
+            <code class="code">'side'</code>
+          </span></dt><dd><p>
+              For elements with multiple children, this value
+              defines how the element's children will be positioned
+              inside it.  Values may be <code class="code">'left'</code>,
+              <code class="code">'right'</code>, <code class="code">'top'</code>, or
+              <code class="code">'bottom</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">'children'</code>          
+          </span></dt><dd><p>
+              If there are elements inside this element, this entry
+              in the dictionary is the layout of the child elements
+              using the same format as the top-level layout, that
+              is, a list of two-element tuples <code class="code">(<em class="replaceable"><code>eltName</code></em>, <em class="replaceable"><code>d</code></em>)</code>.
+            </p></dd></dl></div><p>
+        Let's dissect the layout of the stock <code class="code">Button</code> widget of the <code class="code">'classic'</code> theme in this
+        conversational example.
+      </p><pre class="programlisting">&gt;&gt;&gt; import ttk
+&gt;&gt;&gt; s = ttk.Style()
+&gt;&gt;&gt; s.theme_use('classic')
+&gt;&gt;&gt; b = ttk.Button(None, text='Yo')
+&gt;&gt;&gt; bClass = b.winfo_class()
+&gt;&gt;&gt; bClass
+'TButton'
+&gt;&gt;&gt; layout = s.layout('TButton')
+&gt;&gt;&gt; layout
+[('Button.highlight', {'children': [('Button.border', {'border':
+'1', 'children': [('Button.padding', {'children': [('Button.label',
+{'sticky': 'nswe'})], 'sticky': 'nswe'})], 'sticky': 'nswe'})],
+'sticky': 'nswe'})]
+</pre><p>
+        All those parentheses, brackets, and braces make that
+        structure a bit hard to understand.  Here it is in
+        outline form:
+      </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+            The outermost element is the focus highlight; it has style
+            <code class="code">'Button.highlight'</code>.  Its <code class="code">'sticky'</code> attribute is <code class="code">'nswe'</code>,
+            meaning it should expand in all four directions to fill
+            its cavity.
+          </p></li><li><p>
+            The only child of the focus highlight is the border
+            element, with style <code class="code">'Button.border'</code>.  It
+            has a <code class="code">'border'</code> width of 1 pixel, and its
+            <code class="code">'sticky'</code> attribute also specifies that it
+            adheres to all four sides of its cavity, which is defined
+            by the inside of the highlight element.
+          </p></li><li><p>
+            Inside the border is a layer of padding, with style <code class="code">'Button.padding'</code>.  Its <code class="code">sticky</code>
+            attribute also specifies that it fills its cavity.
+          </p></li><li><p>
+            Inside the padding layer is the text (or image, or both)
+            that appears on the button.  Its style is <code class="code">'Button.label'</code>, with the usual <code class="code">sticky='nswe'</code> attribute.
+          </p></li></ul></div><p>
+        Each element has a dictionary of <em class="firstterm">element
+        options</em> that affect the appearance of that
+        element.  The names of these options are all regular <span class="application">Tkinter</span>
+        options such as <code class="code">'anchor'</code>, <code class="code">'justify'</code>, <code class="code">'background'</code>, or <code class="code">'highlightthickness'</code>.
+      </p><p>
+        To obtain the list of option names, use a method call of this
+        form, where <code class="code"><em class="replaceable"><code>S</code></em></code> is
+        an instance of class <code class="code">ttk.Style</code>:
+      </p><pre class="programlisting"><em class="replaceable"><code>S</code></em>.element_options(<em class="replaceable"><code>styleName</code></em>)
+</pre><p>
+        The result is a sequence of option strings, each preceded by a
+        hyphen.  Continuing our conversational above, where <code class="code">s</code> is an instance of <code class="code">ttk.Style</code>:
+      </p><pre class="programlisting">&gt;&gt;&gt; d = s.element_options('Button.highlight')
+&gt;&gt;&gt; d
+('-highlightcolor', '-highlightthickness')
+</pre><p>
+        To find out what attributes are associated with an element
+        option, use a method call of this form:
+      </p><pre class="programlisting"><em class="replaceable"><code>s</code></em>.lookup(<em class="replaceable"><code>layoutName</code></em>, <em class="replaceable"><code>optName</code></em>)
+</pre><p>
+      Continuing our example:
+    </p><pre class="programlisting">&gt;&gt;&gt; s.lookup('Button.highlight', 'highlightthickness')
+1
+&gt;&gt;&gt; s.lookup('Button.highlight', 'highlightcolor')
+'#d9d9d9'
+&gt;&gt;&gt; print s.element_options('Button.label')
+('-compound', '-space', '-text', '-font', '-foreground', '-underline',
+'-width', '-anchor', '-justify', '-wraplength', '-embossed', '-image',
+'-stipple', '-background')
+&gt;&gt;&gt; s.lookup('Button.label', 'foreground')
+'black'
+</pre></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-map.html">50.2. <span class="application">ttk</span> style maps: dynamic appearance
+      changes</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-element-layer.html">50. The <span class="application">ttk</span> element layer</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-layouts.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-layouts.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

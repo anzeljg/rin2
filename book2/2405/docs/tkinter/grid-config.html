@@ -1,0 +1,62 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid-config.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.3. Configuring column and row sizes</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="layout-mgt.html" title="4. Layout management"><link rel="prev" href="grid-methods.html" title="4.2. Other grid management methods"><link rel="next" href="root-resize.html" title="4.4. Making the root window resizeable"></head><body><div class="topnavbar"><a href="root-resize.html">Next</a> / <a href="grid-methods.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="grid-config"></a>4.3. Configuring column and row sizes</h3></div></div></div><p>
+        Unless you take certain measures, the width of a grid
+        column inside a given widget will be equal to the width
+        of its widest cell, and the height of a grid row will
+        be the height of its tallest cell.  The
+        <code class="code">sticky</code> attribute on a widget
+        controls only where it will be placed if it doesn't
+        completely fill the cell.
+      </p><p>
+        If you want to override this automatic sizing of columns
+        and rows, use these methods on the
+        <span class="emphasis"><em>parent</em></span> widget <code class="code"><em class="replaceable"><code>w</code></em></code> that contains
+        the grid layout:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.columnconfigure(<em class="replaceable"><code>N</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+          </span></dt><dd><p>
+              In the grid layout inside widget <code class="code"><em class="replaceable"><code>w</code></em></code>, configure
+              column <code class="code"><em class="replaceable"><code>N</code></em></code> so that the given <code class="code"><em class="replaceable"><code>option</code></em></code> has the given <code class="code">value</code>.  For options, see the table below.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.rowconfigure(<em class="replaceable"><code>N</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+          </span></dt><dd><p>
+              In the grid layout inside widget <code class="code"><em class="replaceable"><code>w</code></em></code>, configure
+              row <code class="code"><em class="replaceable"><code>N</code></em></code>
+              so that the given <code class="code"><em class="replaceable"><code>option</code></em></code> has the given <code class="code">value</code>.  For options, see the table below.
+            </p></dd></dl></div><p>
+        Here are the options used for configuring column and row
+        sizes.
+      </p><div class="table"><a name="grid-row-col-options"></a><p class="title"><b>Table 2. Column and row configuration options for the <code class="code">.grid()</code> geometry manager</b></p><div class="table-contents"><table summary="Column and row configuration options for the .grid() geometry manager" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">minsize</code>
+              </td><td align="left" valign="top">
+                The column or row's minimum size in pixels.  If
+                there is nothing in the given column or row, it
+                will not appear, even if you use this option.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">pad</code>
+              </td><td align="left" valign="top">
+                A number of pixels that will be added to the
+                given column or row, over and above the largest
+                cell in the column or row.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">weight</code>
+              </td><td align="left" valign="top">
+                To make a column or row stretchable, use this
+                option and supply a value that gives the relative
+                weight of this column or row when distributing
+                the extra space.  For example, if a widget <code class="code">w</code> contains a grid layout, these lines
+                will distribute three-fourths of the extra space
+                to the first column and one-fourth to the second
+                column:
+
+                <pre class="programlisting">    w.columnconfigure(0, weight=3)
+    w.columnconfigure(1, weight=1)
+</pre>
+
+                If this option is not used, the column or row
+                will not stretch.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="root-resize.html">4.4. Making the root window resizeable</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="grid-methods.html">4.2. Other grid management methods</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/grid-config.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid-config.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+</html>

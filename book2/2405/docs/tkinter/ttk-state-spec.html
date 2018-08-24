@@ -1,0 +1,29 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-state-spec.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>46.1. Specifying widget states in ttk</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="ttk-Widget.html" title="46. Methods common to all ttk widgets"><link rel="prev" href="ttk-Widget.html" title="46. Methods common to all ttk widgets"><link rel="next" href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles"></head><body><div class="topnavbar"><a href="ttk-themes.html">Next</a> / <a href="ttk-Widget.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ttk-state-spec"></a>46.1. Specifying widget states in <span class="application">ttk</span></h3></div></div></div><p>
+        Several methods within <span class="application">ttk</span> require a <code class="code"><em class="replaceable"><code>stateSpec</code></em></code> argument
+        that specifies a particular widget state or combination
+        of states.  This argument may be any of the following:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            A single state name such as <code class="code">'pressed'</code>.
+            A <code class="code">ttk.Button</code> widget is in this state,
+            for example, when the mouse cursor is over the button
+            and mouse button 1 is down.
+          </p></li><li><p>
+            A single state name preceded with an exclamation
+            point (<code class="code">!</code>); this matches the widget
+            state only when that state is <span class="emphasis"><em>off</em></span>.
+          </p><p>
+            For example, a <code class="code"><em class="replaceable"><code>stateSpec</code></em></code> argument <code class="code">'!pressed'</code> specifies a widget that is not
+            currently being pressed.
+          </p></li><li><p>
+            A sequence of state names, or state names preceded by
+            an <code class="code">'!'</code>.  Such a <code class="code"><em class="replaceable"><code>stateSpec</code></em></code> matches only when
+            all of its components match.  For example, a <code class="code"><em class="replaceable"><code>stateSpec</code></em></code> value
+            of <code class="code">('!disabled', 'focus')</code> matches a
+            widget only when that widget is not disabled and it
+            has focus.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-themes.html">47. Customizing and creating <span class="application">ttk</span> themes and styles</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Widget.html">46. Methods common to all <span class="application">ttk</span> widgets</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-state-spec.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-state-spec.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:56 GMT -->
+</html>

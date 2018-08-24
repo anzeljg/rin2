@@ -1,0 +1,39 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/connecting-scrollbars.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>22.2. Connecting a Scrollbar to another
+      widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="scrollbar.html" title="22. The Scrollbar widget"><link rel="prev" href="scrollbar-callback.html" title="22.1. The Scrollbar command callback"><link rel="next" href="spinbox.html" title="23. The Spinbox widget"></head><body><div class="topnavbar"><a href="spinbox.html">Next</a> / <a href="scrollbar-callback.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="connecting-scrollbars"></a>22.2. Connecting a <code class="code">Scrollbar</code> to another
+      widget</h3></div></div></div><p>
+        Here is a code fragment showing the creation of a canvas
+        with horizontal and vertical scrollbars.  In this
+        fragment, <code class="code">self</code> is assumed to be a <code class="code">Frame</code> widget.
+      </p><pre class="programlisting">    self.canv = tk.Canvas(self, width=600, height=400,
+        scrollregion=(0, 0, 1200, 800))
+    self.canv.grid(row=0, column=0)
+
+    self.scrollY = tk.Scrollbar(self, orient=tk.VERTICAL,
+        command=self.canv.yview)
+    self.scrollY.grid(row=0, column=1, sticky=tk.N+tk.S)
+
+    self.scrollX = tk.Scrollbar(self, orient=tk.HORIZONTAL,
+        command=self.canv.xview)
+    self.scrollX.grid(row=1, column=0, sticky=tk.E+tk.W)
+
+    self.canv['xscrollcommand'] = self.scrollX.set
+    self.canv['yscrollcommand'] = self.scrollY.set
+</pre><p>
+        Notes:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The connection goes both ways.  The canvas's <code class="code">xscrollcommand</code> option has to be connected to
+            the horizontal scrollbar's <code class="code">.set</code>
+            method, and the scrollbar's <code class="code">command</code>
+            option has to be connected to the canvas's <code class="code">.xview</code> method.  The vertical scrollbar and
+            canvas must have the same mutual connection.
+          </p></li><li><p>
+            The <code class="code">sticky</code> options on the <a href="grid.html" title="4.1. The .grid() method"><code class="code">.grid()</code></a> method
+            calls for the scrollbars force them to stretch just
+            enough to fit the corresponding dimension of the
+            canvas.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="spinbox.html">23. The <code class="code">Spinbox</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="scrollbar-callback.html">22.1. The <code class="code">Scrollbar <em class="replaceable"><code>command</code></em></code> callback</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/connecting-scrollbars.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/connecting-scrollbars.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:52 GMT -->
+</html>

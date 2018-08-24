@@ -1,0 +1,84 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid-methods.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.2. Other grid management methods</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="layout-mgt.html" title="4. Layout management"><link rel="prev" href="grid.html" title="4.1. The .grid() method"><link rel="next" href="grid-config.html" title="4.3. Configuring column and row sizes"></head><body><div class="topnavbar"><a href="grid-config.html">Next</a> / <a href="grid.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="grid-methods"></a>4.2. Other grid management methods</h3></div></div></div><p>
+        These grid-related methods are defined on all widgets:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_bbox(column=None, row=None,
+            col2=None, row2=None)</code>
+          </span></dt><dd><p>
+              Returns a 4-tuple describing the bounding box of
+              some or all of the grid system in widget <code class="code"><em class="replaceable"><code>w</code></em></code>.
+              The first two numbers returned are the <em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em> coordinates of the upper left corner of the area,
+              and the second two numbers are the width and
+              height.
+            </p><p>
+              If you pass in <code class="code">column</code> and <code class="code">row</code> arguments, the returned bounding box
+              describes the area of the cell at that column and
+              row.  If you also pass in <code class="code">col2</code> and
+              <code class="code">row2</code> arguments, the returned
+              bounding box describes the area of the grid from
+              columns <code class="code">column</code> to <code class="code">col2</code> inclusive, and from rows <code class="code">row</code> to
+              <code class="code">row2</code> inclusive.
+            </p><p>
+              For example, <code class="code"><em class="replaceable"><code>w</code></em>.grid_bbox(0, 0, 1,
+              1)</code> returns the bounding box of four cells,
+              not one.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_forget()</code>
+          </span></dt><dd><p>
+              This method makes widget <code class="code"><em class="replaceable"><code>w</code></em></code>
+              disappear from the screen.  It still exists, it
+              just isn't visible.  You can use <code class="code">.grid()</code> it to make it appear again, but it
+              won't remember its grid options.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_info()</code>
+          </span></dt><dd><p>
+              Returns a dictionary whose keys are <em class="replaceable"><code>w</code></em>'s option
+              names, with the corresponding values of those
+              options.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_location(<em class="replaceable"><code>x</code></em>,
+            <em class="replaceable"><code>y</code></em>)</code>
+          </span></dt><dd><p>
+              Given a coordinates <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> relative to the containing widget, this
+              method returns a tuple <code class="code">(<em class="replaceable"><code>col</code></em>, <em class="replaceable"><code>row</code></em>)</code> describing what cell of <code class="code"><em class="replaceable"><code>w</code></em></code>'s grid
+              system contains that screen coordinate.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_propagate()</code>
+          </span></dt><dd><p>
+              Normally, all widgets
+              <em class="firstterm">propagate</em> their dimensions,
+              meaning that they adjust to fit the contents.
+              However, sometimes you want to force a widget to be
+              a certain size, regardless of the size of its
+              contents.  To do this, call
+              <code class="code"><em class="replaceable"><code>w</code></em>.grid_propagate(0)</code> where
+              <code class="code"><em class="replaceable"><code>w</code></em></code>
+              is the widget whose size you want to
+              force.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_remove()</code>
+          </span></dt><dd><p>
+              This method is like
+              <code class="code">.grid_forget()</code>, but its grid
+              options are remembered, so if you
+              <code class="code">.grid()</code> it again, it will
+              use the same grid configuration options.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_size()</code>
+          </span></dt><dd><p>
+              Returns a 2-tuple containing the number of columns
+              and the number of rows, respectively, in <code class="code"><em class="replaceable"><code>w</code></em></code>'s
+              grid system.
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>w</code></em>.grid_slaves(row=None, column=None)</code>
+          </span></dt><dd><p>
+              Returns a list of the widgets managed by widget
+              <code class="code"><em class="replaceable"><code>w</code></em></code>.  If no arguments are provided, you will get
+              a list of all the managed widgets.  Use the <code class="code">row=</code> argument to select only the widgets
+              in one row, or the <code class="code">column=</code> argument
+              to select only the widgets in one column.
+            </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="grid-config.html">4.3. Configuring column and row sizes</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="grid.html">4.1. The <code class="code">.grid()</code> method</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/grid-methods.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid-methods.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+</html>

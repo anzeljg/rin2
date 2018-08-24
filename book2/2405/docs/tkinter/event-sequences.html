@@ -1,0 +1,63 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-sequences.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>54.2. Event sequences</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="events.html" title="54. Events: responding to stimuli"><link rel="prev" href="binding-levels.html" title="54.1. Levels of binding"><link rel="next" href="event-types.html" title="54.3. Event types"></head><body><div class="topnavbar"><a href="event-types.html">Next</a> / <a href="binding-levels.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="event-sequences"></a>54.2. Event sequences</h3></div></div></div><p>
+        <span class="application">Tkinter</span> has a powerful and general method for allowing
+        you to define exactly which events, both specific and
+        general, you want to bind to handlers.
+      </p><p>
+        In general, an event sequence is a string containing one
+        or more <em class="firstterm">event patterns</em>.  Each
+        event pattern describes one thing that can happen.  If
+        there is more than one event pattern in a sequence, the
+        handler will be called only when all the patterns happen
+        in that same sequence.
+      </p><p>
+        The general form of an event pattern is:
+      </p><pre class="programlisting">&lt;[<em class="replaceable"><code>modifier</code></em>-]...<em class="replaceable"><code>type</code></em>[-<em class="replaceable"><code>detail</code></em>]&gt;
+</pre><div class="itemizedlist"><ul type="disc"><li><p>
+            The entire pattern is enclosed inside <code class="code">&lt;…&gt;</code>.
+          </p></li><li><p>
+            The <em class="firstterm">event type</em> describes the
+            general kind of event, such as a key press or mouse
+            click.  See <a href="event-types.html" title="54.3. Event types">Section 54.3, “Event types”</a>.
+          </p></li><li><p>
+            You can add optional
+            <code class="code"><em class="replaceable"><code>modifier</code></em></code>
+            items before the type to specify combinations such as
+            the <span class="keysym">shift</span> or
+            <span class="keysym">control</span> keys being depressed during
+            other key presses or mouse clicks.  <a href="event-modifiers.html" title="54.4. Event modifiers">Section 54.4, “Event modifiers”</a>
+          </p></li><li><p>
+            You can add optional <code class="code"><em class="replaceable"><code>detail</code></em></code> items to
+            describe what key or mouse button you're looking for.
+            For mouse buttons, this is 1 for button 1, 2 for
+            button 2, or 3 for button 3.
+          </p><div class="itemizedlist"><ul type="circle"><li><p>
+                The usual setup has button 1 on the left and
+                button 3 on the right, but left-handers can swap
+                these positions.
+              </p></li><li><p>
+                For keys on the keyboard, this is either the
+                key's character (for single-character keys like
+                the <code class="code">A</code> or <code class="code">*</code> key) or
+                the key's name; see <a href="key-names.html" title="54.5. Key names">Section 54.5, “Key names”</a>
+                for a list of all key names.
+              </p></li></ul></div></li></ul></div><p>
+        Here are some examples to give you the flavor of event
+        patterns:
+      </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+                <code class="code">&lt;Button-1&gt;</code>
+              </td><td align="left">
+                The user pressed the first mouse button.
+              </td></tr><tr><td align="left">
+                <code class="code">&lt;KeyPress-H&gt;</code>
+              </td><td align="left">
+                The user pressed the H key.
+              </td></tr><tr><td align="left">
+                <code class="code">&lt;Control-Shift-KeyPress-H&gt;</code>
+              </td><td align="left">
+                The user pressed <span class="keysym">control-shift</span>-H.
+              </td></tr></tbody></table></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="event-types.html">54.3. Event types</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="binding-levels.html">54.1. Levels of binding</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/event-sequences.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-sequences.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

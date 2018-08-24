@@ -1,0 +1,270 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Checkbutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>30. ttk.Checkbutton</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Button.html" title="29. ttk.Button"><link rel="next" href="ttk-Combobox.html" title="31. ttk.Combobox"></head><body><div class="topnavbar"><a href="ttk-Combobox.html">Next</a> / <a href="ttk-Button.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Checkbutton"></a>30. <span class="application">ttk</span><code class="code">.Checkbutton</code></h2></div></div></div><p>
+      This widget is the <span class="application">ttk</span> version of <a href="checkbutton.html" title="9. The Checkbutton widget">Section 9, “The <code class="code">Checkbutton</code> widget”</a>.  To create a <span class="application">ttk</span><code class="code">.Checkbutton</code> widget as the child of a given <code class="code"><em class="replaceable"><code>parent</code></em></code> widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Checkbutton(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      Here are the options for the <span class="application">ttk</span><code class="code">.Checkbutton</code>
+      widget.  Compare these to the <span class="application">Tkinter</span> version discussed in <a href="button.html" title="7. The Button widget">Section 7, “The <code class="code">Button</code> widget”</a>.
+    </p><div class="table"><a name="ttk-Checkbutton-options"></a><p class="title"><b>Table 37. <span class="application">ttk</span><code class="code">.Checkbutton</code> options</b></p><div class="table-contents"><table summary="ttk.Checkbutton options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">command</code>
+            </td><td align="left">
+              A function to be called whenever the state of this
+              checkbutton changes.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">compound</code>
+            </td><td align="left">
+              This option specifies the relative position of the image
+              relative to the text when you specify both.  The value
+              may be <code class="code">tk.TOP</code> (image above text), <code class="code">tk.BOTTOM</code> (image below text), <code class="code">tk.LEFT</code> (image to the left of the text), or
+              <code class="code">tk.RIGHT</code> (image to the right of the
+              text).  If you provide both <code class="code">image</code> and
+              <code class="code">text</code> options but do not specify a value
+              for <code class="code">compound</code>, only the image will appear.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over the
+              checkbutton; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">image</code>
+            </td><td align="left">
+              An image to appear on the checkbutton; see <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">offvalue</code>
+            </td><td align="left">
+              By default, when a checkbutton is in the off (unchecked)
+              state, the value of the associated <code class="code">variable</code> is 0.  You can use the <code class="code">offvalue</code> option
+              to specify a different value for the off state.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">onvalue</code>
+            </td><td align="left">
+              By default, when a checkbutton is in the on (checked)
+              state, the value of the associated <code class="code">variable</code> is 1.  You can use the <code class="code">onvalue</code> option
+              to specify a different value for the on state.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this checkbutton; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.Checkbutton</code> will
+              be included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To remove the widget from focus
+              traversal, use <code class="code">takefocus=False</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">text</code>
+            </td><td align="left">
+              The text to appear on the checkbutton, as a string.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">textvariable</code>
+            </td><td align="left">
+              A variable that controls the text that appears on the
+              checkbutton; see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">underline</code>
+            </td><td align="left">
+              If this option has a nonnegative value <em class="phrase">n</em>, an underline will appear under
+              the <code class="code">text</code> character at position <em class="phrase">n</em>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">variable</code>
+            </td><td align="left">
+              A control variable that tracks the current state of the
+              checkbutton; see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+              Normally you will use an <code class="code">IntVar</code> here, and
+              the off and on values are 0 and 1, respectively.
+              However, you may use a different control variable type,
+              and specify the <code class="code">offvalue</code> and <code class="code">onvalue</code> options using values of that type.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              <p>
+                Use this option to specify a fixed width or a minimum
+                width.  The value is specified in characters; a
+                positive value sets a fixed width of that many average
+                characters, while a negative width sets a minimum
+                width.
+              </p>
+              <p>
+                For example, if an average character in the selected
+                font is 10 pixels wide, option <code class="code">width=8</code>
+                will make the text label exactly 80 pixels wide;
+                option <code class="code">width=-8</code> will use 80 pixels or
+                the length of the text, whichever is larger.
+              </p>
+              <p>
+                You may also specify a <code class="code">width</code> value in
+                an associated style.  If values are specified both in
+                the widget constructor call and in the style, the
+                former takes priority.
+              </p>
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These options of the <span class="application">Tkinter</span> <code class="code">Checkbutton</code> widget
+      are <span class="emphasis"><em>not</em></span> supported by the <span class="application">ttk</span><code class="code">.Checkbutton</code> widget constructor:
+    </p><div class="table"><a name="ttk-Checkbutton-missing"></a><p class="title"><b>Table 38. <span class="application">Tkinter</span> <code class="code">Checkbutton</code> options not in
+      <span class="application">ttk</span><code class="code">.Checkbutton</code></b></p><div class="table-contents"><table summary="Tkinter Checkbutton options not in
+      ttk.Checkbutton" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">background</code> option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activeforeground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">foreground</code> option.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">anchor</code>
+            </td><td align="left">
+              <p>
+                Configure this option using a style; see <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.  Use this option to
+                specify the position of the text when the <code class="code">width</code> option allocates extra horizontal
+                space.
+              </p>
+              <p>
+                For example, if you specify options <code class="code">width=20</code> and <code class="code">compound=tk.TOP</code> on
+                a checkbutton that displays both text and and image,
+                and a style that specifies <code class="code">anchor=tk.E</code>
+                (east), the image will be at the right-hand end of the
+                twenty-character space, with the text just below it.
+              </p>
+              <p>
+                When a checkbutton displays an image but no text, this
+                option is ignored.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">background</code> or <code class="code">bg</code>
+            </td><td align="left">
+              Configure the <code class="code">background</code> option using a
+              style.  The <code class="code">bg</code> abbreviation is not
+              supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bitmap</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code> or <code class="code">bd</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left">
+              Use a style map for the <code class="code">foreground</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">foreground</code> or <code class="code">fg</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              To control the color of the focus highlight when the
+              checkbutton does not have focus, use a style map to
+              control the <code class="code">highlightcolor</code> option; see
+              <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              You may specify the default focus highlight color
+              by setting this option in a style.  You may also
+              control the focus highlight color using a style
+              map.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Configure this option using a style.  This option
+              may not work in all themes.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">indicatoron</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">justify</code>
+            </td><td align="left">
+              Controls how multiple lines are positioned
+              horizontally relative to each other.  Configure
+              this option using a style; values may be <code class="code">tk.LEFT</code>, <code class="code">tk.CENTER</code>, or
+              <code class="code">tk.RIGHT</code> for left-aligned, centered,
+              or right-aligned, respectively.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">offrelief</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">overrelief</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">relief</code> option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padx</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">pady</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">relief</code> option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectcolor</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectimage</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">state</code>
+            </td><td align="left">
+              In <span class="application">ttk</span>, there is no option with this name.
+              The state mechanism has been generalized; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">wraplength</code>
+            </td><td align="left">
+              If you use a style that has this option set to some
+              <a href="dimensions.html" title="5.1. Dimensions">dimension</a>, the <code class="code">text</code> will be sliced into pieces no longer than
+              that dimension.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on a <span class="application">ttk</span><code class="code">.Checkbutton</code> include all
+      those described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>, plus:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.invoke()</code>
+        </span></dt><dd><p>
+            This method toggles the state of the checkbutton.  If
+            there is a <code class="code">command</code> callback, it calls that
+            callback, and returns whatever value the callback
+            returned.
+          </p></dd></dl></div><p>
+      Not supported are the following methods of the <span class="application">Tkinter</span> <code class="code">Checkbutton</code> widget: <code class="code">.deselect()</code>, <code class="code">.flash()</code>, <code class="code">.select()</code>, and <code class="code">.toggle()</code>.  To change the state of a checkbutton
+      through program control, use the <code class="code">.set()</code> method of
+      the associated control <code class="code">variable</code>.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Combobox.html">31. <span class="application">ttk</span><code class="code">.Combobox</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Button.html">29. <span class="application">ttk</span><code class="code">.Button</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Checkbutton.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Checkbutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

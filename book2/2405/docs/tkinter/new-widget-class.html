@@ -1,0 +1,24 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/new-widget-class.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>27.1. How to name a widget class</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="option-database.html" title="27. Standardizing appearance and the option database"><link rel="prev" href="option-database.html" title="27. Standardizing appearance and the option database"><link rel="next" href="naming-widgets.html" title="27.2. How to name a widget instance"></head><body><div class="topnavbar"><a href="naming-widgets.html">Next</a> / <a href="option-database.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="new-widget-class"></a>27.1. How to name a widget class</h3></div></div></div><p>
+        For example, suppose that <code class="code">Jukebox</code> is a new
+        widget class that you have created.  It's probably best
+        to have new widget classes inherit from the <code class="code">Frame</code> class, so to <span class="application">Tkinter</span> it acts like a frame,
+        and you can arrange other widgets such as labels,
+        entries, and buttons inside it.
+      </p><p>
+        You set the new widget's class name by passing the name
+        as the <code class="code">class_</code> option to the parent
+        constructor in your new class's constructor.  Here is a
+        fragment of the code that defines the new class:
+      </p><pre class="programlisting">class Jukebox(tk.Frame):
+    def __init__(self, master):
+        '''Constructor for the Jukebox class
+        '''
+        tk.Frame.__init__(self, master, class_='Jukebox')
+        self.__createWidgets()
+        ...
+</pre></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="naming-widgets.html">27.2. How to name a widget instance</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="option-database.html">27. Standardizing appearance and the option database</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/new-widget-class.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/new-widget-class.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

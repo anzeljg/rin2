@@ -1,0 +1,336 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/entry.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>10. The Entry widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="checkbutton.html" title="9. The Checkbutton widget"><link rel="next" href="entry-scrolling.html" title="10.1. Scrolling an Entry widget"></head><body><div class="topnavbar"><a href="entry-scrolling.html">Next</a> / <a href="checkbutton.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="entry"></a>10. The <code class="code">Entry</code> widget</h2></div></div></div><p>
+      The purpose of an <code class="code">Entry</code> widget is to let the
+      user see and modify a <span class="emphasis"><em>single</em></span> line of
+      text.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          If you want to display <span class="emphasis"><em>multiple</em></span>
+          lines of text that can be edited, see <a href="text.html" title="24. The Text widget">Section 24, “The <code class="code">Text</code> widget”</a>.
+        </p></li><li><p>
+          If you want to display one or more lines of text that
+          <span class="emphasis"><em>cannot</em></span> be modified by the user,
+          see <a href="label.html" title="12. The Label widget">Section 12, “The <code class="code">Label</code> widget”</a>.
+        </p></li></ul></div><p>
+      Some definitions:
+    </p><div class="itemizedlist"><ul type="disc"><li><p><a name="entry-selection"></a>
+          The <em class="firstterm">selection</em> is a highlighted
+          region of the text in an <code class="code">Entry</code> widget,
+          if there is one.
+        </p><p>
+          Typically the selection is made by the user with the
+          mouse, and selected text is copied to the system's
+          clipboard.  However, <span class="application">Tkinter</span> allows you to control
+          whether or not selected text gets copied to the
+          clipboard.  You can also select text in an <code class="code">Entry</code> under program control.
+        </p></li><li><p><a name="entry-cursor"></a>
+          The <em class="firstterm">insertion cursor</em> shows where
+          new text will be inserted.  It is displayed only when
+          the user clicks the mouse somewhere in the widget.  It
+          usually appears as a blinking vertical line inside the
+          widget.  You can customize its appearance in several
+          ways.
+        </p></li><li><p><a name="entry-index"></a>
+          Positions within the widget's displayed text are given
+          as an <em class="firstterm">index</em>.  There are several
+          ways to specify an index:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              As normal Python indexes, starting from 0.
+            </p></li><li><p>
+              The constant <code class="code">tk.END</code> refers to the
+              position after the existing text.
+            </p></li><li><p>
+              The constant <code class="code">tk.INSERT</code> refers to the
+              current position of the insertion cursor.
+            </p></li><li><p>
+              The constant <code class="code">tk.ANCHOR</code> refers to the
+              first character of the selection, if there is a
+              selection.
+            </p></li><li><p>
+              You may need to figure out which character position
+              in the widget corresponds to a given mouse
+              position.  To simplify that process, you can use as
+              an index a string of the form <code class="code">'@<em class="replaceable"><code>n</code></em>'</code>, where
+              <code class="code"><em class="replaceable"><code>n</code></em></code> is the
+              horizontal distance in pixels between the left edge
+              of the <code class="code">Entry</code> widget and the mouse.
+              Such an index will specify the character at that
+              horizontal mouse position.
+            </p></li></ul></div></li></ul></div><p>
+      To create a new <code class="code">Entry</code> widget in a root
+      window or frame named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Entry(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      This constructor returns the new <code class="code">Entry</code>
+      widget.  Options include:
+    </p><div class="table"><a name="Entry-options"></a><p class="title"><b>Table 17. <code class="code">Entry</code> widget options</b></p><div class="table-contents"><table summary="Entry widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">bg</code> or <code class="code">background</code></td><td align="left">
+              The background color inside the entry area.
+              Default is a light gray.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or
+              <code class="code">borderwidth</code></td><td align="left">
+              The width of the border around the entry area; see
+              <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default is two
+              pixels.
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              The cursor used when the mouse is within the entry
+              widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledbackground</code>
+            </td><td align="left" valign="top">
+              The background color to be displayed when the
+              widget is in the <code class="code">tk.DISABLED</code> state.
+              For option values, see <code class="code">bg</code> above.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left" valign="top">
+              The foreground color to be displayed when the
+              widget is in the <code class="code">tk.DISABLED</code> state.
+              For option values, see <code class="code">fg</code> below.
+            </td></tr><tr><td align="left">
+              <code class="code">exportselection</code>
+            </td><td align="left">
+              By default, if you select text within an <code class="code">Entry</code> widget, it is automatically exported
+              to the clipboard.  To avoid this exportation, use
+              <code class="code">exportselection=0</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">fg</code> or <code class="code">foreground</code></td><td align="left">
+              The color used to render the text.  Default is
+              black.
+            </td></tr><tr><td align="left" valign="top"><code class="code">font</code></td><td align="left">
+              The font used for text entered in the widget by the
+              user.  See <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightbackground</code></td><td align="left">
+              Color of the focus highlight when the widget does
+              not have focus.  See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              Color shown in the focus highlight when the widget
+              has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightthickness</code></td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top"><code class="code">insertbackground</code></td><td align="left">
+              By default, the insertion cursor (which shows the
+              point within the text where new keyboard input will
+              be inserted) is black.  To get a different color of
+              insertion cursor, set <code class="code">insertbackground</code> to any color; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">insertborderwidth</code></td><td align="left">
+              By default, the insertion cursor is a simple
+              rectangle.  You can get the cursor with the <code class="code">tk.RAISED</code> relief effect (see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>) by setting <code class="code">insertborderwidth</code> to the <a href="dimensions.html" title="5.1. Dimensions">dimension</a> of the 3-d
+              border.  If you do, make sure that the <code class="code">insertwidth</code> option is at least twice
+              that value.
+            </td></tr><tr><td align="left" valign="top"><code class="code">insertofftime</code></td><td align="left">
+              By default, the insertion cursor blinks.  You can
+              set <code class="code">insertofftime</code> to a value in
+              milliseconds to specify how much time the insertion
+              cursor spends off.  Default is 300.  If you use
+              <code class="code">insertofftime=0</code>, the insertion
+              cursor won't blink at all.
+            </td></tr><tr><td align="left" valign="top"><code class="code">insertontime</code></td><td align="left">
+              Similar to <code class="code">insertofftime</code>, this
+              option specifies how much time the cursor spends
+              on per blink.  Default is 600 (milliseconds).
+            </td></tr><tr><td align="left" valign="top"><code class="code">insertwidth</code></td><td align="left">
+              By default, the insertion cursor is 2 pixels wide.
+              You can adjust this by setting <code class="code">insertwidth</code> to any <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">justify</code></td><td align="left">
+              This option controls how the text is justified when
+              the text doesn't fill the widget's width.  The
+              value can be <code class="code">tk.LEFT</code> (the default),
+              <code class="code">tk.CENTER</code>, or <code class="code">tk.RIGHT</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">readonlybackground</code>
+            </td><td align="left" valign="top">
+              The background color to be displayed when the
+              widget's <code class="code">state</code> option is <code class="code">'readonly'</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              Selects three-dimensional shading effects around
+              the text entry.  See <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  The
+              default is <code class="code">relief=tk.SUNKEN</code>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">selectbackground</code></td><td align="left">
+              The background color to use displaying selected
+              text.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectborderwidth</code></td><td align="left">
+              The width of the border to use around selected
+              text.  The default is one pixel.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectforeground</code></td><td align="left">
+              The foreground (text) <a href="colors.html" title="5.3. Colors">color</a> of selected text.
+            </td></tr><tr><td align="left" valign="top"><code class="code">show</code></td><td align="left">
+              Normally, the characters that the user types appear
+              in the entry.  To make a “password”
+              entry that echoes each character as an asterisk,
+              set <code class="code">show='*'</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">state</code></td><td align="left">
+              Use this option to disable the <code class="code">Entry</code> widget so that the user can't type
+              anything into it.  Use <code class="code">state=tk.DISABLED</code> to disable the widget, <code class="code">state=tk.NORMAL</code> to allow user input again.  Your program can also
+              find out whether the cursor is currently over the
+              widget by interrogating this option; it will
+              have the value <code class="code">tk.ACTIVE</code> when the mouse
+              is over it.  You can also set this option to <code class="code">'disabled'</code>, which is like the <code class="code">tk.DISABLED</code> state, but the contents of the
+              widget can still be selected or copied.
+            </td></tr><tr><td align="left" valign="top"><code class="code">takefocus</code></td><td align="left">
+              By default, the focus will tab through entry
+              widgets.  Set this option to 0 to take the widget
+              out of the sequence.  For a discussion of focus,
+              see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">textvariable</code></td><td align="left">
+              In order to be able to retrieve the current text
+              from your entry widget, you must set this option to
+              an instance of the <code class="code">StringVar</code> class;
+              see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.  You can
+              retrieve the text using <code class="code"><em class="replaceable"><code>v</code></em>.get()</code>, or set
+              it using <code class="code"><em class="replaceable"><code>v</code></em>.set()</code>, where
+              <code class="code"><em class="replaceable"><code>v</code></em></code> is the
+              associated control variable.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">validate</code>
+            </td><td align="left" valign="top">
+              <p>
+                You can use this option to set up the widget so that
+                its contents are checked by a validation function at
+                certain times.  See <a href="entry-validation.html" title="10.2. Adding validation to an Entry
+      widget">Section 10.2, “Adding validation to an <code class="code">Entry</code>
+      widget”</a>.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">validatecommand</code>
+            </td><td align="left" valign="top">
+              A callback that validates the text of the widget.
+              See <a href="entry-validation.html" title="10.2. Adding validation to an Entry
+      widget">Section 10.2, “Adding validation to an <code class="code">Entry</code>
+      widget”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+              The size of the entry in characters. The default is
+              20.  For proportional fonts, the physical length of
+              the widget will be based on the average width of a
+              character times the value of the <code class="code">width</code> option.
+            </td></tr><tr><td align="left" valign="top"><code class="code">xscrollcommand</code></td><td align="left">
+              If you expect that users will often enter more text
+              than the onscreen size of the widget, you can link
+              your entry widget to a scrollbar.  Set this option
+              to the <code class="code">.set</code> method of the scrollbar.
+              For more information, see <a href="entry-scrolling.html" title="10.1. Scrolling an Entry widget">Section 10.1, “Scrolling an <code class="code">Entry</code> widget”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on <code class="code">Entry</code> objects include:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.delete(<em class="replaceable"><code>first</code></em>,
+          <em class="replaceable"><code>last</code></em>=None)</code>
+        </span></dt><dd><p>
+            Deletes characters from the widget, starting with the
+            one at <a href="entry.html#entry-index">index</a> <code class="code"><em class="replaceable"><code>first</code></em></code>, up to but
+            <span class="emphasis"><em>not</em></span> including the character at
+            position <code class="code"><em class="replaceable"><code>last</code></em></code>.  If the second argument is omitted, only the
+            single character at position <code class="code"><em class="replaceable"><code>first</code></em></code> is deleted.
+          </p></dd><dt><span class="term">
+          <code class="code">.get()</code>
+        </span></dt><dd><p>
+            Returns the entry's current text as a string.
+          </p></dd><dt><span class="term">
+          <code class="code">.icursor(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Set the insertion cursor just before the character at
+            the given <a href="entry.html#entry-index"><code class="code"><em class="replaceable"><code>index</code></em></code></a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.index(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Shift the contents of the entry so that the character
+            at the given <a href="entry.html#entry-index"><code class="code"><em class="replaceable"><code>index</code></em></code></a> is
+            the leftmost visible character.  Has no effect if the
+            text fits entirely within the entry.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert(<em class="replaceable"><code>index</code></em>,
+          <em class="replaceable"><code>s</code></em>)</code>
+        </span></dt><dd><p>
+            Inserts string <code class="code"><em class="replaceable"><code>s</code></em></code> before the
+            character at the given <a href="entry.html#entry-index"><code class="code"><em class="replaceable"><code>index</code></em></code></a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.scan_dragto(<em class="replaceable"><code>x</code></em>)</code>
+        </span></dt><dd><p>
+            See the <code class="code">scan_mark</code> method below.
+          </p></dd><dt><span class="term">
+          <code class="code">.scan_mark(<em class="replaceable"><code>x</code></em>)</code>
+        </span></dt><dd><p>
+            Use this option to set up fast scanning of the
+            contents of the <code class="code">Entry</code> widget that has
+            a scrollbar that supports horizontal scrolling.
+          </p><p>
+            To implement this feature, bind the mouse's
+            button-down event to a handler that calls <code class="code">scan_mark(<em class="replaceable"><code>x</code></em>)</code>,
+            where <code class="code"><em class="replaceable"><code>x</code></em></code>
+            is the current mouse <code class="code"><em class="replaceable"><code>x</code></em></code> position.  Then bind the
+            <code class="code">&lt;Motion&gt;</code> event to a handler that
+            calls <code class="code">scan_dragto(<em class="replaceable"><code>x</code></em>)</code>, where <code class="code"><em class="replaceable"><code>x</code></em></code> is the current mouse <code class="code"><em class="replaceable"><code>x</code></em></code> position.  The <code class="code">scan_dragto</code> method scrolls the contents of
+            the <code class="code">Entry</code> widget continuously at a
+            rate proportional to the horizontal distance between
+            the position at the time of the <code class="code">scan_mark</code> call and the current position.
+          </p></dd><dt><span class="term">
+          <code class="code">.select_adjust(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            This method is used to make sure that the <a href="entry.html#entry-selection">selection</a> includes
+            the character at the specified <a href="entry.html#entry-index"><code class="code"><em class="replaceable"><code>index</code></em></code></a>.  If the
+            selection already includes that character, nothing
+            happens.  If not, the selection is expanded from its
+            current position (if any) to include position <code class="code"><em class="replaceable"><code>index</code></em></code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.select_clear()</code>
+        </span></dt><dd><p>
+            Clears the selection.  If there isn't currently a
+            selection, has no effect.
+          </p></dd><dt><span class="term">
+          <code class="code">.select_from(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Sets the <code class="code">tk.ANCHOR</code> index position to the
+            character selected by <code class="code"><em class="replaceable"><code>index</code></em></code>, and
+            selects that character.
+          </p></dd><dt><span class="term">
+          <code class="code">.select_present()</code>
+        </span></dt><dd><p>
+            If there is a <a href="entry.html#entry-selection">selection</a>, returns
+            true, else returns false.
+          </p></dd><dt><span class="term">
+          <code class="code">.select_range(<em class="replaceable"><code>start</code></em>, <em class="replaceable"><code>end</code></em>)</code>
+        </span></dt><dd><p>
+            Sets the <a href="entry.html#entry-selection">selection</a> under
+            program control.  Selects the text starting at the
+            <code class="code"><em class="replaceable"><code>start</code></em></code> <a href="entry.html#entry-index"><code class="code"><em class="replaceable"><code>index</code></em></code></a>, up to but
+            <span class="emphasis"><em>not</em></span> including the character at
+            the <code class="code"><em class="replaceable"><code>end</code></em></code>
+            index.  The <code class="code"><em class="replaceable"><code>start</code></em></code> position
+            must be before the <code class="code"><em class="replaceable"><code>end</code></em></code> position.
+          </p><p>
+            To select all the text in an entry widget <code class="code">e</code>, use <code class="code">e.select_range(0, tk.END)</code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.select_to(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Selects all the text from the <code class="code">tk.ANCHOR</code>
+            position up to but not including the character at the
+            given <a href="entry.html#entry-index"><code class="code"><em class="replaceable"><code>index</code></em></code></a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.xview(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Same as <code class="code">.xview()</code>.  This method is
+            useful in linking the <code class="code">Entry</code> widget to
+            a horizontal scrollbar.  See <a href="entry-scrolling.html" title="10.1. Scrolling an Entry widget">Section 10.1, “Scrolling an <code class="code">Entry</code> widget”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.xview_moveto(<em class="replaceable"><code>f</code></em>)</code>
+        </span></dt><dd><p>
+            Positions the text in the entry so that the character
+            at position <code class="code"><em class="replaceable"><code>f</code></em></code>, relative to the entire text, is positioned at the
+            left edge of the window.  The <code class="code"><em class="replaceable"><code>f</code></em></code> argument must
+            be in the range [0,1], where 0 means the left end of
+            the text and 1 the right end.
+          </p></dd><dt><span class="term">
+          <code class="code">.xview_scroll(<em class="replaceable"><code>number</code></em>, <em class="replaceable"><code>what</code></em>)</code>
+        </span></dt><dd><p>
+            Used to scroll the entry horizontally.  The <code class="code"><em class="replaceable"><code>what</code></em></code> argument
+            must be either <code class="code">tk.UNITS</code>, to scroll by
+            character widths, or <code class="code">tk.PAGES</code>, to scroll
+            by chunks the size of the entry widget.  The <code class="code"><em class="replaceable"><code>number</code></em></code> is
+            positive to scroll left to right, negative to scroll
+            right to left.  For example, for an entry widget
+            <code class="code">e</code>, <code class="code">e.xview_scroll(-1,
+            tk.PAGES)</code> would move the text one
+            “page” to the right, and <code class="code">e.xview_scroll(4, tk.UNITS)</code> would move the text
+            four characters to the left.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="entry-scrolling.html">10.1. Scrolling an <code class="code">Entry</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="checkbutton.html">9. The <code class="code">Checkbutton</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/entry.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/entry.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+</html>

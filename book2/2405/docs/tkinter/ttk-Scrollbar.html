@@ -1,0 +1,157 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Scrollbar.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>42. ttk.Scrollbar</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Scale.html" title="41. ttk.Scale"><link rel="next" href="ttk-Separator.html" title="43. ttk.Separator"></head><body><div class="topnavbar"><a href="ttk-Separator.html">Next</a> / <a href="ttk-Scale.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Scrollbar"></a>42. <span class="application">ttk</span><code class="code">.Scrollbar</code></h2></div></div></div><p>
+      This is the <span class="application">ttk</span> version of <a href="scrollbar.html" title="22. The Scrollbar widget">Section 22, “The <code class="code">Scrollbar</code> widget”</a>.
+      To create a <span class="application">ttk</span><code class="code">.Scrollbar</code> as the child of a
+      given <code class="code"><em class="replaceable"><code>parent</code></em></code> widget,
+      where the <code class="code"><em class="replaceable"><code>option</code></em></code>
+      values are given in <a href="ttk-Scrollbar.html#ttk-Scrollbar-options" title="Table 59. ttk.Scrollbar options">Table 59, “<span class="application">ttk</span><code class="code">.Scrollbar</code> options”</a>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Scrollbar(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><div class="table"><a name="ttk-Scrollbar-options"></a><p class="title"><b>Table 59. <span class="application">ttk</span><code class="code">.Scrollbar</code> options</b></p><div class="table-contents"><table summary="ttk.Scrollbar options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">command</code>
+            </td><td align="left">
+              A procedure to be called whenever the scrollbar is
+              moved.  For a discussion of the calling sequence,
+              see <a href="scrollbar-callback.html" title="22.1. The Scrollbar command callback">Section 22.1, “The <code class="code">Scrollbar <em class="replaceable"><code>command</code></em></code> callback”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over the
+              scrollbar; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">orient</code>
+            </td><td align="left">
+              Set <code class="code">orient=tk.HORIZONTAL</code> for a
+              horizontal scrollbar, <code class="code">orient=tk.VERTICAL</code> for a vertical one (the default orientation).
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this scrollbar; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.Scrollbar</code> will not
+              be included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To add the widget to focus
+              traversal, use <code class="code">takefocus=True</code>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These options of a <span class="application">Tkinter</span> <code class="code">Scrollbar</code> widget are
+      <span class="emphasis"><em>not</em></span> supported by the <span class="application">ttk</span><code class="code">.Scrollbar</code> constructor:
+    </p><div class="table"><a name="ttk-Scrollbar-missing"></a><p class="title"><b>Table 60. <span class="application">Tkinter</span> options not in <span class="application">ttk</span><code class="code">.Scrollbar</code></b></p><div class="table-contents"><table summary="Tkinter options not in ttk.Scrollbar" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">background</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activerelief</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">relief</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">background</code> or <code class="code">bg</code>
+            </td><td align="left">
+              Configure the <code class="code">background</code> option using a
+              style; this option controls the color of the slider.
+              The <code class="code">bg</code> abbreviation is not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code> or <code class="code">bd</code>
+            </td><td align="left">
+              Configure the <code class="code">borderwidth</code> option using a
+              style.  The <code class="code">bd</code> abbreviation is not
+              supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">elementborderwidth</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">jump</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatdelay</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatinterval</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">troughcolor</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              Configure this option using a style.  You may find that
+              configuring <code class="code">arrowsize</code> is a better choice;
+              in some themes, increasing the <code class="code">width</code> may
+              not increase the size of the arrowheads.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on a <span class="application">ttk</span><code class="code">.Scrollbar</code> include all those
+      described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>, plus:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.delta(<em class="replaceable"><code>dx</code></em>, <em class="replaceable"><code>dy</code></em>)</code>
+        </span></dt><dd><p>
+            Given a mouse movement of <code class="code">(<em class="replaceable"><code>dx</code></em>, <em class="replaceable"><code>dy</code></em>)</code> in pixels, this method returns the <code class="code">float</code>
+            value that should be added to the current slider position
+            to achieve that same movement.  The value must be in the
+            closed interval [-1.0, 1.0].
+          </p></dd><dt><span class="term">
+          <code class="code">.fraction(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Given a pixel location <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code>, this method returns the corresponding
+            normalized slider position in the interval [0.0, 1.0]
+            that is closest to that location.
+          </p></dd><dt><span class="term">
+          <code class="code">.get()</code>
+        </span></dt><dd><p>
+            Returns two numbers (<code class="code"><em class="replaceable"><code>a</code></em></code>, <code class="code"><em class="replaceable"><code>b</code></em></code>)
+            describing the current position of the slider.  The <code class="code"><em class="replaceable"><code>a</code></em></code> value gives the
+            position of the left or top edge of the slider, for
+            horizontal and vertical scrollbars respectively; the <code class="code"><em class="replaceable"><code>b</code></em></code> value gives the
+            position of the right or bottom edge.  Each value is in
+            the interval [0.0, 1.0] where 0.0 is the leftmost or top
+            position and 1.0 is the rightmost or bottom position.  For
+            example, if the slider extends from halfway to
+            three-quarters of the way along the trough, you might get
+            back the tuple (0.5,0.75).
+          </p></dd><dt><span class="term">
+          <code class="code">.set(<em class="replaceable"><code>first</code></em>,
+          <em class="replaceable"><code>last</code></em>)</code>
+        </span></dt><dd><p>
+            To connect a scrollbar to another widget <code class="code"><em class="replaceable"><code>w</code></em></code>, set
+            <code class="code"><em class="replaceable"><code>w</code></em></code>'s <code class="code">xscrollcommand</code> or <code class="code">yscrollcommand</code> to the scrollbar's <code class="code">.set</code> method.  The arguments have the same
+            meaning as the values returned by the <code class="code">.get()</code> method.  Please note that moving the
+            scrollbar's slider does <span class="emphasis"><em>not</em></span> move
+            the corresponding widget.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Separator.html">43. <span class="application">ttk</span><code class="code">.Separator</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Scale.html">41. <span class="application">ttk</span><code class="code">.Scale</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Scrollbar.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Scrollbar.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+</html>

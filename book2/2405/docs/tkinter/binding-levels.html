@@ -1,0 +1,63 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/binding-levels.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>54.1. Levels of binding</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="events.html" title="54. Events: responding to stimuli"><link rel="prev" href="events.html" title="54. Events: responding to stimuli"><link rel="next" href="event-sequences.html" title="54.2. Event sequences"></head><body><div class="topnavbar"><a href="event-sequences.html">Next</a> / <a href="events.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="binding-levels"></a>54.1. Levels of binding</h3></div></div></div><p>
+        You can bind a handler to an event at any of three
+        levels:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            Instance binding: You can bind an event to one
+            specific widget.  For example, you might bind the
+            <span class="keysym">PageUp</span> key in a canvas widget to a
+            handler that makes the canvas scroll up one page.  To
+            bind an event of a widget, call the <a href="universal.html#bind"><code class="code">.bind()</code></a> method
+            on that widget (see <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>).
+          </p><p>
+            For example, suppose you have a canvas widget named
+            <code class="code">self.canv</code> and you want to draw an
+            orange blob on the canvas whenever the user clicks
+            the mouse button 2 (the middle button).  To implement
+            this behavior:
+          </p><pre class="programlisting">    self.canv.bind('&lt;Button-2&gt;', self.__drawOrangeBlob)
+</pre><p>
+            The first argument is a <em class="firstterm">sequence
+            descriptor</em> that tells <span class="application">Tkinter</span> that
+            whenever the middle mouse button goes down, it is to
+            call the <em class="firstterm">event handler</em> named
+            <code class="code">self.__drawOrangeBlob</code>.  (See <a href="event-handlers.html" title="54.6. Writing your handler: The Event
+      class">Section 54.6, “Writing your handler: The <code class="code">Event</code>
+      class”</a>, below, for an overview of
+            how to write handlers such as <code class="code">.__drawOrangeBlob()</code>).  Note that you omit
+            the parentheses after the handler name, so that
+            Python will pass in a reference the handler instead
+            of trying to call it right away.
+          </p></li><li><p>
+            Class binding: You can bind an event to all widgets
+            of a class.  For example, you might set up all <code class="code">Button</code> widgets to respond to middle mouse
+            button clicks by changing back and forth between
+            English and Japanese labels.  To bind an event to all
+            widgets of a class, call the <a href="universal.html#bind_class"><code class="code">.bind_class()</code></a> method on any widget (see <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>, above).
+          </p><p>
+            For example, suppose you have several canvases, and
+            you want to set up mouse button 2 to draw an orange
+            blob in any of them.  Rather than having to call
+            <code class="code">.bind()</code> for every one of them, you can
+            set them all up with one call something like this:
+          </p><pre class="programlisting">    self.bind_class('Canvas', '&lt;Button-2&gt;',
+                       self.__drawOrangeBlob)
+</pre></li><li><p>
+            Application binding: You can set up a binding so that
+            a certain event calls a handler no matter what widget
+            has the focus or is under the mouse.  For example,
+            you might bind the <span class="keysym">PrintScrn</span> key to
+            all the widgets of an application, so that it prints
+            the screen no matter what widget gets that key.  To
+            bind an event at the application level, call the
+            <a href="universal.html#bind_all"><code class="code">.bind_all()</code></a> method on any widget (see <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>).
+          </p><p>
+            Here's how you might bind the
+            <span class="keysym">PrintScrn</span> key, whose “key
+            name” is <code class="code">'Print'</code>:
+          </p><pre class="programlisting">    self.bind_all('&lt;Key-Print&gt;', self.__printScreen)
+</pre></li></ol></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="event-sequences.html">54.2. Event sequences</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="events.html">54. Events: responding to stimuli</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/binding-levels.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/binding-levels.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

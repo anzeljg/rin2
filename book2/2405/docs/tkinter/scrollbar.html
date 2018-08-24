@@ -1,0 +1,262 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/scrollbar.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>22. The Scrollbar widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="scale.html" title="21. The Scale widget"><link rel="next" href="scrollbar-callback.html" title="22.1. The Scrollbar command callback"></head><body><div class="topnavbar"><a href="scrollbar-callback.html">Next</a> / <a href="scale.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="scrollbar"></a>22. The <code class="code">Scrollbar</code> widget</h2></div></div></div><p>
+      A number of widgets, such as listboxes and canvases, can
+      act like sliding windows into a larger virtual area.  You
+      can connect scrollbar widgets to them to give the user a
+      way to slide the view around relative to the contents.
+      Here's a screen shot of an entry widget with an associated
+      scrollbar widget:
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/scrollentry.png"></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+          Scrollbars can be horizontal, like the one shown above,
+          or vertical.  A widget that has two scrollable
+          dimensions, such as a canvas or listbox, can have both
+          a horizontal and a vertical scrollbar.
+        </p></li><li><p>
+          The <em class="firstterm">slider</em>, or <em class="firstterm">scroll
+          thumb</em>, is the raised-looking rectangle that
+          shows the current scroll position.
+        </p></li><li><p>
+          The two triangular <em class="firstterm">arrowheads</em> at
+          each end are used for moving the position by small
+          steps.  The one on the left or top is called <code class="code">arrow1</code>, and the one on the right or bottom is
+          called <code class="code">arrow2</code>.
+        </p></li><li><p>
+          The <em class="firstterm">trough</em> is the sunken-looking
+          area visible behind the arrowheads and slider.  The
+          trough is divided into two areas named <code class="code">trough1</code> (above or to the left of the slider)
+          and <code class="code">trough2</code> (below or to the right of
+          the slider).
+        </p></li><li><p>
+          The slider's size and position, relative to the length
+          of the entire widget, show the size and position of the
+          view relative to its total size.  For example, if a
+          vertical scrollbar is associated with a listbox, and
+          its slider extends from 50% to 75% of the height of the
+          scrollbar, that means that the visible part of the
+          listbox shows that portion of the overall list starting
+          at the halfway mark and ending at the three-quarter
+          mark.
+        </p></li><li><p>
+          In a horizontal scrollbar, clicking B1 (button 1) on
+          the left arrowhead moves the view by a small amount to
+          the left.  Clicking B1 on the right arrowhead moves the
+          view by that amount to the right.  For a vertical
+          scrollbar, clicking the upward- and downward-pointing
+          arrowheads moves the view small amounts up or down.
+          Refer to the discussion of the associated widget to
+          find out the exact amount that these actions move the
+          view.
+        </p></li><li><p>
+          The user can drag the slider with B1 or B2 (the middle
+          button) to move the view.
+        </p></li><li><p>
+          For a horizontal scrollbar, clicking B1 in the trough
+          to the left of the slider moves the view left by a
+          page, and clicking B1 in the trough to the right of the
+          slider moves the view a page to the right.  For a
+          vertical scrollbar, the corresponding actions move the
+          view a page up or down.
+        </p></li><li><p>
+          Clicking B2 anywhere along the trough moves the slider
+          so that its left or top end is at the mouse, or as
+          close to it as possible.
+        </p></li></ul></div><p>
+      The <em class="firstterm">normalized position</em> of the
+      scrollbar refers to a number in the closed interval [0.0,
+      1.0] that defines the slider's position.  For vertical
+      scrollbars, position 0.0 is at the top and 1.0 at the
+      bottom; for horizontal scrollbars, position 0.0 is at the
+      left end and 1.0 at the right.
+    </p><p>
+      To create a new <code class="code">Scrollbar</code> widget as the
+      child of a root window or frame <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Scrollbar(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Scrollbar</code>
+      widget.  Options for scrollbars include:
+    </p><div class="table"><a name="Scrollbar-options"></a><p class="title"><b>Table 31. <code class="code">Scrollbar</code> widget options</b></p><div class="table-contents"><table summary="Scrollbar widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              The color of the slider and arrowheads when the
+              mouse is over them.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activerelief</code>
+            </td><td align="left" valign="top">
+              By default, the slider is shown with the <code class="code">tk.RAISED</code> relief style.  To display the
+              slider with a different <a href="relief.html" title="5.6. Relief styles">relief style</a> when the mouse is over the
+              slider.
+            </td></tr><tr><td align="left">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              slider and arrowheads when the mouse is not over
+              them.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bd</code> or <code class="code">borderwidth</code>
+            </td><td align="left">
+              The width of the 3-d borders around the entire
+              perimeter of the trough, and also the width of the
+              3-d effects on the arrowheads and slider.  Default
+              is no border around the trough, and a two-pixel
+              border around the arrowheads and slider.  For
+              possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">command</code>
+            </td><td align="left">
+              A procedure to be called whenever the scrollbar is
+              moved.  For a discussion of the calling sequence,
+              see <a href="scrollbar-callback.html" title="22.1. The Scrollbar command callback">Section 22.1, “The <code class="code">Scrollbar <em class="replaceable"><code>command</code></em></code> callback”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that appears when the mouse is over the
+              scrollbar.  See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">elementborderwidth</code>
+            </td><td align="left">
+              The width of the borders around the arrowheads and
+              slider.  The default is <code class="code">elementborderwidth=-1</code>, which means to use
+              the value of the <code class="code">borderwidth</code> option.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the scrollbar does not have
+              focus.  See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the scrollbar has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              The thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a> highlight.  Default is
+              <code class="code">1</code>.  Set to <code class="code">0</code> to
+              suppress display of the focus highlight.
+            </td></tr><tr><td align="left">
+              <code class="code">jump</code>
+            </td><td align="left">
+              This option controls what happens when a user drags
+              the slider.  Normally (<code class="code">jump=0</code>),
+              every small drag of the slider causes the <code class="code">command</code> callback to be called.  If you set
+              this option to <code class="code">1</code>, the callback isn't
+              called until the user releases the mouse button.
+            </td></tr><tr><td align="left">
+              <code class="code">orient</code>
+            </td><td align="left">
+              Set <code class="code">orient=tk.HORIZONTAL</code> for a
+              horizontal scrollbar, <code class="code">orient=tk.VERTICAL</code> for a vertical one (the default orientation).
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left" valign="top">
+              Controls the <a href="relief.html" title="5.6. Relief styles">relief
+              style</a> of the widget; the default style is
+              <code class="code">tk.SUNKEN</code>.  This option has no effect
+              in Windows.
+            </td></tr><tr><td align="left">
+              <code class="code">repeatdelay</code>
+            </td><td align="left">
+              This option controls how long button 1 has to be
+              held down in the trough before the slider starts
+              moving in that direction repeatedly.  Default is
+              <code class="code">repeatdelay=300</code>, and the units are
+              milliseconds.
+            </td></tr><tr><td align="left">
+              <code class="code">repeatinterval</code>
+            </td><td align="left">
+              This option controls how often slider movement will
+              repeat when button 1 is held down in the trough.
+              Default is <code class="code">repeatinterval=100</code>, and
+              the units are milliseconds.
+            </td></tr><tr><td align="left">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Normally, you can tab the focus through a scrollbar
+              widget; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  Set <code class="code">takefocus=0</code> if you don't want this
+              behavior.  The default key bindings for scrollbars
+              allow the user to use the ← and →
+              arrow keys to move horizontal scrollbars, and they
+              can use the ↑ and ↓ keys to move
+              vertical scrollbars.
+            </td></tr><tr><td align="left">
+              <code class="code">troughcolor</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              trough.
+            </td></tr><tr><td align="left">
+              <code class="code">width</code>
+            </td><td align="left">
+              Width of the scrollbar (its y dimension if
+              horizontal, and its x dimension if vertical).
+              Default is 16.  For possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on scrollbar objects include:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.activate(element=None)</code>
+        </span></dt><dd><p>
+            If no argument is provided, this method returns one
+            of the strings <code class="code">'arrow1'</code>, <code class="code">'arrow2'</code>, <code class="code">'slider'</code>, or <code class="code">''</code>, depending on where the mouse is.  For
+            example, the method returns <code class="code">'slider'</code>
+            if the mouse is on the slider.  The empty string is
+            returned if the mouse is not currently on any of these
+            three controls.
+          </p><p>
+            To highlight one of the controls (using its <code class="code">activerelief</code> relief style and its <code class="code">activebackground</code> color), call this method
+            and pass a string identifying the control you want to
+            highlight, one of <code class="code">'arrow1'</code>, <code class="code">'arrow2'</code>, or <code class="code">'slider'</code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.delta(<em class="replaceable"><code>dx</code></em>, <em class="replaceable"><code>dy</code></em>)</code>
+        </span></dt><dd><p>
+            Given a mouse movement of <code class="code">(<em class="replaceable"><code>dx</code></em>, <em class="replaceable"><code>dy</code></em>)</code> in pixels, this method returns the <code class="code">float</code>
+            value that should be added to the current slider position
+            to achieve that same movement.  The value must be in the
+            closed interval [-1.0, 1.0].
+          </p></dd><dt><span class="term">
+          <code class="code">.fraction(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Given a pixel location <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code>, this method returns the corresponding
+            normalized slider position in the interval [0.0, 1.0]
+            that is closest to that location.
+          </p></dd><dt><span class="term">
+          <code class="code">.get()</code>
+        </span></dt><dd><p>
+            Returns two numbers (<code class="code"><em class="replaceable"><code>a</code></em></code>, <code class="code"><em class="replaceable"><code>b</code></em></code>) describing the
+            current position of the slider.  The <code class="code"><em class="replaceable"><code>a</code></em></code> value gives the
+            position of the left or top edge of the slider, for
+            horizontal and vertical scrollbars respectively; the
+            <code class="code"><em class="replaceable"><code>b</code></em></code> value
+            gives the position of the right or bottom edge.  Each
+            value is in the interval [0.0, 1.0] where 0.0 is the
+            leftmost or top position and 1.0 is the rightmost or
+            bottom position.  For example, if the slider extends
+            from halfway to three-quarters of the way along the
+            trough, you might get back the tuple (0.5,0.75).
+          </p></dd><dt><span class="term">
+          <code class="code">.identify(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            This method returns a string indicating which (if
+            any) of the components of the scrollbar are under the
+            given <code class="code">(<em class="replaceable"><code>x</code></em>,
+            <em class="replaceable"><code>y</code></em>)</code> coordinates.
+            The return value is one of <code class="code">'arrow1'</code>,
+            <code class="code">'trough1'</code>, <code class="code">'slider'</code>,
+            <code class="code">'trough2'</code>, <code class="code">'arrow2'</code>, or
+            the empty string <code class="code">''</code> if that location
+            is not on any of the scrollbar components.
+          </p></dd><dt><span class="term">
+          <code class="code">.set(<em class="replaceable"><code>first</code></em>,
+          <em class="replaceable"><code>last</code></em>)</code>
+        </span></dt><dd><p>
+            To connect a scrollbar to another widget <code class="code"><em class="replaceable"><code>w</code></em></code>, set
+            <code class="code"><em class="replaceable"><code>w</code></em></code>'s <code class="code">xscrollcommand</code> or <code class="code">yscrollcommand</code> to the scrollbar's <code class="code">.set</code> method.  The arguments have the same
+            meaning as the values returned by the <code class="code">.get()</code> method.  Please note that moving the
+            scrollbar's slider does <span class="emphasis"><em>not</em></span> move
+            the corresponding widget.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="scrollbar-callback.html">22.1. The <code class="code">Scrollbar <em class="replaceable"><code>command</code></em></code> callback</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="scale.html">21. The <code class="code">Scale</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/scrollbar.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/scrollbar.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:52 GMT -->
+</html>

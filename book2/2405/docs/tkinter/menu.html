@@ -1,0 +1,266 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>15. The Menu widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="listbox-scrolling.html" title="14.1. Scrolling a Listbox widget"><link rel="next" href="menu-coptions.html" title="15.1. Menu item creation (coption) options"></head><body><div class="topnavbar"><a href="menu-coptions.html">Next</a> / <a href="listbox-scrolling.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="menu"></a>15. The <code class="code">Menu</code> widget</h2></div></div></div><p>
+      “Drop-down” menus are a popular way to
+      present the user with a number of choices, yet take up
+      minimal space on the face of the application when the
+      user is not making a choice.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          A <em class="firstterm">menubutton</em> is the part that
+          always appears on the application.
+        </p></li><li><p>
+          A <em class="firstterm">menu</em> is the list of choices
+          that appears only after the user clicks on the
+          menubutton.
+        </p></li><li><p>
+          To select a choice, the user can drag the mouse from
+          the menubutton down onto one of the choices.
+          Alternatively, they can click and release the
+          menubutton: the choices will appear and stay until the
+          user clicks one of them.
+        </p></li><li><p>
+          The Unix version of <span class="application">Tkinter</span> (at least) supports
+          “tear-off menus.” If you as the designer
+          wish it, a dotted line will appear above the choices.
+          The user can click on this line to “tear
+          off” the menu: a new, separate, independent
+          window appears containing the choices.
+        </p></li></ul></div><p>
+      Refer to <a href="menubutton.html" title="16. The Menubutton widget">Section 16, “The <code class="code">Menubutton</code> widget”</a>, below, to see how to
+      create a menubutton and connect it to a menu widget.  First
+      let's look at the <code class="code">Menu</code> widget, which
+      displays the list of choices.
+    </p><p>
+      The choices displayed on a menu may be any of these things:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          A simple command: a text string (or image) that the
+          user can select to perform some operation.
+        </p></li><li><p>
+          A <em class="firstterm">cascade</em>: a text string or
+          image that the user can select to show another whole
+          menu of choices.
+        </p></li><li><p>
+          A checkbutton (see <a href="checkbutton.html" title="9. The Checkbutton widget">Section 9, “The <code class="code">Checkbutton</code> widget”</a>).
+        </p></li><li><p>
+          A group of radiobuttons (see <a href="radiobutton.html" title="20. The Radiobutton widget">Section 20, “The <code class="code">Radiobutton</code> widget”</a>).
+        </p></li></ul></div><p>
+      To create a menu widget, you must first have created a
+      <code class="code">Menubutton</code>, which we will call <code class="code">mb</code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Menu(mb, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      This constructor returns the new <code class="code">Menu</code>
+      widget.  Options include:
+    </p><div class="table"><a name="Menu-options"></a><p class="title"><b>Table 23. <code class="code">Menu</code> widget options</b></p><div class="table-contents"><table summary="Menu widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              The background color that will appear on a choice
+              when it is under the mouse.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activeborderwidth</code>
+            </td><td align="left">
+              Specifies the width of a border drawn around a
+              choice when it is under the mouse.  Default is 1
+              pixel.  For possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">activeforeground</code></td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              that will appear on a choice when it is under the
+              mouse.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bg</code> or
+              <code class="code">background</code></td><td align="left">
+              The background <a href="colors.html" title="5.3. Colors">color</a>
+              for choices not under the mouse.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or
+              <code class="code">borderwidth</code></td><td align="left">
+              The width of the border around all the choices; see
+              <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default is one
+              pixel.
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              The cursor that appears when the mouse is over the
+              choices, but only when the menu has been torn off.
+              See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the text
+              for items whose <code class="code">state</code> is <code class="code">tk.DISABLED</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">font</code></td><td align="left">
+              The default font for textual choices.  See <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">fg</code> or
+              <code class="code">foreground</code></td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              used for choices not under the mouse.
+            </td></tr><tr><td align="left" valign="top"><code class="code">postcommand</code></td><td align="left">
+              You can set this option to a procedure, and that
+              procedure will be called every time someone brings
+              up this menu.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              The default 3-D effect for menus is <code class="code">relief=tk.RAISED</code>.  For other options, see
+              <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectcolor</code></td><td align="left">
+              Specifies the <a href="colors.html" title="5.3. Colors">color</a>
+              displayed in <a href="checkbutton.html" title="9. The Checkbutton widget">checkbuttons</a> and <a href="radiobutton.html" title="20. The Radiobutton widget">radiobuttons</a> when they
+              are selected.
+            </td></tr><tr><td align="left" valign="top"><code class="code">tearoff</code></td><td align="left">
+              Normally, a menu can be torn off: the first
+              position (position 0) in the list of choices is
+              occupied by the tear-off element, and the
+              additional choices are added starting at position
+              1.  If you set <code class="code">tearoff=0</code>, the menu
+              will not have a tear-off feature, and choices will
+              be added starting at position 0.
+            </td></tr><tr><td align="left" valign="top"><code class="code">tearoffcommand</code></td><td align="left">
+              If you would like your program to be notified when
+              the user clicks on the tear-off entry in a menu,
+              set this option to your procedure.  It will be
+              called with two arguments: the window ID of the
+              parent window, and the window ID of the new
+              tear-off menu's root window.
+            </td></tr><tr><td align="left" valign="top"><code class="code">title</code></td><td align="left">
+              Normally, the title of a tear-off menu window will
+              be the same as the text of the menubutton or
+              cascade that lead to this menu.  If you want to
+              change the title of that window, set the <code class="code">title</code> option to that string.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These methods are available on <code class="code">Menu</code> objects.
+      The ones that create choices on the menu have their own
+      particular options; see <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options">Section 15.1, “<code class="code">Menu</code> item creation (<code class="code">coption</code>) options”</a>.
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.add(<em class="replaceable"><code>kind</code></em>, <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Add a new element of the given <code class="code"><em class="replaceable"><code>kind</code></em></code> as the next available
+            choice in this menu.  The <code class="code"><em class="replaceable"><code>kind</code></em></code> argument may be any of
+            <code class="code">'cascade'</code>, <code class="code">'checkbutton'</code>, <code class="code">'command'</code>, <code class="code">'radiobutton'</code>, or <code class="code">'separator'</code>.  Depending on the <code class="code"><em class="replaceable"><code>kind</code></em></code> argument, this method is
+            equivalent to <code class="code">.add_cascade()</code>, <code class="code">.add_checkbutton()</code>, and so on; refer to
+            those methods below for details.
+          </p></dd><dt><span class="term">
+          <code class="code">.add_cascade(<a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Add a new cascade element as the next available
+            choice in this menu.  Use the <code class="code">menu</code> <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options">option</a> in this call to
+            connect the cascade to the next level's menu, an
+            object of type <code class="code">Menu</code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.add_checkbutton(<a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Add a new checkbutton as the next available choice in
+            self.  The options allow you to set up the
+            checkbutton much the same way as you would set up a
+            <a href="checkbutton.html" title="9. The Checkbutton widget">Checkbutton</a>
+            object; see <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options">Section 15.1, “<code class="code">Menu</code> item creation (<code class="code">coption</code>) options”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.add_command(<a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Add a new command as the next available choice in
+            self.  Use the <code class="code">label</code>, <code class="code">bitmap</code>, or <code class="code">image</code> option to
+            place text or an image on the menu; use the <code class="code">command</code> option to connect this choice to a
+            procedure that will be called when this choice is
+            picked.
+          </p></dd><dt><span class="term">
+          <code class="code">.add_radiobutton(<a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Add a new radiobutton as the next available choice in
+            self. The options allow you to set up the radiobutton
+            in much the same way as you would set up a <code class="code">Radiobutton</code> object; see <a href="radiobutton.html" title="20. The Radiobutton widget">Section 20, “The <code class="code">Radiobutton</code> widget”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.add_separator()</code>
+        </span></dt><dd><p>
+            Add a separator after the last currently defined
+            option.  This is just a ruled horizontal line you can
+            use to set off groups of choices.  Separators are
+            counted as choices, so if you already have three
+            choices, and you add a separator, the separator will
+            occupy position 3 (counting from 0).
+          </p></dd><dt><span class="term">
+          <code class="code">.delete(<em class="replaceable"><code>index1</code></em>,
+          <em class="replaceable"><code>index2</code></em>=None)</code>
+        </span></dt><dd><p>
+            This method deletes the choices numbered from <code class="code"><em class="replaceable"><code>index1</code></em></code> through
+            <code class="code"><em class="replaceable"><code>index2</code></em></code>,
+            inclusive.  To delete one choice, omit the <code class="code"><em class="replaceable"><code>index2</code></em></code> argument.
+            You can't use this method to delete a tear-off
+            choice, but you can do that by setting the menu
+            object's <code class="code"></code>tearoff option to 0.
+          </p></dd><dt><span class="term">
+          <code class="code">.entrycget(<em class="replaceable"><code>index</code></em>,
+          <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>)</code>
+        </span></dt><dd><p>
+            To retrieve the current value of some <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options">coption</a> for a choice,
+            call this method with <code class="code"><em class="replaceable"><code>index</code></em></code> set to the
+            index of that choice and <code class="code"><em class="replaceable"><code>coption</code></em></code> set to
+            the name of the desired option.
+          </p></dd><dt><span class="term">
+          <code class="code">.entryconfigure(<em class="replaceable"><code>index</code></em>,
+          <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            To change the current value of some <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><code class="code"><em class="replaceable"><code>coption</code></em></code></a> for a choice,
+            call this method with <code class="code"><em class="replaceable"><code>index</code></em></code> set to the
+            index of that choice and one or more <code class="code"><em class="replaceable"><code>coption</code></em>=<em class="replaceable"><code>value</code></em></code> arguments.
+          </p></dd><dt><span class="term">
+          <code class="code">.index(<em class="replaceable"><code>i</code></em>)</code>
+        </span></dt><dd><p>
+            Returns the position of the choice specified by index
+            <code class="code"><em class="replaceable"><code>i</code></em></code>.  For
+            example, you can use <code class="code">.index(tk.END)</code> to
+            find the index of the last choice (or <code class="code">None</code> if there are no choices).
+          </p></dd><dt><span class="term">
+          <code class="code">.insert_cascade(<em class="replaceable"><code>index</code></em>, <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Inserts a new cascade at the position given by <code class="code"><em class="replaceable"><code>index</code></em></code>, counting
+            from 0.  Any choices after that position move down
+            one.  The options are the same as for <code class="code">.add_cascade()</code>, above.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert_checkbutton(<em class="replaceable"><code>index</code></em>, <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Insert a new checkbutton at the position specified by
+            <em class="replaceable"><code>index</code></em>.  Options are the
+            same as for <code class="code">.add_checkbutton()</code>, above.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert_command(<em class="replaceable"><code>index</code></em>, <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Insert a new command at position <code class="code"><em class="replaceable"><code>index</code></em></code>.  Options
+            are the same as for <code class="code">.add_command()</code>,
+            above.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert_radiobutton(<em class="replaceable"><code>index</code></em>, <a href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><em class="replaceable"><code>coption</code></em></a>, ...)</code>
+        </span></dt><dd><p>
+            Insert a new radiobutton at position <code class="code"><em class="replaceable"><code>index</code></em></code>.  Options
+            are the same as for <code class="code">.add_radiobutton()</code>, above.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert_separator(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Insert a new separator at the position specified by
+            <code class="code"><em class="replaceable"><code>index</code></em></code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.invoke(index)</code>
+        </span></dt><dd><p>
+            Calls the <code class="code">command</code> callback associated
+            with the choice at position <code class="code"><em class="replaceable"><code>index</code></em></code>.  If a
+            checkbutton, its state is toggled between set and
+            cleared; if a radiobutton, that choice is set.
+          </p></dd><dt><span class="term">
+          <code class="code">.post(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Display this menu at position <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> relative to the root window.
+          </p></dd><dt><span class="term">
+          <code class="code">.type(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Returns the type of the choice specified by
+            <code class="code"><em class="replaceable"><code>index</code></em></code>:
+            either <code class="code">tk.CASCADE</code>,
+            <code class="code">tk.CHECKBUTTON</code>,
+            <code class="code">tk.COMMAND</code>,
+            <code class="code">tk.RADIOBUTTON</code>,
+            <code class="code">tk.SEPARATOR</code>, or
+            <code class="code">tk.TEAROFF</code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.yposition(<em class="replaceable"><code>n</code></em>)</code>
+        </span></dt><dd><p>
+            For the <code class="code"><em class="replaceable"><code>n</code></em>th</code> menu choice, return the vertical offset in pixels
+            relative to the menu's top.  The purpose of this
+            method is to allow you to place a popup menu
+            precisely relative to the current mouse position.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="menu-coptions.html">15.1. <code class="code">Menu</code> item creation (<code class="code">coption</code>) options</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="listbox-scrolling.html">14.1. Scrolling a <code class="code">Listbox</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/menu.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menu.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+</html>

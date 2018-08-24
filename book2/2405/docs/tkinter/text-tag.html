@@ -1,0 +1,55 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-tag.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>24.5. Text widget tags</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="text.html" title="24. The Text widget"><link rel="prev" href="text-window.html" title="24.4. Text widget windows"><link rel="next" href="text-tabs.html" title="24.6. Setting tabs in a Text widget"></head><body><div class="topnavbar"><a href="text-tabs.html">Next</a> / <a href="text-window.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="text-tag"></a>24.5. <code class="code">Text</code> widget tags</h3></div></div></div><p>
+        There are lots of ways to change both the appearance and
+        functionality of the items in a text widget.  For text,
+        you can change the font, size, and color.  Also, you can
+        make text, widgets, or embedded images respond to
+        keyboard or mouse actions.
+      </p><p>
+        To control these appearance and functional features, you
+        associate each feature with a <em class="firstterm">tag</em>.
+        You can then associate a tag with any number of pieces of
+        text in the widget.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The name of a tag can be any string that does not
+            contain white space or periods.
+          </p></li><li><p>
+            There is one special predefined tag called <code class="code">SEL</code>.  This is the region currently selected,
+            if any.
+          </p></li><li><p>
+            Since any character may be part of more than one tag,
+            there is a <em class="firstterm">tag stack</em> that
+            orders all the tags.  Entries are added at the end of
+            the tag list, and later entries have priority over
+            earlier entries.
+          </p><p>
+            So, for example, if there is a character
+            <em class="replaceable"><code>c</code></em> that is part of two
+            tagged regions
+            <em class="replaceable"><code>t<sub>1</sub></code></em>
+            and
+            <em class="replaceable"><code>t<sub>2</sub></code></em>,
+            and
+            <em class="replaceable"><code>t<sub>1</sub></code></em>
+            is deeper in the tag stack than
+            <em class="replaceable"><code>t<sub>2</sub></code></em>,
+            and
+            <em class="replaceable"><code>t<sub>1</sub></code></em>
+            wants the text to be green and
+            <em class="replaceable"><code>t<sub>2</sub></code></em>
+            wants it to be blue, <em class="replaceable"><code>c</code></em>
+            will be rendered in blue because
+            <em class="replaceable"><code>t<sub>2</sub></code></em>
+            has precedence over
+            <em class="replaceable"><code>t<sub>1</sub></code></em>.
+          </p></li><li><p>
+            You can change the ordering of tags in the tag stack.
+          </p></li></ul></div><p>
+        Tags are created by using the <code class="code">.tag_add()</code>
+        method on the text widget.  See <a href="text-methods.html" title="24.8. Methods on Text widgets">Section 24.8, “Methods on <code class="code">Text</code> widgets”</a>, below, for information on this
+        and related methods.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="text-tabs.html">24.6. Setting tabs in a <code class="code">Text</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="text-window.html">24.4. <code class="code">Text</code> widget windows</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/text-tag.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-tag.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

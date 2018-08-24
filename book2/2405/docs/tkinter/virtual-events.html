@@ -1,0 +1,31 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/virtual-events.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>54.8. Virtual events</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="events.html" title="54. Events: responding to stimuli"><link rel="prev" href="extra-args.html" title="54.7. The extra arguments trick"><link rel="next" href="dialogs.html" title="55. Pop-up dialogs"></head><body><div class="topnavbar"><a href="dialogs.html">Next</a> / <a href="extra-args.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="virtual-events"></a>54.8. Virtual events</h3></div></div></div><p>
+        You can create your own new kinds of events called
+        <em class="firstterm">virtual events</em>.  You can give them
+        any name you want so long as it is enclosed in double
+        pairs of <code class="code">&lt;&lt;…&gt;&gt;</code>.
+      </p><p>
+        For example, suppose you want to create a new event
+        called <code class="code">&lt;&lt;panic&gt;&gt;</code>, that is
+        triggered either by mouse button 3 or by the
+        <span class="keysym">pause</span> key.  To create this event, call
+        this method on any widget <code class="code"><em class="replaceable"><code>w</code></em></code>:
+      </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em>.event_add('&lt;&lt;panic&gt;&gt;', '&lt;Button-3&gt;',
+                  '&lt;KeyPress-Pause&gt;')
+</pre><p>
+        You can then use <code class="code">'&lt;&lt;panic&gt;&gt;'</code>
+        in any event sequence.  For example, if you use this
+        call:
+      </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em>.bind('&lt;&lt;panic&gt;&gt;', <em class="replaceable"><code>h</code></em>)
+</pre><p>
+        any mouse button 3 or <span class="keysym">pause</span> keypress in
+        widget <code class="code"><em class="replaceable"><code>w</code></em></code> will trigger the handler <code class="code"><em class="replaceable"><code>h</code></em></code>.
+      </p><p>
+        See <a href="universal.html#event_add"><code class="code">.event_add()</code></a>, <a href="universal.html#event_delete"><code class="code">.event_delete()</code></a>, and <a href="universal.html#event_info"><code class="code">.event_info()</code></a>
+        under <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a> for more information
+        about creating and managing virtual events.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="dialogs.html">55. Pop-up dialogs</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="extra-args.html">54.7. The extra arguments trick</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/virtual-events.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/virtual-events.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

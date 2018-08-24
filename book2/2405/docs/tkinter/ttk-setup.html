@@ -1,0 +1,46 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-setup.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>28.1. Importing ttk</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="ttk.html" title="28. ttk: Themed widgets"><link rel="prev" href="ttk.html" title="28. ttk: Themed widgets"><link rel="next" href="ttk-widget-set.html" title="28.2. The ttk widget set"></head><body><div class="topnavbar"><a href="ttk-widget-set.html">Next</a> / <a href="ttk.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ttk-setup"></a>28.1. Importing <span class="application">ttk</span></h3></div></div></div><p>
+        There are different ways to import the <span class="application">ttk</span> module.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            If you prefer that all the widgets and other features
+            of <span class="application">Tkinter</span> and <span class="application">ttk</span> be in your global namespace,
+            use this form of import:
+          </p><pre class="programlisting">from Tkinter import *
+from ttk import *
+</pre><p>
+            It is important to do these two imports in this order,
+            so that all the widget types from <span class="application">ttk</span> replace the
+            equivalent widgets from <span class="application">Tkinter</span>.  For example, all your
+            <code class="code">Button</code> widgets will come from <span class="application">ttk</span>
+            and not <span class="application">Tkinter</span>.            
+          </p></li><li><p>
+            In more complex applications, where you are using
+            more than one imported module, it can greatly improve
+            the readability of your code if you practice
+            <em class="firstterm">safe namespace hygiene</em>:
+            import all your modules using the “<code class="code">import <em class="replaceable"><code>modulename</code></em></code>” syntax.  This requires just a bit more
+            typing, but it has the great advantage that you can
+            look at a reference to something and tell where it
+            came from.
+          </p><p>
+            We recommend this form of import:
+          </p><pre class="programlisting">import ttk
+</pre><p>
+            So after this import, <code class="code">ttk.Label</code> is the
+            <code class="code">Label</code> widget constructor, <code class="code">ttk.Button</code> is a <code class="code">Button</code>, and so
+            on.
+          </p><p>
+            If you need to refer to items from the <span class="application">Tkinter</span> module, it
+            is available as <code class="code">ttk.Tkinter</code>.  For example,
+            the anchor code for “northeast” is <code class="code">ttk.Tkinter.NE</code>.
+          </p><p>
+            You may instead import <span class="application">Tkinter</span> separately in this way:
+          </p><pre class="programlisting">import Tkinter as tk
+</pre><p>
+            After this form of import, the code for
+            “northeast” is <code class="code">tk.NE</code>.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-widget-set.html">28.2. The <span class="application">ttk</span> widget set</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk.html">28. <span class="application">ttk</span>: Themed widgets</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-setup.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-setup.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

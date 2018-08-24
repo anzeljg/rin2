@@ -1,0 +1,114 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_oval.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.11. Canvas oval objects</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="create_line.html" title="8.10. Canvas line objects"><link rel="next" href="create_polygon.html" title="8.12. Canvas polygon objects"></head><body><div class="topnavbar"><a href="create_polygon.html">Next</a> / <a href="create_line.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="create_oval"></a>8.11. <code class="code">Canvas</code> oval objects</h3></div></div></div><p>
+        Ovals, mathematically, are ellipses, including circles as
+        a special case.  The ellipse is fit into a rectangle
+        defined by the coordinates (<code class="code"><em class="replaceable"><code>x0</code></em></code>, <code class="code"><em class="replaceable"><code>y0</code></em></code>) of the top left corner and
+        the coordinates (<code class="code"><em class="replaceable"><code>x1</code></em></code>, <code class="code"><em class="replaceable"><code>y1</code></em></code>) of a point just <span class="emphasis"><em>outside of</em></span> the
+        bottom right corner.
+      </p><div class="informalfigure"><div class="mediaobject"><img src="img/ellip_geom.png"></div></div><p>
+        The oval will coincide with the top and left-hand lines
+        of this box, but will fit just inside the bottom and
+        right-hand sides.
+      </p><p>
+        To create an ellipse on a canvas <code class="code"><em class="replaceable"><code>C</code></em></code>, use:
+      </p><pre class="programlisting">    <em class="replaceable"><code>id</code></em> = <em class="replaceable"><code>C</code></em>.create_oval(<em class="replaceable"><code>x0</code></em>, <em class="replaceable"><code>y0</code></em>, <em class="replaceable"><code>x1</code></em>, <em class="replaceable"><code>y1</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+        which returns the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object
+        ID</a> of the new oval object on canvas <code class="code"><em class="replaceable"><code>C</code></em></code>.
+      </p><p>
+        Options for ovals:
+      </p><div class="table"><a name="Canvas-oval-options"></a><p class="title"><b>Table 11. <code class="code">Canvas oval</code> options</b></p><div class="table-contents"><table summary="Canvas oval options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">activedash</code>
+              </td><td rowspan="6" align="left" valign="top">
+                These options specify the dash pattern, fill
+                color, outline color, outline stipple pattern,
+                interior stipple pattern, and outline width
+                values to be used when the oval is in the <code class="code">tk.ACTIVE</code> state, that is, when the mouse is
+                over the oval.  For option values, see <code class="code">dash</code>, <code class="code">fill</code>, <code class="code">outline</code>, <code class="code">outlinestipple</code>,
+                <code class="code">stipple</code>, and <code class="code">width</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activefill</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activeoutline</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activeoutlinestipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activestipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activewidth</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">dash</code>
+              </td><td align="left" valign="top">
+                To produce a dashed border around the oval, set
+                this option to a dash pattern; see <a href="dash-patterns.html" title="5.13. Dash patterns">Section 5.13, “Dash patterns”</a>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">dashoffset</code>
+              </td><td align="left" valign="top">
+                When using the <code class="code">dash</code> option, the
+                <code class="code">dashoffset</code> option is used to
+                change the alignment of the border's dash pattern
+                relative to the oval.  See <a href="stipple-offset.html" title="5.14. Matching stipple patterns">Section 5.14, “Matching stipple patterns”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disableddash</code>
+              </td><td rowspan="6" align="left" valign="top">
+                These options specify the appearance of the oval
+                when the item's <code class="code">state</code> is <code class="code">tk.DISABLED</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledfill</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledoutline</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledoutlinestipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledstipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledwidth</code>
+              </td></tr><tr><td align="left" valign="top"><code class="code">fill</code></td><td align="left">
+                The default appearance of an oval's interior is
+                transparent, and a value of <code class="code">fill=''</code> will select this behavior.  You can also set
+                this option to any color and the interior of the
+                ellipse will be filled with that color; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">offset</code>
+              </td><td align="left" valign="top">
+                Stipple pattern offset of the interior.  See
+                <a href="stipple-offset.html" title="5.14. Matching stipple patterns">Section 5.14, “Matching stipple patterns”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">outline</code></td><td align="left">
+                The color of the border around the outside of the
+                ellipse. Default is <code class="code">outline='black'</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">outlineoffset</code>
+              </td><td align="left" valign="top">
+                Stipple pattern offset of the border.  See <a href="stipple-offset.html" title="5.14. Matching stipple patterns">Section 5.14, “Matching stipple patterns”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">stipple</code></td><td align="left">
+                A bitmap indicating how the interior of the
+                ellipse will be stippled.  Default is <code class="code">stipple=''</code>, which means a solid color.
+                A typical value would be <code class="code">stipple='gray25'</code>.  Has no effect unless
+                the <code class="code">fill</code> has been set to some
+                color.  See <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">outlinestipple</code>
+              </td><td align="left" valign="top">
+                Stipple pattern to be used for the border.  For
+                option values, see <code class="code">stipple</code> below.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">state</code>
+              </td><td align="left" valign="top">
+                By default, oval items are created in state <code class="code">tk.NORMAL</code>.  Set this option to <code class="code">tk.DISABLED</code> to make the oval unresponsive
+                to mouse actions.  Set it to <code class="code">tk.HIDDEN</code> to make the item invisible.
+              </td></tr><tr><td align="left" valign="top"><code class="code">tags</code></td><td align="left">
+                If a single string, the oval is tagged with that
+                string.  Use a tuple of strings to tag the oval
+                with multiple tags.  See <a href="canvas-tags.html" title="8.4. Canvas tags">Section 8.4, “<code class="code">Canvas</code> tags”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+                Width of the border around the outside of the
+                ellipse.  Default is 1 pixel; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a> for possible values. If
+                you set this to zero, the border will not
+                appear. If you set this to zero and make the fill
+                transparent, you can make the entire oval
+                disappear.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="create_polygon.html">8.12. <code class="code">Canvas</code> polygon objects</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="create_line.html">8.10. <code class="code">Canvas</code> line objects</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/create_oval.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_oval.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:44 GMT -->
+</html>

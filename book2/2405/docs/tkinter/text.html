@@ -1,0 +1,256 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>24. The Text widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="spinbox.html" title="23. The Spinbox widget"><link rel="next" href="text-index.html" title="24.1. Text widget indices"></head><body><div class="topnavbar"><a href="text-index.html">Next</a> / <a href="spinbox.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="text"></a>24. The <code class="code">Text</code> widget</h2></div></div></div><p>
+      Text widgets are a much more generalized method for
+      handling multiple lines of text than the <code class="code">Label</code> widget.  Text widgets are pretty much a complete text
+      editor in a window:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          You can mix text with different fonts, colors, and
+          backgrounds.
+        </p></li><li><p>
+          You can intersperse embedded images with text.  An
+          image is treated as a single character.  See <a href="text-image.html" title="24.3. Text widget images">Section 24.3, “<code class="code">Text</code> widget images”</a>.
+        </p></li><li><p>
+          An <em class="firstterm">index</em> is a way of describing
+          a specific position between two characters of a text
+          widget.  See <a href="text-index.html" title="24.1. Text widget indices">Section 24.1, “<code class="code">Text</code> widget indices”</a>.
+        </p></li><li><p>
+          A text widget may contain invisible
+          <em class="firstterm">mark</em> objects between character
+          positions.  See <a href="text-mark.html" title="24.2. Text widget marks">Section 24.2, “<code class="code">Text</code> widget marks”</a>.
+        </p></li><li><p>
+          Text widgets allow you to define names for regions of
+          the text called <em class="firstterm">tags</em>.  You can
+          change the appearance of a tagged region, changing its
+          font, foreground and background colors, and other
+          option.  See <a href="text-tag.html" title="24.5. Text widget tags">Section 24.5, “<code class="code">Text</code> widget tags”</a>.
+        </p></li><li><p>
+          You can bind events to a tagged region.  See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a>.
+        </p></li><li><p>
+          You can even embed a text widget in a
+          “window” containing any <span class="application">Tkinter</span>
+          widget—even a frame widget containing other
+          widgets.  A window is also treated as a single
+          character.  See <a href="text-window.html" title="24.4. Text widget windows">Section 24.4, “<code class="code">Text</code> widget windows”</a>.
+        </p></li></ul></div><p>
+      To create a text widget as the child of a root window or
+      frame named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Text(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Text</code> widget.
+      Options include:
+    </p><div class="table"><a name="Text-options"></a><p class="title"><b>Table 33. <code class="code">Text</code> widget options</b></p><div class="table-contents"><table summary="Text widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left"><code class="code">autoseparators</code></td><td align="left">
+              If the <code class="code">undo</code> option is set, the <code class="code">autoseparators</code> option controls whether
+              separators are automatically added to the undo
+              stack after each insertion or deletion (if <code class="code">autoseparators=True</code>) or not (if <code class="code">autoseparators=False</code>).  For an overview of
+              the undo mechanism, see <a href="text-undo-stack.html" title="24.7. The Text widget undo/redo
+      stack">Section 24.7, “The <code class="code">Text</code> widget undo/redo
+      stack”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              The default background color of the text widget.
+              See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or
+                <code class="code">borderwidth</code></td><td align="left">
+              The width of the border around the text widget;
+              see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The
+              default is two pixels.
+            </td></tr><tr><td align="left">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over
+              the text widget.  See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">exportselection</code>
+            </td><td align="left">
+              Normally, text selected within a text widget is
+              exported to be the selection in the window manager.
+              Set <code class="code">exportselection=0</code> if you don't
+              want that behavior.
+            </td></tr><tr><td align="left">
+              <code class="code">font</code>
+            </td><td align="left">
+              The default font for text inserted into the widget.
+              Note that you can have multiple fonts in the
+              widgets by using tags to change the properties of
+              some text.  See <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">fg</code> or <code class="code">foreground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> used for
+              text (and bitmaps) within the widget.  You can
+              change the color for tagged regions; this option is
+              just the default.
+            </td></tr><tr><td align="left">
+              <code class="code">height</code>
+            </td><td align="left">
+              The height of the widget in
+              <span class="emphasis"><em>lines</em></span> (not pixels!), measured
+              according to the current <code class="code">font</code> size.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the text widget does not have
+              focus.  See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the text widget has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              The thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a> highlight.  Default is
+              <code class="code">1</code>.  Set <code class="code">highlightthickness=0</code> to suppress display
+              of the focus highlight.
+            </td></tr><tr><td align="left">
+              <code class="code">insertbackground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              insertion cursor.  Default is black.
+            </td></tr><tr><td align="left">
+              <code class="code">insertborderwidth</code>
+            </td><td align="left">
+              Size of the 3-D border around the insertion cursor.
+              Default is <code class="code">0</code>.
+            </td></tr><tr><td align="left">
+              <code class="code">insertofftime</code>
+            </td><td align="left">
+              The number of milliseconds the insertion cursor is
+              off during its blink cycle.  Set this option to
+              zero to suppress blinking.  Default is 300.
+            </td></tr><tr><td align="left">
+              <code class="code">insertontime</code>
+            </td><td align="left">
+              The number of milliseconds the insertion cursor is
+              on during its blink cycle.  Default is 600.
+            </td></tr><tr><td align="left">
+              <code class="code">insertwidth</code>
+            </td><td align="left">
+              Width of the insertion cursor (its height is
+              determined by the tallest item in its line).
+              Default is 2 pixels.
+            </td></tr><tr><td align="left"><code class="code">maxundo</code></td><td align="left">
+              This option sets the maximum number of operations
+              retained on the undo stack.  For an overview of the
+              undo mechanism, see <a href="text-undo-stack.html" title="24.7. The Text widget undo/redo
+      stack">Section 24.7, “The <code class="code">Text</code> widget undo/redo
+      stack”</a>.  Set this option to -1 to specify an unlimited
+              number of entries in the undo stack.
+            </td></tr><tr><td align="left">
+              <code class="code">padx</code>
+            </td><td align="left">
+              The size of the internal padding added to the left
+              and right of the text area.  Default is one pixel.
+              For possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">pady</code>
+            </td><td align="left">
+              The size of the internal padding added above and
+              below the text area.  Default is one pixel.
+            </td></tr><tr><td align="left">
+              <code class="code">relief</code>
+            </td><td align="left">
+              The 3-D appearance of the text widget.  Default is
+              <code class="code">relief=tk.SUNKEN</code>; for other values, see
+              <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">selectbackground</code>
+            </td><td align="left">
+              The background <a href="colors.html" title="5.3. Colors">color</a>
+              to use displaying selected text.
+            </td></tr><tr><td align="left">
+              <code class="code">selectborderwidth</code>
+            </td><td align="left">
+              The width of the border to use around selected
+              text.
+            </td></tr><tr><td align="left">
+              <code class="code">selectforeground</code>
+            </td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              to use displaying selected text.
+            </td></tr><tr><td align="left">
+              <code class="code">spacing1</code>
+            </td><td align="left">
+              This option specifies how much extra vertical space
+              is put above each line of text.  If a line wraps,
+              this space is added only before the first line it
+              occupies on the display.  Default is <code class="code">0</code>.
+            </td></tr><tr><td align="left">
+              <code class="code">spacing2</code>
+            </td><td align="left">
+              This option specifies how much extra vertical space
+              to add between displayed lines of text when a
+              logical line wraps.  Default is <code class="code">0</code>.
+            </td></tr><tr><td align="left">
+              <code class="code">spacing3</code>
+            </td><td align="left">
+              This option specifies how much extra vertical space
+              is added below each line of text.  If a line wraps,
+              this space is added only after the last line it
+              occupies on the display.  Default is <code class="code">0</code>.
+            </td></tr><tr><td align="left">
+              <code class="code">state</code>
+            </td><td align="left">
+              Normally, text widgets respond to keyboard and
+              mouse events; set <code class="code">state=tk.NORMAL</code> to
+              get this behavior.  If you set <code class="code">state=tk.DISABLED</code>, the text widget will not
+              respond, and you won't be able to modify its
+              contents programmatically either.
+            </td></tr><tr><td align="left">
+              <code class="code">tabs</code>
+            </td><td align="left">
+              This option controls how tab characters position
+              text.  See <a href="text-tabs.html" title="24.6. Setting tabs in a Text widget">Section 24.6, “Setting tabs in a <code class="code">Text</code> widget”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Normally, focus will visit a text widget (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>).  Set <code class="code">takefocus=0</code>
+              if you do not want focus in the widget.
+            </td></tr><tr><td align="left"><code class="code">undo</code></td><td align="left">
+              Set this option to <code class="code">True</code> to enable
+              the undo mechanism, or <code class="code">False</code> to
+              disable it.  See <a href="text-undo-stack.html" title="24.7. The Text widget undo/redo
+      stack">Section 24.7, “The <code class="code">Text</code> widget undo/redo
+      stack”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">width</code>
+            </td><td align="left">
+              The width of the widget in
+              <span class="emphasis"><em>characters</em></span> (not pixels!),
+              measured according to the current font size.
+            </td></tr><tr><td align="left">
+              <code class="code">wrap</code>
+            </td><td align="left">
+              This option controls the display of lines that are
+              too wide.
+                <div class="itemizedlist"><ul type="disc"><li><p>
+                    With the default behavior, <code class="code">wrap=tk.CHAR</code>, any line that gets too
+                    long will be broken at any character.
+                  </p></li><li><p>
+                    Set <code class="code">wrap=tk.WORD</code> and it will
+                    break the line after the last word that will
+                    fit.
+                  </p></li><li><p>
+                    If you want to be able to create lines that are
+                    too long to fit in the window, set <code class="code">wrap=tk.NONE</code> and provide a horizontal
+                    scrollbar.
+                  </p></li></ul></div>
+            </td></tr><tr><td align="left">
+              <code class="code">xscrollcommand</code>
+            </td><td align="left">
+              To make the text widget horizontally scrollable,
+              set this option to the <code class="code">.set</code> method
+              of the horizontal scrollbar.
+            </td></tr><tr><td align="left">
+              <code class="code">yscrollcommand</code>
+            </td><td align="left">
+              To make the text widget vertically scrollable, set
+              this option to the <code class="code">.set</code> method of
+              the vertical scrollbar.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="text-index.html">24.1. <code class="code">Text</code> widget indices</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="spinbox.html">23. The <code class="code">Spinbox</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/text.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

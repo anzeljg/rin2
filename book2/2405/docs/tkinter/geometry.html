@@ -1,0 +1,38 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/geometry.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.10. Geometry strings</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="std-attrs.html" title="5. Standard attributes"><link rel="prev" href="images.html" title="5.9. Images"><link rel="next" href="window-names.html" title="5.11. Window names"></head><body><div class="topnavbar"><a href="window-names.html">Next</a> / <a href="images.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="geometry"></a>5.10. Geometry strings</h3></div></div></div><p>
+        A <em class="firstterm">geometry string</em> is a standard
+        way of describing the size and location of a top-level
+        window on a desktop.
+      </p><p>
+      A geometry string has this general form:
+      </p><pre class="programlisting">    '<em class="replaceable"><code>w</code></em>x<em class="replaceable"><code>h</code></em>±<em class="replaceable"><code>x</code></em>±<em class="replaceable"><code>y</code></em>'
+</pre><p>
+        where:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The
+            <code class="code"><em class="replaceable"><code>w</code></em></code>
+            and <code class="code"><em class="replaceable"><code>h</code></em></code> parts
+            give the window width and height in pixels.  They are
+            separated by the character <code class="code">'x'</code>.
+          </p></li><li><p>
+            If the next part has the form <code class="code">+<em class="replaceable"><code>x</code></em></code>, it specifies
+            that the left side of the window should be <code class="code"><em class="replaceable"><code>x</code></em></code> pixels from the
+            left side of the desktop.  If it has the form <code class="code">-<em class="replaceable"><code>x</code></em></code>, the right
+            side of the window is <code class="code"><em class="replaceable"><code>x</code></em></code> pixels from the
+            right side of the desktop.
+          </p></li><li><p>
+            If the next part has the form <code class="code">+<em class="replaceable"><code>y</code></em></code>, it specifies
+            that the top of the window should be <code class="code"><em class="replaceable"><code>y</code></em></code> pixels below
+            the top of the desktop.  If it has the form <code class="code">-<em class="replaceable"><code>y</code></em></code>, the bottom of
+            the window will be <code class="code"><em class="replaceable"><code>y</code></em></code> pixels above
+            the bottom edge of the desktop.
+          </p></li></ul></div><p>
+        For example, a window created with <code class="code">geometry='120x50-0+20'</code> would be 120 pixels wide
+        by 50 pixels high, and its top right corner will be along
+        the right edge of the desktop and 20 pixels below the top
+        edge.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="window-names.html">5.11. Window names</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="images.html">5.9. Images</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/geometry.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/geometry.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:37 GMT -->
+</html>

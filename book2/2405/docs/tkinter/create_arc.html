@@ -1,0 +1,136 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_arc.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.7. Canvas arc objects</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="canvas-methods.html" title="8.6. Methods on Canvas widgets"><link rel="next" href="create_bitmap.html" title="8.8. Canvas bitmap objects"></head><body><div class="topnavbar"><a href="create_bitmap.html">Next</a> / <a href="canvas-methods.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="create_arc"></a>8.7. <code class="code">Canvas</code> arc objects</h3></div></div></div><p>
+        An <em class="firstterm">arc object</em> on a canvas, in its
+        most general form, is a wedge-shaped slice taken out of
+        an ellipse.  This includes whole ellipses and circles as
+        special cases.  See <a href="create_oval.html" title="8.11. Canvas oval objects">Section 8.11, “<code class="code">Canvas</code> oval objects”</a>
+        for more on the geometry of the ellipse drawn.
+      </p><p>
+        To create an arc object on a canvas <code class="code"><em class="replaceable"><code>C</code></em></code>, use:
+      </p><pre class="programlisting">    <em class="replaceable"><code>id</code></em> = C.create_arc(<em class="replaceable"><code>x0</code></em>, <em class="replaceable"><code>y0</code></em>, <em class="replaceable"><code>x1</code></em>, <em class="replaceable"><code>y1</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+        The constructor returns the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID</a> of the new arc
+        object on canvas <code class="code"><em class="replaceable"><code>C</code></em></code>.
+      </p><p>
+        Point (<code class="code"><em class="replaceable"><code>x0</code></em></code>,
+        <code class="code"><em class="replaceable"><code>y0</code></em></code>) is the top
+        left corner and (<code class="code"><em class="replaceable"><code>x1</code></em></code>, <code class="code"><em class="replaceable"><code>y1</code></em></code>) the lower right
+        corner of a rectangle into which the ellipse is fit.  If
+        this rectangle is square, you get a circle.
+      </p><p>
+        The various options include:
+      </p><div class="table"><a name="Canvas-arc-options"></a><p class="title"><b>Table 7. <code class="code">Canvas arc</code> options</b></p><div class="table-contents"><table summary="Canvas arc options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">activedash</code>
+              </td><td rowspan="6" align="left" valign="top">
+                These options apply when the arc is in the <code class="code">tk.ACTIVE</code> state, that is, when the mouse is
+                over the arc.  For example, the <code class="code">activefill</code> option specifies the interior
+                color when the arc is active.  For option values,
+                see <code class="code">dash</code>, <code class="code">fill</code>,
+                <code class="code">outline</code>, <code class="code">outlinestipple</code>, <code class="code">stipple</code>,
+                and <code class="code">width</code>, respectively.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activefill</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activeoutline</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activeoutlinestipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activestipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activewidth</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">dash</code>
+              </td><td align="left" valign="top">
+                Dash pattern for the outline.  See <a href="dash-patterns.html" title="5.13. Dash patterns">Section 5.13, “Dash patterns”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">dashoffset</code>
+              </td><td align="left" valign="top">
+                Dash pattern offset for the outline.  See <a href="dash-patterns.html" title="5.13. Dash patterns">Section 5.13, “Dash patterns”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disableddash</code>
+              </td><td rowspan="6" align="left" valign="top">
+                These options apply when the arc's <code class="code">state</code> is <code class="code">tk.DISABLED</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledfill</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledoutline</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledoutlinestipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledstipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledwidth</code>
+              </td></tr><tr><td align="left" valign="top"><code class="code">extent</code></td><td align="left">
+                Width of the slice in degrees.  The slice starts
+                at the angle given by the <code class="code"><em class="replaceable"><code>start</code></em></code> option
+                and extends counterclockwise for <code class="code"><em class="replaceable"><code>extent</code></em></code>
+                degrees.
+              </td></tr><tr><td align="left" valign="top"><code class="code">fill</code></td><td align="left">
+                By default, the interior of an arc is
+                transparent, and <code class="code">fill=''</code> will
+                select this behavior.  You can also set this
+                option to any <a href="colors.html" title="5.3. Colors">color</a>
+                and the interior of the arc will be filled with
+                that color.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">offset</code>
+              </td><td align="left" valign="top">
+                Stipple pattern offset for the interior of the
+                arc.  See <a href="stipple-offset.html" title="5.14. Matching stipple patterns">Section 5.14, “Matching stipple patterns”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">outline</code></td><td align="left">
+                The color of the border around the outside of the
+                slice.  Default is black.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">outlineoffset</code>
+              </td><td align="left" valign="top">
+                Stipple pattern offset for the outline.  See
+                <a href="stipple-offset.html" title="5.14. Matching stipple patterns">Section 5.14, “Matching stipple patterns”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">outlinestipple</code></td><td align="left">
+                If the <code class="code">outline</code> option is used,
+                this option specifies a bitmap used to stipple
+                the border.  Default is black, and that default
+                can be specified by setting <code class="code">outlinestipple=''</code>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">start</code></td><td align="left">
+                Starting angle for the slice, in degrees,
+                measured from +x direction.  If omitted, you get
+                the entire ellipse.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">state</code>
+              </td><td align="left" valign="top">
+                This option is <code class="code">tk.NORMAL</code> by default.
+                It may be set to <code class="code">tk.HIDDEN</code> to make
+                the arc invisible or to <code class="code">tk.DISABLED</code>
+                to gray out the arc and make it unresponsive to
+                events.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">stipple</code>
+              </td><td align="left">
+                A bitmap indicating how the interior fill of the
+                arc will be stippled.  Default is <code class="code">stipple=''</code> (solid).  You'll probably
+                want something like <code class="code">stipple='gray25'</code>.  Has no effect unless <code class="code"><em class="replaceable"><code>fill</code></em></code> has been
+                set to some color.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">style</code>
+              </td><td align="left">
+                The default is to draw the whole arc; use <code class="code">style=tk.PIESLICE</code> for this style.  To draw
+                only the circular arc at the edge of the slice,
+                use <code class="code">style=tk.ARC</code>.  To draw the
+                circular arc and the chord (a straight line
+                connecting the endpoints of the arc), use <code class="code">style=tk.CHORD</code>.
+                <p>
+                  <span class="inlinemediaobject"><img src="img/chord.png"></span>
+                </p>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">tags</code>
+              </td><td align="left" valign="top">
+                If a single string, the arc is tagged with that
+                string.  Use a tuple of strings to tag the arc
+                with multiple tags.  See <a href="canvas-tags.html" title="8.4. Canvas tags">Section 8.4, “<code class="code">Canvas</code> tags”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+                Width of the border around the outside of the
+                arc.  Default is 1 pixel.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="create_bitmap.html">8.8. <code class="code">Canvas</code> bitmap objects</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="canvas-methods.html">8.6. Methods on <code class="code">Canvas</code> widgets</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/create_arc.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_arc.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:42 GMT -->
+</html>

@@ -1,0 +1,191 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Scale.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>41. ttk.Scale</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Radiobutton.html" title="40. ttk.Radiobutton"><link rel="next" href="ttk-Scrollbar.html" title="42. ttk.Scrollbar"></head><body><div class="topnavbar"><a href="ttk-Scrollbar.html">Next</a> / <a href="ttk-Radiobutton.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Scale"></a>41. <span class="application">ttk</span><code class="code">.Scale</code></h2></div></div></div><p>
+      This is the <span class="application">ttk</span> version of <a href="scale.html" title="21. The Scale widget">Section 21, “The <code class="code">Scale</code> widget”</a>.  To
+      create a <span class="application">ttk</span><code class="code">.Scale</code> widget as the child of a
+      given <code class="code"><em class="replaceable"><code>parent</code></em></code> widget,
+      where the <code class="code"><em class="replaceable"><code>option</code></em></code>
+      values are given in <a href="ttk-Scale.html#ttk-Scale-options" title="Table 57. ttk.Scale options">Table 57, “<span class="application">ttk</span><code class="code">.Scale</code> options”</a>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Scale(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><div class="table"><a name="ttk-Scale-options"></a><p class="title"><b>Table 57. <span class="application">ttk</span><code class="code">.Scale</code> options</b></p><div class="table-contents"><table summary="ttk.Scale options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">command</code>
+            </td><td align="left">
+              A function to be called whenever the state of this
+              widget changes.  This function will receive one
+              argument, the new value shown on the widget, as a <code class="code">float</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over the
+              scale; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">from_</code>
+            </td><td align="left">
+              Use this option in combination with the <code class="code">to</code> option (described below) to constrain the values to a
+              numeric range.  For example, <code class="code">from_=-10</code>
+              and <code class="code">to=10</code> would allow only values between
+              −10 and 20 inclusive.  See also the <code class="code">increment</code> option below.
+            </td></tr><tr><td align="left">
+              <code class="code">length</code>
+            </td><td align="left">
+              The length of the scale widget.  This is the <em class="phrase">x</em> dimension if the scale is
+              horizontal, or the <em class="phrase">y</em>
+              dimension if vertical.  The default is 100 pixels.  For
+              allowable values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">orient</code>
+            </td><td align="left">
+              Set <code class="code">orient=tk.HORIZONTAL</code> if you want the
+              scale to run along the <em class="phrase">x</em>
+              dimension, or <code class="code">orient=tk.VERTICAL</code> to run
+              parallel to the <em class="phrase">y</em>-axis.
+              Default is vertical.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this radiobutton; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.Scale</code> widget will
+              be included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To remove the widget from focus
+              traversal, use <code class="code">takefocus=False</code>.
+            </td></tr><tr><td align="left">
+              <code class="code">to</code>
+            </td><td align="left">
+              A <code class="code">float</code> value that defines one end of the
+              scale's range; the other end is defined by the <code class="code">from_</code> option, discussed above.  The <code class="code">to</code> value can be either greater than or less
+              than the <code class="code">from_</code> value.  For vertical
+              scales, the <code class="code">to</code> value defines the bottom
+              of the scale; for horizontal scales, the right end.  The
+              default value is 100.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">value</code>
+            </td><td align="left">
+              Use this option to set the initial value of the
+              widget's <code class="code">variable</code>; the default is
+              0.0.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">variable</code>
+            </td><td align="left">
+              Use this option to associate a <a href="control-variables.html" title="52. Control variables: the values behind the widgets">control variable</a>
+              with the widget.  Typically this will be a <code class="code">tk.DoubleVar</code> instance, which holds a value of
+              type <code class="code">float</code>.  You may instead use a <code class="code">tk.IntVar</code> instance, but values stored in it
+              will be truncated as type <code class="code">int</code>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These options of the <span class="application">Tkinter</span> <code class="code">Scale</code> widget are
+      <span class="emphasis"><em>not</em></span> supported by the <span class="application">ttk</span><code class="code">.Scale</code> widget constructor:
+    </p><div class="table"><a name="tkk-Scale-missing"></a><p class="title"><b>Table 58. <span class="application">Tkinter</span> <code class="code">Scale</code> options not in <span class="application">ttk</span><code class="code">.Scale</code></b></p><div class="table-contents"><table summary="Tkinter Scale options not in ttk.Scale" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">background</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">background</code> or <code class="code">bg</code>
+            </td><td align="left">
+              Configure the <code class="code">background</code> option using a
+              style; this option controls the color of the slider.
+              The <code class="code">bg</code> abbreviation is not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code> or <code class="code">bd</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">digits</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">foreground</code> or <code class="code">fg</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">label</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatdelay</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatinterval</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">resolution</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">showvalue</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sliderlength</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sliderrelief</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">state</code>
+            </td><td align="left">
+              In <span class="application">ttk</span>, there is no option with this name.
+              The state mechanism has been generalized; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">tickinterval</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">troughcolor</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              Configure this option using the <code class="code">sliderthickness</code> option in a style.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on a <span class="application">ttk</span><code class="code">.Scale</code> include all those
+      described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>, plus:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.get()</code>
+        </span></dt><dd><p>
+            Returns the current value shown on the widget.
+          </p></dd><dt><span class="term">
+          <code class="code">.set(<em class="replaceable"><code>newValue</code></em>)</code>
+        </span></dt><dd><p>
+            Change the widget's current value to <code class="code"><em class="replaceable"><code>newValue</code></em></code>.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Scrollbar.html">42. <span class="application">ttk</span><code class="code">.Scrollbar</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Radiobutton.html">40. <span class="application">ttk</span><code class="code">.Radiobutton</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Scale.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Scale.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+</html>

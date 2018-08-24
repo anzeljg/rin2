@@ -1,0 +1,92 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Widget.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>46. Methods common to all ttk widgets</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Treeview-events.html" title="45.1. Virtual events for the ttk.Treeview
+      widget"><link rel="next" href="ttk-state-spec.html" title="46.1. Specifying widget states in ttk"></head><body><div class="topnavbar"><a href="ttk-state-spec.html">Next</a> / <a href="ttk-Treeview-events.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Widget"></a>46. Methods common to all <span class="application">ttk</span> widgets</h2></div></div></div><p>
+      The methods shown here are available on all the <span class="application">ttk</span>
+      widgets.
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.cget(<em class="replaceable"><code>option</code></em>)</code>
+        </span></dt><dd><p>
+            This method returns the value for the specified <code class="code"><em class="replaceable"><code>option</code></em></code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.configure(<em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+        </span></dt><dd><p>
+            To set one or more widget options, use keyword
+            arguments of the form <code class="code"><em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em></code>.  For example, to set a
+            widget's <code class="code">font</code>, you might use an
+            argument such as “<code class="code">font=('serif',
+            12)</code>”.
+          </p><p>
+            If you provide no arguments, the method will return a
+            dictionary of all the widget's current option values.  In
+            this dictionary, the keys will be the option names, and
+            each related value will be a tuple <code class="code">(<em class="replaceable"><code>name</code></em>, <em class="replaceable"><code>dbName</code></em>,
+            <em class="replaceable"><code>dbClass</code></em>, <em class="replaceable"><code>default</code></em>, <em class="replaceable"><code>current</code></em>)</code>:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                    <code class="code"><em class="replaceable"><code>name</code></em></code>
+                  </td><td align="left">
+                    The option name.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code"><em class="replaceable"><code>dbName</code></em></code>
+                  </td><td align="left">
+                    The database name of the option.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code"><em class="replaceable"><code>dbClass</code></em></code>
+                  </td><td align="left">
+                    The database class of the option.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code"><em class="replaceable"><code>default</code></em></code>
+                  </td><td align="left">
+                    The default value of the option.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code"><em class="replaceable"><code>current</code></em></code>
+                  </td><td align="left">
+                    The current value of the option.
+                  </td></tr></tbody></table></div></dd><dt><span class="term">
+          <code class="code">.identify(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Use this to determine what element is at a given
+            location within the widget.  If the point <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> relative to the widget is
+            somewhere within the widget, this method returns
+            the name of the element at that position; otherwise
+            it returns an empty string.
+          </p></dd><dt><span class="term">
+          <code class="code">.instate(<em class="replaceable"><code>stateSpec</code></em>,
+          callback=None, *args, **kw)</code>
+        </span></dt><dd><p>
+            The purpose of this to determine whether the widget
+            is in a specified state or combination of states.
+          </p><p>
+            If you provide a callable value as the <code class="code">callback</code> argument, and the widget matches
+            the state or combination of states specified by the
+            <code class="code"><em class="replaceable"><code>stateSpec</code></em></code>
+            argument, that callable will be called with
+            positional arguments <code class="code">*args</code> and keyword
+            arguments <code class="code">**kw</code>.  If the widget's state
+            does not match <code class="code"><em class="replaceable"><code>stateSpec</code></em></code>, the <code class="code">callback</code> will not be called.
+          </p><p>
+            If you don't provide a <code class="code">callback</code>
+            argument, the method will return <code class="code">True</code>
+            if the widget's state matches <code class="code"><em class="replaceable"><code>stateSpec</code></em></code>, <code class="code">False</code> otherwise.
+          </p><p>
+            For the structure of the <code class="code"><em class="replaceable"><code>stateSpec</code></em></code> argument, see <a href="ttk-state-spec.html" title="46.1. Specifying widget states in ttk">Section 46.1, “Specifying widget states in <span class="application">ttk</span>”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.state(stateSpec=None)</code>
+        </span></dt><dd><p>
+            Use this item either to query a widget to determine
+            its current states, or to set or clear one state.
+          </p><p>
+            If you provide a <code class="code">stateSpec</code> argument
+            of the form described in <a href="ttk-state-spec.html" title="46.1. Specifying widget states in ttk">Section 46.1, “Specifying widget states in <span class="application">ttk</span>”</a>, the method will set or
+            clear states in the widget according to that
+            argument.
+          </p><p>
+            For example, for a widget <code class="code">w</code>, the
+            method <code class="code">w.state(['!disabled', 'selected'])</code> would clear the widget's <code class="code">'disabled'</code>
+            set and set its <code class="code">'selected'</code> state.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-state-spec.html">46.1. Specifying widget states in <span class="application">ttk</span></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Treeview-events.html">45.1. Virtual events for the <span class="application">ttk</span><code class="code">.Treeview</code>
+      widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Widget.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Widget.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:56 GMT -->
+</html>

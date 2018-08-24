@@ -1,0 +1,302 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Label.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>34. ttk.Label</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Frame.html" title="33. ttk.Frame"><link rel="next" href="ttk-LabelFrame.html" title="35. ttk.LabelFrame"></head><body><div class="topnavbar"><a href="ttk-LabelFrame.html">Next</a> / <a href="ttk-Frame.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Label"></a>34. <span class="application">ttk</span><code class="code">.Label</code></h2></div></div></div><p>
+      The purpose of this widget is to display text, an image, or
+      both.  Generally the content is static, but your program can
+      change the text or the image.
+    </p><p>
+      To create a <span class="application">ttk</span><code class="code">.Label</code> widget as the child of
+      a given <code class="code"><em class="replaceable"><code>parent</code></em></code>
+      widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Label(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      Options include:
+    </p><div class="table"><a name="ttk-Label-options"></a><p class="title"><b>Table 44. <span class="application">ttk</span><code class="code">.Label</code> options</b></p><div class="table-contents"><table summary="ttk.Label options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">anchor</code>
+            </td><td align="left">
+              If the text and/or image are smaller than the specified
+              <code class="code">width</code>, you can use the <code class="code">anchor</code> option to specify where to position
+              them: <code class="code">tk.W</code>, <code class="code">tk.CENTER</code>, or
+              <code class="code">tk.E</code> for left, centered, or right
+              alignment, respectively.  You may also specify this
+              option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">background</code>
+            </td><td align="left">
+              Use this option to set the background <a href="colors.html" title="5.3. Colors">color</a>.  You may also specify
+              this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code>
+            </td><td align="left">
+              To add a border around the label, set this option to the
+              width <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.
+              You may also specify this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              You may provide a widget class name when you create this
+              widget.  This name may be used to customize the widget's
+              appearance; see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+              Once the widget is created, the widget class name cannot
+              be changed.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">compound</code>
+            </td><td align="left">
+              <p>
+                If you provide both <code class="code">text</code> and <code class="code">image</code> options, the <code class="code">compound</code> option specifies how to display them.
+                </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                          <code class="code">'bottom'</code>
+                        </td><td align="left">
+                          Display the image below the text.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">'image'</code>
+                        </td><td align="left">
+                          Display only the image, not the text.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">'left'</code>
+                        </td><td align="left">
+                          Display the image to the left of the text.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">'none'</code>
+                        </td><td align="left">
+                          Display the image if there is one, otherwise
+                          display the text.  This is the default
+                          value.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">'right'</code>
+                        </td><td align="left">
+                          Display the image to the right of the text.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">'text'</code>
+                        </td><td align="left">
+                          Display the text, not the image.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">'top'</code>
+                        </td><td align="left">
+                          Display the image above the text.
+                        </td></tr></tbody></table></div><p>
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              Use this option to specify the appearance of the mouse
+              cursor when it is over the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.  The default value (an empty
+              string) specifies that the cursor is inherited from the
+              parent widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left">
+              Use this option to specify the <a href="fonts.html" title="5.4. Type fonts">font</a> style for the displayed <code class="code">text</code>.  You may also specify this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">foreground</code>
+            </td><td align="left">
+              Use this option to specify the <a href="colors.html" title="5.3. Colors">color</a> of the displayed <code class="code">text</code>.
+              You may also specify this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">image</code>
+            </td><td align="left">
+              <p>
+                This option specifies an image or images to be
+                displayed either in addition to or instead of text.
+                The value must be an image as specified in <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.  See the <code class="code">compound</code>
+                option above for what happens when you supply both
+                image and text.
+              </p>
+              <p>
+                You may specify multiple images that will appear on
+                the widget depending on the state of the widget
+                (see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a> for a discussion
+                of widget states).  To do this, supply as the
+                value of this option a tuple <code class="code">(<em class="replaceable"><code>i<sub>0</sub></code></em>,
+                <em class="replaceable"><code>s<sub>1</sub></code></em>,
+                <em class="replaceable"><code>i<sub>1</sub></code></em>,
+                <em class="replaceable"><code>s<sub>2</sub></code></em>,
+                <em class="replaceable"><code>i<sub>2</sub></code></em>,
+                ...)</code>, where:
+              </p>
+              <div class="itemizedlist"><ul type="disc" compact><li><p>
+                    <code class="code"><em class="replaceable"><code>i<sub>0</sub></code></em></code> is the default image to
+                    be displayed on the widget.
+                  </p></li><li><p>
+                    For each pair of values after the first, <code class="code"><em class="replaceable"><code>s<sub>i</sub></code></em></code> specifies a state or
+                    combination of states, and <code class="code"><em class="replaceable"><code>i<sub>1</sub></code></em></code>
+                    specifies the image to be displayed when the
+                    widget's state matches <code class="code"><em class="replaceable"><code>s<sub>i</sub></code></em></code>.
+                  </p><p>
+                    Each state specifier <code class="code"><em class="replaceable"><code>s<sub>i</sub></code></em></code>
+                    may be a single state name, optionally preceded by
+                    <code class="code">'!'</code>, or a sequence of such names.
+                    The <code class="code">!</code> specifies that the widget
+                    must <span class="emphasis"><em>not</em></span> be in that state.
+                  </p><p>
+                    For example, suppose you have three <code class="code"><a href="images.html" title="5.9. Images">PhotoImage</a></code>
+                    instances named <code class="code">im1</code>, <code class="code">im2</code>, and <code class="code">im3</code>, and in
+                    your call to the <code class="code">Label</code> constructor
+                    you include this option:
+                  </p><pre class="programlisting">    self.w = ttk.Label(self, ...,
+         image=(im1,
+                'selected', im2,
+                ('!disabled', 'alternate'), im3), ...)
+</pre><p>
+                    The widget will display image <code class="code">im2</code>
+                    if it is in the <code class="code">selected</code> state.  If
+                    it is not in the <code class="code">selected</code> state or
+                    the <code class="code">disabled</code> state but it is in the
+                    <code class="code">alternate</code> state, it will display image
+                    <code class="code">im3</code>.  Otherwise it will display
+                    image <code class="code">im1</code>.
+                  </p></li></ul></div>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">justify</code>
+            </td><td align="left">
+              If the <code class="code">text</code> you provide contains newline
+              (<code class="code">'\n'</code>) characters, this option specifies
+              how each line will be positioned horizontally: <code class="code">tk.LEFT</code> to left-justify; <code class="code">tk.CENTER</code> to center; or <code class="code">tk.RIGHT</code> to right-justify
+              each line.  You may also specify this option using a
+              style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padding</code>
+            </td><td align="left">
+              To add more space around all four sides of the text
+              and/or image, set this option to the desired <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.  You may also
+              specify this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Set this option to a <a href="relief.html" title="5.6. Relief styles">relief</a> style to create a 3-d effect.  You will
+              need to increase the <code class="code">borderwidth</code> to make
+              this effect appear.  You may also specify this option
+              using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              Use this option to specify a custom widget style name;
+              see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              <p>
+                Use this option to specify whether the widget is
+                visited during focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  Specify <code class="code">takefocus=True</code> if you want the visit to
+                accept focus; specify <code class="code">takefocus=False</code>
+                if the widget is not to accept focus.
+              </p>
+              <p>
+                The default value is an empty string; by default,
+                <span class="application">ttk</span><code class="code">.Label</code> widgets do not get
+                focus.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">text</code>
+            </td><td align="left">
+              A string of text to be displayed in the widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">textvariable</code>
+            </td><td align="left">
+              A <code class="code">StringVar</code> instance (see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>); the text displayed on
+              the widget will be its value.  If both <code class="code">text</code> and <code class="code">textvariable</code> are specified, the
+              <code class="code">text</code> option will be ignored.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">underline</code>
+            </td><td align="left">
+              <p>
+                You can request that one of the letters in the text
+                string be underline by setting this option to the
+                position of that letter.  For example, the options
+                <code class="code">text='Quit'</code> and <code class="code">underline=0</code> would underline the Q.
+              </p>
+              <p>
+                Using this option doesn't change anything
+                functionally.  If you want the application to react to
+                the Q key or some variation like control-shift-Q,
+                you'll need to set up the bindings using the <a href="events.html" title="54. Events: responding to stimuli">event system</a>.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              <p>
+                To specify a fixed width, set this option to the
+                number of characters.  To specify a minimum width, set
+                this option to minus the number of characters.  If you
+                don't specify this option, the size of the label area
+                will be just enough to accommodate the current text
+                and/or image.
+              </p>
+              <p>
+                For text displayed in a proportional font, the actual
+                width of the widget will be based on the average width
+                of a character in the font, and not a specific number
+                of characters.
+              </p>
+              <p>
+                This option may also be specified through a style.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">wraplength</code>
+            </td><td align="left">
+              If you set this option to some <a href="dimensions.html" title="5.1. Dimensions">dimension</a>, all the text
+              will be chopped into lines no longer than this
+              dimension.  This option may also be specified through a
+              style.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      The following options of the <span class="application">Tkinter</span> version of <code class="code">Label</code> are <span class="emphasis"><em>not</em></span> supported by the
+      <span class="application">ttk</span><code class="code">.Label</code> constructor.
+    </p><div class="table"><a name="ttk-Label-missing"></a><p class="title"><b>Table 45. <span class="application">Tkinter</span> <code class="code">Label</code> options not in <span class="application">ttk</span><code class="code">.Label</code></b></p><div class="table-contents"><table summary="Tkinter Label options not in ttk.Label" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">background</code> option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activeforeground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">foreground</code> option.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bitmap</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left">
+              Use a style map for the <code class="code">foreground</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              To control the color of the focus highlight when the
+              label does not have focus, use a style map to control
+              the <code class="code">highlightcolor</code> option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              You may specify the default focus highlight color
+              by setting this option in a style.  You may also
+              control the focus highlight color using a style
+              map.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Configure this option using a style.  This option
+              may not work in all themes.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padx</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">pady</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-LabelFrame.html">35. <span class="application">ttk</span><code class="code">.LabelFrame</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Frame.html">33. <span class="application">ttk</span><code class="code">.Frame</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Label.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Label.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

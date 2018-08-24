@@ -1,0 +1,164 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/button.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>7. The Button widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-exceptions.html" title="6. Exception handling"><link rel="next" href="canvas.html" title="8. The Canvas widget"></head><body><div class="topnavbar"><a href="canvas.html">Next</a> / <a href="ttk-exceptions.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="button"></a>7. The <code class="code">Button</code> widget</h2></div></div></div><p>
+      To create a pushbutton in a top-level window or frame named
+      <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Button(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Button</code>
+      widget.  Its options include:
+    </p><div class="table"><a name="Button-options"></a><p class="title"><b>Table 5. <code class="code">Button</code> widget options</b></p><div class="table-contents"><table summary="Button widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">activebackground</code></td><td align="left">
+              Background <a href="colors.html" title="5.3. Colors">color</a> when
+              the button is under the cursor.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activeforeground</code>
+            </td><td align="left">
+              Foreground <a href="colors.html" title="5.3. Colors">color</a> when
+              the button is under the cursor.
+            </td></tr><tr><td align="left" valign="top"><code class="code">anchor</code></td><td align="left">
+              Where the text is positioned on the button.  See
+              <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a>.  For example,
+              <code class="code">anchor=tk.NE</code> would position the text at
+              the top right corner of the button.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or
+              <code class="code">borderwidth</code></td><td align="left">
+              Width of the border around the outside of the
+              button; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The
+              default is two pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              Normal background <a href="colors.html" title="5.3. Colors">color</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bitmap</code></td><td align="left">
+              Name of one of the standard <a href="bitmaps.html" title="5.7. Bitmaps">bitmaps</a> to display on the
+              button (instead of text).
+            </td></tr><tr><td align="left" valign="top"><code class="code">command</code></td><td align="left">
+              Function or method to be called when the button is
+              clicked.
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              Selects the <a href="cursors.html" title="5.8. Cursors">cursor</a>
+              to be shown when the mouse is over the button.
+            </td></tr><tr><td align="left" valign="top"><code class="code">default</code></td><td align="left">
+              <code class="code">tk.NORMAL</code> is the default; use <code class="code">tk.DISABLED</code> if the button is to be initially
+              disabled (grayed out, unresponsive to mouse
+              clicks).
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left">
+              Foreground <a href="colors.html" title="5.3. Colors">color</a> used
+              when the button is disabled.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">fg</code> or <code class="code">foreground</code>
+            </td><td align="left">
+              Normal foreground (text) <a href="colors.html" title="5.3. Colors">color</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">font</code></td><td align="left">
+              Text <a href="fonts.html" title="5.4. Type fonts">font</a> to be used
+              for the button's label.
+            </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+              Height of the button in text lines (for textual
+              buttons) or pixels (for images).
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> of the focus
+              highlight when the widget does not have <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the widget has <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top"><code class="code">image</code></td><td align="left">
+              <a href="images.html" title="5.9. Images">Image</a> to be displayed
+              on the button (instead of text).
+            </td></tr><tr><td align="left" valign="top"><code class="code">justify</code></td><td align="left">
+              How to show multiple text lines: <code class="code">tk.LEFT</code> to left-justify each line; <code class="code">tk.CENTER</code>
+              to center them; or <code class="code">tk.RIGHT</code> to
+              right-justify.
+            </td></tr><tr><td align="left" valign="top">
+                <code class="code">overrelief</code>
+            </td><td align="left" valign="top">
+              The relief style to be used while the mouse is on
+              the button; default relief is <code class="code">tk.RAISED</code>.  See <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">padx</code></td><td align="left">
+              Additional padding left and right of the text.  See
+              <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a> for the possible
+              values for padding.
+            </td></tr><tr><td align="left" valign="top"><code class="code">pady</code></td><td align="left">
+              Additional padding above and below the text.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              Specifies the relief type for the button (see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>).  The default relief is <code class="code">tk.RAISED</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatdelay</code>
+            </td><td align="left" valign="top">
+              See <code class="code">repeatinterval</code>, below.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatinterval</code>
+            </td><td align="left" valign="top">
+              Normally, a button fires only once when the user
+              releases the mouse button.  If you want the button
+              to fire at regular intervals as long as the mouse
+              button is held down, set this option to a number of
+              milliseconds to be used between repeats, and set
+              the <code class="code">repeatdelay</code> to the number of
+              milliseconds to wait before starting to repeat.
+              For example, if you specify “<code class="code">repeatdelay=500, repeatinterval=100</code>” the button will fire after half a second,
+              and every tenth of a second thereafter, until the
+              user releases the mouse button.  If the user does
+              not hold the mouse button down at least <code class="code">repeatdelay</code> milliseconds, the button will
+              fire normally.
+            </td></tr><tr><td align="left" valign="top"><code class="code">state</code></td><td align="left">
+              Set this option to <code class="code">tk.DISABLED</code> to gray
+              out the button and make it unresponsive.  Has the
+              value <code class="code">tk.ACTIVE</code> when the mouse is over
+              it.  Default is <code class="code">tk.NORMAL</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">takefocus</code></td><td align="left">
+              Normally, keyboard focus does visit buttons (see
+              <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>), and a
+              <span class="keysym">space</span> character acts as the same
+              as a mouse click, “pushing” the
+              button.  You can set the <code class="code">takefocus</code>
+              option to zero to prevent focus from visiting the
+              button.
+            </td></tr><tr><td align="left" valign="top"><code class="code">text</code></td><td align="left">
+              Text displayed on the button.  Use internal
+              newlines to display multiple text lines.
+            </td></tr><tr><td align="left" valign="top"><code class="code">textvariable</code></td><td align="left">
+              An instance of <code class="code">StringVar()</code> that is
+              associated with the text on this button.  If the
+              variable is changed, the new value will be
+              displayed on the button.  See <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">underline</code></td><td align="left">
+              Default is <code class="code">-1</code>, meaning that no
+              character of the text on the button will be
+              underlined.  If nonnegative, the corresponding text
+              character will be underlined.  For example, <code class="code">underline=1</code> would underline the second
+              character of the button's text.
+            </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+              Width of the button in letters (if displaying text)
+              or pixels (if displaying an image).
+            </td></tr><tr><td align="left" valign="top"><code class="code">wraplength</code></td><td align="left">
+              If this value is set to a positive number, the text
+              lines will be wrapped to fit within this length.
+              For possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on <code class="code">Button</code> objects:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.flash()</code>
+        </span></dt><dd><p>
+            Causes the button to flash several times between
+            active and normal colors.  Leaves the button in the
+            state it was in originally.  Ignored if the button is
+            disabled.
+          </p></dd><dt><span class="term">
+          <code class="code">.invoke()</code>
+        </span></dt><dd><p>
+            Calls the button's <code class="code">command</code> callback, and
+            returns what that function returns.  Has no effect if the
+            button is disabled or there is no callback.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="canvas.html">8. The <code class="code">Canvas</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-exceptions.html">6. Exception handling</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/button.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/button.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+</html>

@@ -1,0 +1,40 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/scrollbar-callback.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>22.1. The Scrollbar command callback</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="scrollbar.html" title="22. The Scrollbar widget"><link rel="prev" href="scrollbar.html" title="22. The Scrollbar widget"><link rel="next" href="connecting-scrollbars.html" title="22.2. Connecting a Scrollbar to another
+      widget"></head><body><div class="topnavbar"><a href="connecting-scrollbars.html">Next</a> / <a href="scrollbar.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="scrollbar-callback"></a>22.1. The <code class="code">Scrollbar <em class="replaceable"><code>command</code></em></code> callback</h3></div></div></div><p>
+        When the user manipulates a scrollbar, the scrollbar
+        calls its <code class="code">command</code> callback.  The arguments
+        to this call depend on what the user does:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            When the user requests a movement of one
+            “unit” left or up, for example by
+            clicking button B1 on the left or top arrowhead, the
+            arguments to the callback look like:
+          </p><pre class="programlisting">    <em class="replaceable"><code>command</code></em>(tk.SCROLL, -1, tk.UNITS)
+</pre></li><li><p>
+            When the user requests a movement of one unit right
+            or down, the arguments are:
+          </p><pre class="programlisting">    <em class="replaceable"><code>command</code></em>(tk.SCROLL, 1, tk.UNITS)
+</pre></li><li><p>
+            When the user requests a movement of one page left or
+            up:
+          </p><pre class="programlisting">    <em class="replaceable"><code>command</code></em>(tk.SCROLL, -1, tk.PAGES)
+</pre></li><li><p>
+            When the user requests a movement of one page right
+            or down:
+          </p><pre class="programlisting">    <em class="replaceable"><code>command</code></em>(tk.SCROLL, 1, tk.PAGES)
+</pre></li><li><p>
+            When the user drags the slider to a value <code class="code"><em class="replaceable"><code>f</code></em></code> in the range
+            [0,1], where 0 means all the way left or up and 1
+            means all the way right or down, the call is:
+          </p><pre class="programlisting">    <em class="replaceable"><code>command</code></em>(tk.MOVETO, <em class="replaceable"><code>f</code></em>)
+</pre></li></ul></div><p>
+        These calling sequences match the arguments expected by
+        the <code class="code">.xview()</code> and <code class="code">.yview()</code>
+        methods of canvases, listboxes, and text widgets.  The
+        <code class="code">Entry</code> widget does not have an <code class="code">.xview()</code> method.  See <a href="entry-scrolling.html" title="10.1. Scrolling an Entry widget">Section 10.1, “Scrolling an <code class="code">Entry</code> widget”</a>.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="connecting-scrollbars.html">22.2. Connecting a <code class="code">Scrollbar</code> to another
+      widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="scrollbar.html">22. The <code class="code">Scrollbar</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/scrollbar-callback.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/scrollbar-callback.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:52 GMT -->
+</html>

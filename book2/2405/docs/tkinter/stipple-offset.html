@@ -1,0 +1,63 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/stipple-offset.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.14. Matching stipple patterns</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="std-attrs.html" title="5. Standard attributes"><link rel="prev" href="dash-patterns.html" title="5.13. Dash patterns"><link rel="next" href="ttk-exceptions.html" title="6. Exception handling"></head><body><div class="topnavbar"><a href="ttk-exceptions.html">Next</a> / <a href="dash-patterns.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="stipple-offset"></a>5.14. Matching stipple patterns</h3></div></div></div><p>
+        This may seem like an incredibly picky style point, but
+        if you draw a graphic that has two objects with stippled
+        patterns, a real professional will make sure that the
+        patterns align along their boundary.
+      </p><p>
+        Here is an example.  The left-hand screen shot shows two
+        adjacent 100×100 squares stippled with the
+        “<code class="code">gray12</code>” pattern, but
+        the right-hand square is offset vertically by one
+        pixel.  The short black line in the center of the figure
+        is drawn along the boundary of the two figures.
+      </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+                <span class="inlinemediaobject"><img src="img/stipulate1.png" alt="Misaligned stipples."></span>
+              </td><td align="left">
+                <span class="inlinemediaobject"><img src="img/stipulate0.png" alt="Properly aligned stipples."></span>
+              </td></tr></tbody></table></div><p>
+        The second screen shot is the same, except that the two
+        100×100 squares have their stipple patterns
+        lined up.
+      </p><p>
+        In practice, this arises in two situations.  The
+        alignment of large stippled areas is controlled
+        by an option named <code class="code">offset</code>.  For figures
+        with stippled outlines, the <code class="code">outlineoffset</code>
+        option controls their alignment.  Both options have
+        values of one of these forms:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            <code class="code">'<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>'</code>:  Offset the stipple
+            patterns by this <code class="code"><em class="replaceable"><code>x</code></em></code> and <code class="code"><em class="replaceable"><code>y</code></em></code> value relative to the top-level window
+            or to the canvas's origin.
+          </p></li><li><p>
+            <code class="code">'#<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>'</code>: For objects on a canvas,
+            use offset <code class="code"><em class="replaceable"><code>x</code></em></code> and <code class="code"><em class="replaceable"><code>y</code></em></code> relative to the top-level window.
+          </p></li><li><p>
+            <code class="code">tk.NE</code>,
+            <code class="code">tk.SE</code>,
+            <code class="code">tk.SW</code>,
+            <code class="code">tk.NW</code>:
+            Align a corner of the stipple pattern with the
+            corresponding corner of the containing object.  For
+            example, <code class="code">tk.NE</code> means that the top
+            left corner of the stipple pattern coincides with the
+            top left corner of the area to be stippled.
+          </p></li><li><p>
+            <code class="code">tk.N</code>,
+            <code class="code">tk.E</code>,
+            <code class="code">tk.S</code>,
+            <code class="code">tk.W</code>:
+            Align the stipple pattern with the center of one side
+            of the containing object.  For example, <code class="code">tk.E</code> means the center of the stipple pattern
+            will coincide with the center of the right side of
+            the area to be stippled.
+          </p></li><li><p>
+            <code class="code">tk.CENTER</code>: Align the center of the
+            stipple pattern with the center of the containing
+            object.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-exceptions.html">6. Exception handling</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="dash-patterns.html">5.13. Dash patterns</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/stipple-offset.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/stipple-offset.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+</html>

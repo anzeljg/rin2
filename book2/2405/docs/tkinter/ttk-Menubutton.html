@@ -1,0 +1,242 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Menubutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>36. ttk.Menubutton</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-LabelFrame.html" title="35. ttk.LabelFrame"><link rel="next" href="ttk-Notebook.html" title="37. ttk.Notebook"></head><body><div class="topnavbar"><a href="ttk-Notebook.html">Next</a> / <a href="ttk-LabelFrame.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Menubutton"></a>36. <span class="application">ttk</span><code class="code">.Menubutton</code></h2></div></div></div><p>
+      A <code class="code">Menubutton</code> widget is the part of a drop-down
+      menu that is always visible.  It is always used in combination
+      with a <code class="code">Menu</code> widget that controls what appears
+      when the user clicks on the <code class="code">Menubutton</code>.
+    </p><p>
+      There is no <span class="application">ttk</span> version of the <code class="code">Menu</code>
+      widget.  Use the regular <span class="application">Tkinter</span> widget described in <a href="menu.html" title="15. The Menu widget">Section 15, “The <code class="code">Menu</code> widget”</a>.
+    </p><p>
+      To create a new <span class="application">ttk</span><code class="code">.Menubutton</code> widget as the
+      child of some <code class="code"><em class="replaceable"><code>parent</code></em></code>
+      widget, use this constructor:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Menubutton(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      Options include:
+    </p><div class="table"><a name="ttk-Menubutton-options"></a><p class="title"><b>Table 48. <span class="application">ttk</span><code class="code">.Menubutton</code> options</b></p><div class="table-contents"><table summary="ttk.Menubutton options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">compound</code>
+            </td><td align="left">
+              <p>
+                If you provide both <code class="code">image</code> and <code class="code">text</code> options, the <code class="code">compound</code>
+                option specifies the position of the image relative to
+                the text.  The value may be <code class="code">tk.TOP</code>
+                (image above text), <code class="code">tk.BOTTOM</code> (image
+                below text), <code class="code">tk.LEFT</code> (image to the left
+                of the text), or <code class="code">tk.RIGHT</code> (image to the
+                right of the text).
+              </p>
+              <p>
+                When you provide both <code class="code">image</code> and <code class="code">text</code> options but don't specify a <code class="code">compound</code> option, the image will appear
+                and the text will not.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over
+              the button; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">direction</code>
+            </td><td align="left">
+              <p>
+                This option specifies the position where the drop-down
+                menu appears, relative to the menubutton.
+                </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                          <code class="code">above</code>
+                        </td><td align="left">
+                          The menu will appear just above the
+                          menubutton.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">below</code>
+                        </td><td align="left">
+                          The menu will appear just below the
+                          menubutton.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">flush</code>
+                        </td><td align="left">
+                          The menu will appear over the menubutton, so
+                          that the menu's northwest corner coincides
+                          with the menubutton's northwest corner.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">left</code>
+                        </td><td align="left">
+                          The menu will appear just to the left
+                          of the menubutton.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">right</code>
+                        </td><td align="left">
+                          The menu will appear just to the right
+                          of the menubutton.
+                        </td></tr></tbody></table></div><p>
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">image</code>
+            </td><td align="left">
+              An image to appear on the menubutton; see <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">menu</code>
+            </td><td align="left">
+              The related <code class="code">Menu</code> widget.  See <a href="menu.html" title="15. The Menu widget">Section 15, “The <code class="code">Menu</code> widget”</a> for the procedure used to
+              establish this mutual connection.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this menubutton; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.Menubutton</code> will be
+              included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To remove the widget from focus traversal, use
+              <code class="code">takefocus=False</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">text</code>
+            </td><td align="left">
+              The text to appear on the menubutton, as a string.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">textvariable</code>
+            </td><td align="left">
+              A variable that controls the text that appears on the
+              menubutton; see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">underline</code>
+            </td><td align="left">
+              If this option has a nonnegative value <em class="phrase">n</em>, an underline will appear
+              under the character at position <em class="phrase">n</em>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              If the label is text, this option specifies the
+              absolute width of the text area on the button, as a
+              number of characters; the actual width is that
+              number multiplied by the average width of a
+              character in the current font.  For image labels,
+              this option is ignored.  The option may also be
+              configured in a style.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      The following options of the <span class="application">Tkinter</span> <code class="code">Menubutton</code>
+      button, described in <a href="menubutton.html" title="16. The Menubutton widget">Section 16, “The <code class="code">Menubutton</code> widget”</a>, are
+      <span class="emphasis"><em>not</em></span> supported by <span class="application">ttk</span><code class="code">.Menubutton</code>:
+    </p><div class="table"><a name="ttk-Menubutton-missing"></a><p class="title"><b>Table 49. <span class="application">Tkinter</span> <code class="code">Menubutton</code> options not in
+      <span class="application">ttk</span><code class="code">.Menubutton</code></b></p><div class="table-contents"><table summary="Tkinter Menubutton options not in
+      ttk.Menubutton" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">background</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activeforeground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">foreground</code>
+              option.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">anchor</code>
+            </td><td align="left">
+              Configure this option using a style; see <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.  Use this option to
+              specify the position of the text when the <code class="code">width</code> option allocates extra horizontal space.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bitmap</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code> or <code class="code">bd</code>
+            </td><td align="left">
+              Configure the <code class="code">borderwidth</code> option using a
+              style.  The <code class="code">bd</code> abbreviation is not
+              supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttonbackground</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttoncursor</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttondownrelief</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttonup</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left">
+              Use a style map for the <code class="code">foreground</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">foreground</code> or <code class="code">fg</code>
+            </td><td align="left">
+              Configure the <code class="code">foreground</code> option using a
+              style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              To control the color of the focus highlight when the
+              menubutton does not have focus, use a style map to
+              control the <code class="code">highlightcolor</code> option; see
+              <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              You may specify the default focus highlight color
+              by setting this option in a style.  You may also
+              control the focus highlight color using a style
+              map.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">justify</code>
+            </td><td align="left">
+              If the <code class="code">text</code> contains newline (<code class="code">'\n'</code>) characters, the text will occupy multiple
+              lines on the menubutton.  The <code class="code">justify</code>
+              option controls how each line is positioned
+              horizontally.  Configure this option using a style;
+              values may be <code class="code">tk.LEFT</code>, <code class="code">tk.CENTER</code>, or <code class="code">tk.RIGHT</code> for lines
+              that are left-aligned, centered, or right-aligned,
+              respectively.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padx</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">pady</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Configure this option using a style; see <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">wraplength</code>
+            </td><td align="left">
+              If you use a style with this option set to some <a href="dimensions.html" title="5.1. Dimensions">dimension</a>, the <code class="code">text</code> will be sliced into pieces no longer than
+              that dimension.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Notebook.html">37. <span class="application">ttk</span><code class="code">.Notebook</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-LabelFrame.html">35. <span class="application">ttk</span><code class="code">.LabelFrame</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Menubutton.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Menubutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

@@ -1,0 +1,49 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_image.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.9. Canvas image objects</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="create_bitmap.html" title="8.8. Canvas bitmap objects"><link rel="next" href="create_line.html" title="8.10. Canvas line objects"></head><body><div class="topnavbar"><a href="create_line.html">Next</a> / <a href="create_bitmap.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="create_image"></a>8.9. <code class="code">Canvas</code> image objects</h3></div></div></div><p>
+        To display a graphics image on a canvas <code class="code"><em class="replaceable"><code>C</code></em></code>, use:
+      </p><pre class="programlisting">    <em class="replaceable"><code>id</code></em> = <em class="replaceable"><code>C</code></em>.create_image(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+        This constructor returns the integer ID number of the
+        image object for that canvas.
+      </p><p>
+        The image is positioned relative to point (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>).  Options include:
+      </p><div class="table"><a name="Canvas-image-options"></a><p class="title"><b>Table 9. <code class="code">Canvas image</code> options</b></p><div class="table-contents"><table summary="Canvas image options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">activeimage</code>
+              </td><td align="left" valign="top">
+                Image to be displayed when the mouse is over the
+                item.  For option values, see <code class="code">image</code> below.
+              </td></tr><tr><td align="left" valign="top"><code class="code">anchor</code></td><td align="left">
+                The default is <code class="code">anchor=tk.CENTER</code>,
+                meaning that the image is centered on the (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>) position.
+                See <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a> for the
+                possible values of this option.  For example, if
+                you specify <code class="code">anchor=tk.S</code>, the image
+                will be positioned so that point (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>) is located
+                at the center of the bottom (south) edge of the
+                image.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledimage</code>
+              </td><td align="left" valign="top">
+                Image to be displayed when the item is inactive.
+                For option values, see <code class="code">image</code>
+                below.
+              </td></tr><tr><td align="left" valign="top"><code class="code">image</code></td><td align="left">
+                The image to be displayed.  See <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>, above, for information
+                about how to create images that can be loaded
+                onto canvases.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">state</code>
+              </td><td align="left" valign="top">
+                Normally, image objects are created in state
+                <code class="code">tk.NORMAL</code>.  Set this value to <code class="code">tk.DISABLED</code> to make it grayed-out and
+                unresponsive to the mouse.  If you set it to
+                <code class="code">tk.HIDDEN</code>, the item is invisible.
+              </td></tr><tr><td align="left" valign="top"><code class="code">tags</code></td><td align="left">
+                If a single string, the image is tagged with that
+                string.  Use a tuple of strings to tag the image
+                with multiple tags.  See <a href="canvas-tags.html" title="8.4. Canvas tags">Section 8.4, “<code class="code">Canvas</code> tags”</a>.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="create_line.html">8.10. <code class="code">Canvas</code> line objects</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="create_bitmap.html">8.8. <code class="code">Canvas</code> bitmap objects</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/create_image.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_image.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:42 GMT -->
+</html>

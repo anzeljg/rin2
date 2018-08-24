@@ -1,0 +1,726 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Treeview.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>45. ttk.Treeview</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Sizegrip.html" title="44. ttk.Sizegrip"><link rel="next" href="ttk-Treeview-events.html" title="45.1. Virtual events for the ttk.Treeview
+      widget"></head><body><div class="topnavbar"><a href="ttk-Treeview-events.html">Next</a> / <a href="ttk-Sizegrip.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Treeview"></a>45. <span class="application">ttk</span><code class="code">.Treeview</code></h2></div></div></div><p>
+      The purpose of the <span class="application">ttk</span><code class="code">.Treeview</code> widget is to
+      present a hierarchical structure so that the user can use mouse
+      actions to reveal or hide any part of the structure.
+    </p><p>
+      The association with the term “tree” is due to
+      programming practice: tree structures are a commonplace in
+      program design.  Strictly speaking, the hierarchy shown in a
+      <code class="code">Treeview</code> widget is a forest: there is no one
+      root, just a collection of top-level <em class="firstterm">nodes</em>, each of which may contain second-level
+      nodes, each of which may contain third-level nodes, and so on.
+    </p><p>
+      You may have encountered this particular presentation as a
+      way of browsing a directory or folder hierarchy.  The
+      entire hierarchy is displayed like an indented outline,
+      where each directory is on a separate line, and
+      the subdirectories of each directory are displayed
+      underneath that line, indented:
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/hier.jpg"></div></div><p>
+      The user can click on the icon for a directory to <em class="firstterm">collapse</em> (close) it, hiding all of the items in
+      it.  They can also click again on the icon to <em class="firstterm">expand</em> (open) it, so that the items in the
+      directory or folder are shown.
+    </p><p>
+      The <code class="code">Treeview</code> widget generalizes this concept
+      so that you can use it to display any hierarchical structure,
+      and the reader can collapse or expand subtrees of this
+      structure with the mouse.
+    </p><p>
+      First, some definitions:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          item
+        </span></dt><dd><p>
+            One of the entities being displayed in the widget.
+            For a file browser, an item might be either a
+            directory or a file.
+          </p><p>
+            Each item is associated with a textual label, and
+            may also be associated with an image.
+          </p></dd><dt><span class="term">
+          iid
+        </span></dt><dd><p>
+            Every item in the tree has a unique identifier string
+            called the <em class="firstterm">iid</em>.  You can supply
+            the iid values yourself, or you can let <span class="application">ttk</span> generate
+            them.
+          </p></dd><dt><span class="term">
+          child
+        </span></dt><dd><p>
+            The items directly below a given item in a hierarchy.  A
+            directory, for example, may have two kinds of children:
+            files and subdirectories.
+          </p></dd><dt><span class="term">
+          parent
+        </span></dt><dd><p>
+            For a given item, if it is at the top of the
+            hierarchy it is said to have no parent; if it is
+            not at the top level, the parent is the item that
+            contains it.
+          </p></dd><dt><span class="term">
+          ancestor
+        </span></dt><dd><p>
+            The ancestors of an item include its parent, its parent's
+            parent, and so on up to the top level of the tree.
+          </p></dd><dt><span class="term">
+          visible
+        </span></dt><dd><p>
+            Top-level items are always visible.  Otherwise, an item is
+            visible only if all its ancestors are expanded.
+          </p></dd><dt><span class="term">
+          descendant
+        </span></dt><dd><p>
+            The descendants of an item include its children, its
+            childrens' children, and so on.  Another way of saying
+            this is that the subtree of an item includes all its
+            descendants.
+          </p></dd><dt><span class="term">
+          tag
+        </span></dt><dd><p>
+            Your program can associate one or more <em class="firstterm">tag</em> strings with each item.  You can use
+            these tags to control the appearance of an item.  For
+            example, you could tag directories with the tag <code class="code">'d'</code> and files with the tag <code class="code">'f'</code>,
+            and then specify that items with tag <code class="code">'d'</code>
+            use a boldface font.
+          </p><p>
+            You may also associate events with tags, so that certain
+            events will cause certain handlers to be called for all
+            items that have that tag.  For example, you could set up a
+            file browser so that when a user clicks on a directory,
+            the browser updated its contents to reflect the current
+            file structure.
+          </p></dd></dl></div><p>
+      Your <code class="code">Treeview</code> widget will be structured with
+      multiple columns.  The first column, which we'll call the
+      <em class="firstterm">icon column</em>, displays the icons that
+      collapse or expand items.  In the remaining columns, you may
+      display whatever information you like.
+    </p><p>
+      For example, a simple file browser widget might use two columns,
+      with the directory icons in the first column and the directory
+      or file name in the second columns.  Or you might wish to
+      display file sizes, permissions, and other related data in
+      additional columns.
+    </p><p>
+      The operations of the <code class="code">Treeview</code> widget even allow
+      you to use it as a tree editor.  Your program can remove an
+      entire subtree from its location in the main tree and then
+      attach it later at an entirely different point.
+    </p><p>
+      Here is the general procedure for setting up a <code class="code">Treeview</code> widget.
+    </p><div class="procedure"><ol type="1"><li><p>
+          Create the widget with the <span class="application">ttk</span><code class="code">.Treeview</code>
+          constructor.  Use the <code class="code">columns</code> keyword
+          argument to specify the number of columns to be displayed
+          and to assign symbolic names to each column.
+        </p></li><li><p>
+          Use the <code class="code">.column()</code> and <code class="code">.heading()</code> methods to set up column headings (if you want them) and
+          configure column properties such as size and stretchability.
+        </p></li><li><p>
+          Starting with the top-level entries, use the <code class="code">.insert()</code> method to populate the tree.  Each call
+          to this method adds one item to the tree.  Use the <code class="code">open</code> keyword argument of this method to specify
+          whether the item is initially expanded or collapsed.
+        </p><p>
+          If you want to supply the iid value for this item, use the
+          <code class="code">iid</code> keyword argument.  If you omit this
+          argument, <span class="application">ttk</span> will make one up and return it as the
+          result of the <code class="code">.insert()</code> method call.
+        </p><p>
+          Use the <code class="code">values</code> keyword argument of this
+          method to specify what should appear in each column of this
+          item when it is visible.
+        </p></li></ol></div><p>
+      To create a <code class="code">Treeview</code> widget within a given <code class="code"><em class="replaceable"><code>parent</code></em></code> widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Treeview(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Treeview</code> widget.
+      Its options include:
+    </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              You may provide a widget class name when you create this
+              widget.  This name may be used to customize the widget's
+              appearance; see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+              Once the widget is created, the widget class name cannot
+              be changed.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">columns</code>
+            </td><td align="left">
+              <p>
+                A sequence of column identifier strings.  These
+                strings are used internally to identify the columns
+                within the widget.  The icon column, whose identifier
+                is always <code class="code">'#0'</code>, contains the
+                collapse/expand icons and is always the first column.
+              </p>
+              <p>
+                The columns you specify with the <code class="code">columns</code> argument are in addition to the icon column.
+              </p>
+              <p>
+                For example, if you specified <code class="code">columns=('Name',
+                'Size')</code>, three columns would appear in the
+                widget: first the icon column, then two more columns
+                whose internal identifiers are <code class="code">'Name'</code>
+                and <code class="code">'Size'</code>.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              Use this option to specify the appearance of the mouse
+              cursor when it is over the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.  The default value (an empty
+              string) specifies that the cursor is inherited from the
+              parent widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">displaycolumns</code>
+            </td><td align="left">
+              <p>
+                Selects which columns are actually displayed and
+                determines the order of their presentation.  Values
+                may be:
+              </p>
+              <div class="itemizedlist"><ul type="disc" compact><li><p>
+                    <code class="code">'#all'</code> to select all columns
+                    and display them in the order defined by the
+                    <code class="code">columns</code> argument.
+                  </p></li><li><p>
+                    A list of column numbers (integer positions,
+                    counting from 0) or column identifiers from the
+                    <code class="code">columns</code> argument.
+                  </p><p>
+                    For example, suppose you specify <code class="code">columns=('Name', 'Size', 'Date')</code>.  This
+                    means each call to the <code class="code">.insert()</code>
+                    method will require an argument <code class="code">values=(<em class="replaceable"><code>name</code></em>,
+                    <em class="replaceable"><code>size</code></em>, <em class="replaceable"><code>date</code></em>)</code> to supply the values
+                    that will be displayed.  Let's call this sequence
+                    the <em class="firstterm">logical column sequence</em>.
+                  </p><p>
+                    Further suppose that in the constructor you
+                    specify <code class="code">columns=(2,0)</code>.  The
+                    <em class="firstterm">physical column sequence</em>,
+                    the columns that will actually appear in the
+                    widget, will be three: the icon column will be
+                    first, followed by the date column (index 2 in the
+                    logical column sequence), followed by the name
+                    column (logical column index 0).  The size column
+                    will not appear.
+                  </p><p>
+                    You could get the same effect by specifying column
+                    identifiers instead of logical column positions:
+                    <code class="code">columns=('Date', 'Name')</code>.
+                  </p></li></ul></div>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              The desired height of the widget, in rows.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padding</code>
+            </td><td align="left">
+              <p>
+                Use this argument to place extra space around the
+                contents inside the widget.  You may provide either
+                a single <a href="dimensions.html" title="5.1. Dimensions">dimension</a>
+                or a sequence of up to four dimensions, interpreted
+                according to this table:
+                </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="center"><col align="center"><col align="center"><col align="center"></colgroup><thead><tr><th align="left">Values given</th><th align="center">Left</th><th align="center">Top</th><th align="center">Right</th><th align="center">Bottom</th></tr></thead><tbody><tr><td align="left"><em class="phrase">a</em></td><td align="center"><em class="phrase">a</em></td><td align="center"><em class="phrase">a</em></td><td align="center"><em class="phrase">a</em></td><td align="center"><em class="phrase">a</em></td></tr><tr><td align="left"><em class="phrase">a b</em></td><td align="center"><em class="phrase">a</em></td><td align="center"><em class="phrase">b</em></td><td align="center"><em class="phrase">a</em></td><td align="center"><em class="phrase">b</em></td></tr><tr><td align="left"><em class="phrase">a b c</em></td><td align="center"><em class="phrase">a</em></td><td align="center"><em class="phrase">c</em></td><td align="center"><em class="phrase">b</em></td><td align="center"><em class="phrase">c</em></td></tr><tr><td align="left"><em class="phrase">a b c d</em></td><td align="center"><em class="phrase">a</em></td><td align="center"><em class="phrase">b</em></td><td align="center"><em class="phrase">c</em></td><td align="center"><em class="phrase">d</em></td></tr></tbody></table></div><p>
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectmode</code>
+            </td><td align="left">
+              <p>
+                This option controls what the user is allowed to select
+                with the mouse.  Values can be:
+                </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                          <code class="code">selectmode='browse'</code>
+                        </td><td align="left">
+                          The user may select only one item at a time.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">selectmode='extended'</code>
+                        </td><td align="left">
+                          The user may select multiple items at once.
+                        </td></tr><tr><td align="left" valign="top">
+                          <code class="code">selectmode='none'</code>
+                        </td><td align="left">
+                          The user cannot select items with the mouse.
+                        </td></tr></tbody></table></div><p>
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">show</code>
+            </td><td align="left">
+              To suppress the labels at the top of each column,
+              specify <code class="code">show='tree'</code>.  The default is to
+              show the column labels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              Use this option to specify a custom widget style name;
+              see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Use this option to specify whether a widget is visited
+              during focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+              Specify <code class="code">takefocus=True</code> if you want the
+              visit to accept focus; specify <code class="code">takefocus=False</code> if the widget is not to accept
+              focus.  The default value is an empty string; by
+              default, <span class="application">ttk</span><code class="code">.Treeview</code> widgets do get
+              focus.
+            </td></tr></tbody></table></div><p>
+      Here are the methods available on a <code class="code">Treeview</code>
+      widget.
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.bbox(<em class="replaceable"><code>item</code></em>,
+          column=None)</code>
+        </span></dt><dd><p>
+            For the item with iid <code class="code"><em class="replaceable"><code>item</code></em></code>, if the item is currently
+            visible, this method returns a tuple <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>,
+            <em class="replaceable"><code>w</code></em>, <em class="replaceable"><code>h</code></em>)</code>, where <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code>
+            are the coordinates of the upper left corner of that item
+            relative to the widget, and <code class="code"><em class="replaceable"><code>w</code></em></code> and <code class="code"><em class="replaceable"><code>h</code></em></code> are the width and height of the
+            item in pixels.  If the item is not visible, the method
+            returns an empty string.
+          </p><p>
+            If the optional <code class="code">column</code> argument is omitted,
+            you get the bounding box of the entire row.  To get the
+            bounding box of one specific column of the item's row, use
+            <code class="code">column=<em class="replaceable"><code>C</code></em></code> where
+            <code class="code"><em class="replaceable"><code>C</code></em></code> is either
+            the integer index of the column or its column identifier.
+          </p></dd><dt><span class="term">
+          <code class="code">.column(<code class="code"><em class="replaceable"><code>cid</code></em></code>, option=None, **<em class="replaceable"><code>kw</code></em>)</code>
+        </span></dt><dd><p>
+            This method configures the appearance of the logical
+            column specified by <code class="code"><em class="replaceable"><code>cid</code></em></code>, which may be either a column index or a column
+            identifier.  To configure the icon column, use a <code class="code"><em class="replaceable"><code>cid</code></em></code> value of <code class="code">'#0'</code>.
+          </p><p>
+            Each column in a <code class="code">Treeview</code> widget has its
+            own set of options from this table:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                    <code class="code">anchor</code>
+                  </td><td align="left">
+                    The <a href="anchors.html" title="5.5. Anchors">anchor</a> that
+                    specifies where to position the content of the
+                    column.  The default value is <code class="code">'w'</code>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">id</code>
+                  </td><td align="left">
+                    The column name.  This option is read-only and
+                    set when the constructor is called.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">minwidth</code>
+                  </td><td align="left">
+                    Minimum width of the column in pixels; the default
+                    value is 20.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">stretch</code>
+                  </td><td align="left">
+                    If this option is <code class="code">True</code>, the
+                    column's width will be adjusted when the widget is
+                    resized.  The default setting is <code class="code">1</code>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">width</code>
+                  </td><td align="left">
+                    Initial width of the column in pixels; the default
+                    is 200.
+                  </td></tr></tbody></table></div><div class="itemizedlist"><ul type="disc" compact><li><p>
+                If no <code class="code"><em class="replaceable"><code>option</code></em></code> value or any other keyword argument is supplied, the
+                method returns a dictionary of the column options for
+                the specified column.   
+              </p></li><li><p>
+                To interrogate the current value of an option named
+                <code class="code"><em class="replaceable"><code>X</code></em> </code>, use an
+                argument <code class="code">option=<em class="replaceable"><code>X</code></em></code>.
+              </p></li><li><p>
+                To set one or more column options, you may pass
+                keyword arguments using the option names shown above,
+                e.g., <code class="code">anchor=tk.CENTER</code> to center the
+                column contents.
+              </p></li></ul></div></dd><dt><span class="term">
+          <code class="code">.delete(*<em class="replaceable"><code>items</code></em>)</code>
+        </span></dt><dd><p>
+            The arguments are iid values.  All the items in the widget
+            that have matching iid values are destroyed, along with
+            all their descendants.
+          </p></dd><dt><span class="term">
+          <code class="code">.detach(*<em class="replaceable"><code>items</code></em>)</code>
+        </span></dt><dd><p>
+            The arguments are iid values.  All the items in the widget
+            that have matching iid values are removed from the visible
+            widget, along with all their descendants.
+          </p><p>
+            The items are not destroyed.  You may reattach them to the
+            visible tree using the <code class="code">.move()</code> method
+            described below.
+          </p></dd><dt><span class="term">
+          <code class="code">.exists(<code class="code"><em class="replaceable"><code>iid</code></em></code>)</code>
+        </span></dt><dd><p>
+            Returns <code class="code">True</code> if there exists an item in the
+            widget with the given <code class="code"><em class="replaceable"><code>iid</code></em></code>, or <code class="code">False</code>
+            otherwise.  If an item is not currently visible because it
+            was removed with the <code class="code">.detach()</code> method, it
+            is still considered to exist for the purposes of the <code class="code">.exists()</code> method.
+          </p></dd><dt><span class="term">
+          <code class="code">.focus([<em class="replaceable"><code>iid</code></em>])</code>
+        </span></dt><dd><p>
+            If you don't provide an argument to this method, you get
+            back either the iid of the item that currently has focus,
+            or <code class="code">''</code> if no item has focus.
+          </p><p>
+            You can give <a href="focus.html" title="53. Focus: routing keyboard input">focus</a> to an
+            item by passing its iid as the argument to this method.
+          </p></dd><dt><span class="term">
+          <code class="code">.get_children([<em class="replaceable"><code>item</code></em>])</code>
+        </span></dt><dd><p>
+            Returns a tuple of the iid values of the children of the
+            item specified by the <code class="code"><em class="replaceable"><code>item</code></em></code> argument.  If the argument is
+            omitted, you get a tuple containing the iid values of the
+            top-level items.
+          </p></dd><dt><span class="term">
+          <code class="code">.heading(<em class="replaceable"><code>cid</code></em>,
+          option=None, **<em class="replaceable"><code>kw</code></em>)</code>
+        </span></dt><dd><p>
+            Use this method to configure the column heading that
+            appears at the top of the widget for the column specified
+            by <code class="code"><em class="replaceable"><code>cid</code></em></code>, which
+            may be either a column index or a column identifier.  Use
+            a <code class="code"><em class="replaceable"><code>cid</code></em></code> argument
+            value of <code class="code">'#0'</code> to configure the heading over
+            the icon column.
+          </p><p>
+            Each heading has its own set of options with these names
+            and values:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                    <code class="code">anchor</code>
+                  </td><td align="left">
+                    An anchor that specifies how the heading is
+                    aligned within the column; see <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a>.  The default value is <code class="code">tk.W</code>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">command</code>
+                  </td><td align="left">
+                    A procedure to be called when the user clicks on
+                    this column heading.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">image</code>
+                  </td><td align="left">
+                    To present a graphic in the column heading (either
+                    with or instead of a text heading), set this
+                    option to an image, as specified in <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">text</code>
+                  </td><td align="left">
+                    The text that you want to appear in the column
+                    heading.
+                  </td></tr></tbody></table></div><div class="itemizedlist"><ul type="disc" compact><li><p>
+                If you supply no keyword arguments, the method will
+                return a dictionary showing the current settings of
+                the column heading options.
+              </p></li><li><p>
+                To interrogate the current value of some heading
+                option <code class="code"><em class="replaceable"><code>X</code></em></code>,
+                use an argument of the form <code class="code">option=<em class="replaceable"><code>X</code></em></code>; the method will return the
+                current value of that option.
+              </p></li><li><p>
+                You can set one or more heading options by supplying
+                them as keyword arguments such as “<code class="code">anchor=tk.CENTER</code>”.
+              </p></li></ul></div></dd><dt><span class="term">
+          <code class="code">.identify_column(<em class="replaceable"><code>x</code></em>)</code>
+        </span></dt><dd><p>
+            Given an <em class="phrase">x</em> coordinate, this
+            method returns a string of the form <code class="code">'#<em class="replaceable"><code>n</code></em>'</code> that identifies the column that
+            contains that <em class="phrase">x</em> coordinate.
+          </p><p>
+            Assuming that the icon column is displayed, the value of
+            <code class="code"><em class="replaceable"><code>n</code></em></code> is 0 for the
+            icon column; 1 for the second physical column; 2 for the
+            third physical column; and so on.  Recall that the
+            physical column number may be different from the logical
+            column number in cases where you have rearranged them
+            using the <code class="code">displaycolumns</code> argument to the
+            <code class="code">Treeview</code> constructor.
+          </p><p>
+            If the icon column is not displayed, the value of <code class="code"><em class="replaceable"><code>n</code></em></code> is 1 for the first
+            physical column, 2 for the second, and so on.
+          </p></dd><dt><span class="term">
+          <code class="code">.identify_element(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Returns the name of the element at location <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> relative to the widget, or
+            <code class="code">''</code> if no element appears at that position.
+            Element names are discussed in <a href="ttk-element-layer.html" title="50. The ttk element layer">Section 50, “The <span class="application">ttk</span> element layer”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.identify_region(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>)
+        </span></dt><dd><p>
+            Given the coordinates of a point relative to the widget,
+            this method returns a string indicating what part of the
+            widget contains that point.  Return values may include:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                    <code class="code">'nothing'</code>
+                  </td><td align="left">
+                    The point is not within a functional part of the
+                    widget.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'heading'</code>
+                  </td><td align="left">
+                    The point is within one of the column headings.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'separator'</code>
+                  </td><td align="left">
+                    The point is located within the column headings
+                    row, but on the separator between columns.  Use
+                    the <code class="code">.identify_column()</code> method to
+                    determine which column is located just to the
+                    left of this separator.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'tree'</code>
+                  </td><td align="left">
+                    The point is located within the icon column.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'cell'</code>
+                  </td><td align="left">
+                    The point is located within an item row but not
+                    within the icon column.
+                  </td></tr></tbody></table></div></dd><dt><span class="term">
+          <code class="code">.identify_row(<em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            If <em class="phrase">y</em>-coordinate <code class="code"><em class="replaceable"><code>y</code></em></code> is within one of
+            the items, this method returns the iid of that item.  If
+            that vertical coordinate is not within an item, this
+            method returns an empty string.
+          </p></dd><dt><span class="term">
+          <code class="code">.index(<em class="replaceable"><code>iid</code></em>)</code>
+        </span></dt><dd><p>
+            This method returns the index of the item with the
+            specified <code class="code"><em class="replaceable"><code>iid</code></em></code>
+            relative to its parent, counting from zero.
+          </p></dd><dt><span class="term">
+          <code class="code">.set_children(<em class="replaceable"><code>item</code></em>,
+          *<em class="replaceable"><code>newChildren</code></em>)</code>
+        </span></dt><dd><p>
+            Use this method to change the set of children of the item
+            whose iid is <code class="code"><em class="replaceable"><code>item</code></em></code>.  The <code class="code"><em class="replaceable"><code>newChildren</code></em></code> argument is a sequence
+            of iid strings.  Any current children of <code class="code"><em class="replaceable"><code>item</code></em></code> that are not in
+            <code class="code"><em class="replaceable"><code>newChildren</code></em></code>
+            are removed.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert(<em class="replaceable"><code>parent</code></em>,
+          <em class="replaceable"><code>index</code></em>, iid=None, **kw)</code>
+        </span></dt><dd><p>
+            This method adds a new item to the tree, and returns the
+            item's iid value.  Arguments:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                    <code class="code"><em class="replaceable"><code>parent</code></em></code>
+                  </td><td align="left">
+                    To insert a new top-level item, make this argument
+                    an empty string.  To insert a new item as a child
+                    of an existing item, make this argument the parent
+                    item's iid.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code"><em class="replaceable"><code>index</code></em></code>
+                  </td><td align="left">
+                    This argument specifies the position among this
+                    parent's children where you want the new item to
+                    be added.  For example, to insert the item as
+                    the new first child, use a value of zero; to
+                    insert it after the parent's first child, use a
+                    value of 1; and so on.  To add the new item as
+                    the last child of the parent, make this argument's
+                    value <code class="code">'end'</code>.                    
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">iid</code>
+                  </td><td align="left">
+                    You may supply an iid for the item as a string
+                    value.  If you don't supply an iid, one will be
+                    generated automatically and returned by the
+                    method.
+                  </td></tr></tbody></table></div><p>
+            You may also specify a number of item options as keyword
+            arguments to this method.
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                    <code class="code">image</code>
+                  </td><td align="left">
+                    You may display an image just to the right of the
+                    icon for this item's row by providing an <code class="code">image=<em class="replaceable"><code>I</code></em></code>
+                    argument, where <code class="code"><em class="replaceable"><code>I</code></em></code> is an image as specified
+                    in <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">open</code>
+                  </td><td align="left">
+                    This option specifies whether this item will be
+                    open initially.  If you supply <code class="code">open=False</code>, this item will be closed.  If
+                    you supply <code class="code">open=True</code>, the item's
+                    children will be visible whenever the item itself
+                    is visible.  The default value is <code class="code">False</code>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">tags</code>
+                  </td><td align="left">
+                    You may supply one or more tag strings to be
+                    associated with this item.  The value may be
+                    either a single string or a sequence of strings.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">text</code>
+                  </td><td align="left">
+                    You may supply text to be displayed within the
+                    icon column of this item.  If given, this text
+                    will appear just to the right of the icon, and
+                    also to the right of the image if provided.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">values</code>
+                  </td><td align="left">
+                    This argument supplies the data items to be
+                    displayed in each column of the item.  The values
+                    are supplied in logical column order.  If too few
+                    values are supplied, the remaining columns will be
+                    blank in this item; if too many values are
+                    supplied, the extras will be discarded.
+                  </td></tr></tbody></table></div></dd><dt><span class="term">
+          <code class="code">.item(<em class="replaceable"><code>iid</code></em>[, <em class="replaceable"><code>option</code></em>[, <em class="replaceable"><code>**kw</code></em>]])</code>
+        </span></dt><dd><p>
+            Use this method to set or retrieve the options within the
+            item specified by <code class="code"><em class="replaceable"><code>iid</code></em></code>.  Refer to the <code class="code">.insert()</code> method
+            above for the names of the item options.
+          </p><p>
+            With no arguments, it returns a dictionary whose keys are
+            the option names and the corresponding values are the
+            settings of those options.  To retrieve the value of a
+            given option, pass the option's name as its second
+            argument.  To set one or more options, pass them as
+            keyword arguments to the method.
+          </p></dd><dt><span class="term">
+          <code class="code">.move(<em class="replaceable"><code>iid</code></em>, <em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Move the item specified by <code class="code"><em class="replaceable"><code>iid</code></em></code> to the values under the item
+            specified by <code class="code"><em class="replaceable"><code>parent</code></em></code> at position <code class="code"><em class="replaceable"><code>index</code></em></code>.  The <code class="code"><em class="replaceable"><code>parent</code></em></code> and <code class="code"><em class="replaceable"><code>index</code></em></code> arguments work the same as
+            those arguments to the <code class="code">.index()</code> method.
+          </p></dd><dt><span class="term">
+          <code class="code">.next(<em class="replaceable"><code>iid</code></em>)</code>
+        </span></dt><dd><p>
+            If the item specified by <code class="code"><em class="replaceable"><code>iid</code></em></code> is not the last child of its
+            parent, this method returns the iid of the following
+            child; if it is the last child of its parent, this method
+            returns an empty string.  If the specified item is a
+            top-level item, the method returns the iid of the next
+            top-level item, or an empty string if the specified item
+            is the last top-level item.
+          </p></dd><dt><span class="term">
+          <code class="code">.parent(<em class="replaceable"><code>iid</code></em>)</code>
+        </span></dt><dd><p>
+            If the item specified by <code class="code"><em class="replaceable"><code>iid</code></em></code> is a top-level item, this
+            method returns an empty string; otherwise it returns the
+            iid of that item's parent.
+          </p></dd><dt><span class="term">
+          <code class="code">.prev(<em class="replaceable"><code>iid</code></em>)</code>
+        </span></dt><dd><p>
+            If the item specified by <code class="code"><em class="replaceable"><code>iid</code></em></code> is not the first child of its
+            parent, this method returns the iid of the previous child;
+            otherwise it returns an empty string.  If the specified
+            item is a top-level item, this method returns the iid of
+            the previous top-level item, or an empty string if it is
+            the first top-level item.
+          </p></dd><dt><span class="term">
+          .see(<em class="replaceable"><code>iid</code></em>)
+        </span></dt><dd><p>
+            This method ensures that the item specified by <code class="code"><em class="replaceable"><code>iid</code></em></code> is visible.  Any
+            of its ancestors that are closed are opened.  The widget
+            is scrolled, if necessary, so that the item appears.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection_add(<em class="replaceable"><code>items</code></em>)</code>
+        </span></dt><dd><p>
+            In addition to any items already selected, add the
+            specified <code class="code"><em class="replaceable"><code>items</code></em></code>.  The argument may be either a single iid or a sequence
+            of iids.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection_remove(<em class="replaceable"><code>items</code></em>)</code>
+        </span></dt><dd><p>
+            Unselect any items specified by the argument, which may be
+            a single iid or a sequence of iids.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection_set(<em class="replaceable"><code>items</code></em>)</code>
+        </span></dt><dd><p>
+            Only the specified <code class="code"><em class="replaceable"><code>items</code></em></code> will be selected; if any other items were
+            selected before, they will become unselected.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection_toggle(<em class="replaceable"><code>items</code></em>)</code>
+        </span></dt><dd><p>
+            The argument may be a single iid or a sequence of iids.
+            For each item specified by the argument, if it was
+            selected, unselect it; if it was unselected, select it.
+          </p></dd><dt><span class="term">
+          <code class="code">.set(<em class="replaceable"><code>iid</code></em>, column=None,
+          value=None)</code>
+        </span></dt><dd><p>
+            Use this method to retrieve or set the column values of
+            the item specified by <code class="code"><em class="replaceable"><code>iid</code></em></code>.  With one argument, the
+            method returns a dictionary: the keys are the column
+            identifiers, and each related value is the text
+            in the corresponding column.
+          </p><p>
+            With two arguments, the method returns the data value from
+            the column of the selected item whose column identifier is
+            the <code class="code">column</code> argument.  With three arguments,
+            the item's value for the specified column is set to the
+            third argument.
+          </p></dd><dt><span class="term">
+          <code class="code">.tag_bind(<em class="replaceable"><code>tagName</code></em>,
+          sequence=None, callback=None)</code>
+        </span></dt><dd><p>
+            This method binds the event handler specified by the <code class="code">callback</code> argument to all items that have tag
+            <code class="code"><em class="replaceable"><code>tagName</code></em></code>.  The
+            <code class="code">sequence</code> and <code class="code">callback</code>
+            arguments work the same as the <code class="code">sequence</code> and
+            <code class="code">func</code> arguments of the <code class="code">.bind()</code> method described in <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.tag_configure(<em class="replaceable"><code>tagName</code></em>,
+          option=None, **<em class="replaceable"><code>kw</code></em>)</code>
+        </span></dt><dd><p>
+            This method can either interrogate or set options that
+            affect the appearance of all the items that have tag <code class="code">tagName</code>.  Tag options include:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                    <code class="code">'background'</code>
+                  </td><td align="left">
+                    The background <a href="colors.html" title="5.3. Colors">color</a>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'font'</code>
+                  </td><td align="left">
+                    The <a href="fonts.html" title="5.4. Type fonts">text font</a>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'foreground'</code>
+                  </td><td align="left">
+                    The foreground <a href="colors.html" title="5.3. Colors">color</a>.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'image'</code>
+                  </td><td align="left">
+                    An <a href="images.html" title="5.9. Images">image</a> to be
+                    displayed in items with the given tag.
+                  </td></tr></tbody></table></div><p>
+            When called with one argument, it returns a dictionary of
+            the current tag options.  To return the value of a
+            specific option <code class="code"><em class="replaceable"><code>X</code></em></code>, use <code class="code"><em class="replaceable"><code>X</code></em></code> as the second argument.
+          </p><p>
+            To set one or more options, use keyword arguments such as
+            <code class="code">foreground='red'</code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.tag_has(<em class="replaceable"><code>tagName</code></em>[,
+          <em class="replaceable"><code>iid</code></em>])</code>
+        </span></dt><dd><p>
+            Called with one argument, this method returns a list of
+            the iid values for all items that carry tag <code class="code"><em class="replaceable"><code>tagName</code></em></code>.  If you
+            provide an iid as the second argument, the method returns
+            <code class="code">True</code> if the item with that iid has tag
+            <code class="code"><em class="replaceable"><code>tagName</code></em></code>, <code class="code">False</code> otherwise.
+          </p></dd><dt><span class="term">
+          <code class="code">.xview(*args)</code>
+        </span></dt><dd><p>
+            This is the usual method for connecting a horizontal
+            scrollbar to a scrollable widget.  For details, see <a href="scrollbar-callback.html" title="22.1. The Scrollbar command callback">Section 22.1, “The <code class="code">Scrollbar <em class="replaceable"><code>command</code></em></code> callback”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.yview(*args)</code>
+        </span></dt><dd><p>
+            This is the usual method for connecting a vertical
+            scrollbar to a scrollable widget.  For details, see <a href="scrollbar-callback.html" title="22.1. The Scrollbar command callback">Section 22.1, “The <code class="code">Scrollbar <em class="replaceable"><code>command</code></em></code> callback”</a>.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Treeview-events.html">45.1. Virtual events for the <span class="application">ttk</span><code class="code">.Treeview</code>
+      widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Sizegrip.html">44. <span class="application">ttk</span><code class="code">.Sizegrip</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Treeview.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Treeview.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:56 GMT -->
+</html>

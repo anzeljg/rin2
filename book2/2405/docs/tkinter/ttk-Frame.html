@@ -1,0 +1,116 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Frame.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>33. ttk.Frame</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Entry.html" title="32. ttk.Entry"><link rel="next" href="ttk-Label.html" title="34. ttk.Label"></head><body><div class="topnavbar"><a href="ttk-Label.html">Next</a> / <a href="ttk-Entry.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Frame"></a>33. <span class="application">ttk</span><code class="code">.Frame</code></h2></div></div></div><p>
+      Like the <span class="application">Tkinter</span> <code class="code">Frame</code> widget, the <span class="application">ttk</span><code class="code">.Frame</code> widget is a rectangular container for other
+      widgets.  To create a <code class="code">Frame</code> widget as the child
+      of a given <code class="code"><em class="replaceable"><code>parent</code></em></code>
+      widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Frame(parent, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      Options include:
+    </p><div class="table"><a name="ttk-Frame-options"></a><p class="title"><b>Table 42. <span class="application">ttk</span><code class="code">.Frame</code> options</b></p><div class="table-contents"><table summary="ttk.Frame options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code>
+            </td><td align="left">
+              Use this option to specify the width of the border
+              element; the default is zero.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              You may provide a widget class name when you create this
+              widget.  This name may be used to customize the widget's
+              appearance; see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+              Once the widget is created, the widget class name cannot
+              be changed.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              Use this option to specify the appearance of the mouse
+              cursor when it is over the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.  The default value (an empty
+              string) specifies that the cursor is inherited from the
+              parent widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              This option is a <a href="dimensions.html" title="5.1. Dimensions">dimension</a> that sets the height of the frame.
+              If you want to force the frame to have a specific
+              height, call the <code class="code">.grid_propagate(0)</code> on
+              the widget; see <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padding</code>
+            </td><td align="left">
+              To create an empty area inside the frame and outside of
+              the contained widgets, set this option to the desired
+              <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.  For
+              example, <code class="code">padding='0.5i'</code> would clear
+              a half-inch-wide area inside the frame and around
+              the outside of the widgets inside it.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Specifies the relief style for the border; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  This has no effect unless you also
+              increase the <code class="code">borderwidth</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              Use this option to specify a custom widget style name;
+              see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              <p>
+                Use this option to specify whether a widget is visited
+                during focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+                Specify <code class="code">takefocus=True</code> if you want the
+                visit to accept focus; specify <code class="code">takefocus=False</code> if the widget is not to
+                accept focus.  The default value is an empty string;
+                by default, <span class="application">ttk</span><code class="code">.Frame</code> widgets do
+                not get focus.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              This option is a <a href="dimensions.html" title="5.1. Dimensions">dimension</a> that sets the width of the frame.
+              If you want to force the frame to have a specific
+              width, call the <code class="code">.grid_propagate(0)</code> on
+              the widget; see <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These options on the <span class="application">Tkinter</span> <code class="code">Frame</code> widget
+      are <span class="emphasis"><em>not</em></span> available as options on
+      the <span class="application">ttk</span><code class="code">.Frame</code> constructor:
+    </p><div class="table"><a name="ttk-Frame-missing"></a><p class="title"><b>Table 43. <span class="application">Tkinter</span> <code class="code">Frame</code> options not in <span class="application">ttk</span><code class="code">.Frame</code></b></p><div class="table-contents"><table summary="Tkinter Frame options not in ttk.Frame" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">background</code> or <code class="code">bg</code>
+            </td><td align="left">
+              Configure this option with a style; see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              To control the color of the focus highlight when
+              the frame does not have focus, use a style map to
+              control the <code class="code">highlightcolor</code> option;
+              see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              You may specify the default focus highlight color
+              by setting this option in a style.  You may also
+              control the focus highlight color using a style
+              map.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Configure this option using a style.  This option
+              may not work in all themes.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padx</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">pady</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Label.html">34. <span class="application">ttk</span><code class="code">.Label</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Entry.html">32. <span class="application">ttk</span><code class="code">.Entry</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Frame.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Frame.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

@@ -1,0 +1,113 @@
+#board {
+  width: 100%;
+  height: 500px;
+  background-color: #45a173;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+#message,
+#buttonbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #334d41;
+  color: #ffffff;
+  padding: 5px;
+  text-align: center;
+}
+#message {
+  height: 50px;
+}
+#dealer {
+  position: absolute;
+  left: 30px;
+  top: 15px;
+  color: #ffffff;
+  font-size: large;
+}
+#dealer1, #dealer2, #dealer3, #dealer4, #dealer5,
+#player1, #player2, #player3, #player4, #player5 {
+  background-color: #334d41;
+  width: 83px !important;
+  height: 114px !important;
+  padding: 2px;
+}
+#dealer1 {
+  position: absolute;
+  left: 30px;
+  top: 50px;
+}
+#dealer2 {
+  position: absolute;
+  left: 120px;
+  top: 50px;
+}
+#dealer3 {
+  position: absolute;
+  left: 210px;
+  top: 50px;
+}
+#dealer4 {
+  position: absolute;
+  left: 300px;
+  top: 50px;
+}
+#dealer5 {
+  position: absolute;
+  left: 390px;
+  top: 50px;
+}
+#player {
+  position: absolute;
+  left: 30px;
+  top: 205px;
+  color: #ffffff;
+  font-size: large;
+}
+#player1 {
+  position: absolute;
+  left: 30px;
+  top: 240px;
+}
+#player2 {
+  position: absolute;
+  left: 120px;
+  top: 240px;
+}
+#player3 {
+  position: absolute;
+  left: 210px;
+  top: 240px;
+}
+#player4 {
+  position: absolute;
+  left: 300px;
+  top: 240px;
+}
+#player5 {
+  position: absolute;
+  left: 390px;
+  top: 240px;
+}
+#balance {
+  position: absolute;
+  left: 30px;
+  top: 400px;
+  color: #ffffff;
+  font-size: large;
+}
+#money {
+  position: absolute;
+  left: 60px;
+  top: 430px;
+  color: yellow;
+  font-size: x-large;
+}
+#betdiv {
+  position: absolute;
+  left: 300px;
+  top: 400px;
+  font-size: large;
+}

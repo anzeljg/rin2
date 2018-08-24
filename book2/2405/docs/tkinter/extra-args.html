@@ -1,0 +1,57 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/extra-args.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>54.7. The extra arguments trick</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="events.html" title="54. Events: responding to stimuli"><link rel="prev" href="event-handlers.html" title="54.6. Writing your handler: The Event
+      class"><link rel="next" href="virtual-events.html" title="54.8. Virtual events"></head><body><div class="topnavbar"><a href="virtual-events.html">Next</a> / <a href="event-handlers.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="extra-args"></a>54.7. The extra arguments trick</h3></div></div></div><p>
+        Sometimes you would like to pass other arguments to a
+        handler besides the event.
+      </p><p>
+        Here is an example.  Suppose your application has an
+        array of ten checkbuttons whose widgets are stored in a
+        list <code class="code">self.cbList</code>, indexed by the
+        checkbutton number in <code class="code">range(10)</code>.
+      </p><p>
+        Suppose further that you want to write one handler named
+        <code class="code">.__cbHandler</code> for <code class="code">&lt;Button-1&gt;</code> events in all ten of these
+        checkbuttons.  The handler can get the actual <code class="code">Checkbutton</code> widget that triggered it by
+        referring to the <code class="code">.widget</code> attribute of the
+        <code class="code">Event</code> object that gets passed in, but how
+        does it find out that checkbutton's index in <code class="code">self.cbList</code>?
+      </p><p>
+        It would be nice to write our handler with an extra
+        argument for the checkbutton number, something like this:
+      </p><pre class="programlisting">    def __cbHandler(self, event, cbNumber):
+</pre><p>
+        But event handlers are passed only one argument, the
+        event.  So we can't use the function above because of a
+        mismatch in the number of arguments.
+      </p><p>
+        Fortunately, Python's ability to provide default values
+        for function arguments gives us a way out.  Have a look
+        at this code:
+      </p><pre class="programlisting">    def __createWidgets(self):
+        …
+        self.cbList = []    # Create the checkbutton list
+        for i in range(10):
+            cb = tk.Checkbutton(self, …)
+            self.cbList.append(cb)
+            cb.grid( row=1, column=i)
+            def handler(event, self=self, i=i):   <a name="xarg1"></a><img src="callouts/1.html" alt="1" border="0">
+                return self.__cbHandler(event, i)
+            cb.bind('&lt;Button-1&gt;', handler)
+        …
+    def __cbHandler(self, event, cbNumber):
+        …
+</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#xarg1"><img src="callouts/1.html" alt="1" border="0"></a> </td><td valign="top" align="left">These lines define a new function
+            <code class="code">handler</code> that expects three
+            arguments.  The first argument is the
+            <code class="code">Event</code> object passed to all event
+            handlers, and the second and third arguments will be set
+            to their default values—the extra arguments we need
+            to pass it.</td></tr></table></div><p>
+        This technique can be extended to supply any number of
+        additional arguments to handlers.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="virtual-events.html">54.8. Virtual events</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="event-handlers.html">54.6. Writing your handler: The <code class="code">Event</code>
+      class</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/extra-args.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/extra-args.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

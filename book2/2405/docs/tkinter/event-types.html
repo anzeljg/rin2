@@ -1,0 +1,133 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-types.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>54.3. Event types</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="events.html" title="54. Events: responding to stimuli"><link rel="prev" href="event-sequences.html" title="54.2. Event sequences"><link rel="next" href="event-modifiers.html" title="54.4. Event modifiers"></head><body><div class="topnavbar"><a href="event-modifiers.html">Next</a> / <a href="event-sequences.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="event-types"></a>54.3. Event types</h3></div></div></div><p>
+        The full set of event types is rather large, but a lot of
+        them are not commonly used.  Here are most of the ones
+        you'll need:
+      </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"><col align="left"></colgroup><thead><tr><th align="left">Type</th><th align="left">Name</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">36</td><td align="left">
+                <code class="code">Activate</code>
+              </td><td align="left">
+                A widget is changing from being inactive to being
+                active.  This refers to changes in the <code class="code">state</code> option of a widget such as a
+                button changing from inactive (grayed out) to
+                active.
+              </td></tr><tr><td align="left">4</td><td align="left">
+                <code class="code">Button</code>
+              </td><td align="left">
+                The user pressed one of the mouse buttons.  The
+                <code class="code">detail</code> part specifies which
+                button.  For mouse wheel support under Linux, use
+                <code class="code">Button-4</code> (scroll up) and <code class="code">Button-5</code> (scroll down).  Under Linux,
+                your handler for mouse wheel bindings will
+                distinguish between scroll-up and scroll-down by
+                examining the <code class="code">.num</code> field of the
+                <code class="code">Event</code> instance; see <a href="event-handlers.html" title="54.6. Writing your handler: The Event
+      class">Section 54.6, “Writing your handler: The <code class="code">Event</code>
+      class”</a>.
+              </td></tr><tr><td align="left">5</td><td align="left">
+                <code class="code">ButtonRelease</code>
+              </td><td align="left">
+                The user let up on a mouse button.  This is
+                probably a better choice in most cases than the
+                <code class="code">Button</code> event, because if the user
+                accidentally presses the button, they can move
+                the mouse off the widget to avoid setting off the
+                event.
+              </td></tr><tr><td align="left">22</td><td align="left">
+                <code class="code">Configure</code>
+              </td><td align="left">
+                The user changed the size of a widget, for
+                example by dragging a corner or side of the
+                window.
+              </td></tr><tr><td align="left">37</td><td align="left">
+                <code class="code">Deactivate</code>
+              </td><td align="left">
+                A widget is changing from being active to being
+                inactive.  This refers to changes in the <code class="code">state</code> option of a widget such as a
+                radiobutton changing from active to inactive
+                (grayed out).
+              </td></tr><tr><td align="left">17</td><td align="left">
+                <code class="code">Destroy</code>
+              </td><td align="left">
+                A widget is being destroyed.
+              </td></tr><tr><td align="left">7</td><td align="left">
+                <code class="code">Enter</code>
+              </td><td align="left">
+                The user moved the mouse pointer into a visible
+                part of a widget.  (This is different than the
+                <span class="keysym">enter</span> key, which is a <code class="code">KeyPress</code> event for a key whose name is
+                actually <code class="code">'return'</code>.)
+              </td></tr><tr><td align="left">12</td><td align="left">
+                <code class="code">Expose</code>
+              </td><td align="left">
+                This event occurs whenever at least some part of
+                your application or widget becomes visible after
+                having been covered up by another window.
+              </td></tr><tr><td align="left">9</td><td align="left">
+                <code class="code">FocusIn</code>
+              </td><td align="left">
+                A widget got the input focus (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a> for a general introduction to
+                input focus.)  This can happen either in response
+                to a user event (like using the
+                <span class="keysym">tab</span> key to move focus between
+                widgets) or programmatically (for example, your
+                program calls the <code class="code">.focus_set()</code> on
+                a widget).
+              </td></tr><tr><td align="left">10</td><td align="left">
+                <code class="code">FocusOut</code>
+              </td><td align="left">
+                The input focus was moved out of a widget.  As
+                with <code class="code">FocusIn</code>, the user can cause
+                this event, or your program can cause it.
+              </td></tr><tr><td align="left">2</td><td align="left">
+                <code class="code">KeyPress</code>
+              </td><td align="left">
+                The user pressed a key on the keyboard.  The
+                <code class="code">detail</code> part specifies which key.
+                This keyword may be abbreviated <code class="code">Key</code>.
+              </td></tr><tr><td align="left">3</td><td align="left">
+                <code class="code">KeyRelease</code>
+              </td><td align="left">
+                The user let up on a key.
+              </td></tr><tr><td align="left">8</td><td align="left">
+                <code class="code">Leave</code>
+              </td><td align="left">
+                The user moved the mouse pointer out of a widget.
+              </td></tr><tr><td align="left">19</td><td align="left">
+                <code class="code">Map</code>
+              </td><td align="left">
+                A widget is being mapped, that is, made visible
+                in the application.  This will happen, for
+                example, when you call the widget's <code class="code">.grid()</code> method.
+              </td></tr><tr><td align="left">6</td><td align="left">
+                <code class="code">Motion</code>
+              </td><td align="left">
+                The user moved the mouse pointer entirely within
+                a widget.
+              </td></tr><tr><td align="left">38</td><td align="left" valign="top">
+                <code class="code">MouseWheel</code>
+              </td><td align="left" valign="top">
+                The user moved the mouse wheel up or down.  At
+                present, this binding works on Windows and MacOS,
+                but not under Linux.  For Windows and MacOS, see
+                the discussion of the <code class="code">.delta</code> field
+                of the <code class="code">Event</code> instance in <a href="event-handlers.html" title="54.6. Writing your handler: The Event
+      class">Section 54.6, “Writing your handler: The <code class="code">Event</code>
+      class”</a>.  For Linux, see the
+                note above under <code class="code">Button</code>.
+              </td></tr><tr><td align="left">18</td><td align="left">
+                <code class="code">Unmap</code>
+              </td><td align="left">
+                A widget is being unmapped and is no longer
+                visible.  This happens, for example, when you use
+                the widget's <code class="code">.grid_remove()</code>
+                method.
+              </td></tr><tr><td align="left">15</td><td align="left">
+                <code class="code">Visibility</code>
+              </td><td align="left">
+                Happens when at least some part of the
+                application window becomes visible on the screen.
+              </td></tr></tbody></table></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="event-modifiers.html">54.4. Event modifiers</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="event-sequences.html">54.2. Event sequences</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/event-types.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-types.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

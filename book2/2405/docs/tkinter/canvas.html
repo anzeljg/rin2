@@ -1,0 +1,141 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8. The Canvas widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="button.html" title="7. The Button widget"><link rel="next" href="canvas-window-coords.html" title="8.1. Canvas coordinates"></head><body><div class="topnavbar"><a href="canvas-window-coords.html">Next</a> / <a href="button.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="canvas"></a>8. The <code class="code">Canvas</code> widget</h2></div></div></div><p>
+      A canvas is a rectangular area intended for drawing
+      pictures or other complex layouts.  On it you can place
+      graphics, text, widgets, or frames.  See the following
+      sections for methods that create objects on canvases:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <code class="code">.create_arc()</code>:  A slice out
+          of an ellipse. See
+          <a href="create_arc.html" title="8.7. Canvas arc objects">Section 8.7, “<code class="code">Canvas</code> arc objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_bitmap()</code>:  An image
+          as a bitmap.  See
+          <a href="create_bitmap.html" title="8.8. Canvas bitmap objects">Section 8.8, “<code class="code">Canvas</code> bitmap objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_image()</code>:  A graphic
+          image.  See <a href="create_image.html" title="8.9. Canvas image objects">Section 8.9, “<code class="code">Canvas</code> image objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_line()</code>:  One or more
+          line segments.  See <a href="create_line.html" title="8.10. Canvas line objects">Section 8.10, “<code class="code">Canvas</code> line objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_oval()</code>:  An ellipse;
+          use this also for drawing circles, which are a special
+          case of an ellipse.  See <a href="create_oval.html" title="8.11. Canvas oval objects">Section 8.11, “<code class="code">Canvas</code> oval objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_polygon()</code>:  A
+          polygon.  See <a href="create_polygon.html" title="8.12. Canvas polygon objects">Section 8.12, “<code class="code">Canvas</code> polygon objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_rectangle()</code>:  A
+          rectangle.  See <a href="create_rectangle.html" title="8.13. Canvas rectangle objects">Section 8.13, “<code class="code">Canvas</code> rectangle objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_text()</code>:  Text
+          annotation.  See <a href="create_text.html" title="8.14. Canvas text objects">Section 8.14, “<code class="code">Canvas</code> text objects”</a>.
+        </p></li><li><p>
+          <code class="code">.create_window()</code>:  A
+          rectangular window.  See <a href="create_window.html" title="8.15. Canvas window objects">Section 8.15, “<code class="code">Canvas</code> window objects”</a>.
+        </p></li></ul></div><p>
+      To create a <code class="code">Canvas</code> object:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Canvas(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Canvas</code>
+      widget.  Supported options include:
+    </p><div class="table"><a name="Canvas-options"></a><p class="title"><b>Table 6. <code class="code">Canvas</code> widget options</b></p><div class="table-contents"><table summary="Canvas widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">bd</code> or
+              <code class="code">borderwidth</code></td><td align="left">
+              Width of the border around the outside of the
+              canvas; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The
+              default is two pixels.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bg</code> or
+              <code class="code">background</code></td><td align="left">
+              Background <a href="colors.html" title="5.3. Colors">color</a> of
+              the canvas.  Default is a light gray, about <code class="code">'#E4E4E4'</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">closeenough</code></td><td align="left">
+              A <code class="code">float</code> that specifies how close the
+              mouse must be to an item to be considered inside it.
+              Default is 1.0.
+            </td></tr><tr><td align="left" valign="top"><code class="code">confine</code></td><td align="left">
+              If true (the default), the canvas cannot be
+              scrolled outside of the <code class="code">scrollregion</code>
+              (see below).
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              Cursor used in the canvas.  See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+              Size of the canvas in the Y dimension.  See <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightbackground</code></td><td align="left">
+              Color of the focus highlight when the widget does
+              not have focus.  See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> shown in the
+              <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightthickness</code></td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.  The default value is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              The relief style of the canvas.  Default is <code class="code">tk.FLAT</code>.  See <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">scrollregion</code></td><td align="left">
+              A tuple <code class="code">(<em class="replaceable"><code>w</code></em>,
+              <em class="replaceable"><code>n</code></em>,
+              <em class="replaceable"><code>e</code></em>,
+              <em class="replaceable"><code>s</code></em>)</code> that defines
+              over how large an area the canvas can be scrolled,
+              where
+              <code class="code"><em class="replaceable"><code>w</code></em></code>
+              is the left side,
+              <code class="code"><em class="replaceable"><code>n</code></em></code>
+              the top,
+              <code class="code"><em class="replaceable"><code>e</code></em></code>
+              the right side, and
+              <code class="code"><em class="replaceable"><code>s</code></em></code>
+              the bottom.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectbackground</code></td><td align="left">
+              The background <a href="colors.html" title="5.3. Colors">color</a>
+              to use displaying selected items.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectborderwidth</code>
+            </td><td align="left">
+              The width of the border to use around selected
+              items.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectforeground</code>
+            </td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              to use displaying selected items.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Normally, focus (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>)
+              will cycle through this widget with the tab key
+              only if there are keyboard bindings set for it (see
+              <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for an overview of
+              keyboard bindings).  If you set this option to 1,
+              focus will always visit this widget. Set it to
+              <code class="code">''</code> to get the default behavior.
+            </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+              Size of the canvas in the X dimension.  See <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">xscrollincrement</code></td><td align="left">
+              Normally, canvases can be scrolled horizontally to
+              any position.  You can get this behavior by setting
+              <code class="code">xscrollincrement</code> to zero.  If you
+              set this option to some positive <a href="dimensions.html" title="5.1. Dimensions">dimension</a>, the canvas
+              can be positioned only on multiples of that
+              distance, and the value will be used for scrolling
+              by <em class="firstterm">scrolling units</em>, such as
+              when the user clicks on the arrows at the ends of a
+              scrollbar.  For more information on scrolling
+              units, see <a href="scrollbar.html" title="22. The Scrollbar widget">Section 22, “The <code class="code">Scrollbar</code> widget”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">xscrollcommand</code></td><td align="left">
+              If the canvas is scrollable, set this option to the
+              <code class="code">.set()</code> method of the horizontal
+              scrollbar.
+            </td></tr><tr><td align="left" valign="top"><code class="code">yscrollincrement</code></td><td align="left">
+              Works like <code class="code">xscrollincrement</code>, but
+              governs vertical movement.
+            </td></tr><tr><td align="left" valign="top"><code class="code">yscrollcommand</code></td><td align="left">
+              If the canvas is scrollable, this option should be the
+              <code class="code">.set()</code> method of the vertical scrollbar.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="canvas-window-coords.html">8.1. <code class="code">Canvas</code> coordinates</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="button.html">7. The <code class="code">Button</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/canvas.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+</html>

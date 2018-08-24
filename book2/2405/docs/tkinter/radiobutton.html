@@ -1,0 +1,235 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/radiobutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>20. The Radiobutton widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="pane-options.html" title="19.1. PanedWindow child configuration
+      options"><link rel="next" href="scale.html" title="21. The Scale widget"></head><body><div class="topnavbar"><a href="scale.html">Next</a> / <a href="pane-options.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="radiobutton"></a>20. The <code class="code">Radiobutton</code> widget</h2></div></div></div><p>
+      Radiobuttons are sets of related widgets that allow the
+      user to select only one of a set of choices.  Each
+      radiobutton consists of two parts, the
+      <em class="firstterm">indicator</em> and the
+      <em class="firstterm">label</em>:
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/radioset.png"></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+          The indicator is the diamond-shaped part that turns red
+          in the selected item.
+        </p></li><li><p>
+          The label is the text, although you can use an <a href="images.html" title="5.9. Images">image</a> or <a href="bitmaps.html" title="5.7. Bitmaps">bitmap</a> as the label.
+        </p></li><li><p>
+          If you prefer, you can dispense with the indicator.
+          This makes the radiobuttons look like
+          “push-push” buttons, with the selected
+          entry appearing sunken and the rest appearing raised.
+        </p></li><li><p>
+          To form several radiobuttons into a functional group,
+          create a single control variable (see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>, below), and set the
+          <code class="code">variable</code> option of each radiobutton to
+          that variable.
+        </p><p>
+          The control variable can be either an <code class="code">IntVar</code> or a <code class="code">StringVar</code>.  If two
+          or more radiobuttons share the same control variable,
+          setting any of them will clear the others.
+        </p></li><li><p>
+          Each radiobutton in a group must have a unique <code class="code">value</code> option of the same type as the control
+          variable.  For example, a group of three radiobuttons
+          might share an <code class="code">IntVar</code> and have values of
+          0, 1, and 99.  Or you can use a <code class="code">StringVar</code> control variable and give the radiobuttons <code class="code">value</code> options like <code class="code">'too hot'</code>,
+          <code class="code">'too cold'</code>, and <code class="code">'just
+          right'</code>.
+        </p></li></ul></div><p>
+      To create a new radiobutton widget as the child of a root
+      window or frame named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Radiobutton(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      This constructor returns the new <code class="code">Radiobutton</code>
+      widget.  Options:
+    </p><div class="table"><a name="Radiobutton-options"></a><p class="title"><b>Table 29. <code class="code">Radiobutton</code> widget options</b></p><div class="table-contents"><table summary="Radiobutton widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">activebackground</code></td><td align="left">
+              The background color when the mouse is over the
+              radiobutton.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">activeforeground</code></td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              when the mouse is over the radiobutton.
+            </td></tr><tr><td align="left" valign="top"><code class="code">anchor</code></td><td align="left">
+              If the widget inhabits a space larger than it
+              needs, this option specifies where the radiobutton
+              will sit in that space.  The default is <code class="code">anchor=tk.CENTER</code>.  For other positioning
+              options, see <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a>.  For
+              example, if you set <code class="code">anchor=tk.NE</code>,
+              the radiobutton will be placed in the top right
+              corner of the available space.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bg</code> or
+              <code class="code">background</code></td><td align="left">
+              The normal background <a href="colors.html" title="5.3. Colors">color</a> behind the indicator
+              and label.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bitmap</code></td><td align="left">
+              To display a monochrome image on a radiobutton, set
+              this option to a bitmap; see <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or <code class="code">borderwidth</code></td><td align="left">
+              The size of the border around the indicator part
+              itself.  Default is two pixels.  For possible
+              values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">command</code></td><td align="left">
+              A procedure to be called every time the user
+              changes the state of this radiobutton.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">compound</code>
+            </td><td align="left" valign="top">
+              If you specify both text and a graphic (either a
+              bitmap or an image), this option specifies where
+              the graphic appears relative to the text.  Possible
+              values are <code class="code">tk.NONE</code> (the default value),
+              <code class="code">tk.TOP</code>, <code class="code">tk.BOTTOM</code>, <code class="code">tk.LEFT</code>, <code class="code">tk.RIGHT</code>, and <code class="code">tk.CENTER</code>.  For example, <code class="code">compound=tk.BOTTOM</code> would position the graphic
+              below the text.  If you specify <code class="code">compound=tk.NONE</code>, the graphic is displayed
+              but the <code class="code">text</code> (if any) is not.
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              If you set this option to a cursor name (see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>), the mouse cursor will change
+              to that pattern when it is over the radiobutton.
+            </td></tr><tr><td align="left" valign="top"><code class="code">disabledforeground</code></td><td align="left">
+              The foreground color used to render the text of a
+              disabled radiobutton.  The default is a stippled
+              version of the default foreground color.
+            </td></tr><tr><td align="left" valign="top"><code class="code">font</code></td><td align="left">
+              The font used for the <code class="code">text</code>.  See
+              <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">fg</code> or
+              <code class="code">foreground</code></td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> used to
+              render the <code class="code">text</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+              The number of lines (<span class="emphasis"><em>not</em></span>
+              pixels) of text on the radiobutton.  Default is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightbackground</code></td><td align="left">
+              The color of the focus highlight when the
+              radiobutton does not have focus.  See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the radiobutton has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightthickness</code></td><td align="left">
+              The thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a> highlight.  Default is
+              <code class="code">1</code>.  Set <code class="code">highlightthickness=0</code> to suppress display
+              of the focus highlight.
+            </td></tr><tr><td align="left" valign="top"><code class="code">image</code></td><td align="left">
+              To display a graphic image instead of text for this
+              radiobutton, set this option to an image object.
+              See <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.  The image appears
+              when the radiobutton is <span class="emphasis"><em>not</em></span>
+              selected; compare <code class="code">selectimage</code>,
+              below.
+            </td></tr><tr><td align="left" valign="top"><code class="code">indicatoron</code></td><td align="left">
+              Normally a radiobutton displays its indicator.  If
+              you set this option to zero, the indicator
+              disappears, and the entire widget becomes a
+              “push-push” button that looks raised
+              when it is cleared and sunken when it is set.  You
+              may want to increase the <code class="code">borderwidth</code>
+              value to make it easier to see the state of such a
+              control.
+            </td></tr><tr><td align="left" valign="top"><code class="code">justify</code></td><td align="left">
+              If the <code class="code">text</code> contains multiple lines,
+              this option controls how the text is justified:
+              <code class="code">tk.CENTER</code> (the default), <code class="code">tk.LEFT</code>, or <code class="code">tk.RIGHT</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">offrelief</code>
+            </td><td align="left" valign="top">
+              If you suppress the indicator by asserting <code class="code">indicatoron=False</code>, the <code class="code">offrelief</code> option specifies the <a href="relief.html" title="5.6. Relief styles">relief style</a> to be
+              displayed when the radiobutton is not selected.
+              The default values is <code class="code">tk.RAISED</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">overrelief</code>
+            </td><td align="left" valign="top">
+              Specifies the <a href="relief.html" title="5.6. Relief styles">relief
+              style</a> to be displayed when the mouse is
+              over the radiobutton.
+            </td></tr><tr><td align="left" valign="top"><code class="code">padx</code></td><td align="left">
+              How much space to leave to the left and right of
+              the radiobutton and text.  Default is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">pady</code></td><td align="left">
+              How much space to leave above and below the
+              radiobutton and text.  Default is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              By default, a radiobutton will have <code class="code">tk.FLAT</code> relief, so it doesn't stand out from
+              its background.  See <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a> for
+              more 3-d effect options.  You can also use <code class="code">relief=tk.SOLID</code>, which displays a solid black
+              frame around the radiobutton.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectcolor</code></td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              radiobutton when it is set.  Default is red.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectimage</code></td><td align="left">
+              If you are using the <code class="code">image</code> option to
+              display a graphic instead of text when the
+              radiobutton is cleared, you can set the <code class="code">selectimage</code> option to a different image
+              that will be displayed when the radiobutton is set.
+              See <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">state</code></td><td align="left">
+              The default is <code class="code">state=tk.NORMAL</code>, but you
+              can set <code class="code">state=tk.DISABLED</code> to gray out
+              the control and make it unresponsive.  If the
+              cursor is currently over the radiobutton, the state
+              is <code class="code">tk.ACTIVE</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">takefocus</code></td><td align="left">
+              By default, the input focus (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>) will pass through a radiobutton.
+              If you set <code class="code">takefocus=0</code>, focus will
+              not visit this radiobutton.
+            </td></tr><tr><td align="left" valign="top"><code class="code">text</code></td><td align="left">
+              The label displayed next to the radiobutton.  Use
+              newlines (<code class="code">'\n'</code>) to display multiple
+              lines of text.
+            </td></tr><tr><td align="left" valign="top"><code class="code">textvariable</code></td><td align="left">
+              If you need to change the label on a radiobutton
+              during execution, create a <code class="code">StringVar</code>
+              (see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>) to manage
+              the current value, and set this option to that
+              control variable.  Whenever the control variable's
+              value changes, the radiobutton's annotation will
+              automatically change to that text as well.
+            </td></tr><tr><td align="left" valign="top"><code class="code">underline</code></td><td align="left">
+              With the default value of -1, none of the
+              characters of the text label are underlined.  Set
+              this option to the index of a character in the text
+              (counting from zero) to underline that character.
+            </td></tr><tr><td align="left" valign="top"><code class="code">value</code></td><td align="left">
+              When a radiobutton is turned on by the user, its
+              control variable is set to its current <code class="code">value</code> option.  If the control variable is
+              an <code class="code">IntVar</code>, give each radiobutton in
+              the group a different integer <code class="code">value</code>
+              option.  If the control variable is a <code class="code">StringVar</code>, give each radiobutton a
+              different string <code class="code">value</code> option.
+            </td></tr><tr><td align="left" valign="top"><code class="code">variable</code></td><td align="left">
+              The control variable that this radiobutton shares
+              with the other radiobuttons in the group; see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.  This can be either
+              an <code class="code">IntVar</code> or a <code class="code">StringVar</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+              The default width of a radiobutton is determined by
+              the size of the displayed image or text.  You can
+              set this option to a number of characters
+              (<span class="emphasis"><em>not</em></span> pixels) and the
+              radiobutton will always have room for that many
+              characters.
+            </td></tr><tr><td align="left" valign="top"><code class="code">wraplength</code></td><td align="left">
+              Normally, lines are not wrapped.  You can set this
+              option to a number of characters and all lines will
+              be broken into pieces no longer than that number.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on radiobutton objects include:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.deselect()</code>
+        </span></dt><dd><p>
+            Clears (turns off) the radiobutton.
+          </p></dd><dt><span class="term">
+          <code class="code">.flash()</code>
+        </span></dt><dd><p>
+            Flashes the radiobutton a few times between its
+            active and normal colors, but leaves it the way it
+            started.
+          </p></dd><dt><span class="term">
+          <code class="code">.invoke()</code>
+        </span></dt><dd><p>
+            You can call this method to get the same actions that
+            would occur if the user clicked on the radiobutton to
+            change its state.
+          </p></dd><dt><span class="term">
+          <code class="code">.select()</code>
+        </span></dt><dd><p>
+            Sets (turns on) the radiobutton.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="scale.html">21. The <code class="code">Scale</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="pane-options.html">19.1. <code class="code">PanedWindow</code> child configuration
+      options</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/radiobutton.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/radiobutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:51 GMT -->
+</html>

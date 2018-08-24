@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li class="active"><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Catalogue -->
+		<div id="catalogue" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+					</div>
+					<div class="modal-body">
+						CIP - Kataložni zapis o publikaciji<br>
+						Narodna in univerzitetna knjižnica, Ljubljana<br>
+						<br>
+						659.2:004(075.3)(0.034.2)<br>
+						004(075.3)(0.034.2)<br>
+						<br>
+						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
+						<br>
+						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
+						<br>
+						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
+						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
+						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
+						<br>
+						1. Anželj, Gregor<br>
+						282126848<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 4 -->
+		<div id="solution4" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<pre>
+class Tocka:
+  # ...
+
+  def razdalja_do(self, target):
+    dx = self.x - target.x
+    dy = self.y - target.y
+    return (dx ** 2 + dy ** 2) ** 0.5
+</pre>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 5 -->
+		<div id="solution5" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<p>
+<pre>
+class Tocka:
+  # ...
+
+  def premica_skozi(self, target):
+    k = (self.y - target.y) / (self.x - target.x)
+    n = self.y - k * self.x
+    return "(" + str(k) + ", " + str(n) + ")"
+</pre>
+</p>
+<p align="justify">Metoda ne bo delovala, kadar bosta $x$ koordinati obeh točk enaki. V tem primeru bi prišlo do deljenja s številom 0, kar pa ni definirano.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Construction 6 -->
+		<div id="construction6" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Načrtovanje</h4>
+					</div>
+					<div class="modal-body">
+<p align="justify">
+<ol>
+  <li>načrtaj 3 dane točke: $A$, $B$ in $C$</li>
+  <li>načrtaj daljico $\overline{AB}$</li>
+  <li>načrtaj daljico $\overline{BC}$</li>
+  <li>načrtaj premico $p$, ki razpolavlja daljico $\overline{AB}$ v točki $X$</li>
+  <li>načrtaj premico $q$, ki razpolavlja daljico $\overline{BC}$ v točki $Y$</li>
+  <li>načrtaj krožnico s središčem v točki $S$ (presečišče daljic $p$ in $q$) in polmerom $r = \overline{AS}$</li>
+</ol>
+</p>
+
+<div id="jxgbox113" class="jxgbox" style="width:500px;height:300px;margin:8px auto;"></div>
+<a href="#" class="btn btn-primary"  onclick="play113()"><span class="fa fa-play"></span> Načrtaj</a>
+<a href="#" class="btn btn-primary"  onclick="init113()">Počisti</a>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Explanation 6 -->
+		<div id="explanation6" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Načrtovanje</h4>
+					</div>
+					<div class="modal-body">
+<p align="justify"><b>Računanje koordinat središča</b></p>
+
+<p align="justify">Če imamo dane tri točke $T_{1}(x_{1}, y_{1})$, $T_{2}(x_{2}, y_{2})$ in $T_{3}(x_{3}, y_{3})$, lahko ustvarimo dve premici tako, da premica $a$ poteka skozi točki $T_{1}$ in $T_{2}$, premica $b$ pa skozi točki $T_{2}$ in $T_{3}$.</p>
+
+<p align="justify">Enačbi teh dveh premic sta:</p>
+
+<p align="center">
+$$y_{a} = n_{a} (x - x_{1}) + y_{1}$$
+$$y_{b} = n_{b} (x - x_{2}) + y_{2}$$
+</p>
+
+<p align="justify">kjer $n$ predstavlja smerni koeficient oziroma naklon, ki ga izračunamo tako:</p>
+
+<p align="center">
+$$n_{a} = \frac{y_{2} - y_{1}}{x_{2} - y_{1}}$$
+$$n_{b} = \frac{y_{3} - y_{2}}{x_{3} - y_{2}}$$
+</p>
+
+<p align="justify">Središče krožnice je presečišče premic, ki sta pravokotni na daljici $\overline{T_{1}T_{2}}$ in $\overline{T_{2}T_{3}}$ ter hkrati potekata skozi središči obeh daljic. Pravokotnica na premico s smernim koeficinetom oziroma naklonom $n$ ima smerni koeficient oziroma naklon $-\frac{1}{n}$. Zato sta enačbi premic, ki sta pravokotni na premici $a$ in $b$ ter potekata skozi središči daljic $\overline{T_{1}T_{2}}$ in $\overline{T_{2}T_{3}}$, enaki:</p>
+
+<p align="center">
+$$y'_{a} = -\frac{1}{n_{a}}\left ( x - \frac{x_{1} + x_{2}}{2} \right ) + \frac{y_{1} + y_{2}}{2}$$
+$$y'_{b} = -\frac{1}{n_{b}}\left ( x - \frac{x_{2} + x_{3}}{2} \right ) + \frac{y_{2} + y_{3}}{2}$$
+</p>
+
+<p align="justify">Ker se ti dve premici sekata v središču krožnice, lahko iz njunih enačb izračunamo koordinato $x$ središča krožnice:</p>
+
+<p align="center">
+$$x = \frac{n_{a}n_{b}(y_{1} - y_{3}) + n_{b}(x_{1} + x_{2}) - n_{a}(x_{2} + x_{3})}{2(n_{b} - n_{a})}$$
+</p>
+
+<p align="justify">Koordinato $y$ središča krožnice pa lahko izračunamo tako, da $x$ vstavimo v eno izmed gornjih enačb pravokotnic.</p>
+
+<p align="justify"><b>Računanje polmera</b></p>
+
+<p align="justify">Ko smo izračunali koordinati središča krožnice $S(x, y)$ je računanje dolžine polmera $r$ precej enostavno. Izračunati moramo samo razdaljo med središčem $S$ in točko, ki leži na krožnici, na primer $T_{1}$.</p>
+
+<p align="center">
+$$r = \sqrt{(x - x_{1})^{2} + (y - y_{1})^{2}}$$
+</p>
+
+<small><p align="justify">Podrobna razlaga je na voljo tukaj: <a href="http://paulbourke.net/geometry/circlesphere/" target="_blank">Equation of a Circle from 3 Points (2 dimensions)</a></p></small>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 6 -->
+		<div id="solution6" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<pre>
+def sredisce_kroznice(a, b, c):
+  s = Tocka()
+  na = (b.y - a.y) / (b.x - a.x) # naklon premice a
+  nb = (c.y - b.y) / (c.x - b.x) # naklon premice b
+  # imenovalec ulomka za izračun koordinate x
+  im = na*nb*(a.y - c.y) + nb*(a.x + b.x) - na*(b.x + c.x)
+  # števec ulomka za izračun koordinate x
+  st = 2*(nb - na)
+  # izračun koordinate x središča krožnice
+  s.x = im / st
+  # izračun koordinate y središča krožnice
+  s.y = -1*(s.x - (a.x + b.x)/2)/na + (a.y + b.y)/2
+
+  return s
+
+def polmer_kroznice(a, s):
+  return ((s.x - a.x) ** 2 + (s.y - a.y) ** 2) ** 0.5
+</pre>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>4</b></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>razdalja_do</code>, ki vrne razdaljo med dvema točkama.<br />
+Na primer <code>Tocka(3, 5).razdalja_do(Tocka(-1, 2))</code> vrne <code>5.0</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution4"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Enačba premice je $y = kx + n$. Koeficienta $k$ in $n$ v celoti opisujeta premico. Razredu <code>Tocka</code> dodaj metodo <code>premica_skozi</code>, ki bo izračunala premico skozi dani točki. Metoda naj vrne oba koeficienta, kot dvojico vrednosti $(k, n)$.<br />
+Na primer <code>Tocka(4, 11).premica_skozi(Tocka(6, 15))</code> vrne <code>(2, 3)</code>.<p align="justify">Kdaj ta metoda ne bo delovala?</p>
+</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution5"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>6</b></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Napiši funkcijo, ki izračuna koordinati središča krožnice in polmer krožnice, če imaš podane tri točke, ki ležijo na tej krožnici.</p>
+<p align="justify"><b>Primer:</b> Če imaš podane točke $A = (1, 1)$, $B = (2, 4)$ in $C = (5, 3)$, potem je središče krožnice točka $S = (3, 2)$ in polmer krožnice $r = \sqrt{5}$.</p>
+<p align="justify"><b>Namig:</b> Preden sploh začneš razmišljati o programiranju moraš poznati geometrijsko rešitev tega problema. Ne moreš sprogramirati rešitve problema, če ne razumeš, kaj naj bi računalnik sploh naredil!</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#construction6"><span class="fa fa-location-arrow"></span> Načrtovanje</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#explanation6"><span class="fa fa-info"></span> Razlaga</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution6"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    self.x = x
+    self.y = y
+
+  def razdalja_od_izhodisca(self):
+    return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+
+  def __str__(self):
+    return "(" + str(self.x) + ", " + str(self.y) + ")"
+
+  def na_pol_poti_do(self, target):
+    mx = (self.x + target.x) / 2
+    my = (self.y + target.y) / 2
+    return Tocka(mx, my)
+
+
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2309/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2401/index12.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2401/index.html">1</a></li>
+					<li><a href="../2401/index1.html">2</a></li>
+					<li><a href="../2401/index2.html">3</a></li>
+					<li><a href="../2401/index3.html">4</a></li>
+					<li><a href="../2401/index4.html">5</a></li>
+					<li><a href="../2401/index5.html">6</a></li>
+					<li><a href="../2401/index6.html">7</a></li>
+					<li><a href="../2401/index7.html">8</a></li>
+					<li><a href="../2401/index8.html">9</a></li>
+					<li><a href="../2401/index9.html">10</a></li>
+					<li><a href="../2401/index10.html">11</a></li>
+					<li><a href="../2401/index11.html">12</a></li>
+					<li><a href="../2401/index12.html">13</a></li>
+					<li class="active"><a href="#">14</a></li>
+					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index14.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+	<script src="../js/skulpt/repl.js"></script>
+	<script src="../js/skulpt/skulpt.js"></script>
+	<script src="../js/skulpt/skulpt-stdlib.js"></script>
+	<script src="../js/skulpt/python.js"></script>
+	<script>Sk.python3 = true;</script>
+
+<script type="text/javascript">
+function outf(text) {
+  var mypre = document.getElementById("output");
+  mypre.innerHTML = mypre.innerHTML + text;
+}
+function builtinRead(x) {
+  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+    throw "File not found: '" + x + "'";
+  return Sk.builtinFiles["files"][x];
+}
+function runit() {
+    var prog = editor.getValue();
+    var mypre = document.getElementById("output");
+    mypre.innerHTML = '';
+    Sk.canvas = "mycanvas";
+    Sk.pre = "output";
+    Sk.configure({output:outf, read:builtinRead});
+    try {
+        eval(Sk.importMainWithBody("<stdin>",false,prog));
+    }
+    catch(e) {
+        alert(e.toString())
+    }
+}
+function clearit() {
+    var mypre = document.getElementById("output");
+    mypre.innerHTML = '';
+}
+</script>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "python",
+  theme: "mbo"
+});
+editor.setSize('100%', 600);
+</script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
+
+<script type='text/javascript'>
+  var brd113;
+  var a, b, c;
+  var e, f;
+  var x, y, p, q;
+  var s;
+
+  function init113() {
+    step = 1;
+    if (brd113 != null) JXG.JSXGraph.freeBoard(brd113);
+    brd113 = JXG.JSXGraph.initBoard('jxgbox113', {boundingbox:[-3, 6, 9, -1], keepaspectratio:true, axis:true, grid:true});
+  }
+
+  function step1() {
+	  a = brd113.create('point', [1, 1], {name:'A', size:3});
+	  b = brd113.create('point', [2, 4], {name:'B', size:3});
+	  c = brd113.create('point', [5, 3], {name:'C', size:3});
+  }
+
+  function step2() {
+	  e = brd113.create('segment', [a, b]);
+	  f = brd113.create('segment', [b, c]);
+  }
+
+  function step3() {
+	  x = brd113.create('midpoint', [a, b], {name:'X', size:1});
+	  y = brd113.create('midpoint', [b, c], {name:'Y', size:1});
+	  p = brd113.create('bisector', [a, x, b], {strokeColor:'#cccccc', strokeWidth:1});
+	  q = brd113.create('bisector', [b, y, c], {strokeColor:'#cccccc', strokeWidth:1});
+  }
+
+  function step4() {
+	  s = brd113.create('intersection', [p, q, 0], {name:'S', size:3});
+	  brd113.create('circle', [s, a]);
+  }
+
+  function play113() {
+    setTimeout(step1, 1000);
+    setTimeout(step2, 2500);
+    setTimeout(step3, 4000);
+    setTimeout(step4, 5500);
+  }
+
+  init113();
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

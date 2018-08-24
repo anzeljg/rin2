@@ -1,0 +1,49 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-undo-stack.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>24.7. The Text widget undo/redo
+      stack</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="text.html" title="24. The Text widget"><link rel="prev" href="text-tabs.html" title="24.6. Setting tabs in a Text widget"><link rel="next" href="text-methods.html" title="24.8. Methods on Text widgets"></head><body><div class="topnavbar"><a href="text-methods.html">Next</a> / <a href="text-tabs.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="text-undo-stack"></a>24.7. The <code class="code">Text</code> widget undo/redo
+      stack</h3></div></div></div><p>
+        The <code class="code">Text</code> widget has a built-in mechanism
+        that allows you to implement undo and redo operations
+        that can cancel or reinstate changes to the text within
+        the widget.
+      </p><p>
+        Here is how the undo/redo stack works:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Every change to the content is recorded by pushing
+            entries onto the stack that describe the change,
+            whether an insertion or a deletion.  These entries
+            record the old state of the contents as well as the
+            new state: if a deletion, the deleted text is
+            recorded; if an insertion, the inserted text is
+            recorded, along with a description of the location
+            and whether it was an insertion or a deletion.
+          </p></li><li><p>
+            Your program may also push a special record called a
+            <em class="firstterm">separator</em> onto the stack.
+          </p></li><li><p>
+            An <em class="firstterm">undo</em> operation changes
+            the contents of the widget to what they were at some
+            previous point.  It does this by reversing all the
+            changes pushed onto the undo/redo stack until it
+            reaches a separator or until it runs out of stack.
+          </p><p>
+            However, note that <span class="application">Tkinter</span> also remembers how much of
+            the stack was reversed in the undo operation, until
+            some other editing operation changes the contents of
+            the widget.
+          </p></li><li><p>
+            A <em class="firstterm">redo</em> operation works only
+            if no editing operation has occurred since the last
+            undo operation.  It re-applies all the undone
+            operations.
+          </p></li></ul></div><p>
+        For the methods used to implement the undo/redo stack,
+        see the <code class="code">.edit_redo</code>, <code class="code">.edit_reset</code>, <code class="code">.edit_separator</code>, and
+        <code class="code">.edit_undo</code> methods in <a href="text-methods.html" title="24.8. Methods on Text widgets">Section 24.8, “Methods on <code class="code">Text</code> widgets”</a>.  The undo mechanism is not
+        enabled by default; you must set the <code class="code">undo</code>
+        option in the widget.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="text-methods.html">24.8. Methods on <code class="code">Text</code> widgets</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="text-tabs.html">24.6. Setting tabs in a <code class="code">Text</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/text-undo-stack.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-undo-stack.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

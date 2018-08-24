@@ -1,0 +1,168 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menubutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>16. The Menubutton widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="menu-toplevel.html" title="15.2. Top-level menus"><link rel="next" href="message.html" title="17. The Message widget"></head><body><div class="topnavbar"><a href="message.html">Next</a> / <a href="menu-toplevel.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="menubutton"></a>16. The <code class="code">Menubutton</code> widget</h2></div></div></div><p>
+      A menubutton is the part of a drop-down menu that stays on
+      the screen all the time.  Every menubutton is associated
+      with a <code class="code">Menu</code> widget (see above) that can
+      display the choices for that menubutton when the user
+      clicks on it.
+    </p><p>
+      To create a menubutton within a root window or frame <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Menubutton(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Menubutton</code>
+      widget.  Options:
+    </p><div class="table"><a name="Menubutton-options"></a><p class="title"><b>Table 25. <code class="code">Menubutton</code> widget options</b></p><div class="table-contents"><table summary="Menubutton widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              The background color when the mouse is over the
+              menubutton.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activeforeground</code>
+            </td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              when the mouse is over the menubutton.
+            </td></tr><tr><td align="left" valign="top"><code class="code">anchor</code></td><td align="left">
+              This options controls where the text is positioned
+              if the widget has more space than the text needs.
+              The default is <code class="code">anchor=tk.CENTER</code>, which
+              centers the text.  For other options, see <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a>.  For example, if you use <code class="code">anchor=tk.W</code>, the text would be centered
+              against the left side of the widget.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bg</code> or
+              <code class="code">background</code></td><td align="left">
+              The background <a href="colors.html" title="5.3. Colors">color</a>
+              when the mouse is not over the menubutton.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bitmap</code></td><td align="left">
+              To display a bitmap on the menubutton, set this
+              option to a bitmap name; see <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or
+              <code class="code">borderwidth</code></td><td align="left">
+              Width of the border around the menubutton.  Default
+              is two pixels.  For possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">compound</code>
+            </td><td align="left" valign="top">
+              If you specify both text and a graphic (either a
+              bitmap or an image), this option specifies where
+              the graphic appears relative to the text.  Possible
+              values are <code class="code">tk.NONE</code> (the default value),
+              <code class="code">tk.TOP</code>, <code class="code">tk.BOTTOM</code>, <code class="code">tk.LEFT</code>, <code class="code">tk.RIGHT</code>, and <code class="code">tk.CENTER</code>.  For example, <code class="code">compound=tk.RIGHT</code> would position the graphic
+              to the right of the text.  If you specify <code class="code">compound=tk.NONE</code>, the graphic is displayed
+              but the <code class="code">text</code> (if any) is not.
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              The cursor that appears when the mouse is over this
+              menubutton.  See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">direction</code></td><td align="left">
+              Normally, the menu will appear below the
+              menubutton.  Set <code class="code">direction=tk.LEFT</code> to
+              display the menu to the left of the button; use
+              <code class="code">direction=tk.RIGHT</code> to display the menu
+              to the right of the button; or use <code class="code">direction='above'</code> to place the menu above
+              the button.
+            </td></tr><tr><td align="left" valign="top"><code class="code">disabledforeground</code></td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              shown on this menubutton when it is disabled.
+            </td></tr><tr><td align="left" valign="top"><code class="code">fg</code> or
+              <code class="code">foreground</code></td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              when the mouse is not over the menubutton.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left" valign="top">
+              Specifies the font used to display the <code class="code">text</code>; see <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+              The height of the menubutton in
+              <span class="emphasis"><em>lines</em></span> of text (not pixels!).
+              The default is to fit the menubutton's size to its
+              contents.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> of the focus
+              highlight when the widget does not have focus.  See
+              <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> shown in the
+              focus highlight when the widget has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightthickness</code></td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top"><code class="code">image</code></td><td align="left">
+              To display an image on this menubutton, set this
+              option to the image object.  See <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">justify</code></td><td align="left">
+              This option controls where the text is located when
+              the text doesn't fill the menubutton: use <code class="code">justify=tk.LEFT</code> to left-justify the text
+              (this is the default); use <code class="code">justify=tk.CENTER</code> to center it, or <code class="code">justify=tk.RIGHT</code> to right-justify.
+            </td></tr><tr><td align="left" valign="top"><code class="code">menu</code></td><td align="left">
+              To associate the menubutton with a set of choices,
+              set this option to the <code class="code">Menu</code> object
+              containing those choices.  That menu object must
+              have been created by passing the associated
+              menubutton to the constructor as its first
+              argument.  See below for an example showing how to
+              associate a menubutton and menu.
+            </td></tr><tr><td align="left" valign="top"><code class="code">padx</code></td><td align="left">
+              How much space to leave to the left and right of
+              the text of the menubutton.  Default is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">pady</code></td><td align="left">
+              How much space to leave above and below the text of
+              the menubutton.  Default is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              Normally, menubuttons will have <code class="code">tk.RAISED</code> appearance.  For other 3-d effects, see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">state</code></td><td align="left">
+              Normally, menubuttons respond to the mouse.  Set
+              <code class="code">state=tk.DISABLED</code> to gray out the
+              menubutton and make it unresponsive.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left" valign="top">
+              Normally, menubuttons do not take keyboard focus
+              (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>).  Use <code class="code">takefocus=True</code> to add the menubutton to
+              the focus traversal order.
+            </td></tr><tr><td align="left" valign="top"><code class="code">text</code></td><td align="left">
+              To display text on the menubutton, set this option
+              to the string containing the desired text.
+              Newlines (<code class="code">'\n'</code>) within the string
+              will cause line breaks.
+            </td></tr><tr><td align="left" valign="top"><code class="code">textvariable</code></td><td align="left">
+              You can associate a control variable of class <code class="code">StringVar</code> with this menubutton.  Setting
+              that control variable will change the displayed
+              text.  See <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">underline</code></td><td align="left">
+              Normally, no underline appears under the text on
+              the menubutton.  To underline one of the
+              characters, set this option to the index of that
+              character.
+            </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+              Width of the menubutton in
+              <span class="emphasis"><em>characters</em></span> (not pixels!).  If
+              this option is not set, the label will be sized to
+              fit its contents.
+            </td></tr><tr><td align="left" valign="top"><code class="code">wraplength</code></td><td align="left">
+              Normally, lines are not wrapped.  You can set this
+              option to a number of characters and all lines will
+              be broken into pieces no longer than that number.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Here is a brief example showing the creation of a
+      menubutton and its associated menu with two checkboxes:
+    </p><pre class="programlisting">    self.mb = tk.Menubutton(self, text='condiments',
+                             relief=RAISED)
+    self.mb.grid()
+
+    self.mb.menu = tk.Menu(self.mb, tearoff=0)
+    self.mb['menu'] = self.mb.menu
+
+    self.mayoVar  = tk.IntVar()
+    self.ketchVar = tk.IntVar()
+    self.mb.menu.add_checkbutton(label='mayo',
+        variable=self.mayoVar)
+    self.mb.menu.add_checkbutton(label='ketchup',
+        variable=self.ketchVar)
+</pre><p>
+      This example creates a menubutton labeled <code class="code">condiments</code>.  When clicked, two checkbuttons labeled
+      <code class="code">mayo</code> and <code class="code">ketchup</code> will drop down.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="message.html">17. The <code class="code">Message</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="menu-toplevel.html">15.2. Top-level menus</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/menubutton.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menubutton.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+</html>

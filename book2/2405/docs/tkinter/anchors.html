@@ -1,0 +1,36 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/anchors.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.5. Anchors</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="std-attrs.html" title="5. Standard attributes"><link rel="prev" href="fonts.html" title="5.4. Type fonts"><link rel="next" href="relief.html" title="5.6. Relief styles"></head><body><div class="topnavbar"><a href="relief.html">Next</a> / <a href="fonts.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="anchors"></a>5.5. Anchors</h3></div></div></div><p>
+        The <span class="application">Tkinter</span> module defines a number of <em class="firstterm">anchor</em> constants that you can use to
+        control where items are positioned relative to their
+        context.  For example, anchors can specify where a widget
+        is located inside a frame when the frame is bigger than
+        the widget.
+      </p><p>
+        These constants are given as compass points, where north
+        is up and west is to the left.  We apologize to our
+        Southern Hemisphere readers for this <a href="http://flourish.org/upsidedownmap/" target="_top">Northern
+        Hemisphere chauvinism</a>.
+      </p><p>
+        The anchor constants are shown in this diagram:
+      </p><div class="informalfigure"><div class="mediaobject"><img src="img/anchors.png"></div></div><p>
+        For example, if you create a small widget inside a large
+        frame and use the <code class="code">anchor=tk.SE</code> option, the
+        widget will be placed in the bottom right corner of the
+        frame.  If you used <code class="code">anchor=tk.N</code> instead, the
+        widget would be centered along the top edge.
+      </p><p>
+        Anchors are also used to define where text is positioned
+        relative to a reference point.  For example, if you use
+        <code class="code">tk.CENTER</code> as a text anchor, the text will be
+        centered horizontally and vertically around the reference
+        point.  Anchor <code class="code">tk.NW</code> will position the text
+        so that the reference point coincides with the northwest
+        (top left) corner of the box containing the text.  Anchor
+        <code class="code">tk.W</code> will center the text vertically around
+        the reference point, with the left edge of the text box
+        passing through that point, and so on.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="relief.html">5.6. Relief styles</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="fonts.html">5.4. Type fonts</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/anchors.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/anchors.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:26 GMT -->
+</html>

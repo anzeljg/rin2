@@ -1,0 +1,152 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-map.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>50.2. ttk style maps: dynamic appearance
+      changes</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="ttk-element-layer.html" title="50. The ttk element layer"><link rel="prev" href="ttk-layouts.html" title="50.1. ttk layouts: Structuring a style"><link rel="next" href="connecting.html" title="51. Connecting your application logic to the widgets"></head><body><div class="topnavbar"><a href="connecting.html">Next</a> / <a href="ttk-layouts.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ttk-map"></a>50.2. <span class="application">ttk</span> style maps: dynamic appearance
+      changes</h3></div></div></div><p>
+        The <span class="application">ttk</span> widgets can change their appearance during the
+        execution of the program.  For example, when a widget is
+        <em class="firstterm">disabled</em>, it will not respond to
+        mouse or keyboard actions.  Typically a disabled widget
+        presents a different appearance so that the user might realize
+        that the widget will not respond to the mouse.
+      </p><p>
+        In general, every <span class="application">ttk</span> widget has a set of <em class="firstterm">state flags</em> that you can use to make the
+        appearance of a widget change during execution.  Each
+        state may be set (turned on) or reset (turned off)
+        independently of the other states.  The states and their
+        meanings:
+      </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">active</code>
+              </td><td align="left">
+                The mouse is currently within the widget.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">alternate</code>
+              </td><td align="left">
+                This state is reserved for application use.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">background</code>
+              </td><td align="left">
+                Under Windows or MacOS, the widget is located in a
+                window that is not the foreground window.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabled</code>
+              </td><td align="left">
+                The widget will not respond to user actions.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">focus</code>
+              </td><td align="left">
+                The widget currently has <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">invalid</code>
+              </td><td align="left">
+                The contents of the widget are not currently valid.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">pressed</code>
+              </td><td align="left">
+                The widget is currently being pressed (e.g., a button
+                that is being clicked).
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">readonly</code>
+              </td><td align="left">
+                The widget will not allow any user actions to change
+                its current value.  For example, a read-only <code class="code">Entry</code> widget will not allow editing of its
+                content.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">selected</code>
+              </td><td align="left">
+                The widget is selected.  Examples are checkbuttons and
+                radiobuttons that are in the “on” state.
+              </td></tr></tbody></table></div><p>
+        Some states will change in response to user actions, for
+        example, the <code class="code">pressed</code> state of a <code class="code">Button</code>.  Your program can interrogate, clear, or set
+        any state by using functions described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>.
+      </p><p>
+        The logic that changes the appearance of a widget is tied to
+        one of its elements.  To interrogate or set up dynamic
+        behavior for a specific style, given an instance <code class="code"><em class="replaceable"><code>s</code></em></code> of <span class="application">ttk</span><code class="code">.Style</code>, use this method, where <code class="code"><em class="replaceable"><code>styleName</code></em></code> is the element's name, e.g.,
+        <code class="code">'Button.label'</code> or <code class="code">'border'</code>.
+      </p><pre class="programlisting">    <em class="replaceable"><code>s</code></em>.map(<em class="replaceable"><code>styleName</code></em>, *p, **kw)
+</pre><p>
+        To determine the dynamic behavior of one option of a given
+        style element, pass the option name as the second positional
+        argument, and the method will return a list of state change
+        specifications.
+      </p><p>
+        Each state change specification is a sequence <code class="code">(<em class="replaceable"><code>s<sub>0</sub></code></em>,
+        <em class="replaceable"><code>s<sub>1</sub></code></em>,
+        <em class="replaceable"><code>n</code></em>)</code>.  This sequence means
+        that when the widget's current state matches all the <code class="code"><em class="replaceable"><code>s<sub>i</sub></code></em></code> parts, set the option to the value <code class="code"><em class="replaceable"><code>n</code></em></code>.  Each item
+        <code class="code"><em class="replaceable"><code>s<sub>i</sub></code></em></code> is either a state name, or a state name preceded
+        by a “<code class="code">!</code>”.  To match, the
+        widget must be in all the states described by items that
+        don't start with “<code class="code">!</code>”, and
+        it must <span class="emphasis"><em>not</em></span> be in any of the states
+        that start with “<code class="code">!</code>”.
+      </p><p>
+        For example, suppose you have an instance <code class="code"><em class="replaceable"><code>s</code></em></code> of class <code class="code">ttk.Style</code>,
+        and you call it like this:
+      </p><pre class="programlisting">    changes = <em class="replaceable"><code>s</code></em>.map('TCheckbutton', 'indicatorcolor')
+</pre><p>
+        Further suppose that the return value is:
+      </p><pre class="programlisting">[('pressed', '#ececec'), ('selected', '#4a6984')]
+</pre><p>
+        This means that when a checkbutton is in the <code class="code">pressed</code> state, its <code class="code">indicatorcolor</code>
+        option should be set to the color <code class="code">'#ececec'</code>,
+        and when the checkbutton is in the <code class="code">selected</code>
+        state, its <code class="code">indicatorcolor</code> option should
+        be set to <code class="code">'#4a6984'</code>.
+      </p><p>
+        You may also change the dynamic behavior of an element by
+        passing one or more keyword arguments to the <code class="code">.map()</code> method.  For example, to get the behavior
+        of the above example, use this method call:
+      </p><pre class="programlisting">    <em class="replaceable"><code>s</code></em>.map('TCheckbutton',
+        indicatoron=[('pressed', '#ececec'), ('selected', '#4a6984')])
+</pre><p>
+        Here's a more complex example.  Suppose you want to
+        create a custom button style based on the standard <code class="code">TButton</code> class.  We'll name our style <code class="code">Wild.TButton</code>; because our name ends with
+        “<code class="code">.TButton</code>”, it automatically
+        inherits the standard style features.  Here's how to
+        set up this new style:
+      </p><pre class="programlisting">    s = ttk.Style()
+    s.configure('Wild.TButton',
+        background='black',
+        foreground='white',
+        highlightthickness='20',
+        font=('Helvetica', 18, 'bold'))
+    s.map('Wild.TButton',
+        foreground=[('disabled', 'yellow'),
+                    ('pressed', 'red'),
+                    ('active', 'blue')],
+        background=[('disabled', 'magenta'),
+                    ('pressed', '!focus', 'cyan'),
+                    ('active', 'green')],
+        highlightcolor=[('focus', 'green'),
+                        ('!focus', 'red')],
+        relief=[('pressed', 'groove'),
+                ('!pressed', 'ridge')])
+</pre><div class="itemizedlist"><ul type="disc" compact><li><p>
+            This button will initially show white text on a black
+            background, with a 20-pixel-wide focus highlight.
+          </p></li><li><p>
+            If the button is in <code class="code">'disabled'</code> state,
+            it will show yellow text on a magenta background.
+          </p></li><li><p>
+            If the button is currently being pressed, the text
+            will be red; provided the button does <span class="emphasis"><em>not</em></span> have focus, the background will be
+            cyan.  The tuple <code class="code">('pressed', '!focus',
+            'cyan')</code> is an example of how you can make an
+            attribute dependent on a combination of states.
+          </p></li><li><p>
+            If the button is active (under the cursor), the text
+            will be blue on a green background.
+          </p></li><li><p>
+            The focus highlight will be green when the button has
+            focus and red when it does not.
+          </p></li><li><p>
+            The button will show ridge relief when it is not
+            being pressed, and groove relief when it is being
+            pressed.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="connecting.html">51. Connecting your application logic to the widgets</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-layouts.html">50.1. <span class="application">ttk</span> layouts: Structuring a style</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-map.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-map.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

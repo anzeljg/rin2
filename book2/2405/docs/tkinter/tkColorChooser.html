@@ -1,0 +1,42 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/tkColorChooser.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:42:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>55.3. The tkColorChooser module</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="dialogs.html" title="55. Pop-up dialogs"><link rel="prev" href="tkFileDialog.html" title="55.2. The tkFileDialog module"></head><body><div class="topnavbar">Next / <a href="tkFileDialog.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tkColorChooser"></a>55.3. The <code class="code">tkColorChooser</code> module</h3></div></div></div><p>
+        To give your application's user a popup they can use to
+        select a color, import the <code class="code">tkColorChooser</code>
+        module and call this function:
+
+        </p><pre class="programlisting"><em class="replaceable"><code>result</code></em> = tkColorChooser.askcolor(<em class="replaceable"><code>color</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      </p><p>
+        Arguments are:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>color</code></em></code>
+          </span></dt><dd><p>
+              The initial color to be displayed.  The default
+              initial color is a light gray.
+            </p></dd><dt><span class="term">
+            <code class="code">title=<em class="replaceable"><code>text</code></em></code>
+          </span></dt><dd><p>
+              The specified <code class="code"><em class="replaceable"><code>text</code></em></code> appears in the pop-up
+              window's title area.  The default title is
+              “Color”.
+            </p></dd><dt><span class="term">
+            <code class="code">parent=<em class="replaceable"><code>W</code></em></code>
+          </span></dt><dd><p>
+              Make the popup appear over window <code class="code"><em class="replaceable"><code>W</code></em></code>.  The
+              default behavior is that it appears over your root
+              window.
+            </p></dd></dl></div><p>
+        If the user clicks the <span class="guibutton">OK</span> button
+        on the pop-up, the returned value will be a tuple <code class="code">(<em class="replaceable"><code>triple</code></em>, <code class="code">color</code>)</code>, where <code class="code"><em class="replaceable"><code>triple</code></em></code> is a tuple <code class="code">(<em class="replaceable"><code>R</code></em>, <em class="replaceable"><code>G</code></em>, <em class="replaceable"><code>B</code></em>)</code> containing red, green, and blue values in the range
+        [0,255] respectively, and <code class="code"><em class="replaceable"><code>color</code></em></code> is the selected color as a
+        regular <span class="application">Tkinter</span> color object.
+      </p><p>
+        If the users clicks <span class="guibutton">Cancel</span>, this
+        function will return <code class="code">(None, None)</code>.
+      </p><p>
+        Here's what the popup looks like on the author's system:
+      </p><div class="informalfigure"><div class="mediaobject"><img src="img/askcolor.png"></div></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="tkFileDialog.html">55.2. The <code class="code">tkFileDialog</code> module</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/tkColorChooser.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/tkColorChooser.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:42:04 GMT -->
+</html>

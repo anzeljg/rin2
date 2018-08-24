@@ -1,0 +1,130 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-PanedWindow.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>38. ttk.PanedWindow</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Notebook-events.html" title="37.1. Virtual events for the ttk.Notebook
+      widget"><link rel="next" href="ttk-Progressbar.html" title="39. ttk.Progressbar"></head><body><div class="topnavbar"><a href="ttk-Progressbar.html">Next</a> / <a href="ttk-Notebook-events.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-PanedWindow"></a>38. <span class="application">ttk</span><code class="code">.PanedWindow</code></h2></div></div></div><p>
+      This is the <span class="application">ttk</span> version of <a href="panedwindow.html" title="19. The PanedWindow widget">Section 19, “The <code class="code">PanedWindow</code> widget”</a>.
+      To create a <span class="application">ttk</span><code class="code">.PanedWindow</code> widget as the
+      child of a given <code class="code"><em class="replaceable"><code>parent</code></em></code> widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.PanedWindow(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      The options for this constructor are given in <a href="ttk-PanedWindow.html#ttk-PanedWindow-options" title="Table 52. ttk.PanedWindow options">Table 52, “<span class="application">ttk</span><code class="code">.PanedWindow</code> options”</a>.
+    </p><div class="table"><a name="ttk-PanedWindow-options"></a><p class="title"><b>Table 52. <span class="application">ttk</span><code class="code">.PanedWindow</code> options</b></p><div class="table-contents"><table summary="ttk.PanedWindow options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over the
+              checkbutton; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              The height <a href="dimensions.html" title="5.1. Dimensions">dimension</a>
+              of the widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">orient</code>
+            </td><td align="left">
+              To stack child widgets side by side, use <code class="code">orient=tk.HORIZONTAL</code>.  To stack them top to
+              bottom, use <code class="code">orient=tk.VERTICAL</code>.  The
+              default option is <code class="code">tk.VERTICAL</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this widget; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.PanedWindow</code> will
+              not be included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To add the widget to focus
+              traversal, use <code class="code">takefocus=True</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              The width <a href="dimensions.html" title="5.1. Dimensions">dimension</a>
+              of the widget.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These options of the <span class="application">Tkinter</span><code class="code">.PanedWindow</code> widget
+      are <span class="emphasis"><em>not</em></span> supported by the <span class="application">ttk</span><code class="code">.PanedWindow</code> constructor:
+    </p><div class="table"><a name="ttk-PanedWindow-missing"></a><p class="title"><b>Table 53. <span class="application">Tkinter</span> <code class="code">PanedWindow</code> options not in
+      <span class="application">ttk</span><code class="code">.PanedWindow</code></b></p><div class="table-contents"><table summary="Tkinter PanedWindow options not in
+      ttk.PanedWindow" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">background</code> or <code class="code">bg</code>
+            </td><td align="left">
+              Configure the <code class="code">background</code> option using a
+              style.  The <code class="code">bg</code> abbreviation is not
+              supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code> or <code class="code">bd</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over the
+              widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">handlepad</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">handlesize</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">opaqueresize</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sashrelief</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sashwidth</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">showhandle</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on a <span class="application">ttk</span><code class="code">.PanedWindow</code> include all
+      those described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>, plus:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.add(<em class="replaceable"><code>w</code></em>[,
+          weight=<em class="replaceable"><code>N</code></em>])</code>
+        </span></dt><dd><p>
+            Add a new pane to the window, where <code class="code"><em class="replaceable"><code>w</code></em></code> is any widget (but typically a
+            <code class="code">Frame</code>).  If you provide a <code class="code">weight</code> option, it describes the size of the pane
+            in the stacking dimension, relative to the other panes.
+            For example, for <code class="code">orient=tk.VERTICAL</code>, if
+            pane 0 has <code class="code">weight=1</code> and pane 1 has <code class="code">weight=3</code>, initially the first pane will have 1/4
+            of the height and the second pane will have 3/4.
+          </p></dd><dt><span class="term">
+          <code class="code">.forget(<em class="replaceable"><code>what</code></em>)</code>
+        </span></dt><dd><p>
+            Remove a pane.  The argument may be either the index of
+            the pane, counting from zero, or the child widget.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert(<em class="replaceable"><code>where</code></em>,
+          <em class="replaceable"><code>w</code></em>[, weight=<em class="replaceable"><code>N</code></em>])</code>
+        </span></dt><dd><p>
+            Add a new pane <code class="code"><em class="replaceable"><code>w</code></em></code> to the window at the position specified by <code class="code"><em class="replaceable"><code>where</code></em></code>, where <code class="code"><em class="replaceable"><code>where</code></em></code> may be either
+            an index or the pane widget before which you want to
+            insert the new pane.
+          </p></dd><dt><span class="term">
+          <code class="code">.panes()</code>
+        </span></dt><dd><p>
+            This method returns a list of the <code class="code">PanedWindow</code>'s child widgets.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Progressbar.html">39. <span class="application">ttk</span><code class="code">.Progressbar</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Notebook-events.html">37.1. Virtual events for the <span class="application">ttk</span><code class="code">.Notebook</code>
+      widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-PanedWindow.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-PanedWindow.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+</html>

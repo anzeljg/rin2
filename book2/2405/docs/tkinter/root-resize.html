@@ -1,0 +1,65 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/root-resize.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.4. Making the root window resizeable</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="layout-mgt.html" title="4. Layout management"><link rel="prev" href="grid-config.html" title="4.3. Configuring column and row sizes"><link rel="next" href="std-attrs.html" title="5. Standard attributes"></head><body><div class="topnavbar"><a href="std-attrs.html">Next</a> / <a href="grid-config.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="root-resize"></a>4.4. Making the root window resizeable</h3></div></div></div><p>
+        Do you want to let the user resize your entire
+        application window, and distribute the extra space among
+        its internal widgets?  This requires some operations that
+        are not obvious.
+      </p><p>
+        It's necessary to use the techniques for row and column
+        size management, described in <a href="grid-config.html" title="4.3. Configuring column and row sizes">Section 4.3, “Configuring column and row sizes”</a>, to make your <code class="code">Application</code> widget's grid stretchable.
+        However, that alone is not sufficient.
+      </p><p>
+        Consider the trivial application discussed in <a href="minimal-app.html" title="2. A minimal application">Section 2, “A minimal application”</a>, which contains only a <span class="guibutton">Quit</span> button.  If you run this application,
+        and resize the window, the button stays the same size,
+        centered within the window.
+      </p><p>
+        Here is a replacement version of the <code class="code">.__createWidgets()</code> method in the <a href="minimal-app.html" title="2. A minimal application">minimal application</a>.  In
+        this version, the <span class="guibutton">Quit</span> button
+        always fills all the available space.
+      </p><pre class="programlisting">    def createWidgets(self):
+        top=self.winfo_toplevel()                <a name="rr-toplev"></a><img src="callouts/1.html" alt="1" border="0">
+        top.rowconfigure(0, weight=1)            <a name="rr-toprow"></a><img src="callouts/2.html" alt="2" border="0">
+        top.columnconfigure(0, weight=1)         <a name="rr-topcol"></a><img src="callouts/3.html" alt="3" border="0">
+        self.rowconfigure(0, weight=1)           <a name="rr-approw"></a><img src="callouts/4.html" alt="4" border="0">
+        self.columnconfigure(0, weight=1)        <a name="rr-appcol"></a><img src="callouts/5.html" alt="5" border="0">
+        self.quit = Button(self, text='Quit', command=self.quit)
+        self.quit.grid(row=0, column=0,          <a name="rr-quitgrid"></a><img src="callouts/6.html" alt="6" border="0">
+            sticky=tk.N+tk.S+tk.E+tk.W)
+</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#rr-toplev"><img src="callouts/1.html" alt="1" border="0"></a> </td><td valign="top" align="left"><p>
+            The “top level window” is the outermost
+            window on the screen.  However, this window is not
+            your <code class="code">Application</code>
+            window—it is the <span class="emphasis"><em>parent</em></span>
+            of the <code class="code">Application</code> instance.
+            To get the top-level window, call the <code class="code">.winfo_toplevel()</code> method on any widget
+            in your application; see <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>.
+          </p></td></tr><tr><td width="5%" valign="top" align="left"><a href="#rr-toprow"><img src="callouts/2.html" alt="2" border="0"></a> </td><td valign="top" align="left"><p>
+            This line makes row 0 of the top level window's grid
+            stretchable.
+          </p></td></tr><tr><td width="5%" valign="top" align="left"><a href="#rr-topcol"><img src="callouts/3.html" alt="3" border="0"></a> </td><td valign="top" align="left"><p>
+            This line makes column 0 of the top level window's
+            grid stretchable.
+          </p></td></tr><tr><td width="5%" valign="top" align="left"><a href="#rr-approw"><img src="callouts/4.html" alt="4" border="0"></a> </td><td valign="top" align="left"><p>
+            Makes row 0 of the <code class="code">Application</code> widget's grid stretchable.
+          </p></td></tr><tr><td width="5%" valign="top" align="left"><a href="#rr-appcol"><img src="callouts/5.html" alt="5" border="0"></a> </td><td valign="top" align="left"><p>
+            Makes column 0 of the <code class="code">Application</code> widget's grid stretchable.
+          </p></td></tr><tr><td width="5%" valign="top" align="left"><a href="#rr-quitgrid"><img src="callouts/6.html" alt="6" border="0"></a> </td><td valign="top" align="left"><p>
+            The argument <code class="code">sticky=tk.N+tk.S+tk.E+tk.W</code>
+            makes the button expand to fill its cell of the grid.
+          </p></td></tr></table></div><p>
+        There is one more change that must be made.  In the
+        constructor, change the second line as shown:
+        </p><pre class="programlisting">    def __init__(self, master=None):
+        tk.Frame.__init__(self, master)
+        self.grid(sticky=tk.N+tk.S+tk.E+tk.W)
+        self.createWidgets()
+</pre><p>
+        The argument <code class="code">sticky=tk.N+tk.S+tk.E+tk.aW</code> to
+        <code class="code">self.grid()</code> is necessary so that
+        the <code class="code">Application</code> widget will
+        expand to fill its cell of the top-level window's grid.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="std-attrs.html">5. Standard attributes</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="grid-config.html">4.3. Configuring column and row sizes</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/root-resize.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/root-resize.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+</html>

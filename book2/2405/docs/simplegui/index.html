@@ -1,0 +1,1602 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset='utf-8' />
+	<title>CodeSkulptor Documentation</title>
+	<link href='favicon.ico' rel='shortcut icon' />
+	<link rel='stylesheet' type='text/css' href='css/codemirror.css' />
+	<link rel='stylesheet' type='text/css' href='css/jquery-ui.min.css' />
+	<link rel='stylesheet' type='text/css' href='css/codeskulptor-docs.css' />
+	<script type='text/javascript' src='js/jquery.min.js'></script>
+	<script type='text/javascript' src='js/jquery-ui.min.js'></script>
+	<script type='text/javascript' src='js/codeskulptor-docs.js'></script>
+
+  </head>
+  <body>
+    <div class='top-bar'><h1 class='left3'>Documentation</h1><input class='right3' id='searchbox' type='search' placeholder='Search text' value=''/><div class='middle3'><a href='http://www.codeskulptor.org/' target='_blank'><img src='img/codeskulptor.png' alt='CodeSkulptor' width='129' height='30'/></a></div><div class='top-bar-end'></div></div>    <div id="tabs" class="hideload">
+      <ul><li><a href='#tabs-Graphics' title='CodeSkulptor-specific graphics modules'>Graphics Modules</a></li><li><a class='hide searchtab' href='#tabs-Search' title='Search this documentation'>Search</a></li></ul>
+
+      <div id="tabs-Graphics">
+        <p>
+          <a href='http://www.codeskulptor.org/' target='_blank'>CodeSkulptor</a>          implements three custom modules for graphics in the browser,
+          each with an easy-to-learn interface.
+          The SimpleGUI module is for building interactive programs
+          and drawing.
+          The SimpleMap module is for drawing features on maps.
+          The SimplePlot module is for plotting numeric data.
+          To use these operations, first import the appropriate module with
+          <code>import simplegui</code>, <code>import simplemap</code>,
+          or <code>import simpleplot</code>.
+        </p>
+
+        <div class="accordion">
+          <h3 id='Frames'><a href='#'><span class='accheadtitle'>SimpleGUI Module &mdash; Frame</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='simplegui-create_frame'><code>simplegui.create_frame</code></a></li><li><a href='#' class='internal' data-dest='frame-set_canvas_background'><code>frame.set_canvas_background</code></a></li><li><a href='#' class='internal' data-dest='frame-start'><code>frame.start</code></a></li><li><a href='#' class='internal' data-dest='frame-get_canvas_textwidth'><code>frame.get_canvas_textwidth</code></a></li><li><a href='#' class='internal' data-dest='frame-add_label'><code>frame.add_label</code></a></li><li><a href='#' class='internal' data-dest='frame-add_button'><code>frame.add_button</code></a></li><li><a href='#' class='internal' data-dest='frame-add_input'><code>frame.add_input</code></a></li><li><a href='#' class='internal' data-dest='keyboard-input'><code>frame.set_keydown_handler</code></a></li><li><a href='#' class='internal' data-dest='keyboard-input'><code>frame.set_keyup_handler</code></a></li><li><a href='#' class='internal' data-dest='mouse-input'><code>frame.set_mouseclick_handler</code></a></li><li><a href='#' class='internal' data-dest='mouse-input'><code>frame.set_mousedrag_handler</code></a></li><li><a href='#' class='internal' data-dest='set_draw_handler'><code>frame.set_draw_handler</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-more-2a_simplegui-frame.py' target='_blank'>Frames</a></li><li><a href='http://www.codeskulptor.org/#examples-more-2a_simplegui-errors.py' target='_blank'>Common Errors with Frames</a></li></ul></dd>            </dl>
+
+            <p>
+              A frame is a window, which is a container for the
+              <a href='#' class='internal' data-dest='Controls'>controls</a>,
+              status information, and
+              <a href='#' class='internal' data-dest='Canvases'>canvas</a>.
+              A program can create only one frame.
+            </p>
+
+            <div class="accordion">
+              <h3 id='simplegui-create_frame'><a href='#'><span class='accheadtitle'>Create Frame</span><span class='accheadcode'><code>simplegui.create_frame()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simplegui.create_frame(title, canvas_width, canvas_height)</code></dd><dd><code>simplegui.create_frame(title, canvas_width, canvas_height, control_width)</code></dd><dt>Examples:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)</pre></td><td><pre># Opens frame</pre></td></tr><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 200, 200, 300)</pre></td><td><pre># Opens frame</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Creates a new frame for interactive programs.
+                  The frame's window has the given title, a string.
+                  The frame consists of two parts: a
+		  <a href='#' class='internal' data-dest='Controls'>control panel</a>                  on the left and a
+                  <a href='#' class='internal' data-dest='Canvases'>canvas</a>                  on the right.
+                  The control panel's width in pixels can be specified by
+                  the number <code>control_width</code>.
+                  The canvas width in pixels is the number
+                  <code>canvas_width</code>.
+                  The height in pixels of both the control panel and canvas
+                  is the number <code>canvas_height</code>.
+                </p>
+              </div>
+
+              <h3 id='frame-set_canvas_background'><a href='#'><span class='accheadtitle'>Set Canvas' Background Color</span><span class='accheadcode'><code>frame.set_canvas_background()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.set_canvas_background(color)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_canvas_background('Red')
+frame.start()</pre></td><td><pre># Opens frame with a red background</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+                  Changes the background color of the frame's canvas,
+                  which defaults to black.
+                </p>
+              </div>
+
+              <h3 id='frame-start'><a href='#'><span class='accheadtitle'>Start Frame's Interactivity</span><span class='accheadcode'><code>frame.start()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.start()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.start()</pre></td><td><pre># Opens frame</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Starts all frame event handlers &mdash; drawing and controls.
+                </p>
+              </div>
+
+              <h3 id='frame-get_canvas_textwidth'><a href='#'><span class='accheadtitle'>Get Canvas Text's Width</span><span class='accheadcode'><code>frame.get_canvas_textwidth()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.get_canvas_textwidth(text, size)</code></dd><dd><code>frame.get_canvas_textwidth(text, size, face)</code></dd><dt>Examples:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)
+print frame.get_canvas_textwidth('hello', 12)</pre></td><td><pre>23</pre></td></tr><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)
+print frame.get_canvas_textwidth('hello', 12, 'sans-serif')</pre></td><td><pre>27</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Given a text string, a font size, and a font face, this
+                  returns the width of the text in pixels.
+                  It does <em>not</em> draw the text.
+                  This is useful in computing the position to draw text
+                  when you want it centered or right justified in some
+                  region.
+                </p>
+
+                <p>
+                  The supported font faces are the default
+                  <code>"serif"</code>,
+                  <code>"sans-serif"</code>, and
+                  <code>"monospace"</code>.
+                </p> 
+              </div>
+
+              <!--
+              <h3 id="frame-stop">
+                <a href="#">
+                  <span class="accheadtitle">End Frame's Interactivity</span>
+                  <span class="accheadcode"><code>frame.stop()</code></span>
+                </a>
+              </h3>
+              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.stop()</code></dd>                </dl>
+
+                <p>
+                  Stops all frame event handlers &mdash; drawing and controls.
+                  Closes the frame.
+                  The frame cannot be restarted.
+                </p>
+              </div>
+              -->
+            </div>
+          </div>
+
+          <h3 id='Controls'><a href='#'><span class='accheadtitle'>SimpleGUI Module &mdash; Control Objects</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='get_text'><code>control.get_text</code></a></li><li><a href='#' class='internal' data-dest='set_text'><code>control.set_text</code></a></li><li><a href='#' class='internal' data-dest='frame-add_label'><code>frame.add_label</code></a></li><li><a href='#' class='internal' data-dest='frame-add_button'><code>frame.add_button</code></a></li><li><a href='#' class='internal' data-dest='frame-add_input'><code>frame.add_input</code></a></li><li><a href='#' class='internal' data-dest='keyboard-input'><code>frame.set_keydown_handler</code></a></li><li><a href='#' class='internal' data-dest='keyboard-input'><code>frame.set_keyup_handler</code></a></li><li><a href='#' class='internal' data-dest='mouse-input'><code>frame.set_mousedrag_handler</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd>            </dl>
+
+            <p>
+              Control objects are placed in the control panel,
+              which is the left-hand part of the frame.
+              They are placed top-down in the order of creation.
+              Status information is at the bottom of the control panel.
+            </p>
+
+            <div class="accordion">
+              <h3 id='frame-add_label'><a href='#'><span class='accheadtitle'>Add Text Label to Frame Control Panel</span><span class='accheadcode'><code>frame.add_label()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.add_label(text)</code></dd><dd><code>frame.add_label(text, width)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)
+label1 = frame.add_label('My first label')
+label2 = frame.add_label('My second label', 200)
+label3 = frame.add_label('My third label', 20)</pre></td><td><pre># Opens frame with three labels</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='get_text'><code>control.get_text()</code></a> &mdash; Gets the current label text</dd><dd><a href='#' class='internal' data-dest='set_text'><code>control.set_text()</code></a> &mdash; Sets the current label text</dd>                </dl>
+
+                <p>
+                  Adds a text label to the control panel.
+                  The width of the label defaults to fit the width of
+                  the given text, but can be specified in pixels.
+                  If the provided width is less than that of the text,
+                  the text overflows the label.
+                </p>
+              </div>
+
+              <h3 id='frame-add_button'><a href='#'><span class='accheadtitle'>Add Button to Frame Control Panel</span><span class='accheadcode'><code>frame.add_button()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.add_button(text, button_handler)</code></dd><dd><code>frame.add_button(text, button_handler, width)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def button_handler():
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+button1 = frame.add_button('Label 1', button_handler)
+button2 = frame.add_button('Label 2', button_handler, 50)</pre></td><td><pre># Opens frame with two buttons</pre></td></tr></tbody></table></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-more-2b_buttons-structure.py' target='_blank'>Button Definitions</a></li><li><a href='http://www.codeskulptor.org/#examples-more-2b_buttons-canvas_color.py' target='_blank'>Canvas Color</a></li><li><a href='http://www.codeskulptor.org/#examples-more-2b_buttons-prize_boxes.py' target='_blank'>Prize Boxes</a></li><li><a href='http://www.codeskulptor.org/#examples-more-2b_buttons-true_false_quiz.py' target='_blank'>True-False Quiz</a></li></ul></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='get_text'><code>control.get_text()</code></a> &mdash; Gets the current label text</dd><dd><a href='#' class='internal' data-dest='set_text'><code>control.set_text()</code></a> &mdash; Sets the current label text</dd>                </dl>
+
+                <p>
+                  Adds a button to the frame's control panel
+                  with the given text label.
+                  The width of the button defaults to fit the
+                  given text, but can be specified in pixels.
+                  If the provided width is less than that of the text, the
+                  text overflows the button.
+                </p>
+
+                <p>
+                  The handler should be defined with no parameters,
+                  as in the above example.
+                </p>
+              </div>
+
+              <h3 id='frame-add_input'><a href='#'><span class='accheadtitle'>Add Text Input Box to Frame Control Panel</span><span class='accheadcode'><code>frame.add_input()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.add_input(text, input_handler, width)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def input_handler(text_input):
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+inp = frame.add_input('My label', input_handler, 50)</pre></td><td><pre># Opens frame with one input box</pre></td></tr></tbody></table></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-more-2b_input_fields-structure.py' target='_blank'>Input Field Definitions</a></li><li><a href='http://www.codeskulptor.org/#examples-more-2b_input_fields-functions.py' target='_blank'>Input Fields with Functions</a></li><li><a href='http://www.codeskulptor.org/#examples-more-2b_input_fields-factoring.py' target='_blank'>Factoring</a></li><li><a href='http://www.codeskulptor.org/#examples-more-2b_input_fields-silly_words.py' target='_blank'>Silly Words</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3a_string_processing-input_checking.py' target='_blank'>Input Checking</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3a_string_processing-initials.py' target='_blank'>Initials</a></li></ul></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='get_text'><code>control.get_text()</code></a> &mdash; Gets the current input text</dd><dd><a href='#' class='internal' data-dest='set_text'><code>control.set_text()</code></a> &mdash; Sets the current input text, e.g., to specify a default value</dd>                </dl>
+
+                <p>
+                  Adds a text input field to the control panel with the
+                  given text label.
+                  The input field has the given width in pixels.
+                </p>
+
+                <p>
+                  The handler should be defined with one parameter,
+                  as in the above example.  This parameter will receive
+                  a string of the text input when the user presses
+                  the <kbd>Enter</kbd> key.
+                </p>
+              </div>
+
+              <h3 id='get_text'><a href='#'><span class='accheadtitle'>Get the Text of Control Object</span><span class='accheadcode'><code>control.get_text()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>control.get_text()</code></dd><dt>Examples:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)
+label = frame.add_label('Label')
+label.set_text('New label')
+print label.get_text()</pre></td><td><pre>New label</pre></td></tr><tr><td><pre class='cm'>import simplegui
+
+def button_handler():
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+button = frame.add_button('Press this button', button_handler)
+print button.get_text()</pre></td><td><pre>Press this button</pre></td></tr><tr><td><pre class='cm'>import simplegui
+
+def input_handler(text_input):
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+inp = frame.add_input('Label', input_handler, 50)
+print inp.get_text()</pre></td><td><pre></pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='set_text'><code>control.set_text()</code></a> &mdash; Sets the text</dd>                </dl>
+
+                <p>
+                  Returns the text in a
+                  <a href='#' class='internal' data-dest='frame-add_label'>label</a>,
+                  the text label of a
+                  <a href='#' class='internal' data-dest='frame-add_button'>button</a>,
+                  or the text in the input field of a
+                  <a href='#' class='internal' data-dest='frame-add_input'>text input</a>,
+                  respectively.
+                  For an input field, this is useful to look at the contents
+                  of the input field before the user presses the
+                  <kbd>Enter</kbd> key.
+                </p>
+              </div>
+
+              <h3 id='set_text'><a href='#'><span class='accheadtitle'>Set the Text of Control Object</span><span class='accheadcode'><code>control.set_text()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>control.set_text(text)</code></dd><dt>Examples:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+frame = simplegui.create_frame('Testing', 100, 100)
+label = frame.add_label('Label')
+label.set_text('New label')</pre></td><td><pre># Opens frame with a text string</pre></td></tr><tr><td><pre class='cm'>import simplegui
+
+def button_handler():
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+button = frame.add_button('Label', button_handler)
+button.set_text('New label')</pre></td><td><pre># Opens frame with one button</pre></td></tr><tr><td><pre class='cm'>import simplegui
+
+def input_handler(text_input):
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+inp = frame.add_input('Label', input_handler, 50)
+inp.set_text('Default contents')</pre></td><td><pre># Opens frame with one input box</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='get_text'><code>control.get_text()</code></a> &mdash; Gets the text</dd>                </dl>
+
+                <p>
+                  Changes the text in a
+                  <a href='#' class='internal' data-dest='frame-add_label'>label</a>,
+                  the text label of a
+                  <a href='#' class='internal' data-dest='frame-add_button'>button</a>,
+                  or the text in the input field of a
+                  <a href='#' class='internal' data-dest='frame-add_input'>text input</a>,
+                  respectively.
+		  For a button, it also resizes the button if the button
+                  wasn't created with a particular width.
+                  For an input field, this is useful to provide a default input
+                  for the input field.
+                </p>
+              </div>
+
+              <h3 id='keyboard-input'><a href='#'><span class='accheadtitle'>Set the Keyboard Input Handler</span><span class='accheadcode'><code>frame.set_keydown_handler()</code>,
+                             <code>frame.set_keyup_handler()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.set_keydown_handler(key_handler)</code></dd><dd><code>frame.set_keyup_handler(key_handler)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def key_handler(key):
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_keydown_handler(key_handler)
+frame.start()</pre></td><td><pre># Opens frame with active keydown handler</pre></td></tr></tbody></table></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-keyboard-0.py' target='_blank'>Key Echo</a></li><li><a href='http://www.codeskulptor.org/#examples-more-4a_keyboard_input-shape_selection.py' target='_blank'>Shape Selection</a></li><li><a href='http://www.codeskulptor.org/#examples-keyboard-1.py' target='_blank'>Ball Positional Control</a></li><li><a href='http://www.codeskulptor.org/#examples-velocity_control.py' target='_blank'>Ball Velocity Control</a></li></ul></dd>                </dl>
+
+                <p>
+                  These add keyboard event handlers waiting for keydown,
+                  and keyup events, respectively.
+                  When any key is pressed, the keydown handler is called
+                  once.  When any key is released, the keyup handler is
+                  called once.
+                </p>
+
+                <p>
+                  The handler for each should be defined with one parameter,
+                  as in the above example.  This parameter will receive
+                  an integer representing a 
+		  <a href='#' class='internal' data-dest='Keys'>keyboard character</a>.
+                </p>
+              </div>
+
+              <h3 id='mouse-input'><a href='#'><span class='accheadtitle'>Set the Mouse Input Handler</span><span class='accheadcode'><code>frame.set_mouseclick_handler()</code>,
+                             <code>frame.set_mousedrag_handler()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.set_mouseclick_handler(mouse_handler)</code></dd><dd><code>frame.set_mousedrag_handler(mouse_handler)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def mouse_handler(position):
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_mouseclick_handler(mouse_handler)
+frame.start()</pre></td><td><pre># Opens frame with active mouseclick handler</pre></td></tr></tbody></table></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-mouse_input.py' target='_blank'>Moving Circle</a></li><li><a href='http://www.codeskulptor.org/#examples-more-5_mouseclick_handlers-ball_movement.py' target='_blank'>Ball Movement</a></li><li><a href='http://www.codeskulptor.org/#examples-more-5_mouseclick_handlers-click_lines.py' target='_blank'>Click Lines</a></li><li><a href='http://www.codeskulptor.org/#examples-more-5_mouseclick_handlers-tic_tac_toe.py' target='_blank'>Tic-Tac-Toe</a></li></ul></dd>                </dl>
+
+                <p>
+                  These add keyboard event handlers waiting for
+                  mouseclick and mousedrag events, respectively.
+                  When a mouse button is clicked, i.e., pressed and
+                  released, the mouseclick handler is called once.
+                  When a mouse is dragged while the mouse button is
+                  being pressed, the mousedrag handler is called for
+                  each new mouse position.
+                </p>
+
+                <p>
+                  The handler for each should be defined with one parameter,
+                  as in the above example.  This parameter will receive
+                  a pair of screen coordinates, i.e.,
+                  a tuple of two non-negative integers.
+                </p>
+              </div>
+            </div>  <!-- Closes accordion in Control Objects -->
+          </div>  <!-- Closes Control Objects -->
+
+          <h3 id='Canvases'><a href='#'><span class='accheadtitle'>SimpleGUI Module &mdash; Canvas</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='draw_text'><code>canvas.draw_text</code></a></li><li><a href='#' class='internal' data-dest='draw_line'><code>canvas.draw_line</code></a></li><li><a href='#' class='internal' data-dest='draw_polyline'><code>canvas.draw_polyline</code></a></li><li><a href='#' class='internal' data-dest='draw_polygon'><code>canvas.draw_polygon</code></a></li><li><a href='#' class='internal' data-dest='draw_circle'><code>canvas.draw_circle</code></a></li><li><a href='#' class='internal' data-dest='draw_point'><code>canvas.draw_point</code></a></li><li><a href='#' class='internal' data-dest='draw_image'><code>canvas.draw_image</code></a></li><li><a href='#' class='internal' data-dest='set_draw_handler'><code>frame.set_draw_handler</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-more-3a_canvas_and_drawing-structure.py' target='_blank'>Canvas and Drawing</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3a_canvas_and_drawing-echo.py' target='_blank'>Echo</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-shapes.py' target='_blank'>Drawing Shapes</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-pictures.py' target='_blank'>Drawing Pictures</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3a_interactive_drawing-hidden_picture.py' target='_blank'>Hidden Picture</a></li><li><a href='http://www.codeskulptor.org/#examples-more-4a_lists-rainbow_canvas.py' target='_blank'>Rainbow Canvas</a></li><li><a href='http://www.codeskulptor.org/#examples-more-4a_lists-digital_numbers.py' target='_blank'>Digital Numbers</a></li><li><a href='http://www.codeskulptor.org/#examples-more-4b_velocity_control-ball_track.py' target='_blank'>Ball Track</a></li></ul></dd>            </dl>
+
+            <p>
+              The canvas is where you can draw text and shapes.
+            </p>
+
+            <div class="accordion">
+              <h3 id='set_draw_handler'><a href='#'><span class='accheadtitle'>Set the Draw Handler on Canvas</span><span class='accheadcode'><code>frame.set_draw_handler()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>frame.set_draw_handler(draw_handler)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    &hellip;
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame with active draw handler</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Adds an event handler that is responsible for all drawing.
+                </p>
+
+                <p>
+                  The handler should be defined with one parameter,
+                  as in the above example.  This parameter will receive a
+		  <a href='#' class='internal' data-dest='Canvases'>canvas object</a>.
+                </p>
+              </div>
+
+              <h3 id='draw_text'><a href='#'><span class='accheadtitle'>Draw Text on Canvas</span><span class='accheadcode'><code>canvas.draw_text()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>canvas.draw_text(text, point, font_size, font_color)</code></dd><dd><code>canvas.draw_text(text, point, font_size, font_color, font_face)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_text('A', (20, 20), 12, 'Red')
+    canvas.draw_text('B', [30, 50], 20, 'Blue')
+    canvas.draw_text('C', (80, 50), 12, 'Gray', 'serif')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws three letters</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+                  Writes the given text string in the given font size, color,
+                  and font face.
+                  The point is a 2-element tuple or list of screen
+                  coordinates representing the
+                  lower-left-hand corner of where to write the text.
+                </p>
+
+                <p>
+                  The supported font faces are
+                  <code>"serif"</code> (the default),
+                  <code>"sans-serif"</code>, and
+                  <code>"monospace"</code>.
+                </p>
+
+                <p>
+                  In order to position the text where you want, you may
+                  want to determine the
+		  <a href='#' class='internal' data-dest='frame-get_canvas_textwidth'>text's width</a>.
+                </p>
+              </div>
+
+              <h3 id='draw_line'><a href='#'><span class='accheadtitle'>Draw Line Segment on Canvas</span><span class='accheadcode'><code>canvas.draw_line()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>canvas.draw_line(point1, point2, line_width, line_color)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_line((10, 20), (30, 40), 12, 'Red')
+    canvas.draw_line([10, 20], [80, 70], 20, 'Blue')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws two lines</pre></td></tr></tbody></table></dd><dt>Example:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-more-4a-motion-drawing_vectors.py' target='_blank'>Drawing Vectors</a></li></ul></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+                  Draws a line segment between the two points, each of
+                  which is a 2-element tuple or list of screen coordinates.
+                  The line's width is given in pixels and must be positive.
+                </p>
+              </div>
+
+              <h3 id='draw_polyline'><a href='#'><span class='accheadtitle'>Draw Connected Line Segments on Canvas</span><span class='accheadcode'><code>canvas.draw_polyline()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>canvas.draw_polyline(point_list, line_width, line_color)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_polyline([(10, 20), (30, 20), (90, 70)], 12, 'Red')
+    canvas.draw_polyline([[40, 20], [80, 40], [30, 90]], 20, 'Blue')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws two polylines</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+                  Draws a sequence of line segments between each adjacent
+                  pair of points in the non-empty list.
+                  It is an error for the list of points to be empty.
+                  Each point is a
+                  2-element tuple or list of screen coordinates.
+                  The line's width is given in pixels and must be positive.
+                </p>
+              </div>
+
+	      <h3 id='draw_polygon'><a href='#'><span class='accheadtitle'>Draw Polygon on Canvas</span><span class='accheadcode'><code>canvas.draw_polygon()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>canvas.draw_polygon(point_list, line_width, line_color)</code></dd><dd><code>canvas.draw_polygon(point_list, line_width, line_color, fill_color = color)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_polygon([(10, 20), (20, 30), (30, 10)], 12, 'Green')
+    canvas.draw_polygon([[30, 20], [40, 40], [50, 20], [10, 10]], 12, 'Red')
+    canvas.draw_polygon([(50, 70), (80, 40), (30, 90)], 5, 'Blue', 'White')
+    canvas.draw_polygon([[90, 70], [80, 40], [70, 90], [70, 70]], 12, 'Yellow', 'Orange')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws four polygons</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+                  Draws a sequence of line segments between each adjacent
+                  pair of points in the non-empty list,
+                  plus a line segment between the
+                  first and last points.
+                  It is an error for the list of points to be empty.
+                  Each point is a
+                  2-element tuple or list of screen coordinates.
+                  The line's width is given in pixels, and must be positive.
+                  The fill color defaults to <code>None</code>.              
+                  If the fill color is specified, then the interior
+                  of the polygon is colored.
+                </p>
+              </div>
+
+              <h3 id='draw_circle'><a href='#'><span class='accheadtitle'>Draw Circle on Canvas</span><span class='accheadcode'><code>canvas.draw_circle()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>canvas.draw_circle(center_point, radius, line_width, line_color)</code></dd><dd><code>canvas.draw_circle(center_point, radius, line_width, line_color, fill_color = color)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_circle((10, 10), 20, 12, 'Green')
+    canvas.draw_circle([20, 30], 30, 12, 'Red')
+    canvas.draw_circle((50, 50), 20, 5, 'Blue', 'White')
+    canvas.draw_circle([70, 80], 30, 10, 'Yellow', 'Orange')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws four circles</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+                  Draws a circle at the given center point having
+                  the given radius.
+                  The point is a 2-element tuple or list of screen coordinates.
+                  The line's width is given in pixels and must be positive.
+                  The fill color defaults to <code>None</code>.
+                  If the fill color is specified, then the interior
+                  of the circle is colored.
+                </p>
+              </div>
+
+              <h3 id='draw_point'><a href='#'><span class='accheadtitle'>Draw Point on Canvas</span><span class='accheadcode'><code>canvas.draw_point()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>canvas.draw_point(point, color)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_point((10, 10), 'Green')
+    canvas.draw_point([20, 30], 'Red')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws two points</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+		  Draws a 1&times;1 rectangle at the given point in the
+                  given color.
+                  The point is a 2-element tuple or list of screen coordinates.
+                </p>
+              </div>
+
+              <h3 id='draw_image'><a href='#'><span class='accheadtitle'>Draw Image on Canvas</span><span class='accheadcode'><code>canvas.draw_image()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>canvas.draw_image(image, center_source, width_height_source, center_dest, width_height_dest)</code></dd><dd><code>canvas.draw_image(image, center_source, width_height_source, center_dest, width_height_dest, rotation)</code></dd><dt>Examples:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_image(image, (1521 / 2, 1818 / 2), (1521, 1818), (50, 50), (100, 100))
+
+image = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/gutenberg.jpg')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws a scaled map</pre></td></tr><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+  canvas.draw_image(image, (1521 // 2, 1818 // 2), (1521, 1818), (40, 70), (100, 100), 2)
+
+image = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/gutenberg.jpg')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws a strangely rotated scaled map</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Draw an image that was previously
+		  <a href='#' class='internal' data-dest='load_image'>loaded</a>.
+                  <code>center_source</code> is a pair of coordinates giving
+                  the position of the center of the image, while
+                  <code>center_dest</code> is a pair of screen coordinates
+                  specifying where the center of the image should be drawn on
+                  the canvas.
+                  <code>width_height_source</code> is a pair of integers giving
+                  the size of the original image, while
+                  <code>width_height_dest</code> is a pair of integers giving
+                  the size of how the images should be drawn.
+                  The image can be rotated clockwise by <code>rotation</code>
+                  radians.
+                </p>
+
+                <p>
+                  You can draw the whole image file or just part of it.
+                  The source information (<code>center_source</code>
+                  and <code>width_height_source</code>) specifies which
+                  pixels to display.  If it attempts to use
+                  any pixels outside of the actual file size, then no
+                  image will be drawn.
+                </p>
+
+                <p>
+                  Specifying
+                  a different width or height in the destination than in
+                  the source will rescale the image.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3 id='Timers'><a href='#'><span class='accheadtitle'>SimpleGUI Module &mdash; Timers</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='create_timer'><code>simplegui.create_timer</code></a></li><li><a href='#' class='internal' data-dest='timer-start'><code>timer.start</code></a></li><li><a href='#' class='internal' data-dest='timer-stop'><code>timer.stop</code></a></li><li><a href='#' class='internal' data-dest='timer-is_running'><code>timer.is_running</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-timers.py' target='_blank'>Screensaver</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3b_timers-blinking_text.py' target='_blank'>Blinking Text</a></li><li><a href='http://www.codeskulptor.org/#examples-more-3b_timers-reaction_time.py' target='_blank'>Reaction Time</a></li><li><a href='http://www.codeskulptor.org/#examples-motion_explicit.py' target='_blank'>Timer-driven Ball Motion</a></li></ul></dd>            </dl>
+
+            <p>
+              A timer calls an event handler repeatedly at a specified
+              interval.
+            </p>
+
+            <p>
+              A program can have an arbitrary number of timers running
+              simultaneously.
+              However, having many timers running will slow CodeSkulptor.
+            </p>
+
+            <div class="accordion">
+              <h3 id='create_timer'><a href='#'><span class='accheadtitle'>Create Timer</span><span class='accheadcode'><code>simplegui.create_timer()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simplegui.create_timer(interval, timer_handler)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def timer_handler():
+    &hellip;
+
+timer = simplegui.create_timer(500, timer_handler)
+timer.start()</pre></td><td><pre># starts a timer</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Creates a timer.  Once
+		  <a href='#' class='internal' data-dest='timer-start'>started</a>,
+                  it will repeatedly call the given
+                  event handler at the specified interval, which is given
+                  in milliseconds.
+                </p>
+
+                <p>
+                  The handler should be defined with no arguments,
+                  as in the above example.
+                </p>
+              </div>
+
+              <h3 id='timer-start'><a href='#'><span class='accheadtitle'>Start Timer</span><span class='accheadcode'><code>timer.start()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>timer.start()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def timer_handler():
+    &hellip;
+
+timer = simplegui.create_timer(500, timer_handler)
+timer.start()</pre></td><td><pre># starts a timer</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Starts or restarts the timer.
+	        </p>
+              </div>
+
+              <h3 id='timer-stop'><a href='#'><span class='accheadtitle'>Stop Timer</span><span class='accheadcode'><code>timer.stop()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>timer.stop()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def timer_handler():
+    timer.stop()
+
+timer = simplegui.create_timer(500, timer_handler)
+timer.start()</pre></td><td><pre># starts a timer and stops it on its first tick</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Stops the timer.  It can be
+		  <a href='#' class='internal' data-dest='timer-start'>restarted</a>.
+                </p>
+              </div>
+
+              <h3 id='timer-is_running'><a href='#'><span class='accheadtitle'>Check if Timer is Running</span><span class='accheadcode'><code>timer.is_running()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>timer.is_running()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def timer_handler():
+    pass
+
+timer = simplegui.create_timer(100, timer_handler)
+print timer.is_running()
+timer.start()
+print timer.is_running()
+timer.stop()
+print timer.is_running()</pre></td><td><pre>False
+True
+False</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns whether the timer is running, i.e.,
+                  it has been
+		  <a href='#' class='internal' data-dest='timer-start'>started</a>,
+                  but not
+		  <a href='#' class='internal' data-dest='timer-stop'>stopped</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3 id='Images'><a href='#'><span class='accheadtitle'>SimpleGUI Module &mdash; Images</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='load_image'><code>simplegui.load_image</code></a></li><li><a href='#' class='internal' data-dest='get_width'><code>image.get_width</code></a></li><li><a href='#' class='internal' data-dest='get_height'><code>image.get_height</code></a></li><li><a href='#' class='internal' data-dest='draw_image'><code>canvas.draw_image</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd><dt>Examples:</dt><dd><ul class='horiz-list'><li><a href='http://www.codeskulptor.org/#examples-images.py' target='_blank'>Map Magnifier</a></li><li><a href='http://www.codeskulptor.org/#examples-more-5_images-backgrounds.py' target='_blank'>Image Backgrounds</a></li><li><a href='http://www.codeskulptor.org/#examples-more-5_images-changes.py' target='_blank'>Image Changes</a></li></ul></dd>	    </dl>
+
+            <p>
+              An image must be
+	      <a href='#' class='internal' data-dest='load_image'>loaded</a>              before it can be
+              <a href='#' class='internal' data-dest='draw_image'>drawn</a>.
+            </p>
+
+            <div class="accordion">
+              <h3 id='load_image'><a href='#'><span class='accheadtitle'>Load Image</span><span class='accheadcode'><code>simplegui.load_image()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simplegui.load_image(URL)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+def draw_handler(canvas):
+    canvas.draw_image(image, (1521 / 2, 1818 / 2), (1521, 1818), (50, 50), (100, 100))
+
+image = simplegui.load_image('http://commondatastorage.googleapis.com/codeskulptor-assets/gutenberg.jpg')
+
+frame = simplegui.create_frame('Testing', 100, 100)
+frame.set_draw_handler(draw_handler)
+frame.start()</pre></td><td><pre># Opens frame and draws a scaled map</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Loads an image from the specified URL.
+                  The image can be in any format supported by the browser.
+                  No error is raised if the file isn't found or is of
+                  an unsupported format.
+                </p>
+              </div>
+
+              <h3 id='get_width'><a href='#'><span class='accheadtitle'>Get Image's Width</span><span class='accheadcode'><code>image.get_width()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>image.get_width()</code></dd>                </dl>
+
+                <p>
+                  Returns the width of the image in pixels.
+                  While the image is still loading, it returns zero.
+                </p>
+              </div>
+
+              <h3 id='get_height'><a href='#'><span class='accheadtitle'>Get Image's Height</span><span class='accheadcode'><code>image.get_height()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>image.get_height()</code></dd>                </dl>
+
+                <p>
+                  Returns the height of the image in pixels.
+                  While the image is still loading, it returns zero.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3 id='Sounds'><a href='#'><span class='accheadtitle'>SimpleGUI Module &mdash; Sounds</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='load_sound'><code>simplegui.load_sound</code></a></li><li><a href='#' class='internal' data-dest='sound-play'><code>sound.play</code></a></li><li><a href='#' class='internal' data-dest='sound-pause'><code>sound.pause</code></a></li><li><a href='#' class='internal' data-dest='sound-rewind'><code>sound.rewind</code></a></li><li><a href='#' class='internal' data-dest='set_volume'><code>sound.set_volume</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd>	    </dl>
+
+            <p>
+              A sound must be
+              <a href='#' class='internal' data-dest='load_sound'>loaded</a>              before it can be
+              <a href='#' class='internal' data-dest='sound-play'>played</a>.
+              To restart playing a sound from the beginning, it must first be
+              <a href='#' class='internal' data-dest='sound-rewind'>rewound</a>.
+              Separate sounds are played in separate audio channels and may
+              overlap.
+              The number of sounds that can be played simultaneously is
+              system-dependent.
+            </p>
+
+            <div class="accordion">
+              <h3 id='load_sound'><a href='#'><span class='accheadtitle'>Load Sound</span><span class='accheadcode'><code>simplegui.load_sound()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simplegui.load_sound(URL)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')
+sound.set_volume(0.7)</pre></td><td><pre></pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='sound-play'><code>sound.play()</code></a> &mdash; How to play the sound</dd>                </dl>
+
+                <p>
+                  Loads a sound from the specified URL.
+                  Supports whatever audio formats that your
+                  <a href='https://developer.mozilla.org/en-US/docs/HTML/Supported_media_formats' target='_blank'>browser supports</a>.
+                  No error is raised if the file isn't found or is of
+                  an unsupported format.
+                </p>
+              </div>
+
+              <h3 id='sound-play'><a href='#'><span class='accheadtitle'>Play Sound</span><span class='accheadcode'><code>sound.play()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>sound.play()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')
+sound.play()</pre></td><td><pre># plays a sound</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Starts playing a sound, or restarts playing it at the
+                  point it was
+                  <a href='#' class='internal' data-dest='sound-pause'>paused</a>.
+                </p>
+              </div>
+
+              <h3 id='sound-pause'><a href='#'><span class='accheadtitle'>Pause Sound</span><span class='accheadcode'><code>sound.pause()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>sound.pause()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')
+sound.play()
+sound.pause()</pre></td><td><pre># starts to play a sound, then immediate pauses</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Stops the playing of the sound.  Playing can be restarted
+                  at the stopped point with
+                  <a href='#' class='internal' data-dest='sound-play'><code>sound.play()</code></a>.
+                </p>
+              </div>
+
+              <h3 id='sound-rewind'><a href='#'><span class='accheadtitle'>Rewind Sound</span><span class='accheadcode'><code>sound.rewind()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>sound.rewind()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')
+sound.play()
+sound.rewind()
+sound.play()</pre></td><td><pre></pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Stops the playing of the sound, and makes it so the next
+                  <a href='#' class='internal' data-dest='sound-play'><code>sound.play()</code></a>                  will start playing the sound at the beginning.
+                </p>
+              </div>
+
+              <h3 id='set_volume'><a href='#'><span class='accheadtitle'>Set Sound's Volume</span><span class='accheadcode'><code>sound.set_volume()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>sound.set_volume(volume)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+sound = simplegui.load_sound('http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg')
+sound.set_volume(0.7)</pre></td><td><pre></pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Changes the volume for the sound to be the given level
+                  on a 0 (silent)&ndash;1.0 (maximum) scale.
+                  Default is 1.
+                </p>
+              </div>
+            </div>  <!-- Closes Sounds accordion -->
+          </div>  <!-- Closes Sounds -->
+
+          <h3 id='Constants'><a href='#'><span class='accheadtitle'>SimpleGUI Module &mdash; Constants</span></a></h3>          <div>
+            <div class="accordion">
+              <h3 id='Colors'><a href='#'><span class='accheadtitle'>Color Constants</span></a></h3>              <div>
+                <p>
+                  The following color names are considered the most standard.
+                </p>
+                <table class='list'><tr><th><code>'Aqua'</code></th><td><span style='background-color: Aqua;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Black'</code></th><td><span style='background-color: Black;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Blue'</code></th><td><span style='background-color: Blue;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Fuchsia'</code></th><td><span style='background-color: Fuchsia;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Gray'</code></th><td><span style='background-color: Gray;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Green'</code></th><td><span style='background-color: Green;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Lime'</code></th><td><span style='background-color: Lime;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Maroon'</code></th><td><span style='background-color: Maroon;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Navy'</code></th><td><span style='background-color: Navy;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Olive'</code></th><td><span style='background-color: Olive;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Orange'</code></th><td><span style='background-color: Orange;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Purple'</code></th><td><span style='background-color: Purple;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Red'</code></th><td><span style='background-color: Red;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Silver'</code></th><td><span style='background-color: Silver;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Teal'</code></th><td><span style='background-color: Teal;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'White'</code></th><td><span style='background-color: White;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr><tr><th><code>'Yellow'</code></th><td><span style='background-color: Yellow;'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span></td></tr></table>                <p>
+                  More generally, you may use any
+                  <a href='http://www.w3schools.com/html/html_colornames.asp' target='_blank'>HTML color name</a>.
+                  Furthermore, custom colors and transparencies can be
+                  specified in a any
+                  <a href='http://www.w3schools.com/cssref/css_colors_legal.asp' target='_blank'>CSS color</a>                  format, including hexadecimal, RGB, RGBA, HSL, and HSLA.
+                </p>
+              </div>
+
+              <h3 id='Keys'><a href='#'><span class='accheadtitle'>Keyboard Character Constants</span><span class='accheadcode'><code>simplegui.KEY_MAP[]</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simplegui.KEY_MAP[character]</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplegui
+
+print simplegui.KEY_MAP['left']</pre></td><td><pre>37</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  The
+		  <a href='#' class='internal' data-dest='keyboard-input'>keyboard event handlers</a>                  receive the relevant key
+                  as an integer.  Because different browsers can give
+                  different values for the same keystrokes, SimpleGUI
+                  provides a way to get the appropriate key integer for
+                  a given meaning.
+                </p>
+
+                <p>
+                  The acceptable strings for <code>character</code>
+                  are the letters <code>'a'</code>&hellip;<code>'z'</code>
+                  and <code>'A'</code>&hellip;<code>'Z'</code>,
+                  the digits <code>'0'</code>&hellip;<code>'9'</code>,
+                  <code>'space'</code>, <code>'left'</code>,
+                  <code>'right'</code>, <code>'up'</code>,
+                  and <code>'down'</code>.
+                  Note that other keyboard symbols are not defined
+                  in <code>simplegui.KEY_MAP</code>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h3 id='Maps'><a href='#'><span class='accheadtitle'>SimpleMap Module &mdash; Maps</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='simplemap-create_map'><code>simplemap.create_map</code></a></li><li><a href='#' class='internal' data-dest='map-add_marker'><code>a_map.add_marker</code></a></li><li><a href='#' class='internal' data-dest='map-draw_line'><code>a_map.draw_line</code></a></li><li><a href='#' class='internal' data-dest='map-get_markers'><code>a_map.get_markers</code></a></li><li><a href='#' class='internal' data-dest='map-get_lines'><code>a_map.get_lines</code></a></li><li><a href='#' class='internal' data-dest='map-clear_markers'><code>a_map.clear_markers</code></a></li><li><a href='#' class='internal' data-dest='map-clear_lines'><code>a_map.clear_lines</code></a></li><li><a href='#' class='internal' data-dest='map-clear'><code>a_map.clear</code></a></li><li><a href='#' class='internal' data-dest='map-add_button'><code>a_map.add_button</code></a></li><li><a href='#' class='internal' data-dest='map-add_break'><code>a_map.add_break</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd>            </dl>
+
+            <p>
+              The SimpleMap module provides an interface for drawing
+              and annotating maps.  The underlying maps are provided by
+              Google Maps.  Points on the map are referred to by
+              a pair of numbers representing
+              <a href='http://www.mapcoordinates.net/en' target='_blank'>latitude and longitude</a>.
+            </p>
+
+            <p>
+              The module uses three types of objects:
+              maps,
+              <a href='#' class='internal' data-dest='Markers'>markers</a>,
+              and
+	      <a href='#' class='internal' data-dest='Lines'>lines</a>.
+            </p>
+
+            <div class="accordion">
+              <h3 id='simplemap-create_map'><a href='#'><span class='accheadtitle'>Create Map</span><span class='accheadcode'><code>simplemap.create_map()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simplemap.create_map(title, coordinates, map_width, map_height)</code></dd><dd><code>simplemap.create_map(title, coordinates, map_width, map_height, control_width)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)</pre></td><td><pre># Creates a map.</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Creates a map in a new window titled by the string 
+                  <code>title</code> and with the given width and height
+                  in pixels.  The map contents are centered on the given
+                  coordinates in
+                  <a href='http://www.mapcoordinates.net/en' target='_blank'>latitude and longitude</a>.
+                </p>
+
+                <p>
+		  If a <code>control_width</code> is given, it also creates
+                  an control panel.
+		  By default, no area is created, and such button controls are
+                  not allowed.
+                </p>
+              </div>
+
+              <h3 id='map-add_marker'><a href='#'><span class='accheadtitle'>Add Marker to Map</span><span class='accheadcode'><code>a_map.add_marker()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.add_marker(description, id, icon_url, coordinates, handler)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)</pre></td><td><pre># Creates a map with one marker.</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Draws a marker on the map, adds a corresponding
+		  <a href='#' class='internal' data-dest='Markers'>marker object</a>                  to the map object, and returns the marker object.
+                  The marker is represented
+                  graphically by the image found at the URL string
+                  <code>icon_url</code>.  The marker is placed at the
+                  <a href='http://www.mapcoordinates.net/en' target='_blank'>latitude and longitude</a>                  specified by the pair of numbers <code>coordinates</code>.
+                  The marker has a <code>description</code> string which
+                  appears when you hover the mouse on the marker.
+                  The marker also has an <code>id</code> data string.
+                  When the image is clicked on, the event
+                  handler function <code>click_handler</code> will be called.
+                </p>
+
+                <p>
+                  The handler should be defined with one parameter,
+                  as in the above example.  This parameter will receive the
+		  <a href='#' class='internal' data-dest='Markers'>marker object</a>                  whose image was clicked on.
+                </p>
+              </div>
+
+              <h3 id='map-draw_line'><a href='#'><span class='accheadtitle'>Draw Line on Map</span><span class='accheadcode'><code>a_map.draw_line()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.draw_line(start_marker, stop_marker)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+rice.draw_line(wiess_college, duncan_hall)</pre></td><td><pre># Draws a line between two map markers</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Draws a black path between the two given markers
+                  on the map.  The path follows the available streets.
+                  Adds a corresponding
+		<a href='#' class='internal' data-dest='Lines'>line object</a>                  to the map object, and returns the line object.
+                </p>
+              </div>
+
+              <h3 id='map-get_markers'><a href='#'><span class='accheadtitle'>Get Set of all Markers on Map</span><span class='accheadcode'><code>a_map.get_markers()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.get_markers()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+for marker in rice.get_markers():
+    print marker.get_description()</pre></td><td><pre>Wiess College
+Duncan Hall</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns a set of all 
+		  <a href='#' class='internal' data-dest='Markers'>marker objects</a>                  represented on the map.
+                </p>
+              </div>
+
+              <h3 id='map-get_lines'><a href='#'><span class='accheadtitle'>Get Set of all Lines on Map</span><span class='accheadcode'><code>a_map.get_lines()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>map.get_lines()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+rice.draw_line(wiess_college, duncan_hall)
+
+for line in rice.get_lines():
+    print line.get_start().get_description()
+    print line.get_stop().get_description()</pre></td><td><pre>Wiess College
+Duncan Hall</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns a set of all 
+		  <a href='#' class='internal' data-dest='Lines'>line objects</a>                  represented on the map.
+                </p>
+              </div>
+
+              <h3 id='map-clear_markers'><a href='#'><span class='accheadtitle'>Clear all Markers from Map</span><span class='accheadcode'><code>a_map.clear_markers()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.clear_markers()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+rice.draw_line(wiess_college, duncan_hall)
+
+rice.clear_markers()
+
+print rice.get_markers()</pre></td><td><pre>set([])</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='map-clear'><code>map.clear()</code></a> &mdash; Removes all markers and lines</dd><dd><a href='#' class='internal' data-dest='marker-remove'><code>marker.remove()</code></a> &mdash; Removes one marker</dd>                </dl>
+
+                <p>
+                  Erases all markers from the drawn map.
+                  Does not remove any lines between those markers.
+                  Removes all
+		  <a href='#' class='internal' data-dest='Markers'>marker objects</a>                  from the map object.
+                </p>
+              </div>
+
+              <h3 id='map-clear_lines'><a href='#'><span class='accheadtitle'>Clear all Lines from Map</span><span class='accheadcode'><code>a_map.clear_lines()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.clear_lines()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+rice.draw_line(wiess_college, duncan_hall)
+
+rice.clear_lines()
+
+print rice.get_lines()</pre></td><td><pre>set([])</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='map-clear'><code>map.clear()</code></a> &mdash; Removes all markers and lines</dd><dd><a href='#' class='internal' data-dest='line-remove'><code>a_line.remove()</code></a> &mdash; Removes one line</dd>                </dl>
+
+                <p>
+                  Erases all paths from the drawn map.
+                  Does not remove any markers.
+                  Removes all
+		  <a href='#' class='internal' data-dest='Lines'>line objects</a>                  from the map object.
+                </p>
+              </div>
+
+              <h3 id='map-clear'><a href='#'><span class='accheadtitle'>Clear Everything from Map</span><span class='accheadcode'><code>a_map.clear()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.clear()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+rice.draw_line(wiess_college, duncan_hall)
+
+rice.clear()
+
+print rice.get_markers()
+print rice.get_lines()</pre></td><td><pre>set([])
+set([])</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='map-clear_markers'><code>map.clear_markers()</code></a> &mdash; Removes all markers</dd><dd><a href='#' class='internal' data-dest='map-clear_lines'><code>map.clear_lines()</code></a> &mdash; Removes all lines</dd>                </dl>
+
+                <p>
+                  Erases all markers and line segments from the drawn map.
+                  Removes all
+		  <a href='#' class='internal' data-dest='Markers'>marker objects</a>                  and
+                  <a href='#' class='internal' data-dest='Lines'>line objects</a>                  from the map object.
+                </p>
+              </div>
+
+              <h3 id='map-add_button'><a href='#'><span class='accheadtitle'>Add Button Control to Map</span><span class='accheadcode'><code>a_map.add_button()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.add_button(text, handler)</code></dd><dd><code>a_map.add_button(text, handler, width)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500, 150)
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description() 
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+def delete_wiess ():
+    rice.clear_markers()
+    
+rice.add_button('Delete Wiess Marker', delete_wiess)</pre></td><td><pre># Creates map with button that will delete a marker</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Adds a button in the map's control panel
+                  with the given text label.
+                  The width of the button defaults to the width of the
+                  given text, but can be specified in pixels.
+                  If the provided width is less than that of the text, the
+                  text overflows the button.
+                </p>
+              </div>
+
+              <h3 id='map-add_break'><a href='#'><span class='accheadtitle'>Add Line Break to Map Control Panel</span><span class='accheadcode'><code>a_map.add_button()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_map.add_break()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500, 150)
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description() 
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+def delete_wiess ():
+    rice.clear_markers()
+    
+rice.add_button('Delete Wiess Marker', delete_wiess)
+rice.add_break()
+rice.add_button('Delete Wiess Marker', delete_wiess)</pre></td><td><pre># Creates map with two buttons that will delete a marker</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Adds a line break to the map's control panel.
+                  Useful to separate buttons.
+                </p>
+              </div>
+            </div>  <!-- Closes SimpleMap Maps accordion -->
+          </div>  <!-- Closes SimpleMap Maps -->
+
+          <h3 id='Markers'><a href='#'><span class='accheadtitle'>SimpleMap Module &mdash; Markers</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='marker-get_description'><code>a_marker.get_description</code></a></li><li><a href='#' class='internal' data-dest='marker-get_id'><code>a_marker.get_id</code></a></li><li><a href='#' class='internal' data-dest='marker-get_coordinates'><code>a_marker.get_coordinates</code></a></li><li><a href='#' class='internal' data-dest='marker-get_icon'><code>a_marker.get_icon</code></a></li><li><a href='#' class='internal' data-dest='marker-set_icon'><code>a_marker.set_icon</code></a></li><li><a href='#' class='internal' data-dest='marker-remove'><code>a_marker.remove</code></a></li><li><a href='#' class='internal' data-dest='map-add_marker'><code>a_map.add_marker</code></a></li><li><a href='#' class='internal' data-dest='map-get_markers'><code>a_map.get_markers</code></a></li><li><a href='#' class='internal' data-dest='map-clear_markers'><code>a_map.clear_markers</code></a></li><li><a href='#' class='internal' data-dest='map-clear'><code>a_map.clear</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>&lt;</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>&lt;=</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>&gt;</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>&gt;=</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>==</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>!=</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd>            </dl>
+
+            <p>
+              A marker object corresponds to a drawn marker icon image
+              on the map.  Its location is determined by a pair of
+              <a href='http://www.mapcoordinates.net/en' target='_blank'>latitude and longitude</a>              coordinates.
+            </p>
+
+            <div class="accordion">
+              <h3 id='marker-get_description'><a href='#'><span class='accheadtitle'>Get Description of Marker</span><span class='accheadcode'><code>a_marker.get_description()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_marker.get_description</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+print wiess_college.get_description()</pre></td><td><pre>Wiess College</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns the description string of the marker.
+                </p>
+              </div>
+
+              <h3 id='marker-get_id'><a href='#'><span class='accheadtitle'>Get ID of Marker</span><span class='accheadcode'><code>a_marker.get_id()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_marker.get_id()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+print wiess_college.get_id()</pre></td><td><pre>W</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns the ID string of the marker.
+                </p>
+              </div>
+
+              <h3 id='marker-get_coordinates'><a href='#'><span class='accheadtitle'>Get Coordinates of Marker</span><span class='accheadcode'><code>a_marker.get_coordinates()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_marker.get_coordinates()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+print wiess_college.get_coordinates()</pre></td><td><pre>(29.714967, -95.400694)</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns the
+                  <a href='http://www.mapcoordinates.net/en' target='_blank'>latitude and longitude</a>                  coordinates of the marker as a pair of numbers.
+                </p>
+              </div>
+
+              <h3 id='marker-get_icon'><a href='#'><span class='accheadtitle'>Get Icon URL of Marker</span><span class='accheadcode'><code>a_marker.get_icon()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_marker.get_icon()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+print wiess_college.get_icon()</pre></td><td><pre>http://labs.google.com/ridefinder/images/mm_20_green.png</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns the icon URL of the marker.
+                </p>
+              </div>
+
+              <h3 id='marker-set_icon'><a href='#'><span class='accheadtitle'>Set Icon of Marker</span><span class='accheadcode'><code>a_marker.set_icon()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_marker.set_icon(URL)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+wiess_college.set_icon(red_icon)
+print wiess_college.get_icon()</pre></td><td><pre>http://labs.google.com/ridefinder/images/mm_20_red.png</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Changes the icon of the marker to be the image at the
+                  given URL.
+                </p>
+              </div>
+
+              <h3 id='marker-remove'><a href='#'><span class='accheadtitle'>Remove Marker from Map</span><span class='accheadcode'><code>a_marker.remove()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_marker.remove()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler)
+
+wiess_college.remove()
+
+print rice.get_markers()</pre></td><td><pre>set([])</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='map-clear_markers'><code>map.clear_markers()</code></a> &mdash; Removes all markers</dd><dd><a href='#' class='internal' data-dest='map-clear'><code>map.clear()</code></a> &mdash; Removes all markers and lines</dd>                </dl>
+
+                <p>
+                  Erases the marker from the drawn map.
+                  Does not remove any lines using the marker.
+                  Removes the marker object from the
+		  <a href='#' class='internal' data-dest='Maps'>map object</a>.
+                </p>
+              </div>
+            </div>  <!-- Closes SimpleMap Markers accordion -->
+          </div>  <!-- Closes SimpleMap Markers -->
+
+          <h3 id='Lines'><a href='#'><span class='accheadtitle'>SimpleMap Module &mdash; Lines</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='line-get_start'><code>a_line.get_start</code></a></li><li><a href='#' class='internal' data-dest='line-get_stop'><code>a_line.get_stop</code></a></li><li><a href='#' class='internal' data-dest='line-set_color'><code>a_line.set_color</code></a></li><li><a href='#' class='internal' data-dest='line-remove'><code>a_line.remove</code></a></li><li><a href='#' class='internal' data-dest='map-draw_line'><code>a_map.draw_line</code></a></li><li><a href='#' class='internal' data-dest='map-get_lines'><code>a_map.get_lines</code></a></li><li><a href='#' class='internal' data-dest='map-clear_lines'><code>a_map.clear_lines</code></a></li><li><a href='#' class='internal' data-dest='map-clear'><code>a_map.clear</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is</code></a></li><li><a href='#' class='internal' data-dest='op-comparison'><code>is not</code></a></li><li><a href='#' class='internal' data-dest='type'><code>type</code></a></li><li><a href='#' class='internal' data-dest='isinstance'><code>isinstance</code></a></li><li><a href='#' class='internal' data-dest='dir'><code>dir</code></a></li><li><a href='#' class='internal' data-dest='hasattr'><code>hasattr</code></a></li><li><a href='#' class='internal' data-dest='str'><code>str</code></a></li><li><a href='#' class='internal' data-dest='repr'><code>repr</code></a></li></ul></dd><dt>Superclass:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='Objects'>Objects</a></li></ul></dd>            </dl>
+
+            <p>
+              A line object corresponds to a drawn path between two
+	      <a href='#' class='internal' data-dest='Markers'>markers</a>              on the map.  The path follows the available streets on the map.
+              The path color defaults to black.
+            </p>
+
+            <div class="accordion">
+              <h3 id='line-get_start'><a href='#'><span class='accheadtitle'>Get Start Marker of Line</span><span class='accheadcode'><code>a_line.get_start()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_line.get_start()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+line = rice.draw_line(wiess_college, duncan_hall)
+
+print line.get_start().get_description()</pre></td><td><pre>Wiess College</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns the starting, i.e., first, marker of a line.
+                </p>
+              </div>
+
+              <h3 id='line-get_stop'><a href='#'><span class='accheadtitle'>Get Stop Marker of Line</span><span class='accheadcode'><code>a_line.get_stop()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_line.get_stop()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+line = rice.draw_line(wiess_college, duncan_hall)
+
+print line.get_stop().get_description()</pre></td><td><pre>Duncan Hall</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Returns the stopping, i.e., second, marker of a line.
+                </p>
+              </div>
+
+              <h3 id='line-set_color'><a href='#'><span class='accheadtitle'>Set Color of Line</span><span class='accheadcode'><code>a_line.set_color()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_line.get_stop()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+line = rice.draw_line(wiess_college, duncan_hall)
+
+line.set_color('Yellow')</pre></td><td><pre># Draws a yellow line on a map</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='Colors'>Colors</a> &mdash; Supported colors</dd>                </dl>
+
+                <p>
+                  Changes the color of the path, which defaults to black,
+                  between the two endpoint markers of the line.
+                </p>
+              </div>
+
+              <h3 id='line-remove'><a href='#'><span class='accheadtitle'>Remove Line from Map</span><span class='accheadcode'><code>a_line.remove()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>a_line.remove()</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simplemap
+
+def click_handler(a_marker):
+    print 'Clicked on marker', a_marker.get_description()
+
+green_icon = 'http://labs.google.com/ridefinder/images/mm_20_green.png'
+red_icon = 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+
+rice = simplemap.create_map('Rice University', (29.716467, -95.404213), 500, 500)
+wiess_college = rice.add_marker('Wiess College', 'W', green_icon, (29.714967, -95.400694), click_handler) 
+duncan_hall = rice.add_marker('Duncan Hall', 'D', red_icon, (29.719887, -95.398617), click_handler)
+
+line = rice.draw_line(wiess_college, duncan_hall)
+
+line.remove()
+
+print rice.get_lines()</pre></td><td><pre>set([])</pre></td></tr></tbody></table></dd><dt>See also:</dt><dd><a href='#' class='internal' data-dest='map-clear_lines'><code>map.clear_lines()</code></a> &mdash; Removes all lines</dd><dd><a href='#' class='internal' data-dest='map-clear'><code>map.clear()</code></a> &mdash; Removes all markers and lines</dd>                </dl>
+
+                <p>
+                  Erases the line from the drawn map.
+                  Does not remove the endpoint markers of the line.
+                  Removes the line object from the
+		  <a href='#' class='internal' data-dest='Maps'>map object</a>.
+                </p>
+              </div>
+            </div>  <!-- Closes SimpleMap Lines accordion -->
+          </div>  <!-- Closes SimpleMap Lines -->
+
+          <h3 id='simpleplot'><a href='#'><span class='accheadtitle'>SimplePlot Module</span></a></h3>          <div>
+            <dl class="topitems">
+              <dt>Operations:</dt><dd><ul class='horiz-list'><li><a href='#' class='internal' data-dest='plot-lines'><code>simpleplot.plot_lines</code></a></li><li><a href='#' class='internal' data-dest='plot-bars'><code>simpleplot.plot_bars</code></a></li><li><a href='#' class='internal' data-dest='plot-scatter'><code>simpleplot.plot_scatter</code></a></li></ul></dd>            </dl>
+
+            <p>
+              SimplePlot provides functions for plotting numeric data
+              &mdash; both the x- and y-coordinate values should be numbers.
+	      To use its operations, first import the module with
+              <code>import simpleplot</code>.
+            </p>
+
+            <div class="accordion">
+              <h3 id='plot-lines'><a href='#'><span class='accheadtitle'>Make Line Plot</span><span class='accheadcode'><code>simpleplot.plot_lines()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simpleplot.plot_lines(framename, width, height, xlabel, ylabel, datasets)</code></dd><dd><code>simpleplot.plot_lines(framename, width, height, xlabel, ylabel, datasets, points)</code></dd><dd><code>simpleplot.plot_lines(framename, width, height, xlabel, ylabel, datasets, points, legends)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simpleplot
+
+dataset1 = {3: 5, 8: 2, 1: 3}
+dataset2 = [(1, 2), (4, 7), (2, 5), (7, 6)]
+simpleplot.plot_lines('Sample', 400, 300, 'x', 'y', [dataset1, dataset2], True, ['dataset1', 'dataset2'])</pre></td><td><pre># pops up a line plot</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Displays a plot in a new window named <code>framename</code>
+                  with the <code>width</code> and <code>height</code> given
+                  in pixels.
+                  The x-axis is labeled with the string <code>xlabel</code>.
+                  The y-axis is labeled with the string <code>ylabel</code>.
+                </p>
+
+                <p>
+                  The data to display is given in <code>datasets</code>, which
+                  is a sequence of data sets.  Each data set is connected
+                  with a line through each data point. 
+                  Each data set can be given in either of two representations.
+                </p>
+                <ul>
+                  <li>
+                    A data set can be a sequence of 2-element sequences,
+                    where a 2-element sequence represents an x,y-pair.
+                    This allows for multiple points to have the same x value.
+                    Points are displayed in the given order.
+                  </li>
+                  <li>
+                    A data set can also be a dictionary mapping each
+                    x value to a corresponding y value.
+                    Points are displayed in order of x value.
+                  </li>
+                </ul>
+
+                <p>
+                  The optional boolean <code>points</code> indicates
+                  that the individual points should be indicated.  It defaults
+                  to <code>False</code>.
+                </p>
+
+                <p>
+                  The optional <code>legends</code> is a sequence of strings
+                  that label the data sets and will be displayed in a legend.
+                  If omitted, there will be no legend.
+                  The length of this sequence should be the same as the length
+                  of <code>datasets</code>.
+                </p>
+              </div>
+
+              <h3 id='plot-bars'><a href='#'><span class='accheadtitle'>Make Bar Plot</span><span class='accheadcode'><code>simpleplot.plot_bars()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simpleplot.plot_bars(framename, width, height, xlabel, ylabel, datasets)</code></dd><dd><code>simpleplot.plot_bars(framename, width, height, xlabel, ylabel, datasets, legends)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simpleplot
+
+dataset1 = {3: 5, 8: 2, 1: 3}
+dataset2 = [(1, 2), (4, 7), (2, 5), (7, 6)]
+simpleplot.plot_bars('Sample', 400, 300, 'x', 'y', [dataset1, dataset2], ['dataset1', 'dataset2'])</pre></td><td><pre># pops up a bar plot</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Displays a plot in a new window named <code>framename</code>
+                  with the <code>width</code> and <code>height</code> given
+                  in pixels.
+                  The x-axis is labeled with the string <code>xlabel</code>.
+                  The y-axis is labeled with the string <code>ylabel</code>.
+                </p>
+
+                <p>
+                  The data to display is given in <code>datasets</code>, which
+                  is a sequence of data sets.  Each data point is represented
+                  by a vertical bar, and corresponding data points of each
+                  data set are grouped together.
+                  Each data set can be given in either of two representations.
+                </p>
+                <ul>
+                  <li>
+                    A data set can be a sequence of 2-element sequences,
+                    where a 2-element sequence represents an x,y-pair.
+                    This allows for multiple points to have the same x value.
+                    Points are displayed in the given order.
+                  </li>
+                  <li>
+                    A data set can also be a dictionary mapping each
+                    x value to a corresponding y value.
+                    Points are displayed in order of x value.
+                  </li>
+                </ul>
+
+                <p>
+                  The optional <code>legends</code> is a sequence of strings
+                  that label the data sets and will be displayed in a legend.
+                  If omitted, there will be no legend.
+                  The length of this sequence should be the same as the length
+                  of <code>datasets</code>.
+                </p>
+              </div>
+
+              <h3 id='plot-scatter'><a href='#'><span class='accheadtitle'>Make Scatter Plot</span><span class='accheadcode'><code>simpleplot.plot_scatter()</code></span></a></h3>              <div>
+                <dl class="topitems">
+                  <dt>Syntax:</dt><dd><code>simpleplot.plot_scatter(framename, width, height, xlabel, ylabel, datasets)</code></dd><dd><code>simpleplot.plot_scatter(framename, width, height, xlabel, ylabel, datasets, legends)</code></dd><dt>Example:</dt><dd><table class='ex'><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><pre class='cm'>import simpleplot
+
+dataset1 = {3: 5, 8: 2, 1: 3}
+dataset2 = [(1, 2), (4, 7), (1, 5), (2, 5), (4, 3), (7, 6)]
+simpleplot.plot_scatter('Sample', 400, 300, 'x', 'y', [dataset1, dataset2], ['dataset1', 'dataset2'])</pre></td><td><pre># pops up a scatter plot</pre></td></tr></tbody></table></dd>                </dl>
+
+                <p>
+                  Displays a plot in a new window named <code>framename</code>
+                  with the <code>width</code> and <code>height</code> given
+                  in pixels.
+                  The x-axis is labeled with the string <code>xlabel</code>.
+                  The y-axis is labeled with the string <code>ylabel</code>.
+                </p>
+
+                <p>
+                  The data to display is given in <code>datasets</code>, which
+                  is a sequence of data sets.  Each data point is represented
+                  by a colored dot, and corresponding data points of each
+                  data set are the same color.
+                  Each data set can be given in either of two representations.
+                </p>
+                <ul>
+                  <li>
+                    A data set can be a sequence of 2-element sequences,
+                    where a 2-element sequence represents an x,y-pair.
+                    This allows for multiple points to have the same x value.
+                    Points are displayed in the given order.
+                  </li>
+                  <li>
+                    A data set can also be a dictionary mapping each
+                    x value to a corresponding y value.
+                  </li>
+                </ul>
+
+                <p>
+                  The optional <code>legends</code> is a sequence of strings
+                  that label the data sets and will be displayed in a legend.
+                  If omitted, there will be no legend.
+                  The length of this sequence should be the same as the length
+                  of <code>datasets</code>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>  <!-- Closes the Graphics accordion -->
+      </div>  <!-- Closes tabs-Graphics -->
+
+      <div id='tabs-Search'>
+            <p>
+              Searches for sections that contain <strong>all</strong>
+              of the following space-separated text strings.
+              Each string can contain letters, digits, and punctuation,
+              and may represent a word or a part of a word.
+              The search is case-insensitive.
+            </p>
+
+            <div id='searchresults'></div>
+          </div>  <!-- Closes Search tab -->    </div>  <!-- Closes tabs -->
+
+    <div class="bottom">
+      The CodeSkulptor documentation was built by
+      <a href='http://www.cs.rice.edu/~greiner/' target='_blank'>John Greiner</a>.
+    </div>
+
+    <script type='text/javascript' src='js/codemirror-compressed.js'></script>
+	<script type='text/javascript' src='js/runmode.js'></script>  </body>
+</html>

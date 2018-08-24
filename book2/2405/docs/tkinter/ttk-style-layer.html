@@ -1,0 +1,159 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-style-layer.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>49. Using and customizing ttk styles</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-theme-layer.html" title="48. Finding and using ttk themes"><link rel="next" href="ttk-element-layer.html" title="50. The ttk element layer"></head><body><div class="topnavbar"><a href="ttk-element-layer.html">Next</a> / <a href="ttk-theme-layer.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-style-layer"></a>49. Using and customizing <span class="application">ttk</span> styles</h2></div></div></div><p>
+      Within a given theme, every widget has a default
+      <em class="firstterm">widget class</em>; we use this term
+      to distinguish <span class="application">ttk</span> classes from Python classes.
+    </p><p>
+      Each widget also has a <em class="firstterm">style</em>.
+      The default style for a widget is determined by its
+      widget class, but you may specify a different style.
+    </p><p>
+      In <span class="application">ttk</span>, widget classes and styles are specified as strings.
+      In all but one case, the default style name of a widget is <code class="code">'T'</code> prefixed to the widget name; for example, the
+      default button widget class is <code class="code">'TButton'</code>.  There
+      are some exceptions:
+    </p><div class="table"><a name="ttk-style-names"></a><p class="title"><b>Table 63. Style names for <span class="application">ttk</span> widget classes</b></p><div class="table-contents"><table summary="Style names for ttk widget classes" border="1"><colgroup><col align="left"><col align="left"></colgroup><thead><tr><th align="left">Widget class</th><th align="left">Style name</th></tr></thead><tbody><tr><td align="left" valign="top">
+              <code class="code">Button</code>
+            </td><td align="left">
+              <code class="code">TButton</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Checkbutton</code>
+            </td><td align="left">
+              <code class="code">TCheckbutton</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Combobox</code>
+            </td><td align="left">
+              <code class="code">TCombobox</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Entry</code>
+            </td><td align="left">
+              <code class="code">TEntry</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Frame</code>
+            </td><td align="left">
+              <code class="code">TFrame</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Label</code>
+            </td><td align="left">
+              <code class="code">TLabel</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">LabelFrame</code>
+            </td><td align="left">
+              <code class="code">TLabelFrame</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Menubutton</code>
+            </td><td align="left">
+              <code class="code">TMenubutton</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Notebook</code>
+            </td><td align="left">
+              <code class="code">TNotebook</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">PanedWindow</code>
+            </td><td align="left">
+              <code class="code">TPanedwindow</code> (<span class="emphasis"><em>not</em></span>
+              <code class="code">TPanedWindow</code>!)
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Progressbar</code>
+            </td><td align="left">
+              <code class="code">Horizontal.TProgressbar</code> or <code class="code">Vertical.TProgressbar</code>, depending on the <code class="code">orient</code> option.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Radiobutton</code>
+            </td><td align="left">
+              <code class="code">TRadiobutton</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Scale</code>
+            </td><td align="left">
+              <code class="code">Horizontal.TScale</code> or <code class="code">Vertical.TScale</code>, depending on the <code class="code">orient</code> option.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Scrollbar</code>
+            </td><td align="left">
+              <code class="code">Horizontal.TScrollbar</code> or <code class="code">Vertical.TScrollbar</code>, depending on the <code class="code">orient</code> option.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Separator</code>
+            </td><td align="left">
+              <code class="code">TSeparator</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Sizegrip</code>
+            </td><td align="left">
+              <code class="code">TSizegrip</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">Treeview</code>
+            </td><td align="left">
+              <code class="code">Treeview</code> (<span class="emphasis"><em>not</em></span>
+              <code class="code">TTreview</code>!)
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      At runtime, you can retrieve a widget's widget class
+      by calling its <code class="code">.winfo_class()</code> method.
+    </p><pre class="programlisting">&gt;&gt;&gt; b=ttk.Button(None)
+&gt;&gt;&gt; b.winfo_class()
+'TButton'
+&gt;&gt;&gt; t=ttk.Treeview(None)
+&gt;&gt;&gt; t.winfo_class()
+'Treeview'
+&gt;&gt;&gt; b.__class__    # Here, we are asking for the Python class
+&lt;class ttk.Button at 0x21c76d0&gt;
+</pre><p>
+      The name of a style may have one of two forms.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          The built-in styles are all a single word: <code class="code">'TFrame'</code> or <code class="code">'TRadiobutton'</code>, for
+          example.
+        </p></li><li><p>
+          To create a new style derived from one of the built-in
+          styles, use a style name of the form <code class="code">'<em class="replaceable"><code>newName</code></em>.<em class="replaceable"><code>oldName</code></em>'</code>.  For example, to
+          create a new style of <code class="code">Entry</code> widget to
+          hold a date, you might call it <code class="code">'Date.TEntry'</code>.
+        </p></li></ul></div><p>
+      Every style has a corresponding set of <em class="firstterm">options</em> that define its appearance.  For
+      example, buttons have a <code class="code">foreground</code> option
+      that changes the color of the button's text.
+    </p><p>
+      To change the appearance of a style, use its <code class="code">.configure()</code> method.  The first argument of this
+      method is the name of the style you want to configure,
+      followed by keyword arguments specifying the option names
+      and values you want to change.  For example, to make all
+      your buttons use green text, where <code class="code">s</code> is in
+      instance of the <code class="code">ttk.Style</code> class:
+    </p><pre class="programlisting">s.configure('TButton', foreground='green')
+</pre><p>
+      To create a new style based on some style <code class="code"><em class="replaceable"><code>oldName</code></em></code>, first create
+      an instance of <code class="code">ttk.Style</code>, then call its
+      <code class="code">.configure()</code> method using a name of the form
+      <code class="code">'<em class="replaceable"><code>newName</code></em>.<em class="replaceable"><code>oldName</code></em>'</code>.  For example, suppose
+      you don't want to use maroon text on all your buttons,
+      but you do want to create a new style that does
+      use maroon text, and you want to call the new style
+      <code class="code">'Kim.TButton'</code>:
+    </p><pre class="programlisting">s = ttk.Style()
+s.configure('Kim.TButton', foreground='maroon')
+</pre><p>
+      Then to create a button in the new class you might use
+      something like this:
+    </p><pre class="programlisting">self.b = ttk.Button(self, text='Friday', style='Kim.TButton',
+    command=self._fridayHandler)
+</pre><p>
+      You can even build entire hierarchies of styles.  For example,
+      if you configure a style named <code class="code">'Panic.Kim.TButton'</code>, that style will inherit all the options from the <code class="code">'Kim.TButton'</code> style, that is, any option you don't set
+      in the <code class="code">'Panic.Kim.TButton</code> style will be the same
+      as that option in the <code class="code">'Kim.TButton'</code> style.
+    </p><p>
+      When <span class="application">ttk</span> determines what value to use for an option, it
+      looks first in the <code class="code">'Panic.Kim.TButton'</code> style; if
+      there is no value for that option in that style, it looks in the
+      <code class="code">'Kim.TButton'</code> style; and if that style doesn't
+      define the option, it looks in the <code class="code">'TButton'</code>
+      style.
+    </p><p>
+      There is a <em class="firstterm">root style</em> whose name is
+      <code class="code">'.'</code>.  To change some feature's default
+      appearance for every widget, you can configure this style.
+      For example, let's suppose that you want all text to be
+      12-point Helvetica (unless overriden by another style or
+      <code class="code">font</code> option).  This configuration would do it:
+    </p><pre class="programlisting">    s = ttk.Style()
+    s.configure('.', font=('Helvetica', 12))
+</pre></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-element-layer.html">50. The <span class="application">ttk</span> element layer</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-theme-layer.html">48. Finding and using <span class="application">ttk</span> themes</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-style-layer.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-style-layer.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

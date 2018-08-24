@@ -1,0 +1,144 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/label.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>12. The Label widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="frame.html" title="11. The Frame widget"><link rel="next" href="labelframe.html" title="13. The LabelFrame widget"></head><body><div class="topnavbar"><a href="labelframe.html">Next</a> / <a href="frame.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="label"></a>12. The <code class="code">Label</code> widget</h2></div></div></div><p>
+      Label widgets can display one or more lines of text in the
+      same style, or a bitmap or image.  To create a label widget
+      in a root window or frame <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Label(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Label</code>
+      widget.  Options include:
+    </p><div class="table"><a name="Label-options"></a><p class="title"><b>Table 20. <code class="code">Label</code> widget options</b></p><div class="table-contents"><table summary="Label widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">activebackground</code>
+            </td><td align="left" valign="top">
+              Background <a href="colors.html" title="5.3. Colors">color</a> to
+              be displayed when the mouse is over the widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">activeforeground</code>
+            </td><td align="left" valign="top">
+              Foreground <a href="colors.html" title="5.3. Colors">color</a> to
+              be displayed when the mouse is over the widget.
+            </td></tr><tr><td align="left" valign="top"><code class="code">anchor</code></td><td align="left">
+              This options controls where the text is positioned
+              if the widget has more space than the text needs.
+              The default is <code class="code">anchor=tk.CENTER</code>, which
+              centers the text in the available space.  For other
+              values, see <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a>.  For
+              example, if you use <code class="code">anchor=tk.NW</code>, the
+              text would be positioned in the upper left-hand
+              corner of the available space.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bg</code> or <code class="code">background</code></td><td align="left">
+              The background color of the label area.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bitmap</code></td><td align="left">
+              Set this option equal to a bitmap or image object
+              and the label will display that graphic.  See <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a> and <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or
+              <code class="code">borderwidth</code></td><td align="left">
+              Width of the border around the label; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default value is two
+              pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">compound</code>
+            </td><td align="left" valign="top">
+              If you would like the <code class="code">Label</code> widget
+              to display both text and a graphic (either a bitmap
+              or an image), the <code class="code">compound</code> option
+              specifies the relative orientation of the graphic
+              relative to the text.  Values may be any of <code class="code">tk.LEFT</code>, <code class="code">tk.RIGHT</code>, <code class="code">tk.CENTER</code>, <code class="code">tk.BOTTOM</code>, or <code class="code">tk.TOP</code>.  For example, if you specify <code class="code">compound=BOTTOM</code>, the graphic will be
+              displayed below the text.
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              Cursor that appears when the mouse is over this
+              label.  See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left" valign="top">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              to be displayed when the widget's <code class="code">state</code> is <code class="code">tk.DISABLED</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">font</code></td><td align="left">
+              If you are displaying text in this label (with the
+              <code class="code">text</code> or <code class="code">textvariable</code>
+              option, the <code class="code">font</code> option specifies in
+              what font that text will be displayed.  See <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">fg</code> or
+              <code class="code">foreground</code></td><td align="left">
+              If you are displaying text or a bitmap in this
+              label, this option specifies the color of the text.
+              If you are displaying a bitmap, this is the color
+              that will appear at the position of the 1-bits in
+              the bitmap.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+              Height of the label in <span class="emphasis"><em>lines</em></span>
+              (not pixels!).  If this option is not set, the
+              label will be sized to fit its contents.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left" valign="top">
+              <a href="colors.html" title="5.3. Colors">Color</a> of the focus
+              highlight when the widget does not have <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the widget has <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top"><code class="code">image</code></td><td align="left">
+              To display a static image in the label widget, set
+              this option to an image object.  See <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">justify</code></td><td align="left">
+              Specifies how multiple lines of text will be
+              aligned with respect to each other: <code class="code">tk.LEFT</code> for flush left, <code class="code">tk.CENTER</code>
+              for centered (the default), or <code class="code">tk.RIGHT</code>
+              for right-justified.
+            </td></tr><tr><td align="left" valign="top"><code class="code">padx</code></td><td align="left">
+              Extra space added to the left and right of the text
+              within the widget.  Default is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">pady</code></td><td align="left">
+              Extra space added above and below the text within
+              the widget.  Default is 1.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              Specifies the appearance of a decorative border
+              around the label.  The default is <code class="code">tk.FLAT</code>; for other values, see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">state</code>
+            </td><td align="left" valign="top">
+              By default, an <code class="code">Entry</code> widget is in
+              the <code class="code">tk.NORMAL</code> state.  Set this option
+              to <code class="code">tk.DISABLED</code> to make it unresponsive
+              to mouse events.  The state will be <code class="code">tk.ACTIVE</code> when the mouse is over the widget.
+            </td></tr><tr><td align="left" valign="top"><code class="code">takefocus</code></td><td align="left">
+              Normally, focus does not cycle through <code class="code">Label</code> widgets; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  If you want this widget to be
+              visited by the focus, set <code class="code">takefocus=1</code>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">text</code></td><td align="left">
+              To display one or more lines of text in a label
+              widget, set this option to a string containing the
+              text.  Internal newlines (<code class="code">'\n'</code>) will
+              force a line break.
+            </td></tr><tr><td align="left" valign="top"><code class="code">textvariable</code></td><td align="left">
+              To slave the text displayed in a label widget to a
+              control variable of class <code class="code">StringVar</code>,
+              set this option to that variable.  See<a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">underline</code></td><td align="left">
+              You can display an underline (<code class="code">_</code>)
+              below the <em class="replaceable"><code>n</code></em>th letter of
+              the text, counting from 0, by setting this option
+              to <em class="replaceable"><code>n</code></em>.  The default is
+              <code class="code">underline=-1</code>, which means no
+              underlining.
+            </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+              Width of the label in
+              <span class="emphasis"><em>characters</em></span> (not pixels!).  If
+              this option is not set, the label will be sized to
+              fit its contents.
+            </td></tr><tr><td align="left" valign="top"><code class="code">wraplength</code></td><td align="left">
+              You can limit the number of characters in each line
+              by setting this option to the desired number.  The
+              default value, 0, means that lines will be broken
+              only at newlines.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      There are no special methods for label widgets other than
+      the common ones (see <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>).
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="labelframe.html">13. The <code class="code">LabelFrame</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="frame.html">11. The <code class="code">Frame</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/label.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/label.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+</html>

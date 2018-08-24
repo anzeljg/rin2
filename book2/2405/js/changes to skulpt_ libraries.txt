@@ -1,0 +1,9 @@
+skulpt.min.js
+=============
+var c=b.charAt(0),d=!1,e=!0/* force unicode for Python 3 compatibility; before it was: e=!1 */
+
+
+skulpt-stdlib-simplegui.js
+==========================
+Comment section from //Disallow non-printing
+to allow printing of è, š, ž etc.

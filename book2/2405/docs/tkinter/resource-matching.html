@@ -1,0 +1,63 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/resource-matching.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>27.4. Rules for resource matching</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="option-database.html" title="27. Standardizing appearance and the option database"><link rel="prev" href="resource-lines.html" title="27.3. Resource specification lines"><link rel="next" href="ttk.html" title="28. ttk: Themed widgets"></head><body><div class="topnavbar"><a href="ttk.html">Next</a> / <a href="resource-lines.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="resource-matching"></a>27.4. Rules for resource matching</h3></div></div></div><p>
+        When you are creating a widget, and you don't specify a
+        value for some option, and two or more resource
+        specifications apply to that option, the most specific
+        one applies.
+      </p><p>
+        For example, suppose your options file has these two
+        lines:
+      </p><pre class="programlisting">*background: LimeGreen
+*Listbox*background: FloralWhite
+</pre><p>
+        Both specifications apply to the <code class="code">background</code> option in a <code class="code">Listbox</code> widget, but the
+        second one is more specific, so it will win.
+      </p><p>
+        In general, the names in a resource specification are a
+        sequence
+        <em class="replaceable"><code>n<sub>1</sub></code></em>,
+        <em class="replaceable"><code>n<sub>2</sub></code></em>,
+        <em class="replaceable"><code>n<sub>3</sub></code></em>,
+        ..., <em class="replaceable"><code>o</code></em> where each
+        <em class="replaceable"><code>n<sub>i</sub></code></em> is a
+        class or instance name.  The class names are ordered from
+        the highest to the lowest level, and
+        <em class="replaceable"><code>o</code></em> is the name of an option.
+      </p><p>
+        However, when <span class="application">Tkinter</span> is creating a widget, all it has is
+        the class name and the instance name of that widget.
+      </p><p>
+        Here are the precedence rules for resource
+        specifications:
+      </p><div class="orderedlist"><ol type="1"><li><p>
+            The name of the option must match the
+            <em class="replaceable"><code>o</code></em> part of the <code class="code"><em class="replaceable"><code>option-pattern</code></em></code>.
+            For example, if the rule is
+
+            </p><pre class="programlisting">xparrot*indicatoron: 0
+</pre><p>
+
+            this will match only options named <code class="code">indicatoron</code>.
+          </p></li><li><p>
+            The tight-binding operator (<code class="code">.</code>) is more
+            specific than the loose-binding operator (<code class="code">*</code>).  For example, a line for <code class="code">*Button.font</code> is more specific than a line
+            for <code class="code">*Button*font</code>.
+          </p></li><li><p>
+            References to instances are more specific than
+            references to classes.  For example, if you have a
+            button whose instance name is <code class="code">panicButton</code>, a rule for <code class="code">*panicButton*font</code> is more specific than a
+            rule for <code class="code">*Button*font</code>.
+          </p></li><li><p>
+            A rule with more levels is more specific.  For
+            example, a rule for <code class="code">*Button*font</code> is
+            more specific than a rule for <code class="code">*font</code>.
+          </p></li><li><p>
+            If two rules have same number of levels, names
+            earlier in the list are more specific than later
+            names.  For example, a rule for <code class="code">xparrot*font</code> is more specific than a rule
+            for <code class="code">*Button*font</code>.
+          </p></li></ol></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk.html">28. <span class="application">ttk</span>: Themed widgets</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="resource-lines.html">27.3. Resource specification lines</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/resource-matching.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/resource-matching.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

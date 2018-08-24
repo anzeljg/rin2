@@ -1,0 +1,130 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menu-coptions.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>15.1. Menu item creation (coption) options</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="menu.html" title="15. The Menu widget"><link rel="prev" href="menu.html" title="15. The Menu widget"><link rel="next" href="menu-toplevel.html" title="15.2. Top-level menus"></head><body><div class="topnavbar"><a href="menu-toplevel.html">Next</a> / <a href="menu.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="menu-coptions"></a>15.1. <code class="code">Menu</code> item creation (<code class="code">coption</code>) options</h3></div></div></div><p>
+        Wherever the menu methods described above allow a <code class="code">coption</code>, you may apply a value to any of the
+        option names below by using the option name as a keyword
+        argument with the desired value.  For example, to make a
+        command's text appear with red letters, use “<code class="code">foreground='red'</code>” as an option to the
+        <code class="code">add_command</code> method call.
+      </p><div class="table"><a name="Menu-item-coptions"></a><p class="title"><b>Table 24. <code class="code">Menu</code> item <code class="code">coption</code>
+        values</b></p><div class="table-contents"><table summary="Menu item coption
+        values" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">accelerator</code>
+              </td><td align="left" valign="top">
+                To display an “<code class="code">accelerator</code>” keystroke combination on the right side
+                of a menu choice, use the option “<code class="code">accelerator=<em class="replaceable"><code>s</code></em></code>” where <code class="code"><em class="replaceable"><code>s</code></em></code> is a string containing
+                the characters to be displayed.  For example, to
+                indicate that a command has <span class="keysym">Control-X</span> as its accelerator, use the
+                option “<code class="code">accelerator='^X'</code>”.  Note that this option does not
+                actually implement the accelerator; use a
+                keystroke binding to do that.
+              </td></tr><tr><td align="left">
+                <code class="code">activebackground</code>
+              </td><td align="left">
+                The background color used for choices when they
+                are under the mouse.
+              </td></tr><tr><td align="left" valign="top"><code class="code">activeforeground</code></td><td align="left">
+                The foreground color used for choices when they
+                are under the mouse.
+              </td></tr><tr><td align="left" valign="top"><code class="code">background</code></td><td align="left">
+                The background color used for choices when they
+                are <span class="emphasis"><em>not</em></span> under the mouse.
+                Note that this <span class="emphasis"><em>cannot</em></span> be
+                abbreviated as <code class="code">bg</code>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">bitmap</code></td><td align="left">
+                Display a bitmap for this choice; see <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">columnbreak</code></td><td align="left">
+                Normally all the choices are displayed in one
+                long column.  If you set <code class="code">columnbreak=1</code>, this choice will start a
+                new column to the right of the one containing the
+                previous choice.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">columnbreak</code>
+              </td><td align="left" valign="top">
+                Use option “<code class="code">columnbreak=True</code>” to start a new column of choices with
+                this choice.
+              </td></tr><tr><td align="left" valign="top"><code class="code">command</code></td><td align="left">
+                A procedure to be called when this choice is
+                activated.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">compound</code>
+              </td><td align="left" valign="top">
+                If you want to display both text and a graphic
+                (either a bitmap or an image) on a menu choice,
+                use this <code class="code">coption</code> to specify the
+                location of the graphic relative to the text.
+                Values may be any of <code class="code">tk.LEFT</code>, <code class="code">tk.RIGHT</code>, <code class="code">tk.TOP</code>, <code class="code">tk.BOTTOM</code>, <code class="code">tk.CENTER</code>, or <code class="code">tk.NONE</code>.  For example, a value of
+                “<code class="code">compound=tk.TOP</code>” would
+                position the graphic above the text.
+              </td></tr><tr><td align="left" valign="top"><code class="code">font</code></td><td align="left">
+                The font used to render the <code class="code">label</code>
+                text.  See <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>
+              </td></tr><tr><td align="left" valign="top"><code class="code">foreground</code></td><td align="left">
+                The foreground <a href="colors.html" title="5.3. Colors">color</a> used for choices
+                when they are <span class="emphasis"><em>not</em></span> under the
+                mouse.  Note that this
+                <span class="emphasis"><em>cannot</em></span> be abbreviated as
+                <code class="code">fg</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">hidemargin</code>
+              </td><td align="left" valign="top">
+                By default, a small margin separates adjacent
+                choices in a menu.  Use the <code class="code">coption</code> “<code class="code">hidemargin=True</code>”
+                to suppress this margin.  For example, if your
+                choices are color swatches on a palette, this
+                option will make the swatches touch without any
+                other intervening color.
+              </td></tr><tr><td align="left" valign="top"><code class="code">image</code></td><td align="left">
+                Display an image for this choice; see <a href="images.html" title="5.9. Images">Section 5.9, “Images”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">label</code></td><td align="left">
+                The text string to appear for this choice.
+              </td></tr><tr><td align="left" valign="top"><code class="code">menu</code></td><td align="left">
+                This option is used only for cascade choices.
+                Set it to a <code class="code">Menu</code> object that
+                displays the next level of choices.
+              </td></tr><tr><td align="left" valign="top"><code class="code">offvalue</code></td><td align="left">
+                Normally, the control variable for a checkbutton
+                is set to <code class="code">0</code> when the checkbutton
+                is off.  You can change the off value by setting
+                this option to the desired value.  See <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">onvalue</code></td><td align="left">
+                Normally, the control variable for a checkbutton
+                is set to <code class="code">1</code> when the checkbutton
+                is on.  You can change the on value by setting
+                this option to the desired value.
+              </td></tr><tr><td align="left" valign="top"><code class="code">selectcolor</code></td><td align="left">
+                Normally, the color displayed in a set
+                checkbutton or radiobutton is red.  Change that
+                color by setting this option to the color you
+                want; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">selectimage</code>
+              </td><td align="left" valign="top">
+                If you are using the <code class="code">image</code> option
+                to display a graphic instead of text on a menu
+                radiobutton or checkbutton, if you use <code class="code">selectimage=<em class="replaceable"><code>I</code></em></code>, image <code class="code"><em class="replaceable"><code>I</code></em></code> will be displayed when the item is
+                selected.
+              </td></tr><tr><td align="left" valign="top"><code class="code">state</code></td><td align="left">
+                Normally, all choices react to mouse clicks, but
+                you can set <code class="code">state=tk.DISABLED</code> to gray
+                it out and make it unresponsive.  This <code class="code">coption</code> will be <code class="code">tk.ACTIVE</code>
+                when the mouse is over the choice.
+              </td></tr><tr><td align="left" valign="top"><code class="code">underline</code></td><td align="left">
+                Normally none of the letters in the <code class="code">label</code> are underlined.  Set this option
+                to the index of a letter to underline that
+                letter.
+              </td></tr><tr><td align="left" valign="top"><code class="code">value</code></td><td align="left">
+                Specifies the value of the associated control
+                variable (see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>) for a radiobutton.
+                This can be an integer if the control variable is
+                an <code class="code">IntVar</code>, or a string if the
+                control variable is a <code class="code">StringVar</code>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">variable</code></td><td align="left">
+                For checkbuttons or radiobuttons, this option
+                should be set to the control variable associated
+                with the checkbutton or group of radiobuttons.
+                See <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="menu-toplevel.html">15.2. Top-level menus</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="menu.html">15. The <code class="code">Menu</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/menu-coptions.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menu-coptions.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+</html>

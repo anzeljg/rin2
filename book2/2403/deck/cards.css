@@ -1,0 +1,247 @@
+#cards {
+  width: 100%;
+  height: 500px;
+  background-color: #45a173;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+#topbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #334d41;
+  padding: 5px;
+  text-align: center;
+}
+#topbar button {
+  margin: 3px;
+}
+.card {
+  position: absolute;
+  display: inline-block;
+  left: 45%;
+  top: 40%;
+  width: 79px;
+  height: 110px;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  cursor: default;
+}
+.card:before,
+.card:after {
+  position: absolute;
+}
+.card:before {
+  top: 0.15rem;
+  left: 0;
+}
+.card:after {
+  bottom: 0.1rem;
+  right: 0;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.card .face {
+  height: 100%;
+  background-position: 50% 50%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.card .back {
+  position: absolute;
+  background-image: url("faces/Back.png");
+  background-position: 50% 50%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.card.spades.rank1 .face {
+  background-image: url("faces/Spades_A.png");
+}
+.card.spades.rank2 .face {
+  background-image: url("faces/Spades_2.png");
+}
+.card.spades.rank3 .face {
+  background-image: url("faces/Spades_3.png");
+}
+.card.spades.rank4 .face {
+  background-image: url("faces/Spades_4.png");
+}
+.card.spades.rank5 .face {
+  background-image: url("faces/Spades_5.png");
+}
+.card.spades.rank6 .face {
+  background-image: url("faces/Spades_6.png");
+}
+.card.spades.rank7 .face {
+  background-image: url("faces/Spades_7.png");
+}
+.card.spades.rank8 .face {
+  background-image: url("faces/Spades_8.png");
+}
+.card.spades.rank9 .face {
+  background-image: url("faces/Spades_9.png");
+}
+.card.spades.rank10 .face {
+  background-image: url("faces/Spades_10.png");
+}
+.card.spades.rank11 .face {
+  background-image: url("faces/Spades_J.png");
+}
+.card.spades.rank12 .face {
+  background-image: url("faces/Spades_Q.png");
+}
+.card.spades.rank13 .face {
+  background-image: url("faces/Spades_K.png");
+}
+.card.hearts.rank1 .face {
+  background-image: url("faces/Hearts_A.png");
+}
+.card.hearts.rank2 .face {
+  background-image: url("faces/Hearts_2.png");
+}
+.card.hearts.rank3 .face {
+  background-image: url("faces/Hearts_3.png");
+}
+.card.hearts.rank4 .face {
+  background-image: url("faces/Hearts_4.png");
+}
+.card.hearts.rank5 .face {
+  background-image: url("faces/Hearts_5.png");
+}
+.card.hearts.rank6 .face {
+  background-image: url("faces/Hearts_6.png");
+}
+.card.hearts.rank7 .face {
+  background-image: url("faces/Hearts_7.png");
+}
+.card.hearts.rank8 .face {
+  background-image: url("faces/Hearts_8.png");
+}
+.card.hearts.rank9 .face {
+  background-image: url("faces/Hearts_9.png");
+}
+.card.hearts.rank10 .face {
+  background-image: url("faces/Hearts_10.png");
+}
+.card.hearts.rank11 .face {
+  background-image: url("faces/Hearts_J.png");
+}
+.card.hearts.rank12 .face {
+  background-image: url("faces/Hearts_Q.png");
+}
+.card.hearts.rank13 .face {
+  background-image: url("faces/Hearts_K.png");
+}
+.card.clubs.rank1 .face {
+  background-image: url("faces/Clubs_A.png");
+}
+.card.clubs.rank2 .face {
+  background-image: url("faces/Clubs_2.png");
+}
+.card.clubs.rank3 .face {
+  background-image: url("faces/Clubs_3.png");
+}
+.card.clubs.rank4 .face {
+  background-image: url("faces/Clubs_4.png");
+}
+.card.clubs.rank5 .face {
+  background-image: url("faces/Clubs_5.png");
+}
+.card.clubs.rank6 .face {
+  background-image: url("faces/Clubs_6.png");
+}
+.card.clubs.rank7 .face {
+  background-image: url("faces/Clubs_7.png");
+}
+.card.clubs.rank8 .face {
+  background-image: url("faces/Clubs_8.png");
+}
+.card.clubs.rank9 .face {
+  background-image: url("faces/Clubs_9.png");
+}
+.card.clubs.rank10 .face {
+  background-image: url("faces/Clubs_10.png");
+}
+.card.clubs.rank11 .face {
+  background-image: url("faces/Clubs_J.png");
+}
+.card.clubs.rank12 .face {
+  background-image: url("faces/Clubs_Q.png");
+}
+.card.clubs.rank13 .face {
+  background-image: url("faces/Clubs_K.png");
+}
+.card.diamonds.rank1 .face {
+  background-image: url("faces/Diamonds_A.png");
+}
+.card.diamonds.rank2 .face {
+  background-image: url("faces/Diamonds_2.png");
+}
+.card.diamonds.rank3 .face {
+  background-image: url("faces/Diamonds_3.png");
+}
+.card.diamonds.rank4 .face {
+  background-image: url("faces/Diamonds_4.png");
+}
+.card.diamonds.rank5 .face {
+  background-image: url("faces/Diamonds_5.png");
+}
+.card.diamonds.rank6 .face {
+  background-image: url("faces/Diamonds_6.png");
+}
+.card.diamonds.rank7 .face {
+  background-image: url("faces/Diamonds_7.png");
+}
+.card.diamonds.rank8 .face {
+  background-image: url("faces/Diamonds_8.png");
+}
+.card.diamonds.rank9 .face {
+  background-image: url("faces/Diamonds_9.png");
+}
+.card.diamonds.rank10 .face {
+  background-image: url("faces/Diamonds_10.png");
+}
+.card.diamonds.rank11 .face {
+  background-image: url("faces/Diamonds_J.png");
+}
+.card.diamonds.rank12 .face {
+  background-image: url("faces/Diamonds_Q.png");
+}
+.card.diamonds.rank13 .face {
+  background-image: url("faces/Diamonds_K.png");
+}
+.card.joker.rank1 .face {
+  background-image: url("faces/Joker_1.png");
+}
+.card.joker.rank2 .face {
+  background-image: url("faces/Joker_2.png");
+}
+.card.joker.rank3 .face {
+  background-image: url("faces/Joker_3.png");
+}

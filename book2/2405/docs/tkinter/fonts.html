@@ -1,0 +1,123 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/fonts.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.4. Type fonts</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="std-attrs.html" title="5. Standard attributes"><link rel="prev" href="colors.html" title="5.3. Colors"><link rel="next" href="anchors.html" title="5.5. Anchors"></head><body><div class="topnavbar"><a href="anchors.html">Next</a> / <a href="colors.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="fonts"></a>5.4. Type fonts</h3></div></div></div><p>
+        Depending on your platform, there may be up to three ways
+        to specify type style.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            As a tuple whose first element is the font family,
+            followed by a size (in points if positive, in pixels
+            if negative), optionally followed by a string
+            containing one or more of the style modifiers <code class="code">bold</code>, <code class="code">italic</code>, <code class="code">underline</code>, and <code class="code">overstrike</code>.
+          </p><p>
+            Examples: <code class="code">('Helvetica', '16')</code> for a
+            16-point Helvetica regular; <code class="code">('Times', '24',
+            'bold italic')</code> for a 24-point Times bold
+            italic.  For a 20-pixel Times bold font, use <code class="code">('Times', -20, 'bold')</code>.
+          </p></li><li><p>
+            You can create a “font object” by
+            importing the <code class="code">tkFont</code> module
+            and using its <code class="code">Font</code> class
+            constructor:
+
+            </p><pre class="programlisting">import tkFont
+
+font = tkFont.Font(<em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+
+            where the options include:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">family</code></td><td align="left">
+                    The font family name as a string.
+                  </td></tr><tr><td align="left" valign="top"><code class="code">size</code></td><td align="left">
+                    The font height as an integer in points.  To
+                    get a font <code class="code"><em class="replaceable"><code>n</code></em></code> pixels
+                    high, use <code class="code">-<em class="replaceable"><code>n</code></em></code>.
+                  </td></tr><tr><td align="left" valign="top"><code class="code">weight</code></td><td align="left" valign="top"><code class="code">'bold'</code> for
+                    boldface, <code class="code">'normal'</code> for
+                    regular weight.</td></tr><tr><td align="left" valign="top"><code class="code">slant</code></td><td align="left">
+                    <code class="code">'italic'</code> for italic, <code class="code">'roman'</code> for unslanted.
+                  </td></tr><tr><td align="left" valign="top"><code class="code">underline</code></td><td align="left">
+                    <code class="code">1</code> for underlined text, <code class="code">0</code> for normal.
+                  </td></tr><tr><td align="left" valign="top"><code class="code">overstrike</code></td><td align="left">
+                    <code class="code">1</code> for overstruck text, <code class="code">0</code> for normal.
+                  </td></tr></tbody></table></div><p>
+            For example, to get a 36-point bold Helvetica italic
+            face:
+          </p><pre class="programlisting">    helv36 = tkFont.Font(family='Helvetica',
+        size=36, weight='bold')
+</pre></li><li><p>
+            If you are running under the X Window System, you can
+            use any of the X font names.  For example, the font
+            named <code class="code">'-*-lucidatypewriter-medium-r-*-*-*-140-*-*-*-*-*-*'</code> is a good fixed-width font for onscreen use.  Use
+            the <span class="application">xfontsel</span> program to
+            help you select pleasing fonts.
+          </p></li></ul></div><p>
+        To get a list of all the families of fonts available on
+        your platform, call this function:
+      </p><pre class="programlisting">    tkFont.families()
+</pre><p>
+        The return value is a list of strings.
+        <span class="emphasis"><em>Note</em></span>: You must create your root
+        window before calling this function.
+      </p><p>
+        These methods are defined on all <code class="code">Font</code>
+        objects:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">.actual(<em class="replaceable"><code>option</code></em>=None)</code>
+          </span></dt><dd><p>
+              If you pass no arguments, you get back a dictionary
+              of the font's actual attributes, which may differ
+              from the ones you requested.  To get back the value
+              of an attribute, pass its name as an argument.
+            </p></dd><dt><span class="term">
+            <code class="code">.cget(<em class="replaceable"><code>option</code></em>)</code>
+          </span></dt><dd><p>
+              Returns the value of the given <code class="code"><em class="replaceable"><code>option</code></em></code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.configure(<em class="replaceable"><code>option</code></em>,
+            ...)</code>
+          </span></dt><dd><p>
+              Use this method to change one or more options on a
+              font.  For example, if you have a <code class="code">Font</code> object called <code class="code">titleFont</code>, if you
+              call <code class="code">titleFont.configure(family='times',
+              size=18)</code>, that font will change to 18pt
+              Times and any widgets that use that font will
+              change too.
+            </p></dd><dt><span class="term">
+            <code class="code">.copy()</code>
+          </span></dt><dd><p>
+              Returns a copy of a <code class="code">Font</code> object.
+            </p></dd><dt><span class="term">
+            <code class="code">.measure(<em class="replaceable"><code>text</code></em>)</code>
+          </span></dt><dd><p>
+              Pass this method a string, and it will return the
+              number of pixels of width that string will take in
+              the font.  Warning: some slanted characters may
+              extend outside this area.
+            </p></dd><dt><span class="term">
+            <code class="code">.metrics(<em class="replaceable"><code>option</code></em>)</code>
+          </span></dt><dd><p>
+              If you call this method with no arguments, it
+              returns a dictionary of all the <em class="firstterm">font
+              metrics</em>.  You can retrieve the value of
+              just one metric by passing its name as an argument.
+              Metrics include:
+            </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">ascent</code></td><td align="left">
+                      Number of pixels of height between the
+                      baseline and the top of the highest
+                      ascender.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">descent</code></td><td align="left">
+                      Number of pixels of height between the
+                      baseline and the bottom of the lowest
+                      ascender.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">fixed</code></td><td align="left">
+                      This value is <code class="code">0</code> for a
+                      variable-width font and <code class="code">1</code>
+                      for a monospaced font.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">linespace</code></td><td align="left">
+                      Number of pixels of height total.  This is
+                      the leading of type set solid in the given
+                      font.
+                    </td></tr></tbody></table></div></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="anchors.html">5.5. Anchors</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="colors.html">5.3. Colors</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/fonts.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/fonts.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:25 GMT -->
+</html>

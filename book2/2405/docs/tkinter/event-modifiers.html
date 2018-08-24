@@ -1,0 +1,59 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-modifiers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>54.4. Event modifiers</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="events.html" title="54. Events: responding to stimuli"><link rel="prev" href="event-types.html" title="54.3. Event types"><link rel="next" href="key-names.html" title="54.5. Key names"></head><body><div class="topnavbar"><a href="key-names.html">Next</a> / <a href="event-types.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="event-modifiers"></a>54.4. Event modifiers</h3></div></div></div><p>
+        The modifier names that you can use in event sequences
+        include:
+      </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+                <code class="code">Alt</code>
+              </td><td align="left">
+                True when the user is holding the
+                <span class="keysym">alt</span> key down.
+              </td></tr><tr><td align="left">
+                <code class="code">Any</code>
+              </td><td align="left">
+                This modifier generalizes an event type.  For
+                example, the event pattern <code class="code">'&lt;Any-KeyPress&gt;'</code> applies to the
+                pressing of any key.
+              </td></tr><tr><td align="left">
+                <code class="code">Control</code>
+              </td><td align="left">
+                True when the user is holding the
+                <span class="keysym">control</span> key down.
+              </td></tr><tr><td align="left">
+                <code class="code">Double</code>
+              </td><td align="left">
+                Specifies two events happening close together in
+                time.  For example, <code class="code">&lt;Double-Button-1&gt;</code> describes two
+                presses of button 1 in rapid succession.
+              </td></tr><tr><td align="left">
+                <code class="code">Lock</code>
+              </td><td align="left">
+                True when the user has pressed <span class="keysym">shift
+                lock</span>.
+              </td></tr><tr><td align="left">
+                <code class="code">Shift</code>
+              </td><td align="left">
+                True when the user is holding down the
+                <span class="keysym">shift</span> key.
+              </td></tr><tr><td align="left">
+                <code class="code">Triple</code>
+              </td><td align="left">
+                Like <code class="code">Double</code>, but specifies three
+                events in rapid succession.
+              </td></tr></tbody></table></div><p>
+        You can use shorter forms of the events.  Here are some
+        examples:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            <code class="code">'&lt;1&gt;'</code> is the same as <code class="code">'&lt;Button-1&gt;'</code>.
+          </p></li><li><p>
+            <code class="code">'x'</code> is the same as <code class="code">'&lt;KeyPress-x&gt;'</code>.
+          </p></li></ul></div><p>
+        Note that you can leave out the enclosing <code class="code">'&lt;…&gt;'</code> for most single-character
+        keypresses, but you can't do that for the space character
+        (whose name is <code class="code">'&lt;space&gt;'</code>) or the
+        less-than (<code class="code">&lt;</code>) character (whose name is
+        <code class="code">'&lt;less&gt;'</code>).
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="key-names.html">54.5. Key names</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="event-types.html">54.3. Event types</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/event-modifiers.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-modifiers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

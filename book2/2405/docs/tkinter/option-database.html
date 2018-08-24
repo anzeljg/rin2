@@ -1,0 +1,79 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/option-database.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>27. Standardizing appearance and the option database</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="universal.html" title="26. Universal widget methods"><link rel="next" href="new-widget-class.html" title="27.1. How to name a widget class"></head><body><div class="topnavbar"><a href="new-widget-class.html">Next</a> / <a href="universal.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="option-database"></a>27. Standardizing appearance and the option database</h2></div></div></div><p>
+      It's easy to apply colors, fonts, and other options to the
+      widgets when you create them.  However,
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          if you want a lot of widgets to have the same
+          background color or font, it's tedious to specify each
+          option each time, and
+        </p></li><li><p>
+          it's nice to let the user override your choices with
+          their favorite color schemes, fonts, and other choices.
+        </p></li></ul></div><p>
+      Accordingly, we use the idea of an <em class="firstterm">option
+      database</em> to set up default option values.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          Your application can specify a file (such as the
+          standard <code class="filename">.Xdefaults</code> file used by
+          the X Window System) that contains the user's
+          preferences.  You can set up your application to read
+          the file and tell <span class="application">Tkinter</span> to use those defaults.  See
+          the section on the <a href="universal.html#option_readfile"><code class="code">.option_readfile()</code></a> method, above, in
+          the section on <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>, for the
+          structure of this file.
+        </p></li><li><p>
+          Your application can directly specify defaults for one
+          or many types of widgets by using the <a href="universal.html#option_add"><code class="code">.option_add()</code></a> method; see this method under <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>.
+        </p></li></ul></div><p>
+      Before we discuss how options are set, consider the problem
+      of customizing the appearance of GUIs in general.  We could
+      give every widget in the application a name, and then ask
+      the user to specify every property of every name.  But this
+      is cumbersome, and would also make the application hard to
+      reconfigure—if the designer adds new widgets, the
+      user would have to describe every property of every new
+      widget.
+    </p><p>
+      So, the option database allows the programmer and the user
+      to specify <span class="emphasis"><em>general patterns</em></span> describing
+      which widgets to configure.
+    </p><p>
+      These patterns operate on the names of the widgets, but
+      widgets are named using <span class="emphasis"><em>two</em></span> parallel
+      naming schemes:
+    </p><div class="orderedlist"><ol type="a"><li><p>
+          Every widget has a <em class="firstterm">class name</em>.
+          By default, the class name is the same as the class
+          constructor: <code class="code">'Button'</code> for buttons, <code class="code">'Frame'</code> for a frame, and so on.  However, you
+          can create new classes of widgets, usually inheriting
+          from the <code class="code">Frame</code> class, and give them new
+          names of your own creation.  See <a href="new-widget-class.html" title="27.1. How to name a widget class">Section 27.1, “How to name a widget class”</a> for details.
+        </p></li><li><p>
+          You can also give any widget an <em class="firstterm">instance
+          name</em>.  The default name of a widget is
+          usually a meaningless number (see <a href="window-names.html" title="5.11. Window names">Section 5.11, “Window names”</a>).  However, as with widget
+          classes, you can assign a name to any widget.  See the
+          section <a href="naming-widgets.html" title="27.2. How to name a widget instance">Section 27.2, “How to name a widget instance”</a> for details.
+        </p></li></ol></div><p>
+      Every widget in every application therefore has two
+      hierarchies of names—the class name hierarchy and
+      the instance name hierarchy.  For example, a button
+      embedded in a text widget which is itself embedded in a
+      frame would have the class hierarchy <code class="code">Frame.Text.Button</code>. It might also have an instance
+      hierarchy something like <code class="code">.mainFrame.messageText.panicButton</code> if you so named
+      all the instances.  The initial dot stands for the root
+      window; see <a href="window-names.html" title="5.11. Window names">Section 5.11, “Window names”</a> for more
+      information on window path names.
+    </p><p>
+      The option database mechanism can make use of either class
+      names or instance names in defining options, so you can
+      make options apply to whole classes (e.g., all buttons have
+      a blue background) or to specific instances (e.g., the
+      Panic Button has red letters on it).  After we look at how
+      to name classes and instances, in <a href="resource-lines.html" title="27.3. Resource specification lines">Section 27.3, “Resource specification lines”</a>, we'll discuss how the options
+      database really works.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="new-widget-class.html">27.1. How to name a widget class</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="universal.html">26. Universal widget methods</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/option-database.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/option-database.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

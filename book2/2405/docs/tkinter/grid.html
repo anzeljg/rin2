@@ -1,0 +1,99 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4.1. The .grid() method</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="layout-mgt.html" title="4. Layout management"><link rel="prev" href="layout-mgt.html" title="4. Layout management"><link rel="next" href="grid-methods.html" title="4.2. Other grid management methods"></head><body><div class="topnavbar"><a href="grid-methods.html">Next</a> / <a href="layout-mgt.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="grid"></a>4.1. The <code class="code">.grid()</code> method</h3></div></div></div><p>
+        To display a widget
+        <code class="code"><em class="replaceable"><code>w</code></em></code> on your
+        application screen:
+      </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em>.grid(<em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+        This method registers a widget <code class="code"><em class="replaceable"><code>w</code></em></code> with the grid geometry
+        manager—if you don't do this, the widget will exist
+        internally, but it will not be visible on the screen.
+        For the options, see <a href="grid.html#grid-arguments" title="Table 1. Arguments of the .grid() geometry
+        manager">Table 1, “Arguments of the <code class="code">.grid()</code> geometry
+        manager”</a>.
+      </p><div class="table"><a name="grid-arguments"></a><p class="title"><b>Table 1. Arguments of the <code class="code">.grid()</code> geometry
+        manager</b></p><div class="table-contents"><table summary="Arguments of the .grid() geometry
+        manager" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left"><code class="code">column</code></td><td align="left">
+                The column number where you want the widget
+                gridded, counting from zero.  The default value
+                is zero.
+              </td></tr><tr><td align="left"><code class="code">columnspan</code></td><td align="left">
+                Normally a widget occupies only one cell in the
+                grid.  However, you can grab multiple cells of a
+                row and merge them into one larger cell by
+                setting the <code class="code">columnspan</code> option to
+                the number of cells.  For example, <code class="code"><em class="replaceable"><code>w</code></em>.grid(row=0, column=2, columnspan=3)</code>
+                would place widget <code class="code"><em class="replaceable"><code>w</code></em></code> in a cell that spans
+                columns 2, 3, and 4 of row 0.
+              </td></tr><tr><td align="left" valign="top"><code class="code">in_</code></td><td align="left" valign="top">
+                To register <code class="code"><em class="replaceable"><code>w</code></em></code> as a child of some widget <code class="code"><em class="replaceable"><code>w<sub>2</sub></code></em></code>, use <code class="code">in_=<em class="replaceable"><code>w<sub>2</sub></code></em></code>.  The new parent <code class="code"><em class="replaceable"><code>w<sub>2</sub></code></em></code> must be a descendant of
+                the <code class="code"><em class="replaceable"><code>parent</code></em></code> widget used when <code class="code"><em class="replaceable"><code>w</code></em></code> was created.
+              </td></tr><tr><td align="left"><code class="code">ipadx</code></td><td align="left">
+                Internal x padding.  This dimension is added
+                inside the widget inside its left and right
+                sides.
+              </td></tr><tr><td align="left"><code class="code">ipady</code></td><td align="left">
+                Internal y padding.  This dimension is added
+                inside the widget inside its top and bottom
+                borders.
+              </td></tr><tr><td align="left"><code class="code">padx</code></td><td align="left">
+                External x padding.  This dimension is added to
+                the left and right outside the widget.
+              </td></tr><tr><td align="left"><code class="code">pady</code></td><td align="left">
+                External y padding.  This dimension is added
+                above and below the widget.
+              </td></tr><tr><td align="left"><code class="code">row</code></td><td align="left">
+                The row number into which you want to insert the
+                widget, counting from 0.  The default is the next
+                higher-numbered unoccupied row.
+              </td></tr><tr><td align="left"><code class="code">rowspan</code></td><td align="left">
+                Normally a widget occupies only one cell in the
+                grid. You can grab multiple adjacent cells of a
+                column, however, by setting the <code class="code">rowspan</code> option to the number of cells to
+                grab.  This option can be used in combination
+                with the <code class="code">columnspan</code> option to grab
+                a block of cells.  For example, <code class="code"><em class="replaceable"><code>w</code></em>.grid(row=3, column=2, rowspan=4,
+                columnspan=5)</code> would place widget <code class="code"><em class="replaceable"><code>w</code></em></code> in
+                an area formed by merging 20 cells, with row
+                numbers 3–6 and column numbers 2–6.
+              </td></tr><tr><td align="left"><code class="code">sticky</code></td><td align="left">
+                This option determines how to distribute any
+                extra space within the cell that is not taken up
+                by the widget at its natural size.  See
+                below.
+              </td></tr></tbody></table></div></div><br class="table-break"><div class="itemizedlist"><ul type="disc"><li><p>
+            If you do not provide a <code class="code">sticky</code>
+            attribute, the default behavior is to center the
+            widget in the cell.
+          </p></li><li><p>
+            You can position the widget in a corner of the cell by
+            using <code class="code">sticky=tk.NE</code> (top right), <code class="code">tk.SE</code> (bottom right), <code class="code">tk.SW</code>
+            (bottom left), or <code class="code">tk.NW</code> (top left).
+          </p></li><li><p>
+            You can position the widget centered against one side
+            of the cell by using <code class="code">sticky=tk.N</code> (top
+            center), <code class="code">tk.E</code> (right center),
+            <code class="code">tk.S</code> (bottom center), or <code class="code">tk.W</code>
+            (left center).
+          </p></li><li><p>
+            Use <code class="code">sticky=tk.N+tk.S</code> to stretch
+            the widget vertically but leave it centered
+            horizontally.
+          </p></li><li><p>
+            Use <code class="code">sticky=tk.E+tk.W</code> to stretch it
+            horizontally but leave it centered
+            vertically.
+          </p></li><li><p>
+            Use <code class="code">sticky=tk.N+tk.E+tk.S+tk.W</code> to stretch the widget
+            both horizontally and vertically to fill the
+            cell.
+          </p></li><li><p>
+            The other combinations will also work.  For
+            example, <code class="code">sticky=tk.N+tk.S+tk.W</code> will
+            stretch the widget vertically and place it against
+            the west (left) wall.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="grid-methods.html">4.2. Other grid management methods</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="layout-mgt.html">4. Layout management</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/grid.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+</html>

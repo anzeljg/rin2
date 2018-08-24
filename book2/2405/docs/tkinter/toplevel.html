@@ -1,0 +1,216 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/toplevel.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>25. Toplevel: Top-level window
+      methods</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="text-methods.html" title="24.8. Methods on Text widgets"><link rel="next" href="universal.html" title="26. Universal widget methods"></head><body><div class="topnavbar"><a href="universal.html">Next</a> / <a href="text-methods.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="toplevel"></a>25. <code class="code">Toplevel</code>: Top-level window
+      methods</h2></div></div></div><p>
+      A <em class="firstterm">top-level window</em> is a window that
+      has an independent existence under the window manager.  It
+      is decorated with the window manager's decorations, and can
+      be moved and resized independently.  Your application can
+      use any number of top-level windows.
+    </p><p>
+      For any widget <code class="code"><em class="replaceable"><code>w</code></em></code>, you can get to its top-level widget
+      using <code class="code"><em class="replaceable"><code>w</code></em>.winfo_toplevel()</code>.
+    </p><p>
+      To create a new top-level window:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Toplevel(<em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      Options include:
+    </p><div class="table"><a name="Toplevel-methods"></a><p class="title"><b>Table 34. <code class="code">Toplevel</code> window methods</b></p><div class="table-contents"><table summary="Toplevel window methods" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              The background color of the window.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">bd</code> or <code class="code">borderwidth</code>
+            </td><td align="left">
+              Border width in pixels; default is <code class="code">0</code>.  For possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  See also the <code class="code">relief</code> option, below.
+            </td></tr><tr><td align="left">
+              <code class="code">class_</code>
+            </td><td align="left">
+              You can give a <code class="code">Toplevel</code> window a
+              “class” name.  Such names are matched
+              against the option database, so your application
+              can pick up the user's configuration preferences
+              (such as colors) by class name.  For example, you
+              might design a series of pop-ups called
+              “screamers,” and set them all up with
+              <code class="code">class_='Screamer'</code>.  Then you can put
+              a line in your option database like this:
+              <pre class="programlisting">*Screamer*background: red
+</pre>
+              and then, if you use the
+              <code class="code">.option_readfile()</code> method to
+              read your option database, all widgets with that
+              class name will default to a red background.  This
+              option is named <code class="code">class_</code>
+              because <code class="code">class</code> is a reserved
+              word in Python.
+            </td></tr><tr><td align="left">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that appears when the mouse is in this
+              window.  See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">height</code>
+            </td><td align="left">
+              Window height; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left"><code class="code">highlightbackground</code></td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the window does not have
+              focus.  See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the window has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              The thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a> highlight.  Default is
+              <code class="code">1</code>.  Set <code class="code">highlightthickness=0</code> to suppress display
+              of the focus highlight.
+            </td></tr><tr><td align="left"><code class="code">menu</code></td><td align="left">
+              To provide this window with a top-level menubar,
+              supply a <code class="code">Menu</code> widget as the value of
+              this option.  Under MacOS, this menu will appear at
+              the top of the screen when the window is active.
+              Under Windows or Unix, it will appear at the top of
+              the application.
+            </td></tr><tr><td align="left"><code class="code">padx</code></td><td align="left">
+              Use this option to provide extra space on the left
+              and right sides of the window.  The value is a
+              number of pixels.
+            </td></tr><tr><td align="left"><code class="code">pady</code></td><td align="left">
+              Use this option to provide extra space on the top
+              and bottom sides of the window.  The value is a
+              number of pixels.
+            </td></tr><tr><td align="left">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Normally, a top-level window will have no 3-d
+              borders around it.  To get a shaded border, set the
+              <code class="code">bd</code> option larger that its default
+              value of zero, and set the <code class="code">relief</code>
+              option to one of the constants discussed under
+              <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left"><code class="code">takefocus</code></td><td align="left">
+              Normally, a top-level window does not get focus.
+              Use <code class="code">takefocus=True</code> if you want it to
+              be able to take focus; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">width</code>
+            </td><td align="left">
+              The desired width of the window; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These methods are available for top-level windows:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.aspect(<em class="replaceable"><code>n<sub>min</sub></code></em>, <em class="replaceable"><code>d<sub>min</sub></code></em>, <em class="replaceable"><code>n<sub>max</sub></code></em>, <em class="replaceable"><code>d<sub>max</sub></code></em>)</code>
+        </span></dt><dd><p>
+            Constrain the root window's width:length ratio to the
+            range [ <code class="code"><em class="replaceable"><code>n<sub>min</sub></code></em></code> / <code class="code"><em class="replaceable"><code>d<sub>min</sub></code></em></code>, <code class="code"><em class="replaceable"><code>n<sub>max</sub></code></em></code> / <code class="code"><em class="replaceable"><code>d<sub>max</sub></code></em></code> ].
+          </p></dd><dt><span class="term">
+          <code class="code">.deiconify()</code>
+        </span></dt><dd><p>
+            If this window is iconified, expand it.
+          </p></dd><dt><span class="term">
+          <code class="code">.geometry(<em class="replaceable"><code>newGeometry</code></em>=None)</code>
+        </span></dt><dd><p>
+            Set the window geometry.  For the form of the
+            argument, see <a href="geometry.html" title="5.10. Geometry strings">Section 5.10, “Geometry strings”</a>.  If the
+            argument is omitted, the current geometry string is
+            returned.
+          </p></dd><dt><span class="term">
+          <code class="code">.iconify()</code>
+        </span></dt><dd><p>
+            Iconify the window.
+          </p></dd><dt><span class="term">
+          <code class="code">.lift(aboveThis=None)</code>
+        </span></dt><dd><p>
+            To raise this window to the top of the stacking order
+            in the window manager, call this method with no
+            arguments.  You can also raise it to a position in
+            the stacking order just above another <code class="code">Toplevel</code> window by passing that window as an
+            argument.
+          </p></dd><dt><span class="term">
+          <code class="code">.lower(belowThis=None)</code>
+        </span></dt><dd><p>
+            If the argument is omitted, moves the window to the
+            bottom of the stacking order in the window manager.
+            You can also move the window to a position just under
+            some other top-level window by passing that <code class="code">Toplevel</code> widget as an argument.
+          </p></dd><dt><span class="term">
+          <code class="code">.maxsize(width=None, height=None)</code>
+        </span></dt><dd><p>
+            Set the maximum window size.  If the arguments are
+            omitted, returns the current <code class="code">(width,
+            height)</code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.minsize(width=None, height=None)</code>
+        </span></dt><dd><p>
+            Set the minimum window size.  If the arguments are
+            omitted, returns the current minima as a 2-tuple.
+          </p></dd><dt><span class="term">
+          <code class="code">.overrideredirect(flag=None)</code>
+        </span></dt><dd><p>
+            If called with a <code class="code">True</code> argument, this
+            method sets the override redirect flag, which removes
+            all window manager decorations from the window, so
+            that it cannot be moved, resized, iconified, or
+            closed.  If called with a <code class="code">False</code>
+            argument, window manager decorations are restored and
+            the override redirect flag is cleared.  If called
+            with no argument, it returns the current state of the
+            override redirect flag.
+          </p><p>
+            Be sure to call the <code class="code">.update_idletasks()</code> method (see <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>) before setting this flag.  If
+            you call it before entering the main loop, your
+            window will be disabled before it ever appears.
+          </p><p>
+            This method may not work on some Unix and MacOS
+            platforms.
+          </p></dd><dt><span class="term">
+          <code class="code">.resizable(width=None, height=None)</code>
+        </span></dt><dd><p>
+            If <code class="code"></code> is true, allow horizontal resizing.  If
+            <code class="code">height</code> is true, allow vertical resizing.
+            If the arguments are omitted, returns the current size as
+            a 2-tuple.
+          </p></dd><dt><span class="term">
+          <code class="code">.state(newstate=None)</code>
+        </span></dt><dd><p>
+            Returns the window's current state, one of:
+          </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+                <code class="code">'normal'</code>: Displayed normally.
+              </p></li><li><p>
+                <code class="code">'iconic'</code>: Iconified with the <code class="code">.iconify()</code> method.
+              </p></li><li><p>
+                <code class="code">'withdrawn'</code>: Hidden; see the <code class="code">.withdraw()</code> method below.
+              </p></li></ul></div><p>
+            To change the window's state, pass one of the strings
+            above as an argument to the method.  For example, to
+            iconify a <code class="code">Toplevel</code> instance <code class="code"><em class="replaceable"><code>T</code></em></code>, use
+            “<code class="code"><em class="replaceable"><code>T</code></em>.state('iconify') </code>”.
+          </p></dd><dt><span class="term">
+          <code class="code">.title(text=None)</code>
+        </span></dt><dd><p>
+            Set the window title.  If the argument is omitted,
+            returns the current title.
+          </p></dd><dt><span class="term">
+          <code class="code">.transient(parent=None)</code>
+        </span></dt><dd><p>
+            Make this window a transient window for some <code class="code"><em class="replaceable"><code>parent</code></em></code> window;
+            the default parent window is this window's parent.
+          </p><p>
+            This method is useful for short-lived pop-up dialog
+            windows.  A transient window always appears in front
+            of its parent.  If the parent window is iconified,
+            the transient is iconified as well.
+          </p></dd><dt><span class="term">
+          <code class="code">.withdraw()</code>
+        </span></dt><dd><p>
+            Hides the window. Restore it with
+            <code class="code">.deiconify()</code> or <code class="code">.iconify()</code>.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="universal.html">26. Universal widget methods</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="text-methods.html">24.8. Methods on <code class="code">Text</code> widgets</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/toplevel.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/toplevel.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

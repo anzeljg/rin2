@@ -1,0 +1,36 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/optionmenu.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>18. The OptionMenu widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="message.html" title="17. The Message widget"><link rel="next" href="panedwindow.html" title="19. The PanedWindow widget"></head><body><div class="topnavbar"><a href="panedwindow.html">Next</a> / <a href="message.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="optionmenu"></a>18. The <code class="code">OptionMenu</code> widget</h2></div></div></div><p>
+      The purpose of this widget is to offer a fixed set of
+      choices to the user in a drop-down menu.
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/optionmenu.png"></div></div><p>
+      The illustrations above shows an <code class="code">OptionMenu</code>
+      in two states.  The left-hand example shows the widget in
+      its initial form.  The right-hand example shows how it
+      looks when the mouse has clicked on it and dragged down to
+      the <code class="code">'boat'</code> choice.
+    </p><p>
+      To create a new <code class="code">OptionMenu</code> widget as the
+      child of a root window or frame named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.OptionMenu(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>variable</code></em>, <em class="replaceable"><code>choice<sub>1</sub></code></em>, <em class="replaceable"><code>choice<sub>2</sub></code></em>, ...)
+</pre><p>
+      This constructor returns the new <code class="code">OptionMenu</code>
+      widget.  The <code class="code"><em class="replaceable"><code>variable</code></em></code> is a <code class="code">StringVar</code> instance (see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>) that is associated with the
+      widget, and the remaining arguments are the choices to be
+      displayed in the widget as strings.
+    </p><p>
+      The illustration above was created with this code snippet:
+
+      </p><pre class="programlisting">    optionList = ('train', 'plane', 'boat')
+    self.v = tk.StringVar()
+    self.v.set(optionList[0])
+    self.om = tk.OptionMenu(self, self.v, *optionList)
+</pre><p>
+    </p><p>
+      To find out which choice is currently selected in an <code class="code">OptionMenu</code> widget, the <code class="code">.get()</code>
+      method on the associated control variable will return that
+      choice as a string.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="panedwindow.html">19. The <code class="code">PanedWindow</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="message.html">17. The <code class="code">Message</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/optionmenu.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/optionmenu.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:49 GMT -->
+</html>

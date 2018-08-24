@@ -1,0 +1,39 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-mark.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>24.2. Text widget marks</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="text.html" title="24. The Text widget"><link rel="prev" href="text-index.html" title="24.1. Text widget indices"><link rel="next" href="text-image.html" title="24.3. Text widget images"></head><body><div class="topnavbar"><a href="text-image.html">Next</a> / <a href="text-index.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="text-mark"></a>24.2. <code class="code">Text</code> widget marks</h3></div></div></div><p>
+        A <em class="firstterm">mark</em> represents a floating
+        position somewhere in the contents of a text widget.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            You handle each mark by giving it a name.  This name
+            can be any string that doesn't include whitespace or
+            periods.
+          </p></li><li><p>
+            There are two special marks.  <code class="code">tk.INSERT</code>
+            is the current position of the insertion cursor, and
+            <code class="code">tk.CURRENT</code> is the position closest to the
+            mouse cursor.
+          </p></li><li><p>
+            Marks float along with the adjacent content.  If you
+            modify text somewhere away from a mark, the mark
+            stays at the same position relative to its immediate
+            neighbors.
+          </p></li><li><p>
+            Marks have a property called
+            <em class="firstterm">gravity</em> that controls what happens
+            when you insert text at a mark.  The default gravity is
+            <code class="code">tk.RIGHT</code>, which means that when new text is
+            inserted at that mark, the mark stays after the end of the
+            new text.  If you set the gravity of a mark to <code class="code">tk.LEFT</code> (using the text widget's <code class="code">.mark_gravity()</code> method), the mark will stay at a
+            position just before text newly inserted at that mark.
+          </p></li><li><p>
+            Deleting the text all around a mark does not remove
+            the mark.  If you want to remove a mark, use the
+            <code class="code">.mark_unset()</code> method on the text
+            widget.
+          </p></li></ul></div><p>
+        Refer to <a href="text-methods.html" title="24.8. Methods on Text widgets">Section 24.8, “Methods on <code class="code">Text</code> widgets”</a>, below, to see
+        how to use marks.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="text-image.html">24.3. <code class="code">Text</code> widget images</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="text-index.html">24.1. <code class="code">Text</code> widget indices</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/text-mark.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-mark.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

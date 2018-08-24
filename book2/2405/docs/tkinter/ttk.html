@@ -1,0 +1,65 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>28. ttk: Themed widgets</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="resource-matching.html" title="27.4. Rules for resource matching"><link rel="next" href="ttk-setup.html" title="28.1. Importing ttk"></head><body><div class="topnavbar"><a href="ttk-setup.html">Next</a> / <a href="resource-matching.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk"></a>28. <span class="application">ttk</span>: Themed widgets</h2></div></div></div><p>
+      Starting with Tk 8.5, the <span class="application">ttk</span> module became available.
+      This module replaces much (but not all) of the original <span class="application">Tkinter</span>
+      machinery.  Use this module to gain these advantages:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <span class="emphasis"><em>Platform-specific appearance</em></span>.  In
+          releases before Tk 8.5, one of the commonest complaints
+          about Tk applications was that they did not conform to the
+          style of the various platforms.
+        </p><p>
+          The <span class="application">ttk</span> module allows you to write your application in
+          a generic way, yet your application can look like a Windows
+          application under Windows, like a MacOS app under MacOS, and
+          so on, without any change to your program.
+        </p><p>
+          Each possible different appearance is represented by a named
+          <span class="application">ttk</span> <em class="firstterm">theme</em>.  For example, the
+          <code class="code">classic</code> theme gives you the appearance of the
+          original <span class="application">Tkinter</span> widgets described in the previous sections.
+        </p></li><li><p>
+          <span class="emphasis"><em>Simplification and generalization of
+          state-specific widget behavior</em></span>.  In the basic
+          <span class="application">Tkinter</span> world, there are a lot of widget options that
+          specify how the widget should look or behave depending on
+          various conditions.
+        </p><p>
+          For example, the <code class="code">tk.Button</code> widget has several
+          different options that control the foreground (text) color.
+        </p><div class="itemizedlist"><ul type="circle" compact><li><p>
+              The <code class="code">activeforeground</code> color option applies
+              when the cursor is over the button.
+            </p></li><li><p>
+              The <code class="code">disabledforeground</code> color is used when
+              the widget is disabled.
+            </p></li><li><p>
+              The widget will have the <code class="code">foreground</code>
+              color when the other conditions don't apply.
+            </p></li></ul></div><p>
+          The <span class="application">ttk</span> module collapses a lot of these special cases
+          into a simple two-part system:
+        </p><div class="itemizedlist"><ul type="circle" compact><li><p>
+              Every widget has a number of different states, and each
+              state can be turned on or off independently of the
+              others.  Examples of states are: <code class="code">disabled</code>, <code class="code">active</code>, and <code class="code">focus</code>.
+            </p></li><li><p>
+              You can set up a <em class="firstterm">style map</em> that
+              specifies that certain options will be set to certain
+              values depending on some state or some combination of
+              the widget's states.
+            </p></li></ul></div></li></ul></div><p>
+      To use <span class="application">ttk</span>, you will need to know these things.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          <a href="ttk-setup.html" title="28.1. Importing ttk">Section 28.1, “Importing <span class="application">ttk</span>”</a>: Setting up your program
+          to use <span class="application">ttk</span>.
+        </p></li><li><p>
+          <a href="ttk-widget-set.html" title="28.2. The ttk widget set">Section 28.2, “The <span class="application">ttk</span> widget set”</a>: The new and replaced
+          <span class="application">ttk</span> widgets.          
+        </p></li><li><p>
+          <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.
+        </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-setup.html">28.1. Importing <span class="application">ttk</span></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="resource-matching.html">27.4. Rules for resource matching</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

@@ -1,0 +1,122 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_line.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.10. Canvas line objects</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="create_image.html" title="8.9. Canvas image objects"><link rel="next" href="create_oval.html" title="8.11. Canvas oval objects"></head><body><div class="topnavbar"><a href="create_oval.html">Next</a> / <a href="create_image.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="create_line"></a>8.10. <code class="code">Canvas</code> line objects</h3></div></div></div><p>
+        In general, a line can consist of any number of segments
+        connected end to end, and each segment can be straight or
+        curved.  To create a canvas line object on a canvas <code class="code"><em class="replaceable"><code>C</code></em></code>, use:
+      </p><pre class="programlisting">    <em class="replaceable"><code>id</code></em> = <em class="replaceable"><code>C</code></em>.create_line(<em class="replaceable"><code>x0</code></em>, <em class="replaceable"><code>y0</code></em>, <em class="replaceable"><code>x1</code></em>, <em class="replaceable"><code>y1</code></em>, ..., <em class="replaceable"><code>xn</code></em>, <em class="replaceable"><code>yn</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+        The line goes through the series of points (<code class="code"><em class="replaceable"><code>x0</code></em></code>, <code class="code"><em class="replaceable"><code>y0</code></em></code>), (<code class="code"><em class="replaceable"><code>x1</code></em></code>, <code class="code"><em class="replaceable"><code>y1</code></em></code>), … (<code class="code"><em class="replaceable"><code>xn</code></em></code>, <code class="code"><em class="replaceable"><code>yn</code></em></code>).  Options
+        include:
+      </p><div class="table"><a name="Canvas-line-options"></a><p class="title"><b>Table 10. <code class="code">Canvas</code> line options</b></p><div class="table-contents"><table summary="Canvas line options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">activedash</code>
+              </td><td rowspan="4" align="left" valign="top">
+                These options specify the <code class="code">dash</code>,
+                <code class="code">fill</code>, <code class="code">stipple</code>, and
+                <code class="code">width</code> values to be used when the
+                line is active, that is, when the mouse is over
+                it.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activefill</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activestipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activewidth</code>
+              </td></tr><tr><td align="left" valign="top"><code class="code">arrow</code></td><td align="left">
+                The default is for the line to have no
+                arrowheads.  Use <code class="code">arrow=tk.FIRST</code> to
+                get an arrowhead at the (<code class="code"><em class="replaceable"><code>x0</code></em></code>, <code class="code"><em class="replaceable"><code>y0</code></em></code>) end of
+                the line.  Use <code class="code">arrow=tk.LAST</code> to get
+                an arrowhead at the far end.  Use <code class="code">arrow=tk.BOTH</code> for arrowheads at both ends.
+              </td></tr><tr><td align="left" valign="top"><code class="code">arrowshape</code></td><td align="left">
+                A tuple <code class="code">(<em class="replaceable"><code>d1</code></em>,
+                <em class="replaceable"><code>d2</code></em>,
+                <em class="replaceable"><code>d3</code></em>)</code> that
+                describes the shape of the arrowheads added by
+                the <code class="code">arrow</code> option.  Default is
+                <code class="code">(8,10,3)</code>.
+                <p>
+                  <span class="inlinemediaobject"><img src="img/arrowshape.png"></span>
+                </p>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">capstyle</code>
+              </td><td align="left" valign="top">
+                You can specify the shape of the ends of the line
+                with this option; see <a href="cap-join-styles.html" title="5.12. Cap and join styles">Section 5.12, “Cap and join styles”</a>.  The default option
+                is <code class="code">tk.BUTT</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">dash</code>
+              </td><td align="left" valign="top">
+                To produce a dashed line, specify this
+                option; see <a href="dash-patterns.html" title="5.13. Dash patterns">Section 5.13, “Dash patterns”</a>.
+                The default appearance is a solid line.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">dashoffset</code>
+              </td><td align="left" valign="top">
+                If you specify a <code class="code">dash</code> pattern, the
+                default is to start the specified pattern at the
+                beginning of the line.  The <code class="code">dashoffset</code> option allows you to specify
+                that the start of the dash pattern occurs at a
+                given distance after the start of the line.  See
+                <a href="dash-patterns.html" title="5.13. Dash patterns">Section 5.13, “Dash patterns”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disableddash</code>
+              </td><td rowspan="4" align="left" valign="top">
+                The <code class="code">dash</code>, <code class="code">fill</code>,
+                <code class="code">stipple</code>, and <code class="code">width</code>
+                values to be used when the item is in the <code class="code">tk.DISABLED</code> state.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledfill</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledstipple</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledwidth</code>
+              </td></tr><tr><td align="left" valign="top"><code class="code">fill</code></td><td align="left">
+                The <a href="colors.html" title="5.3. Colors">color</a> to use in
+                drawing the line. Default is <code class="code">fill='black'</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">joinstyle</code>
+              </td><td align="left" valign="top">
+                For lines that are made up of more than one line
+                segment, this option controls the appearance of
+                the junction between segments.  For more details,
+                see <a href="cap-join-styles.html" title="5.12. Cap and join styles">Section 5.12, “Cap and join styles”</a>.  The
+                default style is <code class="code">ROUND</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">offset</code>
+              </td><td align="left" valign="top">
+                For stippled lines, the purpose of this option is
+                to match the item's stippling pattern with those
+                of adjacent objects.  See <a href="stipple-offset.html" title="5.14. Matching stipple patterns">Section 5.14, “Matching stipple patterns”</a>..
+              </td></tr><tr><td align="left" valign="top"><code class="code">smooth</code></td><td align="left">
+                If true, the line is drawn as a series of
+                parabolic splines fitting the point set.  Default
+                is false, which renders the line as a set of
+                straight segments.
+              </td></tr><tr><td align="left" valign="top"><code class="code">splinesteps</code></td><td align="left">
+                If the <code class="code">smooth</code> option is true, each
+                spline is rendered as a number of straight line
+                segments.  The <code class="code">splinesteps</code> option
+                specifies the number of segments used to
+                approximate each section of the line; the default
+                is <code class="code">splinesteps=12</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">state</code>
+              </td><td align="left" valign="top">
+                Normally, line items are created in state <code class="code">tk.NORMAL</code>.  Set this option to <code class="code">tk.HIDDEN</code> to make the line invisible; set
+                it to <code class="code">tk.DISABLED</code> to make it
+                unresponsive to the mouse.
+              </td></tr><tr><td align="left" valign="top"><code class="code">stipple</code></td><td align="left">
+                To draw a stippled line, set this option to a
+                bitmap that specifies the stippling pattern, such
+                as <code class="code">stipple='gray25'</code>.  See <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a> for the possible values.
+              </td></tr><tr><td align="left" valign="top"><code class="code">tags</code></td><td align="left">
+                If a single string, the line is tagged with that
+                string.  Use a tuple of strings to tag the line
+                with multiple tags.  See <a href="canvas-tags.html" title="8.4. Canvas tags">Section 8.4, “<code class="code">Canvas</code> tags”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+                The line's width.  Default is 1 pixel.  See <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a> for possible values.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="create_oval.html">8.11. <code class="code">Canvas</code> oval objects</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="create_image.html">8.9. <code class="code">Canvas</code> image objects</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/create_line.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_line.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:43 GMT -->
+</html>

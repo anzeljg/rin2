@@ -1,0 +1,66 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/pane-options.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>19.1. PanedWindow child configuration
+      options</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="panedwindow.html" title="19. The PanedWindow widget"><link rel="prev" href="panedwindow.html" title="19. The PanedWindow widget"><link rel="next" href="radiobutton.html" title="20. The Radiobutton widget"></head><body><div class="topnavbar"><a href="radiobutton.html">Next</a> / <a href="panedwindow.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="pane-options"></a>19.1. <code class="code">PanedWindow</code> child configuration
+      options</h3></div></div></div><p>
+        Each child of a <code class="code">PanedWindow</code> has a set of
+        configuration options that control its position and
+        appearance.  These options can be provided when a child
+        is added with the <code class="code">.add()</code> method, or set
+        with the <code class="code">.paneconfig()</code> method, or queried
+        with the <code class="code">.panecget()</code> methods described
+        above.
+      </p><div class="table"><a name="PanedWindow-child-options"></a><p class="title"><b>Table 28. <code class="code">PanedWindow</code> child widget options</b></p><div class="table-contents"><table summary="PanedWindow child widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">after</code>
+              </td><td align="left">
+                Normally, when you <code class="code">.add()</code> a new
+                child to a <code class="code">PanedWindow</code>, the new
+                child is added after any existing child widgets.
+                You may instead use the <code class="code">after=<em class="replaceable"><code>w</code></em></code> option to insert the
+                new widget at a position just after an existing
+                child widget <code class="code"><em class="replaceable"><code>w</code></em></code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">before</code>
+              </td><td align="left">
+                When used as option <code class="code">before=<em class="replaceable"><code>w</code></em></code> in a call to the <code class="code">.add()</code> method, places the new widget at
+                a position just before an existing child widget
+                <code class="code"><em class="replaceable"><code>w</code></em></code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">height</code>
+              </td><td align="left">
+                This option specifies the desired height of the
+                child widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">minsize</code>
+              </td><td align="left">
+                Use this option to specify a minimum size for the
+                child widget in the direction of the <code class="code">PanedWindow</code>'s orientation.  For <code class="code">orient=tk.HORIZONTAL</code>, this is the minimum
+                width; for <code class="code">orient=tk.VERTICAL</code>, it is
+                the minimum height.  For permissible values, see
+                <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">padx</code>
+              </td><td align="left">
+                The amount of extra space to be added to the left
+                and right of the child widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">pady</code>
+              </td><td align="left">
+                The amount of extra space to be added above and
+                below the child widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">sticky</code>
+              </td><td align="left">
+                This option functions like the <code class="code">sticky</code> argument to the <code class="code">.grid()</code> method; see <a href="grid.html" title="4.1. The .grid() method">Section 4.1, “The <code class="code">.grid()</code> method”</a>.  It specifies how to position a child widget
+                if the pane is larger than the widget.  For
+                example, <code class="code">sticky=tk.NW</code> would position
+                the widget in the upper left
+                (“northwest”) corner of the pane.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">width</code>
+              </td><td align="left">
+                Desired width of the child widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="radiobutton.html">20. The <code class="code">Radiobutton</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="panedwindow.html">19. The <code class="code">PanedWindow</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/pane-options.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/pane-options.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:50 GMT -->
+</html>

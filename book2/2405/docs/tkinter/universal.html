@@ -1,0 +1,748 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/universal.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>26. Universal widget methods</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="toplevel.html" title="25. Toplevel: Top-level window
+      methods"><link rel="next" href="option-database.html" title="27. Standardizing appearance and the option database"></head><body><div class="topnavbar"><a href="option-database.html">Next</a> / <a href="toplevel.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="universal"></a>26. Universal widget methods</h2></div></div></div><p>
+      The methods are defined below on all widgets.  In the
+      descriptions, <code class="code"><em class="replaceable"><code>w</code></em></code> can be any widget of any type.
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.after(<em class="replaceable"><code>delay_ms</code></em>, callback=None, *<em class="replaceable"><code>args</code></em>)</code>
+        </span></dt><dd><p>
+            Requests <span class="application">Tkinter</span> to call function <code class="code">callback</code> with arguments <code class="code"><em class="replaceable"><code>args</code></em></code> after a delay of at
+            least <code class="code">delay_ms</code>
+            milliseconds.  There is no upper limit to how long it
+            will actually take, but your callback won't be called
+            sooner than you request, and it will be called only
+            once.
+          </p><p>
+            This method returns an integer “after
+            identifier” that can be passed to the <code class="code">.after_cancel()</code> method if you want to cancel
+            the callback.
+          </p><p>
+            If you do not pass a <code class="code">callback</code>
+            argument, this method waits <code class="code">delay_ms</code>
+            milliseconds, as in the <code class="code">.sleep()</code>
+            function of the <a href="http://docs.python.org/library/time.html" target="_top">standard Python <code class="code">time</code> module</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.after_cancel(<em class="replaceable"><code>id</code></em>)</code>
+        </span></dt><dd><p>
+            Cancels a request for callback set up earlier <code class="code">.after()</code>.  The <code class="code"><em class="replaceable"><code>id</code></em></code> argument is
+            the result returned by the original
+            <em class="replaceable"><code>.after()</code></em> call.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.after_idle(<em class="replaceable"><code>func</code></em>,
+          *<em class="replaceable"><code>args</code></em>)</code>
+        </span></dt><dd><p>
+            Requests that <span class="application">Tkinter</span> call function <code class="code"><em class="replaceable"><code>func</code></em></code> with
+            arguments <code class="code"><em class="replaceable"><code>args</code></em></code> next time the system is idle, that is, next
+            time there are no events to be processed.  The
+            callback will be called only once.  If you want your
+            callback to be called again, you must call the <code class="code">.after_idle</code> method again.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.bell()</code>
+        </span></dt><dd><p>
+            Makes a noise, usually a beep.
+          </p></dd><dt><a name="bind"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.bind(<em class="replaceable"><code>sequence</code></em>=None,
+          <em class="replaceable"><code>func</code></em>=None, <em class="replaceable"><code>add</code></em>=None)</code>
+        </span></dt><dd><p>
+            This method is used to attach an event binding to a
+            widget. See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for the overview
+            of event bindings.
+          </p><p>
+            The <code class="code"><em class="replaceable"><code>sequence</code></em></code> argument describes what event we expect, and the
+            <code class="code"><em class="replaceable"><code>func</code></em></code>
+            argument is a function to be called when that event
+            happens to the widget.  If there was already a
+            binding for that event for this widget, normally the
+            old callback is replaced with <code class="code"><em class="replaceable"><code>func</code></em></code>, but you can
+            preserve both callbacks by passing <code class="code">add='+'</code>.
+          </p></dd><dt><a name="bind_all"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.bind_all(<em class="replaceable"><code>sequence</code></em>=None, <em class="replaceable"><code>func</code></em>=None, <em class="replaceable"><code>add</code></em>=None)</code>
+        </span></dt><dd><p>
+            Like <code class="code">.bind()</code>, but applies to all
+            widgets in the entire application.
+          </p></dd><dt><a name="bind_class"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.bind_class(<em class="replaceable"><code>className</code></em>, <em class="replaceable"><code>sequence</code></em>=None, <em class="replaceable"><code>func</code></em>=None, add=None)</code>
+        </span></dt><dd><p>
+            Like <code class="code">.bind()</code>, but applies to all
+            widgets named <code class="code"><em class="replaceable"><code>className</code></em></code> (e.g.,
+            <code class="code">'Button'</code>).
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.bindtags(<em class="replaceable"><code>tagList</code></em>=None)</code>
+        </span></dt><dd><p>
+            If you call this method, it will return the
+            “binding tags” for the widget as a
+            sequence of strings.  A binding tag is the name of a
+            window (starting with <em class="replaceable"><code>'.'</code></em>)
+            or the name of a class (e.g., <code class="code">'Listbox'</code>).
+          </p><p>
+            You can change the order in which binding levels are
+            called by passing as an argument the sequence of
+            binding tags you want the widget to use.
+          </p><p>
+            See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for a discussion of
+            binding levels and their relationship to tags.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.cget(<em class="replaceable"><code>option</code></em>)</code>
+        </span></dt><dd><p>
+            Returns the current value of <code class="code"><em class="replaceable"><code>option</code></em></code> as a
+            string.  You can also get the value of an option for
+            widget <code class="code"><em class="replaceable"><code>w</code></em></code> as <code class="code"><em class="replaceable"><code>w</code></em>[<em class="replaceable"><code>option</code></em>]</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.clipboard_append(<em class="replaceable"><code>text</code></em>)</code>
+        </span></dt><dd><p>
+            Appends the given <code class="code"><em class="replaceable"><code>text</code></em></code> string to
+            the display's clipboard, where cut and pasted strings
+            are stored for all that display's applications.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.clipboard_clear()</code>
+        </span></dt><dd><p>
+            Clears the display's clipboard (see <code class="code">.clipboard_append()</code> above).
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.column_configure()</code>
+        </span></dt><dd><p>
+            See <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+          </p></dd><dt><span class="term"><code class="code"><em class="replaceable"><code>w</code></em>.config(<em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+        </span></dt><dd><p>
+            Same as <code class="code">.configure()</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.configure(<em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+        </span></dt><dd><p>
+            Set the values of one or more options.  For the
+            options whose names are Python reserved words
+            (<code class="code">class</code>,
+            <code class="code">from</code>,
+            <code class="code">in</code>), use a trailing underbar:
+            <code class="code">'class_'</code>,
+            <code class="code">'from_'</code>,
+            <code class="code">'in_'</code>.
+          </p><p>
+            You can also set the value of an option for widget
+            <code class="code"><em class="replaceable"><code>w</code></em></code> with the statement
+          </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em>[<em class="replaceable"><code>option</code></em>] = <em class="replaceable"><code>value</code></em>
+</pre><p>
+            If you call the <code class="code">.config()</code> method on a
+            widget with no arguments, you'll get a dictionary of
+            all the widget's current options.  The keys are the
+            option names (including aliases like <code class="code">bd</code> for <code class="code">borderwidth</code>).  The value for
+            each key is:
+          </p><div class="itemizedlist"><ul type="disc"><li><p>
+                for most entries, a five-tuple: (option name,
+                option database key, option database class,
+                default value, current value); or,
+              </p></li><li><p>
+                for alias names (like <code class="code">'fg'</code>), a
+                two-tuple: (alias name, equivalent standard
+                name).
+              </p></li></ul></div></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.destroy()</code>
+        </span></dt><dd><p>
+            Calling <code class="code"><em class="replaceable"><code>w</code></em>.destroy()</code> on a widget
+            <code class="code"><em class="replaceable"><code>w</code></em></code> destroys <code class="code"><em class="replaceable"><code>w</code></em></code> and all its children.
+          </p></dd><dt><a name="event_add"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.event_add(<em class="replaceable"><code>virtual</code></em>,
+          *<em class="replaceable"><code>sequences</code></em>)</code>
+        </span></dt><dd><p>
+            This method creates a virtual event whose name is
+            given by the <code class="code"><em class="replaceable"><code>virtual</code></em></code> string
+            argument.  Each additional argument describes one
+            <em class="firstterm">sequence</em>, that is, the
+            description of a physical event.  When that event
+            occurs, the new virtual event is triggered.
+          </p><p>
+            See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for a general
+            description of virtual events.
+          </p></dd><dt><a name="event_delete"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.event_delete(<em class="replaceable"><code>virtual</code></em>, *<em class="replaceable"><code>sequences</code></em>)</code>
+        </span></dt><dd><p>
+            Deletes physical events from the virtual event whose
+            name is given by the string <code class="code"><em class="replaceable"><code>virtual</code></em></code>.  If all
+            the physical events are removed from a given virtual
+            event, that virtual event won't happen anymore.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.event_generate(<em class="replaceable"><code>sequence</code></em>, **<em class="replaceable"><code>kw</code></em>)</code>
+        </span></dt><dd><p>
+            This method causes an event to trigger without any
+            external stimulus.  The handling of the event is the
+            same as if it had been triggered by an external
+            stimulus.  The <code class="code"><em class="replaceable"><code>sequence</code></em></code> argument
+            describes the event to be triggered.  You can set
+            values for selected fields in the <code class="code">Event</code> object by providing <code class="code"><code class="code">keyword</code>=<em class="replaceable"><code>value</code></em></code> arguments,
+            where the <code class="code"><em class="replaceable"><code>keyword</code></em></code> specifies
+            the name of a field in the <code class="code">Event</code>
+            object.
+          </p><p>
+            See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for a full discussion of
+            events.
+          </p></dd><dt><a name="event_info"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.event_info(<em class="replaceable"><code>virtual</code></em>=None)</code>
+        </span></dt><dd><p>
+            If you call this method without an argument, you'll
+            get back a sequence of all the currently defined
+            virtual event names.
+          </p><p>
+            To retrieve the physical events associated with a
+            virtual event, pass this method the name of the
+            virtual event and you will get back a sequence of the
+            physical <code class="code"><em class="replaceable"><code>sequence</code></em></code> names,
+            or <code class="code">None</code> if the given virtual event has
+            never been defined.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.focus_displayof()</code>
+        </span></dt><dd><p>
+            Returns the name of the window that currently has
+            input focus on the same display as the widget.  If no
+            such window has input focus, returns <code class="code">None</code>.
+          </p><p>
+            See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a> for a general description
+            of input focus.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.focus_force()</code>
+        </span></dt><dd><p>
+            Force the input focus to the widget.  This is
+            impolite.  It's better to wait for the window manager
+            to give you the focus.  See also <code class="code">.grab_set_global()</code> below.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.focus_get()</code>
+        </span></dt><dd><p>
+            Returns the widget that has focus in this
+            application, if any—otherwise returns <code class="code">None</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.focus_lastfor()</code>
+        </span></dt><dd><p>
+            This method retrieves the name of the widget that
+            last had the input focus in the top-level window that
+            contains <code class="code"><em class="replaceable"><code>w</code></em></code>.  If none of this top-level's widgets
+            have ever had input focus, it returns the name of the
+            top-level widget.  If this application doesn't have
+            the input focus, <code class="code">.focus_lastfor()</code> will
+            return the name of the widget that will get the focus
+            next time it comes back to this application.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.focus_set()</code>
+        </span></dt><dd><p>
+            If <code class="code"><em class="replaceable"><code>w</code></em></code>'s application has the input focus, the focus
+            will jump to <code class="code"><em class="replaceable"><code>w</code></em></code>.  If <code class="code"><em class="replaceable"><code>w</code></em></code>'s application doesn't
+            have focus, Tk will remember to give it to <code class="code"><em class="replaceable"><code>w</code></em></code> next
+            the application gets focus.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grab_current()</code>
+        </span></dt><dd><p>
+            If there is a grab in force for <code class="code"><em class="replaceable"><code>w</code></em></code>'s display,
+            return its identifier, otherwise return <code class="code">None</code>.  Refer to <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for
+            a discussion of grabs.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grab_release()</code>
+        </span></dt><dd><p>
+            If <code class="code"><em class="replaceable"><code>w</code></em></code> has a grab in force, release it.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grab_set()</code>
+        </span></dt><dd><p>
+            Widget <code class="code"><em class="replaceable"><code>w</code></em></code> grabs all events for <code class="code"><em class="replaceable"><code>w</code></em></code>'s
+            application.  If there was another grab in force, it
+            goes away.  See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for a
+            discussion of grabs.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grab_set_global()</code>
+        </span></dt><dd><p>
+            Widget <code class="code"><em class="replaceable"><code>w</code></em></code> grabs all events for the entire screen.
+            This is considered impolite and should be used only
+            in great need.  Any other grab in force goes away.
+            Try to use this awesome power only for the forces of
+            good, and never for the forces of evil, okay?
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grab_status()</code>
+        </span></dt><dd><p>
+            If there is a local grab in force (set by <code class="code">.grab_set()</code>), this method returns the string
+            <code class="code">'local'</code>.  If there is a global grab in
+            force (from <code class="code">.grab_set_global()</code>), it
+            returns <code class="code">'global'</code>.  If no grab is in
+            force, it returns <code class="code">None</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grid_forget()</code>
+        </span></dt><dd><p>
+            See <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grid_propagate()</code>
+        </span></dt><dd><p>
+            See <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.grid_remove()</code>
+        </span></dt><dd><p>
+            See <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.image_names()</code>
+        </span></dt><dd><p>
+            Returns the names of all the images in <code class="code"><em class="replaceable"><code>w</code></em></code>'s
+            application as a sequence of strings.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.keys()</code>
+        </span></dt><dd><p>
+            Returns the option names for the widget as a sequence
+            of strings.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.lift(aboveThis=None)</code>
+        </span></dt><dd><p>
+            If the argument is <code class="code">None</code>, the window
+            containing <code class="code"><em class="replaceable"><code>w</code></em></code> is moved to the top of the window
+            stacking order.  To move the window just above some
+            <code class="code">Toplevel</code> window <code class="code"><em class="replaceable"><code>w</code></em></code>, pass <code class="code"><em class="replaceable"><code>w</code></em></code> as an argument.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.lower(belowThis=None)</code>
+        </span></dt><dd><p>
+            If the argument is <code class="code">None</code>, the window
+            containing <code class="code"><em class="replaceable"><code>w</code></em></code> is moved to the bottom of the window
+            stacking order.  To move the window just below some
+            <code class="code">Toplevel</code> window <code class="code"><em class="replaceable"><code>w</code></em></code>, pass <code class="code"><em class="replaceable"><code>w</code></em></code> as an argument.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.mainloop()</code>
+        </span></dt><dd><p>
+            This method must be called, generally after all the
+            static widgets are created, to start processing
+            events.  You can leave the main loop with the <code class="code">.quit()</code> method (below).  You can also call
+            this method inside an event handler to resume the
+            main loop.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.nametowidget(<em class="replaceable"><code>name</code></em>)</code>
+        </span></dt><dd><p>
+            This method returns the actual widget whose path name
+            is <code class="code"><em class="replaceable"><code>name</code></em></code>.
+            See <a href="window-names.html" title="5.11. Window names">Section 5.11, “Window names”</a>.  If the <code class="code"><em class="replaceable"><code>name</code></em></code> is
+            unknown, this method will raise <code class="code">KeyError</code>.
+          </p></dd><dt><a name="option_add"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.option_add(<em class="replaceable"><code>pattern</code></em>,
+          <em class="replaceable"><code>value</code></em>, <em class="replaceable"><code>priority</code></em>=None)</code>
+        </span></dt><dd><p>
+            This method adds default option values to the <span class="application">Tkinter</span>
+            option database.  The <code class="code"><em class="replaceable"><code>pattern</code></em></code> is a
+            string that specifies a default <code class="code"><em class="replaceable"><code>value</code></em></code> for options
+            of one or more widgets.  The <code class="code"><em class="replaceable"><code>priority</code></em></code> values
+            are one of:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+                    20
+                  </td><td align="left">
+                    For global default properties of widgets.
+                  </td></tr><tr><td align="left">
+                    40
+                  </td><td align="left">
+                    For default properties of specific
+                    applications.
+                  </td></tr><tr><td align="left">
+                    60
+                  </td><td align="left">
+                    For options that come from user files such as
+                    their <code class="filename">.Xdefaults</code> file.
+                  </td></tr><tr><td align="left">
+                    80
+                  </td><td align="left">
+                    For options that are set after the
+                    application starts up.  This is the default
+                    priority level.
+                  </td></tr></tbody></table></div><p>
+            Higher-level priorities take precedence over
+            lower-level ones.  See <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a> for an overview of the
+            option database.  The syntax of the <code class="code"><em class="replaceable"><code>pattern</code></em></code> argument
+            to <code class="code">.option_add()</code> is the same as the
+            <code class="code"><em class="replaceable"><code>option-pattern</code></em></code>
+            part of the resource specification line.
+          </p><p>
+            For example, to get the effect of this resource
+            specification line:
+          </p><pre class="programlisting">*Button*font: times 24 bold
+</pre><p>
+            your application (<code class="code">self</code> in this
+            example) might include these lines:
+          </p><pre class="programlisting">    self.bigFont = tkFont.Font(family='times', size=24,
+                                 weight='bold')
+    self.option_add('*Button*font', self.bigFont)
+</pre><p>
+            Any <code class="code">Button</code> widgets created after
+            executing these lines would default to bold Times 24
+            font (unless overriden by a <code class="code">font</code>
+            option to the <code class="code">Button</code> constructor).
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.option_clear()</code>
+        </span></dt><dd><p>
+            This method removes all options from the <span class="application">Tkinter</span>
+            option database.  This has the effect of going back
+            to all the default values.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.option_get(<em class="replaceable"><code>name</code></em>,
+          <em class="replaceable"><code>classname</code></em>)</code>
+        </span></dt><dd><p>
+            Use this method to retrieve the current value of an
+            option from the <span class="application">Tkinter</span> option database.  The first
+            argument is the instance key and the second argument
+            is the class key.  If there are any matches, it
+            returns the value of the option that best matches.
+            If there are no matches, it returns <code class="code">''</code>.
+          </p><p>
+            Refer to <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a> for more
+            about how keys are matched with options.
+          </p></dd><dt><a name="option_readfile"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.option_readfile(<em class="replaceable"><code>fileName</code></em>, <em class="replaceable"><code>priority</code></em>=None)</code>
+        </span></dt><dd><p>
+            As a convenience for user configuration, you can designate
+            a named file where users can put their preferred options,
+            using the same format as the
+            <code class="filename">.Xdefaults</code> file.  Then, when your
+            application is initializing, you can pass that file's name
+            to this method, and the options from that file will be
+            added to the database.  If the file doesn't exist, or its
+            format is invalid, this method will raise <code class="code">tk.TclError</code>.
+          </p><p>
+            Refer to <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a> for an
+            introduction to the options database and the format
+            of option files.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.register(<em class="replaceable"><code>function</code></em>)</code>
+        </span></dt><dd><p>
+            This method creates a Tcl wrapper around a Python
+            <em class="replaceable"><code>function</code></em>, and returns the Tcl
+            wrapper name as a string.  For an example of the usage of
+            this method, see <a href="entry-validation.html" title="10.2. Adding validation to an Entry
+      widget">Section 10.2, “Adding validation to an <code class="code">Entry</code>
+      widget”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.quit()</code>
+        </span></dt><dd><p>
+            This method exits the main loop.  See <code class="code">.mainloop()</code>, above, for a discussion of main
+            loops.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.rowconfigure()</code>
+        </span></dt><dd><p>
+            See <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.selection_clear()</code>
+        </span></dt><dd><p>
+            If <code class="code"><em class="replaceable"><code>w</code></em></code> currently has a selection (such as a
+            highlighted segment of text in an entry widget),
+            clear that selection.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.selection_get()</code>
+        </span></dt><dd><p>
+            If <code class="code"><em class="replaceable"><code>w</code></em></code> currently has a selection, this method
+            returns the selected text.  If there is no selection,
+            it raises <code class="code">tk.TclError</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.selection_own()</code>
+        </span></dt><dd><p>
+            Make <code class="code"><em class="replaceable"><code>w</code></em></code> the owner of the selection in <code class="code"><em class="replaceable"><code>w</code></em></code>'s
+            display, stealing it from the previous owner, if any.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.selection_own_get()</code>
+        </span></dt><dd><p>
+            Returns the widget that currently owns the selection in
+            <code class="code"><em class="replaceable"><code>w</code></em></code>'s display.  Raises <code class="code">tk.TclError</code> if
+            there is no such selection.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.tk_focusFollowsMouse()</code>
+        </span></dt><dd><p>
+            Normally, the input focus cycles through a sequence
+            of widgets determined by their hierarchy and creation
+            order; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  You can,
+            instead, tell <span class="application">Tkinter</span> to force the focus to be
+            wherever the mouse is; just call this method. There
+            is no easy way to undo it, however.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.tk_focusNext()</code>
+        </span></dt><dd><p>
+            Returns the widget that follows <code class="code"><em class="replaceable"><code>w</code></em></code> in the focus
+            traversal sequence.  Refer to <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a> for a discussion of focus traversal.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.tk_focusPrev()</code>
+        </span></dt><dd><p>
+            Returns the widget that precedes <code class="code"><em class="replaceable"><code>w</code></em></code> in the focus
+            traversal sequence.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.unbind(<em class="replaceable"><code>sequence</code></em>,
+          <em class="replaceable"><code>funcid</code></em>=None)</code>
+        </span></dt><dd><p>
+            This method deletes bindings on <code class="code"><em class="replaceable"><code>w</code></em></code> for the event
+            described by <code class="code"><em class="replaceable"><code>sequence</code></em></code>.  If the
+            second argument is a callback bound to that sequence,
+            that callback is removed and the rest, if any, are
+            left in place.  If the second argument is omitted,
+            all bindings are deleted.
+          </p><p>
+            See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a>, below, for a general
+            discussion of event bindings.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.unbind_all(<em class="replaceable"><code>sequence</code></em>)</code>
+        </span></dt><dd><p>
+            Deletes all event bindings throughout the application
+            for the event described by the given <code class="code"><em class="replaceable"><code>sequence</code></em></code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.unbind_class(<em class="replaceable"><code>className</code></em>, <em class="replaceable"><code>sequence</code></em>)</code>
+        </span></dt><dd><p>
+            Like <code class="code">.unbind()</code>, but applies to all
+            widgets named <code class="code"><em class="replaceable"><code>className</code></em></code> (e.g.,
+            <code class="code">'Entry'</code> or <code class="code">'Listbox'</code>).
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.update()</code>
+        </span></dt><dd><p>
+            This method forces the updating of the display.  It
+            should be used only if you know what you're doing,
+            since it can lead to unpredictable behavior or
+            looping.  It should never be called from an event
+            callback or a function that is called from an event
+            callback.
+          </p></dd><dt><a name="update_idletasks"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.update_idletasks()</code>
+        </span></dt><dd><p>
+            Some tasks in updating the display, such as resizing
+            and redrawing widgets, are called <em class="firstterm">idle
+            tasks</em> because they are usually deferred
+            until the application has finished handling events
+            and has gone back to the main loop to wait for new
+            events.
+          </p><p>
+            If you want to force the display to be updated before
+            the application next idles, call the <code class="code"><em class="replaceable"><code>w</code></em>.update_idletasks()</code> method on any
+            widget.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.wait_variable(<em class="replaceable"><code>v</code></em>)</code>
+        </span></dt><dd><p>
+            Waits until the value of variable <code class="code"><em class="replaceable"><code>v</code></em></code> is set, even if the value
+            does not change.  This method enters a local wait
+            loop, so it does not block the rest of the
+            application.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.wait_visibility(<em class="replaceable"><code>w</code></em>)</code>
+        </span></dt><dd><p>
+            Wait until widget <code class="code"><em class="replaceable"><code>w</code></em></code> (typically a <code class="code">Toplevel</code>) is
+            visible.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.wait_window(<em class="replaceable"><code>w</code></em>)</code>
+        </span></dt><dd><p>
+            Wait until window <code class="code"><em class="replaceable"><code>w</code></em></code> is destroyed.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_children()</code>
+        </span></dt><dd><p>
+            Returns a list of all <code class="code"><em class="replaceable"><code>w</code></em></code>'s children, in their
+            stacking order from lowest (bottom) to highest (top).
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_class()</code>
+        </span></dt><dd><p>
+            Returns <code class="code"><em class="replaceable"><code>w</code></em></code>'s class name (e.g., <code class="code">'Button'</code>).
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_containing(<em class="replaceable"><code>rootX</code></em>, <em class="replaceable"><code>rootY</code></em>,
+          <em class="replaceable"><code>displayof</code></em>=0)</code>
+        </span></dt><dd><p>
+            This method is used to find the window that contains
+            point (<code class="code"><em class="replaceable"><code>rootX</code></em></code>, <code class="code"><em class="replaceable"><code>rootY</code></em></code>).
+            If the <code class="code">displayof</code> option is false, the
+            coordinates are relative to the application's root
+            window; if true, the coordinates are treated as
+            relative to the top-level window that contains <code class="code"><em class="replaceable"><code>w</code></em></code>.
+            If the specified point is in one of the application's
+            top-level window, this method returns that window;
+            otherwise it returns <code class="code">None</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_depth()</code>
+        </span></dt><dd><p>
+            Returns the number of bits per pixel in <code class="code"><em class="replaceable"><code>w</code></em></code>'s
+            display.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_fpixels(<em class="replaceable"><code>number</code></em>)</code>
+        </span></dt><dd><p>
+            For any dimension <code class="code"><em class="replaceable"><code>number</code></em></code> (see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>), this method
+            returns that distance in pixels on <code class="code"><em class="replaceable"><code>w</code></em></code>'s display, as a
+            number of type <code class="code">float</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_geometry()</code>
+        </span></dt><dd><p>
+            Returns the geometry string describing the size and
+            on-screen location of <code class="code"><em class="replaceable"><code>w</code></em></code>.  See <a href="geometry.html" title="5.10. Geometry strings">Section 5.10, “Geometry strings”</a>.
+          </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>The geometry is not accurate until the
+              application has updated its idle tasks.  In
+              particular, all geometries are initially
+              <code class="code">'1x1+0+0'</code> until the widgets
+              and geometry manager have negotiated their sizes
+              and positions.  See the
+              <code class="code">.update_idletasks()</code> method,
+              above, in this section to see how to insure that
+              the widget's geometry is up to
+              date.</p></div></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_height()</code>
+        </span></dt><dd><p>
+            Returns the current height of <code class="code"><em class="replaceable"><code>w</code></em></code> in pixels.  See
+            the remarks on geometry updating under <code class="code">.winfo_geometry()</code>, above.  You may prefer to
+            use <code class="code">.winfo_reqheight()</code>, described
+            below, which is always up to date.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_id()</code>
+        </span></dt><dd><p>
+            Returns an integer that uniquely identifies <code class="code"><em class="replaceable"><code>w</code></em></code>
+            within its top-level window.  You will need this for
+            the <code class="code">.winfo_pathname()</code> method, below.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_ismapped()</code>
+        </span></dt><dd><p>
+            This method returns true if <code class="code"><em class="replaceable"><code>w</code></em></code> is mapped, false
+            otherwise.  A widget is mapped if it has been gridded
+            (or placed or packed, if you are using one of the
+            other geometry managers) into its parent, and if its
+            parent is mapped, and so on up to the top-level
+            window.
+          </p></dd><dt><a name="winfo_manager"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_manager()</code>
+        </span></dt><dd><p>
+            If <code class="code"><em class="replaceable"><code>w</code></em></code> has not been gridded (or placed via one of
+            the other geometry managers), this method returns an
+            empty string.  If <code class="code"><em class="replaceable"><code>w</code></em></code> has been gridded or otherwise
+            placed, it returns a string naming the geometry
+            manager for <code class="code"><em class="replaceable"><code>w</code></em></code>: this value will be one of <code class="code">'grid'</code>, <code class="code">'pack'</code>, <code class="code">'place'</code>, <code class="code">'canvas'</code>, or <code class="code">'text'</code>.
+          </p></dd><dt><a name="winfo_name"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_name()</code>
+        </span></dt><dd><p>
+            This method returns <code class="code"><em class="replaceable"><code>w</code></em></code>'s name relative to its
+            parent.  See <a href="window-names.html" title="5.11. Window names">Section 5.11, “Window names”</a>.  Also
+            see <code class="code">.winfo_pathname()</code>, below, to find
+            out how to obtain a widget's path name.
+          </p></dd><dt><a name="winfo_parent"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_parent()</code>
+        </span></dt><dd><p>
+            Returns <code class="code"><em class="replaceable"><code>w</code></em></code>'s parent's path name, or an empty
+            string if <code class="code"><em class="replaceable"><code>w</code></em></code> is a top-level window.  See <a href="window-names.html" title="5.11. Window names">Section 5.11, “Window names”</a> above, for more on widget
+            path names.
+          </p></dd><dt><a name="winfo_pathname"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_pathname(<em class="replaceable"><code>id</code></em>,
+          <em class="replaceable"><code>displayof</code></em>=0)</code>
+        </span></dt><dd><p>
+            If the <code class="code"><em class="replaceable"><code>displayof</code></em></code>
+            argument is false, returns the window path name of
+            the widget with unique identifier <code class="code"><em class="replaceable"><code>id</code></em></code> in the
+            application's main window.  If <code class="code"><em class="replaceable"><code>displayof</code></em></code> is
+            true, the <code class="code"><em class="replaceable"><code>id</code></em></code> number specifies a widget in the same top-level
+            window as <code class="code"><em class="replaceable"><code>w</code></em></code>.  See <a href="window-names.html" title="5.11. Window names">Section 5.11, “Window names”</a>
+            for a discussion of widget path names.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_pixels(number)</code>
+        </span></dt><dd><p>
+            For any dimension <code class="code"><em class="replaceable"><code>number</code></em></code> (see
+            Dimensions, above), this method returns that distance
+            in pixels on <code class="code"><em class="replaceable"><code>w</code></em></code>'s display, as an integer.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_pointerx()</code>
+        </span></dt><dd><p>
+            Returns the same value as the <code class="code"><em class="replaceable"><code>x</code></em></code> coordinate
+            returned by <code class="code">.winfo_pointerxy()</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_pointerxy()</code>
+        </span></dt><dd><p>
+            Returns a tuple <code class="code">(<em class="replaceable"><code>x</code></em>,
+            <em class="replaceable"><code>y</code></em>)</code> containing the
+            coordinates of the mouse pointer relative to <code class="code"><em class="replaceable"><code>w</code></em></code>'s
+            root window.  If the mouse pointer isn't on the same
+            screen, returns <code class="code">(-1, -1)</code>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_pointery()</code>
+        </span></dt><dd><p>
+            Returns the same value as the <code class="code"><em class="replaceable"><code>y</code></em></code> coordinate
+            returned by <code class="code">.winfo_pointerxy()</code>.
+          </p></dd><dt><a name="winfo_reqheight"></a><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_reqheight()</code>
+        </span></dt><dd><p>
+            These methods return the requested height of widget
+            <code class="code"><em class="replaceable"><code>w</code></em></code>.  This is the minimum height necessary so that
+            all of <code class="code"><em class="replaceable"><code>w</code></em></code>'s contents have the room they need.  The
+            actual height may be different due to negotiations
+            with the geometry manager.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_reqwidth()</code>
+        </span></dt><dd><p>
+            Returns the requested width of widget <code class="code"><em class="replaceable"><code>w</code></em></code>, the
+            minimum width necessary to contain <code class="code"><em class="replaceable"><code>w</code></em></code>.  As with
+            <a href="universal.html#winfo_reqheight"><code class="code">.winfo_reqheight()</code></a>, the actual width
+            may be different due to negotiations with the
+            geometry manager.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_rgb(color)</code>
+        </span></dt><dd><p>
+            For any given color, this method returns the
+            equivalent red-green-blue color specification as a
+            3-tuple <code class="code">(<em class="replaceable"><code>r</code></em>,
+            <em class="replaceable"><code>g</code></em>,
+            <em class="replaceable"><code>b</code></em>)</code>, where each
+            number is an integer in the range [0, 65536).  For
+            example, if the <code class="code">color</code> is <code class="code">'green'</code>, this method returns the 3-tuple
+            <code class="code">(0, 65535, 0)</code>.
+          </p><p>
+            For more on specifying colors, see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_rootx()</code>
+        </span></dt><dd><p>
+            Returns the <code class="code"><em class="replaceable"><code>x</code></em></code> coordinates of the left-hand side of <code class="code"><em class="replaceable"><code>w</code></em></code>'s root
+            window relative to <code class="code"><em class="replaceable"><code>w</code></em></code>'s parent.
+          </p><p>
+            If <code class="code"><em class="replaceable"><code>w</code></em></code> has a border, this is the outer edge of the
+            border.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_rooty()</code>
+        </span></dt><dd><p>
+            Returns the <code class="code"><em class="replaceable"><code>y</code></em></code> coordinate of the top side of <code class="code"><em class="replaceable"><code>w</code></em></code>'s root window
+            relative to <code class="code"><em class="replaceable"><code>w</code></em></code>'s parent.
+          </p><p>
+            If <code class="code"><em class="replaceable"><code>w</code></em></code> has a border, this is the top edge of the
+            border.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_screenheight()</code>
+        </span></dt><dd><p>
+            Returns the height of the screen in pixels.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_screenmmheight()</code>
+        </span></dt><dd><p>
+            Returns the height of the screen in millimeters.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_screenmmwidth()</code>
+        </span></dt><dd><p>
+            Returns the width of the screen in millimeters.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_screenvisual()</code>
+        </span></dt><dd><p>
+            Returns a string that describes the display's method
+            of color rendition.  This is usually <code class="code">'truecolor'</code> for 16- or 24-bit displays,
+            <code class="code">'pseudocolor'</code> for 256-color displays.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_screenwidth()</code>
+        </span></dt><dd><p>
+            Returns the width of the screen in pixels.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_toplevel()</code>
+        </span></dt><dd><p>
+            Returns the top-level window containing <code class="code"><em class="replaceable"><code>w</code></em></code>.  That
+            window supports all the methods on <code class="code">Toplevel</code> widgets; see <a href="toplevel.html" title="25. Toplevel: Top-level window
+      methods">Section 25, “<code class="code">Toplevel</code>: Top-level window
+      methods”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_viewable()</code>
+        </span></dt><dd><p>
+            A predicate that returns a <code class="code">True</code> value
+            if <code class="code"><em class="replaceable"><code>w</code></em></code> is viewable, that is, if it and all its
+            ancestors in the same <code class="code">Toplevel</code> are
+            mapped.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_width()</code>
+        </span></dt><dd><p>
+            Returns the current width of <code class="code"><em class="replaceable"><code>w</code></em></code> in pixels.  See
+            the remarks on geometry updating under <code class="code">.winfo_geometry()</code>, above.  You may prefer to
+            use the <code class="code">.winfo_reqwidth()</code> method,
+            described above; it is always up to date.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_x()</code>
+        </span></dt><dd><p>
+            Returns the <code class="code"><em class="replaceable"><code>x</code></em></code> coordinate of the left side of <code class="code"><em class="replaceable"><code>w</code></em></code> relative to
+            its parent.  If <code class="code"><em class="replaceable"><code>w</code></em></code> has a border, this is the outer
+            edge of the border.
+          </p></dd><dt><span class="term">
+          <code class="code"><em class="replaceable"><code>w</code></em>.winfo_y()</code>
+        </span></dt><dd><p>
+            Returns the <code class="code"><em class="replaceable"><code>y</code></em></code> coordinate of the top side of <code class="code"><em class="replaceable"><code>w</code></em></code> relative to its
+            parent.  If <code class="code"><em class="replaceable"><code>w</code></em></code> has a border, this is the outer
+            edge of the border.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="option-database.html">27. Standardizing appearance and the option database</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="toplevel.html">25. <code class="code">Toplevel</code>: Top-level window
+      methods</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/universal.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/universal.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

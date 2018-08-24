@@ -1,0 +1,85 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/tkFileDialog.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:42:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>55.2. The tkFileDialog module</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="dialogs.html" title="55. Pop-up dialogs"><link rel="prev" href="tkMessageBox.html" title="55.1. The tkMessageBox dialogs
+      module"><link rel="next" href="tkColorChooser.html" title="55.3. The tkColorChooser module"></head><body><div class="topnavbar"><a href="tkColorChooser.html">Next</a> / <a href="tkMessageBox.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tkFileDialog"></a>55.2. The <code class="code">tkFileDialog</code> module</h3></div></div></div><p>
+        The <code class="code">tkFileDialog</code> module provides two
+        different pop-up windows you can use to give the user the
+        ability to find existing files or create new files.
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">.askopenfilename(<em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+          </span></dt><dd><p>
+              Intended for cases where the user wants to select
+              an existing file.  If the user selects a
+              nonexistent file, a popup will appear informing
+              them that the selected file does not exist.
+            </p></dd><dt><span class="term">
+            <code class="code">.asksaveasfilename(<em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+          </span></dt><dd><p>
+              Intended for cases where the user wants to create a
+              new file or replace an existing file.  If the user
+              selects an existing file, a pop-up will appear
+              informing that the file already exists, and asking
+              if they really want to replace it.
+            </p></dd></dl></div><p>
+        The arguments to both functions are the same:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">defaultextension=<em class="replaceable"><code>s</code></em></code>
+          </span></dt><dd><p>
+              The default file extension, a string starting with
+              a period (<code class="code">'.'</code>).  If the user's reply
+              contains a period, this argument has no effect.  It
+              is appended to the user's reply in case there are
+              no periods.
+            </p><p>
+              For example, if you supply a <code class="code">defaultextension='.jpg'</code> argument and the
+              user enters <code class="code">'gojiro'</code>, the returned
+              file name will be <code class="code">'gojiro.jpg'</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">filetypes=[(<em class="replaceable"><code>label<sub>1</sub></code></em>, <em class="replaceable"><code>pattern<sub>1</sub></code></em>),
+            (<em class="replaceable"><code>label<sub>2</sub></code></em>, <em class="replaceable"><code>pattern<sub>2</sub></code></em>), ...]</code>
+          </span></dt><dd><p>
+              A list of two-element tuples containing file type
+              names and patterns that will select what appears in
+              the file listing.  In the screen picture below,
+              note the pull-down menu labeled “Files of
+              type:”.  The <code class="code">filetypes</code>
+              argument you supply will populate this pull-down
+              list.  Each <code class="code"><em class="replaceable"><code>pattern</code></em></code> is a file type name
+              (“PNG” in the example) and a pattern
+              that selects files of a given type
+              (“(*.png)” in the example).
+            </p></dd><dt><span class="term">
+            <code class="code">initialdir=<em class="replaceable"><code>D</code></em></code>
+          </span></dt><dd><p>
+              The path name of the directory to be displayed
+              initially.  The default directory is the current
+              working directory.
+            </p></dd><dt><span class="term">
+            <code class="code">initialfile=<em class="replaceable"><code>F</code></em></code>
+          </span></dt><dd><p>
+              The file name to be displayed initially in the
+              “File name:” field, if any.
+            </p></dd><dt><span class="term">
+            <code class="code">parent=<em class="replaceable"><code>W</code></em></code>
+          </span></dt><dd><p>
+              To make the pop-up appear over some window <code class="code"><em class="replaceable"><code>W</code></em></code>, supply
+              this argument.  The default behavior is that the
+              pop-up will appear over your application's root
+              window.
+            </p></dd><dt><span class="term">
+            <code class="code">title=<em class="replaceable"><code>T</code></em></code>
+          </span></dt><dd><p>
+              If specified, <code class="code"><em class="replaceable"><code>T</code></em></code> is a string to be displayed as the pop-up
+              window's title.
+            </p></dd></dl></div><p>
+        If the user selects a file, the returned value is the
+        complete path name of the selected file.  If the user
+        uses the <span class="guibutton">Cancel</span> button, the
+        function returns an empty string.
+      </p><p>
+        Here is an example:
+      </p><div class="informalfigure"><div class="mediaobject"><img src="img/askopenfilename.png"></div></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="tkColorChooser.html">55.3. The <code class="code">tkColorChooser</code> module</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="tkMessageBox.html">55.1. The <code class="code">tkMessageBox</code> dialogs
+      module</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/tkFileDialog.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/tkFileDialog.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:42:03 GMT -->
+</html>

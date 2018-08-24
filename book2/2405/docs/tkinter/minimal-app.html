@@ -1,0 +1,40 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/minimal-app.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>2. A minimal application</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="intro.html" title="1. A cross-platform graphical user interface builder for
+    Python"><link rel="next" href="glossary.html" title="3. Definitions"></head><body><div class="topnavbar"><a href="glossary.html">Next</a> / <a href="intro.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="minimal-app"></a>2. A minimal application</h2></div></div></div><p>
+        Here is a trivial <span class="application">Tkinter</span> program containing only a Quit
+        button:
+      </p><pre class="programlisting">#!/usr/bin/env python      <a name="samp-pound"></a><img src="callouts/1.html" alt="1" border="0">
+import Tkinter as tk       <a name="samp-import"></a><img src="callouts/2.html" alt="2" border="0">
+
+class Application(tk.Frame):              <a name="samp-class"></a><img src="callouts/3.html" alt="3" border="0">
+    def __init__(self, master=None):
+        tk.Frame.__init__(self, master)   <a name="samp-parent"></a><img src="callouts/4.html" alt="4" border="0">
+        self.grid()                       <a name="samp-grid1"></a><img src="callouts/5.html" alt="5" border="0">
+        self.createWidgets()
+
+    def createWidgets(self):
+        self.quitButton = tk.Button(self, text='Quit',
+            command=self.quit)            <a name="samp-quit"></a><img src="callouts/6.html" alt="6" border="0">
+        self.quitButton.grid()            <a name="samp-grid2"></a><img src="callouts/7.html" alt="7" border="0">
+
+app = Application()                       <a name="samp-instantiate"></a><img src="callouts/8.html" alt="8" border="0">
+app.master.title('Sample application')    <a name="samp-title"></a><img src="callouts/9.html" alt="9" border="0">
+app.mainloop()                            <a name="samp-loop"></a><img src="callouts/10.html" alt="10" border="0">
+</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a href="#samp-pound"><img src="callouts/1.html" alt="1" border="0"></a> </td><td valign="top" align="left">This line makes the script self-executing,
+          assuming that your system has Python correctly
+          installed.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-import"><img src="callouts/2.html" alt="2" border="0"></a> </td><td valign="top" align="left">This line imports the <span class="application">Tkinter</span> module into your
+          program's namespace, but renames it
+          as <code class="code">tk</code>.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-class"><img src="callouts/3.html" alt="3" border="0"></a> </td><td valign="top" align="left">Your application class must inherit from
+          <span class="application">Tkinter</span>'s <code class="code">Frame</code>
+          class.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-parent"><img src="callouts/4.html" alt="4" border="0"></a> </td><td valign="top" align="left">Calls the constructor for the parent class,
+          <code class="code">Frame</code>.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-grid1"><img src="callouts/5.html" alt="5" border="0"></a> </td><td valign="top" align="left">Necessary to make the application actually
+          appear on the screen.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-quit"><img src="callouts/6.html" alt="6" border="0"></a> </td><td valign="top" align="left">Creates a button labeled
+          “Quit”.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-grid2"><img src="callouts/7.html" alt="7" border="0"></a> </td><td valign="top" align="left">Places the button on the application.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-instantiate"><img src="callouts/8.html" alt="8" border="0"></a> </td><td valign="top" align="left">The main program starts here by instantiating the
+          <code class="code">Application</code> class.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-title"><img src="callouts/9.html" alt="9" border="0"></a> </td><td valign="top" align="left">This method call sets the title of the window to
+          “Sample application”.</td></tr><tr><td width="5%" valign="top" align="left"><a href="#samp-loop"><img src="callouts/10.html" alt="10" border="0"></a> </td><td valign="top" align="left">Starts the application's main loop, waiting for
+          mouse and keyboard events.</td></tr></table></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="glossary.html">3. Definitions</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="intro.html">1. A cross-platform graphical user interface builder for
+    Python</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/minimal-app.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/minimal-app.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+</html>

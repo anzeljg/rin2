@@ -1,0 +1,167 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/entry-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>10.2. Adding validation to an Entry
+      widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="entry.html" title="10. The Entry widget"><link rel="prev" href="entry-scrolling.html" title="10.1. Scrolling an Entry widget"><link rel="next" href="frame.html" title="11. The Frame widget"></head><body><div class="topnavbar"><a href="frame.html">Next</a> / <a href="entry-scrolling.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="entry-validation"></a>10.2. Adding validation to an <code class="code">Entry</code>
+      widget</h3></div></div></div><p>
+        In some applications, you will want to check the contents of
+        an <code class="code">Entry</code> widget to make sure they are valid
+        according to some rule that your application must enforce.
+        You define what is valid by writing a callback function that
+        checks the contents and signals whether it is valid or not.
+      </p><p>
+        Here is the procedure for setting up validation on a widget.
+      </p><div class="procedure"><ol type="1"><li><p>
+            Write a callback function that checks the text in the
+            <code class="code">Entry</code> and returns <code class="code">True</code> if
+            the text is valid, or <code class="code">False</code> if not.  If the
+            callback returns <code class="code">False</code>, the user's attempt
+            to edit the text will be refused, and the text will be
+            unchanged.
+          </p></li><li><p>
+            Register the callback function.  In this step, you will
+            produce a Tcl wrapper around a Python function.
+          </p><p>
+            Suppose your callback function is a function named <code class="code">isOkay</code>.  To register this function, use the <a href="universal.html" title="26. Universal widget methods">universal widget method</a> <code class="code">.register(isOkay)</code>.  This method returns a
+            character string that <span class="application">Tkinter</span> can use to call your
+            function.
+          </p></li><li><p>
+            When you call the <code class="code">Entry</code> constructor, use
+            the <code class="code">validatecommand</code> option in the <code class="code">Entry</code> constructor to specify your callback, and
+            use the <code class="code">validate</code> option to specify when the
+            callback will be called to validate the text in the
+            callback.  The values of these options are discussed
+            in more detail below.
+          </p></li></ol></div><p>
+        Here are the values of the <code class="code">validate</code> option and
+        what they mean.
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">'focus'</code>
+          </span></dt><dd><p>
+              Validate whenever the <code class="code">Entry</code>
+              widget gets or loses focus (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>).
+            </p></dd><dt><span class="term">
+            <code class="code">'focusin'</code>
+          </span></dt><dd><p>
+              Validate whenever the widget gets focus.
+            </p></dd><dt><span class="term">
+            <code class="code">'focusout'</code>
+          </span></dt><dd><p>
+              Validate whenever the widget loses focus.
+            </p></dd><dt><span class="term">
+            <code class="code">'key'</code>
+          </span></dt><dd><p>
+              Validate whenever any keystroke changes the
+              widget's contents.
+            </p></dd><dt><span class="term">
+            <code class="code">'all'</code>
+          </span></dt><dd><p>
+              Validate in all the above situations.
+            </p></dd><dt><span class="term">
+            <code class="code">'none'</code>
+          </span></dt><dd><p>
+              Turn off validation.  This is the default option
+              value.  Note that this is the string <code class="code">'none'</code>, not the special Python value
+              <code class="code">None</code>.
+            </p></dd></dl></div><p>
+        The value of the <code class="code">validatecommand</code> option depends
+        on what arguments you would like your callback to receive.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Perhaps the only thing the callback needs to know is what
+            text currently appears in the <code class="code">Entry</code>.  If
+            that is the case, it can use the <code class="code">.get()</code>
+            method of the <code class="code">textvariable</code> associated with
+            the widget to retrieve that text.
+          </p><p>
+            In this case, all you need is the option “<code class="code">validatecommand=<em class="replaceable"><code>f</code></em></code>”, where <code class="code"><em class="replaceable"><code>f</code></em></code> is the name of your callback function.
+          </p></li><li><p>
+            <span class="application">Tkinter</span> can also provide a number of items of information
+            to the callback.  If you would like to use some of these
+            items, when you call the <code class="code">Entry</code> constructor,
+            use the option <code class="code">validatecommand=(<em class="replaceable"><code>f</code></em>, <em class="replaceable"><code>s<sub>1</sub></code></em>, <em class="replaceable"><code>s<sub>2</sub></code></em>, ...)</code>, where <code class="code"><em class="replaceable"><code>f</code></em></code> is the name of your callback
+            function, and each additional <code class="code"><em class="replaceable"><code>s<sub>i</sub></code></em></code> is a
+            substitution code.  For each substitution code that you
+            provide, the callback will receive a positional argument
+            containing the appropriate value.
+          </p></li></ul></div><p>
+        Here are the substitution codes.
+      </p><div class="table"><a name="callback-substitution-codes"></a><p class="title"><b>Table 18. Callback substitution codes</b></p><div class="table-contents"><table summary="Callback substitution codes" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">'%d'</code>
+              </td><td align="left">
+                Action code: 0 for an attempted deletion, 1 for an
+                attempted insertion, or -1 if the callback was
+                called for focus in, focus out, or a change to
+                the <code class="code">textvariable</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">'%i'</code>
+              </td><td align="left">
+                When the user attempts to insert or delete text,
+                this argument will be the index of the beginning
+                of the insertion or deletion.  If the callback
+                was due to focus in, focus out, or a change to the
+                <code class="code">textvariable</code>, the argument will
+                be <code class="code">-1</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">'%P'</code>
+              </td><td align="left">
+                The value that the text will have if the change is
+                allowed.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">'%s'</code>
+              </td><td align="left">
+                The text in the entry before the change.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">'%S'</code>
+              </td><td align="left">
+                If the call was due to an insertion or deletion, this
+                argument will be the text being inserted or deleted.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">'%v'</code>
+              </td><td align="left">
+                The current value of the widget's <code class="code">validate</code> option.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">'%V'</code>
+              </td><td align="left">
+                The reason for this callback: one of <code class="code">'focusin'</code>, <code class="code">'focusout'</code>, <code class="code">'key'</code>, or <code class="code">'forced'</code> if the
+                <code class="code">textvariable</code> was changed.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">'%W'</code>
+              </td><td align="left">
+                The name of the widget.
+              </td></tr></tbody></table></div></div><br class="table-break"><p>
+        Here is a small example.  Suppose you want your callback to
+        receive the <code class="code">'%d'</code> to find out why it was called;
+        <code class="code">'%i'</code> to find out where the insertion or
+        deletion would occur; and <code class="code">'%S'</code> to find out what
+        is to be inserted or deleted.  Your method might look like
+        this:
+      </p><pre class="programlisting">    def isOkay(self, why, where, what):
+        ...
+</pre><p>
+        Next you use the universal <code class="code">.register()</code> method
+        to wrap this function.  We assume that <code class="code">self</code> is
+        some widget.
+      </p><pre class="programlisting">    okayCommand = self.register(isOkay)
+</pre><p>
+      To set up this callback, you would use these two options in
+        the <code class="code">Entry</code> constructor:
+      </p><pre class="programlisting">    self.w = Entry(self, validate='all',
+         validatecommand=(okayCommand, '%d', '%i', '%S'), ...)
+</pre><p>
+        Suppose that the <code class="code">Entry</code> currently contains the
+        string <code class="code">'abcdefg'</code>, and the user selects <code class="code">'cde'</code> and then presses <span class="keysym">Backspace</span>.
+        This would result in a call <code class="code">isOkay(0, 2, 'cde')</code>: 0 for deletion, 2 for the position before <code class="code">'c'</code>, and <code class="code">'cde'</code> for the string to be deleted.  If
+        <code class="code">isOkay()</code> returns <code class="code">True</code>, the new
+        text will be <code class="code">'abfg'</code>; if it returns <code class="code">False</code>, the text will not change.
+      </p><p>
+        The <code class="code">Entry</code> widget also supports an <code class="code">invalidcommand</code> option that specifies a callback
+        function that is called whenever the <code class="code">validatecommand</code> returns <code class="code">False</code>.  This
+        command may modify the text in the widget by using the <code class="code">.set()</code> method on the widget's associated <code class="code">textvariable</code>.  Setting up this option works the same
+        as setting up the <code class="code">validatecommand</code>. You must use
+        the <code class="code">.register()</code> method to wrap your Python
+        function; this method returns the name of the wrapped function
+        as a string.  Then you will pass as the value of the <code class="code">invalidcommand</code> option either that string, or as
+        the first element of a tuple containing substitution codes.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="frame.html">11. The <code class="code">Frame</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="entry-scrolling.html">10.1. Scrolling an <code class="code">Entry</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/entry-validation.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/entry-validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+</html>

@@ -1,0 +1,47 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/window-names.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.11. Window names</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="std-attrs.html" title="5. Standard attributes"><link rel="prev" href="geometry.html" title="5.10. Geometry strings"><link rel="next" href="cap-join-styles.html" title="5.12. Cap and join styles"></head><body><div class="topnavbar"><a href="cap-join-styles.html">Next</a> / <a href="geometry.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window-names"></a>5.11. Window names</h3></div></div></div><p>
+        The term <em class="firstterm">window</em> describes a
+        rectangular area on the desktop.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            A <em class="firstterm">top-level</em> or
+            <em class="firstterm">root</em> window is a window that
+            has an independent existence under the window
+            manager.  It is decorated with the window manager's
+            decorations, and can be moved and resized
+            independently.  Your application can use any number
+            of top-level windows.
+          </p></li><li><p>
+            The term “window” also applies to any
+            widget that is part of a top-level window.
+          </p></li></ul></div><p>
+        <span class="application">Tkinter</span> names all these windows using a hierarchical
+        <em class="firstterm">window path name</em>.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The root window's name is <code class="code">'.'</code>.
+          </p></li><li><p>
+            Child windows have names of the form <code class="code">'.<em class="replaceable"><code>n</code></em>'</code>, where <code class="code"><em class="replaceable"><code>n</code></em></code> is some integer
+            in string form.  For example, a window named <code class="code">'.135932060'</code> is a child of the root window
+            (<code class="code">'.'</code>).
+          </p></li><li><p>
+            Child windows within child windows have names of the
+            form <code class="code">'<em class="replaceable"><code>p</code></em>.<em class="replaceable"><code>n</code></em>'</code> where <code class="code"><em class="replaceable"><code>p</code></em></code> is the name of
+            the parent window and <code class="code"><em class="replaceable"><code>n</code></em></code> is some
+            integer.  For example, a window named <code class="code">'.135932060.137304468'</code> has parent window
+            <code class="code">'.135932060'</code>, so it is a grandchild of
+            the root window.
+          </p></li><li><p>
+            The <em class="firstterm">relative name</em> of a window
+            is the part past the last <code class="code">'.'</code> in the
+            path name.  To continue the previous example, the
+            grandchild window has a relative name <code class="code">'137304468'</code>.
+          </p></li></ul></div><p>
+        To get the path name for a widget <code class="code"><em class="replaceable"><code>w</code></em></code>, use <code class="code">str(<em class="replaceable"><code>w</code></em>)</code>.
+      </p><p>
+        See also <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a> for methods you can
+        use to operate on window names, especially the <a href="universal.html#winfo_name"><code class="code">.winfo_name</code></a>,
+        <a href="universal.html#winfo_parent"><code class="code">.winfo_parent</code></a>, and <a href="universal.html#winfo_pathname"><code class="code">.winfo_pathname</code></a> methods.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="cap-join-styles.html">5.12. Cap and join styles</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="geometry.html">5.10. Geometry strings</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/window-names.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/window-names.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:37 GMT -->
+</html>

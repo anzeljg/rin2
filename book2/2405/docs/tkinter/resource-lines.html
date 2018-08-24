@@ -1,0 +1,80 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/resource-lines.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>27.3. Resource specification lines</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="option-database.html" title="27. Standardizing appearance and the option database"><link rel="prev" href="naming-widgets.html" title="27.2. How to name a widget instance"><link rel="next" href="resource-matching.html" title="27.4. Rules for resource matching"></head><body><div class="topnavbar"><a href="resource-matching.html">Next</a> / <a href="naming-widgets.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="resource-lines"></a>27.3. Resource specification lines</h3></div></div></div><p>
+        Each line in an option file specifies the value of one or
+        more options in one or more applications and has one of
+        these formats:
+      </p><pre class="programlisting"><em class="replaceable"><code>app</code></em> <em class="replaceable"><code>option-pattern</code></em>: <em class="replaceable"><code>value</code></em>
+<em class="replaceable"><code>option-pattern</code></em>: <em class="replaceable"><code>value</code></em>
+</pre><p>
+        The first form sets options only when the name of the
+        application matches <code class="code"><em class="replaceable"><code>app</code></em></code>; the second form
+        sets options for all applications.
+      </p><p>
+        For example, if your application is called
+        <span class="application">xparrot</span>, a line of the form
+      </p><pre class="programlisting">xparrot*background: LimeGreen
+</pre><p>
+        sets all <code class="code">background</code> options in the
+        <span class="application">xparrot</span> application to lime
+        green.  (Use the <code class="code">-name</code> option on the
+        command line when launching your application to set the
+        name to <code class="code">'xparrot'</code>.)
+      </p><p>
+        The <code class="code"><em class="replaceable"><code>option-pattern</code></em></code> part has this syntax:
+      </p><pre class="programlisting">{{*|.}<em class="replaceable"><code>name</code></em>}...<em class="replaceable"><code>option</code></em>
+</pre><p>
+        That is, each <code class="code"><em class="replaceable"><code>option-pattern</code></em></code> is a
+        list of zero or more names, each of which is preceded by
+        an asterisk or period.  The last name in the series is
+        the name of the option you are setting.  Each of the rest
+        of the names can be either:
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            the name of a widget <span class="emphasis"><em>class</em></span>
+            (capitalized), or
+          </p></li><li><p>
+            the name of an <span class="emphasis"><em>instance</em></span>
+            (lowercased).
+          </p></li></ul></div><p>
+        The way the option patterns work is a little complicated.
+        Let's start with a simple example:
+      </p><pre class="programlisting">*font: times 24
+</pre><p>
+        This line says that all <code class="code">font</code> options
+        should default to 24-point Times.  The <code class="code">*</code>
+        is called the <em class="firstterm">loose binding</em>
+        symbol, and means that this option pattern applies to any
+        <code class="code">font</code> option anywhere in any application.
+        Compare this example:
+      </p><pre class="programlisting">*Listbox.font: lucidatypewriter 14
+</pre><p>
+        The period between <code class="code">Listbox</code> and <code class="code">font</code> is called the <em class="firstterm">tight
+        binding</em> symbol, and it means that this rule
+        applies only to <code class="code">font</code> options for widgets
+        in class <code class="code">Listbox</code>.
+      </p><p>
+        As another example, suppose your
+        <span class="application">xparrot</span> application has
+        instances of widgets of class <code class="code">Jukebox</code>.  In
+        order to set up a default background color for all
+        widgets of that class <code class="code">Jukebox</code>, you could
+        put a line in your options file like this:
+      </p><pre class="programlisting">xparrot*Jukebox*background: PapayaWhip
+</pre><p>
+        The loose-binding (<code class="code">*</code>) symbol between <code class="code">Jukebox</code> and <code class="code">background</code> makes this
+        rule apply to any <code class="code">background</code> option of
+        any widget anywhere inside a <code class="code">Jukebox</code>.
+        Compare this option line:
+      </p><pre class="programlisting">xparrot*Jukebox.background: NavajoWhite
+</pre><p>
+        This rule will apply to the frame constituting the <code class="code">Jukebox</code> widget itself, but because of the
+        tight-binding symbol it will not apply to widgets that
+        are inside the <code class="code">Jukebox</code> widget.
+      </p><p>
+        In the next section we'll talk about how <span class="application">Tkinter</span> figures
+        out exactly which option value to use if there are
+        multiple resource specification lines that apply.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="resource-matching.html">27.4. Rules for resource matching</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="naming-widgets.html">27.2. How to name a widget instance</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/resource-lines.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/resource-lines.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Razlike med SimpleGUI in Tkinter</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/jquery-ui.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li class="active"><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="https://docs.python.org/3.3/index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Catalogue -->
+		<div id="catalogue" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+					</div>
+					<div class="modal-body">
+						CIP - Kataložni zapis o publikaciji<br>
+						Narodna in univerzitetna knjižnica, Ljubljana<br>
+						<br>
+						659.2:004(075.3)(0.034.2)<br>
+						004(075.3)(0.034.2)<br>
+						<br>
+						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
+						<br>
+						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
+						<br>
+						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
+						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
+						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
+						<br>
+						1. Anželj, Gregor<br>
+						282126848<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Razlike med SimpleGUI in Tkinter</h1>
+
+<p align="justify">Razlik med knjižnicama <code>simplegui</code> in <code>tkinter</code> je precej, saj sta knjižnici namenjeni za pisanje programov z grafičnim vmesnikom, vendar v različnih okoljih. Osredotočili se bomo le na tiste razlike, ki so najbolj očitne v primerih programov v tem poglavju. Vse drugo &ndash; tako podobnosti, kot razlike &ndash; je zapisano v dokumentaciji obeh knjižnic. Do dokumentacije lahko dostopaš tako, da klikneš ustrezni gumb.</p>
+
+<p align="center">
+<a href="docs/simplegui/docs.html#tabs-Graphics" class="btn btn-default" target="_blank" style="width:180px;">
+  <img src="img/simplegui48.png" style="float:left;padding-right:10px"> <b>CodeSkulptor</b><br />simplegui
+</a>
+&nbsp;
+<a href="docs/tkinter/index.html" class="btn btn-default" target="_blank" style="width:130px;">
+  <img src="img/tkinter48.png" style="float:left;padding-right:10px"> <b>Tcl/Tk</b><br />tkinter
+</a>
+</p>
+
+
+<h2>Velikost pisave</h2>
+
+<p align="justify">Velikost pisave je pri knjižnici <code>simplegui</code> potrebno navajati v pikslih (<i>angl. pixel</i>), medtem ko jo je pri knjižnici <code>tkinter</code> potrebno navajati v točkah (<i>angl. point</i>). Velja, da je 1 px = 0,75 pt in obratno, da je 1 pt = 1,333333 px. Pri pretvorbi si lahko pomagaš s spodnjim drsnikom.</p>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+	  <table width="100%">
+		<tr>
+		  <td colspan="2" style="padding:20px"><div id="slider"></div></td>
+		</tr>
+		<tr>
+		  <td width="50%" align="center"><span id="simplegui" style="font-size:24pt;font-weight:bold">16 px</span><br />simplegui</td>
+		  <td width="50%" align="center"><span id="tkinter" style="font-size:24pt;font-weight:bold">12 pt</span><br />tkinter</td>
+		</tr>
+      </table>
+    </div>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Funkcije za delo z GUI programi</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <th>SimpleGUI</th>
+      <th>Tkinter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#simplegui-create_frame" target="_blank"><tt>simplegui.create_frame()</tt></a></td>
+	  <td>
+	    <tt>tkinter.Tk()</tt><br />
+		<a href="docs/tkinter/frame.html" target="_blank"><tt>tkinter.Frame()</tt></a><br />
+		<a href="docs/tkinter/canvas.html" target="_blank"><tt>tkinter.Canvas()</tt></a>
+	  </td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#frame-add_button" target="_blank"><tt>frame.add_button()</tt></a></td>
+	  <td><a href="docs/tkinter/button.html" target="_blank"><tt>tkinter.Button()</tt></a></td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#frame-add_label" target="_blank"><tt>frame.add_label()</tt></a></td>
+	  <td><a href="docs/tkinter/label.html" target="_blank"><tt>tkinter.Label()</tt></a></td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#set_text" target="_blank"><tt>label.set_text()</tt></a></td>
+	  <td>
+	    <a href="docs/tkinter/universal.html" target="_blank"><tt>label.config(text="...")</tt></a> ali<br />
+	    <a href="docs/tkinter/universal.html" target="_blank"><tt>label.configure(text="...")</tt></a>
+	  </td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#draw_text" target="_blank"><tt>canvas.draw_text()</tt></a></td>
+	  <td><a href="docs/tkinter/create_text.html" target="_blank"><tt>canvas.create_text()</tt></a></td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#draw_line" target="_blank"><tt>canvas.draw_line()</tt></a></td>
+	  <td><a href="docs/tkinter/create_line.html" target="_blank"><tt>canvas.create_line()</tt></a></td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#draw_polygon" target="_blank"><tt>canvas.draw_polygon()</tt></a></td>
+	  <td>
+	    <a href="docs/tkinter/create_polygon.html" target="_blank"><tt>canvas.create_polygon()</tt></a> ali<br />
+	    <a href="docs/tkinter/create_rectangle.html" target="_blank"><tt>canvas.create_rectangle()</tt></a>
+	  </td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#draw_circle" target="_blank"><tt>canvas.draw_circle()</tt></a></td>
+	  <td><a href="docs/tkinter/create_oval.html" target="_blank"><tt>canvas.create_oval()</tt></a></td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#load_image" target="_blank"><tt>simplegui.load_image()</tt></a></td>
+	  <td><a href="docs/tkinter/images.html#class-PhotoImage" target="_blank"><tt>tkinter.PhotoImage()</tt></a></td>
+	</tr>
+    <tr>
+	  <td><a href="docs/simplegui/docs.html#frame-start" target="_blank"><tt>frame.start()</tt></a></td>
+	  <td><a href="docs/tkinter/universal.html" target="_blank"><tt>window.mainloop()</tt></a></td>
+	</tr>
+  </tbody>
+</table>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2404/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2405/index4.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2405/index.html">1</a></li>
+					<li><a href="../2405/index1.html">2</a></li>
+					<li><a href="../2405/index2.html">3</a></li>
+					<li><a href="../2405/index3.html">4</a></li>
+					<li><a href="../2405/index4.html">5</a></li>
+					<li class="active"><a href="#">6</a></li>
+					<li><a href="../2405/index6.html">7</a></li>
+					<li><a href="../2405/index7.html">8</a></li>
+					<li><a href="../2405/index8.html">9</a></li>
+					<li><a href="../2405/index9.html">10</a></li>
+					<li><a href="../2405/index10.html">11</a></li>
+					<li><a href="../2405/index11.html">12</a></li>
+					<li><a href="../2405/index12.html">13</a></li>
+					<li><a href="../2405/index13.html">14</a></li>
+					<li><a href="../2405/index14.html">15</a></li>
+					<li><a href="../2405/index15.html">16</a></li>
+					<li><a href="../2405/index16.html">17</a></li>
+					<li><a href="../2405/index17.html">18</a></li>
+					<li><a href="../2405/index18.html">19</a></li>
+					<li><a href="../2405/index6.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2501/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+
+	<script>
+	$(function() {
+		$("#slider").slider({
+			value: 12,
+			min: 12,
+			max: 72,
+			step: 3,
+			slide: function(event, ui) {
+				$("#tkinter").text(ui.value + " pt");
+				$("#simplegui").text(Math.round(ui.value*1.333333) + " px");
+			}
+		});
+		$("#tkinter").text($("#slider").slider("value") + " pt");
+		$("#simplegui").text(Math.round($("#slider").slider("value")*1.333333) + " px");
+	});
+	</script>
+
+  <!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+	<script src="../js/skulpt/repl.js"></script>
+	<script src="js/skulpt.min.js"></script>
+	<script src="js/skulpt-stdlib-simplegui.js"></script>
+	<script src="js/codeskulptor.min.js"></script>
+	<script src="../js/skulpt/python.js"></script>
+	<script>Sk.python3 = true;</script>
+
+<script type="text/javascript">
+function outf(text) {
+  var mypre = document.getElementById("console");
+  mypre.innerHTML = mypre.innerHTML + text;
+}
+function builtinRead(x) {
+  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+    throw "File not found: '" + x + "'";
+  return Sk.builtinFiles["files"][x];
+}
+function runit() {
+    var prog = editor.getValue();
+    var mypre = document.getElementById("console");
+    mypre.innerHTML = '';
+    Sk.canvas = "mycanvas";
+    Sk.pre = "console";
+    Sk.configure({output:outf, read:builtinRead});
+    try {
+        eval(Sk.importMainWithBody("<stdin>",false,prog));
+    }
+    catch(e) {
+        alert(e.toString())
+    }
+}
+function clearit() {
+    var mypre = document.getElementById("console");
+    mypre.innerHTML = '';
+}
+</script>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("eddiv"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "python",
+  theme: "mbo"
+});
+editor.setSize('100%', 500);
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

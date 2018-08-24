@@ -1,0 +1,111 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Progressbar.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>39. ttk.Progressbar</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-PanedWindow.html" title="38. ttk.PanedWindow"><link rel="next" href="ttk-Radiobutton.html" title="40. ttk.Radiobutton"></head><body><div class="topnavbar"><a href="ttk-Radiobutton.html">Next</a> / <a href="ttk-PanedWindow.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Progressbar"></a>39. <span class="application">ttk</span><code class="code">.Progressbar</code></h2></div></div></div><p>
+      The purpose of this widget is to reassure the user that
+      something is happening.  It can operate in one of
+      two modes:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          In <code class="code">determinate</code> mode, the widget shows an
+          indicator that moves from beginning to end under program
+          control.
+        </p></li><li><p>
+          In <code class="code">indeterminate</code> mode, the widget is animated
+          so the user will believe that something is in progress.
+          In this mode, the indicator bounces back and forth between
+          the ends of the widget.
+        </p></li></ul></div><p>
+      In either mode, the current position of the indicator has a
+      numeric value.  You can specify a <code class="code">maximum</code> value,
+      and you can set the indicator value directly.  You may also
+      specify that the indicator value moves a given amount every time
+      a given time interval passes.
+    </p><p>
+      To create a new <span class="application">ttk</span><code class="code">.Progressbar</code> widget as
+      the child of a given <code class="code"><em class="replaceable"><code>parent</code></em></code> widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Progressbar(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      The options for this constructor are given in <a href="ttk-Progressbar.html#ttk-Progressbar-options" title="Table 54. ttk.Progressbar options">Table 54, “<span class="application">ttk</span><code class="code">.Progressbar</code> options”</a>.
+    </p><div class="table"><a name="ttk-Progressbar-options"></a><p class="title"><b>Table 54. <span class="application">ttk</span><code class="code">.Progressbar</code> options</b></p><div class="table-contents"><table summary="ttk.Progressbar options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over the
+              checkbutton; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">length</code>
+            </td><td align="left">
+              The size of the widget along its long axis as a <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">maximum</code>
+            </td><td align="left">
+              The maximum value of the indicator; default is 100.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">mode</code>
+            </td><td align="left">
+              <p>
+                If your program cannot accurately depict the relative
+                progress that this widget is supposed to display, use
+                <code class="code">mode='indeterminate'</code>.  In this mode, a
+                rectangle bounces back and forth between the ends of
+                the widget once you use the <code class="code">.start()</code>
+                method.
+              </p>
+              <p>
+                If your program has some measure of relative progress,
+                use <code class="code">mode='determinate'</code>.  In this mode,
+                your program can move the indicator to a specified
+                position along the widget's track.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">orient</code>
+            </td><td align="left">
+              This options specifies the orientation: use <code class="code">orient=tk.HORIZONTAL</code> or <code class="code">orient=tk.VERTICAL</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this widget; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.Progressbar</code> will
+              not be included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To add the widget to focus
+              traversal, use <code class="code">takefocus=True</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">variable</code>
+            </td><td align="left">
+              Use this option to link a <a href="control-variables.html" title="52. Control variables: the values behind the widgets">control variable</a> to
+              the widget so that you can get or set the current value
+              of the indicator.              
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on a <span class="application">ttk</span><code class="code">.Progressbar</code> include
+      those described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a> plus:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.start([<em class="replaceable"><code>interval</code></em>])</code>
+        </span></dt><dd><p>
+            Start moving the indicator every <code class="code"><em class="replaceable"><code>interval</code></em></code> milliseconds; the default
+            is 50ms.  Each time, the indicator is moved as if you
+            called the <code class="code">.step()</code> method.
+          </p></dd><dt><span class="term">
+          <code class="code">.step([<em class="replaceable"><code>delta</code></em>])</code>
+        </span></dt><dd><p>
+            This method increases the indicator value by <code class="code"><em class="replaceable"><code>delta</code></em></code>; the default
+            increment is 1.0.  In determinate mode, the indicator will
+            never exceed the value of the <code class="code">maximum</code>
+            option. In indeterminate mode, the indicator will reverse
+            direction and count down once it reaches the maximum
+            value.
+          </p></dd><dt><span class="term">
+          <code class="code">.stop()</code>
+        </span></dt><dd><p>
+            This method stops the automatic progress that was started
+            by calling the <code class="code">.start()</code> method.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Radiobutton.html">40. <span class="application">ttk</span><code class="code">.Radiobutton</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-PanedWindow.html">38. <span class="application">ttk</span><code class="code">.PanedWindow</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Progressbar.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Progressbar.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+</html>

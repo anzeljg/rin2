@@ -1,0 +1,294 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/scale.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>21. The Scale widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="radiobutton.html" title="20. The Radiobutton widget"><link rel="next" href="scrollbar.html" title="22. The Scrollbar widget"></head><body><div class="topnavbar"><a href="scrollbar.html">Next</a> / <a href="radiobutton.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="scale"></a>21. The <code class="code">Scale</code> widget</h2></div></div></div><p>
+      The purpose of a scale widget is to allow the user to set some
+      <code class="code">int</code> or <code class="code">float</code> value within a
+      specified range.  Here are two scale widgets, one horizontal and
+      one vertical:
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/twoscales.png"></div></div><p>
+      Each scale displays a <em class="firstterm">slider</em> that
+      the user can drag along a <em class="firstterm">trough</em> to
+      change the value.  In the figure, the first slider is
+      currently at -0.38 and the second at 7.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          You can drag the slider to a new value with mouse
+          button 1.
+        </p></li><li><p>
+          If you click button 1 in the trough, the slider will
+          move one increment in that direction per click.
+          Holding down button 1 in the trough will, after a
+          delay, start to auto-repeat its function.
+        </p></li><li><p>
+          If the scale has <a href="focus.html" title="53. Focus: routing keyboard input">keyboard
+          focus</a>, left arrow and up arrow keystrokes will
+          move the slider up (for vertical scales) or left (for
+          horizontal scales).  Right arrow and down arrow
+          keystrokes will move the slider down or to the right.
+        </p></li></ul></div><p>
+      To create a new scale widget as the child of a root window
+      or frame named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Scale(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Scale</code>
+      widget.  Options:
+    </p><div class="table"><a name="Scale-options"></a><p class="title"><b>Table 30. <code class="code">Scale</code> widget options</b></p><div class="table-contents"><table summary="Scale widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              The color of the slider when the mouse is over it.
+              See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              The background <a href="colors.html" title="5.3. Colors">color</a>
+              of the parts of the widget that are outside the
+              trough.
+            </td></tr><tr><td align="left">
+              <code class="code">bd</code> or <code class="code">borderwidth</code>
+            </td><td align="left">
+              Width of the 3-d border around the trough and
+              slider.  Default is two pixels.  For acceptable
+              values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">command</code>
+            </td><td align="left">
+              A procedure to be called every time the slider is
+              moved.  This procedure will be passed one argument,
+              the new scale value.  If the slider is moved
+              rapidly, you may not get a callback for every
+              possible position, but you'll certainly get a
+              callback when it settles.
+            </td></tr><tr><td align="left">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that appears when the mouse is over the
+              scale.  See <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">digits</code>
+            </td><td align="left">
+              The way your program reads the current value shown in a
+              scale widget is through a control variable; see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.  The control variable for
+              a scale can be an <code class="code">IntVar</code>, a <code class="code">DoubleVar</code> (for type <code class="code">float</code>), or a
+              <code class="code">StringVar</code>.  If it is a string variable,
+              the <code class="code">digits</code> option controls how many
+              digits to use when the numeric scale value is converted
+              to a string.
+            </td></tr><tr><td align="left">
+              <code class="code">font</code>
+            </td><td align="left">
+              The font used for the label and annotations.  See
+              <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">fg</code> or <code class="code">foreground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the text
+              used for the label and annotations.
+            </td></tr><tr><td align="left">
+              <code class="code">from_</code>
+            </td><td align="left">
+              A <code class="code">float</code> value that defines one end of the
+              scale's range.  For vertical scales, this is the top
+              end; for horizontal scales, the left end.  The underbar
+              (<code class="code">_</code>) is not a typo: because <code class="code">from</code> is a reserved word in Python, this option
+              is spelled <code class="code">from_</code>.  The default is 0.0.
+              See the <code class="code">to</code> option, below, for the other
+              end of the range.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the scale does not have focus.
+              See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the scale has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              The thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus
+              highlight</a>.  Default is 1.  Set <code class="code">highlightthickness=0</code> to suppress display
+              of the focus highlight.
+            </td></tr><tr><td align="left">
+              <code class="code">label</code>
+            </td><td align="left">
+              You can display a label within the scale widget by
+              setting this option to the label's text.  The label
+              appears in the top left corner if the scale is
+              horizontal, or the top right corner if vertical.
+              The default is no label.
+            </td></tr><tr><td align="left">
+              <code class="code">length</code>
+            </td><td align="left">
+              The length of the scale widget.  This is the <em class="phrase">x</em> dimension if the scale is
+              horizontal, or the <em class="phrase">y</em>
+              dimension if vertical.  The default is 100 pixels.  For
+              allowable values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">orient</code>
+            </td><td align="left">
+              Set <code class="code">orient=tk.HORIZONTAL</code> if you want the
+              scale to run along the <em class="phrase">x</em>
+              dimension, or <code class="code">orient=tk.VERTICAL</code> to run
+              parallel to the <em class="phrase">y</em>-axis.
+              Default is vertical.
+            </td></tr><tr><td align="left">
+              <code class="code">relief</code>
+            </td><td align="left">
+              With the default <code class="code">relief=tk.FLAT</code>, the
+              scale does not stand out from its background.  You
+              may also use <code class="code">relief=tk.SOLID</code> to get a
+              solid black frame around the scale, or any of the
+              other relief types described in <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">repeatdelay</code>
+            </td><td align="left">
+              This option controls how long button 1 has to be
+              held down in the trough before the slider starts
+              moving in that direction repeatedly.  Default is
+              <code class="code">repeatdelay=300</code>, and the units are
+              milliseconds.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatinterval</code>
+            </td><td align="left" valign="top">
+              This option controls how often the slider jumps
+              once button 1 has been held down in the trough for
+              at least <code class="code">repeatdelay</code> milliseconds.
+              For example, <code class="code">repeatinterval=100</code>
+              would jump the slider every 100 milliseconds.
+            </td></tr><tr><td align="left">
+              <code class="code">resolution</code>
+            </td><td align="left">
+              Normally, the user will only be able to change the
+              scale in whole units.  Set this option to some
+              other value to change the smallest increment of the
+              scale's value.  For example, if <code class="code">from_=-1.0</code> and <code class="code">to=1.0</code>, and
+              you set <code class="code">resolution=0.5</code>, the scale
+              will have 5 possible values: -1.0, -0.5, 0.0, +0.5,
+              and +1.0.  All smaller movements will be ignored.
+              Use <code class="code">resolution=-1</code> to disable any
+              rounding of values.
+            </td></tr><tr><td align="left">
+              <code class="code">showvalue</code>
+            </td><td align="left">
+              Normally, the current value of the scale is
+              displayed in text form by the slider (above it for
+              horizontal scales, to the left for vertical
+              scales).  Set this option to 0 to suppress that
+              label.
+            </td></tr><tr><td align="left">
+              <code class="code">sliderlength</code>
+            </td><td align="left">
+              Normally the slider is 30 pixels along the length
+              of the scale.  You can change that length by
+              setting the <code class="code">sliderlength</code> option to
+              your desired length; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sliderrelief</code>
+            </td><td align="left" valign="top">
+              By default, the slider is displayed with a <code class="code">tk.RAISED</code> relief style.  For other relief
+              styles, set this option to any of the values
+              described in <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">state</code>
+            </td><td align="left">
+              Normally, scale widgets respond to mouse events,
+              and when they have the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>, also keyboard events.
+              Set <code class="code">state=tk.DISABLED</code> to make the
+              widget unresponsive.
+            </td></tr><tr><td align="left">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Normally, the focus will cycle through scale
+              widgets.  Set this option to 0 if you don't want
+              this behavior. See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">tickinterval</code>
+            </td><td align="left">
+              Normally, no “ticks” are displayed
+              along the scale.  To display periodic scale values,
+              set this option to a number, and ticks will be
+              displayed on multiples of that value.  For example,
+              if <code class="code">from_=0.0</code>, <code class="code">to=1.0</code>,
+              and <code class="code">tickinterval=0.25</code>, labels will
+              be displayed along the scale at values 0.0, 0.25,
+              0.50, 0.75, and 1.00.  These labels appear below
+              the scale if horizontal, to its left if vertical.
+              Default is 0, which suppresses display of ticks.
+            </td></tr><tr><td align="left">
+              <code class="code">to</code>
+            </td><td align="left">
+              A <code class="code">float</code> value that defines one end of the
+              scale's range; the other end is defined by the <code class="code">from_</code> option, discussed above.  The <code class="code">to</code> value can be either greater than or less
+              than the <code class="code">from_</code> value.  For vertical
+              scales, the <code class="code">to</code> value defines the bottom
+              of the scale; for horizontal scales, the right end.  The
+              default value is 100.0.
+            </td></tr><tr><td align="left">
+              <code class="code">troughcolor</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              trough.
+            </td></tr><tr><td align="left">
+              <code class="code">variable</code>
+            </td><td align="left">
+              The control variable for this scale, if any; see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.  Control variables may be
+              from class <code class="code">IntVar</code>, <code class="code">DoubleVar</code> (for type <code class="code">float</code>), or <code class="code">StringVar</code>.  In the latter case, the numerical
+              value will be converted to a string.  See the the <code class="code">digits</code> option, above, for more information on
+              this conversion.
+            </td></tr><tr><td align="left">
+              <code class="code">width</code>
+            </td><td align="left">
+              The width of the trough part of the widget.  This
+              is the x dimension for vertical scales and the y
+              dimension if the scale has <code class="code">orient=tk.HORIZONTAL</code>.  Default is 15 pixels.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Scale objects have these methods:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.coords(value=None)</code>
+        </span></dt><dd><p>
+            Returns the coordinates, relative to the upper left
+            corner of the widget, corresponding to a given value
+            of the scale.  For <code class="code">value=None</code>, you get
+            the coordinates of the center of the slider at its
+            current position.  To find where the slider would be
+            if the scale's value were set to some value <code class="code"><em class="replaceable"><code>x</code></em></code>, use <code class="code">value=<em class="replaceable"><code>x</code></em></code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.get()</code>
+        </span></dt><dd><p>
+            This method returns the current value of the scale.
+          </p></dd><dt><span class="term">
+          <code class="code">.identify(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Given a pair of coordinates <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> relative to the top left corner of the
+            widget, this method returns a string identifying what
+            functional part of the widget is at that location.
+            The return value may be any of these:
+          </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col></colgroup><tbody><tr><td align="left"><code class="code">'slider'</code></td><td>
+                    The slider.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'trough1'</code>
+                  </td><td valign="top">
+                    For horizontal scales, to the left of the
+                    slider; for vertical scales, above the
+                    slider.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">'trough2'</code>
+                  </td><td valign="top">
+                    For horizontal scales, to the right of the
+                    slider; for vertical scales, below the
+                    slider.
+                  </td></tr><tr><td align="left" valign="top">
+                    <code class="code">''</code>
+                  </td><td valign="top">
+                    Position <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> is
+                    not on any of the above parts.
+                  </td></tr></tbody></table></div></dd><dt><span class="term">
+          <code class="code">.set(<em class="replaceable"><code>value</code></em>)</code>
+        </span></dt><dd><p>
+            Sets the scale's value.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="scrollbar.html">22. The <code class="code">Scrollbar</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="radiobutton.html">20. The <code class="code">Radiobutton</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/scale.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/scale.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:51 GMT -->
+</html>

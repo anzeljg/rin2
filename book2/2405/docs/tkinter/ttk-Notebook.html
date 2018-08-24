@@ -1,0 +1,260 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Notebook.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>37. ttk.Notebook</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Menubutton.html" title="36. ttk.Menubutton"><link rel="next" href="ttk-Notebook-events.html" title="37.1. Virtual events for the ttk.Notebook
+      widget"></head><body><div class="topnavbar"><a href="ttk-Notebook-events.html">Next</a> / <a href="ttk-Menubutton.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Notebook"></a>37. <span class="application">ttk</span><code class="code">.Notebook</code></h2></div></div></div><p>
+      The purpose of a <code class="code">Notebook</code> widget is to provide an
+      area where the user can select pages of content by clicking on
+      tabs at the top of the area, like these:
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/sirnote.jpg"></div></div><div class="itemizedlist"><ul type="disc"><li><p>
+          Each time the user clicks on one of these tabs, the widget
+          will display the <em class="firstterm">child pane</em>
+          associated with that tab.  Typically, each pane will be a
+          <code class="code">Frame</code> widget, although a pane can be any
+          widget.
+        </p></li><li><p>
+          The tab for the child pane that is currently showing is
+          referred to as the <em class="firstterm">selected</em> tab.
+        </p></li><li><p>
+          You will use the <code class="code">Notebook</code> widget's <code class="code">.add()</code> method to attach a new tab, and its related
+          content.  Other methods let you remove or temporarily hide
+          tabs.
+        </p></li><li><p>
+          Each tab has its own set of options that control its
+          appearance and behavior.  These options are described in
+          <a href="ttk-Notebook.html#ttk-Notebook-tab-options" title="Table 51. Tab options for the ttk.Notebook
+      widget">Table 51, “Tab options for the <span class="application">ttk</span><code class="code">.Notebook</code>
+      widget”</a>.
+        </p></li><li><p>
+          A number of the methods of this widget use the idea of a
+          <code class="code"><em class="replaceable"><code>tabId</code></em></code> to refer
+          to one of the tabs.  Different values for a <code class="code"><em class="replaceable"><code>tabId</code></em></code> may be any of:
+        </p><div class="itemizedlist"><ul type="circle" compact><li><p>
+              Integer values refer to the position of the tab: 0 for
+              the first tab, 1 for the second, and so forth.
+            </p></li><li><p>
+              You can always refer to a tab by using the child widget
+              itself.
+            </p></li><li><p>
+              A string of the form <code class="code">"@<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>"</code> refers to the tab that currently contains the point
+              <code class="code">(<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>)</code> relative to the widget.  For
+              example, the string <code class="code">"@37,0"</code> would specify
+              the tab containing a point 37 pixels from the left side
+              of the widget, along the top edge of the tab.
+            </p></li><li><p>
+              The string <code class="code">"current"</code> refers to whichever
+              tab is currently selected.
+            </p></li><li><p>
+              In a call to the <code class="code">Notebook</code> widget's <code class="code">.index()</code> method, use the string <code class="code">"end</code>" to determine the current number of tabs
+              displayed.
+            </p></li></ul></div></li></ul></div><p>
+    </p><p>
+      To create a <code class="code">Notebook</code> widget as the child of
+      some <code class="code"><em class="replaceable"><code>parent</code></em></code> widget,
+      use this constructor:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Notebook(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      Options include:
+    </p><div class="table"><a name="ttk-Notebook-options"></a><p class="title"><b>Table 50. <span class="application">ttk</span><code class="code">.Notebook</code> options</b></p><div class="table-contents"><table summary="ttk.Notebook options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over
+              the notebook; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              The height in pixels to be allocated to the widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padding</code>
+            </td><td align="left">
+              To add some extra space around the outside of the
+              widget, set this option to that amount of space as a
+              <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this menubutton; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.Notebook</code> will be
+              included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To remove the widget from focus traversal, use
+              <code class="code">takefocus=False</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              The width in pixels to be allocated to the widget.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on a <span class="application">ttk</span><code class="code">.Notebook</code> widget include all
+      those described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>, plus:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.add(<em class="replaceable"><code>child</code></em>, **kw)</code>
+        </span></dt><dd><p>
+            The <code class="code"><em class="replaceable"><code>child</code></em></code>
+            argument is a widget, usually a <code class="code">Frame</code>, that
+            wraps the content of one child pane.  If <code class="code"><em class="replaceable"><code>child</code></em></code> is not one of
+            the <code class="code">Notebook</code> widget's child panes, <code class="code"><em class="replaceable"><code>child</code></em></code> is added as
+            the next available tab, and the keyword arguments <code class="code">kw</code> define the tab options for the new pane.
+            These options are defined it <a href="ttk-Notebook.html#ttk-Notebook-tab-options" title="Table 51. Tab options for the ttk.Notebook
+      widget">Table 51, “Tab options for the <span class="application">ttk</span><code class="code">.Notebook</code>
+      widget”</a>.
+          </p><p>
+            If <code class="code"><em class="replaceable"><code>child</code></em></code> is a
+            currently hidden pane, that tab will reappear in its
+            former position.
+          </p></dd><dt><span class="term">
+          <code class="code">.enable_traversal()</code>
+        </span></dt><dd><p>
+            Once you call this method, a few additional key bindings
+            will work:
+          </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+                <span class="keysym">Control-Tab</span> will select the tab
+                after the one currently selected.  If the last tab was
+                currently selected, selection will rotate back to the
+                first tab.
+              </p></li><li><p>
+                <span class="keysym">Shift-Control-Tab</span> does the reverse:
+                it moves to the previous tab, wrapping around to the
+                last tab if the first tab was selected.
+              </p></li><li><p>
+                You can configure a particular hot key that directly
+                selects a tab.  To do this, use the <code class="code">text</code> and <code class="code">underline</code> tab options to
+                underline one of the characters in each tab.  Then the
+                user can jump to a tab by typing <span class="keysym">Alt-</span><code class="code"><em class="replaceable"><code>x</code></em></code> where
+                <code class="code"><em class="replaceable"><code>x</code></em></code> is the
+                underlined character on that tab.
+              </p></li></ul></div><p>
+            If you have multiple <code class="code">Notebook</code> widgets in
+            the same application, these features will not work
+            correctly unless each child pane widget is created with
+            its <code class="code">Notebook</code> widget as the parent.
+          </p></dd><dt><span class="term">
+          <code class="code">.forget(<em class="replaceable"><code>child</code></em>)</code>
+        </span></dt><dd><p>
+            This method permanently removes the specified <code class="code"><em class="replaceable"><code>child</code></em></code> from the
+            widget's set of tabs.
+          </p></dd><dt><span class="term">
+          <code class="code">.hide(<em class="replaceable"><code>tabId</code></em>)</code>
+        </span></dt><dd><p>
+            The tab identified by <code class="code"><em class="replaceable"><code>tabId</code></em></code> is temporarily removed from
+            the set of visible tabs in the <code class="code">Notebook</code>.
+            You may reinstate it by calling the <code class="code">.add()</code>
+            method again.
+          </p></dd><dt><span class="term">
+          <code class="code">.index(<em class="replaceable"><code>tabId</code></em>)</code>
+        </span></dt><dd><p>
+            For a given <code class="code"><em class="replaceable"><code>tabId</code></em></code>, this method returns the numeric index
+            of the corresponding tab.  There is one exception:
+            if the argument is the string <code class="code">"end"</code>, the
+            method will return the total number of tabs.
+          </p></dd><dt><span class="term">
+          <code class="code">.insert(<em class="replaceable"><code>where</code></em>,
+          <em class="replaceable"><code>child</code></em>,**kw)</code>
+        </span></dt><dd><p>
+            This method inserts the widget <code class="code"><em class="replaceable"><code>child</code></em></code> at the position specified by
+            <code class="code"><em class="replaceable"><code>where</code></em></code>, using
+            any keyword arguments to describe the new tab and pane.
+            For the keyword options, see <a href="ttk-Notebook.html#ttk-Notebook-tab-options" title="Table 51. Tab options for the ttk.Notebook
+      widget">Table 51, “Tab options for the <span class="application">ttk</span><code class="code">.Notebook</code>
+      widget”</a>.
+          </p><p>
+            The <code class="code"><em class="replaceable"><code>where</code></em></code>
+            argument may be any of:
+          </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+                <code class="code">"end"</code> to place the new tab after
+                all the existing tabs.
+              </p></li><li><p>
+                An existing child widget; in this case the new <code class="code"><em class="replaceable"><code>child</code></em></code> is
+                inserted just before that existing widget.
+              </p></li></ul></div></dd><dt><span class="term">
+          <code class="code">.select([<em class="replaceable"><code>tabId</code></em>])</code>
+        </span></dt><dd><p>
+            If you call this method without an argument, it will
+            return the <a href="window-names.html" title="5.11. Window names">window name</a> of the widget whose tab is currently displayed.
+          </p><p>
+            To display a specific pane in the <code class="code">Notebook</code>,
+            call this method with a <code class="code"><em class="replaceable"><code>tabId</code></em></code> as the argument.
+          </p></dd><dt><span class="term">
+          <code class="code">.tab(tabId, option=None, **kw)</code>
+        </span></dt><dd><p>
+            Use this method either to set tab options for the child
+            panes described by <code class="code"><em class="replaceable"><code>tabId</code></em></code>, or to find out what options are set for that
+            child pane.  The tab options are described in <a href="ttk-Notebook.html#ttk-Notebook-tab-options" title="Table 51. Tab options for the ttk.Notebook
+      widget">Table 51, “Tab options for the <span class="application">ttk</span><code class="code">.Notebook</code>
+      widget”</a>.
+          </p><p>
+            If you call the method with no keyword arguments, it will
+            return a dictionary of the tab options currently in effect
+            for the pane specified by <code class="code"><em class="replaceable"><code>tagId</code></em></code>.
+          </p><p>
+            To find out the current value of a specific tab option
+            <code class="code"><em class="replaceable"><code>X</code></em></code>, call this
+            method with the argument “<code class="code">option=<em class="replaceable"><code>X</code></em></code>”,
+            and the method will return the value of that tab option.
+          </p><p>
+            To set one or more tab options for the child described
+            by <code class="code"><em class="replaceable"><code>tagId</code></em></code>,
+            call this method with keyword arguments.  For example,
+            if <code class="code"><em class="replaceable"><code>self.nb</code></em></code>
+            is a <code class="code">Notebook</code>, this call would change
+            the text displayed on the first tab:
+          </p><pre class="programlisting">    self.nb.tab(0, text='Crunchy frog')
+</pre></dd><dt><span class="term">
+          <code class="code">.tabs()</code>
+        </span></dt><dd><p>
+            This method returns a list of the <a href="window-names.html" title="5.11. Window names">window names</a> of the <code class="code">Notebook</code>'s child panes, in order from first to
+            last.
+          </p></dd></dl></div><p>
+      Here are the tab options used in the <code class="code">.add()</code> and
+      <code class="code">.tab()</code> methods.
+    </p><div class="table"><a name="ttk-Notebook-tab-options"></a><p class="title"><b>Table 51. Tab options for the <span class="application">ttk</span><code class="code">.Notebook</code>
+      widget</b></p><div class="table-contents"><table summary="Tab options for the ttk.Notebook
+      widget" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">compound</code>
+            </td><td align="left">
+              If you supply both <code class="code">image</code> and <code class="code">text</code> to be displayed on the tab, the <code class="code">compound</code> option specifies how to display them.
+              Allowable values describe the position of the image
+              relative to the text, and may be any of <code class="code">tk.BOTTOM</code>, <code class="code">tk.TOP</code>, <code class="code">tk.LEFT</code>, <code class="code">tk.RIGHT</code>, or <code class="code">tk.CENTER</code>.  For example, <code class="code">compound=tk.LEFT</code> would position the image to
+              the left of the text.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padding</code>
+            </td><td align="left">
+              Use this option to add extra space around all four sides
+              of the panel's content.  The value is a <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.  For example,
+              <code class="code">padding='0.1i'</code> would add a 0.1″
+              space around each side of the panel content.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sticky</code>
+            </td><td align="left">
+              Use this option to specify where the panel content is
+              positioned if it does not completely fill the panel
+              area.  Values are the same as for the <code class="code">sticky</code> argument described in <a href="grid.html" title="4.1. The .grid() method">Section 4.1, “The <code class="code">.grid()</code> method”</a>.  For example, <code class="code">sticky=tk.E+tk.S</code> would position the content in
+              the lower right (southeast) corner.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">image</code>
+            </td><td align="left">
+              To make a graphic image appear on the tab, supply an
+              <a href="images.html" title="5.9. Images">image</a> as the value of
+              this option.  Refer to the <code class="code">compound</code>
+              option above to specify the relative positions of <code class="code">image</code> and <code class="code">text</code> when you specify
+              both.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">text</code>
+            </td><td align="left">
+              The text to appear on the tab.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">underline</code>
+            </td><td align="left">
+              If this option has a nonnegative value <em class="phrase">n</em>, an underline will appear under
+              the character at position <em class="phrase">n</em> of the text on the tab.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Notebook-events.html">37.1. Virtual events for the <span class="application">ttk</span><code class="code">.Notebook</code>
+      widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Menubutton.html">36. <span class="application">ttk</span><code class="code">.Menubutton</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Notebook.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Notebook.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:55 GMT -->
+</html>

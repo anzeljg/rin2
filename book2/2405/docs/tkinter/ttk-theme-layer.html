@@ -1,0 +1,29 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-theme-layer.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>48. Finding and using ttk themes</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles"><link rel="next" href="ttk-style-layer.html" title="49. Using and customizing ttk styles"></head><body><div class="topnavbar"><a href="ttk-style-layer.html">Next</a> / <a href="ttk-themes.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-theme-layer"></a>48. Finding and using <span class="application">ttk</span> themes</h2></div></div></div><p>
+      A number of operations related to themes require that you
+      have available an instance of the <code class="code">ttk.Style()</code>
+      class (in the Python sense of class).  For example, to
+      obtain a list of the available themes in your installation:
+    </p><pre class="programlisting">&gt;&gt;&gt; import ttk
+&gt;&gt;&gt; s=ttk.Style()
+&gt;&gt;&gt; s.theme_names()
+('clam', 'alt', 'default', 'classic')
+</pre><p>
+      The <code class="code">.theme_names()</code> method returns a tuple
+      containing the names of the available styles.  The <code class="code">'classic'</code> theme gives you the original,
+      pre-<span class="application">ttk</span> appearance.
+    </p><p>
+      To determine which theme you get by default, use the
+      <code class="code">.theme_use()</code> method with no arguments.  To
+      change the current theme, call this same method with the
+      desired theme name as the argument:
+    </p><pre class="programlisting">&gt;&gt;&gt; s.theme_use()
+'default'
+&gt;&gt;&gt; s.theme_use('alt')
+&gt;&gt;&gt; s.theme_use()
+'alt'
+</pre></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-style-layer.html">49. Using and customizing <span class="application">ttk</span> styles</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-themes.html">47. Customizing and creating <span class="application">ttk</span> themes and styles</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-theme-layer.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-theme-layer.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

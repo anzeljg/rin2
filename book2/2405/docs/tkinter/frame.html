@@ -1,0 +1,85 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/frame.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>11. The Frame widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="entry-validation.html" title="10.2. Adding validation to an Entry
+      widget"><link rel="next" href="label.html" title="12. The Label widget"></head><body><div class="topnavbar"><a href="label.html">Next</a> / <a href="entry-validation.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="frame"></a>11. The <code class="code">Frame</code> widget</h2></div></div></div><p>
+      A frame is basically just a container for other widgets.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          Your application's root window is basically a frame.
+        </p></li><li><p>
+          Each frame has its own grid layout, so the <a href="grid.html" title="4.1. The .grid() method">gridding</a> of widgets within each
+          frame works independently.
+        </p></li><li><p>
+          Frame widgets are a valuable tool in making your
+          application modular.  You can group a set of related
+          widgets into a compound widget by putting them into a
+          frame.  Better yet, you can declare a new class that
+          inherits from <code class="code">Frame</code>, adding your own
+          interface to it.  This is a good way to hide the
+          details of interactions within a group of related
+          widgets from the outside world.
+        </p></li></ul></div><p>
+      To create a new frame widget in a root window or frame
+      named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = Frame(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Frame</code>
+      widget.  Options:
+    </p><div class="table"><a name="Frame-options"></a><p class="title"><b>Table 19. <code class="code">Frame</code> widget options</b></p><div class="table-contents"><table summary="Frame widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">bg</code> or
+              <code class="code">background</code></td><td align="left">
+              The frame's background color.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">bd</code> or
+              <code class="code">borderwidth</code></td><td align="left">
+              Width of the frame's border.  The default is 0 (no
+              border).  For permitted values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">cursor</code></td><td align="left">
+              The cursor used when the mouse is within the frame
+              widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+              The vertical <a href="dimensions.html" title="5.1. Dimensions">dimension</a> of the new
+              frame.  This will be ignored unless you also call
+              <code class="code">.grid_propagate(0)</code> on the frame; see
+              <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightbackground</code></td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> of the focus
+              highlight when the frame does not have focus.  See
+              <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> shown in the
+              focus highlight when the frame has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightthickness</code></td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padx</code>
+            </td><td align="left" valign="top">
+              Normally, a <code class="code">Frame</code> fits tightly
+              around its contents.  To add <code class="code"><em class="replaceable"><code>N</code></em></code> pixels of horizontal
+              space inside the frame, set <code class="code">padx=<em class="replaceable"><code>N</code></em></code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">pady</code>
+            </td><td align="left" valign="top">
+              Used to add vertical space inside a frame.
+              See <code class="code">padx</code> above.
+            </td></tr><tr><td align="left" valign="top"><code class="code">relief</code></td><td align="left">
+              The default relief for a frame is <code class="code">tk.FLAT</code>, which means the frame will blend in with its
+              surroundings.  To put a border around a frame, set
+              its <code class="code">borderwidth</code> to a positive value
+              and set its relief to one of the standard relief
+              types; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">takefocus</code></td><td align="left">
+              Normally, frame widgets are not visited by input
+              focus (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a> for an overview
+              of this topic).  However, you can set <code class="code">takefocus=1</code> if you want the frame to
+              receive keyboard input.  To handle such input, you
+              will need to create bindings for keyboard events;
+              see <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for more on events and
+              bindings.
+            </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+              The horizontal dimension of the new frame.  See
+              <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  This value be
+              ignored unless you also call <code class="code">.grid_propagate(0)</code> on the frame; see <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="label.html">12. The <code class="code">Label</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="entry-validation.html">10.2. Adding validation to an <code class="code">Entry</code>
+      widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/frame.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/frame.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+</html>

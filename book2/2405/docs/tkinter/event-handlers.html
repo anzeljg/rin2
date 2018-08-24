@@ -1,0 +1,212 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-handlers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>54.6. Writing your handler: The Event
+      class</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="events.html" title="54. Events: responding to stimuli"><link rel="prev" href="key-names.html" title="54.5. Key names"><link rel="next" href="extra-args.html" title="54.7. The extra arguments trick"></head><body><div class="topnavbar"><a href="extra-args.html">Next</a> / <a href="key-names.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="event-handlers"></a>54.6. Writing your handler: The <code class="code">Event</code>
+      class</h3></div></div></div><p>
+        The sections above tell you how to describe what events
+        you want to handle, and how to bind them.  Now let us
+        turn to the writing of the handler that will be called
+        when the event actually happens.
+      </p><p>
+        The handler will be passed an <code class="code">Event</code> object
+        that describes what happened.  The handler can be either
+        a function or a method. Here is the calling sequence for
+        a regular function:
+      </p><pre class="programlisting">def <em class="replaceable"><code>handlerName</code></em>(<em class="replaceable"><code>event</code></em>):
+</pre><p>
+        And as a method:
+      </p><pre class="programlisting">    def <em class="replaceable"><code>handlerName</code></em>(self, <em class="replaceable"><code>event</code></em>):
+</pre><p>
+        The attributes of the <code class="code">Event</code> object passed
+        to the handler are described below.  Some of these
+        attributes are always set, but some are set only for
+        certain types of events.
+      </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+                <code class="code">.char</code>
+              </td><td align="left">
+                If the event was related to a <code class="code">KeyPress</code> or <code class="code">KeyRelease</code>
+                for a key that produces a regular ASCII
+                character, this string will be set to that
+                character.  (For special keys like
+                <span class="keysym">delete</span>, see the <code class="code">.keysym</code> attribute, below.)
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">.delta</code>
+              </td><td align="left" valign="top">
+                For <code class="code">MouseWheel</code> events, this
+                attribute contains an integer whose sign is
+                positive to scroll up, negative to scroll down.
+                Under Windows, this value will be a multiple of
+                120; for example, 120 means scroll up one step,
+                and -240 means scroll down two steps.  Under
+                MacOS, it will be a multiple of 1, so 1 means
+                scroll up one step, and -2 means scroll down two
+                steps.  For Linux mouse wheel support, see the
+                note on the <code class="code">Button</code> event binding
+                in <a href="event-types.html" title="54.3. Event types">Section 54.3, “Event types”</a>.
+              </td></tr><tr><td align="left">
+                <code class="code">.height</code>
+              </td><td align="left">
+                If the event was a <code class="code">Configure</code>, this
+                attribute is set to the widget's new height in
+                pixels.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">.keycode</code>
+              </td><td align="left" valign="top">
+                For <code class="code">KeyPress</code> or <code class="code">KeyRelease</code> events, this attribute is set
+                to a numeric code that identifies the key.
+                However, it does not identify which of the
+                characters on that key were produced, so that
+                “<code class="code">x</code>” and
+                “<code class="code">X</code>” have the same
+                <code class="code">.keyCode</code> value.  For the possible
+                values of this field, see <a href="key-names.html" title="54.5. Key names">Section 54.5, “Key names”</a>.
+              </td></tr><tr><td align="left">
+                <code class="code">.keysym</code>
+              </td><td align="left">
+                For <code class="code">KeyPress</code> or
+                <code class="code">KeyRelease</code> events involving a
+                special key, this attribute is set to the key's
+                string name, e.g., <code class="code">'Prior'</code> for the
+                <span class="keysym">PageUp</span> key.  See <a href="key-names.html" title="54.5. Key names">Section 54.5, “Key names”</a> for a complete list of
+                <code class="code">.keysym</code> names.
+              </td></tr><tr><td align="left">
+                <code class="code">.keysym_num</code>
+              </td><td align="left">
+                For <code class="code">KeyPress</code> or <code class="code">KeyRelease</code> events, this is set to a
+                numeric version of the <code class="code">.keysym</code>
+                field.  For regular keys that produce a single
+                character, this field is set to the integer value
+                of the key's ASCII code.  For special keys, refer
+                to <a href="key-names.html" title="54.5. Key names">Section 54.5, “Key names”</a>.
+              </td></tr><tr><td align="left">
+                <code class="code">.num</code>
+              </td><td align="left">
+                If the event was related to a mouse button, this
+                attribute is set to the button number (1, 2, or
+                3).  For mouse wheel support under Linux, bind
+                <code class="code">Button-4</code> and <code class="code">Button-5</code> events; when the mouse wheel is scrolled up,
+                this field will be 4, or 5 when scrolled down.
+              </td></tr><tr><td align="left">
+                <code class="code">.serial</code>
+              </td><td align="left">
+                An integer serial number that is incremented
+                every time the server processes a client request.
+                You can use <code class="code">.serial</code> values to find
+                the exact time sequence of events: those with
+                lower values happened sooner.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">.state</code>
+              </td><td align="left" valign="top">
+                <p>
+                  An integer describing the state of all the
+                  modifier keys.  See the table of modifier masks
+                  below for the interpretation of this value.
+                </p>
+              </td></tr><tr><td align="left">
+                <code class="code">.time</code>
+              </td><td align="left">
+                This attribute is set to an integer which has no
+                absolute meaning, but is incremented every
+                millisecond.  This allows your application to
+                determine, for example, the length of time
+                between two mouse clicks.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">.type</code>
+              </td><td align="left" valign="top">
+                A numeric code describing the type of event.  For
+                the interpretation of this code, see <a href="event-types.html" title="54.3. Event types">Section 54.3, “Event types”</a>.
+              </td></tr><tr><td align="left">
+                <code class="code">.widget</code>
+              </td><td align="left">
+                Always set to the widget that caused the event.
+                For example, if the event was a mouse click that
+                happened on a canvas, this attribute will be the
+                actual <code class="code">Canvas</code> widget.
+              </td></tr><tr><td align="left">
+                <code class="code">.width</code>
+              </td><td align="left">
+                If the event was a <code class="code">Configure</code>, this
+                attribute is set to the widget's new width in
+                pixels.
+              </td></tr><tr><td align="left">
+                <code class="code">.x</code>
+              </td><td align="left">
+                The <code class="code"><em class="replaceable"><code>x</code></em></code>
+                coordinate of the mouse at the time of the event,
+                relative to the upper left corner of the widget.
+              </td></tr><tr><td align="left">
+                <code class="code">.y</code>
+              </td><td align="left">
+                The <code class="code"><em class="replaceable"><code>y</code></em></code>
+                coordinate of the mouse at the time of the event,
+                relative to the upper left corner of the widget.
+              </td></tr><tr><td align="left">
+                <code class="code">.x_root</code>
+              </td><td align="left">
+                The <code class="code"><em class="replaceable"><code>x</code></em></code>
+                coordinate of the mouse at the time of the event,
+                relative to the upper left corner of the screen.
+              </td></tr><tr><td align="left">
+                <code class="code">.y_root</code>
+              </td><td align="left">
+                The <code class="code"><em class="replaceable"><code>y</code></em></code>
+                coordinate of the mouse at the time of the event,
+                relative to the upper left corner of the screen.
+              </td></tr></tbody></table></div><p>
+        Use these masks to test the bits of the <code class="code">.state</code> value to see what modifier keys and
+        buttons were pressed during the event:
+      </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><thead><tr><th align="left">Mask</th><th align="left">Modifier</th></tr></thead><tbody><tr><td align="left">
+                <code class="code">0x0001</code>
+              </td><td align="left">
+                <span class="keysym">Shift</span>.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0002</code>
+              </td><td align="left">
+                <span class="keysym">Caps Lock</span>.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0004</code>
+              </td><td align="left">
+                <span class="keysym">Control</span>.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0008</code>
+              </td><td align="left">
+                Left-hand <span class="keysym">Alt</span>.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0010</code>
+              </td><td align="left">
+                <span class="keysym">Num Lock</span>.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0080</code>
+              </td><td align="left">
+                Right-hand <span class="keysym">Alt</span>.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0100</code>
+              </td><td align="left">
+                Mouse button 1.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0200</code>
+              </td><td align="left">
+                Mouse button 2.
+              </td></tr><tr><td align="left">
+                <code class="code">0x0400</code>
+              </td><td align="left">
+                Mouse button 3.
+              </td></tr></tbody></table></div><p>
+        Here's an example of an event handler.  Under <a href="binding-levels.html" title="54.1. Levels of binding">Section 54.1, “Levels of binding”</a>, above, there is an example
+        showing how to bind mouse button 2 clicks on a canvas
+        named <code class="code">self.canv</code> to a handler called <code class="code">self.__drawOrangeBlob()</code>.  Here is that handler:
+      </p><pre class="programlisting">    def __drawOrangeBlob(self, event):
+        '''Draws an orange blob in self.canv where the mouse is.
+        '''
+        r = 5   # Blob radius
+        self.canv.create_oval(event.x-r, event.y-r,
+            event.x+r, event.y+r, fill='orange')
+</pre><p>
+        When this handler is called, the current mouse position
+        is <code class="code">(event.x, event.y)</code>.  The <code class="code">.create_oval()</code> method draws a circle whose
+        bounding box is square and centered on that position and
+        has sides of length <code class="code">2*r</code>.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="extra-args.html">54.7. The extra arguments trick</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="key-names.html">54.5. Key names</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/event-handlers.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/event-handlers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

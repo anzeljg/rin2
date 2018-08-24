@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li class="active"><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Catalogue -->
+		<div id="catalogue" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+					</div>
+					<div class="modal-body">
+						CIP - Kataložni zapis o publikaciji<br>
+						Narodna in univerzitetna knjižnica, Ljubljana<br>
+						<br>
+						659.2:004(075.3)(0.034.2)<br>
+						004(075.3)(0.034.2)<br>
+						<br>
+						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
+						<br>
+						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
+						<br>
+						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
+						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
+						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
+						<br>
+						1. Anželj, Gregor<br>
+						282126848<br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 6 SimpleGUI -->
+		<div id="solution6s" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<pre>
+import simplegui
+import random
+
+# Naloži sliko, ki vsebuje vse karte
+VEL = (86, 120) # Velikost posamezne karte
+SRED = (43, 60) # Središče posamezne karte
+slike_kart = simplegui.load_image('http://tiny.cc/deck')
+
+# Definicija globalnih spremenljivk
+igra_poteka = False
+vojna_poteka = False
+izid = "Vrzi karto..."
+REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
+
+# Definicija globalnih spremenljivk za karte
+BARVE = ("C", "S", "H", "D") # Club/Spade/Heart/Diamond
+OPISI = ("A", "2", "3", "4", "5", "6", "7", "8", "9",
+         "X", "J", "Q", "K")
+VREDNOSTI = {"A":14, "2":2, "3":3, "4":4, "5":5,
+             "6":6, "7":7, "8":8, "9":9, "X":10,
+             "J":11, "Q":12, "K":13}
+
+
+# Definicija razreda 'Karta'
+class Karta:
+
+  # Ustvari objekt 'Karta'
+  def __init__(self, barva, opis):
+    if (barva in BARVE) and (opis in OPISI):
+      self.barva = barva
+      self.opis = opis
+    else:
+      self.barva = None
+      self.opis = None
+      print("Neveljavna karta: ", barva, opis)
+
+  # Vrne dvo-znakovno predstavitev karte
+  def __str__(self):
+    return self.barva + self.opis
+
+  # Vrne barvo karte
+  def vrni_barvo(self):
+    return self.barva
+
+  # Vrne opis ali rang karte
+  def vrni_opis(self):
+    return self.opis
+
+  # Izriše sliko karte na platnu, na danem položaju
+  def izpis(self, platno, poz, hrbet=True):
+    if hrbet:
+      polozaj = (SRED[0]+VEL[0]*2,
+                 SRED[1]+VEL[1]*4)
+    else:
+      polozaj = (SRED[0]+VEL[0]*OPISI.index(self.opis),
+                 SRED[1]+VEL[1]*BARVE.index(self.barva))
+    platno.draw_image(slike_kart, polozaj, VEL,
+              [poz[0]+SRED[0], poz[1]+SRED[1]], VEL)
+
+
+# Definicija razreda 'Komplet'
+class Komplet:
+
+  # Ustvari objekt 'Komplet', ki vsebuje vseh 52 kart
+  def __init__(self):
+    self.karte = []
+    for barva in BARVE:
+      for opis in OPISI:
+        karta = Karta(barva, opis)
+        self.karte.append(karta)
+
+  # Premešaj komplet kart
+  def premesaj(self):
+    random.shuffle(self.karte)
+
+  # Deli naslednjo karto iz kompleta
+  def deli_karto(self):
+    return self.karte.pop()
+
+  # Vrne besedilno predstavitev kompleta kart
+  def __str__(self):
+    sporocilo = "Komplet vsebuje"
+    for karta in self.karte:
+      sporocilo += " " + str(karta)
+    return sporocilo
+
+
+# Definicija razreda 'Igralec'
+class Igralec(Komplet):
+
+  # Ustvari objekt 'Igralec'
+  def __init__(self):
+    self.karte = []
+    # Karte, ki jih igralec odloži/vrže med igro
+    self.zaloga = []
+
+  # Vrne predstavitev kart, ki jih v roki drži igralec
+  def __str__(self):
+    sporocilo = "V roki drzi"
+    for karta in self.karte:
+        sporocilo += " " + str(karta)
+    return sporocilo
+
+  # Igralcu doda nov objekt 'Karta' na konec
+  def dodaj_karto(self, karta):
+    self.karte.append(karta)
+
+  # Igralcu doda objekt 'Karta' na začetek
+  def vstavi_karto(self, karta):
+    self.karte.insert(0, karta)
+
+  # Igralcu odvzame objekt 'Karta' in ga doda v zalogo
+  def vrzi_karto(self):
+    if self.karte:
+      karta = self.karte.pop()
+      self.zaloga.append(karta)
+
+  # Vrne število kart, ki jih ima igralec:
+  # tistih v roki in odloženih
+  def stevilo(self):
+    return len(self.karte) + len(self.zaloga)
+
+  # Izriše odvržene karte iz zaloge, pri tem
+  # uporabi metodo izpis razreda 'Karta'
+  def izpis(self, platno, poz):
+    # Izpis obrnjenih kart, ki jih ima igralec
+    # še v roki. Vse karte so obrnjene
+    ROB = 1
+    i = 0
+    for karta in self.karte:
+      karta.izpis(platno, [poz[0]+i*ROB, poz[1]], True)
+      i += 1
+    # Izpis odvrženih kart
+    ROB = 12
+    ODMIK = 180
+    i = 0
+    for karta in self.zaloga:
+      # Ali prikaže sprednjo ali zadnjo stran karte
+      obrni = i % 3
+      if i == len(self.zaloga)-1:
+        obrni = False
+      karta.izpis(platno, [ODMIK+poz[0]+i*ROB, poz[1]],
+                  obrni)
+      i += 1
+
+
+# Določi krmilnik gumba 'Deli'
+def deli():
+  global komplet
+  komplet = Komplet()
+  komplet.premesaj()
+
+  global igra_poteka, igralec, delivec
+  igra_poteka = True
+  igralec = Igralec()
+  delivec = Igralec()
+  # Izmenično razdeli 26 kart igralcu in delivcu
+  for i in range(26):
+    igralec.dodaj_karto(komplet.deli_karto())
+    delivec.dodaj_karto(komplet.deli_karto())
+  print("Igralec: "+str(igralec))
+  print("Delivec: "+str(delivec))
+
+
+# Določi krmilnik gumba 'Vrzi'
+def vrzi():
+  global igra_poteka, vojna_poteka
+  global izid, igralec, delivec
+
+  if igra_poteka:
+    # Zadnja vržena karta delivca in igralca
+    if delivec.zaloga and igralec.zaloga:
+      karta_d = delivec.zaloga[-1].vrni_opis()
+      karta_i = igralec.zaloga[-1].vrni_opis()
+
+      # Če je vojna
+      if karta_d == karta_i:
+        vojna_poteka = True
+        delivec.vrzi_karto()
+        delivec.vrzi_karto()
+        igralec.vrzi_karto()
+        igralec.vrzi_karto()
+        izid = "Vojna!"
+
+      # Sicer (če ni vojne)
+      else:
+        # Delivec ima višjo karto, kar pomeni,
+        # da dobi svoje in igralčeve karte
+        vojna_poteka = False
+        if VREDNOSTI[karta_d] > VREDNOSTI[karta_i]:
+          for karta in igralec.zaloga:
+            delivec.vstavi_karto(karta)
+          for karta in delivec.zaloga:
+            delivec.vstavi_karto(karta)
+          if not igralec.karte:
+            igra_poteka = False
+            izid = "Jack je zmagal! Nova igra?"
+            REZULTAT["SKUPAJ"] += 1
+        # Igralec dobi vse karte
+        else:
+          for karta in delivec.zaloga:
+            igralec.vstavi_karto(karta)
+          for karta in igralec.zaloga:
+            igralec.vstavi_karto(karta)
+          if not delivec.karte:
+            igra_poteka = False
+            izid = "Zmagal si! Nova igra?"
+            REZULTAT["SKUPAJ"] += 1
+            REZULTAT["ZMAGE"] += 1
+
+      if not vojna_poteka:
+        delivec.zaloga = []
+        igralec.zaloga = []
+        izid = "Vrzi karto..."
+
+    delivec.vrzi_karto()
+    igralec.vrzi_karto()
+
+
+# Določi krmilnik izpisa/izrisa
+def izpis(platno):
+  global igra_poteka, izid, igralec, delivec
+
+  igralec.izpis(platno, [50, 220])
+  delivec.izpis(platno, [50, 400])
+
+  txt1 = "Vojna"
+  txt2 = "Tvoje karte (" + str(igralec.stevilo()) + ")"
+  txt3 = "Jackove karte (" + str(delivec.stevilo()) + ")"
+  txt4 = "STANJE: " + izid
+  txt5 = "REZULTAT: zmage: " + str(REZULTAT["ZMAGE"]) \
+         + ", skupaj: " + str(REZULTAT["SKUPAJ"])
+
+  platno.draw_text(txt1, [50, 70], 40, "white")
+  platno.draw_text(txt2, [50, 200], 20, "white")
+  platno.draw_text(txt3, [50, 380], 20, "white")
+  platno.draw_text(txt4, [50, 140], 20, "white")
+  platno.draw_text(txt5, [50, 560], 20, "white")
+
+    
+# Ustvari okvir
+frame = simplegui.create_frame("Vojna", 650, 600)
+frame.set_canvas_background("green")
+
+# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+frame.add_button("Deli", deli, 200)
+frame.add_button("Vrzi", vrzi, 200)
+frame.set_draw_handler(izpis)
+
+# Zaženi animacijo okvirja
+deli()
+frame.start()
+</pre>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 6 Tkinter -->
+		<div id="solution6t" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<pre>
+# encoding: utf-8
+import tkinter as tk
+import random
+
+VEL = (86, 120) # Velikost posamezne karte
+SRED = (43, 60) # Središče posamezne karte
+
+# Definicija globalnih spremenljivk
+igra_poteka = False
+vojna_poteka = False
+izid = "Vrzi karto..."
+REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
+
+# Definicija globalnih spremenljivk za karte
+BARVE = ("C", "S", "H", "D") # Club/Spade/Heart/Diamond
+OPISI = ("A", "2", "3", "4", "5", "6", "7", "8", "9",
+         "X", "J", "Q", "K")
+VREDNOSTI = {"A":14, "2":2, "3":3, "4":4, "5":5,
+             "6":6, "7":7, "8":8, "9":9, "X":10,
+             "J":11, "Q":12, "K":13}
+
+
+# Definicija razreda 'Karta'
+class Karta:
+
+  # Ustvari objekt 'Karta'
+  def __init__(self, barva, opis):
+    if (barva in BARVE) and (opis in OPISI):
+      self.barva = barva
+      self.opis = opis
+    else:
+      self.barva = None
+      self.opis = None
+      print("Neveljavna karta: ", barva, opis)
+
+  # Vrne dvo-znakovno predstavitev karte
+  def __str__(self):
+    return self.barva + self.opis
+
+  # Vrne barvo karte
+  def vrni_barvo(self):
+    return self.barva
+
+  # Vrne opis ali rang karte
+  def vrni_opis(self):
+    return self.opis
+
+  # Izriše sliko karte na platnu, na danem položaju
+  def izpis(self, platno, poz, hrbet=True):
+    if hrbet:
+      slika = KARTE["BG"]
+    else:
+      k = self.barva + self.opis
+      slika = KARTE[k]
+    platno.create_image(poz[0], poz[1], \
+      anchor=tk.NW, image=slika)
+
+
+# Definicija razreda 'Komplet'
+class Komplet:
+
+  # Ustvari objekt 'Komplet', ki vsebuje vseh 52 kart
+  def __init__(self):
+    self.karte = []
+    for barva in BARVE:
+      for opis in OPISI:
+        karta = Karta(barva, opis)
+        self.karte.append(karta)
+
+  # Premešaj komplet kart
+  def premesaj(self):
+    random.shuffle(self.karte)
+
+  # Deli naslednjo karto iz kompleta
+  def deli_karto(self):
+    return self.karte.pop()
+
+  # Vrne besedilno predstavitev kompleta kart
+  def __str__(self):
+    sporocilo = "Komplet vsebuje"
+    for karta in self.karte:
+      sporocilo += " " + str(karta)
+    return sporocilo
+
+
+# Definicija razreda 'Igralec'
+class Igralec(Komplet):
+
+  # Ustvari objekt 'Igralec'
+  def __init__(self):
+    self.karte = []
+    # Karte, ki jih igralec odloži/vrže med igro
+    self.zaloga = []
+
+  # Vrne predstavitev kart, ki jih v roki drži igralec
+  def __str__(self):
+    sporocilo = "V roki drži"
+    for karta in self.karte:
+        sporocilo += " " + str(karta)
+    return sporocilo
+
+  # Igralcu doda nov objekt 'Karta' na konec
+  def dodaj_karto(self, karta):
+    self.karte.append(karta)
+
+  # Igralcu doda objekt 'Karta' na začetek
+  def vstavi_karto(self, karta):
+    self.karte.insert(0, karta)
+
+  # Igralcu odvzame objekt 'Karta' in ga doda v zalogo
+  def vrzi_karto(self):
+    if self.karte:
+      karta = self.karte.pop()
+      self.zaloga.append(karta)
+
+  # Vrne število kart, ki jih ima igralec:
+  # tistih v roki in odloženih
+  def stevilo(self):
+    return len(self.karte) + len(self.zaloga)
+
+  # Izriše karte - uporabi metodo izpis razreda 'Karta'
+  def izpis(self, platno, poz, delivec=False):
+    # Izpis obrnjenih kart, ki jih ima igralec
+    # še v roki. Vse karte so obrnjene
+    ROB = 1
+    i = 0
+    for karta in self.karte:
+      karta.izpis(platno, [poz[0]+i*ROB, poz[1]], True)
+      i += 1
+    # Izpis odvrženih kart
+    ROB = 12
+    ODMIK = 180
+    i = 0
+    for karta in self.zaloga:
+      # Ali prikaže sprednjo ali zadnjo stran karte
+      obrni = i % 3
+      if i == len(self.zaloga)-1:
+        obrni = False
+      karta.izpis(platno, [ODMIK+poz[0]+i*ROB, poz[1]],
+                  obrni)
+      i += 1
+
+
+# Določi krmilnik gumba 'Deli'
+def deli():
+  global komplet
+  komplet = Komplet()
+  komplet.premesaj()
+
+  global igra_poteka, igralec, delivec
+  igra_poteka = True
+  igralec = Igralec()
+  delivec = Igralec()
+  # Izmenično razdeli 26 kart igralcu in delivcu
+  for i in range(26):
+    igralec.dodaj_karto(komplet.deli_karto())
+    delivec.dodaj_karto(komplet.deli_karto())
+  print("Igralec: "+str(igralec))
+  print("Delivec: "+str(delivec))
+  izpis()
+
+
+# Določi krmilnik gumba 'Vrzi'
+def vrzi():
+  global igra_poteka, vojna_poteka
+  global izid, igralec, delivec
+
+  if igra_poteka:
+    # Zadnja vržena karta delivca in igralca
+    if delivec.zaloga and igralec.zaloga:
+      karta_d = delivec.zaloga[-1].vrni_opis()
+      karta_i = igralec.zaloga[-1].vrni_opis()
+
+      # Če je vojna
+      if karta_d == karta_i:
+        vojna_poteka = True
+        delivec.vrzi_karto()
+        delivec.vrzi_karto()
+        igralec.vrzi_karto()
+        igralec.vrzi_karto()
+        izid = "Vojna!"
+
+      # Sicer (če ni vojne)
+      else:
+        # Delivec ima višjo karto, kar pomeni,
+        # da dobi svoje in igralčeve karte
+        vojna_poteka = False
+        if VREDNOSTI[karta_d] > VREDNOSTI[karta_i]:
+          for karta in igralec.zaloga:
+            delivec.vstavi_karto(karta)
+          for karta in delivec.zaloga:
+            delivec.vstavi_karto(karta)
+          if not igralec.karte:
+            igra_poteka = False
+            izid = "Jack je zmagal! Nova igra?"
+            REZULTAT["SKUPAJ"] += 1
+        # Igralec dobi vse karte
+        else:
+          for karta in delivec.zaloga:
+            igralec.vstavi_karto(karta)
+          for karta in igralec.zaloga:
+            igralec.vstavi_karto(karta)
+          if not delivec.karte:
+            igra_poteka = False
+            izid = "Zmagal si! Nova igra?"
+            REZULTAT["SKUPAJ"] += 1
+            REZULTAT["ZMAGE"] += 1
+
+      if not vojna_poteka:
+        delivec.zaloga = []
+        igralec.zaloga = []
+        izid = "Vrzi karto..."
+
+    delivec.vrzi_karto()
+    igralec.vrzi_karto()
+    izpis()
+
+
+# Določi krmilnik izpisa/izrisa
+def izpis():
+  # Izbriši vsebino platna
+  platno.delete("all")
+
+  global igra_poteka, izid, igralec, delivec
+  igralec.izpis(platno, [50, 230])
+  delivec.izpis(platno, [50, 410])
+
+  txt1 = "Vojna"
+  txt2 = "Tvoje karte (" + str(igralec.stevilo()) + ")"
+  txt3 = "Jackove karte (" + str(delivec.stevilo()) + ")"
+  txt4 = "STANJE: " + izid
+  txt5 = "REZULTAT: zmage: " + str(REZULTAT["ZMAGE"]) \
+         + ", skupaj: " + str(REZULTAT["SKUPAJ"])
+
+  platno.create_text(50, 70, fill="white", anchor=tk.NW, \
+    text=txt1, font=("Times", 30))
+  platno.create_text(50, 200, fill="white", anchor=tk.NW, \
+    text=txt2, font=("Times", 15))
+  platno.create_text(50, 380, fill="white", anchor=tk.NW, \
+    text=txt3, font=("Times", 15))
+  platno.create_text(50, 140, fill="white", anchor=tk.NW, \
+    text=txt4, font=("Times", 15))
+  platno.create_text(50, 560, fill="white", anchor=tk.NW, \
+    text=txt5, font=("Times", 15))
+
+# Ustvari okno, okvir in platno
+okno = tk.Tk()
+okno.title("Vojna")
+okno.geometry("840x640")
+
+okvir = tk.Frame(okno)
+okvir.grid(row=0, column=0, pady=20)
+
+platno = tk.Canvas(okno, width=650, height=600)
+platno.configure(bg="darkgreen")
+platno.grid(row=0, column=1, pady=20)
+
+# Naloži slike kart. Slike kart so v podmapi 'karte',
+# ki je v isti mapi kot datoteka 'vojna.py'
+KARTE = {'BG': tk.PhotoImage(file="karte/BG.gif")}
+for barva in BARVE:
+  for opis in OPISI:
+    karta = barva + opis
+    datoteka = "karte/" + karta + ".gif"
+    KARTE[karta] = tk.PhotoImage(file=datoteka)
+
+# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+gumb1 = tk.Button(okvir, text="Deli", command=deli)
+gumb1.configure(width=10)
+gumb1.grid(row=0, column=0, padx=45)
+gumb2 = tk.Button(okvir, text="Vrzi", command=vrzi)
+gumb2.configure(width=10)
+gumb2.grid(row=1, column=0, padx=45)
+
+# Zaženi dogodkovno zanko
+deli()
+okno.mainloop()
+</pre>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div>
+<form>
+<p><textarea id="eddiv">
+import simplegui
+import random
+
+# Naloži sliko, ki vsebuje vse karte
+VEL = (86, 120) # Velikost posamezne karte
+SRED = (43, 60) # Središče posamezne karte
+slike_kart = simplegui.load_image('http://tiny.cc/deck')
+
+# Definicija globalnih spremenljivk
+igra_poteka = False
+vojna_poteka = False
+izid = "Vrzi karto..."
+REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
+
+# Definicija globalnih spremenljivk za karte
+BARVE = ("C", "S", "H", "D") # Club/Spade/Heart/Diamond
+OPISI = ("A", "2", "3", "4", "5", "6", "7", "8", "9",
+         "X", "J", "Q", "K")
+VREDNOSTI = {"A":14, "2":2, "3":3, "4":4, "5":5,
+             "6":6, "7":7, "8":8, "9":9, "X":10,
+             "J":11, "Q":12, "K":13}
+
+
+# Definicija razreda 'Karta'
+class Karta:
+
+  # Ustvari objekt 'Karta'
+  def __init__(self, barva, opis):
+    if (barva in BARVE) and (opis in OPISI):
+      self.barva = barva
+      self.opis = opis
+    else:
+      self.barva = None
+      self.opis = None
+      print("Neveljavna karta: ", barva, opis)
+
+  # Vrne dvo-znakovno predstavitev karte
+  def __str__(self):
+    return self.barva + self.opis
+
+  # Vrne barvo karte
+  def vrni_barvo(self):
+    return self.barva
+
+  # Vrne opis ali rang karte
+  def vrni_opis(self):
+    return self.opis
+
+  # Izriše sliko karte na platnu, na danem položaju
+  def izpis(self, platno, poz, hrbet=True):
+    if hrbet:
+      polozaj = (SRED[0]+VEL[0]*2,
+                 SRED[1]+VEL[1]*4)
+    else:
+      polozaj = (SRED[0]+VEL[0]*OPISI.index(self.opis),
+                 SRED[1]+VEL[1]*BARVE.index(self.barva))
+    platno.draw_image(slike_kart, polozaj, VEL,
+              [poz[0]+SRED[0], poz[1]+SRED[1]], VEL)
+
+
+# Definicija razreda 'Komplet'
+class Komplet:
+
+  # Ustvari objekt 'Komplet', ki vsebuje vseh 52 kart
+  def __init__(self):
+    self.karte = []
+    for barva in BARVE:
+      for opis in OPISI:
+        karta = Karta(barva, opis)
+        self.karte.append(karta)
+
+  # Premešaj komplet kart
+  def premesaj(self):
+    random.shuffle(self.karte)
+
+  # Deli naslednjo karto iz kompleta
+  def deli_karto(self):
+    return self.karte.pop()
+
+  # Vrne besedilno predstavitev kompleta kart
+  def __str__(self):
+    sporocilo = "Komplet vsebuje"
+    for karta in self.karte:
+      sporocilo += " " + str(karta)
+    return sporocilo
+
+
+# Definicija razreda 'Igralec'
+class Igralec(Komplet):
+
+  # Ustvari objekt 'Igralec'
+  def __init__(self):
+    self.karte = []
+    # Karte, ki jih igralec odloži/vrže med igro
+    self.zaloga = []
+
+  # Vrne predstavitev kart, ki jih v roki drži igralec
+  def __str__(self):
+    sporocilo = "V roki drzi"
+    for karta in self.karte:
+        sporocilo += " " + str(karta)
+    return sporocilo
+
+  # Igralcu doda nov objekt 'Karta' na konec
+  def dodaj_karto(self, karta):
+    self.karte.append(karta)
+
+  # Igralcu doda objekt 'Karta' na začetek
+  def vstavi_karto(self, karta):
+    self.karte.insert(0, karta)
+
+  # Igralcu odvzame objekt 'Karta' in ga doda v zalogo
+  def vrzi_karto(self):
+    if self.karte:
+      karta = self.karte.pop()
+      self.zaloga.append(karta)
+
+  # Vrne število kart, ki jih ima igralec:
+  # tistih v roki in odloženih
+  def stevilo(self):
+    return len(self.karte) + len(self.zaloga)
+
+  # Izriše odvržene karte iz zaloge, pri tem
+  # uporabi metodo izpis razreda 'Karta'
+  def izpis(self, platno, poz):
+    # Izpis obrnjenih kart, ki jih ima igralec
+    # še v roki. Vse karte so obrnjene
+    ROB = 1
+    i = 0
+    for karta in self.karte:
+      karta.izpis(platno, [poz[0]+i*ROB, poz[1]], True)
+      i += 1
+    # Izpis odvrženih kart
+    ROB = 12
+    ODMIK = 180
+    i = 0
+    for karta in self.zaloga:
+      # Ali prikaže sprednjo ali zadnjo stran karte
+      obrni = i % 3
+      if i == len(self.zaloga)-1:
+        obrni = False
+      karta.izpis(platno, [ODMIK+poz[0]+i*ROB, poz[1]],
+                  obrni)
+      i += 1
+
+
+# Določi krmilnik gumba 'Deli'
+def deli():
+  global komplet
+  komplet = Komplet()
+  komplet.premesaj()
+
+  global igra_poteka, igralec, delivec
+  igra_poteka = True
+  igralec = Igralec()
+  delivec = Igralec()
+  # Izmenično razdeli 26 kart igralcu in delivcu
+  for i in range(26):
+    igralec.dodaj_karto(komplet.deli_karto())
+    delivec.dodaj_karto(komplet.deli_karto())
+  print("Igralec: "+str(igralec))
+  print("Delivec: "+str(delivec))
+
+
+# Določi krmilnik gumba 'Vrzi'
+def vrzi():
+  global igra_poteka, vojna_poteka
+  global izid, igralec, delivec
+
+  if igra_poteka:
+    # Zadnja vržena karta delivca in igralca
+    if delivec.zaloga and igralec.zaloga:
+      karta_d = delivec.zaloga[-1].vrni_opis()
+      karta_i = igralec.zaloga[-1].vrni_opis()
+
+      # Če je vojna
+      if karta_d == karta_i:
+        vojna_poteka = True
+        # DOPOLNI: kaj naj se zgodi v primeru vojne
+        #          (igralec in delivec odvržeta karte)
+        izid = "Vojna!"
+
+      # Sicer (če ni vojne)
+      else:
+        # Delivec ima višjo karto, kar pomeni,
+        # da dobi svoje in igralčeve karte
+        vojna_poteka = False
+        if VREDNOSTI[karta_d] > VREDNOSTI[karta_i]:
+          # DOPOLNI: delivec dobi vse karte
+          #          ne pozabi izbrisati 'pass'!
+          pass
+        
+        # Igralec dobi vse karte
+        else:
+          # DOPOLNI: igralec dobi vse karte
+          #          ne pozabi izbrisati 'pass'!
+          pass
+
+      if not vojna_poteka:
+        delivec.zaloga = []
+        igralec.zaloga = []
+        izid = "Vrzi karto..."
+
+    # DOPOLNI: igralec in delivec vržeta vsak po 1 karto
+
+
+# Določi krmilnik izpisa/izrisa
+def izpis(platno):
+  global igra_poteka, izid, igralec, delivec
+
+  igralec.izpis(platno, [50, 220])
+  delivec.izpis(platno, [50, 400])
+
+  txt1 = "Vojna"
+  txt2 = "Tvoje karte (" + str(igralec.stevilo()) + ")"
+  txt3 = "Jackove karte (" + str(delivec.stevilo()) + ")"
+  txt4 = "STANJE: " + izid
+  txt5 = "REZULTAT: zmage: " + str(REZULTAT["ZMAGE"]) \
+         + ", skupaj: " + str(REZULTAT["SKUPAJ"])
+
+  platno.draw_text(txt1, [50, 70], 40, "white")
+  platno.draw_text(txt2, [50, 200], 20, "white")
+  platno.draw_text(txt3, [50, 380], 20, "white")
+  platno.draw_text(txt4, [50, 140], 20, "white")
+  platno.draw_text(txt5, [50, 560], 20, "white")
+
+    
+# Ustvari okvir
+frame = simplegui.create_frame("Vojna", 650, 600)
+frame.set_canvas_background("green")
+
+# Ustvari gumbe in jih poveži z dogodkovnimi krmilniki
+frame.add_button("Deli", deli, 200)
+frame.add_button("Vrzi", vrzi, 200)
+frame.set_draw_handler(izpis)
+
+# Zaženi animacijo okvirja
+deli()
+frame.start()
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-danger" role="alert">
+<p>
+	<span class="label label-danger"><b>6</b></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Dopolni GUI program za igranje igre s karatmi <i>vojna</i> (za dva igralca). Igro dopolni tako, da bo omogočala igranje igralca proti računalniku. Dopolniti moraš funkcijo <code>vrzi</code> na določenih mestih, ki so v kodi označena z oznako <code># DOPOLNI</code> in navodilom, kako moraš dopolniti kodo.</p>
+
+<p align="justify">Tisti, ki vrže višjo karto, pobere obe. Če sta karti enaki, potem oba odložita dodatni dve karti ter primerjata zadnji karti. Tisti, ki ima višjo karto pobere vse odložene karte itd. Zmagovalec je tisti, ki pobere vse karte.</p>
+
+<p align="justify">Slike kart, ki jih lahko uporabiš pri programiranju z modulom <code>simplegui</code>, najdeš na naslovu <code>http://tiny.cc/deck</code>. Slike kart, ki jih uporabiš pri programiranju z modulom <code>tkinter</code> dobiš, če klikneš spodnji gumb.</p>
+
+<p align="justify">Pomagaj si z diagramom razredov:</p>
+
+<p align="center"><img src="img/vojna.png" class="img-responsive"></p>
+
+<p>
+<br />
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#solution6s"><span class="fa fa-check"></span> Rešitev SimpleGUI</button>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#solution6t"><span class="fa fa-check"></span> Rešitev Tkinter</button>
+<a href="py/karte.zip" target="_blank" class="btn btn-danger"><span class="fa fa-picture-o"></span> Slike kart</a>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2404/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2405/index16.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2405/index.html">1</a></li>
+					<li><a href="../2405/index1.html">2</a></li>
+					<li><a href="../2405/index2.html">3</a></li>
+					<li><a href="../2405/index3.html">4</a></li>
+					<li><a href="../2405/index4.html">5</a></li>
+					<li><a href="../2405/index5.html">6</a></li>
+					<li><a href="../2405/index6.html">7</a></li>
+					<li><a href="../2405/index7.html">8</a></li>
+					<li><a href="../2405/index8.html">9</a></li>
+					<li><a href="../2405/index9.html">10</a></li>
+					<li><a href="../2405/index10.html">11</a></li>
+					<li><a href="../2405/index11.html">12</a></li>
+					<li><a href="../2405/index12.html">13</a></li>
+					<li><a href="../2405/index13.html">14</a></li>
+					<li><a href="../2405/index14.html">15</a></li>
+					<li><a href="../2405/index15.html">16</a></li>
+					<li><a href="../2405/index16.html">17</a></li>
+					<li class="active"><a href="#">18</a></li>
+					<li><a href="../2405/index18.html">19</a></li>
+					<li><a href="../2405/index18.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2501/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+	<script src="../js/skulpt/repl.js"></script>
+	<script src="js/skulpt.min.js"></script>
+	<script src="js/skulpt-stdlib-simplegui.js"></script>
+	<script src="js/codeskulptor.min.js"></script>
+	<script src="../js/skulpt/python.js"></script>
+	<script>Sk.python3 = true;</script>
+
+<script type="text/javascript">
+function outf(text) {
+  var mypre = document.getElementById("output");
+  mypre.innerHTML = mypre.innerHTML + text;
+}
+function builtinRead(x) {
+  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+    throw "File not found: '" + x + "'";
+  return Sk.builtinFiles["files"][x];
+}
+function runit() {
+    var prog = editor.getValue();
+    var mypre = document.getElementById("output");
+    mypre.innerHTML = '';
+    Sk.canvas = "mycanvas";
+    Sk.pre = "output";
+    Sk.configure({output:outf, read:builtinRead});
+    try {
+        eval(Sk.importMainWithBody("<stdin>",false,prog));
+    }
+    catch(e) {
+        alert(e.toString())
+    }
+}
+function clearit() {
+    var mypre = document.getElementById("output");
+    mypre.innerHTML = '';
+}
+</script>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("eddiv"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "python",
+  theme: "mbo"
+});
+editor.setSize('100%', 700);
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

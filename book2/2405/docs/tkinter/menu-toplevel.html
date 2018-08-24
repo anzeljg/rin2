@@ -1,0 +1,48 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menu-toplevel.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>15.2. Top-level menus</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="menu.html" title="15. The Menu widget"><link rel="prev" href="menu-coptions.html" title="15.1. Menu item creation (coption) options"><link rel="next" href="menubutton.html" title="16. The Menubutton widget"></head><body><div class="topnavbar"><a href="menubutton.html">Next</a> / <a href="menu-coptions.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="menu-toplevel"></a>15.2. Top-level menus</h3></div></div></div><p>
+        Especially under MacOS, it is sometimes desirable to
+        create menus that are shown as part of the top-level
+        window.  To do this, follow these steps.
+      </p><div class="procedure"><ol type="1"><li><p>
+            Using any widget <code class="code"><em class="replaceable"><code>W</code></em></code>, obtain the top-level window by using the
+            <code class="code"><em class="replaceable"><code>W</code></em>.winfo_toplevel()</code> method.
+          </p></li><li><p>
+            Create a <code class="code">Menu</code> widget, using the
+            top-level window as the first argument.
+          </p></li><li><p>
+            Items added to this <code class="code">Menu</code> widget
+            will be displayed across the top of the application.
+          </p></li></ol></div><p>
+        Here is a brief example.  Assume that <code class="code">self</code>
+        is the application instance, an instance of a class that
+        inherits from <code class="code">Frame</code>.  This code would
+        create a top-level menu choice named “<span class="guibutton">Help</span>” with one choice named
+        “<span class="guibutton">About</span>” that calls
+        a handler named <code class="code">self.__aboutHandler</code>:
+      </p><pre class="programlisting">    top = self.winfo_toplevel()
+    self.menuBar = tk.Menu(top)
+    top['menu'] = self.menuBar
+
+    self.subMenu = tk.Menu(self.menuBar)
+    self.menuBar.add_cascade(label='Help', menu=self.subMenu)
+    self.subMenu.add_command(label='About', command=self.__aboutHandler)
+</pre><p>
+        There is some variation in behavior depending on your
+        platform.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            Under Windows or Unix systems, the top-level menu
+            choices appear at the top of your application's main
+            window.
+          </p></li><li><p>
+            Under MacOS X, the top-level menu choices appear at
+            the top of the screen when the application is active,
+            right where Mac users expect to see them.
+          </p><p>
+            You must use the <code class="code">.add_cascade()</code> method
+            for all the items you want on the top menu bar.
+            Calls to <code class="code">.add_checkbutton()</code>, <code class="code">.add_command()</code>, or <code class="code">.add_radiobutton()</code> will be ignored.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="menubutton.html">16. The <code class="code">Menubutton</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="menu-coptions.html">15.1. <code class="code">Menu</code> item creation (<code class="code">coption</code>) options</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/menu-toplevel.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/menu-toplevel.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+</html>

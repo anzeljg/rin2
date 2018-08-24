@@ -1,0 +1,222 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/panedwindow.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>19. The PanedWindow widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="optionmenu.html" title="18. The OptionMenu widget"><link rel="next" href="pane-options.html" title="19.1. PanedWindow child configuration
+      options"></head><body><div class="topnavbar"><a href="pane-options.html">Next</a> / <a href="optionmenu.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="panedwindow"></a>19. The <code class="code">PanedWindow</code> widget</h2></div></div></div><p>
+      The purpose of the <code class="code">PanedWindow</code> widget is to
+      give the application's user some control over how space is
+      divided up within the application.
+    </p><p>
+      A <code class="code">PanedWindow</code> is somewhat like a <code class="code">Frame</code>: it is a container for <em class="firstterm">child
+      widgets</em>.  Each <code class="code">PanedWindow</code>
+      widget contains a horizontal or vertical stack of child
+      widgets.  Using the mouse, the user can drag the boundaries
+      between the child widgets back and forth.
+    </p><p>
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/panedwindow.png"></div></div><div class="itemizedlist"><ul type="disc" compact><li><p>
+          You may choose to display <em class="firstterm">handles</em> within the widget.  A handle is a
+          small square that the user can drag with the mouse.
+        </p></li><li><p>
+          You may choose to make <em class="firstterm">sashes</em>
+          visible.  A sash is a bar placed between the child
+          widgets.
+        </p></li><li><p>
+          A <em class="firstterm">pane</em> is the area occupied by
+          one child widget.
+        </p></li></ul></div><p>
+      To create a new <code class="code">PanedWindow</code> widget as the
+      child of a root window or frame named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.PanedWindow(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      This constructor returns the new <code class="code">PanedWindow</code>
+      widget.  Here are the options:
+    </p><div class="table"><a name="PanedWindow-options"></a><p class="title"><b>Table 27. <code class="code">PanedWindow</code> widget options</b></p><div class="table-contents"><table summary="PanedWindow widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              The background color displayed behind the child
+              widgets; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bd</code> or <code class="code">borderwidth</code>
+            </td><td align="left">
+              Width of the border around the outside of the
+              widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The
+              default is two pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor to be displayed when the mouse is over
+              the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">handlepad</code>
+            </td><td align="left">
+              Use this option to specify the distance between the
+              handle and the end of the sash.  For <code class="code">orient=tk.VERTICAL</code>, this is the distance
+              between the left end of the sash and the handle;
+              for <code class="code">orient=tk.HORIZONTAL</code>, it is the
+              distance between the top of the sash and the
+              handle.  The default value is eight pixels; for
+              other values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">handlesize</code>
+            </td><td align="left">
+              Use this option to specify the size of the handle,
+              which is always a square; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default value is
+              eight pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              Specifies the height of the widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  If you don't specify this
+              option, the height is determined by the height of
+              the child widgets.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">opaqueresize</code>
+            </td><td align="left">
+              This option controls how a resizing operation
+              works.  For the default value, <code class="code">opaqueresize=True</code>, the resizing is done
+              continuously as the sash is dragged.  If this
+              option is set to <code class="code">False</code>, the sash
+              (and adjacent child widgets) stays put until the
+              user releases the mouse button, and then it jumps
+              to the new position.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">orient</code>
+            </td><td align="left">
+              To stack child widgets side by side, use <code class="code">orient=tk.HORIZONTAL</code>.  To stack them top to
+              bottom, use <code class="code">orient=tk.VERTICAL</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Selects the relief style of the border around the
+              widget; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  The default
+              is <code class="code">tk.FLAT</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sashpad</code>
+            </td><td align="left">
+              Use this option to allocate extra space on either
+              side of each sash.  The default is zero; for other
+              values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sashrelief</code>
+            </td><td align="left">
+              This option specifies the relief style used to
+              render the sashes; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+              The default style is <code class="code">tk.FLAT</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">sashwidth</code>
+            </td><td align="left">
+              Specifies the width of the sash; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default width is two
+              pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">showhandle</code>
+            </td><td align="left">
+              Use <code class="code">showhandle=True</code> to display the
+              handles.  For the default value, <code class="code">False</code>, the user can still use the mouse to move the
+              sashes.  The handle is simply a visual cue.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              Width of the widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  If you don't specify a value, the width will
+              be determined by the sizes of the child widgets.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      To add child widgets to a <code class="code">PanedWindow</code>,
+      create the child widgets as children of the parent <code class="code">PanedWindow</code>, but rather than using the <code class="code">.grid()</code> method to register them, use the <code class="code">.add()</code> method on the <code class="code">PanedWindow</code>.
+    </p><p>
+      Here are the methods on <code class="code">PanedWindow</code> widgets.
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.add(<em class="replaceable"><code>child</code></em>[,
+          <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>] ...)</code>
+        </span></dt><dd><p>
+            Use this method to add the given <code class="code"><em class="replaceable"><code>child</code></em></code> widget as the next
+            child of this <code class="code">PanedWindow</code>.  First
+            create the <code class="code"><em class="replaceable"><code>child</code></em></code> widget with the <code class="code">PanedWindow</code>
+            as its parent widget, but do not call the <code class="code">.grid()</code> method to register it.  Then call
+            <code class="code">.add(<em class="replaceable"><code>child</code></em>)</code> and the child will appear inside the <code class="code">PanedWindow</code> in the next available position.
+          </p><p>
+            Associated with each child is a set of configuration
+            options that control its position and appearance.
+            See <a href="pane-options.html" title="19.1. PanedWindow child configuration
+      options">Section 19.1, “<code class="code">PanedWindow</code> child configuration
+      options”</a>.  You can supply
+            these configuration options as keyword arguments to
+            the <code class="code">.add()</code> method.  You can also set
+            or change their values anytime with the <code class="code">.paneconfig()</code> method, or retrieve the
+            current value of any of these options using the <code class="code">.panecget()</code> method; these methods are
+            described below.
+          </p></dd><dt><span class="term">
+          <code class="code">.forget(<em class="replaceable"><code>child</code></em>)</code>
+        </span></dt><dd><p>
+            Removes a child widget.
+          </p></dd><dt><span class="term">
+          <code class="code">.identify(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em></code>
+        </span></dt><dd><p>
+            For a given location <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> in window coordinates, this method returns
+            a value that describes the feature at that location.
+          </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+                If the feature is a child window, the method
+                returns an empty string.
+              </p></li><li><p>
+                If the feature is a sash, the method returns a
+                tuple <code class="code">(<em class="replaceable"><code>n</code></em>,
+                'sash')</code> where <code class="code"><em class="replaceable"><code>n</code></em></code> is 0 for the first
+                sash, 1 for the second, and so on.
+              </p></li><li><p>
+                If the feature is a handle, the method returns a
+                tuple <code class="code">(<em class="replaceable"><code>n</code></em>,
+                'handle')</code> where <code class="code"><em class="replaceable"><code>n</code></em></code> is 0 for the first
+                handle, 1 for the second, and so on.
+              </p></li></ul></div></dd><dt><span class="term">
+          <code class="code">.panecget(<em class="replaceable"><code>child</code></em>,
+          <em class="replaceable"><code>option</code></em>)</code>
+        </span></dt><dd><p>
+            This method retrieves the value of a child widget
+            configuration option, where <code class="code"><em class="replaceable"><code>child</code></em></code> is the child widget and
+            <code class="code">option</code> is the name of the option as a
+            string.  For the list of child widget configuration
+            options, see <a href="pane-options.html" title="19.1. PanedWindow child configuration
+      options">Section 19.1, “<code class="code">PanedWindow</code> child configuration
+      options”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.paneconfig(<em class="replaceable"><code>child</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)</code>
+        </span></dt><dd><p>
+            Use this method to configure options for child
+            widgets.  The options are described in <a href="pane-options.html" title="19.1. PanedWindow child configuration
+      options">Section 19.1, “<code class="code">PanedWindow</code> child configuration
+      options”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.panes()</code>
+        </span></dt><dd><p>
+            This method returns a list of the child widgets, in
+            order from left to right (for <code class="code">orient=tk.HORIZONTAL</code>) or top to bottom (for
+            <code class="code">orient=tk.VERTICAL</code>).
+          </p></dd><dt><span class="term">
+          <code class="code">.remove(<em class="replaceable"><code>child</code></em>)</code>
+        </span></dt><dd><p>
+            Removes the given <code class="code"><em class="replaceable"><code>child</code></em></code>; this is the same
+            action as the <code class="code">.forget()</code> method.
+          </p></dd><dt><span class="term">
+          <code class="code">.sash_coord(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            This method returns the location of a sash.  The
+            <code class="code"><em class="replaceable"><code>index</code></em></code>
+            argument selects the sash: 0 for the sash between the
+            first two children, 1 for the sash between the second
+            and third child, and so forth.  The result is a tuple
+            <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> containing the coordinates
+            of the upper left corner of the sash.
+          </p></dd><dt><span class="term">
+          <code class="code">.sash_place(<em class="replaceable"><code>index</code></em>, <em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Use this method to reposition the sash selected by
+            <code class="code"><em class="replaceable"><code>index</code></em></code> (0
+            for the first sash, and so on).  The <code class="code"><em class="replaceable"><code>x</code></em></code> and <code class="code"><em class="replaceable"><code>y</code></em></code> coordinates
+            specify the desired new position of the upper left
+            corner of the sash.  <span class="application">Tkinter</span> ignores the coordinate
+            orthogonal to the orientation of the widget: use the
+            <code class="code"><em class="replaceable"><code>x</code></em></code> value
+            to reposition the sash for <code class="code">orient=tk.HORIZONTAL</code>, and use the <code class="code"><em class="replaceable"><code>y</code></em></code> coordinate to
+            move the sash for option <code class="code">orient=tk.VERTICAL</code>.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="pane-options.html">19.1. <code class="code">PanedWindow</code> child configuration
+      options</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="optionmenu.html">18. The <code class="code">OptionMenu</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/panedwindow.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/panedwindow.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:50 GMT -->
+</html>

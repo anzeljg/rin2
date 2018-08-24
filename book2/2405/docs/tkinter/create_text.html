@@ -1,0 +1,99 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_text.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.14. Canvas text objects</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="create_rectangle.html" title="8.13. Canvas rectangle objects"><link rel="next" href="create_window.html" title="8.15. Canvas window objects"></head><body><div class="topnavbar"><a href="create_window.html">Next</a> / <a href="create_rectangle.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="create_text"></a>8.14. <code class="code">Canvas</code> text objects</h3></div></div></div><p>
+        You can display one or more lines of text on a canvas
+        <code class="code"><em class="replaceable"><code>C</code></em></code> by creating a
+        text object:
+      </p><pre class="programlisting">    <em class="replaceable"><code>id</code></em> = <em class="replaceable"><code>C</code></em>.create_text(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+        This returns the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object
+        ID</a> of the text object on canvas <code class="code"><em class="replaceable"><code>C</code></em></code>.  Options include:
+      </p><div class="table"><a name="Canvas-text-options"></a><p class="title"><b>Table 14. <code class="code">Canvas text</code> options</b></p><div class="table-contents"><table summary="Canvas text options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">activefill</code>
+              </td><td align="left" valign="top">
+                The text color to be used when the text is
+                active, that is, when the mouse is over it.  For
+                option values, see <code class="code">fill</code> below.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activestipple</code>
+              </td><td align="left" valign="top">
+                The stipple pattern to be used when the text is
+                active.  For option values, see <code class="code">stipple</code> below.
+              </td></tr><tr><td align="left" valign="top"><code class="code">anchor</code></td><td align="left">
+                The default is <code class="code">anchor=tk.CENTER</code>,
+                meaning that the text is centered vertically and
+                horizontally around position (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>).  See
+                <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a> for possible values.
+                For example, if you specify <code class="code">anchor=tk.SW</code>, the text will be positioned
+                so its lower left corner is at point (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>).
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledfill</code>
+              </td><td align="left" valign="top">
+                The text color to be used when the text object's
+                <code class="code">state</code> is <code class="code">tk.DISABLED</code>.
+                For option values, see <code class="code">fill</code> below.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledstipple</code>
+              </td><td align="left" valign="top">
+                The stipple pattern to be used when the text is
+                disabled.  For option values, see <code class="code">stipple</code> below.
+              </td></tr><tr><td align="left" valign="top"><code class="code">fill</code></td><td align="left">
+                The default text color is black, but you can
+                render it in any color by setting the <code class="code">fill</code> option to that color.  See <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">font</code></td><td align="left">
+                If you don't like the default font, set this
+                option to any font value.  See <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">justify</code></td><td align="left">
+                For multi-line textual displays, this option
+                controls how the lines are justified: <code class="code">tk.LEFT</code> (the default), <code class="code">tk.CENTER</code>, or <code class="code">tk.RIGHT</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">offset</code>
+              </td><td align="left" valign="top">
+                The stipple offset to be used in rendering the
+                text.  For more information, see <a href="stipple-offset.html" title="5.14. Matching stipple patterns">Section 5.14, “Matching stipple patterns”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">state</code>
+              </td><td align="left" valign="top">
+                By default, the text item's state is <code class="code">tk.NORMAL</code>.  Set this option to <code class="code">tk.DISABLED</code> to make in unresponsive to
+                mouse events, or set it to <code class="code">tk.HIDDEN</code>
+                to make it invisible.
+              </td></tr><tr><td align="left" valign="top"><code class="code">stipple</code></td><td align="left">
+                A bitmap indicating how the text will be
+                stippled.  Default is <code class="code">stipple=''</code>,
+                which means solid.  A typical value would be
+                <code class="code">stipple='gray25'</code>.  See <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a>.
+              </td></tr><tr><td align="left" valign="top"><code class="code">tags</code></td><td align="left">
+                If a single string, the text object is tagged with
+                that string.  Use a tuple of strings to tag the
+                object with multiple tags.  See <a href="canvas-tags.html" title="8.4. Canvas tags">Section 8.4, “<code class="code">Canvas</code> tags”</a>. 
+             </td></tr><tr><td align="left" valign="top"><code class="code">text</code></td><td align="left">
+                The text to be displayed in the object, as a
+                string.  Use newline characters (<code class="code">'\n'</code>) to force line breaks.
+              </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+                If you don't specify a <code class="code">width</code>
+                option, the text will be set inside a rectangle
+                as long as the longest line.  However, you can
+                also set the <code class="code">width</code> option to a
+                dimension, and each line of the text will be
+                broken into shorter lines, if necessary, or even
+                broken within words, to fit within the specified
+                width.  See <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.
+              </td></tr></tbody></table></div></div><br class="table-break"><p>
+        You can change the text displayed in a text item.
+      </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+            To retrieve the text from an item with <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID</a> <code class="code"><em class="replaceable"><code>I</code></em></code> on a canvas
+            <code class="code"><em class="replaceable"><code>C</code></em></code>, call
+            <code class="code"><em class="replaceable"><code>C</code></em>.itemcget(<em class="replaceable"><code>I</code></em>,
+            'text')</code>.
+          </p></li><li><p>
+            To replace the text in an item with <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID</a> <code class="code"><em class="replaceable"><code>I</code></em></code> on a canvas
+            <code class="code"><em class="replaceable"><code>C</code></em></code> with
+            the text from a string <code class="code"><em class="replaceable"><code>S</code></em></code>, call <code class="code"><em class="replaceable"><code>C</code></em>.itemconfigure(<em class="replaceable"><code>I</code></em>, text=<em class="replaceable"><code>S</code></em>)</code>.
+          </p></li></ul></div><p>
+        A number of canvas methods allow you to manipulate text
+        items.  See <a href="canvas-methods.html" title="8.6. Methods on Canvas widgets">Section 8.6, “Methods on <code class="code">Canvas</code> widgets”</a>, especially
+        <code class="code">dchars</code>, <code class="code">focus</code>, <code class="code">icursor</code>, <code class="code">index</code>, and <code class="code">insert</code>.
+      </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="create_window.html">8.15. <code class="code">Canvas</code> window objects</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="create_rectangle.html">8.13. <code class="code">Canvas</code> rectangle objects</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/create_text.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_text.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:45 GMT -->
+</html>

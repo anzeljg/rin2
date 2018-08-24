@@ -1,0 +1,47 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/connecting.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>51. Connecting your application logic to the widgets</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes"><link rel="next" href="control-variables.html" title="52. Control variables: the values behind the widgets"></head><body><div class="topnavbar"><a href="control-variables.html">Next</a> / <a href="ttk-map.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="connecting"></a>51. Connecting your application logic to the widgets</h2></div></div></div><p>
+      The preceding sections talked about how to arrange and
+      configure the widgets—the front panel of the
+      application.
+    </p><p>
+      Next, we'll talk about how to connect up the widgets to the
+      logic that carries out the actions that the user requests.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          To make your application respond to events such as
+          mouse clicks or keyboard inputs, there are two methods:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              Some controls such as buttons have a <code class="code">command</code> attribute that lets you specify a
+              procedure, called a <em class="firstterm">handler</em>,
+              that will be called whenever the user clicks that
+              control.
+            </p><p>
+              The sequence of events for using a <code class="code">Button</code> widget is very specific, though.
+              The user must move the mouse pointer onto the
+              widget with mouse button 1 up, then press mouse
+              button 1, and then release mouse button 1 while
+              still on the widget.  No other sequence of events
+              will “press” a <code class="code">Button</code>
+              widget.
+            </p></li><li><p>
+              There is a much more general mechanism that can let
+              your application react to many more kinds of
+              inputs: the press or release of any keyboard key or
+              mouse button; movement of the mouse into, around,
+              or out of a widget; and many other events.  As with
+              <code class="code">command</code> handlers, in this mechanism
+              you write handler procedures that will be called
+              whenever certain types of events occur.  This
+              mechanism is discussed under <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a>.
+            </p></li></ul></div></li><li><p>
+          Many widgets require you to use <em class="firstterm">control
+          variables</em>, special objects that connect
+          widgets together and to your program, so that you can
+          read and set properties of the widgets.  Control
+          variables will be discussed in the next section.
+        </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="control-variables.html">52. Control variables: the values behind the widgets</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-map.html">50.2. <span class="application">ttk</span> style maps: dynamic appearance
+      changes</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/connecting.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/connecting.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

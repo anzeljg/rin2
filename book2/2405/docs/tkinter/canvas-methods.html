@@ -1,0 +1,657 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas-methods.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.6. Methods on Canvas widgets</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><link rel="next" href="create_arc.html" title="8.7. Canvas arc objects"></head><body><div class="topnavbar"><a href="create_arc.html">Next</a> / <a href="tag-or-id.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="canvas-methods"></a>8.6. Methods on <code class="code">Canvas</code> widgets</h3></div></div></div><p>
+        All <code class="code">Canvas</code> objects support these methods:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">.addtag_above(<em class="replaceable"><code>newTag</code></em>, <em class="replaceable"><code>tagOrId</code></em>)</code>
+          </span></dt><dd><p>
+              Attaches a new <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a> to the object just above the one
+              specified by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> in the display list.  The <code class="code"><em class="replaceable"><code>newTag</code></em></code>
+              argument is the tag you want to attach, as a
+              string.
+            </p></dd><dt><span class="term">
+            <code class="code">.addtag_all(<em class="replaceable"><code>newTag</code></em>)</code>
+          </span></dt><dd><p>
+              Attaches the given <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a>
+              <code class="code"><em class="replaceable"><code>newTag</code></em></code>
+              to all the objects on the canvas.
+            </p></dd><dt><span class="term">
+            <code class="code">.addtag_below(<em class="replaceable"><code>newTag</code></em>,
+            <em class="replaceable"><code>tagOrID</code></em>)</code>
+          </span></dt><dd><p>
+              Attaches a new <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a>
+              to the object just below the one specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> in the
+              display list.  The
+              <code class="code"><em class="replaceable"><code>newTag</code></em></code>
+              argument is a tag string.
+            </p></dd><dt><span class="term">
+            <code class="code">.addtag_closest(<em class="replaceable"><code>newTag</code></em>, <em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>, <em class="replaceable"><code>halo</code></em>=None, <em class="replaceable"><code>start</code></em>=None)</code>
+          </span></dt><dd><p>
+              Adds a <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a> to the
+              object closest to screen
+              coordinate (x,y).  If there are two or more objects
+              at the same distance, the one higher in the <a href="display-list.html" title="8.2. The Canvas display list">display list</a> is
+              selected.
+            </p><p>
+              Use the
+              <code class="code"><em class="replaceable"><code>halo</code></em></code>
+              argument to increase the effective size of the
+              point.  For example, a value of 5 would treat any
+              object within 5 pixels of (x,y) as
+              overlapping.
+            </p><p>
+              If an <a href="canvas-oid.html" title="8.3. Canvas object IDs">object
+              ID</a> is passed in the
+              <code class="code"><em class="replaceable"><code>start</code></em></code>
+              argument, this method tags the highest qualifying
+              object that is below
+              <code class="code"><em class="replaceable"><code>start</code></em></code>
+              in the display list.
+            </p></dd><dt><span class="term">
+            <code class="code">.addtag_enclosed(<em class="replaceable"><code>newTag</code></em>,
+            <em class="replaceable"><code>x1</code></em>,
+            <em class="replaceable"><code>y1</code></em>,
+            <em class="replaceable"><code>x2</code></em>,
+            <em class="replaceable"><code>y2</code></em>)</code>
+          </span></dt><dd><p>
+              Add <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a>
+              <code class="code"><em class="replaceable"><code>newTag</code></em></code>
+              to all objects that occur completely within the
+              rectangle whose top left corner is
+              (<code class="code"><em class="replaceable"><code>x1</code></em></code>,
+              <code class="code"><em class="replaceable"><code>y1</code></em></code>) and
+              whose bottom right corner is
+              (<code class="code"><em class="replaceable"><code>x2</code></em></code>,
+              <code class="code"><em class="replaceable"><code>y2</code></em></code>).
+            </p></dd><dt><span class="term">
+            <code class="code">.addtag_overlapping(<em class="replaceable"><code>newTag</code></em>,
+            <em class="replaceable"><code>x1</code></em>,
+            <em class="replaceable"><code>y1</code></em>,
+            <em class="replaceable"><code>x2</code></em>,
+            <em class="replaceable"><code>y2</code></em>)</code>
+          </span></dt><dd><p>
+              Like the previous method, but affects all
+              objects that share at least one point with the
+              given rectangle.
+            </p></dd><dt><span class="term">
+            <code class="code">.addtag_withtag(<em class="replaceable"><code>newTag</code></em>, <em class="replaceable"><code>tagOrId</code></em>)</code>
+          </span></dt><dd><p>
+              Adds <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a>
+              <code class="code"><em class="replaceable"><code>newTag</code></em></code>
+              to the object or objects specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.
+            </p></dd><dt><span class="term">
+            <code class="code">.bbox(tagOrId=None)</code>
+          </span></dt><dd><p>
+              Returns a tuple (x<sub>1</sub>,
+              y<sub>1</sub>,
+              x<sub>2</sub>,
+              y<sub>2</sub>) describing a rectangle
+              that encloses all the objects specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.  If the
+              argument is omitted, returns a rectangle enclosing
+              all objects on the canvas.  The top left corner of
+              the rectangle is (x<sub>1</sub>,
+              y<sub>1</sub>) and the bottom right
+              corner is (x<sub>2</sub>,
+              y<sub>2</sub>).
+            </p></dd><dt><span class="term">
+            <code class="code">.canvasx(<em class="replaceable"><code>screenx</code></em>,
+            gridspacing=None)</code>
+          </span></dt><dd><p>
+              Translates a window x coordinate
+              <code class="code"><em class="replaceable"><code>screenx</code></em></code>
+              to a canvas coordinate.  If
+              <code class="code">gridspacing</code>
+              is supplied, the canvas coordinate is rounded to
+              the nearest multiple of that value.
+            </p></dd><dt><span class="term">
+            <code class="code">.canvasy(<em class="replaceable"><code>screeny</code></em>,
+            gridspacing=None)</code>
+          </span></dt><dd><p>
+              Translates a window y coordinate
+              <code class="code"><em class="replaceable"><code>screeny</code></em></code>
+              to a canvas coordinate.  If
+              <code class="code">gridspacing</code>
+              is supplied, the canvas coordinate is rounded to
+              the nearest multiple of that value.
+            </p></dd><dt><span class="term">
+            <code class="code">.coords(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>x0</code></em>,
+            <em class="replaceable"><code>y0</code></em>,
+            <em class="replaceable"><code>x1</code></em>,
+            <em class="replaceable"><code>y1</code></em>, ...,
+            <em class="replaceable"><code>xn</code></em>,
+            <em class="replaceable"><code>yn</code></em>)</code>
+          </span></dt><dd><p>
+              If you pass only the
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> argument,
+              returns a tuple of the coordinates of the lowest or
+              only object specified by that argument.  The number
+              of coordinates depends on the type of object.  In
+              most cases it will be a 4-tuple
+              (x<sub>1</sub>,
+              y<sub>1</sub>,
+              x<sub>2</sub>,
+              y<sub>2</sub>) describing the bounding
+              box of the object.
+            </p><p>
+              You can move an object by passing in new
+              coordinates.
+            </p></dd><dt><span class="term">
+            <code class="code">.dchars(<em class="replaceable"><code>tagOrId</code></em>,
+            first=0, last=first)</code>
+          </span></dt><dd><p>
+              Deletes characters from a text item or items.
+              Characters between <code class="code">first</code> and <code class="code">last</code> <span class="emphasis"><em>inclusive</em></span> are
+              deleted, where those values can be integer indices
+              or the string <code class="code">'end'</code> to mean the end
+              of the text.  For example, for a canvas <code class="code"><em class="replaceable"><code>C</code></em></code> and an item
+              <code class="code"><em class="replaceable"><code>I</code></em></code>,
+              <code class="code"><em class="replaceable"><code>C</code></em>.dchars(<em class="replaceable"><code>I</code></em>, 1,
+              1)</code> will remove the second character.
+            </p></dd><dt><span class="term">
+            <code class="code">.delete(<em class="replaceable"><code>tagOrId</code></em>)</code>
+          </span></dt><dd><p>
+              Deletes the object or objects selected by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.  It is not
+              considered an error if no items match <code class="code"><em class="replaceable"><code>tagOrId</code></em></code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.dtag(tagOrId, tagToDelete)</code>
+          </span></dt><dd><p>
+              Removes the <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a>
+              specified by
+              <code class="code"><em class="replaceable"><code>tagToDelete</code></em></code>
+              from the object or objects specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.
+            </p></dd><dt><span class="term">
+            <code class="code">.find_above(tagOrId)</code>
+          </span></dt><dd><p>
+              Returns the ID number of the object just above the
+              object specified by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.  If multiple
+              objects match, you get the highest one.  Returns an
+              empty tuple if you pass it the object ID of the
+              highest object.
+            </p></dd><dt><span class="term">
+            <code class="code">.find_all()</code>
+          </span></dt><dd><p>
+              Returns a list of the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID numbers</a> for
+              all objects on the canvas, from lowest to
+              highest.
+            </p></dd><dt><span class="term">
+            <code class="code">.find_below(<em class="replaceable"><code>tagOrId</code></em>)</code>
+          </span></dt><dd><p>
+              Returns the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object
+              ID</a> of the object just below the one
+              specified by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.  If multiple
+              objects match, you get the lowest one.  Returns an
+              empty tuple if you pass it the object ID of the
+              lowest object.
+            </p></dd><dt><span class="term">
+            <code class="code">.find_closest(<em class="replaceable"><code>x</code></em>,
+            <em class="replaceable"><code>y</code></em>,
+            <em class="replaceable"><code>halo</code></em>=None,
+            <em class="replaceable"><code>start</code></em>=None)</code>
+          </span></dt><dd><p>
+              Returns a singleton tuple containing the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID</a> of the object
+              closest to point <code class="code">(<em class="replaceable"><code>x</code></em>,
+              <em class="replaceable"><code>y</code></em>)</code>.  If there
+              are no qualifying objects, returns an empty tuple.
+            </p><p>
+              Use the <code class="code"><em class="replaceable"><code>halo</code></em></code> argument
+              to increase the effective size of the point.  For
+              example, <code class="code">halo=5</code> would treat any
+              object within 5 pixels of <code class="code">(<em class="replaceable"><code>x</code></em>,
+              <em class="replaceable"><code>y</code></em>)</code> as
+              overlapping.
+            </p><p>
+              If an object ID is passed as the
+              <code class="code"><em class="replaceable"><code>start</code></em></code>
+              argument, this method returns the highest
+              qualifying object that is below
+              <code class="code"><em class="replaceable"><code>start</code></em></code> in
+              the <a href="display-list.html" title="8.2. The Canvas display list">display
+              list</a>.
+            </p></dd><dt><span class="term">
+            <code class="code">.find_enclosed(<em class="replaceable"><code>x1</code></em>,
+            <em class="replaceable"><code>y1</code></em>,
+            <em class="replaceable"><code>x2</code></em>,
+            <em class="replaceable"><code>y2</code></em>)</code>
+          </span></dt><dd><p>
+              Returns a list of the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object IDs</a> of all
+              objects that occur completely within the rectangle
+              whose top left corner is
+              <code class="code">(<em class="replaceable"><code>x1</code></em>,
+              <em class="replaceable"><code>y1</code></em>)</code> and
+              bottom right corner is
+              <code class="code">(<em class="replaceable"><code>x2</code></em>,
+              <em class="replaceable"><code>y2</code></em>)</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.find_overlapping(<em class="replaceable"><code>x1</code></em>,
+            <em class="replaceable"><code>y1</code></em>,
+            <em class="replaceable"><code>x2</code></em>,
+            <em class="replaceable"><code>y2</code></em>)</code>
+          </span></dt><dd><p>
+              Like the previous method, but returns a list of
+              the object IDs of all the objects that share at
+              least one point with the given rectangle.
+            </p></dd><dt><span class="term">
+            <code class="code">.find_withtag(<em class="replaceable"><code>tagOrId</code></em>)</code>
+          </span></dt><dd><p>
+              Returns a list of the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object IDs</a> of the
+              object or objects specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.
+            </p></dd><dt><span class="term">
+            <code class="code">.focus(<em class="replaceable"><code>tagOrId</code></em>=None)</code>
+          </span></dt><dd><p>
+              Moves the focus to the object specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.  If
+              there are multiple such objects, moves the focus to
+              the first one in the <a href="display-list.html" title="8.2. The Canvas display list">display list</a> that
+              allows an insertion cursor.  If there are no
+              qualifying items, or the canvas does not have
+              focus, focus does not move.
+            </p><p>
+              If the argument is omitted, returns the ID of
+              the object that has focus, or
+              <code class="code">''</code> if none of them
+              do.
+            </p></dd><dt><span class="term">
+            <code class="code">.gettags(<em class="replaceable"><code>tagOrId</code></em>)</code>
+          </span></dt><dd><p>
+              If
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> is an
+              object ID, returns a list of all the tags
+              associated with that object.  If the argument is a
+              <a href="canvas-tags.html" title="8.4. Canvas tags">tag</a>, returns all
+              the tags for the lowest object that has that
+              tag.
+            </p></dd><dt><span class="term">
+            <code class="code">.icursor(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>index</code></em>)</code>
+          </span></dt><dd><p>
+              Assuming that the selected item allows text
+              insertion and has the focus, sets the insertion
+              cursor to
+              <code class="code"><em class="replaceable"><code>index</code></em></code>,
+              which may be either an integer index or the string
+              <code class="code">'end'</code>.  Has no effect
+              otherwise.
+            </p></dd><dt><span class="term">
+            <code class="code">.index(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>specifier</code></em>)</code>
+          </span></dt><dd><p>
+              Returns the integer index of the given <code class="code"><em class="replaceable"><code>specifier</code></em></code> in
+              the text item specified by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> (the lowest
+              one that, if <code class="code"><em class="replaceable"><code>tagOrId</code></em></code>
+              specifies multiple objects).  The return value is
+              the corresponding position as an integer, with the
+              usual Python convention, where 0 is the position
+              before the first character.
+            </p><p>
+              The <code class="code"><em class="replaceable"><code>specifier</code></em></code>
+              argument may be any of:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+                  <code class="code">tk.INSERT</code>, to return the current
+                  position of the insertion cursor.
+                </p></li><li><p>
+                  <code class="code">tk.END</code>, to return the position
+                  after the last character of the item.
+                </p></li><li><p>
+                  <code class="code">tk.SEL_FIRST</code>, to return the
+                  position of the start of the current text
+                  selection.  <span class="application">Tkinter</span> will raise a <code class="code">tk.TclError</code> exception if the text item
+                  does not currently contain the text selection.
+                </p></li><li><p>
+                  <code class="code">tk.SEL_LAST</code>, to return the position
+                  after the end of the current text selection, or
+                  raise <code class="code">tk.TclError</code> if the item does
+                  not currently contain the selection.
+                </p></li><li><p>
+                  A string of the form “<code class="code">@<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em></code>”, to return
+                  the character of the character containing
+                  canvas coordinates <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code>.  If those coordinates are above or
+                  to the left of the text item, the method
+                  returns 0; if the coordinates are to the right
+                  of or below the item, the method returns the
+                  index of the end of the item.
+                </p></li></ul></div></dd><dt><span class="term">
+            <code class="code">.insert(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>specifier</code></em>,
+            <em class="replaceable"><code>text</code></em>)</code>
+          </span></dt><dd><p>
+              Inserts the given <code class="code"><em class="replaceable"><code>string</code></em></code> into the
+              object or objects specified by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>, at the
+              position given by the <code class="code"><em class="replaceable"><code>specifier</code></em></code> argument.
+            </p><p>
+              The <code class="code"><em class="replaceable"><code>specifier</code></em></code> values may be:
+            </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+                  Any of the keywords <code class="code">tk.INSERT</code>,
+                  <code class="code">tk.END</code>, <code class="code">tk.SEL_FIRST</code>,
+                  or <code class="code">tk.SEL_LAST</code>.  Refer to the
+                  description of the <code class="code">index</code> method
+                  above for the interpretation of these codes.
+                </p></li><li><p>
+                  The position of the desired insertion, using
+                  the normal Python convention for positions in
+                  strings.
+                </p></li></ul></div></dd><dt><span class="term">
+            <code class="code">.itemcget(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>option</code></em>)</code>
+          </span></dt><dd><p>
+              Returns the value of the given configuration <code class="code"><em class="replaceable"><code>option</code></em></code> in the
+              selected object (or the lowest object if <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> specifies
+              more than one).  This is similar to the <code class="code">.cget()</code> method for <span class="application">Tkinter</span> objects.
+            </p></dd><dt><span class="term">
+            <code class="code">.itemconfigure(<em class="replaceable"><code>tagOrId</code></em>, <em class="replaceable"><code>option</code></em>, ...)</code>
+          </span></dt><dd><p>
+              If no
+              <code class="code"><em class="replaceable"><code>option</code></em></code>
+              arguments are supplied, returns a dictionary whose
+              keys are the options of the object specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> (the
+              lowest one, if
+              <code class="code"><em class="replaceable"><code>tagOrId</code></em></code>
+              specifies multiple objects).
+            </p><p>
+              To change the configuration option of the specified
+              item, supply one or more keyword arguments of the
+              form <code class="code"><em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em></code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.move(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>xAmount</code></em>,
+            <em class="replaceable"><code>yAmount</code></em>)</code>
+          </span></dt><dd><p>
+              Moves the items specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> by adding
+              <code class="code"><em class="replaceable"><code>xAmount</code></em></code>
+              to their x coordinates and
+              <code class="code"><em class="replaceable"><code>yAmount</code></em></code>
+              to their y coordinates.
+            </p></dd><dt><span class="term">
+            <code class="code">.postscript(<em class="replaceable"><code>option</code></em>,
+            ...)</code>
+          </span></dt><dd><p>
+              Generates an Encapsulated PostScript
+              representation of the canvas's current contents.
+              The options include:
+            </p><div class="informaltable"><table border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">colormode</code></td><td align="left">
+                      Use <code class="code">'color'</code> for color
+                      output, <code class="code">'gray'</code> for
+                      grayscale, or <code class="code">'mono'</code> for
+                      black and white.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">file</code></td><td align="left">
+                      If supplied, names a file where the
+                      PostScript will be written.  If this option
+                      is not given, the PostScript is returned as
+                      a string.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+                      How much of the Y size of the canvas to
+                      print.  Default is the entire visible height
+                      of the canvas.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">rotate</code></td><td align="left">
+                      If false, the page will be rendered in
+                      portrait orientation; if true, in
+                      landscape.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">x</code></td><td align="left">
+                      Leftmost canvas coordinate of the area to
+                      print.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">y</code></td><td align="left">
+                      Topmost canvas coordinate of the area to
+                      print.
+                    </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+                      How much of the X size of the canvas to
+                      print.  Default is the visible width of the
+                      canvas.
+                    </td></tr></tbody></table></div></dd><dt><span class="term">
+            <code class="code">.scale(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>xOffset</code></em>,
+            <em class="replaceable"><code>yOffset</code></em>,
+            <em class="replaceable"><code>xScale</code></em>,
+            <em class="replaceable"><code>yScale</code></em>)</code>
+          </span></dt><dd><p>
+              Scale all objects according to their distance from
+              a point P=(<code class="code"><em class="replaceable"><code>xOffset</code></em></code>, <code class="code"><em class="replaceable"><code>yOffset</code></em></code>).  The
+              scale factors <code class="code"><em class="replaceable"><code>xScale</code></em></code> and
+              <code class="code"><em class="replaceable"><code>yScale</code></em></code>
+              are based on a value of 1.0, which means no
+              scaling.  Every point in the objects selected by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> is moved so
+              that its x distance from P is multiplied by <code class="code"><em class="replaceable"><code>xScale</code></em></code> and its
+              y distance is multiplied by <code class="code"><em class="replaceable"><code>yScale</code></em></code>.
+            </p><p>
+              This method will not change the size of a text
+              item, but may move it.
+            </p></dd><dt><span class="term">
+            <code class="code">.scan_dragto(<em class="replaceable"><code>x</code></em>,
+            <em class="replaceable"><code>y</code></em></code>, <em class="replaceable"><code>gain</code></em>=10.0)
+          </span></dt><dd><p>
+              See the <code class="code">.scan_mark()</code> method below.
+            </p></dd><dt><span class="term">
+            <code class="code">.scan_mark(<em class="replaceable"><code>x</code></em>,
+            <em class="replaceable"><code>y</code></em>)</code>
+          </span></dt><dd><p>
+              This method is used to implement fast scrolling of
+              a canvas.  The intent is that the user will press
+              and hold a mouse button, then move the mouse up to
+              scan (scroll) the canvas horizontally and
+              vertically in that direction at a rate that depends
+              on how far the mouse has moved since the mouse
+              button was depressed.
+            </p><p>
+              To implement this feature, bind the mouse's
+              button-down event to a handler that calls <code class="code">scan_mark(<em class="replaceable"><code>x</code></em>,
+              <em class="replaceable"><code>y</code></em>)</code> where <code class="code"><em class="replaceable"><code>x</code></em></code> and <code class="code"><em class="replaceable"><code>y</code></em></code> are the
+              current mouse coordinates.  Bind the <code class="code">&lt;Motion&gt;</code> event to a handler that,
+              assuming the mouse button is still down, calls
+              <code class="code">scan_dragto(<em class="replaceable"><code>x</code></em>,
+              <em class="replaceable"><code>y</code></em>, <em class="replaceable"><code>gain</code></em>)</code> where <code class="code"><em class="replaceable"><code>x</code></em></code> and <code class="code"><em class="replaceable"><code>y</code></em></code> are the
+              current mouse coordinates.
+            </p><p>
+              The <code class="code"><em class="replaceable"><code>gain</code></em></code> argument controls the rate of scanning.  This
+              argument has a default value of 10.0.  Use larger
+              numbers for faster scanning.
+            </p></dd><dt><span class="term">
+            <code class="code">.select_adjust(<em class="replaceable"><code>oid</code></em>, <em class="replaceable"><code>specifier</code></em>)</code>
+          </span></dt><dd><p>
+              Adjusts the boundaries of the current text
+              selection to include the position given by the
+              <code class="code"><em class="replaceable"><code>specifier</code></em></code> argument, in the text item with the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID</a> <code class="code"><em class="replaceable"><code>oid</code></em></code>.
+            </p><p>
+              The current selection anchor is also set to the
+              specified position.  For a discussion of the
+              selection anchor, see the canvas <code class="code">select_from</code> method below.
+            </p><p>
+              For the values of <code class="code"><em class="replaceable"><code>specifier</code></em></code>, see the canvas
+              <code class="code">insert</code> method above.
+            </p></dd><dt><span class="term">
+            <code class="code">.select_clear()</code>
+          </span></dt><dd><p>
+              Removes the current text selection, if it is set.
+              If there is no current selection, does nothing.
+            </p></dd><dt><span class="term">
+            <code class="code">.select_from(<em class="replaceable"><code>oid</code></em>, <em class="replaceable"><code>specifier</code></em>)</code>
+          </span></dt><dd><p>
+              This method sets the <em class="firstterm">selection
+              anchor</em> to the position given by the
+              <code class="code"><em class="replaceable"><code>specifier</code></em></code> argument, within the text item whose <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID</a> is given by
+              <code class="code"><em class="replaceable"><code>oid</code></em></code>.
+            </p><p>
+              The currently selected text on a given canvas is
+              specified by three positions: the start position,
+              the end position, and the selection anchor, which
+              may be anywhere within those two positions.
+            </p><p>
+              To change the position of the currently selected
+              text, use this method in combination with the <code class="code">select_adjust</code>, <code class="code">select_from</code>,
+              and <code class="code">select_to</code> canvas methods (q.v.).
+            </p></dd><dt><span class="term">
+            <code class="code">.select_item()</code>
+          </span></dt><dd><p>
+              If there is a current text selection on this
+              canvas, return the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object ID</a> of the text
+              item containing the selection.  If there is no
+              current selection, this method returns <code class="code">None</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.select_to(<em class="replaceable"><code>oid</code></em>,
+            <em class="replaceable"><code>specifier</code></em></code>
+          </span></dt><dd><p>
+              This method changes the current text selection so
+              that it includes the select anchor and the position
+              given by <code class="code"><em class="replaceable"><code>specifier</code></em></code> within the text
+              item whose <a href="canvas-oid.html" title="8.3. Canvas object IDs">object
+              ID</a> is given by <code class="code"><em class="replaceable"><code>oid</code></em></code>.  For the values of
+              <code class="code"><em class="replaceable"><code>specifier</code></em></code>, see the canvas <code class="code">insert</code> method
+              above.
+            </p></dd><dt><span class="term">
+            <code class="code">.tag_bind(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>sequence</code></em>=None, function=None,
+            add=None)</code>
+          </span></dt><dd><p>
+              Binds events to objects on the canvas.  For the
+              object or objects selected by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>,
+              associates the handler
+              <code class="code"><em class="replaceable"><code>function</code></em></code>
+              with the event
+              <code class="code"><em class="replaceable"><code>sequence</code></em></code>.
+              If the
+              <code class="code"><em class="replaceable"><code>add</code></em></code>
+              argument is a string starting with
+              <code class="code">'+'</code>, the new binding is
+              added to existing bindings for the given
+              <code class="code"><em class="replaceable"><code>sequence</code></em></code>,
+              otherwise the new binding replaces that for the
+              given
+              <code class="code"><em class="replaceable"><code>sequence</code></em></code>.
+            </p><p>
+              For general information on event bindings, see
+              <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a>.
+            </p><p>
+              Note that the bindings are applied to items that
+              have this tag at the time of the <code class="code">tag_bind</code> method call.  If tags are later
+              removed from those items, the bindings will persist
+              on those items.  If the tag you specify is later
+              applied to items that did not have that tag when
+              you called <code class="code">tag_bind</code>, that binding
+              will <span class="emphasis"><em>not</em></span> be applied to the
+              newly tagged items.
+            </p></dd><dt><span class="term">
+            <code class="code">.tag_lower(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>belowThis</code></em>)</code>
+          </span></dt><dd><p>
+              Moves the object or objects selected by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> within the
+              <a href="display-list.html" title="8.2. The Canvas display list">display list</a> to
+              a position just below the first or only object
+              specied by the tag or ID <code class="code"><em class="replaceable"><code>belowThis</code></em></code>.
+            </p><p>
+              If there are multiple items with tag <code class="code"><em class="replaceable"><code>tagOrId</code></em></code>,
+              their relative stacking order is preserved.
+            </p><p>
+              This method does not affect canvas window items.
+              To change a window item's stacking order, use a
+              <code class="code">lower</code> or <code class="code">lift</code> method
+              on the window.
+            </p></dd><dt><span class="term">
+            <code class="code">.tag_raise(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>aboveThis</code></em>)</code>
+          </span></dt><dd><p>
+              Moves the object or objects selected by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a> within the
+              <a href="display-list.html" title="8.2. The Canvas display list">display list</a> to
+              a position just above the first or only object
+              specied by the tag or ID <code class="code"><em class="replaceable"><code>aboveThis</code></em></code>.
+            </p><p>
+              If there are multiple items with tag <code class="code"><em class="replaceable"><code>tagOrId</code></em></code>,
+              their relative stacking order is preserved.
+            </p><p>
+              This method does not affect canvas window items.
+              To change a window item's stacking order, use a
+              <code class="code">lower</code> or <code class="code">lift</code> method
+              on the window.
+            </p></dd><dt><span class="term">
+            <code class="code">.tag_unbind(<em class="replaceable"><code>tagOrId</code></em>,
+            <em class="replaceable"><code>sequence</code></em>, <em class="replaceable"><code>funcId</code></em>=None)</code>
+          </span></dt><dd><p>
+              Removes bindings for handler <code class="code"><em class="replaceable"><code>funcId</code></em></code> and
+              event <code class="code"><em class="replaceable"><code>sequence</code></em></code> from
+              the canvas object or objects specified by <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.  See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a>.
+            </p></dd><dt><span class="term">
+            <code class="code">.type(<em class="replaceable"><code>tagOrId</code></em>)</code>
+          </span></dt><dd><p>
+              Returns the type of the first or only object
+              specified by
+              <a href="tag-or-id.html" title="8.5. Canvas tagOrId arguments"><code class="code"><em class="replaceable"><code>tagOrId</code></em></code></a>.  The
+              return value will be one of the strings
+              <code class="code">'arc'</code>,
+              <code class="code">'bitmap'</code>,
+              <code class="code">'image'</code>,
+              <code class="code">'line'</code>,
+              <code class="code">'oval'</code>,
+              <code class="code">'polygon'</code>,
+              <code class="code">'rectangle'</code>,
+              <code class="code">'text'</code>, or
+              <code class="code">'window'</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.xview(tk.MOVETO,
+            <em class="replaceable"><code>fraction</code></em>)</code>
+          </span></dt><dd><p>
+              This method scrolls the canvas relative to its
+              image, and is intended for binding to the <code class="code">command</code> option of a related scrollbar.
+              The canvas is scrolled horizontally to a position
+              given by <code class="code"><em class="replaceable"><code>offset</code></em></code>, where
+              0.0 moves the canvas to its leftmost position and
+              1.0 to its rightmost position.
+            </p></dd><dt><span class="term">
+            <code class="code">.xview(tk.SCROLL, <em class="replaceable"><code>n</code></em>,
+            <em class="replaceable"><code>what</code></em>)</code>
+          </span></dt><dd><p>
+              This method moves the canvas left or right: the
+              <code class="code"><em class="replaceable"><code>what</code></em></code>
+              argument specifies how much to move and can be
+              either <code class="code">tk.UNITS</code> or <code class="code">tk.PAGES</code>, and <code class="code"><em class="replaceable"><code>n</code></em></code>
+              tells how many units to move the canvas to the
+              right relative to its image (or left, if negative).
+            </p><p>
+              The size of the move for <code class="code">tk.UNITS</code> is
+              given by the value of the canvas's <code class="code">xscrollincrement</code> option; see <a href="scrollbar.html" title="22. The Scrollbar widget">Section 22, “The <code class="code">Scrollbar</code> widget”</a>.
+            </p><p>
+              For movements by <code class="code">tk.PAGES,</code> <code class="code"><em class="replaceable"><code>n</code></em></code> is multiplied
+              by nine-tenths of the width of the canvas.
+            </p></dd><dt><span class="term">
+            <code class="code">.xview_moveto(<em class="replaceable"><code>fraction</code></em>)</code>
+          </span></dt><dd><p>
+              This method scrolls the canvas in the same way as
+              <code class="code">.xview(tk.MOVETO,
+              <em class="replaceable"><code>fraction</code></em>)</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.xview_scroll(<em class="replaceable"><code>n</code></em>,
+            <em class="replaceable"><code>what</code></em>)</code>
+          </span></dt><dd><p>
+              Same as <code class="code">.xview(tk.SCROLL,
+              <em class="replaceable"><code>n</code></em>,
+              <em class="replaceable"><code>what</code></em>)</code>.
+            </p></dd><dt><span class="term"><code class="code">.yview(tk.MOVETO,
+              <em class="replaceable"><code>fraction</code></em>)</code>
+          </span></dt><dd><p>
+              The vertical scrolling equivalent of
+              <code class="code">.xview(tk.MOVETO,…)</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.yview(tk.SCROLL, <em class="replaceable"><code>n</code></em>,
+            <em class="replaceable"><code>what</code></em>)</code>
+          </span></dt><dd><p>
+              The vertical scrolling equivalent of
+              <code class="code">.xview(tk.SCROLL,…)</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.yview_moveto(<em class="replaceable"><code>fraction</code></em>)</code>
+          </span></dt><dd><p>
+              The vertical scrolling equivalent of <code class="code">.xview()</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">.yview_scroll(<em class="replaceable"><code>n</code></em>,
+            <em class="replaceable"><code>what</code></em>)</code>
+          </span></dt><dd><p>
+              The vertical scrolling equivalents of <code class="code">.xview()</code>, <code class="code">.xview_moveto()</code>,
+              and <code class="code">.xview_scroll()</code>.
+            </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="create_arc.html">8.7. <code class="code">Canvas</code> arc objects</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="tag-or-id.html">8.5. <code class="code">Canvas <em class="replaceable"><code>tagOrId</code></em></code> arguments</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/canvas-methods.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas-methods.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:41 GMT -->
+</html>

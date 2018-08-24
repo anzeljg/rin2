@@ -1,0 +1,421 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/spinbox.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>23. The Spinbox widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="connecting-scrollbars.html" title="22.2. Connecting a Scrollbar to another
+      widget"><link rel="next" href="text.html" title="24. The Text widget"></head><body><div class="topnavbar"><a href="text.html">Next</a> / <a href="connecting-scrollbars.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="spinbox"></a>23. The <code class="code">Spinbox</code> widget</h2></div></div></div><p>
+      The <code class="code">Spinbox</code> widget allows the user to select
+      values from a given set.  The values may be a range of
+      numbers, or a fixed set of strings.
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/spinbox.png"></div></div><p>
+      On the screen, a <code class="code">Spinbox</code> has an area for
+      displaying the current values, and a pair of arrowheads.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          The user can click the upward-pointing arrowhead to
+          advance the value to the next higher value in sequence.
+          If the value is already at maximum, you can set up the
+          widget, if you wish, so that the new value will wrap
+          around to the lowest value.
+        </p></li><li><p>
+          The user can click the downward-pointing arrowhead to
+          advance the value to the next lower value in sequence.
+          This arrow may also be configured to wrap around, so
+          that if the current value is the lowest, clicking on
+          the down-arrow will display the highest value.
+        </p></li><li><p>
+          The user can also enter values directly, treating the
+          widget as if it were an <code class="code">Entry</code>.  The user
+          can move the focus to the widget (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>), either by clicking on it or by
+          using <span class="keysym">tab</span> or <span class="keysym">shift-tab</span>, and then edit the displayed value.
+        </p></li></ul></div><p>
+      To create a new <code class="code">Spinbox</code> widget as the
+      child of a root window or frame <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Spinbox(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      The constructor returns the new <code class="code">Spinbox</code>
+      widget.  Options include:
+    </p><div class="table"><a name="Spinbox-options"></a><p class="title"><b>Table 32. <code class="code">Spinbox</code> widget options</b></p><div class="table-contents"><table summary="Spinbox widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">activebackground</code>
+            </td><td align="left">
+              Background color when the cursor is over the
+              widget; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              Background <a href="colors.html" title="5.3. Colors">color</a>
+              of the widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bd</code> or <code class="code">borderwidth</code>
+            </td><td align="left">
+              Width of the border around the widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default value is one
+              pixel.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttonbackground</code>
+            </td><td align="left">
+              The background color displayed on the arrowheads.
+              The default is gray.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttoncursor</code>
+            </td><td align="left">
+              The cursor to be displayed when the mouse is over
+              the arrowheads; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttondownrelief</code>
+            </td><td align="left">
+              The relief style for the downward-pointing
+              arrowhead; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  The
+              default style is <code class="code">tk.RAISED</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">buttonup</code>
+            </td><td align="left">
+              The relief style for the upward-pointing
+              arrowhead; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  The
+              default style is <code class="code">tk.RAISED</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">command</code>
+            </td><td align="left">
+              Use this option to specify a function or method to
+              be called whenever the user clicks on one of the
+              arrowheads.  Note that the callback is <span class="emphasis"><em>not</em></span> called when the user edits the
+              value directly as if it were an <code class="code">Entry</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              Selects the cursor that is displayed when the mouse
+              is over the entry part of the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledbackground</code>
+            </td><td rowspan="2" align="left">
+              These options select the background and foreground
+              colors displayed when the widget's <code class="code">state</code> is <code class="code">tk.DISABLED</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">exportselection</code>
+            </td><td align="left">
+              Normally, the text in the entry portion of a <code class="code">Spinbox</code> can be cut and pasted.  To
+              prohibit this behavior, set the <code class="code">exportselection</code> option to <code class="code">True</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left">
+              Use this option to select a different typeface for
+              the entry text; see <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">fg</code> or <code class="code">foreground</code>
+            </td><td align="left">
+              This option selects the color used to display the
+              text in the entry part of the widget, and the color
+              of the arrowheads.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">format</code>
+            </td><td align="left">
+              Use this option to control the formatting of
+              numeric values in combination with the <code class="code">from_</code> and <code class="code">to</code> options.  For
+              example, <code class="code">format='%10.4f'</code> would
+              display the value as a ten-character field, with
+              four digits after the decimal.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">from_</code>
+            </td><td align="left">
+              Use this option in combination with the <code class="code">to</code> option (described below) to constrain
+              the values to a numeric range.  For example, <code class="code">from_=1</code> and <code class="code">to=9</code> would
+              allow only values between 1 and 9 inclusive.  See
+              also the <code class="code">increment</code> option below.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the <code class="code">Spinbox</code>
+              does not have focus.  See <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the <code class="code">Spinbox</code> has
+              the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              The thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a> highlight.  Default is
+              <code class="code">1</code>.  Set to <code class="code">0</code> to
+              suppress display of the focus highlight.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">increment</code>
+            </td><td align="left">
+              When you constrain the values with the <code class="code">from_</code> and <code class="code">to</code> options, you
+              can use the <code class="code">increment</code> option to
+              specify how much the value increases or decreases
+              when the user clicks on an arrowhead.  For example,
+              with options <code class="code">from_=0.0</code>, <code class="code">to=2.0</code>, and <code class="code">increment=0.5</code>,
+              the up-arrowhead will step through values 0.0, 0.5,
+              1.0, 1.5, and 2.0.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertbackground</code>
+            </td><td align="left">
+              Selects the <a href="colors.html" title="5.3. Colors">color</a> of
+              the insertion cursor displayed in the entry part of
+              the widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertborderwidth</code>
+            </td><td align="left">
+              This option controls the width of the border around
+              the insertion cursor.  Normally, the insertion
+              cursor will have no border.  If this option is set
+              to a nonzero value, the insertion cursor will be
+              displayed in the <code class="code">tk.RAISED</code> <a href="relief.html" title="5.6. Relief styles">relief style</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertofftime</code>
+            </td><td rowspan="2" align="left">
+              These two options control the blink cycle of the
+              insertion cursor: the amount of time it spends off
+              and on, respectively, in milliseconds.  For
+              example, with options <code class="code">insertofftime=200</code> and <code class="code">insertontime=400</code>, the cursor would blink
+              off for 0.2 seconds and then on for 0.4 seconds.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertontime</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertwidth</code>
+            </td><td align="left">
+              Use this option to specify the width of the
+              insertion cursor; for possible values, see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default width is two
+              pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">justify</code>
+            </td><td align="left">
+              This option controls the position of the text in
+              the entry part of the widget.  Values may be <code class="code">tk.LEFT</code> to left-justify the text; <code class="code">tk.CENTER</code> to center it; or <code class="code">RIGHT</code> to right-justify the text.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">readonlybackground</code>
+            </td><td align="left">
+              This option specifies the background color that
+              will be displayed when the widget's <code class="code">state</code> is <code class="code">'readonly'</code>; see
+              <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Use this option to select a relief style for the
+              widget; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  The default
+              style is <code class="code">tk.SUNKEN</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatdelay</code>
+            </td><td rowspan="2" align="left">
+              These options specify the auto-repeat behavior of
+              mouse clicks on the arrowheads; values are in
+              milliseconds.  The <code class="code">repeatdelay</code> value
+              specifies how long the mouse button must be held
+              down before it repeats, and <code class="code">repeatinterval</code> specifies how often the
+              function repeats.  Default values are 400 and 100
+              milliseconds, respectively.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">repeatinterval</code>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectbackground</code>
+            </td><td align="left">
+              The background <a href="colors.html" title="5.3. Colors">color</a>
+              to use displaying selected items.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectborderwidth</code></td><td align="left">
+              The width of the border to display around selected
+              items.
+            </td></tr><tr><td align="left" valign="top"><code class="code">selectforeground</code></td><td align="left">
+              The foreground <a href="colors.html" title="5.3. Colors">color</a>
+              to use displaying selected items.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">state</code>
+            </td><td align="left">
+              Normally, a <code class="code">Spinbox</code> widget is
+              created in the <code class="code">tk.NORMAL</code> state.  Set
+              this option to <code class="code">tk.DISABLED</code> to make the
+              widget unresponsive to mouse or keyboard actions.
+              If you set it to <code class="code">'readonly'</code>, the
+              value in the entry part of the widget cannot be
+              modified with keystrokes, but the value can still
+              be copied to the clipboard, and the widget still
+              responds to clicks on the arrowheads.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Normally, the entry part of a <code class="code">Spinbox</code> widget can have focus (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>).  To remove the widget from the focus traversal
+              sequence, set <code class="code">takefocus=False</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">textvariable</code>
+            </td><td align="left">
+              If you want to retrieve the current value of the
+              widget, you can use the <code class="code">.get()</code>
+              method below, or you can associate a control
+              variable with the widget by passing that control
+              variable as the value of this option.  See <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">to</code>
+            </td><td align="left">
+              This option specifies the upper limit of a range
+              values.  See the <code class="code">from_</code> option,
+              above, and also the <code class="code">increment</code>
+              option.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">values</code>
+            </td><td align="left">
+              There are two ways to specify the possible values
+              of the widget.  One way is to provide a tuple of
+              strings as the value of the <code class="code">values</code>
+              option.  For example, <code class="code">values=('red', 'blue',
+              'green')</code> would allow only those three
+              strings as values.  To configure the widget to
+              accept a range of numeric values, see the <code class="code">from_</code> option above.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              Use this option to specify the number of characters
+              allowed in the entry part of the widget.  The
+              default value is 20.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">wrap</code>
+            </td><td align="left">
+              Normally, when the widget is at its highest value,
+              the up-arrowhead does nothing, and when the widget
+              is at its lowest value, the down-arrowhead does
+              nothing.  If you select <code class="code">wrap=True</code>,
+              the up-arrowhead will advance from the highest
+              value back to the lowest, and the down-arrowhead
+              will advance from the lowest value back to the
+              highest.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">xscrollcommand</code>
+            </td><td align="left">
+              Use this option to connect a scrollbar to the entry
+              part of the widget.  For details, see <a href="connecting-scrollbars.html" title="22.2. Connecting a Scrollbar to another
+      widget">Section 22.2, “Connecting a <code class="code">Scrollbar</code> to another
+      widget”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These methods are available on <code class="code">Spinbox</code> widgets:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.bbox(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            This method returns the bounding box of the character
+            at position <code class="code"><em class="replaceable"><code>index</code></em></code> in the entry part of the widget.  The
+            result is a tuple <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>,
+            <em class="replaceable"><code>w</code></em>, <em class="replaceable"><code>h</code></em>)</code>, where the values are the
+            <code class="code"><em class="replaceable"><code>x</code></em></code> and
+            <code class="code"><em class="replaceable"><code>y</code></em></code>
+            coordinates of the upper left corner, and the
+            character's width and height in pixels, in that
+            order.
+          </p></dd><dt><span class="term">
+          <code class="code">.delete(first, last=None)</code>
+        </span></dt><dd><p>
+            This method deletes characters from the entry part of
+            the <code class="code">Spinbox</code>.  The values of <code class="code">first</code> and <code class="code">last</code> are
+            interpreted in the standard way for Python slices.
+          </p></dd><dt><span class="term">
+          <code class="code">.get()</code>
+        </span></dt><dd><p>
+            This method returns the value of the <code class="code">Spinbox</code>.  The value is always returned as a
+            string, even if the widget is set up to contain a
+            number.
+          </p></dd><dt><span class="term">
+          <code class="code">.icursor(<em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Use this method to position the insertion cursor at
+            the location specified by <code class="code"><em class="replaceable"><code>index</code></em></code>, using the standard
+            Python convention for positions.
+          </p></dd><dt><span class="term">
+          <code class="code">.identify(<em class="replaceable"><code>x</code></em>,
+          <em class="replaceable"><code>y</code></em>)</code>
+        </span></dt><dd><p>
+            Given a position <code class="code">(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>)</code> within the
+            widget, this method returns a string describing what
+            is at that location.  Values may be any of:
+          </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+                <code class="code">'entry'</code> for the entry area.
+              </p></li><li><p>
+                <code class="code">'buttonup'</code> for the upward-pointing
+                arrowhead.
+              </p></li><li><p>
+                <code class="code">'buttondown'</code> for the
+                downward-pointing arrowhead.
+              </p></li><li><p>
+                <code class="code">''</code> (an empty string) if these
+                coordinates are not within the widget.
+              </p></li></ul></div></dd><dt><span class="term">
+          <code class="code">.index(<em class="replaceable"><code>i</code></em>)</code>
+        </span></dt><dd><p>
+            This method returns the numerical position of an
+            index <code class="code"><em class="replaceable"><code>i</code></em></code>.
+            Arguments may be any of:
+          </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+                <code class="code">tk.END</code> to get the position after
+                the last character of the entry.
+              </p></li><li><p>
+                <code class="code">tk.INSERT</code> to get the position of the
+                insertion cursor.
+              </p></li><li><p>
+                <code class="code">tk.ANCHOR</code> to get the position of the
+                selection anchor.
+              </p></li><li><p>
+                <code class="code">tk.SEL_FIRST'</code> to get the position of
+                the start of the selection.  If the selection is
+                not within the widget, this method raises a <code class="code">tk.TclError</code> exception.
+              </p></li><li><p>
+                <code class="code">tk.SEL_LAST</code> to get the position
+                just past the end of the selection.  If the
+                selection is not within the widget, this method
+                raises a <code class="code">tk.TclError</code> exception.
+              </p></li><li><p>
+                A string of the form “<code class="code">@<em class="replaceable"><code>x</code></em></code>” denotes an
+                <code class="code"><em class="replaceable"><code>x</code></em></code>-coordinate within the widget.  The return value
+                is the position of the character containing that
+                coordinate.  If the coordinate is outside the
+                widget altogether, the return value will be the
+                position of the character closest to that
+                position.
+              </p></li></ul></div></dd><dt><span class="term">
+          <code class="code">.insert(<em class="replaceable"><code>index</code></em>,
+          <em class="replaceable"><code>text</code></em>)</code>
+        </span></dt><dd><p>
+            This method inserts characters from the string <code class="code"><em class="replaceable"><code>text</code></em></code> at the
+            position specified by <code class="code"><em class="replaceable"><code>index</code></em></code>.  For the possible
+            index values, see the <code class="code">.index()</code> method
+            above.
+          </p></dd><dt><span class="term">
+          <code class="code">.invoke(<em class="replaceable"><code>element</code></em>)</code>
+        </span></dt><dd><p>
+            Call this method to get the same effect as the user
+            clicking on an arrowhead.  The <code class="code"><em class="replaceable"><code>element</code></em></code> argument is <code class="code">'buttonup'</code> for the up-arrowhead, and <code class="code">'buttondown'</code> for the down-arrowhead.
+          </p></dd><dt><span class="term">
+          <code class="code">.scan_dragto(<em class="replaceable"><code>x</code></em>)</code>
+        </span></dt><dd><p>
+            This method works the same as the <code class="code">.scan_dragto()</code> method described in <a href="entry.html" title="10. The Entry widget">Section 10, “The <code class="code">Entry</code> widget”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.scan_mark(<em class="replaceable"><code>x</code></em>)</code>
+        </span></dt><dd><p>
+            This method works the same as the <code class="code">.scan_mark()</code> method described in <a href="entry.html" title="10. The Entry widget">Section 10, “The <code class="code">Entry</code> widget”</a>.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection('from', <em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Sets the selection anchor in the widget to the
+            position specified by the <code class="code"><em class="replaceable"><code>index</code></em></code>.  For the possible
+            values of <code class="code"><em class="replaceable"><code>index</code></em></code>, see the <code class="code">.index()</code> method
+            above.  The initial value of the selection anchor is
+            0.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection('to', <em class="replaceable"><code>index</code></em>)</code>
+        </span></dt><dd><p>
+            Selects the text between the selection anchor and the
+            given <code class="code"><em class="replaceable"><code>index</code></em></code>.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection('range', <em class="replaceable"><code>start</code></em>, <em class="replaceable"><code>end</code></em>)</code>
+        </span></dt><dd><p>
+            Select the text between the <code class="code"><em class="replaceable"><code>start</code></em></code> and <code class="code"><em class="replaceable"><code>end</code></em></code> indices.  For allowable
+            index values, see the <code class="code">.index()</code> method
+            above.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection_clear()</code>
+        </span></dt><dd><p>
+            Clears the selection.
+          </p></dd><dt><span class="term">
+          <code class="code">.selection_get()</code>
+        </span></dt><dd><p>
+            Returns the selected text.  If there is currently no
+            selection, this method will raise a <code class="code">tk.TclError</code> exception.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="text.html">24. The <code class="code">Text</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="connecting-scrollbars.html">22.2. Connecting a <code class="code">Scrollbar</code> to another
+      widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/spinbox.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/spinbox.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

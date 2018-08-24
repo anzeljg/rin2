@@ -1,0 +1,159 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-LabelFrame.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>35. ttk.LabelFrame</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Label.html" title="34. ttk.Label"><link rel="next" href="ttk-Menubutton.html" title="36. ttk.Menubutton"></head><body><div class="topnavbar"><a href="ttk-Menubutton.html">Next</a> / <a href="ttk-Label.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-LabelFrame"></a>35. <span class="application">ttk</span><code class="code">.LabelFrame</code></h2></div></div></div><p>
+      This is the <span class="application">ttk</span> version of the basic <span class="application">Tkinter</span> widget
+      described in <a href="labelframe.html" title="13. The LabelFrame widget">Section 13, “The <code class="code">LabelFrame</code> widget”</a>.
+    </p><p>
+      To create a new <span class="application">ttk</span><code class="code">.LabelFrame</code> widget as a
+      child of a given <code class="code"><em class="replaceable"><code>parent</code></em></code> widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.LabelFrame(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      Options include:
+    </p><div class="table"><a name="ttk-LabelFrame-options"></a><p class="title"><b>Table 46. <span class="application">ttk</span><code class="code">.LabelFrame</code> options</b></p><div class="table-contents"><table summary="ttk.LabelFrame options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code>
+            </td><td align="left">
+              Use this option to set the width of the border around
+              the widget to a given <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.  This option may also be configured
+              using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              You may provide a widget class name when you create this
+              widget.  This name may be used to customize the widget's
+              appearance; see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+              Once the widget is created, the widget class name cannot
+              be changed.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              Use this option to specify the appearance of the mouse
+              cursor when it is over the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.  The default value (an empty
+              string) specifies that the cursor is inherited from the
+              parent widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">height</code>
+            </td><td align="left">
+              This option can be set to some <a href="dimensions.html" title="5.1. Dimensions">dimension</a> to specify the
+              height of the frame.  If you don't call the <code class="code">.grid_propagate(0)</code> method, this option will be
+              ignored; see <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">labelanchor</code>
+            </td><td align="left">
+              <p>
+                Use this option to specify the position of the label
+                on the widget's border.  The default position is <code class="code">'nw'</code>, which places the label at the left end
+                of the top border.  For the nine possible label
+                positions, refer to <a href="labelframe.html" title="13. The LabelFrame widget">Section 13, “The <code class="code">LabelFrame</code> widget”</a>.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">labelwidget</code>
+            </td><td align="left">
+              <p>
+                Instead of a text label, you can use any widget as the
+                label in a <span class="application">ttk</span><code class="code">.LabelFrame</code>.  Create
+                some widget <code class="code"><em class="replaceable"><code>w</code></em></code> but do not register it with the <code class="code">.grid()</code> method.  Then create the <code class="code">LabelFrame</code> with <code class="code">labelwidget=<em class="replaceable"><code>w</code></em></code>.
+                If you specify this option as well as the <code class="code">text</code> option, the latter is ignored.
+              </p>
+              <p>
+                For example, if you don't like the rather small and
+                plain default font used for the label, you can use
+                this option to display a <code class="code">Label</code> widget
+                with the font and other appearance of your choice.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padding</code>
+            </td><td align="left">
+              To add extra clear area around the contents of this
+              widget, set this option to a <a href="dimensions.html" title="5.1. Dimensions">dimension</a>.  This option may also be specified
+              by a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Use this option to specify a 3-d border style; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  You will need to specify a nonzero
+              <code class="code">borderwidth</code> for this effect to appear.
+              This option may also be specified by a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              Use this option to specify a custom widget style name;
+              see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              <p>
+                Use this option to specify whether the widget is
+                visited during focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  Specify <code class="code">takefocus=True</code> if you want the visit to
+                accept focus; specify <code class="code">takefocus=False</code>
+                if the widget is not to accept focus.
+              </p>
+              <p>
+                The default value is an empty string; by default,
+                <span class="application">ttk</span><code class="code">.Label</code> widgets do not get
+                focus.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">text</code>
+            </td><td align="left">
+              The value of this option is a string that will appear as
+              part of the border.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">underline</code>
+            </td><td align="left">
+              <p>
+                You can request that one of the letters in the text
+                string be underline by setting this option to the
+                position of that letter.  For example, if you
+                specified <code class="code">text='Panic'</code> and
+                <code class="code">underline=2</code>, an underline would appear
+                under the <code class="code">'n'</code>.
+              </p>
+              <p>
+                Using this option doesn't change anything
+                functionally.  If you want the application to react to
+                the Q key or some variation like control-shift-Q,
+                you'll need to set up the bindings using the <a href="events.html" title="54. Events: responding to stimuli">event system</a>.
+              </p>
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              This option can be set to some <a href="dimensions.html" title="5.1. Dimensions">dimension</a> to specify the
+              width of the frame.  If you don't call the <code class="code">.grid_propagate(0)</code> method, this option will be
+              ignored; see <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      The following options available for the <span class="application">Tkinter</span> <code class="code">LabelFrame</code> widget are <span class="emphasis"><em>not</em></span>
+      available as constructor arguments.
+    </p><div class="table"><a name="ttk-LabelFrame-missing"></a><p class="title"><b>Table 47. <span class="application">Tkinter</span> <code class="code">LabelFrame</code> options not in
+      <span class="application">ttk</span><code class="code">.LabelFrame</code></b></p><div class="table-contents"><table summary="Tkinter LabelFrame options not in
+      ttk.LabelFrame" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">background</code> or <code class="code">bg</code>
+            </td><td align="left">
+              Configure the <code class="code">background</code> option using a
+              style; see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.  The <code class="code">bg</code> abbreviation is not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              To control the color of the focus highlight when the
+              <code class="code">LabelFrame</code> does not have focus, use a
+              style map to control the <code class="code">highlightcolor</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              You may specify the default focus highlight color
+              by setting this option in a style.  You may also
+              control the focus highlight color using a style
+              map.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Configure this option using a style.  This option
+              may not work in all themes.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      The <span class="application">ttk</span><code class="code">.LabelFrame</code> widget supports all the
+      methods described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Menubutton.html">36. <span class="application">ttk</span><code class="code">.Menubutton</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Label.html">34. <span class="application">ttk</span><code class="code">.Label</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-LabelFrame.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-LabelFrame.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

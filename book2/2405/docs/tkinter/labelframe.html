@@ -1,0 +1,120 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/labelframe.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>13. The LabelFrame widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="label.html" title="12. The Label widget"><link rel="next" href="listbox.html" title="14. The Listbox widget"></head><body><div class="topnavbar"><a href="listbox.html">Next</a> / <a href="label.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="labelframe"></a>13. The <code class="code">LabelFrame</code> widget</h2></div></div></div><p>
+      The <code class="code">LabelFrame</code> widget, like the <a href="frame.html" title="11. The Frame widget"><code class="code">Frame</code> widget</a>, is a
+      spatial container—a rectangular area that can
+      contain other widgets.  However, unlike the <code class="code">Frame</code> widget, the <code class="code">LabelFrame</code> widget
+      allows you to display a label as part of the border around
+      the area.
+    </p><div class="informalfigure"><div class="mediaobject"><img src="img/labelframe.png"></div></div><p>
+      Here is an example of a <code class="code">LabelFrame</code> widget
+      containing two <code class="code">Button</code> widgets.  Note that
+      the label “Important controls” interrupts the
+      border.  This widget illustrates the default <code class="code">GROOVE</code> relief (see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>) and
+      the default <code class="code">'nw'</code> label anchor, which
+      positions the label at the left side of the top of the
+      frame.
+    </p><p>
+      To create a new <code class="code">LabelFrame</code> widget inside a
+      root window or frame <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.LabelFrame(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      This constructor returns the new <code class="code">LabelFrame</code>
+      widget.  Options:
+    </p><div class="table"><a name="LabelFrame-options"></a><p class="title"><b>Table 21. <code class="code">LabelFrame</code> widget options</b></p><div class="table-contents"><table summary="LabelFrame widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              The background color to be displayed inside the
+              widget; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">bd</code> or <code class="code">borderwidth</code>
+            </td><td align="left">
+              Width of the border drawn around the perimeter of
+              the widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The
+              default value is two pixels.
+            </td></tr><tr><td align="left">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              Selects the cursor that appears when the mouse is
+              over the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">fg</code> or <code class="code">foreground</code>
+            </td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> to be used
+              for the label text.
+            </td></tr><tr><td align="left">
+              <code class="code">height</code>
+            </td><td align="left">
+              The vertical <a href="dimensions.html" title="5.1. Dimensions">dimension</a> of the new frame.  This will be
+              ignored unless you also call <code class="code">.grid_propagate(0)</code> on the frame; see <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left" valign="top">
+              <a href="colors.html" title="5.3. Colors">Color</a> of the focus
+              highlight when the widget does not have <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              The <a href="colors.html" title="5.3. Colors">color</a> of the
+              focus highlight when the widget has <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">labelanchor</code>
+            </td><td align="left">
+              <p>
+                Use this option to specify the position of the
+                label on the widget's border.  The default
+                position is <code class="code">'nw'</code>, which places the
+                label at the left end of the top border.  For the
+                nine possible label positions, refer to this
+                diagram:
+              </p>
+              <div class="mediaobject"><img src="img/labelanchor.png"></div>
+            </td></tr><tr><td align="left">
+              <code class="code">labelwidget</code>
+            </td><td align="left">
+              Instead of a text label, you can use any widget as
+              the label by passing that widget as the value of
+              this option.  If you supply both <code class="code">labelwidget</code> and <code class="code">text</code>
+              options, the <code class="code">text</code> option is ignored.
+            </td></tr><tr><td align="left">
+              <code class="code">padx</code>
+            </td><td align="left">
+              Use this option to add additional padding inside
+              the left and right sides of the widget's frame.
+              The value is in pixels.
+            </td></tr><tr><td align="left">
+              <code class="code">pady</code>
+            </td><td align="left">
+              Use this option to add additional padding inside
+              the top and bottom of the widget's frame.  The
+              value is in pixels.
+            </td></tr><tr><td align="left">
+              <code class="code">relief</code>
+            </td><td align="left">
+              This option controls the appearance of the border
+              around the outside of the widget.  The default
+              style is <code class="code">tk.GROOVE</code>; for other values,
+              see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Normally, the widget will not receive focus; supply
+              a <code class="code">True</code> value to this option to make
+              the widget part of the focus traversal sequence.
+              For more information, see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left">
+              <code class="code">text</code>
+            </td><td align="left">
+              Text of the label.
+            </td></tr><tr><td align="left">
+              <code class="code">width</code>
+            </td><td align="left">
+              The horizontal <a href="dimensions.html" title="5.1. Dimensions">dimension</a> of the new frame.  This will be
+              ignored unless you also call <code class="code">.grid_propagate(0)</code> on the frame; see <a href="grid-methods.html" title="4.2. Other grid management methods">Section 4.2, “Other grid management methods”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="listbox.html">14. The <code class="code">Listbox</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="label.html">12. The <code class="code">Label</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/labelframe.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/labelframe.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+</html>

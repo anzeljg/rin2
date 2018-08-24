@@ -1,0 +1,195 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/control-variables.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>52. Control variables: the values behind the widgets</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="connecting.html" title="51. Connecting your application logic to the widgets"><link rel="next" href="focus.html" title="53. Focus: routing keyboard input"></head><body><div class="topnavbar"><a href="focus.html">Next</a> / <a href="connecting.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="control-variables"></a>52. Control variables: the values behind the widgets</h2></div></div></div><p>
+      A <span class="application">Tkinter</span> <em class="firstterm">control variable</em> is a
+      special object that acts like a regular Python variable in
+      that it is a container for a value, such as a number or
+      string.
+    </p><p>
+      One special quality of a control variable is that it can be
+      shared by a number of different widgets, and the control
+      variable can remember all the widgets that are currently
+      sharing it.  This means, in particular, that if your
+      program stores a value <code class="code"><em class="replaceable"><code>v</code></em></code> into a control
+      variable <code class="code"><em class="replaceable"><code>c</code></em></code> with
+      its <code class="code"><em class="replaceable"><code>c</code></em></code>.set(<code class="code"><em class="replaceable"><code>v</code></em></code>) method, any widgets
+      that are linked to that control variable are automatically
+      updated on the screen.
+    </p><p>
+      <span class="application">Tkinter</span> uses control variables for a number of important
+      functions, for example:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          Checkbuttons use a control variable to hold the current
+          state of the checkbutton (on or off).
+        </p></li><li><p>
+          A single control variable is shared by a group of
+          radiobuttons and can be used to tell which one of them
+          is currently set.  When the user clicks on one
+          radiobutton in a group, the sharing of this control
+          variable is the mechanism by which <span class="application">Tkinter</span> groups
+          radiobuttons so that when you set one, any other set
+          radiobutton in the group is cleared.
+        </p></li><li><p>
+          Control variables hold text string for several
+          applications.  Normally the text displayed in an <code class="code">Entry</code> widget is linked to a control variable.
+          In several other controls, it is possible to use a
+          string-valued control variable to hold text such as the
+          labels of checkbuttons and radiobuttons and the content
+          of <code class="code">Label</code> widgets.
+        </p><p>
+          For example, you could link an <code class="code">Entry</code>
+          widget to a <code class="code">Label</code> widget so that when
+          the user changes the text in the entry and presses the
+          <span class="keysym">Enter</span> key, the label is automatically
+          updated to show that same text.
+        </p></li></ul></div><p>
+      To get a control variable, use one of these class
+      constructors, depending on what type of values you need to
+      store in it:
+    </p><pre class="programlisting">    <em class="replaceable"><code>v</code></em> = tk.DoubleVar()   # Holds a float; default value 0.0
+    <em class="replaceable"><code>v</code></em> = tk.IntVar()      # Holds an int; default value 0
+    <em class="replaceable"><code>v</code></em> = tk.StringVar()   # Holds a string; default value ''
+</pre><p>
+      All control variables have these two methods:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">.get()</code>
+        </span></dt><dd><p>
+            Returns the current value of the variable.
+          </p></dd><dt><span class="term">
+          <code class="code">.set(<em class="replaceable"><code>value</code></em>)</code>
+        </span></dt><dd><p>
+            Changes the current value of the variable.  If any
+            widget options are slaved to this variable, those
+            widgets will be updated when the main loop next
+            idles; see <a href="universal.html#update_idletasks">.update_idletasks()</a>
+            in <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a> for more information
+            on controlling this update cycle.
+          </p></dd></dl></div><p>
+      Here are some comments on how control variables are used
+      with specific widgets:
+    </p><div class="variablelist"><dl><dt><span class="term">
+          <code class="code">Button</code>
+        </span></dt><dd><p>
+            You can set its <code class="code">textvariable</code> to a
+            <code class="code">StringVar</code>.  Anytime that variable is
+            changed, the text on the button will be updated to
+            display the new value.  This is not necessary unless
+            the button's text is actually going to change: use
+            the <code class="code">text</code> attribute if the button's
+            label is static.
+          </p></dd><dt><span class="term">
+          <code class="code">Checkbutton</code>
+        </span></dt><dd><p>
+            Normally, you will set the widget's <code class="code">variable</code> option to an <code class="code">IntVar</code>,
+            and that variable will be set to 1 when the
+            checkbutton is turned on and to 0 when it is turned
+            off.  However, you can pick different values for
+            those two states with the <code class="code">onvalue</code> and
+            <code class="code">offvalue</code> options, respectively.
+          </p><p>
+            You can even use a <code class="code">StringVar</code> as the
+            checkbutton's variable, and supply string values for
+            the <code class="code">offvalue</code> and <code class="code">onvalue</code>.  Here's an example:
+          </p><pre class="programlisting">    self.spamVar = tk.StringVar()
+    self.spamCB  = tk.Checkbutton(self, text='Spam?',
+        variable=self.spamVar, onvalue='yes', offvalue='no')
+</pre><p>
+            If this checkbutton is on, <code class="code">self.spamVar.get()</code> will return the string
+            <code class="code">'yes'</code>; if the checkbutton is off, that
+            same call will return the string <code class="code">'no'</code>.
+            Furthermore, your program can turn the checkbutton on
+            by calling <code class="code">.set('yes')</code>.
+          </p><p>
+            You can also the <code class="code">textvariable</code> option
+            of a checkbutton to a <code class="code">StringVar</code>.  Then
+            you can change the text label on that checkbutton
+            using the <code class="code">.set()</code> method on that
+            variable.
+          </p></dd><dt><span class="term">
+          <code class="code">Entry</code>
+        </span></dt><dd><p>
+            Set its <code class="code">textvariable</code> option to a <code class="code">StringVar</code>.  Use that variable's <code class="code">.get()</code> method to retrieve the text currently
+            displayed in the widget.  You can also the variable's
+            <code class="code">.set()</code> method to change the text
+            displayed in the widget.
+          </p></dd><dt><span class="term">
+          <code class="code">Label</code>
+        </span></dt><dd><p>
+            You can set its <code class="code">textvariable</code> option to
+            a <code class="code">StringVar</code>.  Then any call to the
+            variable's <code class="code">.set()</code> method will change
+            the text displayed on the label.  This is not
+            necessary if the label's text is static; use the
+            <code class="code">text</code> attribute for labels that don't
+            change while the application is running.
+          </p></dd><dt><span class="term">
+          <code class="code">Menubutton</code>
+        </span></dt><dd><p>
+            If you want to be able to change the text displayed
+            on the menu button, set its <code class="code">textvariable</code> option to a <code class="code">StringVar</code> and use that
+            variable's <code class="code">.set()</code> method to change the
+            displayed text.
+          </p></dd><dt><span class="term">
+          <code class="code">Radiobutton</code>
+        </span></dt><dd><p>
+            The <code class="code">variable</code> option must be set to a
+            control variable, either an <code class="code">IntVar</code> or
+            a <code class="code">StringVar</code>.  All the radiobuttons in
+            a functional group must share the same control
+            variable.
+          </p><p>
+            Set the <code class="code">value</code> option of each
+            radiobutton in the group to a different value.
+            Whenever the user sets a radiobutton, the variable
+            will be set to the <code class="code">value</code> option of
+            that radiobutton, and all the other radiobuttons that
+            share the group will be cleared.
+          </p><p>
+            You might wonder, what state is a group of
+            radiobuttons in when the control variable has never
+            been set and the user has never clicked on them?
+            Each control variable has a default value: <code class="code">0</code> for an <code class="code">IntVar</code>, <code class="code">0.0</code> for a <code class="code">DoubleVar</code>, and
+            <code class="code">''</code> for a <code class="code">StringVar</code>.  If
+            one of the radiobuttons has that <code class="code">value</code>, that radiobutton will be set initially.  If no
+            radiobutton's <code class="code">value</code> option matches the
+            value of the variable, the radiobuttons will all
+            appear to be cleared.
+          </p><p>
+            If you want to change the text label on a radiobutton
+            during the execution of your application, set its
+            <code class="code">textvariable</code> option to a <code class="code">StringVar</code>.  Then your program can change the
+            text label by passing the new label text to the
+            variable's <code class="code">.set()</code> method.
+          </p></dd><dt><span class="term">
+          <code class="code">Scale</code>
+        </span></dt><dd><p>
+            For a scale widget, set its <code class="code">variable</code>
+            option to a control variable of any class, and set
+            its <code class="code">from_</code> and <code class="code">to</code>
+            options to the limiting values for the opposite ends
+            of the scale.
+          </p><p>
+            For example, you could use an <code class="code">IntVar</code>
+            and set the scale's <code class="code">from_=0</code> and <code class="code">to=100</code>.  Then every user change to the
+            widget would change the variable's value to some
+            value between 0 and 100 inclusive.
+          </p><p>
+            Your program can also move the slider by using the
+            <code class="code">.set()</code> method on the control variable.
+            To continue the above example, <code class="code">.set(75)</code> would move the slider to a position three-fourths
+            of the way along its trough.
+          </p><p>
+            To set up a <code class="code">Scale</code> widget for <code class="code">float</code> values, use a <code class="code">DoubleVar</code>.
+          </p><p>
+            You can use a <code class="code">StringVar</code> as the control
+            variable of a <code class="code">Scale</code> widget.  You will
+            still need to provide numeric <code class="code">from_</code>
+            and <code class="code">to</code> values, but the numeric value
+            of the widget will be converted to a string for
+            storage in the <code class="code">StringVar</code>.  Use the
+            scale's <code class="code">digits</code> option to control the
+            precision of this conversion.
+          </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="focus.html">53. Focus: routing keyboard input</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="connecting.html">51. Connecting your application logic to the widgets</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/control-variables.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/control-variables.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

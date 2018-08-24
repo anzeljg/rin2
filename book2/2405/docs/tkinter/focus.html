@@ -1,0 +1,104 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/focus.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>53. Focus: routing keyboard input</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="control-variables.html" title="52. Control variables: the values behind the widgets"><link rel="next" href="ttk-focus.html" title="53.1. Focus in ttk widgets"></head><body><div class="topnavbar"><a href="ttk-focus.html">Next</a> / <a href="control-variables.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="focus"></a>53. Focus: routing keyboard input</h2></div></div></div><p>
+      To say a widget has <em class="firstterm">focus</em> means that
+      keyboard input is currently directed to that widget.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          By <em class="firstterm">focus traversal</em>, we mean the
+          sequence of widgets that will be visited as the user
+          moves from widget to widget with the
+          <span class="keysym">tab</span> key.  See below for the rules for
+          this sequence.
+        </p></li><li><p>
+          You can traverse backwards using
+          <span class="keysym">shift-tab</span>.
+        </p></li><li><p>
+          The <code class="code">Entry</code> and <code class="code">Text</code>
+          widgets are intended to accept keyboard input, and if
+          an entry or text widget currently has the focus, any
+          characters you type into it will be added to its text.
+          The usual editing characters such as ← and
+          → will have their usual effects.
+        </p></li><li><p>
+          Because <code class="code">Text</code> widgets can contain tab
+          characters, you must use the special key sequence
+          <span class="keysym">control-tab</span> to move the focus past a
+          text widget.
+        </p></li><li><p>
+          Most of the other types of widgets will normally be
+          visited by focus traversal, and when they have focus:
+        </p><div class="itemizedlist"><ul type="circle"><li><p>
+              <code class="code">Button</code> widgets can be
+              “pressed” by pressing the spacebar.
+            </p></li><li><p>
+              <code class="code">Checkbutton</code> widgets can be toggled
+              between set and cleared states using the spacebar.
+            </p></li><li><p>
+              In <code class="code">Listbox</code> widgets, the ↑ and
+              ↓ keys scroll up or down one line; the
+              <span class="keysym">PageUp</span> and
+              <span class="keysym">PageDown</span> keys scroll by pages; and
+              the spacebar selects the current line, or
+              de-selects it if it was already selected.
+            </p></li><li><p>
+              You can set a <code class="code">Radiobutton</code> widget by
+              pressing the spacebar.
+            </p></li><li><p>
+              Horizontal <code class="code">Scale</code> widgets respond to
+              the ← and → keys, and vertical ones
+              respond to ↑ and ↓.
+            </p></li><li><p>
+              In a <code class="code">Scrollbar</code> widget, the
+              <span class="keysym">PageUp</span> and
+              <span class="keysym">PageDown</span> keys move the scrollbar
+              by pageloads.  The ↑ and ↓ keys will
+              move vertical scrollbars by units, and the ←
+              and → keys will move horizontal scrollbars
+              by units.
+            </p></li></ul></div></li><li><p>
+          Many widgets are provided with an outline called the
+          <em class="firstterm">focus highlight</em> that shows the
+          user which widget has the highlight.  This is normally
+          a thin black frame located just outside the widget's
+          border (if any).  For widgets that don't normally have
+          a focus highlight (specifically, frames, labels, and
+          menus), you can set the <code class="code">highlightthickness</code> option to a nonzero value to make the focus highlight
+          visible.
+        </p></li><li><p>
+          You can also change the color of the focus highlight
+          using the <code class="code">highlightcolor</code> option.
+        </p></li><li><p>
+          Widgets of class <code class="code">Frame</code>, <code class="code">Label</code>, and <code class="code">Menu</code> are not
+          normally visited by the focus.  However, you can set
+          their <code class="code">takefocus</code> options to <code class="code">1</code> to get them included in focus traversal.
+          You can also take any widget out of focus traversal by
+          setting its <code class="code">takefocus</code> option to <code class="code">0</code>.
+        </p></li></ul></div><p>
+      The order in which the <span class="keysym">tab</span> key traverses
+      the widgets is:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          For widgets that are children of the same parent, focus
+          goes in the same order the widgets were created.
+        </p></li><li><p>
+          For parent widgets that contain other widgets (such as
+          frames), focus visits the parent widget first (unless
+          its <code class="code">takefocus</code> option is <code class="code">0</code>), then it visits the child widgets, recursively, in
+          the order they were created.
+        </p></li></ul></div><p>
+      To sum up: to set up the focus traversal order of your
+      widgets, create them in that order.  Remove widgets from
+      the traversal order by setting their <code class="code">takefocus</code> options to 0, and for those whose default <code class="code">takefocus</code> option is <code class="code">0</code>, set it to
+      <code class="code">1</code> if you want to add them to the order.
+    </p><p>
+      The above describes the default functioning of input focus
+      in <span class="application">Tkinter</span>.  There is another, completely different way to
+      handle it—let the focus go wherever the mouse goes.
+      Under <a href="universal.html" title="26. Universal widget methods">Section 26, “Universal widget methods”</a>, refer to the <code class="code">.tk_focusFollowsMouse()</code> method.
+    </p><p>
+      You can also add, change or delete the way any key on the
+      keyboard functions inside any widget by using event
+      bindings.  See <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a> for the details.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-focus.html">53.1. Focus in <span class="application">ttk</span> widgets</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="control-variables.html">52. Control variables: the values behind the widgets</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/focus.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/focus.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

@@ -1,0 +1,43 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-themes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>47. Customizing and creating ttk themes and styles</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-state-spec.html" title="46.1. Specifying widget states in ttk"><link rel="next" href="ttk-theme-layer.html" title="48. Finding and using ttk themes"></head><body><div class="topnavbar"><a href="ttk-theme-layer.html">Next</a> / <a href="ttk-state-spec.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-themes"></a>47. Customizing and creating <span class="application">ttk</span> themes and styles</h2></div></div></div><p>
+      Designing with <span class="application">ttk</span> widgets involves three levels of
+      abstraction:
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          A <em class="firstterm">theme</em> is a complete
+          “look and feel,” customizing the
+          appearance of all the widgets.
+        </p></li><li><p>
+          A <em class="firstterm">style</em> is the description
+          of the appearance of one kind of widget.  Each theme
+          comes with a predefined set of styles, but you can
+          customize the built-in styles or create your own
+          new styles.
+        </p><p>
+          The phrase “kind of widget” in the
+          previous paragraph technically refers to the
+          “class” of a widget.  However, in the
+          <span class="application">ttk</span> world, this is different from Python classes.
+          Within <span class="application">ttk</span>, the class of a widget is a character
+          string.  For example, the <span class="application">ttk</span> class of a stock
+          <code class="code">Button</code> widget is the string <code class="code">'TButton'</code>.
+        </p></li><li><p>
+          Each style is composed of one or more <em class="firstterm">elements</em>.  For example, the style of a
+          typical button has four elements: a border around the
+          outside; a focus element that changes color when the
+          widget has input <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>;
+          a padding element; and the button's label (text, image,
+          or both).
+        </p><div class="informalfigure"><div class="mediaobject"><img src="img/button-elts.png"></div></div></li></ul></div><p>
+      We will discuss the discovery, use and customization of each
+      of these layers in separate sections.
+    </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+          <a href="ttk-theme-layer.html" title="48. Finding and using ttk themes">Section 48, “Finding and using <span class="application">ttk</span> themes”</a>.
+        </p></li><li><p>
+          <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+        </p></li><li><p>
+          <a href="ttk-element-layer.html" title="50. The ttk element layer">Section 50, “The <span class="application">ttk</span> element layer”</a>.
+        </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-theme-layer.html">48. Finding and using <span class="application">ttk</span> themes</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-state-spec.html">46.1. Specifying widget states in <span class="application">ttk</span></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-themes.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-themes.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+</html>

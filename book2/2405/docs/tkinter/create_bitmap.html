@@ -1,0 +1,84 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_bitmap.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.8. Canvas bitmap objects</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="create_arc.html" title="8.7. Canvas arc objects"><link rel="next" href="create_image.html" title="8.9. Canvas image objects"></head><body><div class="topnavbar"><a href="create_image.html">Next</a> / <a href="create_arc.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="create_bitmap"></a>8.8. <code class="code">Canvas</code> bitmap objects</h3></div></div></div><p>
+        A bitmap object on a canvas is shown as two colors, the
+        background color (for 0 data values) and the foreground
+        color (for 1 values).
+      </p><p>
+        To create a bitmap object on a canvas <code class="code"><em class="replaceable"><code>C</code></em></code>, use:
+
+        </p><pre class="programlisting">    <em class="replaceable"><code>id</code></em> = <em class="replaceable"><code>C</code></em>.create_bitmap(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>, *options ...)
+</pre><p>
+
+        which returns the integer ID number of the image object
+        for that canvas.
+      </p><p>
+        The <code class="code"><em class="replaceable"><code>x</code></em></code> and <code class="code"><em class="replaceable"><code>y</code></em></code> values are the
+        reference point that specifies where the bitmap is
+        placed.
+      </p><p>
+        Options include:
+      </p><div class="table"><a name="Canvas-bitmap-options"></a><p class="title"><b>Table 8. <code class="code">Canvas</code> bitmap options</b></p><div class="table-contents"><table summary="Canvas bitmap options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+                <code class="code">activebackground</code>
+              </td><td rowspan="3" align="left" valign="top">
+                These options specify the <code class="code">background</code>, <code class="code">bitmap</code>, and <code class="code">foreground</code> values when the bitmap is
+                active, that is, when the mouse is over the bitmap.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activebitmap</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">activeforeground</code>
+              </td></tr><tr><td align="left"><code class="code">anchor</code></td><td align="left">
+                The bitmap is positioned relative to point (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>).  The
+                default is anchor=<code class="code">tk.CENTER</code>, meaning
+                that the bitmap is centered on the (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>) position.
+                See <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a> for the
+                various <code class="code">anchor</code> option values.  For
+                example, if you specify <code class="code">anchor=tk.NE</code>,
+                the bitmap will be positioned so that point
+                (<code class="code"><em class="replaceable"><code>x</code></em></code>,
+                <code class="code"><em class="replaceable"><code>y</code></em></code>) is
+                located at the northeast (top right) corner of
+                the bitmap.
+              </td></tr><tr><td align="left">
+                <code class="code">background</code>
+              </td><td align="left">
+                The <a href="colors.html" title="5.3. Colors">color</a> that will
+                appear where there are 0 values in the bitmap.
+                The default is <code class="code">background=''</code>,
+                meaning transparent.
+              </td></tr><tr><td align="left">
+                <code class="code">bitmap
+                </code>
+              </td><td align="left">
+                The bitmap to be displayed; see <a href="bitmaps.html" title="5.7. Bitmaps">Section 5.7, “Bitmaps”</a>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledbackground</code>
+              </td><td rowspan="3" align="left" valign="top">
+                These options specify the background, bitmap, and
+                foreground to be used when the bitmap's <code class="code">state</code> is <code class="code">tk.DISABLED</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledbitmap</code>
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">disabledforeground</code>
+              </td></tr><tr><td align="left">
+                <code class="code">foreground</code>
+              </td><td align="left">
+                The <a href="colors.html" title="5.3. Colors">color</a> that will
+                appear where there are 1 values in the bitmap.
+                The default is <code class="code">foreground='black'</code>.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">state</code>
+              </td><td align="left" valign="top">
+                By default, items are created with <code class="code">state=tk.NORMAL</code>.  Use <code class="code">tk.DISABLED</code> to make the item grayed out and unresponsive to
+                events; use <code class="code">tk.HIDDEN</code> to make the
+                item invisible.
+              </td></tr><tr><td align="left">
+                <code class="code">tags</code>
+              </td><td align="left">
+                If a single string, the bitmap is tagged with
+                that string.  Use a tuple of strings to tag the
+                bitmap with multiple tags.  See <a href="canvas-tags.html" title="8.4. Canvas tags">Section 8.4, “<code class="code">Canvas</code> tags”</a>.
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="create_image.html">8.9. <code class="code">Canvas</code> image objects</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="create_arc.html">8.7. <code class="code">Canvas</code> arc objects</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/create_bitmap.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_bitmap.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:42 GMT -->
+</html>

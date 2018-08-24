@@ -1,0 +1,216 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Entry.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>32. ttk.Entry</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="ttk-Combobox.html" title="31. ttk.Combobox"><link rel="next" href="ttk-Frame.html" title="33. ttk.Frame"></head><body><div class="topnavbar"><a href="ttk-Frame.html">Next</a> / <a href="ttk-Combobox.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ttk-Entry"></a>32. <span class="application">ttk</span><code class="code">.Entry</code></h2></div></div></div><p>
+      The purpose of an <code class="code">Entry</code> widget is to allow the
+      user to enter or edit a single line of text.  This is the
+      <span class="application">ttk</span> version of <a href="entry.html" title="10. The Entry widget">Section 10, “The <code class="code">Entry</code> widget”</a>.
+    </p><p>
+      To create a <span class="application">ttk</span><code class="code">.Entry</code> widget as the child of
+      a given <code class="code"><em class="replaceable"><code>parent</code></em></code>
+      widget:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = ttk.Entry(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>=<em class="replaceable"><code>value</code></em>, ...)
+</pre><p>
+      Options:
+    </p><div class="table"><a name="ttk-Entry-options"></a><p class="title"><b>Table 40. <span class="application">ttk</span><code class="code">.Entry</code> options</b></p><div class="table-contents"><table summary="ttk.Entry options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">class_</code>
+            </td><td align="left">
+              The widget class name.  This may be specified when the
+              widget is created, but cannot be changed later.  For an
+              explanation of widget classes, see <a href="option-database.html" title="27. Standardizing appearance and the option database">Section 27, “Standardizing appearance”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              The cursor that will appear when the mouse is over the
+              checkbutton; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">exportselection</code>
+            </td><td align="left">
+              By default, if you select text within an <code class="code">Entry</code> widget, it is automatically exported
+              to the clipboard.  To avoid this exportation, use
+              <code class="code">exportselection=0</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left">
+              Use this option to specify the font of the text that
+              will appear in the widget; see <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+              For reasons that are unclear to the author, this option
+              cannot be specified with a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">invalidcommand</code>
+            </td><td align="left">
+              You may set this option to a callback function that will
+              be called whenever validation fails (that is, when the
+              <code class="code">validatecommand</code> returns a 0).  See <a href="entry-validation.html" title="10.2. Adding validation to an Entry
+      widget">Section 10.2, “Adding validation to an <code class="code">Entry</code>
+      widget”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">justify</code>
+            </td><td align="left">
+              This option specifies how the text will be positioned
+              within the entry area when it does not completely fill
+              the area.  Values may be <code class="code">tk.LEFT</code> to
+              left-justify; <code class="code">tk.CENTER</code> to center; or
+              <code class="code">tk.RIGHT</code> to right-justify.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">show</code>
+            </td><td align="left">
+              To protect fields such as passwords from being visible
+              on the screen, set this option to a string, whose first
+              character will be substituted for each of the actual
+              characters in the field.  For example, if the field
+              contains “ <code class="code">sesame</code>” but you
+              have specified <code class="code">show='*'</code>, the field will
+              appear as “<code class="code">******</code>”.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">style</code>
+            </td><td align="left">
+              The style to be used in rendering this checkbutton; see
+              <a href="ttk-style-layer.html" title="49. Using and customizing ttk styles">Section 49, “Using and customizing <span class="application">ttk</span> styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              By default, a <span class="application">ttk</span><code class="code">.Checkbutton</code> will
+              be included in focus traversal; see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.  To remove the widget from focus
+              traversal, use <code class="code">takefocus=False</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">textvariable</code>
+            </td><td align="left">
+              A variable that controls the text that appears in the
+              entry area; see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">validate</code>
+            </td><td align="left">
+              You may use this option to specify a callback function
+              that dynamically validates the widget's text content.
+              See <a href="entry-validation.html" title="10.2. Adding validation to an Entry
+      widget">Section 10.2, “Adding validation to an <code class="code">Entry</code>
+      widget”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">validatecommand</code>
+            </td><td align="left">
+              See <a href="entry-validation.html" title="10.2. Adding validation to an Entry
+      widget">Section 10.2, “Adding validation to an <code class="code">Entry</code>
+      widget”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              This option specifies the width of the entry area as a
+              number of characters.  The actual width will be this
+              number times the average width of a character in the
+              effective font.  The default value is 20.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">xscrollcommand</code>
+            </td><td align="left">
+              If the widget has an associated horizontal scrollbar,
+              set this option to the <code class="code">.set</code> method of
+              that scrollbar.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      These options of the <span class="application">Tkinter</span> <code class="code">Entry</code> widget are
+      <span class="emphasis"><em>not</em></span> supported by the <span class="application">ttk</span><code class="code">.Entry</code> widget constructor:
+    </p><div class="table"><a name="ttk-Entry-missing"></a><p class="title"><b>Table 41. <span class="application">Tkinter</span> <code class="code">Entry</code> options not in <span class="application">ttk</span><code class="code">.Entry</code></b></p><div class="table-contents"><table summary="Tkinter Entry options not in ttk.Entry" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">background</code> or <code class="code">bg</code>
+            </td><td align="left">
+              Configure the <code class="code">background</code> option using a
+              style; see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.  The <code class="code">bg</code> abbreviation is not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">borderwidth</code> or <code class="code">bd</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledbackground</code>
+            </td><td align="left">
+              Use a style map for the <code class="code">background</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">disabledforeground</code>
+            </td><td align="left">
+              Use a style map for the <code class="code">foreground</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">foreground</code> or <code class="code">fg</code>
+            </td><td align="left">
+              Configure this option using a style.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              To control the color of the focus highlight when the
+              checkbutton does not have focus, use a style map to
+              control the <code class="code">highlightcolor</code> option; see
+              <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightcolor</code>
+            </td><td align="left">
+              You may specify the default focus highlight color
+              by setting this option in a style.  You may also
+              control the focus highlight color using a style
+              map.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightthickness</code>
+            </td><td align="left">
+              Configure this option using a style.  This option
+              may not work in all themes.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertbackground</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertborderwidth</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertofftime</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertontime</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">insertwidth</code>
+            </td><td align="left">
+              Not supported.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">readonlybackground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">background</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              Configure this option using a style; see <a href="ttk-themes.html" title="47. Customizing and creating ttk themes and styles">Section 47, “Customizing and creating <span class="application">ttk</span> themes and styles”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectbackground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">background</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectborderwidth</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">borderwidth</code> option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">selectforeground</code>
+            </td><td align="left">
+              Use a style map to control the <code class="code">foreground</code>
+              option; see <a href="ttk-map.html" title="50.2. ttk style maps: dynamic appearance
+      changes">Section 50.2, “<span class="application">ttk</span> style maps: dynamic appearance
+      changes”</a>.
+            </td></tr></tbody></table></div></div><br class="table-break"><p>
+      Methods on a <span class="application">ttk</span><code class="code">.Entry</code> include all those
+      described in <a href="ttk-Widget.html" title="46. Methods common to all ttk widgets">Section 46, “Methods common to all <span class="application">ttk</span> widgets”</a>, plus all the
+      methods on the <span class="application">Tkinter</span> widget described in <a href="entry.html" title="10. The Entry widget">Section 10, “The <code class="code">Entry</code> widget”</a>.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="ttk-Frame.html">33. <span class="application">ttk</span><code class="code">.Frame</code></a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="ttk-Combobox.html">31. <span class="application">ttk</span><code class="code">.Combobox</code></a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Entry.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/ttk-Entry.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:54 GMT -->
+</html>

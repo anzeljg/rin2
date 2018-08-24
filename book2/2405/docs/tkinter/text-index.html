@@ -1,0 +1,153 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>24.1. Text widget indices</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="text.html" title="24. The Text widget"><link rel="prev" href="text.html" title="24. The Text widget"><link rel="next" href="text-mark.html" title="24.2. Text widget marks"></head><body><div class="topnavbar"><a href="text-mark.html">Next</a> / <a href="text.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="text-index"></a>24.1. <code class="code">Text</code> widget indices</h3></div></div></div><p>
+        An <em class="firstterm">index</em> is a general method of
+        specifying a position in the content of a text widget.
+        An index is a string with one of these forms:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">'<em class="replaceable"><code>line</code></em>.<em class="replaceable"><code>column</code></em>'</code>
+          </span></dt><dd><p>
+              The position just before the given <code class="code"><em class="replaceable"><code>column</code></em></code>
+              (counting from zero) on the given <code class="code"><em class="replaceable"><code>line</code></em></code> (counting
+              from one).  Examples: <code class="code">'1.0'</code> is the
+              position of the beginning of the text; <code class="code">'2.3'</code> is the position before the fourth
+              character of the second line.
+            </p></dd><dt><span class="term">
+            <code class="code">'<em class="replaceable"><code>line</code></em>.end'</code>
+          </span></dt><dd><p>
+              The position just before the newline at the end of
+              the given line (counting from one).  So, for
+              example, index <code class="code">'10.end'</code> is the
+              position at the end of the tenth line.
+            </p></dd><dt><span class="term">
+            <code class="code">tk.INSERT</code>
+          </span></dt><dd><p>
+              The position of the insertion cursor in the text
+              widget.  This constant is equal to the string <code class="code">'insert'</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">tk.CURRENT</code>
+          </span></dt><dd><p>
+              The position of the character closest to the mouse
+              pointer.  This constant is equal to the string <code class="code">'current'</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">tk.END</code>
+          </span></dt><dd><p>
+              The position after the last character of the text.
+              This constant is equal to the string <code class="code">'end'</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">tk.SEL_FIRST</code>
+          </span></dt><dd><p>
+              If some of the text in the widget is currently selection
+              (as by dragging the mouse over it), this is the position
+              before the start of the selection.  If you try to use
+              this index and nothing is selected, a <code class="code">tk.TclError</code> exception will be raised.
+              This constant is equal to the string <code class="code">'sel.first'</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">tk.SEL_LAST</code>
+          </span></dt><dd><p>
+              The position after the end of the selection, if any.  As
+              with <code class="code">SEL_FIRST</code>, you'll get a <code class="code">tk.TclError</code> exception if you use such an index
+              and there is no selection.
+              This constant is equal to the string <code class="code">'sel.last'</code>.
+           </p></dd><dt><span class="term">
+            <code class="code">'<em class="replaceable"><code>markname</code></em>'</code>
+          </span></dt><dd><p>
+              You can use a mark as an index; just pass its name
+              where an index is expected.  See <a href="text-mark.html" title="24.2. Text widget marks">Section 24.2, “<code class="code">Text</code> widget marks”</a>.
+            </p></dd><dt><span class="term">
+            <code class="code">'<em class="replaceable"><code>tag</code></em>.first'</code>
+          </span></dt><dd><p>
+              The position before the first character of the
+              region tagged with name <code class="code"><em class="replaceable"><code>tag</code></em></code>; see <a href="text-tag.html" title="24.5. Text widget tags">Section 24.5, “<code class="code">Text</code> widget tags”</a>.
+            </p></dd><dt><span class="term">
+            <code class="code">'<em class="replaceable"><code>tag</code></em>.last'</code>
+          </span></dt><dd><p>
+              The position after the last character of a tagged
+              region.
+            </p></dd><dt><span class="term">
+            <code class="code">'@<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>'</code>
+          </span></dt><dd><p>
+              The position before the character closest to the
+              coordinate (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>).
+            </p></dd><dt><span class="term">
+            <code class="code"><em class="replaceable"><code>embedded-object</code></em></code>
+          </span></dt><dd><p>
+              If you have an image or window embedded in the text
+              widget, you can use the <code class="code">PhotoImage</code>,
+              <code class="code">BitmapImage</code>, or embedded widget as
+              an index.  See <a href="text-image.html" title="24.3. Text widget images">Section 24.3, “<code class="code">Text</code> widget images”</a> and
+              <a href="text-window.html" title="24.4. Text widget windows">Section 24.4, “<code class="code">Text</code> widget windows”</a>.
+            </p></dd></dl></div><p>
+        In addition to the basic index options above, you can
+        build arbitrary complex expressions by adding any of
+        these suffixes to a basic index or index expression:
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">+ <em class="replaceable"><code>n</code></em> chars</code>
+          </span></dt><dd><p>
+              From the given index, move forward <code class="code"><em class="replaceable"><code>n</code></em></code> characters.
+              This operation will cross line boundaries.
+            </p><p>
+              For example, suppose the first line looks like
+              this:
+
+              </p><pre class="programlisting">abcdef
+</pre><p>
+
+              The index expression “<code class="code">1.0 + 5
+              chars</code>” refers to the position
+              between <code class="code">e</code> and <code class="code">f</code>.  You
+              can omit blanks and abbreviate keywords in these
+              expressions if the result is unambiguous.  This
+              example could be abbreviated “<code class="code">1.0+5c</code>”.
+            </p></dd><dt><span class="term">
+            <code class="code">- <em class="replaceable"><code>n</code></em> chars</code>
+          </span></dt><dd><p>
+              Similar to the previous form, but the position moves
+              <span class="emphasis"><em>backwards</em></span> <code class="code"><em class="replaceable"><code>n</code></em></code> characters.
+            </p></dd><dt><span class="term">
+            <code class="code">+ <em class="replaceable"><code>n</code></em> lines</code>
+          </span></dt><dd><p>
+              Moves <code class="code"><em class="replaceable"><code>n</code></em></code>
+              lines past the given index.  <span class="application">Tkinter</span> tries to leave
+              the new position in the same column as it was on the
+              line it left, but if the line at the new position is
+              shorter, the new position will be at the end of the
+              line.
+            </p></dd><dt><span class="term">
+            <code class="code">- <em class="replaceable"><code>n</code></em> lines</code>
+          </span></dt><dd><p>
+              Moves <code class="code"><em class="replaceable"><code>n</code></em></code>
+              lines before the given index.
+            </p></dd><dt><span class="term">
+            <code class="code">linestart</code>
+          </span></dt><dd><p>
+              Moves to the position before the first character of
+              the given index.  For example, position
+              “<code class="code">current linestart</code>”
+              refers to the beginning of the line closest to the
+              mouse pointer.
+            </p></dd><dt><span class="term">
+            <code class="code">lineend</code>
+          </span></dt><dd><p>
+              Moves to the position after the last character of
+              the given index.  For example, position
+              “<code class="code">sel.last lineend</code>”
+              refers to the end of the line containing the end
+              of the current selection.
+            </p></dd><dt><span class="term">
+            <code class="code">wordstart</code>
+          </span></dt><dd><p>
+              The position before the beginning of the word
+              containing the given index.  For example, index
+              “<code class="code">11.44 wordstart</code>”
+              refers to the position before the word containing
+              position 44 on line 11.
+            </p><p>
+              For the purposes of this operation, a word is
+              either a string of consecutive letter, digit, or
+              underbar (<code class="code">_</code>) characters, or a single
+              character that is none of these types.
+            </p></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="text-mark.html">24.2. <code class="code">Text</code> widget marks</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="text.html">24. The <code class="code">Text</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/text-index.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

@@ -1,0 +1,55 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/images.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.9. Images</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="std-attrs.html" title="5. Standard attributes"><link rel="prev" href="cursors.html" title="5.8. Cursors"><link rel="next" href="geometry.html" title="5.10. Geometry strings"></head><body><div class="topnavbar"><a href="geometry.html">Next</a> / <a href="cursors.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="images"></a>5.9. Images</h3></div></div></div><p>
+        There are three general methods for displaying graphic
+        images in your <span class="application">Tkinter</span> application.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            To display bitmap (two-color) images in the <code class="code">.xbm</code> format, refer to <a href="images.html#class-BitmapImage" title="5.9.1. The BitmapImage class">Section 5.9.1, “The <code class="code">BitmapImage</code> class”</a>.
+          </p></li><li><p>
+            To display full-color images in the <code class="code">.gif</code>, <code class="code">.pgm</code>, or <code class="code">.ppm</code>
+            format, see <a href="images.html#class-PhotoImage" title="5.9.2. The PhotoImage class">Section 5.9.2, “The <code class="code">PhotoImage</code> class”</a>.
+          </p></li><li><p>
+            The Python Imaging Library (PIL) supports images in a
+            much wider variety of formats.  Its <code class="code">ImageTk</code> class is specifically designed for
+            displaying images within <span class="application">Tkinter</span> applications.  See
+            the author's companion document for PIL
+            documentation: <a href="http://www.nmt.edu/tcc/help/pubs/pil/" target="_top"><em class="citetitle">Python Imaging Library
+            (PIL) quick reference</em></a>.
+          </p></li></ul></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="class-BitmapImage"></a>5.9.1. The <code class="code">BitmapImage</code> class</h4></div></div></div><p>
+          To display a two-color image in the <code class="code">.xbm</code>
+          format, you will need this constructor:
+          </p><pre class="programlisting">    tk.BitmapImage(file=<em class="replaceable"><code>f</code></em>[, background=<em class="replaceable"><code>b</code></em>][, foreground=<em class="replaceable"><code>c</code></em>])
+</pre><p>
+          where <code class="code"><em class="replaceable"><code>f</code></em></code> is
+          the name of the <code class="code">.xbm</code> image file.
+        </p><p>
+          Normally, foreground (1) bits in the image will be
+          displayed as black pixels, and background (0) bits in
+          the image will be transparent.  To change this
+          behavior, use the optional <code class="code">background=<em class="replaceable"><code>b</code></em></code>
+          option to set the background to color <code class="code"><em class="replaceable"><code>b</code></em></code>, and the
+          optional <code class="code">foreground=<em class="replaceable"><code>c</code></em></code> option to set the foreground to color <code class="code"><em class="replaceable"><code>c</code></em></code>.  For color
+          specification, see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+        </p><p>
+          This constructor returns a value that can be used
+          anywhere <span class="application">Tkinter</span> expects an image.  For example, to
+          display an image as a label, use a <code class="code">Label</code>
+          widget (see <a href="label.html" title="12. The Label widget">Section 12, “The <code class="code">Label</code> widget”</a>) and supply the
+          <code class="code">BitmapImage</code> object as the value of the
+          <code class="code">image</code> option:
+          </p><pre class="programlisting">    logo = tk.BitmapImage('logo.xbm', foreground='red')
+    Label(image=logo).grid()
+</pre><p>
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="class-PhotoImage"></a>5.9.2. The <code class="code">PhotoImage</code> class</h4></div></div></div><p>
+          To display a color image in <code class="code">.gif</code>, <code class="code">.pgm</code>, or <code class="code">.ppm</code> format, you will
+          need this constructor:
+          </p><pre class="programlisting">    tk.PhotoImage(file=<em class="replaceable"><code>f</code></em>)
+</pre><p>
+          where <code class="code"><em class="replaceable"><code>f</code></em></code> is
+          the name of the image file.  The constructor returns a
+          value that can be used anywhere <span class="application">Tkinter</span> expects an
+          image.
+        </p></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="geometry.html">5.10. Geometry strings</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="cursors.html">5.8. Cursors</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/images.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/images.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:37 GMT -->
+</html>

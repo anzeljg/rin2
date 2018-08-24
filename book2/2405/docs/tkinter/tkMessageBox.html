@@ -1,0 +1,84 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/tkMessageBox.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>55.1. The tkMessageBox dialogs
+      module</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="dialogs.html" title="55. Pop-up dialogs"><link rel="prev" href="dialogs.html" title="55. Pop-up dialogs"><link rel="next" href="tkFileDialog.html" title="55.2. The tkFileDialog module"></head><body><div class="topnavbar"><a href="tkFileDialog.html">Next</a> / <a href="dialogs.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tkMessageBox"></a>55.1. The <code class="code">tkMessageBox</code> dialogs
+      module</h3></div></div></div><p>
+        Once you import the <code class="code">tkMessageBox</code> module,
+        you can create any of these seven common types of pop-up
+        menu by calling functions from this table.
+      </p><div class="informaltable"><table border="1"><colgroup><col align="right"><col align="left"></colgroup><tbody><tr><td align="right">
+                <span class="inlinemediaobject"><img src="img/askokcancel.png" alt="Screen shot of askokcancel."></span>
+              </td><td align="left">
+                <code class="code">.askokcancel(<em class="replaceable"><code>title</code></em>, <em class="replaceable"><code>message</code></em>, <em class="replaceable"><code>options</code></em>)</code>
+              </td></tr><tr><td align="right">
+                <span class="inlinemediaobject"><img src="img/askquestion.png" alt="Screen shot of askquestion."></span>
+              </td><td align="left">
+                <code class="code">.askquestion(<em class="replaceable"><code>title</code></em>, <em class="replaceable"><code>message</code></em>, <em class="replaceable"><code>options</code></em>)</code>
+              </td></tr><tr><td align="right">
+                <span class="inlinemediaobject"><img src="img/askretrycancel.png" alt="Screen shot of askretrycancel."></span>
+              </td><td align="left">
+                <code class="code">.askretrycancel(<em class="replaceable"><code>title</code></em>, <em class="replaceable"><code>message</code></em>, <em class="replaceable"><code>options</code></em>)</code>
+              </td></tr><tr><td align="right">
+                <span class="inlinemediaobject"><img src="img/askyesno.png" alt="Screen shot of askyesno."></span>
+              </td><td align="left">
+                <code class="code">.askyesno(<em class="replaceable"><code>title</code></em>, <em class="replaceable"><code>message</code></em>, <em class="replaceable"><code>options</code></em>)</code>
+              </td></tr><tr><td align="right">
+                <span class="inlinemediaobject"><img src="img/showerror.png" alt="Screen shot of showerror."></span>
+              </td><td align="left">
+                <code class="code">.showerror(<em class="replaceable"><code>title</code></em>, <em class="replaceable"><code>message</code></em>, <em class="replaceable"><code>options</code></em>)</code>
+              </td></tr><tr><td align="right">
+                <span class="inlinemediaobject"><img src="img/showinfo.png" alt="Screen shot of showinfo."></span>
+              </td><td align="left">
+                <code class="code">.showinfo(<em class="replaceable"><code>title</code></em>, <em class="replaceable"><code>message</code></em>, <em class="replaceable"><code>options</code></em>)</code>
+              </td></tr><tr><td align="right">
+                <span class="inlinemediaobject"><img src="img/showwarning.png" alt="Screen shot of showwarning."></span>
+              </td><td align="left">
+                <code class="code">.showwarning(<em class="replaceable"><code>title</code></em>, <em class="replaceable"><code>message</code></em>, <em class="replaceable"><code>options</code></em>)</code>
+              </td></tr></tbody></table></div><p>
+        In each case, the <code class="code"><em class="replaceable"><code>title</code></em></code> is a string to be displayed in the top of the
+        window decoration.  The <code class="code"><em class="replaceable"><code>message</code></em></code> argument is a string that
+        appears in the body of the pop-up window; within this
+        string, lines are broken at newline (<code class="code">'\n'</code>)
+        characters.
+      </p><p>
+        The <code class="code"><em class="replaceable"><code>option</code></em></code>
+        arguments may be any of these choices.
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">default</code>
+          </span></dt><dd><p>
+              Which button should be the default choice?  If you
+              do not specify this option, the first button
+              (“OK”, “Yes”, or
+              “Retry”) will be the default choice.
+            </p><p>
+              To specify which button is the default choice, use
+              <code class="code">default=<em class="replaceable"><code>C</code></em></code>, where <code class="code"><em class="replaceable"><code>C</code></em></code> is one of these constants defined in
+              <code class="code">tkMessageBox</code>: <code class="code">CANCEL</code>,
+              <code class="code">IGNORE</code>, <code class="code">OK</code>, <code class="code">NO</code>, <code class="code">RETRY</code>, or <code class="code">YES</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">icon</code>
+          </span></dt><dd><p>
+              Selects which icon appears in the pop-up.  Use an
+              argument of the form <code class="code">icon=<em class="replaceable"><code>I</code></em></code> where <code class="code"><em class="replaceable"><code>I</code></em></code> is one of these constants
+              defined in <code class="code">tkMessageBox</code>: <code class="code">ERROR</code>, <code class="code">INFO</code>, <code class="code">QUESTION</code>, or <code class="code">WARNING</code>.
+            </p></dd><dt><span class="term">
+            <code class="code">parent</code>
+          </span></dt><dd><p>
+              If you don't specify this option, the pop-up
+              appears above your root window.  To make the pop-up
+              appear above some child window <em class="replaceable"><code>W</code></em>, use the argument <code class="code">parent=<em class="replaceable"><code>W</code></em></code>.
+            </p></dd></dl></div><p>
+        Each of the “<code class="code">ask...</code>” pop-up
+        functions returns a value that depends on which button
+        the user pushed to remove the pop-up.
+      </p><div class="itemizedlist"><ul type="disc" compact><li><p>
+            <code class="code">askokcancel</code>, <code class="code">askretrycancel</code>, and <code class="code">askyesno</code>
+            all return a <code class="code">bool</code> value: <code class="code">True</code> for “OK” or
+            “Yes” choices, <code class="code">False</code> for
+            “No” or “Cancel” choices.
+          </p></li><li><p>
+            <code class="code">askquestion</code> returns <code class="code">u'yes'</code> for “Yes”, or <code class="code">u'no'</code> for “No”.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="tkFileDialog.html">55.2. The <code class="code">tkFileDialog</code> module</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="dialogs.html">55. Pop-up dialogs</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/tkMessageBox.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/tkMessageBox.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:42:02 GMT -->
+</html>

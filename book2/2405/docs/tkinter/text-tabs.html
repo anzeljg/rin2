@@ -1,0 +1,54 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-tabs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>24.6. Setting tabs in a Text widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="text.html" title="24. The Text widget"><link rel="prev" href="text-tag.html" title="24.5. Text widget tags"><link rel="next" href="text-undo-stack.html" title="24.7. The Text widget undo/redo
+      stack"></head><body><div class="topnavbar"><a href="text-undo-stack.html">Next</a> / <a href="text-tag.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="text-tabs"></a>24.6. Setting tabs in a <code class="code">Text</code> widget</h3></div></div></div><p>
+        The <code class="code">tabs</code> option for <code class="code">Text</code>
+        widgets gives you a number of ways to set tab stops
+        within the widget.
+      </p><div class="itemizedlist"><ul type="disc"><li><p>
+            The default is to place tabs every eight characters.
+          </p></li><li><p>
+            To set specific tab stops, set this option to a
+            sequence of one or more distances.  For example,
+            setting <code class="code">tabs=('3c', '5c', '12c')</code> would
+            put tab stops 3, 5, and 12cm from the left side.
+            Past the last tab you set, tabs have the same width
+            as the distance between the last two existing tab
+            stops.  So, continuing our example, because <code class="code">12c-5c</code> is 7 cm, if the user keeps pressing
+            the <span class="keysym">Tab</span> key, the cursor would be
+            positioned at 19cm, 26cm, 33cm, and so on.
+          </p></li><li><p>
+            Normally, text after a tab character is aligned with
+            its left edge on the tab stop, but you can include
+            any of the keywords <code class="code">tk.LEFT</code>, <code class="code">tk.RIGHT</code>, <code class="code">tk.CENTER</code>, or <code class="code">tk.NUMERIC</code> in the list after a distance, and
+            that will change the positioning of the text after
+            each tab.
+          </p><div class="itemizedlist"><ul type="circle"><li><p>
+                A <code class="code">tk.LEFT</code> tab stop has the default
+                behavior.
+              </p></li><li><p>
+                A <code class="code">tk.RIGHT</code> tab stop will position the
+                text so its right edge is on the stop.
+              </p></li><li><p>
+                A <code class="code">tk.CENTER</code> tab will center the
+                following text on the tab stop.
+              </p></li><li><p>
+                A <code class="code">tk.NUMERIC</code> tab stop will place
+                following text to the left of the stop up until the
+                first period (<code class="code">'.'</code>) in the
+                text—after that, the period will be centered on
+                the stop, and the rest of the text will positioned to
+                its right.
+              </p></li></ul></div><p>
+            For example, setting <code class="code">tabs=('0.5i', '0.8i',
+            tk.RIGHT, '1.2i', tk.CENTER, '2i', tk.NUMERIC)</code>
+            would set four tab stops: a left-aligned tab stop half an
+            inch from the left side, a right-aligned tab stop
+            0.8″ from the left side, a center-aligned tab stop
+            1.2″ from the left, and a numeric-aligned tab stop
+            2″ from the left.
+          </p></li></ul></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="text-undo-stack.html">24.7. The <code class="code">Text</code> widget undo/redo
+      stack</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="text-tag.html">24.5. <code class="code">Text</code> widget tags</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/text-tabs.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/text-tabs.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:53 GMT -->
+</html>

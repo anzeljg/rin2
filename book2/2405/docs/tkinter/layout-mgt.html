@@ -1,0 +1,51 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/layout-mgt.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>4. Layout management</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="glossary.html" title="3. Definitions"><link rel="next" href="grid.html" title="4.1. The .grid() method"></head><body><div class="topnavbar"><a href="grid.html">Next</a> / <a href="glossary.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="layout-mgt"></a>4. Layout management</h2></div></div></div><p>
+      Later we will discuss the widgets, the building blocks of
+      your GUI application.  How do widgets get arranged in a
+      window?
+    </p><p>
+      Although there are three different “geometry
+      managers” in <span class="application">Tkinter</span>, the author strongly prefers
+      the <code class="code">.grid()</code> geometry manager for pretty much
+      everything.  This manager treats every window or frame as a
+      table—a gridwork of rows and columns.
+    </p><div class="itemizedlist"><ul type="disc"><li><p>
+          A <em class="firstterm">cell</em> is the area at the
+          intersection of one row and one column.
+        </p></li><li><p>
+          The width of each column is the width of the widest
+          cell in that column.
+        </p></li><li><p>
+          The height of each row is the height of the largest
+          cell in that row.
+        </p></li><li><p>
+          For widgets that do not fill the entire cell, you can
+          specify what happens to the extra space.  You can
+          either leave the extra space outside the widget, or
+          stretch the widget to fit it, in either the horizontal
+          or vertical dimension.
+        </p></li><li><p>
+          You can combine multiple cells into one larger area, a
+          process called <em class="firstterm">spanning</em>.
+        </p></li></ul></div><p>
+      When you create a widget, it does not appear until you
+      register it with a geometry manager.  Hence, construction
+      and placing of a widget is a two-step process that goes
+      something like this:
+
+      </p><pre class="programlisting">    self.<em class="replaceable"><code>thing</code></em> = tk.<em class="replaceable"><code>Constructor</code></em>(<em class="replaceable"><code>parent</code></em>, ...)
+    self.<em class="replaceable"><code>thing</code></em>.grid(...)
+</pre><p>
+
+      where <code class="code"><em class="replaceable"><code>Constructor</code></em></code>
+      is one of the widget classes like <code class="code">Button</code>,
+      <code class="code">Frame</code>, and so on, and <code class="code">parent</code> is
+      the parent widget in which this child widget is being
+      constructed.  All widgets have a <code class="code">.grid()</code>
+      method that you can use to tell the geometry manager where
+      to put it.
+    </p></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="grid.html">4.1. The <code class="code">.grid()</code> method</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="glossary.html">3. Definitions</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/layout-mgt.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/layout-mgt.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:40:23 GMT -->
+</html>

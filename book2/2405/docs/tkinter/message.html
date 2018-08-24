@@ -1,0 +1,115 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/message.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>17. The Message widget</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="prev" href="menubutton.html" title="16. The Menubutton widget"><link rel="next" href="optionmenu.html" title="18. The OptionMenu widget"></head><body><div class="topnavbar"><a href="optionmenu.html">Next</a> / <a href="menubutton.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="message"></a>17. The <code class="code">Message</code> widget</h2></div></div></div><p>
+      This widget is similar to the <code class="code">Label</code> widget
+      (see <a href="label.html" title="12. The Label widget">Section 12, “The <code class="code">Label</code> widget”</a>), but it is intended for
+      displaying messages over multiple lines.  All the text will
+      be displayed in the same font; if you need to display text
+      with more than one font, see <a href="text.html" title="24. The Text widget">Section 24, “The <code class="code">Text</code> widget”</a>.
+    </p><p>
+      To create a new <code class="code">Message</code> widget as the child
+      of a root window or frame named <code class="code"><em class="replaceable"><code>parent</code></em></code>:
+    </p><pre class="programlisting">    <em class="replaceable"><code>w</code></em> = tk.Message(<em class="replaceable"><code>parent</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+      This constructor returns the new <code class="code">Message</code>
+      widget.  Options may be any of these:
+    </p><div class="table"><a name="Message-options"></a><p class="title"><b>Table 26. <code class="code">Message</code> widget options</b></p><div class="table-contents"><table summary="Message widget options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top">
+              <code class="code">aspect</code>
+            </td><td align="left">
+              Use this option to specify the ratio of width to
+              height as a percentage.  For example, <code class="code">aspect=100</code> would give you a text message
+              fit into a square; with <code class="code">aspect=200</code>,
+              the text area would be twice as wide as high.  The
+              default value is 150, that is, the text will be fit
+              into a box 50% wider than it is high.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bg</code> or <code class="code">background</code>
+            </td><td align="left">
+              The background color behind the text; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">bd</code> or <code class="code">borderwidth</code>
+            </td><td align="left">
+              Width of the border around the widget; see <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a>.  The default is two
+              pixels.  This option is visible only when the <code class="code">relief</code> option is not <code class="code">tk.FLAT</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">cursor</code>
+            </td><td align="left">
+              Specifies the cursor that appears when the mouse is
+              over the widget; see <a href="cursors.html" title="5.8. Cursors">Section 5.8, “Cursors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">font</code>
+            </td><td align="left">
+              Specifies the font used to display the text in the
+              widget; see <a href="fonts.html" title="5.4. Type fonts">Section 5.4, “Type fonts”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">fg</code> or <code class="code">foreground</code>
+            </td><td align="left">
+              Specifies the text color; see <a href="colors.html" title="5.3. Colors">Section 5.3, “Colors”</a>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">highlightbackground</code>
+            </td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> of the focus
+              highlight when the widget does not have focus.  See
+              <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightcolor</code></td><td align="left">
+              <a href="colors.html" title="5.3. Colors">Color</a> shown in the
+              focus highlight when the widget has the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>.
+            </td></tr><tr><td align="left" valign="top"><code class="code">highlightthickness</code></td><td align="left">
+              Thickness of the <a href="focus.html" title="53. Focus: routing keyboard input">focus</a>
+              highlight.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">justify</code>
+            </td><td align="left">
+              Use this option to specify how multiple lines of
+              text are aligned.  Use <code class="code">justify=tk.LEFT</code>
+              to get a straight left margin; <code class="code">justify=tk.CENTER</code> to center each line; and
+              <code class="code">justify=tk.RIGHT</code> to get a straight
+              right margin.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">padx</code>
+            </td><td align="left">
+              Use this option to add extra space inside the
+              widget to the left and right of the text.  The
+              value is in pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">pady</code>
+            </td><td align="left">
+              Use this option to add extra space inside the
+              widget above and below the text.  The value is in
+              pixels.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">relief</code>
+            </td><td align="left">
+              This option specifies the appearance of the border
+              around the outside of the widget; see <a href="relief.html" title="5.6. Relief styles">Section 5.6, “Relief styles”</a>.  The default style is <code class="code">tk.FLAT</code>.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">takefocus</code>
+            </td><td align="left">
+              Normally, a <code class="code">Message</code> widget will not
+              acquire focus (see <a href="focus.html" title="53. Focus: routing keyboard input">Section 53, “Focus: routing keyboard input”</a>).  Use
+              <code class="code">takefocus=True</code> to add the widget to
+              the focus traversal list.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">text</code>
+            </td><td align="left">
+              The value of this option is the text to be
+              displayed inside the widget.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">textvariable</code>
+            </td><td align="left">
+              If you would like to be able to change the message
+              under program control, associate this option with a
+              <code class="code">StringVar</code> instance (see <a href="control-variables.html" title="52. Control variables: the values behind the widgets">Section 52, “Control variables: the values behind the widgets”</a>).  The value of this
+              variable is the text to be displayed.  If you
+              specify both <code class="code">text</code> and <code class="code">textvariable</code> options, the <code class="code">text</code> option is ignored.
+            </td></tr><tr><td align="left" valign="top">
+              <code class="code">width</code>
+            </td><td align="left">
+              Use this option to specify the width of the text
+              area in the widget, in pixels.  The default width
+              depends on the displayed text and the value of the
+              <code class="code">aspect</code> option.
+            </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="optionmenu.html">18. The <code class="code">OptionMenu</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="menubutton.html">16. The <code class="code">Menubutton</code> widget</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/message.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/message.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:48 GMT -->
+</html>

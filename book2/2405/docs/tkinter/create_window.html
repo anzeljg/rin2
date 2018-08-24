@@ -1,0 +1,60 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_window.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>8.15. Canvas window objects</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="canvas.html" title="8. The Canvas widget"><link rel="prev" href="create_text.html" title="8.14. Canvas text objects"><link rel="next" href="checkbutton.html" title="9. The Checkbutton widget"></head><body><div class="topnavbar"><a href="checkbutton.html">Next</a> / <a href="create_text.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="create_window"></a>8.15. <code class="code">Canvas</code> window objects</h3></div></div></div><p>
+        You can place any <span class="application">Tkinter</span> widget onto a canvas by using a
+        <em class="firstterm">canvas window</em> object.  A window is
+        a rectangular area that can hold one <span class="application">Tkinter</span> widget.  The
+        widget must be the child of the same top-level window as
+        the canvas, or the child of some widget located in the
+        same top-level window.
+      </p><p>
+        If you want to put complex multi-widget objects on a
+        canvas, you can use this method to place a <code class="code">Frame</code> widget on the canvas, and then place other
+        widgets inside that frame.
+      </p><p>
+        To create a new canvas window object on a canvas <code class="code"><em class="replaceable"><code>C</code></em></code>:
+      </p><pre class="programlisting">    <em class="replaceable"><code>id</code></em> = <em class="replaceable"><code>C</code></em>.create_window(<em class="replaceable"><code>x</code></em>, <em class="replaceable"><code>y</code></em>, <em class="replaceable"><code>option</code></em>, ...)
+</pre><p>
+        This returns the <a href="canvas-oid.html" title="8.3. Canvas object IDs">object
+        ID</a> for the window object.  Options include:
+      </p><div class="table"><a name="Canvas-window-options"></a><p class="title"><b>Table 15. <code class="code">Canvas window</code> options</b></p><div class="table-contents"><table summary="Canvas window options" border="1"><colgroup><col align="left"><col align="left"></colgroup><tbody><tr><td align="left" valign="top"><code class="code">anchor</code></td><td align="left">
+                The default is <code class="code">anchor=tk.CENTER</code>,
+                meaning that the window is centered on the (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>) position.
+                See <a href="anchors.html" title="5.5. Anchors">Section 5.5, “Anchors”</a> for the possible
+                values.  For example, if you specify <code class="code">anchor=tk.E</code>, the window will be positioned
+                so that point (<code class="code"><em class="replaceable"><code>x</code></em></code>, <code class="code"><em class="replaceable"><code>y</code></em></code>) is on the
+                midpoint of its right-hand (east) edge.
+              </td></tr><tr><td align="left" valign="top"><code class="code">height</code></td><td align="left">
+                The height of the area reserved for the window.
+                If omitted, the window will be sized to fit the
+                height of the contained widget.  See <a href="dimensions.html" title="5.1. Dimensions">Section 5.1, “Dimensions”</a> for possible values.
+              </td></tr><tr><td align="left" valign="top">
+                <code class="code">state</code>
+              </td><td align="left" valign="top">
+                By default, window items are in the <code class="code">tk.NORMAL</code> state.  Set this option to <code class="code">tk.DISABLED</code> to make the window unresponsive
+                to mouse input, or to <code class="code">tk.HIDDEN</code> to
+                make it invisible.
+              </td></tr><tr><td align="left" valign="top"><code class="code">tags</code></td><td align="left">
+                If a single string, the window is tagged with
+                that string.  Use a tuple of strings to tag the
+                window with multiple tags.  See <a href="canvas-tags.html" title="8.4. Canvas tags">Section 8.4, “<code class="code">Canvas</code> tags”</a>. 
+              </td></tr><tr><td align="left" valign="top"><code class="code">width</code></td><td align="left">
+                The width of the area reserved for the window.
+                If omitted, the window will be sized to fit the
+                width of the contained widget.
+              </td></tr><tr><td align="left" valign="top"><code class="code">window</code></td><td align="left">
+                Use <code class="code">window=<em class="replaceable"><code>w</code></em></code> where
+                <code class="code"><em class="replaceable"><code>w</code></em></code>
+                is the widget you want to place onto the canvas.
+                If this is omitted initially, you can later call
+                <code class="code"><em class="replaceable"><code>C</code></em>.itemconfigure
+               (<em class="replaceable"><code>id</code></em>,
+                window=<em class="replaceable"><code>w</code></em>)</code> to place the widget
+                <code class="code"><em class="replaceable"><code>w</code></em></code>
+                onto the canvas, where
+                <code class="code"><em class="replaceable"><code>id</code></em></code>
+                is the window's object ID..
+              </td></tr></tbody></table></div></div><br class="table-break"></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="checkbutton.html">9. The <code class="code">Checkbutton</code> widget</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="create_text.html">8.14. <code class="code">Canvas</code> text objects</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/create_window.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/create_window.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:45 GMT -->
+</html>

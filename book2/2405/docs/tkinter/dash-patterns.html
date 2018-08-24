@@ -1,0 +1,43 @@
+<html>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/dash-patterns.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>5.13. Dash patterns</title><link rel="stylesheet" href="css/docbook.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.1"><link rel="start" href="index.html" title="Tkinter 8.5 reference: a GUI for Python"><link rel="up" href="std-attrs.html" title="5. Standard attributes"><link rel="prev" href="cap-join-styles.html" title="5.12. Cap and join styles"><link rel="next" href="stipple-offset.html" title="5.14. Matching stipple patterns"></head><body><div class="topnavbar"><a href="stipple-offset.html">Next</a> / <a href="cap-join-styles.html">Previous</a> / <a href="index.html">Contents</a></div><div class="navheader"><table width="100%" summary="Navigation header"><tr valign="top"><td align="left" valign="top"><h1><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</h1></td><td><img alt="organizational logo" src="img/logo.png"></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="dash-patterns"></a>5.13. Dash patterns</h3></div></div></div><p>
+        A number of widgets allow you to specify a dashed
+        outline.  The <code class="code">dash</code> and <code class="code">dashoffset</code> options give you fine control over
+        the exact pattern of the dashes.
+      </p><div class="variablelist"><dl><dt><span class="term">
+            <code class="code">dash</code>
+          </span></dt><dd><p>
+              This option is specified as a tuple of integers.
+              The first integer specifies how many pixels should
+              be drawn.  The second integer specifies how many
+              pixels should be skipped before starting to draw
+              again, and so on.  When all the integers in the
+              tuple are exhausted, they are reused in the same
+              order until the border is complete.
+            </p><p>
+              For example, <code class="code">dash=(3,5)</code> produces
+              alternating 3-pixel dashes separated by 5-pixel
+              gaps.  A value of <code class="code">dash=(7,1,1,1)</code>
+              produces a dash-and-dot pattern, with the dash
+              seven times as long as the dot or the gaps around
+              the dot.  A value of <code class="code">dash=(5,)</code>
+              produces alternating five-pixel dashes and
+              five-pixel gaps.
+            </p></dd><dt><span class="term">
+            <code class="code">dashoff</code>
+          </span></dt><dd><p>
+              To start the dash pattern in a different point of
+              cycle instead of at the beginning, use an option of
+              <code class="code">dashoff=<em class="replaceable"><code>n</code></em></code>, where <code class="code"><em class="replaceable"><code>n</code></em></code> is the number of pixels to skip at the
+              beginning of the pattern.
+            </p><p>
+              For example, for options <code class="code">dash=(5, 1, 2,
+              1)</code> and <code class="code">dashoff=3</code>, the first
+              pattern produced will be: 2 on, 1 off, 2 on, and 1
+              off.  Subsequent patterns will be 5 on, 1 off, 2
+              on, and 1 off.  Here is a screen shot of a
+              line drawn with this combination of options:
+            </p><div class="informalfigure"><div class="mediaobject"><img src="img/dashpat.png"></div></div></dd></dl></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="stipple-offset.html">5.14. Matching stipple patterns</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="cap-join-styles.html">5.12. Cap and join styles</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/dash-patterns.html</span></div></div></div></body>
+<!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/dash-patterns.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:38 GMT -->
+</html>

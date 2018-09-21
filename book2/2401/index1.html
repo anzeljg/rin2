@@ -57,7 +57,8 @@
 					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
 					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
 					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
-					<li><a href="../2207/index.html">Spletna predstavitev</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
 					</ul>
 				  </div>
 				</li>
@@ -105,14 +106,19 @@
 			</button>
 			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
-					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
-					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
-					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
-					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
-					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -142,33 +148,18 @@
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Catalogue -->
-		<div id="catalogue" class="modal fade" role="dialog">
-			<div class="modal-dialog">
+		<!-- Modal (popup) window: Image -->
+		<div id="image" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
 
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
+						<h4 class="modal-title">Primer spletnega foruma</h4>
 					</div>
 					<div class="modal-body">
-						CIP - Kataložni zapis o publikaciji<br>
-						Narodna in univerzitetna knjižnica, Ljubljana<br>
-						<br>
-						659.2:004(075.3)(0.034.2)<br>
-						004(075.3)(0.034.2)<br>
-						<br>
-						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
-						<br>
-						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
-						<br>
-						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
-						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
-						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
-						<br>
-						1. Anželj, Gregor<br>
-						282126848<br>
+						<p align="center"><img src="img/PhpBB_forum.png" class="img-responsive" /></p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
@@ -178,18 +169,59 @@
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Image -->
-		<div id="image" class="modal fade" role="dialog">
+		<!-- Modal (popup) window: Differences -->
+		<div id="differences" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-lg">
 
 				<!-- Modal content-->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Example of online forum</h4>
+						<h4 class="modal-title">Razlike med strukturiranim in objektno usmerjenim programiranjem</h4>
 					</div>
 					<div class="modal-body">
-						<p align="center"><img src="img/PhpBB_forum.png" class="img-responsive" /></p>
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th width="50%">Strukturirano programiranje</th>
+    <th width="50%">Objektno usmerjeno programiranje</th>
+  </tr>
+</thead>
+<tbody>
+  <tr valign="top">
+    <td>Zasnovano je tako, da se osredotoča na procesno/logično strukturo in nato na podatke, potrebne za ta proces.</td>
+    <td>Zasnovano je tako, da se osredotoča na podatke.</td>
+  </tr>
+  <tr valign="top">
+    <td>Sledi pristopu od zgoraj navzdol.</td>
+    <td>Sledi pristopu od spodaj navzgor.</td>
+  </tr>
+  <tr valign="top">
+    <td>Znano tudi kot modularno programiranje, predstavlja podmnožico proceduralnega programiranja.</td>
+    <td>Podpira dedovanje, inkapsulacijo oziroma ovijanje, abstrakcijo, polimorfizem oziroma večobličnost itd.</td>
+  </tr>
+  <tr valign="top">
+    <td>Programi so razdeljeni na majhne, samozadostne funkcije.</td>
+    <td>Programi razdeljeni na majhne entitete, imenovane objekti.</td>
+  </tr>
+  <tr valign="top">
+    <td>Je manj varno, saj ni možnosti za skrivanje podatkov.</td>
+    <td>Je varnejše, saj ima možnost skrivanja podatkov.</td>
+  </tr>
+  <tr valign="top">
+    <td>Lahko reši zmerno zapletene probleme.</td>
+    <td>Lahko reši vse, poljubno zapletene probleme.</td>
+  </tr>
+  <tr valign="top">
+    <td>Funkcije so odvisne, zato ponovna uporaba ni mogoča.</td>
+    <td>Funkcije niso odvisne, zato je ponovna uporaba mogoča.</td>
+  </tr>
+  <tr valign="top">
+    <td>Omogoča manj abstrakcije in manj prožnosti.</td>
+    <td>Omogoča več abstrakcije in več prožnosti.</td>
+  </tr>
+</tbody>
+</table>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
@@ -209,28 +241,33 @@
 
 <h2>Strukturirano programiranje</h2>
 
-<p align="justify">Če se kadarkoli napisali in uporabili lastno funkcijo, potem ste uporabljali slog programiranja, ki ga imenujemo <b>strukturirano programiranje</b> (<i>angl. structured programming</i>) ali postopkovno programiranje (<i>angl. procedural programming</i>). Cilj strukturiranega programiranja je napisati jasno in učinkovito programsko kodo tako, da problem razbijemo na manjše probleme. Vsakega od teh manjših problemov se lotimo tako, da napišemo postopek (<i>angl. procedure, subroutine</i>) ali funkcijo (<i>angl. function</i>), ki rešuje ta podproblem. Pri strukturiranem programiranju tipično ustvarimo podatkovne strukture &ndash; števila, nize, tabele itd. &ndash; v katerih hranimo podatke, potem pa te podatkovne strukture posredujemo funkcijam, ki delujejo nad posredovanimi podatki.</p>
+<p align="justify">Če si kdaj napisal(-a) in uporabil(-a) lastno funkcijo, potem si programiral(-a) v slogu programiranja, ki ga imenujemo <b>strukturirano programiranje</b> (<i>ang. structured programming</i>) ali postopkovno programiranje (<i>ang. procedural programming</i>). Cilj strukturiranega programiranja je napisati jasno in učinkovito programsko kodo tako, da problem razbijemo na zaporedje manjših problemov. Vsakega od teh manjših problemov se lotimo tako, da v obliki podprograma (<i>ang. procedure, subroutine</i>) ali funkcije (<i>ang. function</i>) napišemo postopek, ki rešuje ta podproblem.</p>
+
+<p align="justify">Pri strukturiranem programiranju podatke običajno shranimo v programski jezik vgrajene osnovne podatkovne strukture &ndash; števila, nize, tabele itd. &ndash; v katerih hranimo podatke, potem pa jih posredujemo funkcijam, ki delujejo nad temi podatki. Pri stukturiranem programiranju se torej osredotočimo na sam proces, ki mu posredujemo podatke, potrebne za ta proces. Podatki so načeloma neodvisni od procesa in le od programerja je na primer odvisno, ali bo v postopku med sabo zmnožil dve spremenljivki s števili (kar je smiselno, če števili predstavljata na primer dolžini in ne, če števili predstavljata število prebivalcev v dveh mestih).</p>
 
 <h2>Objektno usmerjeno programiranje</h2>
 
-<p align="justify"><b>Objektno usmerjeno programiranje</b> (<i>angl. object-oriented programming &ndash; OOP</i>) še nadgradi celotno zadevo tako, da shrani tako podatkovne strukture oziroma podatke, kot funkcije, ki dejujejo nad temi podatki, v samostojno enoto oziroma entiteto, ki ji rečemo predmet oziroma <b>objekt</b> (<i>angl. object</i>). Namesto, da bi funkcijam posredovali podatke, naložimo podatke, s katerimi želimo delati, v objekt ter nato pokličemo funkcije objekta, ki spremenijo podatke objekta in ustvarijo želeni rezultat.</p>
+<p align="justify">Pri <b>objektno usmerjenem programiranju</b> (<i>ang. object-oriented programming &ndash; OOP</i>) pa izhajamo iz samih podatkov za katere določimo postopke, ki jih lahko nad temi podatki izvajamo. Tako so podatki in funkcije, ki delujejo nad temi podatki, združeni v samostojno enoto oziroma entiteto, ki ji rečemo <b>objekt</b> (<i>ang. object</i>). Namesto, da bi funkcijam posredovali podatke, naložimo podatke, s katerimi želimo delati, v objekt ter nato pokličemo funkcije objekta, ki na podlagi podatkov objekta ustvarijo želeni rezultat.</p>
 
-<p align="justify">Objekti, ki jih ustvarite pri objektno usmerjenem programiranju, pogosto odražajo entitete v resničnem svetu. Na primer, če bi želeli napisati programsko kodo za forum na vaši spletni strani, bi zelo verjetno ustvarili objekt <code>Oseba</code>, ki bi vseboval vse informacije o nekem članu foruma (kot na primer ime, uporabniško ime, e-poštni naslov, geslo itd.), kot tudi funkcije, ki bi delovale s temi podatki ali nad temi podatki (na primer registracija, prijava, odjava, prepoved itd.).</p>
+<p align="justify">Objekti, ki jih ustvarimo, pogosto odražajo entitete v resničnem svetu. Na primer, če bi želeli napisati programsko kodo za forum na spletni strani, bi zelo verjetno ustvarili objekt <code>Oseba</code>, ki bi vseboval vse informacije o nekem članu foruma (na primer ime, uporabniško ime, e-poštni naslov, geslo itd.), kot tudi funkcije, ki bi delovale s temi podatki ali nad temi podatki (na primer registracija, prijava, odjava, prepoved itd.).</p>
 
+<p align="justify"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#differences"><span class="fa fa-balance-scale"></span> Razlike med strukturiranim in objektno usmerjenim programiranjem</a></p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
+<p align="justify">Z objektno usmerjenim programiranjem dobimo možnost ustvarjanja novih podatkovnih tipov oziroma podatkovnih struktur. S tem lahko predpišemo, kaj smemo z določenimi podatki početi. Za podatkovne tipe, ki so vgrajeni v jezik, je poskrbljeno (dveh nizov ne moremo zmnožiti), a načeloma ne dovolj. Recimo, da imamo podatek o tem, koliko sporočil je v forumu objavil uporabnik. Dobro bi bilo, če bi ta podatek imeli shranjen v podatkovnem tipu, ki ne bi dovolil, da dva tovrstna podatka med sabo zmnožimo!</p>
+
 <p align="center">
 <img src="img/PhpBB_forum.png" data-toggle="modal" data-target="#image" class="img-responsive" style="cursor:pointer" />
 </p>
 
 <h2>Dogodkovno programiranje</h2>
 
-<p align="justify"><b>Dogodkovno programiranje</b> (<i>angl. event-driven programming</i>) je slog programiranja, pri katerem tok programa določajo različni dogodki, kot na primer dejanja uporabnikov (klik z miško, pritisk tipke), izhodi senzorjev ali sporočila drugih programov. Dogodkovno programiranje je prevladujoči slog programiranja, ki se uporablja pri grafičnih uporabniških vmesnikih in drugih aplikacijah (na primer spletne aplikacije) in deluje tako, da izvaja določena dejanja kot odgovor na vnos uporabnikov.</p>
+<p align="justify"><b>Dogodkovno programiranje</b> (<i>ang. event-driven programming</i>) je slog programiranja, pri katerem tok programa določajo različni dogodki, kot na primer dejanja uporabnikov (klik z miško, pritisk tipke), izhodi senzorjev ali sporočila, ustvarjena v tem ali v drugih programih. Dogodkovno programiranje je prevladujoči slog programiranja, ki se uporablja pri programih, opremljenih z grafičnimi uporabniškimi vmesniki (take so danes praktično vse aplikacije) in deluje tako, da izvaja določena dejanja kot odgovor na dejanja uporabnikov (klik z miško, vnos podatka itd.)</p>
 
-<p align="justify">Dogodkovni programi oziroma aplikacije običajno delujejo tako, da v večini primerov zaženejo glavno zanko (<i>angl. main loop</i>), ki čaka na dogodke. Ko se zgodi eden izmed dogodkov glavna zanka sproži povratno funkcijo (<i>angl. callback function</i>), ki izvede določeno dejanje oziroma podprogram.</p>
+<p align="justify">Programi razviti z uporabo dogodkovnega porgramiranja običajno delujejo tako, da zaženejo glavno zanko (<i>ang. main loop</i>), ki čaka na dogodke. Ko se zgodi eden izmed dogodkov, glavna zanka sproži povratno funkcijo (<i>ang. callback function</i>), ki izvede določeno dejanje oziroma funkcijo.</p>
 <!-- Right column end -->
 					</div>
 				</div>

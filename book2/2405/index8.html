@@ -57,7 +57,8 @@
 					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
 					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
 					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
-					<li><a href="../2207/index.html">Spletna predstavitev</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
 					</ul>
 				  </div>
 				</li>
@@ -105,14 +106,19 @@
 			</button>
 			<a class="navbar-brand" href="https://docs.python.org/3.3/index.html">Računalništvo in informatika 2</a>
 			</div>
-			<div id="navbar" class="navbar-collapse collapse">
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span> Kazalo</a></li>
-					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span> Licenca</a></li>
-					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-print"></span> Kolofon</a></li>
-					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span> Viri</a></li>
-					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span> Komentar</a></li>
-					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span> Prenos</a></li>
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -163,42 +169,6 @@
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Catalogue -->
-		<div id="catalogue" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">CIP - Kataložni zapis o publikaciji</h4>
-					</div>
-					<div class="modal-body">
-						CIP - Kataložni zapis o publikaciji<br>
-						Narodna in univerzitetna knjižnica, Ljubljana<br>
-						<br>
-						659.2:004(075.3)(0.034.2)<br>
-						004(075.3)(0.034.2)<br>
-						<br>
-						RAČUNALNIŠTVO in informatika 2 [Elektronski vir] : e-učbenik za informatiko v gimnaziji / Gregor Anželj ... [et al.]. - El. knjiga. - Koper : Založba Univerze na Primorskem ; Ljubljana : Založba Fakulete za računalništvo in informatiko ; Maribor : Fakuleta za elektrotehniko, računalništvo in informatiko, 2017<br>
-						<br>
-						Način dostopa (URL): <a href="http://lusy.fri.uni-lj.si/ucbenik/">http://lusy.fri.uni-lj.si/ucbenik/</a><br>
-						<br>
-						ISBN 978-961-6984-12-6 (Založba Univerze na Primorskem, html)<br>
-						ISBN 978-961-6209-86-1 (Založba Fakulete za računalništvo in informatiko, html)<br>
-						ISBN 978-961-248-498-9 (Fakuleta za elektrotehniko, računalništvo in informatiko, html)<br>
-						<br>
-						1. Anželj, Gregor<br>
-						282126848<br>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
@@ -207,9 +177,9 @@
 <!-- Left column start -->
 <h1>Igra Black Jack</h1>
 
-<p align="justify">Ustvarili bomo GUI vmesnik za igro s kartami Black Jack, ki smo jo spoznali v <a href="../2404/index13.html">prejšnjem poglavju</a>. Za modeliranje igre bomo uporabili objektno usmerjen pristop. S pomočjo gumbov GUI vmesnika pa bomo nadzorovali oziroma usmerjali potek igre.</p>
+<p align="justify">Ustvarili bomo GUI vmesnik za igro s kartami <i>Black Jack</i>, ki smo jo spoznali v <a href="../2404/index13.html">prejšnjem poglavju</a>. Za modeliranje igre bomo uporabili objektno usmerjen pristop. S pomočjo gumbov GUI vmesnika pa bomo nadzorovali oziroma usmerjali potek igre.</p>
 
-<p align="justify">GUI vmesnik bo vseboval tri gumbe in površino, na kateri se bodo izrisovale karte ter izpisovalo stanje igre. S klikom na gumb 'Deli' se bo začela nova igra &ndash; v tem primeru samo za dva igralca. Delivec bo razdelil karte igralcu (uporabniku) in sebi (računalniku). Delivec bo imel odkrito samo eno karto. Cilj igre je, da igralec dobi vsoto kart, ki je čim bližje številu 21 in ga ne preseže. Vsota kart igralca mora biti večja od vsote kart delivca, pri čemer igralec nima popolnih informacij, saj je ena karta delivca še vedno skrita.</p>
+<p align="justify">GUI vmesnik bo vseboval tri gumbe in površino, na kateri se bodo izrisovale karte ter izpisovalo stanje igre. S klikom na gumb »Deli« se bo začela nova igra &ndash; v tem primeru samo za dva igralca. Delivec bo razdelil karte igralcu (uporabniku) in sebi (računalniku). Delivec bo imel odkrito samo eno karto. Cilj igre je, da igralec dobi vsoto kart, ki je čim bližje številu 21 in ga ne preseže. Vsota kart igralca mora biti večja od vsote kart delivca, pri čemer igralec nima popolnih informacij, saj je ena karta delivca še vedno skrita.</p>
 
 <p align="justify">Igralec lahko uporabi gumba »Vleci« in »Obdrži«. Če igralec klikne gumb »Vleci«, mu bo delivec razdelil dodatno karto. Če igralec klikne gumb »Obdrži«, bo obdržal karte, ki jih trenutno drži v roki, delivec pa bo odkril svojo nerazkrito karto in po potrebi vlekel dodatne karte. Ko že rečeno bo zmagal tisti, katerega vsota bo bližje številu 21 in tega števila ne bo presegla.</p>
 

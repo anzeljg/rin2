@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Kodiranje z dolžinami čet</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- jQuery UI -->
+	<link href="../css/jquery-ui.css" rel="stylesheet">
+
+	<!-- Run Length Encoding CSS -->
+	<link rel="stylesheet" href="css/run-length-encoding-16.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li class="active"><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi pcyanelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo pcyanela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko pcyanelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 1 -->
+        <div id="solution1" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Stisnjena barvna slika predstavlja jablano.</p>
+						<p align="center"><img src="img/apple-tree.png"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Colour Palette -->
+        <div id="palette" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Primeri 16 barvnih palet</h4>
+					</div>
+					<div class="modal-body">
+<!-- Palette start -->
+<div class="row">
+  <div class="col-sm-4">
+    <h4>Microsoft Windows</h4>
+	<img src="img/palette_16colours_win.png">
+
+	<table style="border-style: none;" border="1" width="95%">
+		<tbody>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #000000">0 — black</td>
+				<td style="padding: 5px; color: white; background-color: #808080">8 — gray</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #800000">1 — maroon</td>
+				<td style="padding: 5px; color: white; background-color: #FF0000">9 — red</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #008000">2 — green</td>
+				<td style="padding: 5px; color: black; background-color: #00FF00">10 — lime</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #808000">3 — olive</td>
+				<td style="padding: 5px; color: black; background-color: #FFFF00">11 — yellow</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #000080">4 — navy</td>
+				<td style="padding: 5px; color: white; background-color: #0000FF">12 — blue</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #800080">5 — purple</td>
+				<td style="padding: 5px; color: black; background-color: #FF00FF">13 — fuchsia</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #008080">6 — teal</td>
+				<td style="padding: 5px; color: black; background-color: #00FFFF">14 — aqua</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #C0C0C0">7 — silver</td>
+				<td style="padding: 5px; color: black; background-color: #FFFFFF">15 — white</td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+  <div class="col-sm-4">
+    <h4>Apple Macintosh II</h4>
+	<img src="img/palette_16colours_mac.png">
+
+	<table style="border-style: none;" border="1" width="95%">
+		<tbody>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #FFFFFF">0 — white</td>
+				<td style="padding: 5px; color: black; background-color: #1FB714">8 — green</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #FBF305">1 — yellow</td>
+				<td style="padding: 5px; color: white; background-color: #006412">9 — dark green</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #FF6403">2 — orange</td>
+				<td style="padding: 5px; color: white; background-color: #562C05">10 — brown</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #DD0907">3 — red</td>
+				<td style="padding: 5px; color: black; background-color: #90713A">11 — tan</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #F20884">4 — magenta</td>
+				<td style="padding: 5px; color: black; background-color: #C0C0C0">12 — light grey</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #4700A5">5 — purple</td>
+				<td style="padding: 5px; color: black; background-color: #808080">13 — medium grey</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #0000D3">6 — blue</td>
+				<td style="padding: 5px; color: white; background-color: #404040">14 — dark grey</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #02ABEA">7 — cyan</td>
+				<td style="padding: 5px; color: white; background-color: #000000">15 — black</td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+  <div class="col-sm-4">
+    <h4>Acorn RISC</h4>
+	<img src="img/palette_16colours_risc.png">
+
+	<table style="border-style: none;" border="1" width="95%">
+		<tbody>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #FFFFFF">0 — white</td>
+				<td style="padding: 5px; color: white; background-color: #004499">8 — dark blue</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #DDDDDD">1</td>
+				<td style="padding: 5px; color: black; background-color: #EEEE00">9 — yellow</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #BBBBBB">2</td>
+				<td style="padding: 5px; color: black; background-color: #00CC00">10 — green</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: black; background-color: #999999">3</td>
+				<td style="padding: 5px; color: white; background-color: #DD0000">11 — red</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #777777">4</td>
+				<td style="padding: 5px; color: black; background-color: #EEEEBB">12 — beige</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #555555">5</td>
+				<td style="padding: 5px; color: white; background-color: #558800">13 — dark green</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #333333">6</td>
+				<td style="padding: 5px; color: black; background-color: #FFBB00">14 — orange</td>
+			</tr>
+			<tr>
+				<td style="padding: 5px; color: white; background-color: #000000">7 — black</td>
+				<td style="padding: 5px; color: black; background-color: #00BBFF">15 — light blue</td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+</div>
+<!-- Palette end -->
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Kodiranje z dolžinami čet</h1>
+
+<p align="justify">Takšen pristop k stiskanju črno-belih (skeniranih) slik najpogosteje uporabljajo naprave za pošiljanje faksov. Eden od razlogov za zelo dobro stiskanje je ta, da črno-bele skenirane slike vsebujejo ogromno število zaporednih belih pikslov. Skenirana slika običajno vsebuje kar precej vrstic, ki so sestavljene le iz belih pikslov.</p>
+
+<p align="justify">Tipična stran faksa je široka 200 ali več pikslov, zato zamenjava 200 bitov z eno samo število predstavlja velik prihranek. Predstavitev same številke sicer zasede nekaj bitov, na nekaterih skeniranih straneh pa lahko le nekaj zaporednih pikslov zamenjamo s številko, vendar je v splošnem prihranek zelo velik. Dejstvo je, da naprave za pošiljanje faksov uporabile 7-krat več časa za pošiljanje, če ne bi uporabljale stiskanja slikovnih podatkov.</p>
+
+<p align="justify">Ali lahko na podoben način predstavimo tudi barvne slike? Odgovor je preprost &ndash; seveda lahko, le da moramo v tem primeru uporabljati dve številki &ndash; prva je številka barve, druga pa število pikslov te barve. Poglejmo si primer takega (stisnjenega) zapisa: 
+<pre>
+15, 4, 2, 5, 15, 5
+15, 3, 2, 2, 9, 1, 2, 3, 15, 5
+15, 3, 2, 7, 15, 4
+15, 3, 2, 1, 9, 1, 2, 5, 15, 4
+15, 2, 2, 4, 9, 1, 2, 2, 9, 1, 2, 1, 15, 3
+15, 2, 2, 10, 15, 2
+15, 2, 2, 1, 9, 1, 2, 1, 1, 1, 2, 6, 15, 2
+15, 3, 2, 2, 1, 1, 2, 2, 1, 1, 2, 3, 15, 2
+15, 3, 2, 3, 1, 2, 2, 3, 15, 3
+15, 3, 2, 3, 1, 1, 2, 3, 15, 4
+15, 4, 2, 2, 1, 1, 2, 2, 15, 5
+15, 6, 1, 1, 15, 7
+15, 6, 1, 1, 15, 7
+2, 14
+</pre>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="row">
+	<div class="col-md-12">
+		<form class="form-inline"><center>
+			<div class="form-group">
+				<label class="sr-only" for="grid-size">Velikost mreže</label>
+				<div class="input-group">
+					<div class="input-group-addon">Velikost mreže</div>
+					<select id="grid-size" class="form-control">
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14" selected>14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="pixel-color">Barva</label>
+				<div class="input-group">
+					<div class="input-group-addon">Barva</div>
+					<select id="pixel-color" class="form-control">
+						<option value="0" class="black">0 - black</option>
+						<option value="1" class="maroon">1 - maroon</option>
+						<option value="2" class="green">2 - green</option>
+						<option value="3" class="olive">3 - olive</option>
+						<option value="4" class="navy">4 - navy</option>
+						<option value="5" class="purple">5 - purple</option>
+						<option value="6" class="teal">6 - teal</option>
+						<option value="7" class="silver">7 - silver</option>
+						<option value="8" class="gray">8 - gray</option>
+						<option value="9" class="red">9 - red</option>
+						<option value="10" class="lime">10 - lime</option>
+						<option value="11" class="yellow">11 - yellow</option>
+						<option value="12" class="blue">12 - blue</option>
+						<option value="13" class="fuchsia">13 - fuchsia</option>
+						<option value="14" class="aqua">14 - aqua</option>
+						<option value="15" class="white">15 - white</option>
+					</select>
+				</div>
+			</div>
+		</center></form>
+		<br />
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+        <p class="text-center">Število bitov: <span id="bit-count"></span></p>
+        <div id="encoding-grid"></div>
+	</div>
+	<div class="col-md-4">
+        <p class="text-center">Število znakov: <span id="char-count"></span>
+        </p>
+        <textarea id="encoding-text"></textarea>
+        <!--<div id="encoding-text-feedback" class="text-center error"></div>-->
+        <a id="clear-all" class="btn btn-danger"><span class="fa fa-trash"></span> Počisti vse</a>
+	</div>
+</div>
+
+<h4>Vaja</h4>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Kaj predstavlja stisnjena barvna slika?</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution1"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<p align="justify">Opis	barv, kakršnega	smo ravnokar spoznali, uporablja format GIF: na začetku	 datoteke GIF je definirana paleta 256 različnih barv (v našem primeru bi bilo to seveda preveč, zato smo uporabili	privzeto <a href="#palette" title="Paleta 16 barv" data-toggle="modal" data-target="#palette">paleto 16 barv</a> iz OS Windows), v opisu slike pa se nato sklicujemo le na številke barv. Datoteka GIF je lahko zato krajša, vendar je na takšni sliki lahko le 256 različnih barv. To pomanjkljivost odpravlja format PNG, ki lahko vsebuje okoli 16,8 milijonov različnih barv.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2203/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2204/index10.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2204/index.html">1</a></li>
+					<li><a href="../2204/index1.html">2</a></li>
+					<li><a href="../2204/index2.html">3</a></li>
+					<li><a href="../2204/index3.html">4</a></li>
+					<li><a href="../2204/index4.html">5</a></li>
+					<li><a href="../2204/index5.html">6</a></li>
+					<li><a href="../2204/index6.html">7</a></li>
+					<li><a href="../2204/index7.html">8</a></li>
+					<li><a href="../2204/index8.html">9</a></li>
+					<li><a href="../2204/index9.html">10</a></li>
+					<li><a href="../2204/index10.html">11</a></li>
+					<li class="active"><a href="#">12</a></li>
+					<li><a href="../2204/index12.html">13</a></li>
+					<li><a href="../2204/index13.html">14</a></li>
+					<li><a href="../2204/index14.html">15</a></li>
+					<li><a href="../2204/index15.html">16</a></li>
+					<li><a href="../2204/index16.html">17</a></li>
+					<li><a href="../2204/index17.html">18</a></li>
+					<li><a href="../2204/index18.html">19</a></li>
+					<li><a href="../2204/index19.html">20</a></li>
+					<li><a href="../2204/index20.html">21</a></li>
+					<li><a href="../2204/index12.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2205/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Run Length Encoding JS -->
+	<script src="js/run-length-encoding-16.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

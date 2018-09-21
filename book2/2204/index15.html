@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Stiskanje slik s postopkom JPEG</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- jQuery UI -->
+	<link href="../css/jquery-ui.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li class="active"><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi pcyanelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo pcyanela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko pcyanelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Matrix -->
+        <div id="matrix" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Matrika</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Matríka</b> je v matematiki pravokotna razpredelnica števil, ki jo zapišemo med oglate oklepaje. Elementi matrike so realna ali kompleksna števila. Vodoravne črte v matriki so <b>vrstice</b>, navpične pa <b>stolpci</b>. Matrika z $m$ vrsticami in $n$ stolpci se imenuje $m \times n$ matrika, pri čemer sta $m$ in $n$ njeni <b>razsežnosti</b>.</p>
+
+<p align="justify">Oglejmo si spodnji primer, kjer je pravokotna razpredelnica predstavljena oziroma zapisana tudi kot 4×3 matrika $A$:
+<center>
+<table border="0">
+<tr>
+<td>
+<img src="img/example_matrix.png" width="75%">
+</td>
+<td>
+$$
+A = \begin{bmatrix}
+  1 & 2 & 3 \\
+  1 & 2 & 7 \\
+  4 & 9 & 2 \\
+  6 & 1 & 5
+\end{bmatrix}
+$$
+</td>
+</tr>
+</table>
+</center>
+</p>
+<p align="justify">Element $A[2,3]$ ali $a_{2,3}$ je $7$.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Compress -->
+        <div id="compress" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Postopek stiskanja</h4>
+					</div>
+					<div class="modal-body">
+
+<p align="justify">Postopek stiskanja slikovnih datotek z metodo JPEG poteka v naslednjih korakih:</p>
+
+<p><b>Korak 1: Pretvorba iz barvnega prostora RGB v YCbCr</b></p>
+
+<p align="justify">Za pretvarjanje iz RGB v YCbCr barvni prostor izračunamo vrednosti svetlosti in barvitosti za vsak RGB piksel.
+<pre>
+Y  =   0 + (0,2990 × R) + (0,5870 × G) + (0,1140 × B)
+Cb = 128 - (0,1687 × R) - (0,3313 × G) + (0,5000 × B)
+Cr = 128 + (0,5000 × R) - (0,4187 × G) - (0,0813 × B)
+</pre>
+</p>
+
+<p><b>Korak 2: Zmanjšanje vzorčenja</b></p>
+
+<p align="justify">Ker barvitost ni zelo pomembna, lahko zmanjšamo količino barve (komponent Cb in Cr). V splošnem je barvitost zmanjšana za faktor 2 v obeh smereh (navpično in vodoravno) &ndash; to pomeni, da je Y vzorčen pri vsakem pikslu, pri čemer se vzorci Cb in Cr vzorčijo pri vsakem bloku 2×2 pikslov. Torej za vsake 4 Y piksle obstaja samo 1 CbCr piksel.</p>
+
+<p><b>Korak 3: Uporaba diskretne kosinusne transformacije (DCT)</b></p>
+
+<p align="justify">Vsaka izmed treh komponent YCbCr je stisnjena in kodirana na enak način, ki je opisan v nadaljevanju. Oglejmo si postopek za eno komponento (za preostali je postopek identičen).</p>
+
+<p><b>Osnovne slike</b></p>
+
+<p align="justify">DCT je metoda, ki izraža končno zaporedje podatkovnih točk v obliki vsote kosinusnih funkcij, različnih frekvenc in amplitud.</p>
+<p align="justify">Pri stiskanju namesto sinusnih funkcij sinus raje uporabljamo kosinusne funkcije, zaradi njihovega obnašanja ob mejah. Funkcija, kot je na primer svetlost slike, ob mejah ne sme zavzeti vrednosti nič, kot jo zavzame sinusna funkcija. Zato je težko ustvarjati približke signala z linearno kombinacijo sinusnih funkcij.</p>
+<p align="justify">Iz kosinusnih funkcij različnih frekvenc po oseh X in Y lahko ustvarimo 64 različnih osnovnih slik, ki so prikazane spodaj:</p>
+<p align="center"><img src="img/base-images.png" width="70%"></p>
+
+<p><b>Bloki</b></p>
+
+<p align="justify">Celotno sliko, ki jo želmo stisniti, razdelimo na bloke velikosti 8×8 pikslov. Te bloke si lahko predstavljamo kot matrike velikosti 8×8. Celotno sliko stiskamo tako, da zaporedno stiskamo posamezne bloke.</p>
+<p align="justify">Oglejmo si primer. Recimo, da imamo naslednji blok 8×8 pikslov (slika na desni). Vrednosti komponente, ki jo trenutno opazujemo, so podane v matriki oziroma tabeli:</p>
+<p align="center">
+  <img src="img/jpeg_compress_original_block.png" width="45%">&nbsp;&nbsp;
+  <img src="img/jpeg_compress_original_pixels.png" width="45%">
+</p>
+
+<p align="justify">Ker bomo uporabili metodo DCT in ker lahko kosinusna funkcija zavzame vrednosti med 1 in -1, bomo skušali vrednosti premakniti tako, da jih bo večina okoli ničle. To pomeni, da bomo premaknili obseg vrednosti iz [0..255] v [-128..127]. Zato bomo od vsake vrednosti odšteli 128. Vrednosti komponente bodo premaknjene takole:</p>
+<p align="center"><img src="img/jpeg_compress_original_shifted.png" width="45%"></p>
+
+<p align="justify">Sedaj imamo dve stvari: blok velikosti 8×8, ki ga želimo stisniti in 64 osnovnih slik. Naša naloga je, da preoblikujemo blok v linearno zaporedje teh 64 osnovnih slik.</p>
+<p align="justify">Blok lahko pretvorimo v linearno zaporedje z uporabo normalizirane, dvo-dimenzionalne diskretne kosinusne transformacije (DCT) tipa II.</p>
+<p align="justify">Lahko si zamislimo, da je blok sestavljen iz utežene množice teh 64 osnovnih slik, ki so združene ena nad drugo. Zato velja:
+$$blok = C_{1} \times f_{1} + C_{2} \times f_{2} + C_{3} \times f_{3} + \dots + C_{64} \times f_{64}$$
+kjer so $C_{i}$ neke konstante, $f_{i}$ pa so osnovne slike.</p>
+<p align="justify">Vsakega od teh koeficientov ($C_{i}$) lahko izračunamo s pomočjo DCT tipa II. Več o tem, kako deluje metoda DCT, si lahko prebereš <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform" target="_blank">tukaj</a>.</p>
+<p align="justify">S pomočjo spodnje kode, v programskem jeziku Python, izračunamo matriko bloka, spremenjeno z metodo DCT tipa II:</p>
+
+<p><pre>
+import numpy  # Uvozimo knjižnico numpy
+import scipy  # Uvozimo knjižnico scipy
+
+# Definirajmo funkcijo: 2D DCT tipa II
+def dct2D(x):
+  tmp = scipy.fftpack.dct(x, type=2 ,norm='ortho').transpose()
+  return scipy.fftpack.dct(tmp, type=2 ,norm='ortho').transpose()
+
+# Premaknjen blok v obsegu [-128..127]
+print(dct2D([
+  [-76.0, -73.0, -67.0, -62.0, -58.0, -67.0, -64.0, -55.0],
+  [-65.0, -69.0, -73.0, -38.0, -19.0, -43.0, -59.0, -56.0],
+  [-66.0, -69.0, -60.0, -15.0, 16.0, -24.0, -62.0, -55.0],
+  [-65.0, -70.0, -57.0, -6.0, 26.0, -22.0, -58.0, -59.0],
+  [-61.0, -67.0, -60.0, -24.0, -2.0, -40.0, -60.0, -58.0],
+  [-49.0, -63.0, -68.0, -58.0, -51.0, -60.0, -70.0, -53.0],
+  [-43.0, -57.0, -64.0, -69.0, -73.0, -67.0, -63.0, -45.0],
+  [-41.0, -49.0, -59.0, -60.0, -63.0, -52.0, -50.0, -34.0]
+]))
+</pre></p>
+
+<p align="justify">Koda uporablja knjižnici <a href="https://docs.scipy.org/doc/" target="_blank">NumPy</a> in <a href="https://docs.scipy.org/doc/" target="_blank">SciPy</a>. Knjižnici običajno nista nameščeni in ju je potrebno namestiti posebej. To storiš tako, da zaženeš Python v terminalu ter nato uporabiš ukaz <code>pip</code> za nameščanje Pythonovih knjižnic:
+<pre>
+&gt; pip install numpy
+&gt; pip install scipy
+</pre>
+</p>
+
+<p align="justify">Knjižnica SciPy vsebuje funkcijo <a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.fftpack.dct.html" target="_blank">scipy.fftpack.dct</a>, s katero izračunamo DCT eno-dimenzionalne matrike. DCT dvo-dimenzionalne matrike izračunamo tako, funkcijo najprej izvedemo po stolpcih, stolpce transponiramo, nato funkcijo izvedemo po vrsticah in razvejavimo transpozicijo.</p>
+
+<p align="justify">Ko izvedemo metodo DCT tipa II, dobimo matriko oziroma tabelo velikosti 8×8, ki vsebuje koeficiente. Ti koeficienti predstavljajo delež vsake od osnovnih slik v bloku.</p>
+<p align="center"><img src="img/jpeg_compress_after_dct.png" width="45%"></p>
+
+<p><b>Korak 4: Kvantizacija</b></p>
+
+<p align="justify">Sedaj bomo kvantizirali tabelo oziroma matriko koeficientov, ki smo jo dobili z metodo DCT. To je resnični del z izgubami v celotnem procesu. V matriki koeficientov celice levo-zgoraj ustrezajo nizkim frekvencam, celice desno-spodaj pa visokim frekvencam. Spomnimo se, da lahko odstranimo del z visokimi frekvencami, kar ne bo preveč opazno, saj je človeško oko bolj občutljivo na nizke frekvence.</p>
+<p align="justify">Pripravimo kvantizacijsko tabelo oziroma matriko, ki bo vsebovala majhne vrednosti v celicah levo-zgoraj in velike vrednosti v celicah desno-spodaj.</p>
+<p align="justify">Vsako vrednost v matriki koeficientov bomo nato delili z ustrezno vrednostjo iz kvantizacijske matrike ter rezultat zaokrožili na najbližje celo število. Zaradi velikih vrednosti kvantizacijske matrike v celicah desno-spodaj, bodo rezultati v tem delu enaki nič &ndash; s čimer bomo odstranili podatke o visokih frekvencah.</p>
+<p align="justify">Kvantizacijska tabela je odvisna od kodirnika, zato je shranjena v glavi slike, da lahko sliko kasneje odkodiramo. Spodaj je standardna JPEG kvantizacijska tabela oziroma matrika:</p>
+<p align="center"><img src="img/jpeg_standard_quantization_table.png" width="45%"></p>
+
+<p align="justify">In tabela oziroma matrika bloka po kvantizaciji (po tem, ko smo vsako vrednost iz matrike koeficientov delili z vrednostjo iz kvantizacijske matrike).</p>
+<p align="center"><img src="img/jpeg_compress_after_quantization.png" width="45%"></p>
+
+<p align="justify">Opazimo lahko, da zgornja tabela oziroma matrika vsebuje veliko ničel. Vse to so visoke frekvence, ki smo jih odstranili. Postopek JPEG se »hvali«, da lahko samo s temi vrednostmi (brez ničel) nazaj dobimo skoraj popolnoma enako sliko.</p>
+
+<p><b>Korak 5: Kodiranje</b></p>
+
+<p align="justify">Sedaj imamo stisnjene podatke v obliki 2D tabele oziroma matrike. Vemo, da je veliko vrednosti enakih nič. Torej bomo našli boljši način za shranjevanje teh vrednosti, kot je 2D matrika.</p>
+<p align="justify">Vrednosti bomo shranili v cikcakastem zaporedju. Vrednosti si bodo sledile v naslednjem zaporedju: -26, -3, 0, -3, -2, -6, 2, -4, 1, -4, 1, 1, 5, 1, 2, -1, 1, -1, 2, 0, 0, 0, 0, 0, -1, -1 in še 38 ničel.</p>
+<p align="center"><img src="img/jpeg_compress_encoding.png" width="45%"></p>
+
+<p align="justify">Podatke tega vzorca lahko enostavno stisnemo s postopkom kodiranja z dolžinami čet (RLE). Končni rezultat stiskanja pa zakodiramo s kombinacijo kodiranja z dolžinami čet in Huffmanovega kodiranja.</p>
+
+<p><b>Korak 6: Glava slike</b></p>
+
+<p align="justify">JPEG/JFIF datoteke v splošnem v glavi slike vsebujejo naslednje podatke:
+<ul>
+  <li>Znak (<code>0xFFD8</code>) za začetek JPEG slike (<i>ang. JPEG Start Of Image &ndash; SOI</i>)</li>
+  <li>Podatke o aplikaciji, ki je sliko ustvarila oziroma stisnila</li>
+  <li>Širino v pikslih</li>
+  <li>Višino v pikslih</li>
+  <li>Število komponent (na primer: 3 za RGB)</li>
+</ul>
+</p>
+
+<p align="justify">Tako smo dobili stisnjeno JPEG datoteko!</p>
+
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Decompress -->
+        <div id="decompress" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Postopek razširjanja</h4>
+					</div>
+					<div class="modal-body">
+
+<p align="justify">Postopek razširjanja stisnjenih slikovnih datotek z metodo JPEG poteka v naslednjih korakih:</p>
+
+<p><b>Korak 1: Odkodiranje</b></p>
+
+<p align="justify">Končni rezultat stiskanja odkodiramo s kombinacijo kodiranja z dolžinami čet in Huffmanovega kodiranja. Dobimo cikcakasto zaporedje, ki ga lahko predstavimo kot tabelo oziroma matriko.
+<p align="center"><img src="img/jpeg_compress_encoding.png" width="45%"></p>
+
+<p><b>Korak 2: Dekvantizacija</b></p>
+
+<p align="justify">Ker je kvantizacijska tabela odvisna od kodirnika, je shranjena v glavi slike, da lahko sliko kasneje odkodiramo. Spodaj je standardna JPEG kvantizacijska tabela oziroma matrika:</p>
+<p align="center"><img src="img/jpeg_standard_quantization_table.png" width="45%"></p>
+
+<p align="justify">Vsako vrednost iz odkodirane tabele oziroma matrike pomnožimo z ustrezno vrednostjo iz kvantizacijske matrike ter rezultat zaokrožimo na najbližje celo število. Tako dobimo tabelo oziroma matriko koeficientov po dekvantizaciji (po tem, ko smo vsako vrednost iz odkodirane matrike pomnožili z vrednostjo iz kvantizacijske matrike).</p>
+<p align="center"><img src="img/jpeg_decompress_compressed.png" width="45%"></p>
+
+<p><b>Korak 3: Uporaba inverzne diskretne kosinusne transformacije (DCT)</b></p>
+
+<p align="justify">Oglejmo si postopek za eno komponento (za preostali je postopek identičen).</p>
+
+<p align="justify">S pomočjo spodnje kode, v programskem jeziku Python, izračunamo matriko bloka, spremenjeno z inverzno metodo DCT, to je metoda DCT tipa III:</p>
+
+<p><pre>
+import numpy  # Uvozimo knjižnico numpy
+import scipy  # Uvozimo knjižnico scipy
+
+# Definirajmo inverzno funkcijo: 2D DCT tipa III
+def idct2D(x):
+  tmp = scipy.fftpack.idct(x, type=2 ,norm='ortho').transpose()
+  return scipy.fftpack.idct(tmp, type=2 ,norm='ortho').transpose()
+
+# Matrika koeficientov odkodiranega bloka slike
+print(idct2D([
+  [-416.0, -33.0, -60.0, 32.0, 48.0, -40.0, 0.0, 0.0],
+  [0.0, -24.0, -56.0, 19.0, 26.0, 0.0, 0.0, 0.0],
+  [-42.0, 13.0, 80.0, -24.0, -40.0, 0.0, 0.0, 0.0],
+  [-56.0, 17.0, 44.0, -29.0, 0.0, 0.0, 0.0, 0.0],
+  [18.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+]))
+</pre></p>
+
+<p align="justify">Ker smo uporabili metodo DCT in ker lahko kosinusna funkcija zavzame vrednosti med 1 in -1, bomo dobili matriko z vrednostmi v obsegu [-128..127]:</p>
+<p align="center"><img src="img/jpeg_decompress_after_inverse_dct.png" width="45%"></p>
+
+<p align="justify">Sedaj moramo vrednosti v matriki še ustrezno premakniti. To storimo tako, da vsaki vrednosti prištejemo 128 in dobimo:</p>
+<p align="center">
+  <img src="img/jpeg_decompress_after_shift_block.png" width="45%">&nbsp;&nbsp;
+  <img src="img/jpeg_decompress_after_shift_pixels.png" width="45%">
+</p>
+
+<p><b>Korak 4: Pretvorba iz barvnega prostora YCbCr v RGB</b></p>
+
+<p align="justify">Za pretvarjanje iz YCbCr v RGB barvni prostor izračunamo vrednosti za vsak piksel posebej.
+<pre>
+R = Y + 1,4020                       × (Cr - 128)
+G = Y - 0,3441 × (Cb - 128) - 0,7141 × (Cr - 128)
+B = Y + 1,7720 × (Cb - 128)
+</pre>
+</p>
+
+<p align="justify">Tako smo dobili nestisnjeno slikovno datoteko v RGB barvnem prostoru!</p>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Stiskanje slik s postopkom JPEG</h1>
+
+<p align="justify">Človeško oko lahko razlikuje svetlost slike bolj natančno, kot njene barvne informacije (pri nizki svetlobi sliko dejansko vidimo v črno-belih barvnih odtenkih, ker je osvetlitev preveč medla, da bi spodbudila čepnice v mrežnici). To pomeni, da mora biti vrednost svetlosti predstavljena veliko bolj natančno, kot dve komponenti barvitosti. Postopek JPEG izkorišča očesno neravnovesje z zmanjševanjem vrednosti barvitosti.</p>
+
+<p align="justify">Zmanjšanje vzorčenja (<i>ang. Downsampling</i>) je preprosto proces zmanjševanja vrednosti barvitosti za določen faktor (in je zato prvi korak pri izgubi informacij). Pri formatu JPEG obstajajo trije sprejemljive možnosti: brez zmanjšanja vzorčenja, zmanjšanje vzorčenja z deljenjem vodoravnih vrednosti barvitosti na pol, ali pa zmanjšanje vzorčenja z deljenjem vodoravnih in navpičnih vrednosti barvitosti na pol.</p>
+
+<p align="justify">Naslednji korak je razdelitev pikslov na sliki v bloke velikosti 8×8 (ki si jih lahko predstavljamo tudi kot <a href="#" class="text-danger" data-toggle="modal" data-target="#matrix">matrike</a> velikosti 8×8). Vsako barvno komponento razdelimo ločeno, vzorec vsake komponente pa gre skozi isti proces, ki sledi v nadaljevanju. Upoštevati moramo, da velikost slike večinoma ne bo preprost večkratnik števila osem pikslov v katerikoli smeri. To lahko privede do nastanka nekaterih neobičajnih pikslov vzdolž desne in spodnje strani slike JPEG.</p>
+
+<p align="justify">Vsak blok 8×8 pikslov slike JPEG lahko ustvarimo s seštevanjem različnih količin do največ 64 vzorcev, ki temeljijo na kosinusnih valovanjih. Valovanja lahko vizualno predstavimo kot vzorce belih in črnih pikslov, kot je prikazano na spodnji sliki.</p>
+
+<p align="center"><img src="img/base-images.png" width="70%" class="img-responsive"></p>
+
+<p align="justify">Naslednji korak je zabaven, vendar zapleten. Vsak blok 8 x 8 z uporabo diskretne kosinusne transformacije (<i>ang. Discrete Cosine Transform &ndash; DCT</i>) pretvorimo v drugo matriko. Ta transformacija analizira frekvence prvotnih vrednosti po vsaki vrstici in stolpcu z uporabo množice kosinusnih valovanj, ki nihajo pri različnih frekvencah in amplitudah.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Razlog za to je, da se lahko višje frekvence minimizirajo ali izničijo, ker izgub teh frekvenc ne zaznamo toliko skrajno, kot bi zaznali izgubo bolj energičnih nižjih frekvenc.</p>
+
+<p align="justify">Zanimiva stvar pri tej transformaciji je, da se vrednost z največjo amplitudo nahaja v zgornji levi celici matrike (imenujemo jo tudi DC koeficient), vrednosti pa so tem manjše, čim bolj so oddaljene od te celice (vseh 63 drugih vrednosti, ki jih imenujemo tudi AC koeficienti). V splošnem, za predstavitev vrednosti v tej preoblikovani matriki, potrebujemo več bitov, kot jih lahko shranimo v bajtu (kar smo uporabljali do sedaj).</p>
+
+<p align="justify">To pretvorjeno matriko v naslednjem koraku nato kvantiziramo. To je glavni del postopka, kjer pride do izgub in faza, kjer minimizirmo višje frekvence nad nižjimi frekvencami. Eden glavnih rezultatov kvantizacije je, da se številni višji DCT koeficienti izničijo, zaradi česar so v naslednjem koraku izredno stisljivi.</p>
+
+<p align="justify">Kvantizacijo dosežemo z množico matrik 8×8, pri čemer vsaka predstavlja drugačen »faktor kakovosti« slike JPEG. Vrednost vsake celice delimo z ustrezno vrednostjo celice v kvantizacijski matriki in rezultat zaokrožimo (ponovno operacija z izgubo). Upoštevati je potrebno, da to ne vključuje množenja matrik v matematičnem smislu.</p>
+
+<p align="justify">Končno, dobljena kvantizirano matriko kodiramo s pomočjo Huffmanovega stiskanja. Da bi čim bolj izkoristili dejstvo, da vrednosti matrike padajo iz zgornjega levega kota, vrednosti ne kodiramo po vrsticah, temveč v cikcakastem vzorcu. To pomeni, da se celice z vrednostjo nič ponavadi pojavijo na koncu cikcakaste verige in jih lahko močno stisnemo (v resnici obstaja posebna koda, ki označuje, da so vrednosti vseh preostalih celic v bloku 8×8 enake nič).</p>
+
+<p align="justify">Huffmanovo kodiranje je postopek stiskanja brez izgub. Ne pozabimo, da bomo za vsak blok 8×8 pikslov v izvirni sliki (192 bajtov informacij) dobili tri stisnjene, kvantizirane matrike, velikosti 8×8, pri čemer bosta matriki Cr in Cb najbolj stisnjeni.</p>
+
+<p align="justify">Kako po vsem tem razširimo sliko JPEG v rastrsko bitno sliko, ki jo prikažemo na zaslonu? Precej očitno je, da moramo vse korake opraviti v obratnem vrstnem redu. Najprej moramo odkodirati Huffmanove stisnjene blok 8×8. Tako dobimo kvantizirano matriko. Zdaj lahko količinsko kvantizirano matriko pomnožimo z ustrezno kvantizacijsko matriko, da dobimo matriko DCT koeficientov. To nato spremenimo z inverznim postopkom DCT, da dobimo matriko izvornih komponent v barvnem prostoru YCbCr.</p>
+
+<p align="justify">Vsako množico treh komponentnih iz matrike lahko pretvorimo v barvni prostor RGB z uporabo inverznih enačb za pretvarjanje barv. Slika bo zdaj razširjena in pripravljena za prikaz.</p>
+
+<h4>Za radovedne</h4>
+
+<div class="alert alert-danger" role="alert">
+<p align="justify">S klikom na ustrezni gumb si lahko ogledaš bolj podrobno razlago delovanja postopka stiskanja in razširjanja slike JPEG. Razlaga je podkrepljena z matematičnimi pojmi na praktičnem primeru.</p>
+<p>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#compress"><span class="fa fa-compress"></span> Postopek stiskanja</button>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#decompress"><span class="fa fa-expand"></span> Postopek razširjanja</button>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2203/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2204/index14.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2204/index.html">1</a></li>
+					<li><a href="../2204/index1.html">2</a></li>
+					<li><a href="../2204/index2.html">3</a></li>
+					<li><a href="../2204/index3.html">4</a></li>
+					<li><a href="../2204/index4.html">5</a></li>
+					<li><a href="../2204/index5.html">6</a></li>
+					<li><a href="../2204/index6.html">7</a></li>
+					<li><a href="../2204/index7.html">8</a></li>
+					<li><a href="../2204/index8.html">9</a></li>
+					<li><a href="../2204/index9.html">10</a></li>
+					<li><a href="../2204/index10.html">11</a></li>
+					<li><a href="../2204/index11.html">12</a></li>
+					<li><a href="../2204/index12.html">13</a></li>
+					<li><a href="../2204/index13.html">14</a></li>
+					<li><a href="../2204/index14.html">15</a></li>
+					<li class="active"><a href="#">16</a></li>
+					<li><a href="../2204/index16.html">17</a></li>
+					<li><a href="../2204/index17.html">18</a></li>
+					<li><a href="../2204/index18.html">19</a></li>
+					<li><a href="../2204/index19.html">20</a></li>
+					<li><a href="../2204/index20.html">21</a></li>
+					<li><a href="../2204/index16.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2205/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

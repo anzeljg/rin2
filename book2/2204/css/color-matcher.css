@@ -1,0 +1,63 @@
+#red, #green, #blue,
+#red8, #green8, #blue8 {
+	float: left;
+	clear: left;
+	width: 220px;
+	margin: 15px;
+	margin-bottom: 5px;
+}
+
+#red-text, #green-text, #blue-text,
+#red8-text, #green8-text, #blue8-text {
+	float: left;
+	clear: left;
+	width: 220px;
+	margin: 15px;
+	margin-top: 0px;
+}
+
+#color-label,
+#color8-label {
+	float: left;
+	clear: left;
+	margin: 15px;
+}
+
+#color-container {
+	width: 200px;
+	height: 200px;
+	margin-top: 5px;
+	margin-left: 280px;
+	background-image: none;
+	display: table;
+}
+
+#color-rgb, #color-goal,
+#color8-rgb, #color8-goal {
+	width: 50%;
+	height: 100%;
+	display: table-cell;
+	background-image: none;
+}
+
+
+#red .ui-slider-range, #red8 .ui-slider-range { background: #ff0000; }
+#green .ui-slider-range, #green8 .ui-slider-range  { background: #00ff00; }
+#blue .ui-slider-range, #blue8 .ui-slider-range { background: #0000ff; }
+
+#red-handle, #green-handle, #blue-handle,
+#red8-handle, #green8-handle, #blue8-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.5em;
+	font-size: smaller;
+	border-color: #aaaaaa;
+}
+
+#red-part, #green-part, #blue-part,
+#red8-part, #green8-part, #blue8-part {
+    padding: 0px 2px;
+}

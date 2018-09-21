@@ -1,0 +1,309 @@
+/* Aspect ratio 3:2 (like photos) */
+/* TODO: Adapt for multiple visualizations per figure! */
+/* Adapted from http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
+input[type=range] {
+  /*removes default webkit styles*/
+  -webkit-appearance: none;
+  /*fix for FF unable to apply focus style bug */
+  border: none;
+  background: #D9EDF7;
+  /*required for proper track sizing in FF*/
+  width: 98%;
+  padding: 0 0;
+  margin-right: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 98%;
+  height: 1em;
+  background: #ffffff;
+  border: 1px solid #a9a9a9;
+  border-radius: 0.6em;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 0.1em solid #a9a9a9;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50%;
+  background: #d6d6d6;
+  margin-top: -0.16666667rem;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ffffff;
+}
+input[type=range]::-moz-range-track {
+  width: 98%;
+  height: 1em;
+  background: #ffffff;
+  border: 1px solid #a9a9a9;
+  border-radius: 0.6em;
+}
+input[type=range]::-moz-range-thumb {
+  border: 0.1em solid #a9a9a9;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50%;
+  background: #d6d6d6;
+  margin-top: -0.16666667rem;
+}
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+input[type=range]::-ms-track {
+  width: 98%;
+  height: 1em;
+  /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+  background: transparent;
+  /*leave room for the larger thumb to overflow with a transparent border */
+  border-color: transparent;
+  border-width: 6px 0;
+  /*remove default tick marks*/
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #ffffff;
+  border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+  background: #ffffff;
+  border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+  border: 0.1em solid #a9a9a9;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50%;
+  background: #d6d6d6;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #ffffff;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #ffffff;
+}
+
+.tab {
+  margin: 2em 0;
+}
+.exercise {
+  margin: 0px auto;
+  line-height: 100%;
+  overflow: hidden;
+  max-width: 40em;
+  /* ColorMatchingTask. */
+  /* ColorSelectionTask. */
+  /* ColorConversionSelectionTask. */
+}
+.exercise .figure-title{
+  line-height: 1.42857143;
+}
+.exercise .selected-color {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  color: black;
+  text-shadow: -0.1em 0 0 white, 0 -0.1em 0 white, 0.1em 0 0 white, 0 0.1em 0 white;
+  background-color: white;
+  border: .1em solid black;
+}
+.exercise .aspect-ratio-preserver {
+  position: relative;
+}
+.exercise .aspect-ratio-preserver img.aspect-ratio {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+.exercise .aspect-ratio-preserver > .aspect-ratio-preservee,
+.exercise .aspect-ratio-preserver > canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.exercise h2,
+.exercise h3 {
+  margin: 0.5em 0.5em 0.75em 0.5em;
+}
+.exercise table.exercise-results,
+.exercise table.options-table,
+.exercise table.add-task-controls {
+  margin: 0.45em 0.5em 0.45em 0.5em;
+}
+.exercise table.exercise-results th,
+.exercise table.options-table th,
+.exercise table.add-task-controls th {
+  text-align: left;
+  padding-top: .5em;
+}
+.exercise table.exercise-results td:first-child,
+.exercise table.options-table td:first-child,
+.exercise table.add-task-controls td:first-child {
+  padding-right: 1em;
+  padding-bottom: .5em;
+  vertical-align: top;
+}
+.exercise table.exercise-results td:last-child,
+.exercise table.options-table td:last-child,
+.exercise table.add-task-controls td:last-child {
+  padding-right: 0;
+  padding-bottom: .5em;
+  vertical-align: top;
+}
+@media (min-width: 30em) {
+  .exercise table.exercise-results td.shrink,
+  .exercise table.options-table td.shrink,
+  .exercise table.add-task-controls td.shrink {
+    white-space: nowrap;
+  }
+  .exercise table.exercise-results td.expand,
+  .exercise table.options-table td.expand,
+  .exercise table.add-task-controls td.expand {
+    width: 100%;
+  }
+}
+.exercise table.exercise-results .option-explanation,
+.exercise table.options-table .option-explanation,
+.exercise table.add-task-controls .option-explanation {
+  /*color: #333333;*/
+  font-size: 80%;
+}
+.exercise table.controls-table,
+.exercise table.exercise-results .controls-table,
+.exercise table.options-table .controls-table,
+.exercise table.add-task-controls .controls-table {
+  width: 100%;
+  margin: 10px 0;
+}
+.exercise table.exercise-results .controls-table td:first-child,
+.exercise table.options-table .controls-table td:first-child,
+.exercise table.add-task-controls .controls-table td:first-child {
+  padding-right: 0;
+  padding-left: 0;
+}
+.exercise table.exercise-results .controls-table td:last-child,
+.exercise table.options-table .controls-table td:last-child,
+.exercise table.add-task-controls .controls-table td:last-child {
+  padding-right: 0;
+}
+.exercise .exercise-button-bar {
+  overflow: hidden;
+}
+.exercise .exercise-button-bar button {
+  float: right;
+  margin-left: .5em;
+}
+.exercise .exercise-feedback {
+  padding: 0.45em 0.5em 0.45em 0.5em;
+  line-height: 1.42857143;
+}
+.exercise .exercise-feedback.wrong {
+  color: #A94442;
+  background-color: #F2DEDE;
+  border: 1px solid #EBCCD1;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.exercise .exercise-feedback.correct {
+  color: #3C763D;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.exercise .color-matching-target,
+.exercise .color-matching-current {
+  height: 5em;
+  width: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  border: .1em solid black;
+}
+.exercise .color-matching-current {
+  border-left-width: 0;
+}
+.exercise .exercise-hints-label {
+  display: block;
+  margin: .5em auto .5em auto;
+  text-align: center;
+  font-weight: bold;
+  color: #878787;
+}
+.exercise .exercise-hints-label .hint {
+  padding: 0 1em;
+}
+.exercise .exercise-hints-label .hint.active {
+  color: black;
+}
+.exercise .color-selection-patches {
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+}
+.exercise .color-selection-patches .color-selection-patch {
+  cursor: hand;
+  cursor: pointer;
+}
+.exercise .color-selection-patch {
+  width: 5em;
+  height: 5em;
+  border: .1em solid black;
+  margin: .3em;
+  background: linear-gradient(red, yellow);
+}
+.exercise .color-conversion-selection-options {
+  display: -webkit-flex;
+  -webkit-flex-flow: column;
+  display: flex;
+  flex-flow: column;
+  padding: 0.45em 0.5em 0.45em 0.5em;
+}
+.exercise .color-conversion-selection-options .color-conversion-selection-option {
+  cursor: hand;
+  cursor: pointer;
+  margin: .3em 0;
+}
+.exercise .color-conversion-selection-options .color-conversion-selection-option .color-patch {
+  display: inline-block;
+  width: 1.3em;
+  height: 1.3em;
+  border: .1em solid black;
+  margin-right: .5em;
+  margin-bottom: -0.3em;
+}
+.exercise tbody.sub-table {
+  box-shadow: 0 0.05em 0.15em 0.05em #bfbfbf;
+}
+.exercise tbody.sub-table .exercise-configurator-task-item-header {
+  font-weight: bold;
+  font-size: 120%;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+.exercise tbody.sub-table .exercise-configurator-task-item-footer {
+  padding-bottom: .5em;
+}
+.exercise tbody.sub-table td:first-child {
+  padding-left: .25em;
+}
+.exercise tbody.sub-table td:last-child {
+  padding-right: .25em;
+}
+.exercise .separator {
+  min-height: .5em;
+  height: .5em;
+}
+.exercise tbody:last-child .separator {
+  min-height: 0;
+}

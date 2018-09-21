@@ -1,0 +1,36 @@
+/* Live in Style -- Colors */
+
+/* Layout */
+body { max-width: none; }
+main section:not(.big-box), body >footer { max-width: 800px; margin: 0px auto 20px auto; }
+#social-buttons { text-align: center; }
+
+/* Big box of swatches */
+.big-box                  { position: relative; clear: both; text-align: center; background-color: #eeeeee; border: 1px solid #dddddd; padding: 10px; margin-bottom: 35px; }
+.big-box button           { margin: 0px 5px 10px 5px; }
+.big-box button.selected  { opacity: 0.7; cursor: default; }
+.big-box #hex-overload    { position: absolute; right: 0em; top: -1.6em; font-weight: bold; color: black; }
+.big-box .bubble-wrap     { margin-left: 1.1em; margin-top: 0.4em; }
+.big-box .bubble-help     { margin-left: -4em; }
+.big-box h2               { margin: 0px 0px 5px 0px; }
+.big-box #num-colors      { position: absolute; right: 0em; bottom: -1.6em; }
+.big-box #num-colors span { font-weight: bold; color: black; }
+.swatches .swatch       { display: inline-flex; border: 1px solid black; margin: 0px 3px 8px 3px; transition: all 0.4s; }
+.swatches .swatch:hover { border-color: white; box-shadow: 0px 0px 1em white; }
+.swatches .swatch >div  { padding: 5px 10px; }
+.swatches .swatch >div >div:nth-child(odd)  { color: black; }
+.swatches .swatch >div >div:nth-child(even) { color: white; }
+
+/* Flat button color */
+/* Flat buttons */
+button             {font-size: 1.3rem; font-weight: normal; white-space: nowrap; color: white; border: none; border-radius: 0.4em; padding: 0.6em 1.2em; outline: none;transition: all 0.4s;}
+button i.font-icon { font-size: 1.2em; padding-right: 0.2em; }
+button:disabled    { background-color: silver; }
+
+button { background-color: dimgray; }
+button:hover { background-color: black; }
+
+/* PERFECT style colors */
+form.perfect { border-color: darkseagreen; }                                /* outer color */
+form.perfect h2 { background-color: darkseagreen; }                         /* outer color */
+form.perfect input, form.perfect textarea { background-color: mintcream; }  /* input fields */

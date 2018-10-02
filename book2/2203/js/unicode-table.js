@@ -19512,7 +19512,7 @@ $(document).ready(function() {
 		  } else {
 		    character = '&#' + no + ';';
 		  }
-		  table = table + '<td id="' + no + '">' + character + '<div class="exp">' + no + '</div></td>';
+		  table = table + '<td id="' + no + '" class="unicode-char">' + character + '<div class="exp">' + no + '</div></td>';
 		  j++;
 	    }
 	    table = table + '</tr>';

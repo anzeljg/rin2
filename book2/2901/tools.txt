@@ -1,0 +1,61 @@
+Bootstrap:
+http://getbootstrap.com/
+
+Bralle tools:
+https://evoluteur.github.io/braille-tools/index.html
+
+Code Mirror:
+http://codemirror.net/
+
+Color.js:
+https://web.cs.uni-paderborn.de/cgvb/colormaster/web/color-systems.html
+
+CSFG Interactives:
+http://csfieldguide.org.nz/en/further-information/interactives.html
+
+Data Structure Visualizations:
+(http://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+https://people.ok.ubc.ca/ylucet/DS/Algorithms.html
+
+Fontawesome:
+https://fortawesome.github.io/Font-Awesome/
+
+Gibberish:
+http://charlie-roberts.com/gibberish/
+
+JQuery:
+https://jquery.com/
+
+JQuery UI:
+https://jqueryui.com/
+
+JSXGraph:
+https://jsxgraph.uni-bayreuth.de/wp/index.html
+
+MathJax:
+https://www.mathjax.org/
+
+Musical Keyboard:
+http://www.keithwhor.com/music/
+
+Paper.js:
+http://paperjs.org/
+
+Raphaël.js:
+http://dmitrybaranovskiy.github.io/raphael/
+
+Skulpt:
+http://www.skulpt.org/
+
+Tango icons:
+https://commons.wikimedia.org/wiki/Tango_icons
+
+Unicode.js:
+http://www.ftrain.com/unicode/
+
+WheelNav.js:
+http://wheelnavjs.softwaretailoring.net/
+
+Zynga:
+https://zynga.github.io/scroller/
+

@@ -1,0 +1,17 @@
+#sampler {
+	float: left;
+	clear: left;
+	width: 200px;
+	margin: 15px;
+}
+
+#sampler-handle {
+    width: 5em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.5em;
+	font-size: smaller;
+	border-color: #aaaaaa;
+}

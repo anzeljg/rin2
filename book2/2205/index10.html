@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Opisovanje zvoka &ndash; MIDI</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<link href="../css/jsxgraph.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- AudioSynth CSS -->
+	<link href="css/audiosynth.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li class="active"><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: MIDI Messages -->
+		<div id="midi-help-box" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">MIDI sporočila</h4>
+					</div>
+					<div class="modal-body">
+						<ul class="nav nav-tabs">
+						  <li>&nbsp;&nbsp;&nbsp;</li>
+						  <li role="presentation" class="active"><a href="#messages" data-toggle="tab">Sporočila</a></li>
+						  <li role="presentation"><a href="#notes" data-toggle="tab">Note in akordi</a></li>
+						  <li role="presentation"><a href="#instruments" data-toggle="tab">Instrumenti</a></li>
+						  <li role="presentation"><a href="#drums" data-toggle="tab">Tolkala</a></li>
+						  <li role="presentation"><a href="#channels" data-toggle="tab">Kanali</a></li>
+						</ul>
+
+						<div class="tab-content clearfix">
+						<br />
+
+						  <!-- Messages tab -->
+						  <div class="tab-pane active" id="messages">
+						    <p align="justify">Sporočila MIDI se pošljejo kot časovno zaporedje enega ali več bajtov. Prvi bajt je kontrolni bajt, ki mu sledi več podatkovnih bajtov. Kontrolni bajt določa vrsto sporočila, število podatkovnih bajtov pa je odvisno od vrste sporočila. Pri kontrolnem bajtu je vrednost najpomembnejšega bita (najbolj levega bita) nastavljena na 1, pri podatkovnih bajtih pa na 0.</p>
+							<p align="justify">Razen nekaterih sistemskih sporočil MIDI kontrolni bajt vsebuje številko kanala MIDI. Obstaja 16 možnih kanalov MIDI, oštevilčenih od 0 do 15. V praksi glasbeniki in programska oprema štejejo kanale MIDI od 1 do 16, zato je številki kanala pri ustvarjanju sporočila treba odšteti 1 (kanal »1« je kodiran kot »0« itd.).</p>
+							<p align="justify">V istem MIDI kablu lahko uporabljamo do 16 kanalov MIDI in tako nadzorujemo do 16 različnih instrumentov, ki igrajo neodvisno.</p>
+							<p align="justify">Glavni sporočili MIDI sta <i>NoteOn</i> in <i>NoteOff</i>.</p>
+
+							<p><b>NOTE ON</b></p>
+							<p align="justify">Ko sintetizator prejme sporočilo <i>NoteOn</i>, začne igrati noto pravilne višine in glasnosti.</p>
+							<p align="justify">Sporočilo <i>NoteOn</i> je strukturirano na naslednji način:
+							<ul>
+							  <li>kontrolni bajt: <code>1001 KKKK</code> &ndash; <code>KKKK</code> je kanal MIDI (od 0 do 15)</li>
+							  <li>podatkovni bajt 1: <code>0VVV VVVV</code> &ndash; <code>VVV VVVV</code> je višina tona/note (od 0 do 127)</li>
+							  <li>podatkovni bajt 2: <code>0GGG GGGG</code> &ndash; <code>GGG GGGG</code> je glasnost tona/note (od 0 do 127);<br />če je glasnost nastavljena na 0, potem ima sporočilo <i>NoteOn</i> isti pomen, kot sporočilo <i>NoteOff</i></li>
+							</ul></p>
+							<p align="justify">Vrednost višine določa frekvenca note, ki jo je treba predvajati. Vrednost je lahko od 0 do 127, pri čemer ima nota C<sub>4</sub> vrednost 60:</p>
+							<p align="center"><img src="img/midi-note.png"><br /><br />
+							<audio controls>
+							  <source src="snd/midi-note.ogg" type="audio/ogg">
+							  <source src="snd/midi-note.mp3" type="audio/mpeg">
+							</audio></p>
+							<p align="justify">Vrednost je predstavljena v polovičnih korakih, tako da ima C#<sub>4</sub> vrednost 61, D<sub>4</sub> vrednost 62 in tako dalje.</p>
+							<p align="justify">Note lahko prestavimo oziroma transponiramo eno oktavo višje tako, da vrednosti vsake note prištejemo 12. Z uporabo MIDI je transponiranje zelo preprosto, saj to dosežemo le s prištevanjem ali odštevanjem določene vrednosti. Pri tem je treba paziti glede obsega not MIDI, ki se giblje med 0 in 127. Če bi na primer želeli zvišati vrednost note 96 za 4 oktave (+48), bi bila skupna vrednost 144, kar je izven obsega. Ker bo od rezultata odšeta vrednost 128, bo nota zelo nizka (144 - 128 = 16) namesto, da bi bila visoka. </p>
+							<p align="justify">Vrednost glasnosti med 0 in 127, pokriva območje od praktično neslišnega zvoka do najvišje ravni glasnosti. V bistvu ustreza lestvici dinamike, ki jo najdemo v notnih zapisih in spodaj (te vrednosti niso natančne, ampak služijo bolj kot orientacija):</p>
+							<p align="center"><img src="img/midi-velocity.png"></p>
+
+							<p><b>NOTE OFF</b></p>
+							<p align="justify">Ko sintetizator prejme sporočilo <i>NoteOff</i>, zaključi z igranjem note.</p>
+							<p align="justify">Sporočilo <i>NoteOff</i> je strukturirano na naslednji način:
+							<ul>
+							  <li>kontrolni bajt: <code>1000 KKKK</code> &ndash; <code>KKKK</code> je kanal MIDI (od 0 do 15)</li>
+							  <li>podatkovni bajt 1: <code>0VVV VVVV</code> &ndash; <code>VVV VVVV</code> je višina tona/note (od 0 do 127)</li>
+							  <li>podatkovni bajt 2: <code>0GGG GGGG</code> &ndash; <code>GGG GGGG</code> je glasnost tona/note (od 0 do 127),<br />ki se redko uporablja in je privzeto nastavljena na 0</li>
+							</ul></p>
+						  </div>
+
+						  <!-- Notes and chords tab -->
+						  <div class="tab-pane" id="notes">
+						    <p align="justify">Ko sintetizatorju pošlješ sporočilo <i>NoteOn</i>, bo začel predvajati noto. Medtem lahko pošiljaš druga sporočila <i>NoteOn</i>, z različnimi višinami not, da se bo predvajal akord. Vendar moraš spremljati katere note se predvajajo, tako da lahko za vsako noto pošlješ ustrezno sporočilo <i>NoteOff</i>, sicer bodo note obtičale in se predvajale v neskončnost.</p>
+						    <p align="justify">Oglejmo si primer. Kakšna sporočila MIDI so potrebna za predvajanje spodnjega takta?</p>
+							<p align="center"><img src="img/midi-chord.png"><br /><br />
+							<audio controls>
+							  <source src="snd/midi-chord.ogg" type="audio/ogg">
+							  <source src="snd/midi-chord.mp3" type="audio/mpeg">
+							</audio></p>
+						    <p align="justify">Da zaslišiš glasbo mora biti prisotna tudi časovna komponenta, zato je v spodnji tabeli prikazano časovno zaporedje sporočil MIDI, ki jih je treba poslati sintetizatorju, da bo predvajal zgornje note na kanalu 1 (kodiranem kot 0), z glasnostjo 70 (<i>mezzo forte</i>).</p>
+						    <p align="justify">
+							<table class="table table-striped">
+							  <thead>
+							    <tr>
+								  <th>Čas [s]</th>
+								  <th>Sporočilo MIDI &ndash; BIN</th>
+								  <th>DEC</th>
+								  <th>HEX</th>
+								  <th>Nota</th>
+								</tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 0000 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 64 70</tt></td>
+								  <td><tt>0x90 0x40 0x46</tt></td>
+								  <td>E<sub>3</sub> = 64</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 0011 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 67 70</tt></td>
+								  <td><tt>0x90 0x43 0x46</tt></td>
+								  <td>G<sub>3</sub> = 67</td>
+								</tr>
+							    <tr>
+								  <td>1,0</td>
+								  <td><tt>1000 0000 &nbsp; 0100 0011 &nbsp; 0000 0000</tt></td>
+								  <td><tt>128 67 0</tt></td>
+								  <td><tt>0x80 0x43 0x00</tt></td>
+								  <td>G<sub>3</sub> = 67</td>
+								</tr>
+							    <tr>
+								  <td>1,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 0101 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 69 70</tt></td>
+								  <td><tt>0x90 0x45 0x46</tt></td>
+								  <td>A<sub>3</sub> = 69</td>
+								</tr>
+							    <tr>
+								  <td>2,0</td>
+								  <td><tt>1000 0000 &nbsp; 0100 0101 &nbsp; 0000 0000</tt></td>
+								  <td><tt>128 69 0</tt></td>
+								  <td><tt>0x80 0x45 0x00</tt></td>
+								  <td>A<sub>3</sub> = 69</td>
+								</tr>
+							    <tr>
+								  <td>2,0</td>
+								  <td><tt>1000 0000 &nbsp; 0100 0000 &nbsp; 0000 0000</tt></td>
+								  <td><tt>128 64 0</tt></td>
+								  <td><tt>0x80 0x40 0x00</tt></td>
+								  <td>E<sub>3</sub> = 64</td>
+								</tr>
+							    <tr>
+								  <td>2,0</td>
+								  <td><tt>1001 0000 &nbsp; 0011 1100 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 60 70</tt></td>
+								  <td><tt>0x90 0x3C 0x46</tt></td>
+								  <td>C<sub>3</sub> = 60</td>
+								</tr>
+							    <tr>
+								  <td>2,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 0111 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 71 70</tt></td>
+								  <td><tt>0x90 0x47 0x46</tt></td>
+								  <td>H<sub>3</sub> = 71</td>
+								</tr>
+							    <tr>
+								  <td>3,0</td>
+								  <td><tt>1000 0000 &nbsp; 0100 0111 &nbsp; 0000 0000</tt></td>
+								  <td><tt>128 71 0</tt></td>
+								  <td><tt>0x80 0x47 0x00</tt></td>
+								  <td>H<sub>3</sub> = 71</td>
+								</tr>
+							    <tr>
+								  <td>3,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1000 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 72 70</tt></td>
+								  <td><tt>0x90 0x48 0x46</tt></td>
+								  <td>C<sub>4</sub> = 72</td>
+								</tr>
+							    <tr>
+								  <td>4,0</td>
+								  <td><tt>1000 0000 &nbsp; 0100 1000 &nbsp; 0000 0000</tt></td>
+								  <td><tt>128 72 0</tt></td>
+								  <td><tt>0x80 0x48 0x00</tt></td>
+								  <td>C<sub>4</sub> = 72</td>
+								</tr>
+							    <tr>
+								  <td>4,0</td>
+								  <td><tt>1000 0000 &nbsp; 0011 1100 &nbsp; 0000 0000</tt></td>
+								  <td><tt>128 60 0</tt></td>
+								  <td><tt>0x80 0x3C 0x00</tt></td>
+								  <td>C<sub>3</sub> = 60</td>
+								</tr>
+							  </tbody>
+							</table>
+							</p>
+						    <p align="justify">Partitura oziroma notni zapis igra pri hitrosti 60 udarcev na minuto, zato je vsaka četrtinka dolga natančno 1 sekundo.</p>
+						  </div>
+
+						  <!-- Instruments tab -->
+						  <div class="tab-pane" id="instruments">
+						    <p align="justify">Do sedaj sintetizatorju še nismo sporočili, kateri zvok naj uporabi za predvajanje not. Sintetizator bi verjetno uporabil klavir ali privzeti instrument.</p>
+						    <p align="justify">Vendar obstaja sporočilo MIDI, ki se imenuje <i>ProgramChange</i>, s katerim določimo instrument iz vnaprej določenega seznama 128 zvokov. V teoriji ima lahko vsak sintetizator svoj lasten seznam instrumentov, standard »General MIDI (GM)« pa določa seznam 128 instrumentov, ki poenostavljajo združljivost. Večina sintetizatorjev vsebuje vsaj združljivostni način s standardom GM. Na spodnji povezavi najdeš seznam instrumentov standarda »General MIDI«:</p>
+						    <p align="center"><a href="https://www.midi.org/specifications/item/gm-level-1-sound-set" target="_blank">Instrumenti standarda »General MIDI«</a></p>
+							<p align="justify">Sporočilo <i>ProgramChange</i> je strukturirano na naslednji način:
+							<ul>
+							  <li>kontrolni bajt: <code>1100 KKKK</code> &ndash; <code>KKKK</code> je kanal MIDI (od 0 do 15)</li>
+							  <li>podatkovni bajt 1: <code>0XXX XXXX</code> &ndash; <code>XXX XXXX</code> je številka instrumenta (od 0 do 127);<br />da dobimo ustrezno številko instrumenta, moramo številki s seznama GM odšteti 1</li>
+							</ul></p>
+						    <p align="justify">Trobenta, na primer, ima na seznamu GM številko 57, zato moraš v zgornjem sporočilu MIDI nastaviti XXXXXXX = 56, da nastaviš pravilen instrument v ciljnem sintetizatorju. Note, ki jih pošiljaš sintetizatorju po tem sporočilu, bodo predvajane oziroma odigrane z zvokom trobente.</p>
+						    <p align="justify">V spodnji tabeli so zbrani primeri sporočila <i>ProgramChange</i> za nastavljanje vrednosti instrumenta na eno izmed treh možnosti v interaktivni klaviaturi.</p>
+						    <p align="justify">
+							<table class="table table-striped">
+							  <thead>
+							    <tr>
+								  <th>Instrument</th>
+								  <th>General MIDI</th>
+								  <th>Sporočilo MIDI &ndash; BIN</th>
+								  <th>DEC</th>
+								  <th>HEX</th>
+								</tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+								  <td>Klavir</td>
+								  <td>Acoustic Grand Piano (1 &rarr; 0)</td>
+								  <td><tt>1100 0000 &nbsp; 0000 0000</tt></td>
+								  <td><tt>192 0</tt></td>
+								  <td><tt>0xC0 0x00</tt></td>
+								</tr>
+							    <tr>
+								  <td>Orgle</td>
+								  <td>Church Organ (20 &rarr; 19)</td>
+								  <td><tt>1100 0000 &nbsp; 0001 0011</tt></td>
+								  <td><tt>192 19</tt></td>
+								  <td><tt>0xC0 0x13</tt></td>
+								</tr>
+							    <tr>
+								  <td>Kitara</td>
+								  <td>Acoustic Guitar &ndash; nylon (25 &rarr; 24)</td>
+								  <td><tt>1100 0000 &nbsp; 0001 1000</tt></td>
+								  <td><tt>192 24</tt></td>
+								  <td><tt>0xC0 0x18</tt></td>
+								</tr>
+							  </tbody>
+							</table>
+							</p>
+						  </div>
+
+						  <!-- Drums tab -->
+						  <div class="tab-pane" id="drums">
+						    <p align="justify">Tolkala so poseben primer instrumentov, ker nimajo posebne višine not, kot na primer klavir ali trobenta. Za predvajanje tolkal se uporablja poseben kanal MIDI. V standardu »General MIDI« je to kanal 10, vendar lahko najdeš sintetizatorje, ki jih lahko sprogramiraš za sprejemanje tolkal na katerem koli kanalu.</p>
+						    <p align="justify">V primeru kanala, ki je dodeljen tolkalom (in tudi posebnim zvočnim učinkom, ki so pogosto vključeni v sintetizatorje), se del sporočila <i>NoteOn</i> in <i>NoteOff</i>, ki je namenjen višini note, dejansko uporablja za izbiro, kateri tolkalo ali drug zvočni učinek bo predvajan.</p>
+						    <p align="justify">Na spodnji povezavi (na koncu strani) najdeš seznam različnih tolkal standarda »General MIDI«:</p>
+						    <p align="center"><a href="https://www.midi.org/specifications/item/gm-level-1-sound-set" target="_blank">Instrumenti standarda »General MIDI«</a></p>
+						    <p align="justify">Oglejmo si na primer, kako bi morali pošiljati sporočila MIDI na kanal 10, da bi predvajali bobnarsko osnovo pesmi »<a href="https://www.youtube.com/watch?v=129kuDCQtHs" target="_blank">Dancing in the dark</a>«, ki jo izvaja Bruce Springsteen:</p>
+							<p align="center"><img src="img/midi-drums.png"><br /><br />
+							<audio controls>
+							  <source src="snd/midi-drums.ogg" type="audio/ogg">
+							  <source src="snd/midi-drums.mp3" type="audio/mpeg">
+							</audio></p>
+						    <p align="justify">Ta osnova se ponavlja skozi celotno pesem, ki pa si bomo ogledali sporočila samo za eno ponovitev.</p>
+						    <p align="justify">
+							<table class="table table-striped">
+							  <thead>
+							    <tr>
+								  <th>Čas [s]</th>
+								  <th>Sporočilo MIDI &ndash; BIN</th>
+								  <th>DEC</th>
+								  <th>HEX</th>
+								  <th>Tolkalo</th>
+								</tr>
+							  </thead>
+							  <tbody>
+							    <!-- 1/8 -->
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0010 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 34 70</tt></td>
+								  <td><tt>0x99 0x22 0x46</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0000 &nbsp; 0011 0000 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 48 70</tt></td>
+								  <td><tt>0x99 0x30 0x46</tt></td>
+								  <td>CC1 (49 &rarr; 48)</td>
+								</tr>
+							    <!-- 2/8 -->
+							    <tr>
+								  <td>0,2</td>
+								  <td><tt>1000 0000 &nbsp; 0011 0000 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 48 0</tt></td>
+								  <td><tt>0x89 0x30 0x00</tt></td>
+								  <td>CC1 (49 &rarr; 48)</td>
+								</tr>
+								<tr>
+								  <td>0,2</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 3/8 -->
+								<tr>
+								  <td>0,4</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0010 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 34 0</tt></td>
+								  <td><tt>0x89 0x22 0x00</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>0,4</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>0,4</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0101 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 37 70</tt></td>
+								  <td><tt>0x99 0x25 0x46</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>0,4</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 4/8 -->
+								<tr>
+								  <td>0,6</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>0,6</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 5/8 -->
+								<tr>
+								  <td>0,8</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0101 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 37 0</tt></td>
+								  <td><tt>0x89 0x25 0x00</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>0,8</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>0,8</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0010 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 34 70</tt></td>
+								  <td><tt>0x99 0x22 0x46</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>0,8</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 6/8 -->
+								<tr>
+								  <td>1,0</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>1,0</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 7/8 -->
+								<tr>
+								  <td>1,2</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0010 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 34 0</tt></td>
+								  <td><tt>0x89 0x22 0x00</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>1,2</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>1,2</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0101 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 37 70</tt></td>
+								  <td><tt>0x99 0x25 0x46</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>1,2</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 8/8 -->
+								<tr>
+								  <td>1,4</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>1,4</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 9/8 -->
+								<tr>
+								  <td>1,6</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0101 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 37 0</tt></td>
+								  <td><tt>0x89 0x25 0x00</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>1,6</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>1,6</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0010 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 34 70</tt></td>
+								  <td><tt>0x99 0x22 0x46</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>1,6</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 10/8 -->
+								<tr>
+								  <td>1,8</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>1,8</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 11/8 -->
+								<tr>
+								  <td>2,0</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0010 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 34 0</tt></td>
+								  <td><tt>0x89 0x22 0x00</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>2,0</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>2,0</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0101 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 37 70</tt></td>
+								  <td><tt>0x99 0x25 0x46</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>2,0</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 12/8 -->
+								<tr>
+								  <td>2,2</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>2,2</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 13/8 -->
+								<tr>
+								  <td>2,4</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0101 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 37 0</tt></td>
+								  <td><tt>0x89 0x25 0x00</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>2,4</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>2,4</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0010 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 34 70</tt></td>
+								  <td><tt>0x99 0x22 0x46</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>2,4</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 14/8 -->
+								<tr>
+								  <td>2,6</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0010 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 34 0</tt></td>
+								  <td><tt>0x89 0x22 0x00</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>2,6</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>2,6</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0010 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 34 70</tt></td>
+								  <td><tt>0x99 0x22 0x46</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>2,6</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 15/8 -->
+								<tr>
+								  <td>2,8</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0010 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 34 0</tt></td>
+								  <td><tt>0x89 0x22 0x00</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>2,8</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>2,8</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0101 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 37 70</tt></td>
+								  <td><tt>0x99 0x25 0x46</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>2,8</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							    <!-- 16/8 -->
+								<tr>
+								  <td>3,0</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0101 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 37 0</tt></td>
+								  <td><tt>0x89 0x25 0x00</tt></td>
+								  <td>ASD (38 &rarr; 37)</td>
+								</tr>
+								<tr>
+								  <td>3,0</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<tr>
+								  <td>3,0</td>
+								  <td><tt>1001 0000 &nbsp; 0010 0010 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 34 70</tt></td>
+								  <td><tt>0x99 0x22 0x46</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>3,0</td>
+								  <td><tt>1001 0000 &nbsp; 0010 1001 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 41 70</tt></td>
+								  <td><tt>0x99 0x29 0x46</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+								<!-- 17/8 -->
+								<tr>
+								  <td>3,2</td>
+								  <td><tt>1000 0000 &nbsp; 0010 0010 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 34 0</tt></td>
+								  <td><tt>0x89 0x22 0x00</tt></td>
+								  <td>ABD (35 &rarr; 34)</td>
+								</tr>
+								<tr>
+								  <td>3,2</td>
+								  <td><tt>1000 0000 &nbsp; 0010 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>137 41 0</tt></td>
+								  <td><tt>0x89 0x29 0x00</tt></td>
+								  <td>CHH (42 &rarr; 41)</td>
+								</tr>
+							  </tbody>
+							</table>
+							<small>ABD = Acoustic Bass Drum,<br />ASD = Acoustic Snare Drum,<br />CHH = Closed Hi Hat,<br />CC1 = Crash Cymbal 1</small>
+							</p>
+						    <p align="justify">Partitura igra pri hitrosti 150 udarcev na minuto, zato je vsaka četrtinka dolga natančno 0,4 sekunde, vsaka osminka pa 0,2 sekunde.</p>
+						  </div>
+
+						  <!-- Channels tab -->
+						  <div class="tab-pane" id="channels">
+						    <p align="justify">Protokol MIDI lahko nadzoruje do 16 različnih kanalov MIDI. Vsak kanal ima svoje stanje, na primer trenutno izbrani instrument, note, ki se trenutno predvajajo in druge vrednosti, kot so glasnost, panoramski zvok in drugo.</p>
+						    <p align="justify">Z uporabo različnih kanalov MIDI lahko določimo različen instrument za vsak kanal posebej. S pošiljanjem not na ustrezne kanale MIDI se bodo te note predvajale z ustreznimi instrumenti.</p>
+						    <p align="justify">Oglejmo si primer partiture s tremi instrumenti.</p>
+							<p align="center"><img src="img/midi-instruments.png"><br /><br />
+							<audio controls>
+							  <source src="snd/midi-instruments.ogg" type="audio/ogg">
+							  <source src="snd/midi-instruments.mp3" type="audio/mpeg">
+							</audio></p>
+						    <p align="justify">Saksofon, klavir in bas boben bodo uporabljali kanale 1, 2 in 10 (kodirane kot 0, 1 in 9). Zaporedje sporočil MIDI bo takšno, kot je prikazano v spodnji tabeli.</p>
+						    <p align="justify">Najprej pošljemo sporočila <i>ChangeProgram</i>, da določimo instrumente za vsak kanal posebej. Pri bobnih uporabimo 0, kar predstavlja običajni komplet bobnov po standardu GM. Nekateri sintetizatorji vsebujejo tudi jazz komplet, orkesterski komplet, elektronski komplet in tako dalje.</p>
+						    <p align="justify">Nato pošiljamo sporočila <i>NoteOn</i> in <i>NoteOff</i>, kot smo že navajeni. V spodnjem primeru bomo namesto sporočila <i>NoteOff</i> pošiljali sporočilo <i>NoteOn</i> z glasnostjo 0, kar ima isti pomen in se pogosto uporablja v praksi.</p>
+						    <p align="justify">
+							<table class="table table-striped">
+							  <thead>
+							    <tr>
+								  <th>Čas [s]</th>
+								  <th>Sporočilo MIDI &ndash; BIN</th>
+								  <th>DEC</th>
+								  <th>HEX</th>
+								  <th>Instrument, nota</th>
+								</tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1100 0000 &nbsp; 0100 0000</tt></td>
+								  <td><tt>192 64</tt></td>
+								  <td><tt>0xC0 0x40</tt></td>
+								  <td>SAX (65 &rarr; 64)</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1100 0001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>193 0</tt></td>
+								  <td><tt>0xC1 0x00</tt></td>
+								  <td>AGP (1 &rarr; 0)</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1100 1001 &nbsp; 0000 0000</tt></td>
+								  <td><tt>201 0</tt></td>
+								  <td><tt>0xC9 0x00</tt></td>
+								  <td>CDK (1 &rarr; 0)</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1000 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 72 70</tt></td>
+								  <td><tt>0x90 0x48 0x46</tt></td>
+								  <td>SAX, C<sub>4</sub> = 72</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0001 &nbsp; 0011 1100 &nbsp; 0100 0110</tt></td>
+								  <td><tt>145 60 70</tt></td>
+								  <td><tt>0x91 0x3C 0x46</tt></td>
+								  <td>AGP, C<sub>3</sub> = 60</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0001 &nbsp; 0100 0011 &nbsp; 0100 0110</tt></td>
+								  <td><tt>145 67 70</tt></td>
+								  <td><tt>0x91 0x43 0x46</tt></td>
+								  <td>AGP, G<sub>3</sub> = 67</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 0001 &nbsp; 0100 1100 &nbsp; 0100 0110</tt></td>
+								  <td><tt>145 76 70</tt></td>
+								  <td><tt>0x91 0x4C 0x46</tt></td>
+								  <td>AGP, E<sub>4</sub> = 76</td>
+								</tr>
+							    <tr>
+								  <td>0,0</td>
+								  <td><tt>1001 1001 &nbsp; 0010 0011 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 35 70</tt></td>
+								  <td><tt>0x99 0x23 0x46</tt></td>
+								  <td>CDK, ABD = 35</td>
+								</tr>
+							    <tr>
+								  <td>1,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1000 &nbsp; 0000 0000</tt></td>
+								  <td><tt>144 72 0</tt></td>
+								  <td><tt>0x90 0x48 0x00</tt></td>
+								  <td>SAX, C<sub>4</sub> = 72</td>
+								</tr>
+							    <tr>
+								  <td>1,0</td>
+								  <td><tt>1001 1001 &nbsp; 0010 0011 &nbsp; 0000 0000</tt></td>
+								  <td><tt>153 35 0</tt></td>
+								  <td><tt>0x99 0x23 0x00</tt></td>
+								  <td>CDK, ABD = 35</td>
+								</tr>
+							    <tr>
+								  <td>1,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1010 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 74 70</tt></td>
+								  <td><tt>0x90 0x4A 0x46</tt></td>
+								  <td>SAX, D<sub>4</sub> = 74</td>
+								</tr>
+							    <tr>
+								  <td>2,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1010 &nbsp; 0000 0000</tt></td>
+								  <td><tt>144 74 0</tt></td>
+								  <td><tt>0x90 0x4A 0x00</tt></td>
+								  <td>SAX, D<sub>4</sub> = 74</td>
+								</tr>
+							    <tr>
+								  <td>2,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1100 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 76 70</tt></td>
+								  <td><tt>0x90 0x4C 0x46</tt></td>
+								  <td>SAX, E<sub>4</sub> = 76</td>
+								</tr>
+							    <tr>
+								  <td>2,0</td>
+								  <td><tt>1001 1001 &nbsp; 0010 0011 &nbsp; 0100 0110</tt></td>
+								  <td><tt>153 35 70</tt></td>
+								  <td><tt>0x99 0x23 0x46</tt></td>
+								  <td>CDK, ABD = 35</td>
+								</tr>
+							    <tr>
+								  <td>3,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1100 &nbsp; 0000 0000</tt></td>
+								  <td><tt>144 76 0</tt></td>
+								  <td><tt>0x90 0x4C 0x00</tt></td>
+								  <td>SAX, E<sub>4</sub> = 76</td>
+								</tr>
+							    <tr>
+								  <td>3,0</td>
+								  <td><tt>1001 1001 &nbsp; 0010 0011 &nbsp; 0000 0000</tt></td>
+								  <td><tt>153 35 0</tt></td>
+								  <td><tt>0x99 0x23 0x00</tt></td>
+								  <td>CDK, ABD = 35</td>
+								</tr>
+							    <tr>
+								  <td>3,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1111 &nbsp; 0100 0110</tt></td>
+								  <td><tt>144 79 70</tt></td>
+								  <td><tt>0x90 0x4F 0x46</tt></td>
+								  <td>SAX, G<sub>4</sub> = 79</td>
+								</tr>
+							    <tr>
+								  <td>4,0</td>
+								  <td><tt>1001 0000 &nbsp; 0100 1111 &nbsp; 0000 0000</tt></td>
+								  <td><tt>144 79 0</tt></td>
+								  <td><tt>0x90 0x4F 0x00</tt></td>
+								  <td>SAX, G<sub>4</sub> = 79</td>
+								</tr>
+							    <tr>
+								  <td>4,0</td>
+								  <td><tt>1001 0001 &nbsp; 0011 1100 &nbsp; 0000 0000</tt></td>
+								  <td><tt>145 60 0</tt></td>
+								  <td><tt>0x91 0x3C 0x00</tt></td>
+								  <td>AGP, C<sub>3</sub> = 60</td>
+								</tr>
+							    <tr>
+								  <td>4,0</td>
+								  <td><tt>1001 0001 &nbsp; 0100 0011 &nbsp; 0000 0000</tt></td>
+								  <td><tt>145 67 0</tt></td>
+								  <td><tt>0x91 0x43 0x00</tt></td>
+								  <td>AGP, G<sub>3</sub> = 67</td>
+								</tr>
+							    <tr>
+								  <td>4,0</td>
+								  <td><tt>1001 0001 &nbsp; 0100 1100 &nbsp; 0000 0000</tt></td>
+								  <td><tt>145 76 0</tt></td>
+								  <td><tt>0x91 0x4C 0x00</tt></td>
+								  <td>AGP, E<sub>4</sub> = 76</td>
+								</tr>
+							  </tbody>
+							</table>
+							<small>ABD = Acoustic Bass Drum,<br />AGP = Acoustic Grand Piano,<br />CDK = Classic Drum Kit,<br />SAX = Soprano Sax</small>
+							</p>
+						    <p align="justify">Partitura igra pri hitrosti 60 udarcev na minuto, zato je vsaka četrtinka dolga natančno 1 sekundo.</p>
+						  </div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Opisovanje zvoka &ndash; MIDI</h1>
+
+						<p align="justify">Z uporabo spodnje interaktivne klaviature preizkusi pošiljanje različnih sporočil MIDI. Lahko pritisneš in spustiš tipko ter s tem pošlješ sporočili <i>NoteOn</i> in <i>NoteOff</i>. Tipke lahko klikaš z miško, ali pa uporabiš tipke na tipkovnici, ki so izpisane. Lahko pa tudi spremeniš intrument ter tako pošlješ poročilo <i>ProgramChange</i>. Spreminjaš pa lahko tudi glasnost in kanal, po katerem bodo sporočila potovala. Sporočila si lahko ogledaš v desetiškem (DEC) ali šestnajstiškem (HEX) načinu.</p>
+						<p>Dodatne informacije o sestavi, ustvarjanju in pošiljanju sporočil MIDI dobiš s klikom na gumb »Pomoč« desno spodaj.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10">
+<!-- Left column start -->
+<div class="alert alert-info" role="alert">
+<div class="keyboard-options">
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="midi-channel">Kanal:&nbsp;</label>
+	  <select ID="midi-channel" class="form-control">
+	    <option value="0" selected>1</option>
+	    <option value="1">2</option>
+	    <option value="2">3</option>
+	    <option value="3">4</option>
+	    <option value="4">5</option>
+	    <option value="5">6</option>
+	    <option value="6">7</option>
+	    <option value="7">8</option>
+	    <option value="8">9</option>
+	    <option value="9">10</option>
+	    <option value="10">11</option>
+	    <option value="11">12</option>
+	    <option value="12">13</option>
+	    <option value="13">14</option>
+	    <option value="14">15</option>
+	    <option value="15">16</option>
+      </select>
+	</div>
+    <div class="form-group">
+      <label for="midi-sound">&nbsp;Instrument:&nbsp;</label>
+	  <select ID="midi-sound" class="form-control">
+	    <option value="0" selected>Klavir</option>
+	    <option value="1">Orgle</option>
+        <option value="2">Kitara</option>
+      </select>
+	</div>
+    <div class="form-group">
+      <label for="midi-velocity">&nbsp;Glasnost:&nbsp;</label>
+	  <select ID="midi-velocity" class="form-control">
+	    <option value="0">&nbsp;pppp</option>
+	    <option value="14">&nbsp;ppp</option>
+	    <option value="28">&nbsp;pp</option>
+	    <option value="42">&nbsp;p</option>
+	    <option value="56">&nbsp;mp</option>
+	    <option value="70" selected>&nbsp;mf</option>
+	    <option value="84">&nbsp;f</option>
+	    <option value="98">&nbsp;ff</option>
+	    <option value="112">&nbsp;fff</option>
+	    <option value="127">&nbsp;ffff</option>
+      </select>
+	</div>
+    <div class="form-group">
+      <label for="output">&nbsp;Obseg:&nbsp;</label>
+    <input type="button" class="btn btn-default" ID="-_OCTAVE" value="<" />
+    <input type="button" class="btn btn-default" ID="+_OCTAVE" value=">" />
+	</div>
+    <div class="form-group">
+      <label for="midi-output">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIDI izhod:&nbsp;</label>
+	  <select ID="midi-output" class="form-control">
+	    <option value="10" selected>DEC</option>
+	    <option value="16">HEX</option>
+      </select>
+	</div>
+  </form>
+  <div ID="keyboard" class="keyboard-holder"></div>
+  <div class="keyboard-options">
+	Obseg [C<sub><span ID="OCTAVE_LOWER">3</span></sub>-H<sub><span ID="OCTAVE_UPPER">5</span></sub>]<br />
+    <i>(Za prilagoditev obsega uporabi smerni tipki levo/desno)</i>
+  </div>
+</div>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-2">
+<!-- Right column start -->
+<textarea id="midi-messages">
+192 0
+</textarea>
+<button id="midi-help" class="btn btn-default" data-toggle="modal" data-target="#midi-help-box">Pomoč</button>
+<button id="midi-clear" class="btn btn-default">Počisti</button>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2204/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2205/index9.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2205/index.html">1</a></li>
+					<li><a href="../2205/index1.html">2</a></li>
+					<li><a href="../2205/index2.html">3</a></li>
+					<li><a href="../2205/index3.html">4</a></li>
+					<li><a href="../2205/index4.html">5</a></li>
+					<li><a href="../2205/index5.html">6</a></li>
+					<li><a href="../2205/index6.html">7</a></li>
+					<li><a href="../2205/index7.html">8</a></li>
+					<li><a href="../2205/index8.html">9</a></li>
+					<li><a href="../2205/index9.html">10</a></li>
+					<li class="active"><a href="#">11</a></li>
+					<li><a href="../2205/index11.html">12</a></li>
+					<li><a href="../2205/index12.html">13</a></li>
+					<li><a href="../2205/index13.html">14</a></li>
+					<li><a href="../2205/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2206/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
+
+	<!-- AudioSynth JS -->
+	<script src="js/audiosynth.js"></script>
+	<script src="js/audiosynth.view.js"></script>
+	<script type="text/javascript">
+		var a = new AudioSynthView();
+		a.draw();
+	</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

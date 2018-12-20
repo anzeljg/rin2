@@ -8,49 +8,6 @@ function randomIndex(n) {
   return Math.floor(Math.random()*n);
 }
 
-function radixFromDesc(radix) {
-  var whichWay = randomIndex(2); // returns either 0 or 1
-
-  if (whichWay == 0) {
-    return "osnove " + radix;
-  }
-	  
-  switch(radix) {
-	case 2: return "dvojiškega";
-    case 8: return "osmiškega";
-	case 10: return "desetiškega";
-    case 16: return "šestnajstiškega";
-	default: return "osnove " + radix;
-  }
-
-}
-
-function radixToDesc(radix) {
-  var whichWay = randomIndex(2); // returns either 0 or 1
-
-  if (whichWay == 0) {
-    return "osnovo " + radix;
-  }
-	  
-  switch(radix) {
-	case 2: return "dvojiško";
-    case 8: return "osmiško";
-	case 10: return "desetiško";
-    case 16: return "šestnajstiško";
-	default: return "osnovo " + radix;
-  }
-
-}
-
-// returns random index between 0 and n-1
-function randomIntBetween(minVal, maxVal) {
-  if (minVal > maxVal) {
-	alert("problem in randomIntBetween function");
-  }
-  var numIntsInRange = maxVal - minVal + 1;
-  return Math.floor(Math.random() * numIntsInRange) + minVal;
-}
-
 // return a name to use for a form for question i
 function formForQuestion(i) {
   return("formForQuestion" + i);
@@ -70,19 +27,32 @@ function buildQuiz(numQuestions) {
   var theQuizQuestions = "";
   var i;
   var conversions = [
-    {fromRad: 10, toRad: 2, minVal: 0, maxVal: 255},
-    {fromRad: 2, toRad: 10, minVal: 0, maxVal: 255},
-    {fromRad: 2, toRad: 8, minVal: 0, maxVal: 511 },
-    {fromRad: 8, toRad: 2, minVal: 0, maxVal: 63 },
-    {fromRad: 2, toRad: 16, minVal: 0, maxVal: 65535},
-    {fromRad: 16, toRad: 2, minVal: 0, maxVal: 65535}
+    /* VGA */
+    {width: 640, height: 480, bitDepth: 4},
+    {width: 640, height: 480, bitDepth: 8},
+	/* SVGA */
+    {width: 800, height: 600, bitDepth: 4},
+    {width: 800, height: 600, bitDepth: 8},
+	/* XGA */
+    {width: 1024, height: 768, bitDepth: 8},
+    {width: 1024, height: 768, bitDepth: 16},
+	/* HD (720p) */
+    {width: 1280, height: 720, bitDepth: 24},
+	/* WXGA */
+    {width: 1280, height: 800, bitDepth: 24},
+	/* SXGA */
+    {width: 1280, height: 1024, bitDepth: 24},
+	/* WXGA+ */
+    {width: 1440, height: 900, bitDepth: 24},
+	/* UXGA */
+    {width: 1600, height: 1200, bitDepth: 24},
+	/* Full HD (1080) */
+    {width: 1920, height: 1080, bitDepth: 24},
   ]
 
   theQuizQuestions += "<table>\n"
   for (i = 1; i<=numQuestions; i++) { // index counts up 0, 1, 2, etc through the array
     var whichConversion =  randomIndex(conversions.length);
-	var numToConvert = randomIntBetween(conversions[whichConversion].minVal,
-	                                    conversions[whichConversion].maxVal);
 
     theQuizQuestions += "<tr>\n"
 
@@ -91,16 +61,16 @@ function buildQuiz(numQuestions) {
 	                    "<span class='fa fa-long-arrow-right'></span>&nbsp;&nbsp;</td>\n"
 
     // the question text and code
+    var width  = conversions[whichConversion].width;
+	var height = conversions[whichConversion].height;
+	var depth  = conversions[whichConversion].bitDepth;
     theQuizQuestions += "<td style='vertical-align:top; height:45px; width:50%;'>\n"
-    theQuizQuestions += "Pretvori "
-    var fromRad = conversions[whichConversion].fromRad;
-	var toRad = conversions[whichConversion].toRad;
-	theQuizQuestions += formatFor(numToConvert.toString(fromRad), fromRad, toRad);
-	theQuizQuestions += "<br />iz " + radixFromDesc(fromRad) +
-	                    " v " + radixToDesc(toRad);
+    theQuizQuestions += "Velikost: " 
+	theQuizQuestions += width + "×" + height + " pikslov"
+	theQuizQuestions += "<br />Bitna globina: " + depth + ((depth > 4) ? " bitov" : " biti");;
     theQuizQuestions += "</td>\n"
 
-    var answer = formatFor(numToConvert.toString(toRad), toRad, fromRad);
+    var answer = width * height * depth;
     theQuizQuestions += "<td style='width:45%;'>" + turnAnswerIntoFormElement(formForQuestion(i), answer) + "</td>";
     theQuizQuestions += "</tr>\n"
   }

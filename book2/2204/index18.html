@@ -224,11 +224,7 @@
 	</div>
 </p>
 </div>
-<!-- Left column end -->
-					</div>
-					<div class="col-md-6">
-						<br />
-<!-- Right column start -->
+
 <div class="alert alert-info" role="alert">
 <p>
 	<span class="label label-primary"><b>3</b></span>
@@ -259,7 +255,11 @@
 	</div>
 </p>
 </div>
-
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
 <div class="alert alert-info" role="alert">
 <p>
 	<span class="label label-primary"><b>4</b></span>
@@ -291,6 +291,22 @@
 	</div>
 </p>
 </div>
+
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+</p>
+<p align="justify">Odgovori na vprašanja kviza ali ustvari nov kviz.</p>
+<p align="justify">Izračunaj velikost slikovne datoteke (v bitih) za vsako od slik s spodaj navedenimi podatki.</p>
+
+<br />
+<div id="theQuizQuestions"></div>
+<form id="theForm" action="">
+    <button class="btn btn-info" onClick="buildQuiz(5);"><span class="fa fa-plus"></span> Nov kviz</button>
+</form>
+
+</div>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -300,31 +316,22 @@
 			<div class="col-md-12">
 				<center>
 				<ul class="pagination pagination-sm">
-					<li><a href="../2203/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
-					<li><a href="../2204/index17.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
-					<li><a href="../2204/index.html">1</a></li>
-					<li><a href="../2204/index1.html">2</a></li>
-					<li><a href="../2204/index2.html">3</a></li>
-					<li><a href="../2204/index3.html">4</a></li>
-					<li><a href="../2204/index4.html">5</a></li>
-					<li><a href="../2204/index5.html">6</a></li>
-					<li><a href="../2204/index6.html">7</a></li>
-					<li><a href="../2204/index7.html">8</a></li>
-					<li><a href="../2204/index8.html">9</a></li>
-					<li><a href="../2204/index9.html">10</a></li>
-					<li><a href="../2204/index10.html">11</a></li>
-					<li><a href="../2204/index11.html">12</a></li>
-					<li><a href="../2204/index12.html">13</a></li>
-					<li><a href="../2204/index13.html">14</a></li>
-					<li><a href="../2204/index14.html">15</a></li>
-					<li><a href="../2204/index15.html">16</a></li>
-					<li><a href="../2204/index16.html">17</a></li>
-					<li><a href="../2204/index17.html">18</a></li>
-					<li class="active"><a href="#">19</a></li>
-					<li><a href="../2204/index19.html">20</a></li>
-					<li><a href="../2204/index20.html">21</a></li>
-					<li><a href="../2204/index19.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
-					<li><a href="../2205/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+					<li><a href="../1202/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../1202/index17.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li class="active"><a href="#">43</a></li>
+					<li><a href="../1203/index1.html">44</a></li>
+					<li><a href="../1203/index2.html">45</a></li>
+					<li><a href="../1203/index3.html">46</a></li>
+					<li><a href="../1203/index4.html">47</a></li>
+					<li><a href="../1203/index5.html">48</a></li>
+					<li><a href="../1203/index6.html">49</a></li>
+					<li><a href="../1203/index7.html">50</a></li>
+					<li><a href="../1203/index8.html">51</a></li>
+					<li><a href="../1203/index9.html">52</a></li>
+					<li><a href="../1203/index10.html">53</a></li>
+					<li><a href="../1203/index11.html">54</a></li>
+					<li><a href="../1203/index1.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../1204/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
 				</center>
 			</div>
@@ -362,6 +369,15 @@
 
 	<!-- Color Theory Quiz -->
 	<script src="js/color/color.compiled-sl.min.js"></script>
+
+	<!-- Image filesize Quiz -->
+	<script src="js/spaceIt.js"></script>
+	<script src="js/image-filesize-quiz.js"></script>
+	<script>
+	$(document).ready(function () {
+		buildQuiz(5);
+	});
+	</script>
 
 
 <!-- CookieCuttr -->

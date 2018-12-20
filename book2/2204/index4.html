@@ -151,6 +151,28 @@
 			</div>
 		</div>
 
+		<!-- Modal (popup) window: Warning -->
+		<div id="notworking" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Opozorilo</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Ta interaktivnost morda ne deluje pravilno, če je spletna stran odprta lokalno.</p>
+						<p align="justify">To pomeni, da spletna stran ni na spletnem strežniku, temveč v lokalni mapi &ndash; kar prepoznaš po tem, da se naslov v naslovni vrstici začne s <code>file:</code>.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
@@ -280,6 +302,15 @@
     <script src="js/zynga/Animate.js"></script>
     <script src="js/zynga/Tiling.js"></script>
     <script src="js/pixel-viewer.js"></script>
+	<script type="text/javascript">
+    $(window).on('load',function() {
+		$('#warning').modal('hide');
+    	<!-- Prikažimo opozorilo, da interaktivnost lokalno ne deluje -->
+		if (window.location.protocol == 'file:') {
+			$('#notworking').modal('show');
+		}
+    });
+	</script>
 
 
 <!-- CookieCuttr -->

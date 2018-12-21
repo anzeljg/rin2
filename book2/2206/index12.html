@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li class="active"><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: True -->
+		<div id="true1" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odgovor</h4>
+					</div>
+					<div class="modal-body bg-success">
+						<p class="text-success">Odgovor je pravilen.</p>
+						<p align="justify" class="text-success">Za zapis barv uporabljamo model YCbCr.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: True -->
+		<div id="true2" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odgovor</h4>
+					</div>
+					<div class="modal-body bg-success">
+						<p class="text-success">Odgovor je pravilen.</p>
+						<p align="justify" class="text-success">Sprememba svetlosti <b>ne bo</b> zmanjšala velikosti videoposnetka. Človeško oko je najbolj občutljivo ravno na svetlost, zato pri postopku vzorčenja podatkov o svetlosti ne izpuščamo.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: False -->
+		<div id="false" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odgovor</h4>
+					</div>
+					<div class="modal-body bg-danger">
+						<p class="text-danger">Odgovor je napačen.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>1</b></span>
+</p>
+<p align="justify">Izberi ustrezno trditev, ki velja za digitalni video.</p>
+<p>
+<div class="input-row">
+	<input type="radio" name="option28_13" id="i28_1" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans28_1">Za kakovostno predvajanje ni potrebno veliko podatkov.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option28_13" id="i28_2" data-toggle="modal" data-target="#true1" />
+	<label class="checkbox-label" id="taans28_2">Za zapis barv uporabljamo model YCbCr.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option28_13" id="i28_3" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans28_3">Pri vzorčenju videa ni izgube podatkov.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option28_13" id="i28_4" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans28_4">Zapis podatkov o videu kodiramo največkrat z MP3.</label>
+</div>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>2</b></span>
+</p>
+<p align="justify">Sprememba katere izmed spodnjih lastnosti <b>ne bo</b> zmanjšala velikosti videoposnetka?</p>
+<p>
+<div class="input-row">
+	<input type="radio" name="option37_13" id="i37_1" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans37_1">Število okvirjev na sekundo (fps).</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option37_13" id="i37_2" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans37_2">Izbira 32-bitne ali 8-bitne barvne globine.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option37_13" id="i37_3" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans37_3">Postopek zgoščevanja.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option37_13" id="i37_4" data-toggle="modal" data-target="#true2" />
+	<label class="checkbox-label" id="taans37_4">Svetlost videoposnetka.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option37_13" id="i37_5" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans37_5">Ločljivost videoposnetka (dpi).</label>
+</div>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>3</b></span>
+</p>
+<p align="justify">Poveži predstavitve z gibljivo sliko z ustreznim načinom izvedbe:</p>
+<br />
+<link href="../css/execute2.css" rel="stylesheet">
+<script src="../js/h5utils/h5utils.js"></script>
+<script src="../js/h5utils/jquery-1.9.0-min.js"></script>
+<script src="../js/h5utils/jquery-ui-1.9.2-min.js"></script>
+<script src="../js/h5utils/jquery.ui.touch-punch.min.js"></script>
+<script src="../js/h5utils/jquery.jsPlumb-1.4.0-all.js"></script>
+<script type="text/javascript">
+var PovezaveKrogci = jQuery.noConflict();
+</script>
+<script src="../js/h5utils/sCript.js"></script>
+<style type="text/css">
+.krogecAppletKrogci {  
+  cursor: pointer;
+}
+._jsPlumb_endpoint {
+  cursor: pointer;
+}
+.binAppletKrogci {
+  border: 0px;
+}
+.ozadjeAppletKrogci {
+  border: 0px;
+  width: 450px;
+  min-height: 100px;
+  margin-top: 0;
+  margin-bottom:10px;
+}
+.odgovorAppletKrogci{
+  width:160px;
+}
+</style>
+<!-- 
+Created by: Rok Penšek <rok.pensek@gmail.com>
+-->
+	<div style="min-height:100px;" id="pravilni_odgovoriAppletKrogci">
+			<div class="ozadjeAppletKrogci">
+				<div class="bin_container">
+					<table class='tDefault'  style="width:100%">
+						<!-- En primerek za 1 vrstico vprašanja in odgovora -->
+						<tr>
+							<td>
+								<!-- Tukaj se nahaja vprašanje -->
+								<!-- id-ji so zelo pomembni, morajo biti unikatni (ne smejo se isto imenovati) v celotnem dokumentu-->
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha1"><div style="text-align:right;margin-right:10px;width:180px;">videoposnetek sošolcev v razredu</div></div>
+								</div>
+								<!-- Tukaj se nahaja odgovor -->
+								<!-- vsebina id mora biti enaka vprašanju s to razliko da mora imeti pred tem podčrtaj (_) -->
+								<!-- To je potrebno zato, da skripta zna povezati vprašanja z pravilnimi odgovori -->
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha1"><div style="margin-left:10px;">video</div></div>
+								</div>
+							</td>
+						</tr>
+						<!-- Konec primerka za 1 vrstico vprašanja in odgovora -->
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha2"><div style="text-align:right;margin-right:10px;width:180px;">napisi na začetku razrednega videa</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha2"><div style="margin-left:10px;">animacija</div></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha3"><div style="text-align:right;margin-right:10px;width:180px;">3D-prikaz šole in njeno navidezno sukanje</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha3"><div style="margin-left:10px;">navidezna resničnost</div></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha4"><div style="text-align:right;margin-right:10px;width:180px;">navidezni ogled inštalacij (elektrika, plin, vodovod) z mobilno napravo</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha4"><div style="margin-left:10px;">nadgrajena resničnost</div></div>
+								</div>
+							</td>
+						</tr>
+						</table>
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>4</b></span>
+</p>
+<p align="justify">Odgovori na vprašanja kviza ali ustvari nov kviz.</p>
+<p align="justify">Izračunaj velikost video datoteke (v bitih) za vsak video s spodaj navedenimi podatki. <b>Video v vseh primerih traja 1 sekundo.</b></p>
+
+<br />
+<div id="theQuizQuestions"></div>
+<form id="theForm" action="">
+    <button class="btn btn-info" onClick="buildQuiz(5);"><span class="fa fa-plus"></span> Nov kviz</button>
+</form>
+
+</div>
+
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Pri pretvarjanju modela RGB v model YCbCr izračunamo svetilnost približno takole:
+$Y = 0.299 × R + 0.587 × G + 0.114 × B$
+</p>
+<p align="justify">Kolikšne morajo biti vrednosti barv R, G in B v modelu RGB, da bo točka v modelu YCbCr:</p>
+<p>
+<div id="cloze33_" class="clozeBlock">
+	<input type="hidden" name="clozeFlag33_.strictMarking" id="clozeFlag33_.strictMarking" value="false"/>
+	<input type="hidden" name="clozeFlag33_.checkCaps" id="clozeFlag33_.checkCaps" value="true"/>
+	<input type="hidden" name="clozeFlag33_.instantMarking" id="clozeFlag33_.instantMarking" value="false"/>
+	<input type="hidden" name="clozeFlag33_.listing" id="clozeFlag33_.listing" value="0"/>
+	<input type="hidden" name="clozeFlag33_.dropdown" id="clozeFlag33_.dropdown" value="False"/>
+	<input type="hidden" name="clozeFlag33_.equallength" id="clozeFlag33_.equallength" value="False"/>
+	<table border="0" width="100%" style="border-collapse:separate;border-spacing:4px;">
+	<tr>
+	  <td><span class="fa fa-long-arrow-right"></span>&nbsp; črne barve: </td>
+	  <td>R = <u>0</u></td>
+	  <td>G = <u>0</u></td>
+	  <td>B = <u>0</u></td>
+	</tr>
+	<tr>
+	  <td><span class="fa fa-long-arrow-right"></span>&nbsp; bele barve: </td>
+	  <td>R = <u>255</u></td>
+	  <td>G = <u>255</u></td>
+	  <td>B = <u>255</u></td>
+	</tr>
+	<tr>
+	  <td><span class="fa fa-long-arrow-right"></span>&nbsp; srebrne barve: </td>
+	  <td>R = <u>192</u></td>
+	  <td>G = <u>192</u></td>
+	  <td>B = <u>192</u></td>
+	</tr>
+	</table>
+	<div class="blockb">
+		<button class="btn btn-info" name="submit33_" id="submit33_" onClick='clozeSubmit("33_")'><span class="fa fa-question"></span> Preveri</button>
+		<button class="btn btn-info" name="restart33_" style="display: none;" id="restart33_" onClick='clozeRestart("33_")'><span class="fa fa-refresh"></span>  Začni znova</button>
+		<span id="clozeScore33_" class="rezultat"></span>
+		<button class="btn btn-success" name="33_showAnswersButton" style="display: none;" id="showAnswersButton33_" onClick='fillClozeInputs("33_")'><span class="fa fa-check"></span>  Prikaži odgovore</button>
+	</div>
+</div>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2205/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2206/index11.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2206/index.html">1</a></li>
+					<li><a href="../2206/index1.html">2</a></li>
+					<li><a href="../2206/index2.html">3</a></li>
+					<li><a href="../2206/index3.html">4</a></li>
+					<li><a href="../2206/index4.html">5</a></li>
+					<li><a href="../2206/index5.html">6</a></li>
+					<li><a href="../2206/index6.html">7</a></li>
+					<li><a href="../2206/index7.html">8</a></li>
+					<li><a href="../2206/index8.html">9</a></li>
+					<li><a href="../2206/index9.html">10</a></li>
+					<li><a href="../2206/index10.html">11</a></li>
+					<li><a href="../2206/index11.html">12</a></li>
+					<li class="active"><a href="#">13</a></li>
+					<li><a href="../2206/index13.html">14</a></li>
+					<li><a href="../2206/index13.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2207/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+	<script src="../js/exe/cloze.js"></script>
+
+	<!-- Video filesize Quiz -->
+	<script src="js/spaceIt.js"></script>
+	<script src="js/video-filesize-quiz.js"></script>
+	<script>
+	$(document).ready(function () {
+		buildQuiz(5);
+	});
+	</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

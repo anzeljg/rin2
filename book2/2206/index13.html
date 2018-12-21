@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<link href="../css/jsxgraph.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li class="active"><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 6 -->
+        <div id="solution6" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+                        <p align="justify">Za zapis posamezne barvne komponente v modelu YCbCr potrebujemo en bajt oziroma en zlog. Skupaj za zapis enega piksla potrebujemo 3 bajte. Pri vzorčenju 4:2:0 potrebujemo za zapis enega piskla le še 1,5 bajta.</p>
+                        <p align="justify">Slika velikost 800×600 vsebuje 480.000 pikslov, za zapis katerih potrebujemo 720.000 bajtov.</p>
+                        <p align="justify">Ena sekunda videa vsebuje 25 slik oziroma okvirjev, za zapis katerih potrebujemo 18.000.000 bajtov. Torej potrebujemo za zapis 30 minut (1800 sekund) videa skupno 32.400.000.000 bajtov.</p>
+                        <p align="justify">Na zgoščenki CD je video zapisan s 520.000.000 bajti oziroma bolj natančno z 545.259.520 bajti.</p>
+                        <p align="justify">Faktor zgoščevanja je torej 32.400.000.000 / 520.000.000 = 62,31 oziroma bolj natančno 32.400.000.000 / 545.259.520 = 59,42.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 7 -->
+        <div id="solution7" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+                        <p align="justify">Za zapis posamezne barvne komponente v modelu YCbCr potrebujemo en bajt oziroma en zlog. Skupaj za zapis enega piksla potrebujemo 3 bajte. Pri vzorčenju 4:1:1 potrebujemo za zapis enega piskla le še 1,5 bajta.</p>
+                        <p align="justify">Slika velikost 1280×720 vsebuje 921.600 pikslov, za zapis katerih potrebujemo 1.382.400 bajtov.</p>
+                        <p align="justify">Ena sekunda videa vsebuje 30 slik oziroma okvirjev, za zapis katerih potrebujemo 41.472.000 bajtov. Torej potrebujemo za zapis 80 minut (4800 sekund) videa skupno 199.065.600.000 bajtov.</p>
+                        <p align="justify">Na zgoščenki DVD je video zapisan s 4.320.000.000 bajti oziroma bolj natančno z 4.529.848.320 bajti.</p>
+                        <p align="justify">Faktor zgoščevanja je torej 199.065.600.000 / 4.320.000.000 = 46,08 oziroma bolj natančno 199.065.600.000 / 4.529.848.320 = 43,95.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>6</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Na zgoščenko CD je zapisanih 520 MB podatkov za 30 minut dolg video. Video ima 800×600 pikslov, hitrost 25 slik na sekundo, zapis vsakega piksla po modelu YCbCr pa je izveden z vzorčenjem 4:2:0, pri čemer je vrednost posameznega podatka med 0 in 255.</p>
+<p align="justify">Izračunaj s kakšnim faktorjem je zgoščen zapis videa (vzorčenja ne upoštevaj kot zgoščevanje).</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution6"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>7</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Na zgoščenko DVD je zapisanih 4320 MB podatkov za 80 minut dolg video. Video ima 1280×720 pikslov, hitrost 30 slik na sekundo, zapis vsakega piksla po modelu YCbCr pa je izveden z vzorčenjem 4:1:1, pri čemer je vrednost posameznega podatka med 0 in 255.</p>
+<p align="justify">Izračunaj s kakšnim faktorjem je zgoščen zapis videa (vzorčenja ne upoštevaj kot zgoščevanje).</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution7"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>8</b></span>
+</p>
+<p align="justify">Poveži kvaliteto zgoščene predstavitve z ustreznim video kodekom:</p>
+<br />
+<link href="../css/execute2.css" rel="stylesheet">
+<script src="../js/h5utils/h5utils.js"></script>
+<script src="../js/h5utils/jquery-1.9.0-min.js"></script>
+<script src="../js/h5utils/jquery-ui-1.9.2-min.js"></script>
+<script src="../js/h5utils/jquery.ui.touch-punch.min.js"></script>
+<script src="../js/h5utils/jquery.jsPlumb-1.4.0-all.js"></script>
+<script type="text/javascript">
+var PovezaveKrogci = jQuery.noConflict();
+</script>
+<script src="../js/h5utils/sCript.js"></script>
+<style type="text/css">
+.krogecAppletKrogci {  
+  cursor: pointer;
+}
+._jsPlumb_endpoint {
+  cursor: pointer;
+}
+.binAppletKrogci {
+  border: 0px;
+}
+.ozadjeAppletKrogci {
+  border: 0px;
+  width: 450px;
+  min-height: 100px;
+  margin-top: 0;
+  margin-bottom:10px;
+}
+.odgovorAppletKrogci{
+  width:160px;
+}
+</style>
+<!-- 
+Created by: Rok Penšek <rok.pensek@gmail.com>
+-->
+	<div style="min-height:100px;" id="pravilni_odgovoriAppletKrogci">
+			<div class="ozadjeAppletKrogci">
+				<div class="bin_container">
+					<table class='tDefault'  style="width:100%">
+						<!-- En primerek za 1 vrstico vprašanja in odgovora -->
+						<tr>
+							<td>
+								<!-- Tukaj se nahaja vprašanje -->
+								<!-- id-ji so zelo pomembni, morajo biti unikatni (ne smejo se isto imenovati) v celotnem dokumentu-->
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha6"><div style="text-align:right;margin-right:10px;width:200px;">VHS kvaliteta videa</div></div>
+								</div>
+								<!-- Tukaj se nahaja odgovor -->
+								<!-- vsebina id mora biti enaka vprašanju s to razliko da mora imeti pred tem podčrtaj (_) -->
+								<!-- To je potrebno zato, da skripta zna povezati vprašanja z pravilnimi odgovori -->
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha6"><div style="margin-left:10px;">MPEG-1</div></div>
+								</div>
+							</td>
+						</tr>
+						<!-- Konec primerka za 1 vrstico vprašanja in odgovora -->
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha7"><div style="text-align:right;margin-right:10px;width:200px;">DVD kvaliteta videa</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha7"><div style="margin-left:10px;">H.262 / MPEG-2</div></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha8"><div style="text-align:right;margin-right:10px;width:200px;">Full HD, Blu-ray kvaliteta videa</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha8"><div style="margin-left:10px;">H.264 / MPEG-4 AVC</div></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha9"><div style="text-align:right;margin-right:10px;width:200px;">Ultra HD kvaliteta videa</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha9"><div style="margin-left:10px;">H.265 / HEVC</div></div>
+								</div>
+							</td>
+						</tr>
+						</table>
+				</div>
+			</div>
+	</div>
+</div>
+
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>9</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">V trgovini ponujajo televizijski aparat, ki ima pod oznako »HDTV« napisano 1080i50. Napiši, kaj pomenijo posamezne oznake.</p>
+<p>
+<div id="cloze77_" class="clozeBlock">
+	<input type="hidden" name="clozeFlag77_.strictMarking" id="clozeFlag77_.strictMarking" value="false"/>
+	<input type="hidden" name="clozeFlag77_.checkCaps" id="clozeFlag77_.checkCaps" value="true"/>
+	<input type="hidden" name="clozeFlag77_.instantMarking" id="clozeFlag77_.instantMarking" value="false"/>
+	<input type="hidden" name="clozeFlag77_.listing" id="clozeFlag77_.listing" value="0"/>
+	<input type="hidden" name="clozeFlag77_.dropdown" id="clozeFlag77_.dropdown" value="False"/>
+	<input type="hidden" name="clozeFlag77_.equallength" id="clozeFlag77_.equallength" value="False"/>
+	<table border="0" width="100%" style="border-collapse:separate;border-spacing:4px;">
+	<tr>
+	  <td><span class="fa fa-long-arrow-right"></span>&nbsp; HDTV: </td>
+	  <td><u>High Definition Television</u></td>
+	</tr>
+	<tr>
+	  <td><span class="fa fa-long-arrow-right"></span>&nbsp; 1080: </td>
+	  <td><u>število vrstic</u> ali <u>ločljivost</u> (1920×1080 pikslov)</td>
+	</tr>
+	<tr>
+	  <td><span class="fa fa-long-arrow-right"></span>&nbsp; i: </td>
+	  <td><u>prepletanje</u> (<i>ang. interlacing</i>)</td>
+	</tr>
+	<tr>
+	  <td><span class="fa fa-long-arrow-right"></span>&nbsp; 50: </td>
+	  <td><u>okvirjev</u> (fps) ali <u>frekvenca</u></td>
+	</tr>
+	</table>
+	<div class="blockb">
+		<button class="btn btn-info" name="submit77_" id="submit77_" onClick='clozeSubmit("77_")'><span class="fa fa-question"></span> Preveri</button>
+		<button class="btn btn-info" name="restart77_" style="display: none;" id="restart77_" onClick='clozeRestart("77_")'><span class="fa fa-refresh"></span>  Začni znova</button>
+		<span id="clozeScore77_" class="rezultat"></span>
+		<button class="btn btn-success" name="77_showAnswersButton" style="display: none;" id="showAnswersButton77_" onClick='fillClozeInputs("77_")'><span class="fa fa-check"></span>  Prikaži odgovore</button>
+	</div>
+</div>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2205/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2206/index12.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2206/index.html">1</a></li>
+					<li><a href="../2206/index1.html">2</a></li>
+					<li><a href="../2206/index2.html">3</a></li>
+					<li><a href="../2206/index3.html">4</a></li>
+					<li><a href="../2206/index4.html">5</a></li>
+					<li><a href="../2206/index5.html">6</a></li>
+					<li><a href="../2206/index6.html">7</a></li>
+					<li><a href="../2206/index7.html">8</a></li>
+					<li><a href="../2206/index8.html">9</a></li>
+					<li><a href="../2206/index9.html">10</a></li>
+					<li><a href="../2206/index10.html">11</a></li>
+					<li><a href="../2206/index11.html">12</a></li>
+					<li><a href="../2206/index12.html">13</a></li>
+					<li class="active"><a href="#">14</a></li>
+					<li><a href="../2207/index.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2207/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+	<script src="../js/exe/cloze.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

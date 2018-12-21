@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Animacija</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="css/quote.css" rel="stylesheet">
+
+	<!-- jQuery UI -->
+	<link href="../css/jquery-ui.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li class="active"><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi pcyanelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo pcyanela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Principles -->
+		<div id="12principles" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">12 osnovnih načel animacije</h4>
+					</div>
+					<div class="modal-body">
+					  <p align="center">
+						<video width="640" height="360" controls>
+						  <source src="video/12 Principles of Animation.mp4" type="video/mp4">
+						  Brskalnik ne podpira oznake &lt;video&gt;.
+						</video>
+					  </p>
+					  <p align="justify"><b>Vir videoposnetka:</b><br />Alan Becker Tutorials. (2017). <i>12 Principles of Animation (Official Full Series)</i> pridobljeno [1. 12. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=uDqjIdI4bF4&t=0s" target="_blank">https://www.youtube.com/watch?v=uDqjIdI4bF4</a> [citat]
+					  </p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Source -->
+		<div id="source" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Vir videoposnetkov</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><ul>
+							<li>Disney. (1937). <i>Snow White and the Seven Dwarfs &ndash; Original Theatrical Trailer #1</i> pridobljeno [29. 11. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=5kWr9e4JN5I" target="_blank">https://www.youtube.com/watch?v=5kWr9e4JN5I</a> [citat]</li>
+							<li>The Hollywood Reporter. (2012). <i>Behind The Scenes of »The Simpsons« with David Silverman</i> pridobljeno [29. 11. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=EJQC9BM63ng" target="_blank">https://www.youtube.com/watch?v=EJQC9BM63ng</a> [citat]</li>
+							<li>Khan Academy. (2015). <i>Pixar in a Box &ndash; Welcome to Pixar in a Box</i> pridobljeno [29. 11. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=3Iu1Z0h1i1Y" target="_blank">https://www.youtube.com/watch?v=3Iu1Z0h1i1Y</a> [citat]</li>
+							<li>Academy Originals. (2015). <i>Credited As: Stop Motion Animator</i> pridobljeno [29. 11. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=ij3IbplMisA" target="_blank">https://www.youtube.com/watch?v=ij3IbplMisA</a> [citat]</li>
+							<li>SOGA Motion. (2016). <i>Apple Motion Graphics</i> pridobljeno [29. 11. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=qK4Re_ArS3Q" target="_blank">https://www.youtube.com/watch?v=qK4Re_ArS3Q</a> [citat]</li>
+						</ul></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Animacija</h1>
+
+<p align="justify">V splošnem učinek animacije dosežemo s hitrim spreminjanjem zaporednih slik, ki se med seboj minimalno razlikujejo. Animacjo poleg kratkih filmov, celovečernih filmov in animiranih slik pogosto uporabljamo tudi v video igrah in za ustvarjanje posebnih učinkov.</p>
+
+<p align="justify">Najpogostejše zvrsti animacije so: tradicionalna animacija, 2D in 3D animacija, stop-motion animacija ter gibljiva grafika. Podrobneje so opisane v nadaljevanju.</p>
+
+<p align="justify">Animacijo odbijajoče žogice prikazuje šest okvirjev, ki sestavljajo animacijo.</p>
+
+<p align="center">
+  <img src="img/bouncing-ball-frames.png" style="border:1px solid black;" />
+  <img src="img/bouncing-ball.gif" style="border:3px solid black;margin-left:30px;"/>
+</p><br />
+
+<h4>Za radovedne</h4>
+
+<div class="alert alert-danger" role="alert">
+<p align="justify">Ogledaš si lahko <a href="#" data-toggle="modal" data-target="#12principles">video vodič</a>, ki prikazuje <a href="https://en.wikipedia.org/wiki/12_basic_principles_of_animation" target="_blank">12 osnovnih načel animacije</a>, kot sta jih v knjigi <i>»The Illusion of Life«</i> opisala Frank Thomas in Ollie Johnston &ndash; glavna Disneyjeva animatorja od 1930-ih let dalje.</p>
+</div> 
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div id="tabs">	
+<ul class="nav nav-tabs">
+  <li>&nbsp;&nbsp;&nbsp;</li>
+  <li class="active"><a href="#traditional" data-toggle="tab">Tradicionalna</a></li>
+  <li><a href="#2danimation" data-toggle="tab">2D</a></li>
+  <li><a href="#3danimation" data-toggle="tab">3D</a></li>
+  <li><a href="#stopmotion" data-toggle="tab">Stop-motion</a></li>
+  <li><a href="#motiongraphics" data-toggle="tab">Gibljiva grafika</a></li>
+</ul>
+
+<div class="tab-content clearfix">
+<!-- Traditional animation -->
+<div class="tab-pane active" id="traditional">
+  <br /><p align="justify">Pri <b>tradicionalni animaciji</b> animatorji rišejo slike na prozorne folije, okvir za okvirjem. Animatorji ponavadi testirajo animacije z grobimi skicami, da ugotovijo, koliko okvirjev bodo potrebovali. Proces tradicionalne animacije je običajno dolgotrajen in drag. Ko so narisani in očiščeni vsi okvirji, je potrebno vsak posamezen okvir še fotografirati. Danes je tradicionalno animacijo mogoče narediti tudi s pomočjo grafične tablice in računalnika. Ta postopek pa ne zahteva dejanskega fotografiranja posameznih okvirjev.</p>
+  
+  <blockquote>Animacija je drugačna, njen jezik je jezik karikature. Naša najtežja naloga je bila razviti nenaravno, vendar na videz naravno, anatomijo ljudi in živali.<p align="right"><b>Walt Disney</b></p></blockquote>
+
+  <center>
+    <video width="352" height="270" controls>
+      <source src="video/Snow White and the Seven Dwarfs.mp4" type="video/mp4">
+      Brskalnik ne podpira oznake &lt;video&gt;.
+    </video>
+  </center>
+</div>
+
+<!-- 2D animation -->
+<div class="tab-pane" id="2danimation">
+  <br /><p align="justify"><b>2D animacija</b> je izraz, ki se pogosto uporablja za tradicionalno prostoročno izdelano animacijo, vendar se lahko nanaša tudi na računalniško vektorsko animacijo, ki temelji na tehnikah tradicionalne animacije. <b>Vektorska animacija</b>, kar pomeni računalniško ustvarjena 2D animacija, uporablja iste tehnike kot tradicionalna animacija, vendar za izdelavo same animacije ne potrebuje fizičnih predmetov, hkrati pa uporablja tudi računalniško interpolacijo &ndash; računanje vmesnih vrednosti med posameznima ključnima okvirjema.</p>
+
+  <blockquote>Vedno se najde prostor za prostoročno risanje slik. Osebno mi je všeč nepopolnost prostoročnega risanja, kot nasprotje popolnosti računalniške animacije.<p align="right"><b>Matt Groening</b></p></blockquote>
+
+  <center>
+    <video width="480" height="270" controls>
+      <source src="video/Behind The Scene of The Simpsons.mp4" type="video/mp4">
+      Brskalnik ne podpira oznake &lt;video&gt;.
+    </video>
+  </center>
+</div>
+
+<!-- 3D animation -->
+<div class="tab-pane" id="3danimation">
+  <br /><p align="justify"><b>3D animacija</b> oziroma <b>računalniška animacija</b> deluje popolnoma drugače kot tradicionalna animacija. Obe zahtevata razumevanje istih načel gibanja in kompozicije, vendar je tehnična usposobljenost za vsako zvrst zelo različna. Pri tradicionalni animaciji je nujno, da je animator predvsem odličen risar, pri računalniški animaciji pa to ni nujno. 3D animacija je bolj podobna igranju z lutkami, kot pa risanju &ndash; liki pri 3D animaciji so digitalno modelirani v programu in nato opremljeni z 'skeletom', ki animatorjem omogoča njihovo premikanje.</p>
+
+  <blockquote>Računalniki ne ustvarjajo računalniške animacije, podobno kot svinčnik ne ustvarja prostoročne animacije, narisane s svinčnikom. Računalniško animacijo ustvarja umetnik.<p align="right"><b>John Lasseter</b></p></blockquote>
+
+  <center>
+    <video width="480" height="270" controls>
+      <source src="video/Pixar in a Box.mp4" type="video/mp4">
+      Brskalnik ne podpira oznake &lt;video&gt;.
+    </video>
+  </center>
+</div>
+
+<!-- Stop-motion animation -->
+<div class="tab-pane" id="stopmotion">
+  <br /><p align="justify"><b>Stop-motion animacijo</b> ustvarimo z zaporednim fotografiranjem predmeta, ki ga premikamo milimeter po milimeter. Postopek je zelo dolgotrajen. Fotografije, ki so posnete ena za drugo, ustvarijo iluzijo gibanja. Ta zvrst je podobna tradicionalni animaciji, le da namesto risb uporablja prave materiale. Obstaja več podzvrsti stop-motion animacije, glede na material, uporabljen za izdelavo likov. Like lahko izdelamo iz gline, izrežemo iz papirja/katrona, uporabimo lahko lutke, silhuete ali celo resnične ljudi.</p>
+
+  <blockquote>Obožujem vse zvrsti animacije, vendar je nekaj posebnega stop-motion animaciji: bolj resnična je in scena je osvetljena kot scena. Mislim pa, da je tudi nekakšna osamljena in temačna stvar, če si to želiš početi.<p align="right"><b>Tim Burton</b></p></blockquote>
+
+  <center>
+    <video width="480" height="270" controls>
+      <source src="video/Credited As Stop Motion Animator.mp4" type="video/mp4">
+      Brskalnik ne podpira oznake &lt;video&gt;.
+    </video>
+  </center>
+</div>
+
+<!-- Motion graphics -->
+<div class="tab-pane" id="motiongraphics">
+  <br /><p align="justify"><b>Gibljivo grafiko</b> še vedno obravnavamo kot obliko animacije, vendar se precej razlikuje od drugih zvrsti animacije. Gre za umetnost ustvarjalno premikajočih se grafičnih elementov ali besedil, običajno v komercialne ali promocijske namene, kot so na primer animirani logotipi, razlagalni videoposnetki, reklamni oglasi, televizijske promocije ali celo naslovi filmov.<br />Spretnosti za ustvarjanje gibljive grafike niso nujno potrebne za druge vrste animacije, saj ne zahtevajo poznavanja telesne mehanike ali igranja, vendar imajo nekatere skupne lastnosti, kot so razumevanje dobre kompozicije in vseh pomembnih premikov kamere.</p>
+
+  <blockquote>Znam izračunati gibanje nebesnih teles, ne pa tudi norosti ljudi.<p align="right"><b>Isaac Newton</b></p></blockquote>
+
+  <center>
+    <video width="480" height="270" controls>
+      <source src="video/Apple Motion Graphics.mp4" type="video/mp4">
+      Brskalnik ne podpira oznake &lt;video&gt;.
+    </video>
+  </center>
+</div>
+
+<p align="right"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir videoposnetkov</button></p>
+</div>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2205/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2206/index8.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2206/index.html">1</a></li>
+					<li><a href="../2206/index1.html">2</a></li>
+					<li><a href="../2206/index2.html">3</a></li>
+					<li><a href="../2206/index3.html">4</a></li>
+					<li><a href="../2206/index4.html">5</a></li>
+					<li><a href="../2206/index5.html">6</a></li>
+					<li><a href="../2206/index6.html">7</a></li>
+					<li><a href="../2206/index7.html">8</a></li>
+					<li><a href="../2206/index8.html">9</a></li>
+					<li class="active"><a href="#">10</a></li>
+					<li><a href="../2206/index10.html">11</a></li>
+					<li><a href="../2206/index11.html">12</a></li>
+					<li><a href="../2206/index12.html">13</a></li>
+					<li><a href="../2206/index13.html">14</a></li>
+					<li><a href="../2206/index10.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2207/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

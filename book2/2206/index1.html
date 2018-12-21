@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Ločljivost in razmerje videa</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- jQuery UI -->
+	<link href="../css/jquery-ui.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li class="active"><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi pcyanelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo pcyanela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Ločljivost in razmerje videa</h1>
+
+<p align="justify">Video je v bistvu le zaporedje določenega števil slik, imenovanih okvirji (<i>ang. frames</i>), ki jih zaporedno predvajamo v določeni časovni enoti &ndash; običajno govorimo o predvajanju 24, 25, 30 ali tudi 100 in več slik oziroma okvirjev na sekundo.</p>
+
+<p align="justify">Kadar torej govorimo o ločljivosti (<i>ang. resolution</i>) in razmerju (<i>ang. aspect ratio</i>) videa, v bistvu govorimo o ločljivosti in razmerju slik oziroma okvirjev, iz katerih je video sestavljen. Glede na področje uporabe videa obstajajo različne, standardne ločljivosti in razmerja videa. Ko govorimo o področjih uporabe videa mislimo predvsem na naslednja področja: računalniška grafika (računalniški zasloni), analogna in digitalna televizija ter film (profesionalno snemanje filmov).</p>
+
+<p align="justify">Večina video in filmskih produkcij uporablja enega izmed treh najbolj razširjenih razmerij:
+<ul>
+  <li><b>4:3</b> &ndash; standardno televizijsko razmerje, uporabljeno v drugi polovici 20. stoletja. Imenovano tudi 12:9.</li>
+  <li><b>16:9</b> &ndash; nov standard za širokozaslonsko televizijo, DVD in video z visoko ločljivostjo.</li>
+  <li><b>21:9</b> &ndash; zelo širokozaslonska oblika, ki se uporablja za predvajanje filmov v kinematografih.</li>
+</ul>
+</p>
+
+
+<h2>Računalniška grafika</h2>
+
+<p align="justify">
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <th>Standard</th>
+	  <th>Polni naziv</th>
+	  <th>Ločljivost</th>
+	  <th>Razmerje</th>
+	</tr>
+  </thead>
+  <tbody>
+    <tr>
+	  <td>VGA</td>
+	  <td>Video Graphics Array</td>
+	  <td>640×480</td>
+	  <td>4:3</td>
+	</tr>
+    <tr>
+	  <td>SVGA</td>
+	  <td>Super Video Graphics Array</td>
+	  <td>800×600</td>
+	  <td>4:3</td>
+	</tr>
+    <tr>
+	  <td>XGA</td>
+	  <td>Extended Graphics Array</td>
+	  <td>1024×768</td>
+	  <td>4:3</td>
+	</tr>
+    <tr>
+	  <td>XGA+</td>
+	  <td>Extended Graphics Array Plus</td>
+	  <td>1152×864</td>
+	  <td>4:3</td>
+	</tr>
+    <tr>
+	  <td>HD</td>
+	  <td>High Definition (720p)</td>
+	  <td>1280×720</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>HD+</td>
+	  <td>High Definition Plus (900p)</td>
+	  <td>1600×900</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>Full HD</td>
+	  <td>Full High Definition (1080p)</td>
+	  <td>1920×1080</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>Quad HD</td>
+	  <td>Quad High Definition (1440p)</td>
+	  <td>2560×1440</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>4K UHD</td>
+	  <td>Ultra High-Definition ali<br />Quad Full High-Definition</td>
+	  <td>3840×2160</td>
+	  <td>16:9</td>
+	</tr>
+    <tr style="border-bottom: 1px solid #ddd">
+	  <td>8K UHD</td>
+	  <td>8K Ultra-high-definition<br />(Super Hi-Vision)</td>
+	  <td>7680×4320</td>
+	  <td>16:9</td>
+	</tr>
+  </tbody>
+</table>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Analogna televizija</h2>
+
+<p align="justify">
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <th>Standard</th>
+	  <th>Polni naziv</th>
+	  <th>Ločljivost</th>
+	  <th>Razmerje</th>
+	</tr>
+  </thead>
+  <tbody>
+    <tr>
+	  <td>NTSC</td>
+	  <td>National TV System Committee</td>
+	  <td>440×486</td>
+	  <td>4:3</td>
+	</tr>
+    <tr>
+	  <td>PAL</td>
+	  <td>Phase Alternating Line (576i)</td>
+	  <td>520×576</td>
+	  <td>4:3</td>
+	</tr>
+    <tr>
+	  <td>SECAM</td>
+	  <td><u>Sé</u>quentiel <u>c</u>ouleur <u>à</u> <u>m</u>émoire</td>
+	  <td>520×576</td>
+	  <td>4:3</td>
+	</tr>
+    <tr style="border-bottom: 1px solid #ddd">
+	  <td>VHS</td>
+	  <td>Video Home System</td>
+	  <td>320×486&nbsp;(NTSC)<br />310×576&nbsp;(PAL)</td>
+	  <td>4:3</td>
+	</tr>
+  </tbody>
+</table>
+</p>
+
+
+<h2>Digitalna televizija</h2>
+
+<p align="justify">
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <th>Standard</th>
+	  <th>Polni naziv</th>
+	  <th>Ločljivost</th>
+	  <th>Razmerje</th>
+	</tr>
+  </thead>
+  <tbody>
+    <tr>
+	  <td>SD</td>
+	  <td>Standard-definition TV (576i, 576p)</td>
+	  <td>704×576<br />720×576</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>DVD</td>
+	  <td>Digital Video Disc ali<br />Digital Versatile Disc</td>
+	  <td>720×480&nbsp;(NTSC)<br />720×576&nbsp;(PAL)</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>HD</td>
+	  <td>High-definition TV (720p)</td>
+	  <td>1280×720</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>Full HD</td>
+	  <td>High-definition TV (1080i, 1080p), Blue-ray Disc</td>
+	  <td>1440×1080<br />1920×1080</td>
+	  <td>16:9</td>
+	</tr>
+    <tr>
+	  <td>4K UHD</td>
+	  <td>4K Utra-high-definition TV</td>
+	  <td>3840×2160</td>
+	  <td>16:9</td>
+	</tr>
+    <tr style="border-bottom: 1px solid #ddd">
+	  <td>8K UHD</td>
+	  <td>8K Utra-high-definition TV</td>
+	  <td>7680×4320</td>
+	  <td>16:9</td>
+	</tr>
+  </tbody>
+</table>
+</p>
+
+<p align="center"><img src="img/Resolution_SD_FHD_4K_8K.png" class="img-responsive" /></p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2205/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2206/index.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2206/index.html">1</a></li>
+					<li class="active"><a href="#">2</a></li>
+					<li><a href="../2206/index2.html">3</a></li>
+					<li><a href="../2206/index3.html">4</a></li>
+					<li><a href="../2206/index4.html">5</a></li>
+					<li><a href="../2206/index5.html">6</a></li>
+					<li><a href="../2206/index6.html">7</a></li>
+					<li><a href="../2206/index7.html">8</a></li>
+					<li><a href="../2206/index8.html">9</a></li>
+					<li><a href="../2206/index9.html">10</a></li>
+					<li><a href="../2206/index10.html">11</a></li>
+					<li><a href="../2206/index11.html">12</a></li>
+					<li><a href="../2206/index12.html">13</a></li>
+					<li><a href="../2206/index13.html">14</a></li>
+					<li><a href="../2206/index2.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2207/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

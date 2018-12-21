@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Navidezna in nadgrajena resničnost</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- Video playlist -->
+	<style>
+#playlist {
+    display:table;
+	margin: 10px;
+    -webkit-padding-start: 0px;
+}
+#playlist li {
+    cursor:pointer;
+    padding:8px;
+	list-style-type: none;
+}
+#playlist li.title {
+    cursor:text;
+}
+
+#playlist li:hover {
+    color:#999;
+}
+#playlist li.title:hover {
+    color:#333;
+}
+#videoarea {
+    float:left;
+    width:640px;
+    height:360px;
+    margin:10px;    
+    border:1px solid silver;
+}
+    </style>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li class="active"><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2302/index.html">Osnove preglednic</a></li>
+					<li><a href="../2303/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2304/index.html">Enostavni oz. linearni modeli, finančni primeri (kredit itd.)?</a></li>
+					<li><a href="../2305/index.html">Simulacija Monte Carlo</a></li>
+					<li><a href="../2306/index.html">Relacijske podatkovne baze</a></li>
+					<li><a href="../2307/index.html">Ne-relacijske poatkovne baze</a></li>
+					<li><a href="../2308/index.html">Osnove SQL</a></li>
+					<li><a href="../2309/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Source -->
+		<div id="source" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Vir videoposnetkov</h4>
+					</div>
+					<div class="modal-body">
+						<p><b>NAVIDEZNA RESNIČNOST</b></p>
+						<p align="justify"><ul>
+							<li>Real Spirit Dynamics. <i>Top 5 Latest VR Technologies.</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=lj6tVqbp9bk" target="_blank">https://www.youtube.com/watch?v=lj6tVqbp9bk</a> [citat]</li>
+							<li>Wired. <i>5 Levels: Virtual Reality (sezona 1, epizoda 3).</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=akveRNY6Ulw&index=4&t=0s&list=PLibNZv5Zd0dyCoQ6f4pdXUFnpAIlKgm3N" target="_blank">https://www.youtube.com/watch?v=akveRNY6Ulw</a> [citat]</li>
+							<li>Cleveland Clinic. <i>Virtual and Mixed Reality for Medical Education.</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=PzPKdlFbvYM" target="_blank">https://www.youtube.com/watch?v=PzPKdlFbvYM</a> [citat]</li>
+							<li>Forces TV. <i>Virtual Reality for Military Training.</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=i6pEbpNM1Q4" target="_blank">https://www.youtube.com/watch?v=i6pEbpNM1Q4</a> [citat]</li>
+							<li>3M. <i>Virtual Reality Safety Training Simulation.</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=yhR-_TY6j50" target="_blank">https://www.youtube.com/watch?v=yhR-_TY6j50</a> [citat]</li>
+						</ul></p>
+						<p><b>NADGRAJENA RESNIČNOST</b></p>
+						<p align="justify"><ul>
+							<li>BBC Click. <i>»Pokémon Go« played on AR Glasses.</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://www.youtube.com/watch?v=coiKwoz1T-g" target="_blank">https://www.youtube.com/watch?v=coiKwoz1T-g</a> [citat]</li>
+							<li>Robot Genius. <i>Sight.</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://vimeo.com/46304267" target="_blank">https://vimeo.com/46304267</a> [citat]</li>
+							<li>Keiichi Matsuda. <i>Hyper-reality.</i> pridobljeno [8. 12. 2018]<br />Dostopno na naslovu: <a href="https://vimeo.com/166807261" target="_blank">https://vimeo.com/166807261</a> [citat]</li>
+						</ul></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Navidezna resničnost</h1>
+
+<p align="justify"><b>Navidezna resničnost</b> (<i>ang. Virtual Reality &ndash; VR</i>) je oblika računalniške simulacije, pri kateri ima udeleženec občutek da se nahaja v umetnem okolju.</p>
+
+<p align="justify">Uporabnik navidezne resničnosti s pomočjo monitorjev, ki so v polju pogleda, vidi ustvarjen navidezni svet ter dele lastnega telesa (roke, telo itd.) kot dele tega navideznega sveta, ki jih s pomočjo elektronskih vmesnikov (podatkovna rokavica, čelada, obleka in podobno) tudi občuti kot take.</p>
+
+<p align="justify">Senzorji v čeladi ali vizirju zaznajo premike uporabnikove glave ali telesa, kar povzroči spremembo navideznega položaja gledanja. Uporabnik lahko nosi podatkovne rokavice (<i>ang. datagloves</i>), ki mu omogočajo navidezno pobiranje in premikanje predmetov v navideznem okolju.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Tehnologija je še v razvoju, vendar se pričakuje, da bo doživela široko uporabo, na primer pri vojaškem in kirurškem urjenju, urjenju pri delu na višini ali delu z nevarnimi snovmi, pri arhitekturi in domači zabavi.</p>
+
+<h1>Nadgrajena resničnost</h1>
+
+<p align="justify"><b>Nadgrajena, obogatena, dopolnjena, razširjena resničnost</b> (<i>ang. Augmented Reality &ndash; AR</i>) je preplet resničnega in navideznega sveta, ki ga uporabnik opazuje preko mobilne naprave (na primer tablica, pametni telefon, namenska očala). Tehnologija se najbolj uporablja v proizvodnji, turizmu in zabavi (zelo znan primer je igra »Pokémon Go«).</p>
+
+<p align="justify">Uporaba navidezne resničnosti prinaša tudi določene nezaželene stranske učinke: VR slabost, utrujenost oči, simptom tako imenovane gorilje roke (<i>ang. Gorilla Arm</i>), tveganje za asocialnost uporabnikov in tako dalje.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+<!-- Video player start -->
+<br />
+<video id="videoarea" controls="controls" poster="" src=""></video>
+<ul id="playlist">
+    <li class="title"><b>NAVIDEZNA RESNIČNOST</b></li>
+	<li movieurl="video/Top 5 Latest VR Technologies.mp4" moviesposter="img/ManusVR_Glove.png">Top 5 Latest VR Technologies</li>      
+	<li movieurl="video/VR Engineer Explains One Concept in 5 Levels of Difficulty.mp4">5 Levels: Virtual Reality (sezona 1, epizoda 3)</li>
+	<li movieurl="video/Virtual and Mixed Reality for Medical Education.mp4">Virtual and Mixed Reality for Medical Education</li>
+	<li movieurl="video/Virtual Reality for Military Training.mp4">Virtual Reality for Military Training</li>
+	<li movieurl="video/Virtual Reality Safety Training Simulation.mp4">Virtual Reality Safety Training Simulation</li>
+    <li class="title"><b>NADGRAJENA RESNIČNOST</b></li>
+	<li movieurl="video/Pokemon Go played on AR Glasses.mp4">»Pokémon Go« played on AR Glasses</li>
+	<li movieurl="video/Sight.mp4">Sight <span style="color:silver">(futuristic vision)</span></li>
+	<li movieurl="video/Hyper-reality.mp4">Hyper-reality <span style="color:silver">(futuristic vision)</span></li>
+</ul>
+<p align="right"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir videoposnetkov</button></p>
+<!-- Video player end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2205/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2206/index9.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2206/index.html">1</a></li>
+					<li><a href="../2206/index1.html">2</a></li>
+					<li><a href="../2206/index2.html">3</a></li>
+					<li><a href="../2206/index3.html">4</a></li>
+					<li><a href="../2206/index4.html">5</a></li>
+					<li><a href="../2206/index5.html">6</a></li>
+					<li><a href="../2206/index6.html">7</a></li>
+					<li><a href="../2206/index7.html">8</a></li>
+					<li><a href="../2206/index8.html">9</a></li>
+					<li><a href="../2206/index9.html">10</a></li>
+					<li class="active"><a href="#">11</a></li>
+					<li><a href="../2206/index11.html">12</a></li>
+					<li><a href="../2206/index12.html">13</a></li>
+					<li><a href="../2206/index13.html">14</a></li>
+					<li><a href="../2206/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2207/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- jQuery QuickFlip -->
+	<script src="../js/jquery.quickflip.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- Video playlist -->
+	<script>
+	$(function() {
+        $("#playlist li").on("click", function() {
+            $("#videoarea").attr({
+                "src": $(this).attr("movieurl"),
+                "poster": "",
+                "autoplay": "autoplay"
+            })
+			for (i = 0; i <= 9; i++) {
+			    $("#playlist li").eq(i).css("font-weight", "normal");
+			}
+			$(this).css("font-weight", "bold");
+        })
+        $("#videoarea").attr({
+            "src": $("#playlist li").eq(1).attr("movieurl"),
+            "poster": $("#playlist li").eq(1).attr("moviesposter")
+        })
+    })
+	</script>
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

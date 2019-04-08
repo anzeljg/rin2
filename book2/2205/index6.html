@@ -172,14 +172,14 @@
 
 <p align="justify">Velikost nestisnjene zvočne datoteke je odvisna od števila bitov na sekundo, imenovanega <b>bitna hitrost</b> (<i>ang. bit rate</i>) in od dolžine zvoka (v sekundah). Bitna hitrost je odvisna od:
 <ul>
-  <li>hitrosti vzorčenja oziroma frekvence (vodoravna os grafa) in</li>
+  <li>frekvence vzorčenja oziroma frekvence (vodoravna os grafa) in</li>
   <li>ločljivosti vzorčenja oziroma bitne ločljivosti (navpična os grafa).</li>
 </ul>
 </p>
 
-<p align="justify">Če podvojimo hitrost vzorčenja, recimo iz 11&nbsp;kHz na 22&nbsp;kHz in nato na 44&nbsp;kHz, se vsakokrat podvoji tudi velikost zvočne datoteke. Podobno tudi podvojitev ločljivosti vzorčenja, recimo iz 8 bitov na 16 bitov, pomeni podvojitev velikosti zvočne datoteke.</p>
+<p align="justify">Če podvojimo frekvenco vzorčenja, recimo iz 11&nbsp;kHz na 22&nbsp;kHz in nato na 44&nbsp;kHz, se vsakokrat podvoji tudi velikost zvočne datoteke. Podobno tudi podvojitev ločljivosti vzorčenja, recimo iz 8 bitov na 16 bitov, pomeni podvojitev velikosti zvočne datoteke.</p>
 
-<p align="justify">Kot smo videli, je hitrost vzorčenja ($\nu$) glasbe CD-kakovosti 44,1&nbsp;kHz. Ločljivost vzorčenja ($f_{\nu}$) glasbe CD-kakovosti je 16 bitov: to pomeni, da za vrednosti na navpični osi uporabljamo 16-bitne številke, kar pomeni 2<sup>16</sup> = 65.536 različnih vrednosti od najnižje do najvišje. Z uporabo teh dveh podatkov lahko izračunamo bitno hitrost. Za izračun velikosti datoteke pa potrebujemo še podatek o trajanju posnetka:
+<p align="justify">Kot smo videli, je frekvenca vzorčenja ($\nu$) glasbe CD-kakovosti 44,1&nbsp;kHz. Ločljivost vzorčenja ($f_{\nu}$) glasbe CD-kakovosti je 16 bitov: to pomeni, da za vrednosti na navpični osi uporabljamo 16-bitne številke, kar pomeni 2<sup>16</sup> = 65.536 različnih vrednosti od najnižje do najvišje. Z uporabo teh dveh podatkov lahko izračunamo bitno hitrost. Za izračun velikosti datoteke pa potrebujemo še podatek o trajanju posnetka:
 $$bitna\ hitrost = v_{b} = \nu * f_{\nu}$$
 $$velikost\ datoteke = v_{b} * t = \nu * f_{\nu} * t$$
 </p>
@@ -207,7 +207,7 @@ $$172\ kB/s * 3600\ s = 619200\ kB \approx 604\ MB$$
 <div class="alert alert-info" role="alert">
   <form id="calculator" method="post">
     <div class="input-group" style="padding:3px">
-      <span class="input-group-addon left" style="width:150px">Hitrost vzorčenja</span>
+      <span class="input-group-addon left" style="width:150px">Frekvenca vzorčenja</span>
       <select class="form-control" id="frequency" name="frequency"  style="width:100px">
         <option  value="8000">8000</option>
         <option  value="11025">11025</option>

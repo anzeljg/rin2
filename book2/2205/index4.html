@@ -165,14 +165,14 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Standardne hitrosti vzorčenja</h4>
+						<h4 class="modal-title">Standardne frekvence vzorčenja</h4>
 					</div>
 					<div class="modal-body">
 						<p align="justify">
 						    <table class="table table-striped">
 							  <thead>
 							    <tr>
-							      <th>Hitrost vzorčenja</th>
+							      <th>Frekvenca vzorčenja</th>
 							      <th>Uporaba</th>
 							    </tr>
 							  </thead>
@@ -227,15 +227,15 @@
 
 <p align="justify">Dejstvo, da se digitalna krivulja (digitalne vrednosti, povezane med seboj) razlikuje od analogne krivulje pomeni, da predstavitev zvoka v digitalni obliki izgublja kakovost, saj se podatki med posameznimi časovnimi vzorci izgubijo. Če želimo povečati kakovost digitalnega zvoka ter ga shraniti tako, da bo čim bolj podoben analognemu izvirniku, ga moramo vzorčiti čim bolj pogosto. Na ta način odčitamo čim več podatkov o analognem zvoku, kar nam omogoča, da je pretvorba iz digitalne nazaj v analogno obliko čim bolj podobna izvirniku.</p>
 
-<p align="justify">Zavedati pa se moramo, da več odčitanih vrednosti pomeni večjo datoteko, v katero shranjujemo digitalni zvok. Zato se pojavi vprašanje, kolikšna naj bo hitrost vzorčenja? Odgovor na to vprašanje je znan in se imenuje »Nyquistov teorem vzorčenja«, ki ga je prvi zapisal Harry Nyquist, kasneje pa dokazal Claude Shannon.</p>
+<p align="justify">Zavedati pa se moramo, da več odčitanih vrednosti pomeni večjo datoteko, v katero shranjujemo digitalni zvok. Zato se pojavi vprašanje, kolikšna naj bo frekvenca vzorčenja? Odgovor na to vprašanje je znan in se imenuje »Nyquistov teorem vzorčenja«, ki ga je prvi zapisal Harry Nyquist, kasneje pa dokazal Claude Shannon.</p>
 
 <h4>Nyquistov teorem vzorčenja</h4>
 
 <div class="alert alert-info" role="alert">
-  <p align="justify">Hitrost vzorčenja naj bo dvakratnik najvišje frekvence, ki jo želimo zajeti.</p>
+  <p align="justify">Frekvenca vzorčenja naj bo dvakratnik najvišje frekvence, ki jo želimo zajeti.</p>
 </div>
 
-<p align="justify">Na primer, najvišja frekvenca zvoka, ki jo lahko ljudje slišimo, je približno 20&nbsp;kHz (20000 ciklov na sekundo), nekateri pa lahko slišijo tudi do 22&nbsp;kHz. Tako moramo glasbo zajemati s hitrostjo vzorčenja 44&nbsp;kHz (44000-krat na sekundo). To je hitrost vzorčenja glasbe CD-kakovosti (dejansko je hitrost vzorčenja 44,1&nbsp;kHz). Sicer obstajajo še druge <a href="#rate" title="Standardne hitrosti vzorčenja" data-toggle="modal" data-target="#rate">standardne hitrosti vzorčenja</a>.</p>
+<p align="justify">Na primer, najvišja frekvenca zvoka, ki jo lahko ljudje slišimo, je približno 20&nbsp;kHz (20000 ciklov na sekundo), nekateri pa lahko slišijo tudi do 22&nbsp;kHz. Tako moramo glasbo zajemati s hitrostjo vzorčenja 44&nbsp;kHz (44000-krat na sekundo). To je frekvenca vzorčenja glasbe CD-kakovosti (dejansko je frekvenca vzorčenja 44,1&nbsp;kHz). Sicer obstajajo še druge <a href="#rate" title="Standardne frekvence vzorčenja" data-toggle="modal" data-target="#rate">standardne frekvence vzorčenja</a>.</p>
 
 <p align="justify">Različni zvoki so lahko različno glasni. Ločljivost vzorčenja omogoča nastavitev obsega shranjevanja za vsak vzorec. Pri nizki ločljivosti vzorčenja je obseg glasnosti zelo omejen, pri visoki ločljivosti vzorčenja pa lahko postane datoteka prevelika. Ločljivost vzorčenja glasbe pri CD-kakovosti zvoka je 16 bitov, pri DVD-kakovsti zvoka pa 24 bitov.</p>
 <!-- Left column end -->
@@ -245,11 +245,11 @@
 <h4>Interaktivna vaja</h4>
 
 <div class="alert alert-info" role="alert">
-  <p align="justify">Spreminjaj hitrost vzorčenja s pomočjo spodnjega drsnika in opazuj, kako višja hitrost vzorčenja pomeni boljši približek analognemu izvirniku.</p><br />
+  <p align="justify">Spreminjaj frekvenco vzorčenja s pomočjo spodnjega drsnika in opazuj, kako višja frekvenca vzorčenja pomeni boljši približek analognemu izvirniku.</p><br />
   <div id="jxgbox2" class="jxgbox" style="width:450px;height:380px;margin:8px auto;"></div>
   <table border="0" width="100%" style="margin:12px; padding:4px;">
 	<tr>
-	  <td>Hitrost vzorčenja:</td>
+	  <td>Frekvenca vzorčenja:</td>
 	  <td>
 	    <div id="sampler">
 		  <div id="sampler-handle" class="ui-slider-handle">0 Hz</div>

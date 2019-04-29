@@ -137,7 +137,7 @@ class BlackJackIgralec(Igralec):
 
   def ima_blackjack(self):
     asi = [Karta(0,1), Karta(1,1), Karta(2,1), Karta(3,1)]
-    # figure: destke, fanti, dame in kralji
+    # figure: desetke, fanti, dame in kralji
     f = [Karta(0,10), Karta(0,11), Karta(0,12), Karta(0,13),
          Karta(1,10), Karta(1,11), Karta(1,12), Karta(1,13),
          Karta(2,10), Karta(2,11), Karta(2,12), Karta(2,13),

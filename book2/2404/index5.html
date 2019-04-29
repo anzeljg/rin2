@@ -14,6 +14,7 @@
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
 
 	<!-- CodeMirror -->
 	<link href="../css/codemirrorepl.css" rel="stylesheet">
@@ -213,6 +214,7 @@ class Karta:
       k = "a" # Končnica za žensko obliko
     return (self.barve[b] + k + " " + self.opisi[v])
 
+
 class Komplet:
 
   def __init__(self):
@@ -246,6 +248,7 @@ class Komplet:
   def je_prazen(self):
     return self.karte == []
 
+
 class Igralec(Komplet):
 
   def __init__(self, ime=""):
@@ -270,6 +273,7 @@ print(igralec)
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
 <a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
 </p>
 </form>
 </div>
@@ -319,6 +323,7 @@ print(igralec)
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
 
 	<!-- rPage: Highly responsive pagination for Bootstrap -->
 	<script src="../js/responsive-paginate.js"></script>
@@ -382,10 +387,11 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "mbo"
+  theme: "rin-light"
 });
 editor.setSize('100%', 600);
 </script>
+<script src="../js/codemirror/theme.js"></script>
 
 
 <!-- CookieCuttr -->

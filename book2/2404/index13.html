@@ -14,6 +14,7 @@
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
 
 	<!-- CodeMirror -->
 	<link href="../css/codemirrorepl.css" rel="stylesheet">
@@ -307,12 +308,12 @@ class BlackJackIgralec(Igralec):
     return vsota
 
   def ima_blackjack(self):
-    asi = [Karta(0,1),Karta(1,1),Karta(2,1),Karta(3,1)]
-    # figure: destke, fanti, dame in kralji
-    f = [Karta(0,10),Karta(0,11),Karta(0,12),Karta(0,13),
-         Karta(1,10),Karta(1,11),Karta(1,12),Karta(1,13),
-         Karta(2,10),Karta(2,11),Karta(2,12),Karta(2,13),
-         Karta(3,10),Karta(3,11),Karta(3,12),Karta(3,13)]
+    asi = [Karta(0,1), Karta(1,1), Karta(2,1), Karta(3,1)]
+    # figure: desetke, fanti, dame in kralji
+    f = [Karta(0,10), Karta(0,11), Karta(0,12), Karta(0,13),
+         Karta(1,10), Karta(1,11), Karta(1,12), Karta(1,13),
+         Karta(2,10), Karta(2,11), Karta(2,12), Karta(2,13),
+         Karta(3,10), Karta(3,11), Karta(3,12), Karta(3,13)]
     blackjack = False
     if self.karte[0] in asi and self.karte[1] in f:
       blackjack = True
@@ -420,6 +421,7 @@ igra.igraj(["Janez", "Karel", "Lojze"])
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
 <a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
 </p>
 </form>
 </div>
@@ -469,6 +471,7 @@ igra.igraj(["Janez", "Karel", "Lojze"])
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
 
 	<!-- rPage: Highly responsive pagination for Bootstrap -->
 	<script src="../js/responsive-paginate.js"></script>
@@ -532,10 +535,11 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "mbo"
+  theme: "rin-light"
 });
 editor.setSize('100%', 600);
 </script>
+<script src="../js/codemirror/theme.js"></script>
 
 
 <!-- CookieCuttr -->

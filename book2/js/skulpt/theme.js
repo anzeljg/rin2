@@ -34,4 +34,18 @@ $(function() {
 	        editor5.setOption('theme', 'rin-light');
 	    }
     })
+    $('#theme6').change(function() {
+	    if ($(this).prop('checked') == true) {
+	        editor6.setOption('theme', 'rin-dark');
+	    } else {
+	        editor6.setOption('theme', 'rin-light');
+	    }
+    })
+    $('#terminal').change(function() {
+	    if ($(this).prop('checked') == true) {
+	        editor.setOption('theme', 'rin-prompt');
+	    } else {
+	        editor.setOption('theme', 'rin-mono');
+	    }
+    })
 })

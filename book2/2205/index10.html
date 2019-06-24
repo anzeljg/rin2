@@ -189,13 +189,13 @@
 							  <li>podatkovni bajt 1: <code>0VVV VVVV</code> &ndash; <code>VVV VVVV</code> je višina tona/note (od 0 do 127)</li>
 							  <li>podatkovni bajt 2: <code>0GGG GGGG</code> &ndash; <code>GGG GGGG</code> je glasnost tona/note (od 0 do 127);<br />če je glasnost nastavljena na 0, potem ima sporočilo <i>NoteOn</i> isti pomen, kot sporočilo <i>NoteOff</i></li>
 							</ul></p>
-							<p align="justify">Vrednost višine določa frekvenca note, ki jo je treba predvajati. Vrednost je lahko od 0 do 127, pri čemer ima nota C<sub>4</sub> vrednost 60:</p>
+							<p align="justify">Vrednost višine določa frekvenca note, ki jo je treba predvajati. Vrednost je lahko od 0 do 127, pri čemer ima nota C<sub>4</sub> (oziroma <i>Middle C</i>) vrednost 72:</p>
 							<p align="center"><img src="img/midi-note.png"><br /><br />
 							<audio controls>
 							  <source src="snd/midi-note.ogg" type="audio/ogg">
 							  <source src="snd/midi-note.mp3" type="audio/mpeg">
 							</audio></p>
-							<p align="justify">Vrednost je predstavljena v polovičnih korakih, tako da ima C#<sub>4</sub> vrednost 61, D<sub>4</sub> vrednost 62 in tako dalje.</p>
+							<p align="justify">Vrednost je predstavljena v polovičnih korakih, tako da ima C#<sub>4</sub> vrednost 73, D<sub>4</sub> vrednost 74 in tako dalje.</p>
 							<p align="justify">Note lahko prestavimo oziroma transponiramo eno oktavo višje tako, da vrednosti vsake note prištejemo 12. Z uporabo MIDI je transponiranje zelo preprosto, saj to dosežemo le s prištevanjem ali odštevanjem določene vrednosti. Pri tem je treba paziti glede obsega not MIDI, ki se giblje med 0 in 127. Če bi na primer želeli zvišati vrednost note 96 za 4 oktave (+48), bi bila skupna vrednost 144, kar je izven obsega. Ker bo od rezultata odšeta vrednost 128, bo nota zelo nizka (144 - 128 = 16) namesto, da bi bila visoka. </p>
 							<p align="justify">Vrednost glasnosti med 0 in 127, pokriva območje od praktično neslišnega zvoka do najvišje ravni glasnosti. V bistvu ustreza lestvici dinamike, ki jo najdemo v notnih zapisih in spodaj (te vrednosti niso natančne, ampak služijo bolj kot orientacija):</p>
 							<p align="center"><img src="img/midi-velocity.png"></p>

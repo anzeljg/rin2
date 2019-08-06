@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Področja umetne inteligence</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- jsMind CSS -->
+    <link type="text/css" rel="stylesheet" href="css/jsmind.css" />
+    <style type="text/css">
+        #jsmind_container{
+            width:500px;
+            height:440px;
+            border:solid 1px #ccc;
+            background:#f4f4f4;
+			margin:auto;
+        }
+    </style>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li class="active"><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Root -->
+		<div id="root" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Umetna inteligenca</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">V računalništvu je <b>umetna inteligenca</b> (<i>ang. Artificial Intelligence &ndash; AI</i>), ki jo včasih imenujemo <b>strojna inteligenca</b> (<i>ang. Machine Intelligence</i>), inteligenca, ki jo izkazujejo stroji, v nasprotju z naravno inteligenco, ki jo kažejo ljudje in druge živali.</p>
+
+						<p align="justify">Računalniška znanost opredeljuje raziskovanje umetne inteligence kot študijo <b>»inteligentnih agentov«</b> (<i>ang. Intelligent Agents</i>). Inteligenti agent je vsaka naprava, ki zaznava svoje okolje in sprejema ukrepe, ki povečujejo možnost za uspešno doseganje svojih ciljev.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node1 -->
+		<div id="node1" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Strojno učenje</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Strojno učenje</b> (<i>ang. Machine Learning &ndash; ML</i>) je področje algoritmov in statističnih modelov, ki jih računalniški sistemi uporabljajo za postopno izboljšanje svoje učinkovitosti pri določeni nalogi. Algoritmi strojnega učenja gradijo matematični model iz vzorčnih podatkov, imenovanih <b>»učni podatki«</b> (<i>ang. training data</i>). To jim kasneje omogoča napovedovanje ali sprejemanje odločitev, ne da bi bili izrecno programirani za opravljanje določene naloge.</p>
+
+						<p align="justify">Algoritme strojnega učenja uporabljamo za filtriranje elektronske pošte, odkrivanje vsiljivcev v omrežju in na področju računalniškega vida, kjer ni mogoče razviti točno določenega algoritma za izvajanje naloge. Strojno učenje je tesno povezano z računalniško statistiko, ki se osredotoča na napovedovanje z uporabo računalnikov.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node11 -->
+		<div id="node11" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Nadzorovano učenje</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Nadzorovano učenje</b> (<i>ang. Supervised learning</i>) je podpodročje strojnega učenja. Algoritem nadzorovanega učenja analizira označene testne podatke v obliki vhodno-izhodnih parov in izdela preslikovalno funkcijo. Pri tem želene izhodne vrednosti določa človek &ndash; učitelj oziroma nadzornik. Algoritem lahko nato s pomočjo preslikovalne funkcije v optimalnem primeru pravilno določi, označi, razvrsti in kategorizira nove podatke, ki jih še ni »videl« oziroma jim ni bil izpostavljen.</p>
+
+						<p align="justify">Vzporedna naloga v človeški in živalski psihologiji se pogosto imenuje <b>konceptualno učenje</b>.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node12 -->
+		<div id="node12" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Nenadzorovano učenje</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Nenadzorovano učenje</b> (<i>ang. Unsupervised learning</i>) je podpodročje strojnega učenja, ki se uči iz vhodnih podatkov. Vhodni podatki niso nikakor označeni, razvrščeni ali kategorizirani. Algoritem razdeli vhodne podatke, po svojih kriterijih, v več kategorij, ki imajo svoje značilnosti. Ta postopek se imenuje <b>rojenje</b> (<i>ang. clustering</i>). Število kategorij in njihove značilnosti izlušči algoritem iz vhodnih podatkov, brez zunanjega nadzora.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node13 -->
+		<div id="node13" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Spodbujevano učenje</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Spodbujevano učenje</b> (<i>ang. Reinforcement learning &ndash; RL</i>) je, po analogiji iz behaviorizma, podpodročje strojnega učenja, katerega cilj je priučitev vedenja oziroma optimizacija vedenja na podlagi povratne informacije preko nagrajevanja ali kaznovanja. Problem v računalniških sistemih omogoča optimizacijo enostavnih vzorcev vedenja in postopno priučitev kompleksnejših potekov obnašanja.</p>
+
+						<p align="justify">Od nadzorovanega učenja se razlikuje po tem, da ni potrebno predstaviti pravilnih vhodno-izhodnih parov in da ni treba izrecno popravljati ne-optimalnih primerov. Namesto tega je poudarek na učinkovitosti, pri kateri se mora agent odločati na podlagi interakcije z okoljem (problemskim prostorom). To vključuje iskanje ravnotežja med raziskovanjem (neznanega prostora) in izkoriščanjem (obstoječega znanja).</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node2 -->
+		<div id="node2" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Obdelava naravnega jezika</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Obdelava naravnega jezika</b> (<i>ang. Natural Language Processing &ndash; NLP</i>) je področje računalništva, informacijskega inženirstva in umetne inteligence, ki se ukvarja z interakcijami med računalniki in človeškimi (naravnimi) jeziki, predvsem s tem, kako programirati računalnike za obdelavo in analizo velikih količin podatkov naravnega jezika.</p>
+
+						<p align="justify">Izzivi pri obdelavi naravnega jezika pogosto vključujejo prepoznavanje govora in <b>razumevanje naravnega jezika</b>, <b>ustvarjanje naravnega jezika</b> ter <b>strojno prevajanje</b>.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node21 -->
+		<div id="node21" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Ustvarjanje naravnega jezika</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Ustvarjanje naravnega jezika</b> (<i>ang. Natural-language generation &ndash; NLG</i>) je eno izmed podpordročij obdelave naravnega jezika, ki se osredotoča na ustvarjanje naravnega jezika iz strukturiranih podatkov. Uporablja se lahko za izdelavo dolgih dokumentov, ki opisujejo računalniške baze podatkov, nadalje za izdelavo poročil z novicami (avtomatizirano novinarstvo), za povzemanje zdravstvenih zapisov, za ustvarjanje tehničnih priročnikov itd.</p>
+
+						<p align="justify">Ustvarjanje naravnega jezika se lahko uporablja tudi za ustvarjanje kratkih nepovezanih besedil v interaktivnih pogovorih (pogovori uporabnikov z robotom &ndash; <i>ang. chatbotom</i>), ki jih lahko robot celo glasno prebere s pomočjo sistema za sintezo oziroma ustvarjanje govora.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node22 -->
+		<div id="node22" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Razumevanje naravnega jezika</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Razumevanje naravnega jezika</b> (<i>ang. Natural-language understanding &ndash; NLU</i>) ali <b>interpretacija naravnega jezika</b> (<i>ang. Natural-language interpretation &ndash; NLI</i>) je podpodročje obdelave naravnega jezika, ki se ukvarja s strojnim bralnim razumevanjem. Razumevanje naravnega jezika velja za težek problem UI.</p>
+
+						<p align="justify">Krovni izraz »razumevanje naravnega jezika« lahko uporabljamo za različne računalniške aplikacije, ki segajo od majhnih, sorazmerno preprostih nalog, kot so na primer kratki ukazi robotom, do zelo zapletenih, kot je na primer popolno razumevanje časopisnih člankov ali odlomkov pesmi. Veliko aplikacij v resničnem svetu spada med ti dve skrajnosti. Na primer klasifikacija besedila za avtomatsko analizo e-poštnih sporočil in njihovo usmerjanje v ustrezen oddelek podjetja ne zahteva poglobljenega razumevanja besedila, temveč se mora ukvarjati z veliko večjim besediščem in bolj raznoliko sintakso kot upravljanje preprostih poizvedb iz podatkovne baze.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node23 -->
+		<div id="node23" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Strojno prevajanje</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Strojno prevajanje</b> (<i>ang. Machine translation &ndash; MT</i>) je podpodročje obdelave naravnega jezika oziroma računalniškega jezikoslovja, ki raziskuje uporabo programske opreme za prevajanje besedila ali govora iz enega jezika v drugega.</p>
+
+						<p align="justify">Na osnovni ravni strojno prevajanje izvaja preprosto zamenjavo besed uz enega jezika z besedami iz drugega jezika. Toda te zamenjave same po sebi ne morejo ustvariti dobrega prevoda besedila, ker je pri prevajanju potrebno poznavanje celotnih stavkov in stavčnih struktur v ciljnem jeziku. Reševanje tega problema s korpusnimi statističnimi in nevronskimi tehnikami je hitro rastoče področje, ki vodi do boljših prevodov, obravnavanja razlik v jezikovni tipologiji, prevajanju idiomov in izničevanju anomalij.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node3 -->
+		<div id="node3" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Obdelava govora</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Obdelava govora</b> (<i>ang. Speech processing</i>) je proučevanje govornih signalov in metod obdelave teh signalov. Signale običajno obdelujemo v digitalni predstavitvi, zato lahko obdelavo govora obravnavamo kot poseben primer obdelave digitalnih signalov, ki jo uporabljamo za govorne signale.</p>
+
+						<p align="justify">Vidiki obdelave govora vključujejo pridobivanje, spreminjanje, shranjevanje, prenos in ustvarjanje govornih signalov. Vhodni signal, ki ga uporabljamo pri obdelavi govora, običajno imenujemo <b>prepoznavanje govora</b>. Izhodni signal obdelave običajno imenujemo sinteza oziroma <b>ustvarjanje govora</b>.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node31 -->
+		<div id="node31" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Prepoznavanje govora</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Prepoznavanje govora</b> (<i>ang. Speech recognition</i>) je interdisciplinarno podpodročje računalniškega jezikoslovja, ki razvija metode in tehnologije, ki s pomočjo računalnikov omogočajo prepoznavanje in prevajanje govorjenega jezika v besedilo. Vključuje znanje in raziskave na področju jezikoslovja, računalništva in elektrotehnike.</p>
+
+						<p align="justify">Nekateri sistemi za prepoznavanje govora zahtevajo »usposabljanje« (imenovano tudi »vpis«), kjer posamezni govornik v sistem bere besedilo ali izoliran besednjak. Sistem nato analizira specifični glas osebe in to analizo uporablja za natančno prilagajanje prepoznavanja govora te osebe, kar povzroči večjo natančnost. Sistemi, ki ne uporabljajo usposabljanja, se imenujejo »od govorca neodvisni« sistemi. Sistemi, ki uporabljajo usposabljanje, pa se imenujejo »od govorca odvisni« sistemi.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node32 -->
+		<div id="node32" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Ustvarjanje/sinteza govora</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Sinteza govora (<i>ang. Speech synthesis</i>) je umetno ustvarjanje človeškega govora. Računalniški sistem, ki ga uporabljamo v ta namen, imenujemo sintetizator govora. Kakovost sintetizatorja govora ocenjujemo glede na njegovo podobnost s človeškim glasom in po tem, kako razumljiv govor je sintetizator zmožen ustvariti. Kvaliteten sintetizator govora lahko pomaga ljudem z motnjami vida ali z bralnimi težavami, da lahko poslušajo besedilo na domačem računalniku. Mnogi operacijski sistemi vsebujejo sintetizatorje govora že od začetka devetdesetih let prejšnjega stoletja.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node4 -->
+		<div id="node4" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Ekspertni sistemi</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Ekspertni sistemi</b> (<i>ang. Expert systems &ndash; ES</i>) so zasnovani za reševanje kompleksnih problemov s sklepanjem iz velike količine znanja, ki je predstavljeno z velikim številom pravil »če-potem«. Prvi ekspertni sistemi so nastali v sedemdesetih letih prejšnjega stoletja, nato pa se je njihova uporaba razširila v osemdesetih letih prejšnjega stoletja.</p>
+
+						<p align="justify">Ekspertni sistemi predstavljajo prve resnično uspešne oblike programske opreme za umetno inteligenco. Vendar pa nekateri strokovnjaki poudarjajo, da ekspertni sistemi niso del »prave« umetne inteligence, saj nimajo sposobnosti samostojnega učenja iz zunanjih podatkov.</p>
+
+						<p align="justify">Ekspertni sistem je običajno sestavljen iz treh delov: <b>baze znanja</b> (<i>ang. knowledge base</i>), <b>mehanizma sklepanja</b>  (<i>ang. inference engine</i>) in <b>uporabniškega vmesnika</b>  (<i>ang. user interface &ndash; UI</i>). Baza znanja predstavlja dejstva in pravila. Mehanizem sklepanja uporabi pravila na obstoječih dejstvih in tako sklepa o novih dejstvih. Mehanizem sklepanja lahko vključuje tudi razlago in odpravljanje napak.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node5 -->
+		<div id="node5" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Robotika</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Robotika</b> (<i>ang. Robotics</i>) se ukvarja z načrtovanjem, gradnjo, delovanjem in uporabo robotov ter računalniškimi sistemi za njihov nadzor in obdelavo senzoričnih povratnih informacij. Tehnologije iz področja robotike uporabljamo za razvoj strojev, ki lahko nadomestijo človeka in posnemajo človeška dejanja.</p> 
+
+						<p align="justify">Robote uporabljamo v številnih situacijah in za številne namene. Pogosto jih uporabljamo v nevarnih okoljih (na primer odkrivanje in deaktiviranje bomb),  pri proizvodnih procesih ali v okoljih, v katerih ljudje ne morejo preživeti (na primer v vesolju).</p>
+
+						<p align="justify">Roboti so lahko različnih oblik, nekateri pa so na videz podobni ljudem. To naj bi pomagalo, da bi ljudje lažje sprejeli robote, ki se pri svojem delovanju obnašajo tako, kot se običajno obnašajo ljudje. Takšni roboti poskušajo posnemati hojo, dviganje bremen, govor, zaznavanje in v bistvu večino stvari, ki jih lahko stori človek. Dandanes narava in bitja iz narave pogosto služijo kot navdih za izdelavo mnogih robotov, to področje pa se imenuje bio-robotika.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node6 -->
+		<div id="node6" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Samodejno načrtovanje in razporejanje</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Samodejno načrtovanje in razporejanje</b> (<i>ang. Automated planning and scheduling</i>) je področje umetne inteligence, ki se ukvarja s strategijami in zaporedji dejanj, ki jih običajno izvajajo inteligentni agenti, avtonomni roboti in samovozeča vozila. Za razliko od klasičnih problemov nadzorovanja in razvrščanja so rešitve kompleksne in jih je treba odkriti in optimizirati v večdimenzionalnem prostoru. Načrtovanje je povezano tudi s teorijo odločanja.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node7 -->
+		<div id="node7" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Računalniški vid</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Računalniški vid</b> (<i>ang. Computer vision</i>) je področje umetne inteligence, ki se ukvarja z metodami za pridobivanje, obdelavo, analiziranje in razumevanje digitalnih slik ter s pridobivanjem podatkov iz resničnega sveta, iz katerih lahko nato ustvari numerične ali simbolne informacije.</p>
+
+						<p align="justify">Razumevanje v tem kontekstu pomeni preoblikovanje vizualnih podob v opise sveta, ki se lahko navezujejo na druge miselne procese in izzovejo ustrezna dejanja. To razumevanje podob je mogoče razumeti kot ločevanje simbolnih informacij od slikovnih podatkov z uporabo modelov, ki jih predhodno ustvarimo s pomočjo geometrije, fizike, statistike in teorije učenja.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node71 -->
+		<div id="node71" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Prepoznavanje slik</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Klasičen problem računalniškega vida, obdelave slik in strojnega vida je določitev, ali slikovni podatki vsebujejo določen predmet, funkcijo ali dejavnost. Poznamo različne probleme prepoznavanja slik:
+						<ul align="justify">
+							<li>Prepoznavanje predmetov (imenovano tudi klasifikacija predmetov) &ndash; sistem je zmožen prepoznavati enega ali več vnaprej določenih ali naučenih predmetov ali razredov predmetov, običajno skupaj z njihovimi 2D položaji na sliki ali 3D pozami v prizoru.</li>
+							<li>Identifikacija predmetov &ndash; sistem prepozna posamezen primerek predmeta. Primeri uporabe vključujejo identifikacijo obraza ali prstnega odtisa določene osebe, identifikacijo ročno napisanih številk ali identifikacijo določenega vozila.</li>
+							<li>Zaznavanje predmetov &ndash; sistem skenira slikovne podatke za določeno stanje. Primeri uporabe vključujejo odkrivanje možnih nenormalnih celic ali tkiv v medicinskih slikah ali odkrivanje vozila pri avtomatskem cestninjenju.</li>
+						</ul></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node72 -->
+		<div id="node72" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Strojni vid</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Strojni vid</b> (<i>ang. Machine vision</i>) se primarno uporablja za avtomatski nadzor in usmerjanje robotov v industriji, se pa aplikacije s strojnim vidom uporabljajo še za kontrolo izdelkov, sortiranje izdelkov, ravnanje z materialom, optično merjenje ipd. Dodatne aplikacije se lahko uporabljajo tudi v prometu &ndash; od enostavnih merilnikov hitrosti in prepoznavanja vozil do prepoznavanja nevarnih situacij v samih vozilih.</p>
+
+						<p align="justify">Le sorazmerno majhen del sedanjih projektov se ukvarja z dejanskim razumevanjem slik ali njihove vsebine. Običajno gre le za odkrivanje predmetov na sliki, njihovo opisovanje in meritve, na podlagi česar se sprejemajo odločitve o nadaljnjem procesu. Ker gre pri razumevanju slike navadno za uporabo računalniških metod, lahko govorimo tudi o umetni inteligenci.</p>
+
+						<p align="justify">V bolj zapletenih nalogah prepoznavanja objektov se običajno uporabljajo modeli. Ti vsebujejo znanja, ki se lahko uporabijo za identifikacijo predmeta. Primer takšnega modela je prepoznavanje obraza, model ima sprogramirano, da se nos vedno nahaja med očmi in usti. Tako iskalni algoritem vedno ve, kje iskati usta, kadar najde oči in nos. V industrijskem okolju se tehnike razumevanja slik in prepoznavanja objektov uspešno uporabljajo. Programer v veliki meri določa okoljske razmere, ki so pomembne za brezhibno delovanje njegovih algoritmov (položaj kamere, osvetlitev, hitrost traku, položaj objektov itd.).</p>
+
+						<p align="justify">V naravnih okoljih je zadeva malo bolj zapletena, saj programer na okolje nima takšnega vpliva. Primer v naravnem okolju je prepoznavanje vozil. Črn avtomobil na belem ozadju ni težko prepoznati, saj je kontrastno razmerje veliko, medtem ko zelen avtomobil na zelenici že predstavlja težavo.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Node8 -->
+		<div id="node8" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odkrivanje znanja in podatkovno rudarjenje</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Odkrivanje znanja iz podatkov</b> (<i>ang. Knowledge Discovery from Data &ndash; KDD</i>) je proces odkrivanja doslej neznanega in potencialno uporabnega znanja iz podatkov. Del tega procesa je tako imenovano <b>podatkovno rudarjenje</b> (<i>ang. Data Mining &ndash; DM</i>), ko dejansko pride do odkrivanja znanja.</p>
+						<p align="justify">Faze odkrivanja znanja iz podatkov so:
+							<ul>
+							<li>priprava podatkov,</li>
+							<li>podatkovno rudarjenje,</li>
+							<li>interpretacija, vrednotenje in predstavitev pridobljenega znanja.</li>
+							</ul>
+						</p>
+						<p align="justify">Podatke za podatkovno rudarjenje največkrat zajemamo iz <b>podatkovnih baz</b> (<i>ang. Database &ndash; DB</i>) ali iz <b>podatkovnih skladišč</b> (<i>ang. Data warehouse</i>). Podatkovna skladišča tvorita programska in strojna oprema, ki shranjuje časovne serije transakcijskih podatkovnih baz (gospodarskih podjetij, zdravstvenih ustanov ...) za nadaljnje analize in arhiviranje.</p>
+						<p align="justify">Za odkrivanje znanja iz podatkov uporabljamo raznovrstne metode umetne inteligence: simbolično induktivno učenje odločitvenih dreves ali odločitvenih pravil, genetske algoritme, nevronske mreže itd., pa tudi različne statistične metode. Katero metodo reševanja problemov izberemo, je odvisno od vrste problema in oblike, v kateri želimo predstavljeno rešitev. Pomembna je tudi točnost, s katero tako zgrajen model rešuje probleme. Točnost izboljšujemo s ponovnim pregledom in pripravo podatkov ali/in z izbiro druge metode podatkovnega rudarjenja.</p>
+						<p align="justify">Odkrivanje znanja v podatkih uporabljamo na najrazličnejših področjih: pri trženju in odnosih z javnostjo, pri analizi poslovnih partnerjev in strank, pri analizi poslovanja in proizvodnje, pri odkrivanju in predvidevanju zlorab, pri znanstvenih raziskavah na različnih področjih, pri obdelavi anket in javnomnenjskih raziskav, ...</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Področja umetne inteligence</h1>
+
+<p align="justify">V 70-ih letih 20. stoletja so prišli snovalci UI do spoznanja, da človeku pri reševanju splošnih problemov bolj kot uporaba algoritmov, služi velika količina splošnega in specialističnega znanja. Na osnovi tega so nastali <b>ekspertni sistemi</b> (<i>ang. Expert Systems &ndash; ES</i>). To so sistemi, ki temeljijo na ozko specializiranem znanju. Namenjeni so reševanju specifičnih problemov iz realnega sveta. Kot pomoč človeku pa so postali tudi ekonomsko zanimivi.</p>
+
+<p align="justify">Ekspertni sistemi znajo pojasniti razloge oziroma način sklepanja za določen zaključek (rezultat oziroma odločitev) korak za korakom. Tak način komuniciranja omogoča uporabniku, da uvidi napačen korak v računalnikovem sklepanju ali pa uvidi lastno napako.</p>
+
+<p align="justify">Razvili so tudi programske jezike, namenjene pisanju sistemov umetne inteligence. Primer sta programska jezika LISP in prolog.</p>
+
+<p align="justify">Nabor področij UI se je širil. Razumevanje napisanega besedila so raziskovali kot <b>razumevanja naravnega jezika</b>, podpodročje tega pa je <b>prepoznavanje in sinteza govora</b> (na primer sistem <a href="https://ebralec.si/branje/" target="_blank">eBralec</a>). Podobno se <b>računalniški vid</b> ukvarja s prepoznavanjem in ustvarjanjem slik. <b>Robotika</b> se je razvila iz prizadevanj zgraditi stroj, ki bi se gibal podobno kot človek. Do razvoja <b>strojnega učenja</b> je prišlo zaradi prizadevanj, da bi se baze znanja avtomatsko dopolnjevale in tako prilagajale okolju. Velike količine shranjenih podatkov so pospešile razvoj tehnik <b>iskanja znanja v podatkih</b>.</p>
+
+<p align="justify">Veliko število podpodročij UI je naravni odgovor na kompleksnost in obseg naloge ustvariti umetno inteligenco. Med njimi so močne povezave in medsebojni vplivi, nova podpodročja pa še nastajajo.
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Danes s pridom uporabljamo marsikatera odkritja na področju umetne inteligence v praksi. Področja, s katerimi se danes ukvarja UI, so predvsem:</p>
+
+<p><div id="jsmind_container" onclick="show_selected()"></div></p>
+
+<p align="justify">
+  <button class="btn btn-primary" onclick="zoom_in()"><span class="fa fa-search-plus"></span> Približaj</button>
+  <button class="btn btn-primary" onclick="zoom_out()"><span class="fa fa-search-minus"></span> Oddalji</button>
+  <button class="btn btn-primary" onclick="expand_all()"><span class="fa fa-expand"></span> Odpri vse</button>
+  <button class="btn btn-primary" onclick="collapse_all()"><span class="fa fa-compress"></span> Ponastavi</button>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2305/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2306/index5.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2306/index.html">1</a></li>
+					<li><a href="../2306/index1.html">2</a></li>
+					<li><a href="../2306/index2.html">3</a></li>
+					<li><a href="../2306/index3.html">4</a></li>
+					<li><a href="../2306/index4.html">5</a></li>
+					<li><a href="../2306/index5.html">6</a></li>
+					<li class="active"><a href="#">7</a></li>
+					<li><a href="../2306/index7.html">8</a></li>
+					<li><a href="../2306/index8.html">9</a></li>
+					<li><a href="../2306/index9.html">10</a></li>
+					<li><a href="../2306/index10.html">11</a></li>
+					<li><a href="../2306/index11.html">12</a></li>
+					<li><a href="../2306/index12.html">13</a></li>
+					<li><a href="../2306/index13.html">14</a></li>
+					<li><a href="../2306/index14.html">15</a></li>
+					<li><a href="../2306/index15.html">16</a></li>
+					<li><a href="../2306/index16.html">17</a></li>
+					<li><a href="../2306/index17.html">18</a></li>
+					<li><a href="../2306/index18.html">19</a></li>
+					<li><a href="../2306/index7.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2401/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- jsMind JS -->
+	<script type="text/javascript" src="js/jsmind.js"></script>
+	<script type="text/javascript" src="js/jsmind.draggable.js"></script>
+	<script type="text/javascript">
+		var jm = null;
+
+		function load_jsmind(){
+			var mind = {
+				"meta":{
+					"name":"demo",
+					"author":"hizzgdev@163.com",
+					"version":"0.2",
+				},
+				"format":"node_array",
+				"data":[
+					{"id":"root", "isroot":true, "topic":"UI"},
+
+					{"id":"node1", "parentid":"root", "topic":"Strojno učenje", "direction":"left", "expanded":false},
+					{"id":"node11", "parentid":"node1", "topic":"Nadzorovano učenje"},
+					{"id":"node12", "parentid":"node1", "topic":"Nenadzorovano učenje"},
+					{"id":"node13", "parentid":"node1", "topic":"Spodbujevano učenje"},
+
+					{"id":"node2", "parentid":"root", "topic":"Obdelava naravnega jezika", "direction":"right", "expanded":false},
+					{"id":"node21", "parentid":"node2", "topic":"Ustvarjanje naravnega jezika"},
+					{"id":"node22", "parentid":"node2", "topic":"Razumevanje naravnega jezika"},
+					{"id":"node23", "parentid":"node2", "topic":"Strojno prevajanje"},
+
+					{"id":"node5", "parentid":"root", "topic":"Robotika", "direction":"left", "expanded":false},
+
+					{"id":"node3", "parentid":"root", "topic":"Obdelava govora", "direction":"left", "expanded":false},
+					{"id":"node31", "parentid":"node3", "topic":"Prepoznavanje govora"},
+					{"id":"node32", "parentid":"node3", "topic":"Ustvarjanje/sinteza govora"},
+
+					{"id":"node4", "parentid":"root", "topic":"Ekspertni sistemi", "direction":"left", "expanded":false},
+
+					{"id":"node6", "parentid":"root", "topic":"Načrtovanje in razporejanje", "direction":"right", "expanded":false},
+
+					{"id":"node7", "parentid":"root", "topic":"Računalniški vid", "direction":"right", "expanded":false},
+					{"id":"node71", "parentid":"node7", "topic":"Prepoznavanje slik"},
+					{"id":"node72", "parentid":"node7", "topic":"Strojni vid"},
+
+					{"id":"node8", "parentid":"root", "topic":"Odkrivanje znanja", "direction":"right", "expanded":false},
+				]
+			};
+			var options = {
+				container:'jsmind_container',
+				editable:false,
+				theme:'primary',
+			}
+			jm = jsMind.show(options,mind);
+			jm.view.setZoom(0.8);
+			jm.view.e_panel.scrollLeft = 370;
+		}
+
+		load_jsmind();
+
+		function zoom_in() {
+			jm.view.zoomIn();
+		}
+
+		function zoom_out() {
+			jm.view.zoomOut();
+		}
+
+		function expand_all(){
+			jm.expand_all();
+		}
+
+		function collapse_all(){
+			jm.collapse_all();
+			jm.view.setZoom(0.8);
+			jm.view.e_panel.scrollLeft = 370;
+		}
+
+		function show_selected() {
+			var selected = jm.get_selected_node();
+			if (selected) {
+				$('#'+selected.id).modal('show');
+			}
+		}
+	</script>
+
+	
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

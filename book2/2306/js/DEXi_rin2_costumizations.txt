@@ -1,0 +1,6 @@
+- Dodan id atribut (id="'+att.id+'_element") vsem elementom obrazca.
+  Glej vrstice: 267, 271, 277, 285
+
+- Spremenjeno zaporedje gumbov v 
+  Glej funkcijo: DEXiInterface.prototype.setupMenu
+  Glej vrstice: od 451 dalje

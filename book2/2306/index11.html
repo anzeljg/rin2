@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../favicon.ico" />
+
+    <title>Uporaba pripomočkov pri odločanju</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/simple-sidebar.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+                  <div id="menu1" class="collapse">
+                    <ul class="sidebar-subnav">
+                    <li><a href="../2101/index.html">O učbeniku</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+                  <div id="menu2" class="collapse">
+                    <ul class="sidebar-subnav">
+                    <li><a href="../2201/index.html">Predstavitev informacij</a></li>
+                    <li><a href="../2202/index.html">Predstavitev števil</a></li>
+                    <li><a href="../2203/index.html">Pisna predstavitev</a></li>
+                    <li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+                    <li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+                    <li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+                    <li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+                    <li><a href="../2208/index.html">Spletna predstavitev</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+                  <div id="menu3" class="collapse in">
+                    <ul class="sidebar-subnav">
+                    <li><a href="../2301/index.html">Osnove preglednic</a></li>
+                    <li><a href="../2302/index.html">Osnove grafikonov</a></li>
+                    <li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+                    <li><a href="../2304/index.html">Podatkovne baze</a></li>
+                    <li><a href="../2305/index.html">Osnove SQL</a></li>
+                    <li class="active"><a href="../2306/index.html">Ekspertni sistemi</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+                  <div id="menu4" class="collapse">
+                    <ul class="sidebar-subnav">
+                    <li><a href="../2401/index.html">Razredi in objekti</a></li>
+                    <li><a href="../2402/index.html">Razredi in objekti II</a></li>
+                    <li><a href="../2403/index.html">Zbirke objektov</a></li>
+                    <li><a href="../2404/index.html">Dedovanje</a></li>
+                    <li><a href="../2405/index.html">Dogodki</a></li>
+                    </ul>
+                  </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+            </div>
+            <div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+                    <li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+                    <li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+                    <li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+                    <li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+                    <li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+        </nav>
+
+        <!-- Modal (popup) window: License -->
+        <div id="license" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Licenca</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+                        <p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+                        <p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+                        <p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 1 -->
+        <div id="faza1" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Opredelitev problema</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Najprej moramo določiti, kaj je sploh odločitveni problem: kaj je predmet odločanja. Natančno moramo opredeliti, kakšne <b>cilje</b> želimo z odločitvijo doseči.</p>
+                        <p align="justify">Problem moramo temeljito preučiti, da ga čim bolj spoznamo, saj bomo tako lažje zgradili ustrezen odločitveni model. Pri tem si pomagamo z raznimi viri.</p>
+                        <p align="justify">Pomembno je določiti, kdo je lastnik odločitvenega problema, kdo za odločitev odgovarja in koga odločitev neposredno zadeva. Od vrste, obsega in zapletenosti odločitvenega problema je odvisno, ali je smiselno vključiti v odločitveno skupino eksperte, tehnologa znanja ali predstavnike tiste skupine ljudi, na katere odločitev vpliva.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 2 -->
+        <div id="faza2" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Določitev kriterijev</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Variante ocenjujemo na osnovi kriterijev (parametrov, atributov), ki jih določimo glede na zastavljeni cilj. Bolj nadrobno ko poznamo problem, lažje določimo kriterije.</p>
+                        <p align="justify">V tej fazi odločanja sestavimo <i>spisek</i> kriterijev, po katerih bomo ocenjevali variante.</p>
+                        <p align="justify">Smiselno je, da so kriteriji <b>merljivi</b>, tako si olajšamo delo in omogočimo operativnost.</p>
+                        <p align="justify">Upoštevati je treba <b>načelo polnosti</b>: pomembno je, da se prepričamo, da nismo spregledali kriterijev, ki pomembno vplivajo na odločitev.</p>
+                        <p align="justify">Ugodno je doseči <b>ortogonalnost</b> in <b>neredundatnost</b> kriterijev (kriteriji naj se po možnosti ne prekrivajo, ker bi v tem primeru isti kriterij imel na odločitev večkratni vpliv ali bi se vsebinsko ponavljal).</p>
+                        <p align="justify">Včasih je smiselno, da vključimo v določanje kriterijev celotno odločitveno skupino.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 3 -->
+        <div id="faza3" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Struktuiranje kriterijev</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Iz spiska kriterijev zgradimo drevesno strukturo vsebinsko združenih kriterijev, ki predstavlja ustrezni miselni vzorec. Zaradi človekovih sposobnosti hkratnega razmišljanja o kombinacijah različnih kriterijev ni smiselno združevati več kot tri kriterije.</p>
+                        <p align="justify">Kriterije struktuiramo iz več razlogov:
+                        <ul align="justify">
+                            <li>zaradi preglednosti nad odločitvenim modelom in s tem tudi nad odločitvenim znanjem,</li>
+                            <li>zato da združimo kriterije, ki so vsebinsko povezani, in s tem dosežemo, da smiselno vplivajo na odločitev,</li>
+                            <li>zato da lažje določamo odločitvena pravila, s tem pa dosežemo tudi razumljivo razlago končne odločitve.</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 4 -->
+        <div id="faza4" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Določitev zalog vrednosti kriterijev</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Vsakemu od kriterijev določimo vrednosti, ki jih lahko zavzame. Če je le mogoče, uporabimo naravne vrednosti kriterijev. Torej take kot jih običajno uporabljamo na področju, kamor spada kriterij.</p>
+                        <p align="justify">Pri gradnji odločitvenega modela upoštevamo, da pri listih določimo le toliko različnih vrednosti posameznega parametra, da lahko razlikujemo bistvene razlike med variantami. Ko gremo višje po drevesu, naj število vrednosti za posamezni (združeni) kriterij postopoma raste, kar je pomembno zavoljo občutljivosti modela. Tako na primer pogosto uporabimo na listih tri možne vrednosti, višje pa štiri ali pet.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 5 -->
+        <div id="faza5" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Določitev funkcije koristnosti: odločitvena pravila</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Za posamezne liste – osnovne parametre – določimo vrednost pri opisu variant. Funkcija koristnosti pa določa vpliv podrednih kriterijev na vrednost nadrednega kriterija.</p>
+                        <p align="justify">Ko določamo funkcijo koristnosti za nadredne kriterije, je pomembno ugotoviti, kateri osnovni kriteriji so pomembnejši od drugih. Ugotoviti pa je treba tudi, ali v modelu morda ne nastopajo izločilni kriteriji.</p>
+                        <p align="justify">Funkcijo koristnosti lahko v splošnem izrazimo:
+                        <ul align="justify">
+                            <li>analitično, kot na primer z uteženo vsoto,</li>
+                            <li>točkovno (z odločitvenimi pravili za posamezne vrednosti) v obliki tabel za vsak izpeljan kriterij po točkah po principu <i>če-potem</i>.</li>
+                        </ul>
+                        </p>
+                        <p align="justify">Pri gradnji odločitvenega modela s pomočjo elektronske preglednice določamo funkcijo koristnosti z uporabo uteži, pri gradnji odločitvenega modela s pomočjo programa DEXi pa z utežimi ali pa funkcijo koristnosti podamo po točkah, ko oblikujemo pravila v ustreznih tabelah.</p>
+                        <p align="justify">Pri določanju funkcije koristnosti uporabljamo preferenčno znanje odločevalcev.</p>
+                        <p align="justify">To pa je odvisno ne le od znanj, ki ga ima odločevalec o določeni domeni znanja, ampak tudi od njegovih vrednot in njegovega statusa.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 6 -->
+        <div id="faza6" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Opis variant</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Variante opišemo z vrednostmi po kriterijih. Do vrednosti pridemo po natančni preučitvi posamezne variante.</p>
+                        <p align="justify">Pri tem moramo biti pozorni:
+                        <ul align="justify">
+                            <li>na zanesljivost virov informacij o posamezni varianti,</li>
+                            <li>na čim večjo popolnost podatkov.</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 7 -->
+        <div id="faza7" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Vrednotenje variant</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Končno oceno variant dobimo po vrednotenju variant na osnovi njihovega opisa po parametrih na listih odločitvenega drevesa.</p>
+                        <p align="justify">Program vrednoti od listov proti korenu drevesa kriterijev v skladu:
+                        <ul align="justify">
+                            <li>s strukturo drevesa</li>
+                            <li>z definirano funkcijo koristnosti.</li>
+                        </ul>
+                        </p>
+                        <p align="justify">Vrednost, ki jo na ta način dobimo v korenu drevesa, predstavlja končno oceno variante.</p>
+                        <p align="justify">Varianta z najvišjo oceno je praviloma najboljša. Vrednotenje lahko uporabimo tudi za razvrščanje variant glede na rezultat, ki ga da funkcija koristnosti.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 8 -->
+        <div id="faza8" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Analiza variant</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Z analizo variant ugotavljamo razloge za rezultate vrednotenja. Najboljšo varianto primerjamo z nekaj najbolje ocenjenimi preostalimi variantami.</p>
+                        <p align="justify">Pri analizi si poskušamo odgovoriti na vprašanja:
+                        <ul align="justify">
+                            <li>Zakaj je končna ocena takšna, kot je?</li>
+                            <ul align="justify">
+                                <li>Kateri kriteriji so najbolj prispevali k takšni oceni?</li>
+                                <li>Je v skladu s pričakovanji ali odstopa in zakaj?</li>
+                            </ul>
+                            <li>Katere so bistvene prednosti in pomanjkljivosti posameznih variant?</li>
+                            <li>Ali so vrednosti kriterijev in uporabljene funkcije koristnosti ustrezni?</li>
+                            <li>Kakšna je občutljivost odločitve: kako spremembe vrednosti kriterijev vplivajo na končno oceno?</li>
+                            <li>Ali je mogoče in kako variante izboljšati?</li>
+                            <li>Katere spremembe povzročijo bistveno poslabšanje ocen variant?</li>
+                            <li>V čem se variante bistveno razlikujejo med seboj?</li>
+                        </ul>
+                        </p>
+                        <p align="justify">Če ugotovimo, da se da posamezne parametre neke variante izboljšati, je smiselno pri ponovnem vrednotenju upoštevati izboljšane vrednosti in ponovno primerjati variante med seboj. Z <i>analizo kaj-če</i> lahko tako ugotovimo optimalno varianto v danih možnostih.</p>
+                        <p align="justify">Razlago lahko podpremo tudi z različnimi grafičnimi ponazoritvami.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal (popup) window: Faza 9 -->
+        <div id="faza9" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Odločitev</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p align="justify">Ob končni izbiri je zanimivo ugotoviti, ali so bili cilji odločitvenega procesa doseženi in katere lastnosti izbrane variante bi bile pri realizaciji lahko kritične.</p>
+                        <p align="justify">Samo vrednotenje variant sicer opravi računalniški program na osnovi modela odločanja, analizo variant in končno odločitev pa opravi človek. Odgovornost za odločitev namreč nosi človek, IKT pa mu je lahko v procesu odločanja v bistveno pomoč.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+		<!-- Modal (popup) window: DEXi -->
+		<div id="dexi" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">DEXi</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><img src="img/DEXi.gif" height="128" width="128" align="left" border="0" style="margin-right:10px"><a href="https://kt.ijs.si/MarkoBohanec/dexi.html" target="_blank">DEXi</a> je program za večparametrsko odločanje, ki omogoča izdelavo odločitevnih modelov, njihovo uporabo in analizo. Razvit je bil na osnovi posebne lupine ekspertnega sistema za večparametrsko odločanje DEX, ki deluje v okolju DOS, medtem ko DEXi teče v okolju Windows. Podpira kvalitativne merske lestvice, funkcije koristnosti so predstavljene s pravili tipa <i>če-potem</i> v obliki tabel. Baza znanja je odločitveni model.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+<!-- Left column start -->
+<h1>Uporaba pripomočkov pri odločanju</h1>
+
+<h2>Metode umetne inteligence</h2>
+
+<p align="justify"><img src="img/DEXi.gif" style="padding-right:10px" width="150" align="left">Za gradnjo odločitvenega modela bomo uporabili računalniški program <a href="https://kt.ijs.si/MarkoBohanec/dexi.html" target="_blank">DEXi</a>, ki je v marsičem podoben lupinam ekspertnega sistema.</p>
+
+<p align="justify">DEXi je računalniški program za večparametrsko odločanje. Razvit je bil na osnovi posebne lupine ekspertnega sistema za večparametrsko odločanje DEX, ki deluje v okolju DOS, medtem ko DEXi teče v okolju Windows. Podpira kvalitativne merske lestvice, funkcije koristnosti so predstavljene s pravili tipa <i>če-potem</i> v obliki tabel. Baza znanja je odločitveni model.</p>
+
+<p align="justify">Odločanje s pomočjo programa DEXi poteka tako, da najprej zgradimo model. Ta je sestavljen iz drevesa kriterijev (atributov, parametrov) in odločitvenih pravil. Liste drevesa kriterijev predstavljajo osnovni parametri, ki vplivajo na odločitev. Z odločitvenimi pravili pa določamo vrednosti parametrov v vozliščih drevesa vse do korena, ki predstavlja končno oceno predmeta odločanja. Z odločitvenimi pravili lahko upoštevamo, da je vpliv nekega parametra na končno oceno variante odvisen od njegove vrednosti, kar pomeni, da uteži niso konstante.</p>
+
+<p align="justify">Zalogo vrednosti parametrov običajno sestavljajo naravne vrednosti parametrov. Smiselno jo je tako zmanjšati, da ostaja odločitveni model dovolj občutljiv in razlikuje bistvene razlike med variantami.</p>
+
+<p align="justify">Kriterije združujemo oziroma strukturiramo s funkcijami koristnosti ter tako določimo tudi pomembnost kriterijev &ndash; kateri kriteriji so pomembnejši in zakaj. V odločitvenem  lahko nastopajo tudi izločitveni kriteriji, to so tisti, ki ob določeni vrednosti ne glede na vrednosti drugih kriterijev kaki varianti določijo vrednost. Zgodi pa se lahko tudi, da se kateremu od kriterijev vpliv na končno oceno spreminja glede na njegovo vrednost.</p>
+<!-- Left column end -->
+                    </div>
+                    <div class="col-md-6">
+                        <br />
+<!-- Right column start -->
+<p align="justify">Opis variant v realni odločitveni situaciji pogosto ni popoln. Dogodi se, da vseh podatkov ne dobimo, so nenatančni ali verjetnostnega značaja. Ne glede na to računalniški program DEXi variante ovrednoti. Rezultat pa je lahko podan tudi na intervalu. To je odvisno od vpliva nedoločenega parametra na končno oceno variante.</p>
+
+<p align="justify">Interpretacija rezultatov, ki jo mora narediti človek, poteka od korena preko vozlov do listov odločitvenega drevesa. Za bolj nazorno predstavo pa lahko z DEXi-jem naredimo različne grafične predstavitve: od primerjav variant po posameznih parametrih, do radarskih diagramov, kjer lahko grafično primerjamo med seboj variante po več parametrih.</p>
+
+<div class="alert alert-warning" role="alert">
+<p align="justify">V programu DEXi lahko odpreš primer odločitvenega modela za izbiro potovanja, ki vsebuje strukturirane kriterije, zaloge vrednosti in funkcije koristnosti ter dve testni varianti.</p>
+<p></p>
+<div class="btn-group" role="group" aria-label="...">
+	<button type="button" id="dexi1" class="btn btn-warning"><span class="fa fa-gavel"></span> Odločitveni model</button>
+	<button type="button" class="btn btn-warning" title="DEXi" data-toggle="modal" data-target="#dexi"><span class="fa fa-info"></span></button>
+</div>
+<p></p>
+</div>
+
+<h2>Faze odločitvenega procesa</h2>
+
+<p align="justify"><b>Organiziran odločitveni proces poteka po določenih fazah</b> oziroma korakih, ki jih lahko struktuiramo takole:
+<ol>
+  <li><a href="#faza1" title="Faza 1" data-toggle="modal" data-target="#faza1">opredelitev problema</a>,</li>
+  <li><a href="#faza2" title="Faza 2" data-toggle="modal" data-target="#faza2">določitev kriterijev</a>,</li>
+  <li><a href="#faza3" title="Faza 3" data-toggle="modal" data-target="#faza3">strukturiranje kriterijev</a>,</li>
+  <li><a href="#faza4" title="Faza 4" data-toggle="modal" data-target="#faza4">določitev zaloge vrednosti kriterijev</a>,</li>
+  <li><a href="#faza5" title="Faza 5" data-toggle="modal" data-target="#faza5">določitev funkcije koristnosti: odločitvena pravila</a>,</li>
+  <li><a href="#faza6" title="Faza 6" data-toggle="modal" data-target="#faza6">opis variant z vrednostmi po kriterijih</a>,</li>
+  <li><a href="#faza7" title="Faza 7" data-toggle="modal" data-target="#faza7">vrednotenje variant</a>,</li>
+  <li><a href="#faza8" title="Faza 8" data-toggle="modal" data-target="#faza8">analiza variant</a> in</li>
+  <li><a href="#faza9" title="Faza 9" data-toggle="modal" data-target="#faza9">odločitev</a>.</li>
+</ol>
+</p>
+<!-- Right column end -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Pagination in Footer -->
+            <div class="col-md-12">
+                <center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2305/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2306/index10.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2306/index.html">1</a></li>
+					<li><a href="../2306/index1.html">2</a></li>
+					<li><a href="../2306/index2.html">3</a></li>
+					<li><a href="../2306/index3.html">4</a></li>
+					<li><a href="../2306/index4.html">5</a></li>
+					<li><a href="../2306/index5.html">6</a></li>
+					<li><a href="../2306/index6.html">7</a></li>
+					<li><a href="../2306/index7.html">8</a></li>
+					<li><a href="../2306/index8.html">9</a></li>
+					<li><a href="../2306/index9.html">10</a></li>
+					<li><a href="../2306/index10.html">11</a></li>
+					<li class="active"><a href="#">12</a></li>
+					<li><a href="../2306/index12.html">13</a></li>
+					<li><a href="../2306/index13.html">14</a></li>
+					<li><a href="../2306/index14.html">15</a></li>
+					<li><a href="../2306/index15.html">16</a></li>
+					<li><a href="../2306/index16.html">17</a></li>
+					<li><a href="../2306/index17.html">18</a></li>
+					<li><a href="../2306/index18.html">19</a></li>
+					<li><a href="../2306/index12.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2401/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+                </center>
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- rPage: Highly responsive pagination for Bootstrap -->
+    <script src="../js/responsive-paginate.js"></script>
+    <script>
+    $(document).ready(function () {
+        $(".pagination").rPage();
+        console.log(window.location.origin);
+    });
+    </script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+    <!-- eXe Project -->
+    <script src="../js/exe/common.js"></script>
+
+<!-- Download Flowgorithm file(s) -->
+<script>
+  $("#dexi1").click(function() {
+    var data = '<?xml version="1.0" encoding="UTF-8"?><DEXi><VERSION>5.02</VERSION><CREATED>2019-08-06T00:45:59</CREATED><OPTION>Pariz (avtobus)</OPTION><OPTION>Pariz (letalo)</OPTION><SETTINGS><REPORTS>0;1;2;5;6;7</REPORTS><FONTSIZE>12</FONTSIZE><FONTNAME>Calibri</FONTNAME><FNCSTATUS>True</FNCSTATUS></SETTINGS><ATTRIBUTE><NAME>Potovanje</NAME><DESCRIPTION>Izbira najugodnejšega aranžmaja za potovanje</DESCRIPTION><SCALE><SCALEVALUE><NAME>neustrezno</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>manj ustrezno</NAME></SCALEVALUE><SCALEVALUE><NAME>ustrezno</NAME></SCALEVALUE><SCALEVALUE><NAME>odlično</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><FUNCTION><LOW>000000000000000011012022000011022023000011023033</LOW></FUNCTION><OPTION>2</OPTION><OPTION>2</OPTION><ATTRIBUTE><NAME>Ekonomičnost</NAME><DESCRIPTION>Končna cena potovanja z vsemi doplačili</DESCRIPTION><SCALE><SCALEVALUE><NAME>nesprejemljivo</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>sprejemljivo</NAME></SCALEVALUE><SCALEVALUE><NAME>dobro</NAME></SCALEVALUE><SCALEVALUE><NAME>odlično</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><FUNCTION><LOW>000012123</LOW></FUNCTION><OPTION>2</OPTION><OPTION>1</OPTION><ATTRIBUTE><NAME>Cena</NAME><DESCRIPTION>Cena potovanja v katero je vključen prevoz in bivanje</DESCRIPTION><SCALE><SCALEVALUE><NAME>visoka</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednja</NAME></SCALEVALUE><SCALEVALUE><NAME>nizka</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><OPTION>2</OPTION><OPTION>1</OPTION></ATTRIBUTE><ATTRIBUTE><NAME>Doplačila</NAME><DESCRIPTION>Doplačila, vstopnine in podobno</DESCRIPTION><SCALE><SCALEVALUE><NAME>visoka</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednja</NAME></SCALEVALUE><SCALEVALUE><NAME>nizka</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><OPTION>1</OPTION><OPTION>1</OPTION></ATTRIBUTE></ATTRIBUTE><ATTRIBUTE><NAME>Destinacija</NAME><DESCRIPTION>Kraj kamor želimo odpotovati</DESCRIPTION><SCALE><SCALEVALUE><NAME>nesprejemljivo</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>sprejemljivo</NAME></SCALEVALUE><SCALEVALUE><NAME>dobro</NAME></SCALEVALUE><SCALEVALUE><NAME>odlično</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><FUNCTION><LOW>000000000000000000000111111000000000111111111122122122000000000222222222233233333</LOW><WEIGHTS>50;30;10;10</WEIGHTS><LOCWEIGHTS>40.22;50.00;4.35;5.43</LOCWEIGHTS><NORMLOCWEIGHTS>40.22;50.00;4.35;5.43</NORMLOCWEIGHTS></FUNCTION><OPTION>2</OPTION><OPTION>3</OPTION><ATTRIBUTE><NAME>Znamenitosti</NAME><DESCRIPTION>Znamenitosti, ki si jih bomo ogledali - jih je veliko ali malo</DESCRIPTION><SCALE><SCALEVALUE><NAME>malo</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednje</NAME></SCALEVALUE><SCALEVALUE><NAME>veliko</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><OPTION>2</OPTION><OPTION>2</OPTION></ATTRIBUTE><ATTRIBUTE><NAME>Nastanitev</NAME><DESCRIPTION>Ustreznost nastanitve oziroma bivanja</DESCRIPTION><SCALE><SCALEVALUE><NAME>neustrezna</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>ustrezna</NAME></SCALEVALUE><SCALEVALUE><NAME>zelo ustrezna</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><OPTION>1</OPTION><OPTION>2</OPTION></ATTRIBUTE><ATTRIBUTE><NAME>Zabava</NAME><DESCRIPTION>Kakšne so možnosti zabave in koliko je teh možnosti</DESCRIPTION><SCALE><SCALEVALUE><NAME>malo</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednje</NAME></SCALEVALUE><SCALEVALUE><NAME>veliko</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><OPTION>1</OPTION><OPTION>1</OPTION></ATTRIBUTE><ATTRIBUTE><NAME>Prehrana</NAME><DESCRIPTION>Ali je prehrana ustrezna, raznolika in primerna</DESCRIPTION><SCALE><SCALEVALUE><NAME>neustrezna</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>ustrezna</NAME></SCALEVALUE><SCALEVALUE><NAME>zelo ustrezna</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><OPTION>2</OPTION><OPTION>2</OPTION></ATTRIBUTE></ATTRIBUTE><ATTRIBUTE><NAME>Prevoz</NAME><DESCRIPTION>Kakšen je prevoz na potovanju</DESCRIPTION><SCALE><SCALEVALUE><NAME>neustrezen</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>ustrezen</NAME></SCALEVALUE><SCALEVALUE><NAME>zelo ustrezen</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><OPTION>1</OPTION><OPTION>2</OPTION></ATTRIBUTE></ATTRIBUTE></DEXi>';
+    var blob = new Blob([data], {type: 'text/xml'});
+    var filename = 'Potovanje.dxi';
+    if (window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveBlob(blob, filename);
+    }
+    else {
+      var elem = window.document.createElement('a');
+      elem.href = window.URL.createObjectURL(blob);
+      elem.download = filename;
+      document.body.appendChild(elem);
+      elem.click();
+      document.body.removeChild(elem);
+      window.URL.revokeObjectURL(blob);
+    }
+  });
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

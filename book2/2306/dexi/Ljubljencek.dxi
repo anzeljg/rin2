@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEXi>
+  <VERSION>5.02</VERSION>
+  <CREATED>2019-08-06T09:39:23</CREATED>
+  <OPTION>velik pes</OPTION>
+  <OPTION>majhen pes</OPTION>
+  <OPTION>mačka</OPTION>
+  <OPTION>podgana</OPTION>
+  <OPTION>dihur</OPTION>
+  <SETTINGS>
+    <REPORTS>0;1;2;5;6;7</REPORTS>
+    <FONTSIZE>12</FONTSIZE>
+    <FONTNAME>Calibri</FONTNAME>
+  </SETTINGS>
+  <ATTRIBUTE>
+    <NAME>Izbira hišnega ljubljenčka</NAME>
+    <DESCRIPTION>Izbira najprimernejšega hišnega ljubljenčka - mačka ali pes iz zavetišča, podgana ali dihur</DESCRIPTION>
+    <SCALE>
+      <SCALEVALUE>
+        <NAME>nesprejemljiva</NAME>
+        <GROUP>BAD</GROUP>
+      </SCALEVALUE>
+      <SCALEVALUE>
+        <NAME>sprejemljiva</NAME>
+      </SCALEVALUE>
+      <SCALEVALUE>
+        <NAME>ugodna</NAME>
+      </SCALEVALUE>
+      <SCALEVALUE>
+        <NAME>dobra</NAME>
+        <GROUP>GOOD</GROUP>
+      </SCALEVALUE>
+      <SCALEVALUE>
+        <NAME>odlična</NAME>
+        <GROUP>GOOD</GROUP>
+      </SCALEVALUE>
+    </SCALE>
+    <FUNCTION>
+      <LOW>000000010011011100010111011101220011011101110122011102330233023301110122012202330111013302330233011101220122023301110122012202330111023303330344011101220122023301110233023303440111023303440444</LOW>
+      <CONSIST>False</CONSIST>
+    </FUNCTION>
+    <OPTION>0</OPTION>
+    <OPTION>3</OPTION>
+    <OPTION>3</OPTION>
+    <OPTION>0</OPTION>
+    <OPTION>2</OPTION>
+    <ATTRIBUTE>
+      <NAME>Cena</NAME>
+      <DESCRIPTION>Cena vsega potrebnega za žival</DESCRIPTION>
+      <SCALE>
+        <SCALEVALUE>
+          <NAME>nesprejemljiva</NAME>
+          <GROUP>BAD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>sprejemljiva</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>ugodna</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>zelo ugodna</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+      </SCALE>
+      <FUNCTION>
+        <LOW>000112011222022333</LOW>
+        <WEIGHTS>32;35;33</WEIGHTS>
+        <LOCWEIGHTS>31.76;35.29;32.94</LOCWEIGHTS>
+        <NORMLOCWEIGHTS>35.68;39.65;24.67</NORMLOCWEIGHTS>
+        <CONSIST>False</CONSIST>
+      </FUNCTION>
+      <OPTION>1</OPTION>
+      <OPTION>2</OPTION>
+      <OPTION>3</OPTION>
+      <OPTION>3</OPTION>
+      <OPTION>2</OPTION>
+      <ATTRIBUTE>
+        <NAME>Cena nakupa</NAME>
+        <DESCRIPTION>Pri mački ali psu cena posvojitve iz zavetišča, pri podgani ali dihurju cena nakupa pri rejcu</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>neugodna - 100€ ali več</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>sprejemljiva - 50 do 100€</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>ugodna - 50€ ali manj</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>2</OPTION>
+        <OPTION>2</OPTION>
+        <OPTION>1</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Cena hrane</NAME>
+        <DESCRIPTION>Cena hrane za en mesec</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>neugodna - 100€ ali več</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>sprejemljiva - 50 do 100€</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>ugodna - 50€ ali manj</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>0</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>2</OPTION>
+        <OPTION>2</OPTION>
+        <OPTION>2</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Cena pripomočkov</NAME>
+        <DESCRIPTION>Na primer kletka, ležišče, stranišče in igrače</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>neugodna - 70€ ali več</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>ugodna - 70€ ali manj</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>0</OPTION>
+      </ATTRIBUTE>
+    </ATTRIBUTE>
+    <ATTRIBUTE>
+      <NAME>Učenje</NAME>
+      <DESCRIPTION>Splošne sposobnosti učenja</DESCRIPTION>
+      <SCALE>
+        <SCALEVALUE>
+          <NAME>nizko</NAME>
+          <GROUP>BAD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>srednje</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>visoko</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+      </SCALE>
+      <FUNCTION>
+        <LOW>011122</LOW>
+      </FUNCTION>
+      <OPTION>2</OPTION>
+      <OPTION>2</OPTION>
+      <OPTION>1</OPTION>
+      <OPTION>1</OPTION>
+      <OPTION>1</OPTION>
+      <ATTRIBUTE>
+        <NAME>Učenje trikov in ukazov</NAME>
+        <DESCRIPTION>Sposobnost učenja trikov in ukazov</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>nizka</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>srednja</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>visoka</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>2</OPTION>
+        <OPTION>2</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>1</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Uporaba notranjega stranišča</NAME>
+        <DESCRIPTION>Sposobnost uporabe notranjega stranišča</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>ne uporablja</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>uporablja</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>0</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+      </ATTRIBUTE>
+    </ATTRIBUTE>
+    <ATTRIBUTE>
+      <NAME>Zdravje in oskrba</NAME>
+      <DESCRIPTION>Zdravje in možnost oskrbe živali</DESCRIPTION>
+      <SCALE>
+        <SCALEVALUE>
+          <NAME>nesprejemljivo</NAME>
+          <GROUP>BAD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>sprejemljivo</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>ugodno</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>odlično</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+      </SCALE>
+      <FUNCTION>
+        <LOW>01120113</LOW>
+      </FUNCTION>
+      <OPTION>2</OPTION>
+      <OPTION>2</OPTION>
+      <OPTION>2</OPTION>
+      <OPTION>0</OPTION>
+      <OPTION>1</OPTION>
+      <ATTRIBUTE>
+        <NAME>Puščanje dlake</NAME>
+        <DESCRIPTION>Povprečna količina puščene dlake na oblačilih ali sedežih</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>pušča dlako</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>ne pušča dlake</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>0</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>0</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Veterinarska oskrba</NAME>
+        <DESCRIPTION>Dosegljivost dobre veterinarske oskrbe</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>težko dosegljiva</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>lahko dosegljiva</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>0</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Življenjska doba</NAME>
+        <DESCRIPTION>Povprečna življenjska doba</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>5 let ali manj</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>več kot 5 let</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>1</OPTION>
+      </ATTRIBUTE>
+    </ATTRIBUTE>
+    <ATTRIBUTE>
+      <NAME>Prilagodljivost</NAME>
+      <DESCRIPTION>Prilagodljivost živali na lastnikov način življenja</DESCRIPTION>
+      <SCALE>
+        <SCALEVALUE>
+          <NAME>nizka</NAME>
+          <GROUP>BAD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>srednja</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>visoka</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>zelo visoka</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+      </SCALE>
+      <FUNCTION>
+        <LOW>000000020002000300020003</LOW>
+      </FUNCTION>
+      <OPTION>0</OPTION>
+      <OPTION>3</OPTION>
+      <OPTION>2</OPTION>
+      <OPTION>0</OPTION>
+      <OPTION>2</OPTION>
+      <ATTRIBUTE>
+        <NAME>Odvisnost od družbe</NAME>
+        <DESCRIPTION>Ali lahko žival več ur pustimo samo</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>visoka</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>srednja</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>nizka</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>2</OPTION>
+        <OPTION>2</OPTION>
+        <OPTION>1</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Potovanje</NAME>
+        <DESCRIPTION>Ali je žival možno vzeti na daljše potovanje</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>ni možno</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>je možno</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>0</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Združljivost z mačko</NAME>
+        <DESCRIPTION>Ali lahko žival biva v stanovanju z mačko, ki že živi v stanovanju</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>ni možna</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>je možna</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>0</OPTION>
+        <OPTION>1</OPTION>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Primernost za stanovanje</NAME>
+        <DESCRIPTION>Primernost živali za stanovanje glede na prostorsko omejitev</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>neprimerna</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>primerna</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+        <OPTION>0</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+        <OPTION>1</OPTION>
+      </ATTRIBUTE>
+    </ATTRIBUTE>
+  </ATTRIBUTE>
+</DEXi>

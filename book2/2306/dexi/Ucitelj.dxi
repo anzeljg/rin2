@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEXi>
+  <VERSION>5.02</VERSION>
+  <CREATED>2019-08-06T00:46:01</CREATED>
+  <SETTINGS>
+    <REPORTS>0;1;2;5;6;7</REPORTS>
+  </SETTINGS>
+  <ATTRIBUTE>
+    <NAME>Ocena učitelja</NAME>
+    <DESCRIPTION>Ocena kakovosti učitelja in njegovega dela</DESCRIPTION>
+    <SCALE>
+      <SCALEVALUE>
+        <NAME>slab</NAME>
+        <GROUP>BAD</GROUP>
+      </SCALEVALUE>
+      <SCALEVALUE>
+        <NAME>srednji</NAME>
+      </SCALEVALUE>
+      <SCALEVALUE>
+        <NAME>dober</NAME>
+      </SCALEVALUE>
+      <SCALEVALUE>
+        <NAME>odličen</NAME>
+        <GROUP>GOOD</GROUP>
+      </SCALEVALUE>
+    </SCALE>
+    <FUNCTION>
+      <LOW>000000000000012022000022033</LOW>
+    </FUNCTION>
+    <ATTRIBUTE>
+      <NAME>Predmet</NAME>
+      <DESCRIPTION>Ocena vezana na poučevanje predmeta</DESCRIPTION>
+      <SCALE>
+        <SCALEVALUE>
+          <NAME>slabo</NAME>
+          <GROUP>BAD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>srednje</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>dobro</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+      </SCALE>
+      <FUNCTION>
+        <LOW>000001011000111111000111122</LOW>
+      </FUNCTION>
+      <ATTRIBUTE>
+        <NAME>Cilji</NAME>
+        <DESCRIPTION>Kako jasno so predstavljeni cilji, ki jih mora dijak doseči</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>nejasni</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>delno jasni</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>razumljivi</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Razumljivost</NAME>
+        <DESCRIPTION>Način in razumljivost razlage oziroma podajanja snovi</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>nerazumljivo</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>delno razumljivo</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>razumljivo</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Povezovanje</NAME>
+        <DESCRIPTION>Kako povezuje vsebino z življenjem in drugimi predmeti</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>ne</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>delno</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>da</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+    </ATTRIBUTE>
+    <ATTRIBUTE>
+      <NAME>Učenci</NAME>
+      <DESCRIPTION>Ocena vezana na delo z učenci</DESCRIPTION>
+      <SCALE>
+        <SCALEVALUE>
+          <NAME>slabo</NAME>
+          <GROUP>BAD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>srednje</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>dobro</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+      </SCALE>
+      <FUNCTION>
+        <LOW>000100010002</LOW>
+      </FUNCTION>
+      <ATTRIBUTE>
+        <NAME>Nasveti</NAME>
+        <DESCRIPTION>Ali svojim dijakom svetuje pri učenju</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>nikoli</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>redko</NAME>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>pogosto</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Spoštovanje</NAME>
+        <DESCRIPTION>Ali dijake spoštuje</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>ne</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>da</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Nepristranskost</NAME>
+        <DESCRIPTION>Ali obravnava vse dijake enakovredno</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>ni</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>je</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+    </ATTRIBUTE>
+    <ATTRIBUTE>
+      <NAME>Metodika</NAME>
+      <DESCRIPTION>Ocena vezana na metodiko, ki jo učitelj uporablja</DESCRIPTION>
+      <SCALE>
+        <SCALEVALUE>
+          <NAME>slaba</NAME>
+          <GROUP>BAD</GROUP>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>srednja</NAME>
+        </SCALEVALUE>
+        <SCALEVALUE>
+          <NAME>dobra</NAME>
+          <GROUP>GOOD</GROUP>
+        </SCALEVALUE>
+      </SCALE>
+      <FUNCTION>
+        <LOW>00010112</LOW>
+      </FUNCTION>
+      <ATTRIBUTE>
+        <NAME>Samostojno delo</NAME>
+        <DESCRIPTION>Spodbuja samostojno delo</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>neustrezno</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>ustrezno</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Skupinsko delo</NAME>
+        <DESCRIPTION>Organizira skupinsko delo</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>neustrezno</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>ustrezno</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+      <ATTRIBUTE>
+        <NAME>Literatura in tehnologija</NAME>
+        <DESCRIPTION>Uporablja sodobno literaturo in tehnologijo pri poučevanju</DESCRIPTION>
+        <SCALE>
+          <SCALEVALUE>
+            <NAME>neustrezno</NAME>
+            <GROUP>BAD</GROUP>
+          </SCALEVALUE>
+          <SCALEVALUE>
+            <NAME>ustrezno</NAME>
+            <GROUP>GOOD</GROUP>
+          </SCALEVALUE>
+        </SCALE>
+      </ATTRIBUTE>
+    </ATTRIBUTE>
+  </ATTRIBUTE>
+</DEXi>

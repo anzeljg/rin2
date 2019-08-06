@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li class="active"><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 8 -->
+		<div id="solution8" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitve</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">(a) Pri merskih lestvicah je nujno čim natančneje opisati, kaj pomeni posamezna vrednost v zalogi vrednosti.</p>
+						<p align="justify">(b) Najpomembnejši je kriterij <i>Razumljivost</i>. To izhaja iz Povprečnih uteži: kriterij <i>Razlaga</i> ima največjo globalno vrednost: 19,2.</p>
+						<p align="justify">(c) Izločitveni kriteriji so <i>Razumljivost</i>, <i>Spoštovanje</i> in <i>Nepristranskost</i>, kar je razvidno iz preglednic odločitvenih pravil.</p>
+						<p align="justify">(d) <i>Literatura in tehnologija</i> je kriterij, ki bi ga lahko učitelj z dodatnim izobraževanjem izboljšal.</p>
+						<p align="justify">(e) Za povečanje občutljivosti modela je treba povečati zalogo vrednosti.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: True -->
+		<div id="true" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odgovor</h4>
+					</div>
+					<div class="modal-body bg-success">
+						<p class="text-success">Odgovor je pravilen.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: False -->
+		<div id="false" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odgovor</h4>
+					</div>
+					<div class="modal-body bg-danger">
+						<p class="text-danger">Odgovor je napačen.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Ustrezno poveži različne načine odločanja:</p>
+<br />
+<link href="../css/execute2.css" rel="stylesheet">
+<script src="../js/h5utils/h5utils.js"></script>
+<script src="../js/h5utils/jquery-1.9.0-min.js"></script>
+<script src="../js/h5utils/jquery-ui-1.9.2-min.js"></script>
+<script src="../js/h5utils/jquery.ui.touch-punch.min.js"></script>
+<script src="../js/h5utils/jquery.jsPlumb-1.4.0-all.js"></script>
+<script type="text/javascript">
+var PovezaveKrogci = jQuery.noConflict();
+</script>
+<script src="../js/h5utils/sCript.js"></script>
+<style type="text/css">
+.krogecAppletKrogci {  
+  cursor: pointer;
+}
+._jsPlumb_endpoint {
+  cursor: pointer;
+}
+.binAppletKrogci {
+  border: 0px;
+}
+.ozadjeAppletKrogci {
+  border: 0px;
+  width: 450px;
+  min-height: 100px;
+  margin-top: 0;
+  margin-bottom:10px;
+}
+.odgovorAppletKrogci{
+  width:160px;
+}
+</style>
+<!-- 
+Created by: Rok Penšek <rok.pensek@gmail.com>
+-->
+	<div style="min-height:100px;" id="pravilni_odgovoriAppletKrogci">
+			<div class="ozadjeAppletKrogci">
+				<div class="bin_container">
+					<table class='tDefault'  style="width:100%">
+						<!-- En primerek za 1 vrstico vprašanja in odgovora -->
+						<tr>
+							<td>
+								<!-- Tukaj se nahaja vprašanje -->
+								<!-- id-ji so zelo pomembni, morajo biti unikatni (ne smejo se isto imenovati) v celotnem dokumentu-->
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha1"><div style="margin-right:10px;width:160px;">Intuitivno</div></div>
+								</div>
+								<!-- Tukaj se nahaja odgovor -->
+								<!-- vsebina id mora biti enaka vprašanju s to razliko da mora imeti pred tem podčrtaj (_) -->
+								<!-- To je potrebno zato, da skripta zna povezati vprašanja z pravilnimi odgovori -->
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha1"><div style="margin-left:10px;">Sistematično</div></div>
+								</div>
+							</td>
+						</tr>
+						<!-- Konec primerka za 1 vrstico vprašanja in odgovora -->
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha2"><div style="margin-right:10px;width:160px;">Individualno</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha2"><div style="margin-left:10px;">Skupinsko</div></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="float:left;">
+									<div class="binAppletKrogci krogecAppletKrogci" id="ha3"><div style="margin-right:10px;width:160px;">Racionalno</div></div>
+								</div>
+								<div style="float:right;" class="odgovorAppletKrogci">
+									<div class="binAppletKrogci krogecAppletKrogci" id="_ha3"><div style="margin-left:10px;">Iracionalno</div></div>
+								</div>
+							</td>
+						</tr>
+						</table>
+				</div>
+			</div>
+	</div>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>6</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">V drevesu kriterijev pri večparametrskem odločanju imamo kriterij <i>velikost avtomobila</i>. Združen je iz krterijev: <i>velikost prostora za potnike</i> in <i>velikost prtljažnega prostora</i>. Kriterij <i>velikost avtomobila</i> smo izbrali za izločitveni kriterij. Ali smo ravnali pravilno?</p>
+<p>
+<div class="input-row">
+	<input type="radio" name="option39_73" id="i39_76" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans39_76">Da. Velikost avtomobila je za nas nepomembna.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option39_73" id="i39_99" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans39_99">Da. Imamo veliko družino, zato nujno potrebujemo velik avto.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option39_73" id="i39_702" data-toggle="modal" data-target="#true" />
+	<label class="checkbox-label" id="taans39_702">Ne. Za izločitveni kriterij ne moremo izbrati združenega kriterija.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option39_73" id="i39_705" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans39_705">Ne. Velikost avtomobila nikakor ne more biti izločitveni kriterij.</label>
+</div>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>7</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Kaj ugotavljamo pri <i>analizi kaj-če</i>?</p>
+<p>
+<div class="input-row">
+	<input type="radio" name="option49_73" id="i49_76" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans49_76">Spremembo ocene variante, če dodamo nove variante.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option49_73" id="i49_99" data-toggle="modal" data-target="#true" />
+	<label class="checkbox-label" id="taans49_99">Spremembo ocene variante, če spremenimo vrednosti nekega kriterija.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option49_73" id="i49_702" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans49_702">Spremembo ocene variante, če spremenimo zgradbo drevesa kriterijev.</label>
+</div>
+<div class="input-row">
+	<input type="radio" name="option49_73" id="i49_705" data-toggle="modal" data-target="#false" />
+	<label class="checkbox-label" id="taans49_705">Spremembo ocene variante, če povečamo zalogo vrednosti.</label>
+</div>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>8</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Analiziraj odločitveni model, pripravljen za pomoč pri ocenjevanju učiteljev. Odgovori na vprašanja in s pomočjo modela odgovore utemelji.</p>
+<p align="justify">(a) Kaj je nujno treba opredeliti pri merskih lestvicah osnovnih kriterijev (listov), zato da so kriteriji merljivi in razmeroma objektivni?</p>
+<p align="justify">(b) Kateri kriterij je v tem modelu, v povprečju najpomembnejši?</p>
+<p align="justify">(c) Kateri kriteriji v tem modelu so izločitveni?</p>
+<p align="justify">(d) Kateri kriteriji so primerni za <i>analizo kaj-če</i>? Navedi enega in utemelji, zakaj naj bi bil primeren.</p>
+<p align="justify">(e) Kaj je treba storiti za povečanje občutljivosti modela?</p>
+
+<p><br>
+  <div class="btn-group" role="group" aria-label="...">
+	<button type="button" id="dexi8" class="btn btn-info"><span class="fa fa-gavel"></span> Odločitveni model</button>
+	<a href="./dexi/Ucitelj.pdf" class="btn btn-info" target="_blank"><span class="fa fa-file-text"></span></a>
+  </div>
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution8"><span class="fa fa-check"></span> Rešitve</button>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2305/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2306/index16.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2306/index.html">1</a></li>
+					<li><a href="../2306/index1.html">2</a></li>
+					<li><a href="../2306/index2.html">3</a></li>
+					<li><a href="../2306/index3.html">4</a></li>
+					<li><a href="../2306/index4.html">5</a></li>
+					<li><a href="../2306/index5.html">6</a></li>
+					<li><a href="../2306/index6.html">7</a></li>
+					<li><a href="../2306/index7.html">8</a></li>
+					<li><a href="../2306/index8.html">9</a></li>
+					<li><a href="../2306/index9.html">10</a></li>
+					<li><a href="../2306/index10.html">11</a></li>
+					<li><a href="../2306/index11.html">12</a></li>
+					<li><a href="../2306/index12.html">13</a></li>
+					<li><a href="../2306/index13.html">14</a></li>
+					<li><a href="../2306/index14.html">15</a></li>
+					<li><a href="../2306/index15.html">16</a></li>
+					<li><a href="../2306/index16.html">17</a></li>
+					<li class="active"><a href="#">18</a></li>
+					<li><a href="../2306/index18.html">19</a></li>
+					<li><a href="../2306/index18.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2401/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+<!-- Download Flowgorithm file(s) -->
+<script>
+  $("#dexi8").click(function() {
+    var data = '<?xml version="1.0" encoding="UTF-8"?><DEXi><VERSION>5.02</VERSION><CREATED>2019-08-06T00:46:01</CREATED><SETTINGS><REPORTS>0;1;2;5;6;7</REPORTS></SETTINGS><ATTRIBUTE><NAME>Ocena učitelja</NAME><DESCRIPTION>Ocena kakovosti učitelja in njegovega dela</DESCRIPTION><SCALE><SCALEVALUE><NAME>slab</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednji</NAME></SCALEVALUE><SCALEVALUE><NAME>dober</NAME></SCALEVALUE><SCALEVALUE><NAME>odličen</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><FUNCTION><LOW>000000000000012022000022033</LOW></FUNCTION><ATTRIBUTE><NAME>Predmet</NAME><DESCRIPTION>Ocena vezana na poučevanje predmeta</DESCRIPTION><SCALE><SCALEVALUE><NAME>slabo</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednje</NAME></SCALEVALUE><SCALEVALUE><NAME>dobro</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><FUNCTION><LOW>000001011000111111000111122</LOW></FUNCTION><ATTRIBUTE><NAME>Cilji</NAME><DESCRIPTION>Kako jasno so predstavljeni cilji, ki jih mora dijak doseči</DESCRIPTION><SCALE><SCALEVALUE><NAME>nejasni</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>delno jasni</NAME></SCALEVALUE><SCALEVALUE><NAME>razumljivi</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE><ATTRIBUTE><NAME>Razumljivost</NAME><DESCRIPTION>Način in razumljivost razlage oziroma podajanja snovi</DESCRIPTION><SCALE><SCALEVALUE><NAME>nerazumljivo</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>delno razumljivo</NAME></SCALEVALUE><SCALEVALUE><NAME>razumljivo</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE><ATTRIBUTE><NAME>Povezovanje</NAME><DESCRIPTION>Kako povezuje vsebino z življenjem in drugimi predmeti</DESCRIPTION><SCALE><SCALEVALUE><NAME>ne</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>delno</NAME></SCALEVALUE><SCALEVALUE><NAME>da</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE></ATTRIBUTE><ATTRIBUTE><NAME>Učenci</NAME><DESCRIPTION>Ocena vezana na delo z učenci</DESCRIPTION><SCALE><SCALEVALUE><NAME>slabo</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednje</NAME></SCALEVALUE><SCALEVALUE><NAME>dobro</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><FUNCTION><LOW>000100010002</LOW></FUNCTION><ATTRIBUTE><NAME>Nasveti</NAME><DESCRIPTION>Ali svojim dijakom svetuje pri učenju</DESCRIPTION><SCALE><SCALEVALUE><NAME>nikoli</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>redko</NAME></SCALEVALUE><SCALEVALUE><NAME>pogosto</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE><ATTRIBUTE><NAME>Spoštovanje</NAME><DESCRIPTION>Ali dijake spoštuje</DESCRIPTION><SCALE><SCALEVALUE><NAME>ne</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>da</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE><ATTRIBUTE><NAME>Nepristranskost</NAME><DESCRIPTION>Ali obravnava vse dijake enakovredno</DESCRIPTION><SCALE><SCALEVALUE><NAME>ni</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>je</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE></ATTRIBUTE><ATTRIBUTE><NAME>Metodika</NAME><DESCRIPTION>Ocena vezana na metodiko, ki jo učitelj uporablja</DESCRIPTION><SCALE><SCALEVALUE><NAME>slaba</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>srednja</NAME></SCALEVALUE><SCALEVALUE><NAME>dobra</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE><FUNCTION><LOW>00010112</LOW></FUNCTION><ATTRIBUTE><NAME>Samostojno delo</NAME><DESCRIPTION>Spodbuja samostojno delo</DESCRIPTION><SCALE><SCALEVALUE><NAME>neustrezno</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>ustrezno</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE><ATTRIBUTE><NAME>Skupinsko delo</NAME><DESCRIPTION>Organizira skupinsko delo</DESCRIPTION><SCALE><SCALEVALUE><NAME>neustrezno</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>ustrezno</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE><ATTRIBUTE><NAME>Literatura in tehnologija</NAME><DESCRIPTION>Uporablja sodobno literaturo in tehnologijo pri poučevanju</DESCRIPTION><SCALE><SCALEVALUE><NAME>neustrezno</NAME><GROUP>BAD</GROUP></SCALEVALUE><SCALEVALUE><NAME>ustrezno</NAME><GROUP>GOOD</GROUP></SCALEVALUE></SCALE></ATTRIBUTE></ATTRIBUTE></ATTRIBUTE></DEXi>';
+    var blob = new Blob([data], {type: 'text/xml'});
+    var filename = 'Ucitelj.dxi';
+    if (window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveBlob(blob, filename);
+    }
+    else {
+      var elem = window.document.createElement('a');
+      elem.href = window.URL.createObjectURL(blob);
+      elem.download = filename;
+      document.body.appendChild(elem);
+      elem.click();
+      document.body.removeChild(elem);
+      window.URL.revokeObjectURL(blob);
+    }
+  });
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

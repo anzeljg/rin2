@@ -1,0 +1,88 @@
+/* DEXi HTML Evaluator: CSS Stylesheet
+// v1.0 2016-02-11
+// Marko Bohanec, marko.bohanec@ijs.si
+// http://kt.ijs.si/MarkoBohanec/dexihtml.html
+*/
+
+/*body {
+ font-size: 12pt;
+ font-family: "Arial", "Arial", "Verdana", "Helvetica", sans-serif;
+}*/
+
+.DEXi_menuitem {
+    background-color: Gainsboro;
+    padding: 3px;
+}
+
+.DEXi_model table, .DEXi_model tr, .DEXi_model td, .DEXi_model span , .DEXi_model input, .DEXi_model select, .DEXi_model option  {
+ border-collapse: collapse;
+ border-spacing: 0;
+ text-align: left;
+}
+
+.DEXi_model table {
+ font-size: 1em;
+ line-height: 1.5em;
+}
+
+.DEXi_model td {
+ padding-right: 6px;
+}
+
+#DEXi_model_line {
+  border-top: solid 1px #31708f;
+  height: 10px;
+}
+
+.DEXi_model {
+ page-break-before: auto;
+ page-break-inside: avoid;
+}
+
+.DEXi_attname {
+ white-space: nowrap;
+ padding-left: 2px;
+ padding-right: 2px;
+}
+
+.DEXi_indent {
+ font-family: monospace;
+ font-size: 1.4em;
+ padding-left: 4px;
+ padding-right: 0px;
+ color: #31708f;
+ opacity: 0.5;
+}
+
+.DEXi_indbox {
+ border-left: 1px solid gray;
+ border-bottom: 1px solid gray;
+ position: absolute;
+}
+
+.DEXi_aggregated .DEXi_attname {
+ font-weight: bold;
+}
+
+.DEXi_link .DEXi_attname {
+ font-weight: bold;
+ font-style: italic;
+}
+
+.DEXi_good {
+ color: green;
+ font-style: italic;
+ font-weight: bold;
+}
+
+.DEXi_neutral {
+ color: black;
+ font-style: normal;
+ font-weight: normal;
+}
+
+.DEXi_bad {
+ color: red;
+ font-style: normal;
+ font-weight: bold;
+}

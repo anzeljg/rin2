@@ -1,6 +1,6 @@
 if (jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") {
 	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-80227128-1']);
+	_gaq.push(['_setAccount', 'UA-145311844-1']);
 	_gaq.push(['_trackPageview']);
 	
 	(function() {

@@ -48,3 +48,7 @@ label.checkbox-label {
 .first-answer {
   padding-top: 5px;
 }
+
+dd {
+  padding-bottom: 8px;
+}

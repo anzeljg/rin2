@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Histogram</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<link href="../css/jsxgraph.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/office.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li class="active"><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Instructions -->
+		<div id="instructions" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Navodila za izdelavo starostne piramide</h4>
+					</div>
+					<div class="modal-body">
+						<ol align="justify">
+						    <li>Najprej vnesi podatke, ki jih potrebuješ za izdelavo starostne piramide. V interaktivni preglednici so to vrstice od <code>17</code> do <code>25</code>. Stolpec <code>A</code> vsebuje starostne kategorije, stolpca <code>B</code> in <code>C</code> pa številske podatke po starostnih kategorijah in spolu &ndash; glej zavihek »List2«. Vrstica <code>16</code> vsebuje glavo oziroma opise posameznih stolpcev.</li>
+						    <li>V celicah <code>B26</code> in <code>C26</code> s funkcijo <code>SUM</code> izračunaj skupno število moških in žensk.</li>
+						    <li>V stolpcu <code>D</code> je skupno število moških in žensk po posameznih starostnih kategorijah &ndash; ta stolpec ni potreben za izdelavo starostne piramide.</li>
+						    <li>V celico <code>E17</code> vnesi formulo <code>=0-B17/$B$26</code>, ki bo izračunala odstotek moških v tej starostni kategoriji &ndash; rezultat bo v obliki negativnega decimalnega števila. Formulo nato kopiraj navzdol do celice <code>E25</code>.</li>
+						    <li>V celico <code>F17</code> vnesi formulo <code>=0-C17/$C$26</code>, ki bo izračunala odstotek žensk v tej starostni kategoriji &ndash; rezultat bo v obliki pozitivnega decimalnega števila. Formulo nato kopiraj navzdol do celice <code>F25</code>.</li>
+						    <li>Območje celic <code>E17:F25</code> oblikuj tak, da bodo vrednosti predstavljene/izpisane kot odstotki.</li>
+						    <li>Na tipkovnici drži tipko <code>Ctrl</code> ter z miško izberi naslednja območja celic: <code>A16:A25</code> in <code>E16:F25</code>.</li>
+						    <li>Vstavi grafikon in izberi obliko grafikona, ki naj bo <i>Naloženi stolpčni grafikon</i> (<i>ang. Stacked bar chart</i>).</li>
+						    <li>Oblikuj oznake na osi y tako, da izbereš možnost <i>Nizko</i> (<i>ang. Low</i>) ali <i>Začetek</i> (<i>ang. Outside start</i>) ali kaj podobnega. Ta možnost premakne oznake osi na levo stran grafikona.</li>
+						    <li>Oblikuj oznake na osi x tako, da pri obliki števila izbereš odstotek, <i>Koda oblike</i> (<i>ang. Format code</i>) pa naj bo <code>0%;0%</code>, kar pomeni, da bodo odstotki na obeh straneh na osi x prikazani pozitivno. To kodo moraš vesti sam(-a)!</li>
+						    <li>Oblikuj nize podatkov tako, da bo <i>Prekrivanje nizov</i> (<i>ang. Overlap</i>) nastavljeno na <code>0%</code> in <i>Širina vrzeli</i> (<i>ang. Spacing</i>) prav tako na <code>0%</code>.</li>
+						</ol>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Histogram</h1>
+
+<p align="justify">Histogram je grafikon, ki omogoča odkrivanje in prikaz dejanske <b>frekvenčne porazdelitve množice neprekinjenih podatkov</b>. Neprekinjene podatke &ndash; predmete oziroma stvari &ndash; razdelimo v intervalne oziroma razrede in nato prikažemo pogostnost podatkov v posameznih razredih. Tako dobimo vpogled v same podatke in njihovo osnovno porazdelitev. Histograme uporabljamo v naslednjih primerih:
+<ul align="justify">
+  <li>za prikaz porazdelitve ocen dijakov / dijakinj pri nekem testu;</li>
+  <li>za prikaz različnih ocen, na primer ocena restavracije po mnenju obiskovalcev &ndash; grafikon na zavihku »List1«;</li>
+  <li>za prikaz doseženih razultatov, ki so jih dosegli športniki v neki športni disciplini, na primer razultati tekmovalcev v skoku v daljino / višino in podobno.</li>
+</ul>
+</p>
+
+<p align="justify">Histogram ustvarimo tako, da najprej določimo število razredov, ki naj ne bo preveliko in ne premajhno. Nato interval vseh podatkov razdelimo na enako široke razrede, pri čemer določimo sredino ter spodnjo in zgornjo mejo razredov. Število in širina posameznih razredov določa končni izgled histograma. Če so vsi razredi enako široki, je višina stolpca enaka frekvenci ali odstotku razreda.</p>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Z interaktivnim histogramom razišči, kako število razredov vpliva na prikaz podatkov.</p>
+<div id='jxgbox141' class='jxgbox' style='width:400px; height:275px; margin:10px auto'></div>
+</div>
+
+<p align="justify">Kadar je interval podatkov zelo raznolik, kar pomeni da vsebuje zelo majhne in zelo velike vrednosti, je namesto linearne skale smiselno uporabiti logaritemsko skalo. V tem primeru uporabimo relativno enako široke razrede kar pomeni, da je kvocient med spodnjo in zgornjo mejo v vseh razredih enak oziroma konstanten.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Starostna piramida</h2>
+
+<p align="justify">Posebna vrsta histograma je <b>prebivalstvena</b> oziroma <b>starostna piramida</b> (<i>ang. Popluation pyramid, Age pyramid</i>), ki jo uporabljamo za prikaz spolne in starostne sestave prebivalstva ter razmerja med starostnimi skupinami. S starostno piramido lahko bolj podrobno prikažemo oceno restavracije po mnenju obisovalcev &ndash; grafikon na zavihku »List2«.</p>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">S klikom na gumb si lahko ogledaš, kako lahko ustvariš starostno piramido v različnih programih za delo z elektronskimi preglednicami.</p>
+<p><a href="#instructions" class="btn btn-info" data-toggle="modal" data-target="#instructions">Izdelava starostne piramide</a></p>
+</div>
+
+<div id="tabs">	
+<ul class="nav nav-tabs">
+  <li>&nbsp;&nbsp;&nbsp;</li>
+  <li class="active"><a href="#online" data-toggle="tab">Preglednica</a></li>
+  <li><a href="#offline" data-toggle="tab">Prenos</a></li>
+</ul>
+
+<div class="tab-content clearfix">
+<!-- Online tab -->
+<div class="tab-pane active" id="online" style="height:520px">
+  <br />
+  <center>
+    <iframe id="spreadsheet" width="100%" height="500" frameborder="0" scrolling="no" style="border:1px solid white" src="
+	https://onedrive.live.com/embed?resid=3E8EC42E257225C%21161&authkey=AJUT_jB-xkRIc-o&em=2&wdAllowInteractivity=True&AllowTyping=True&ActiveCell='List1'!A19&wdInConfigurator=True"></iframe>
+  </center>
+</div>
+
+<!-- Offline tab -->
+<div class="tab-pane" id="offline" style="height:520px">
+  <br />
+  <div style="height:350px">
+    <p align="justify">Za uporabo vgrajene interaktivne preglednice, mora ta delovati v povezanem načinu, kar pomeni, da moraš imeti delujočo povezavo na internet.</p>
+	<p align="justify">Če povezava na internet ne deluje, lahko v nepovezanem načinu, v ustreznem programu, odpreš eno izmed spodnjih različic preglednice.</p>
+	<p align="justify">Ustrezno različico preglednice lahko odpreš tudi, če želiš videti ali spremeniti formule in funkcije, ki jih preglednica vsebuje.</p>
+	<p align="center">
+	  <a class="btn btn-excel" href="file/2302-06.xlsx" target="_blank"><span class="fa fa-table"></span> Microsoft Excel</a>
+	  &nbsp;
+      <a class="btn btn-calc" href="file/2302-06.ods" target="_blank"><span class="fa fa-table"></span> LibreOffice Calc</a>
+	  &nbsp;
+      <a class="btn btn-numbers" href="file/2302-06.numbers" target="_blank"><span class="fa fa-table"></span> Apple Numbers</a>
+	</p>
+  </div>
+</div>
+
+</div>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2301/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2302/index5.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2302/index.html">1</a></li>
+					<li><a href="../2302/index1.html">2</a></li>
+					<li><a href="../2302/index2.html">3</a></li>
+					<li><a href="../2302/index3.html">4</a></li>
+					<li><a href="../2302/index4.html">5</a></li>
+					<li><a href="../2302/index5.html">6</a></li>
+					<li class="active"><a href="#">7</a></li>
+					<li><a href="../2302/index7.html">8</a></li>
+					<li><a href="../2302/index8.html">9</a></li>
+					<li><a href="../2302/index9.html">10</a></li>
+					<li><a href="../2302/index10.html">11</a></li>
+					<li><a href="../2302/index11.html">12</a></li>
+					<li><a href="../2302/index12.html">13</a></li>
+					<li><a href="../2302/index13.html">14</a></li>
+					<li><a href="../2302/index14.html">15</a></li>
+					<li><a href="../2302/index15.html">16</a></li>
+					<li><a href="../2302/index16.html">17</a></li>
+					<li><a href="../2302/index17.html">18</a></li>
+					<li><a href="../2302/index7.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2303/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
+
+	<script type='text/javascript'>
+	
+ 	var brd141 = JXG.JSXGraph.initBoard('jxgbox141',{boundingbox: [-2, 10, 14, -2], grid:false, axis:false});  
+	brd141.options.point.visible = false;
+	
+	var slider141;
+ 
+	var arrHistograms141 = new Array();
+
+	var arrHistogramColors141 = ['#0066CC', '#660099', '#990033', '#CC0000', '#FF6600'];
+	var sliderColor141 = '#ff0000';
+	
+	function init141() {	
+		drawCordinateSystem141();
+		drawHistogram141();
+		
+		slider141 = brd141.create('slider',[[10.5,0],[10.5,6],[0,0,4]], {withLabel:false, withTicks:false, snapWidth:1, fillColor:sliderColor141, highline:{visible:false}, baseline:{strokeWidth:2, strokeColor:sliderColor141}}); 
+		brd141.create('text',[slider141.X()+0.5, function(){return slider141.Y();}, function(){return 'Razredi = ' + (slider141.Value()+2);}], {color:sliderColor141});
+
+		brd141.addHook(check141);
+		brd141.update();
+	} 
+	
+	function drawCordinateSystem141() {
+		brd141.create('segment', [[0,0],[10,0]], {strokeColor:'#000000'});
+		brd141.create('segment', [[0,0],[0,8.5]], {strokeColor:'#000000'});
+		
+		for (var q=0; q<10; q++) {
+			if (q%2==0) brd141.create('segment', [[0,0+q],[-0.2,0+q]], {strokeColor:'#000000'});
+			if (q%2==0) brd141.create('text', [-0.8,-0.1+0.4+q, q*10], {anchorY:'top'});
+		}
+		
+		brd141.create('text',[2,-1.4, 'Ocena restavracije'], {fontSize:12});
+		var txt = brd141.create('text',[-1.2,3, 'Število ocen'], {fontSize:12, display:'internal'});
+		var tRot = brd141.create('transform', [90*Math.PI/180, -1.2,3], {type:'rotate'}); 
+		tRot.bindTo(txt);
+		brd141.update();
+	}
+	
+	function drawHistogram141() {
+		var arrHeight;
+		var arrText;
+		var arrTemp = new Array();
+		var x;
+		
+		// dva razreda
+		arrHeight = [6.9,8.1];
+		var arrText1 = ['0', '5', '10'] ;
+		x = 4.5;
+		for (var q=0; q<arrHeight.length; q++)
+			arrTemp.push(brd141.create('polygon',[brd141.create('point',[0.5+x*q,0]), brd141.create('point',[0.5+x+x*q,0]), brd141.create('point',[0.5+x+x*q,arrHeight[q]]), brd141.create('point',[0.5+x*q,arrHeight[q]])], {fillColor:arrHistogramColors141[0], borders:{strokeColor:arrHistogramColors141[0]}}));
+		for (var q=0; q<arrText1.length; q++)
+			arrTemp.push(brd141.create('text', [0.3+x*q,-0.2, function(Q){return function(){return arrText1[Q];};}(q)],{anchorY:'top'}));
+		arrHistograms141.push(arrTemp);
+		arrTemp = new Array();
+
+		// trije razredi
+		arrHeight = [4.2,4.4,6.4];
+		var arrText2 = ['0', '3⅓', '6⅔', '10'];  
+		x = 3;
+		for (var q=0; q<arrHeight.length; q++)
+			arrTemp.push(brd141.create('polygon',[brd141.create('point',[0.5+x*q,0]), brd141.create('point',[0.5+x+x*q,0]), brd141.create('point',[0.5+x+x*q,arrHeight[q]]), brd141.create('point',[0.5+x*q,arrHeight[q]])], {fillColor:arrHistogramColors141[1], borders:{strokeColor:arrHistogramColors141[1]}}));
+		for (var q=0; q<arrText2.length; q++)
+			arrTemp.push(brd141.create('text', [0.3+x*q,-0.2, function(Q){return function(){return arrText2[Q];};}(q)],{anchorY:'top'}));
+		arrHistograms141.push(arrTemp);
+		arrTemp = new Array();
+
+		// stirje razredi
+		arrHeight = [3.2,3.7,3.4,4.7];
+		var arrText3 = ['0', '2½', '5', '7½', '10'];  
+		x = 2.25;
+		for (var q=0; q<arrHeight.length; q++)
+			arrTemp.push(brd141.create('polygon',[brd141.create('point',[0.5+x*q,0]), brd141.create('point',[0.5+x+x*q,0]), brd141.create('point',[0.5+x+x*q,arrHeight[q]]), brd141.create('point',[0.5+x*q,arrHeight[q]])], {fillColor:arrHistogramColors141[2], borders:{strokeColor:arrHistogramColors141[2]}}));
+		for (var q=0; q<arrText3.length; q++)
+			arrTemp.push(brd141.create('text', [0.3+x*q,-0.2, function(Q){return function(){return arrText3[Q];};}(q)],{anchorY:'top'}));
+		arrHistograms141.push(arrTemp);
+		arrTemp = new Array();
+
+	    // pet razredov
+		arrHeight = [3.2,1.9,3.5,3.0,3.4];
+		var arrText4 = ['0', '2', '4', '6', '8', '10'];  
+		x = 1.8;
+		for (var q=0; q<arrHeight.length; q++)
+			arrTemp.push(brd141.create('polygon',[brd141.create('point',[0.5+x*q,0]), brd141.create('point',[0.5+x+x*q,0]), brd141.create('point',[0.5+x+x*q,arrHeight[q]]), brd141.create('point',[0.5+x*q,arrHeight[q]])], {fillColor:arrHistogramColors141[3], borders:{strokeColor:arrHistogramColors141[3]}}));
+		for (var q=0; q<arrText4.length; q++)
+			arrTemp.push(brd141.create('text', [0.3+x*q,-0.2, function(Q){return function(){return arrText4[Q];};}(q)],{anchorY:'top'}));
+		arrHistograms141.push(arrTemp);
+		arrTemp = new Array();
+
+	    // sest razredov
+		arrHeight = [1.3,2.9,2.7,1.7,3.0,3.4];
+		var arrText5 = ['0', '1⅔', '3⅓', '5', '6⅔', '8⅓', '10'];  
+		x = 1.5;
+		for (var q=0; q<arrHeight.length; q++)
+			arrTemp.push(brd141.create('polygon',[brd141.create('point',[0.5+x*q,0]), brd141.create('point',[0.5+x+x*q,0]), brd141.create('point',[0.5+x+x*q,arrHeight[q]]), brd141.create('point',[0.5+x*q,arrHeight[q]])], {fillColor:arrHistogramColors141[4], borders:{strokeColor:arrHistogramColors141[4]}}));
+		for (var q=0; q<arrText5.length; q++)
+			arrTemp.push(brd141.create('text', [0.3+x*q,-0.2, function(Q){return function(){return arrText5[Q];};}(q)],{anchorY:'top'}));
+		arrHistograms141.push(arrTemp);
+	}
+	
+	function setVisibilit141(HISTROGRAM_NO) {
+		for (var q=0; q<arrHistograms141.length; q++)
+			for (var w=0; w<arrHistograms141[q].length; w++)
+				arrHistograms141[q][w].setProperty({visible:q==HISTROGRAM_NO?true:false});
+	}
+	
+	function check141() {
+		setVisibilit141(slider141.Value());
+	}
+	
+	init141();	
+	</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

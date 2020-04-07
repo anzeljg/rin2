@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Stolpčni in palični grafikon</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/office.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li class="active"><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+						<br />
+<!-- Left column start -->
+<div class="alert alert-danger" role="alert">
+<p align="justify">Za tridimenzionalne različice vseh vrst grafikonov velja, da imajo dodano projekcijo tretje dimenzije, ki ne pripomore k boljšemu oziroma lažjemu razumevanju podatkov. Pravzaprav velikokrat le otežuje razumevanje, zato se tridimenzionalnih različic grafikonov raje izogibamo.</p>
+</div>
+
+<h1>Stolpčni in palični grafikon</h1>
+
+<p align="justify">S stolpčnimi in paličnimi grafikoni prikažemo primerjave <b>vrednosti dveh ali več nepovezanih predmetov, dogodkov, krajev, skupin ljudi</b> in podobno. Stolpčne oziroma palične grafikone uporabljamo v naslednjih primerih:
+<ul align="justify">
+  <li>za prikaz skupnega števila dijakov v primerjavi s skupnim številom dijakinj v nekem razredu;</li>
+  <li>za prikaz števila volilcev, ki podpirajo določeno politično stranko;</li>
+  <li>za prikaz števila zlatih / srebrnih / bronastih medalj, ki so jih osvojili posamezni športniki ali ekipe v neki športni disciplini.</li>
+</ul>
+</p>
+
+<p align="justify">Stolpčni grafikoni so običajno oblikovani tako, da se vsi podatki prilegajo grafikonu oziroma so vsi podatki prikazani na grafikonu. Omogočajo predstavitev nepovezanih kategorij podatkov. Kategorije so podatki združeni v skupine, kot so na primer meseci v letu, starostne skupine, velikost stopala in podobno. Te kategorije so običajno kvalitativne. Pri stolpčnem grafikonu so kategorije običajno izpisane vzdolž vodoravne osi, višina stolpca pa ustreza vrednosti vsake izmed kategorij &ndash; grafikon na zavihku »List1«.</p>
+
+<p align="justify">Kadar ni naravnega vrstnega reda kategorij, ki jih primerjamo, lahko stolpce v grafikonu razporedimo v poljubnem vrstnem redu. Če stolpce razporedimo od najvišjega do najnižjega, potem tak grafikon imenujemo Paretov grafikon (<i>ang. Pareto chart</i>) &ndash; grafikon na zavihku »List2«.</p>
+
+<p align="justify">Palični grafikoni so podobni stolpčnim, le da sta osi zamenjani &ndash; kategorije so izpisane vzdolž navpične osi, dolžina palice pa ustreza vrednosti vsake izmed kategorij. Palični grafikoni so primernejši za prikaz kategorij z daljšimi imeni &ndash; grafikon na zavihku »List3«.</p>
+
+<p align="justify">Za bolj zapletene primerjave podatkov lahko uporabljamo tudi <b>gručni stolpčni grafikon</b> (<i>ang. grouped column chart</i>) ali <b>naloženi stolpčni grafikon</b> (<i>ang. stacked column chart</i>).</p>
+
+<p align="justify">Pri gručnem grafikonu vsako kategorijo predstavlja skupina dveh ali več stolpcev. Posamezni stolci so različnih barv in tako predstavljajo določeno skupino. Lastnik picerije lahko tako ustvari gručni stolpčni grafikon z različnima barvama stolpcev, ki predstavljata vsako izmed kategorij pic (mesne in brezmesne) &ndash; grafikon na zavihku »List4« &ndash; vodoravna os v tem primeru prikazuje mesece v letu navpična os pa število prodanih pic.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Lahko pa bi uporabil tudi naloženi stolpčni grafikon. Pri tem grafikonu so stolci posamezne kategoriji naloženi drug na drugega. Višina tako dobljenega stolpca prikazuje skupni rezultat &ndash; grafikon na zavihku »List5«. Vendar pa naloženi stolpčni grafikoni niso primerni za nabore podatkov, ki vsebujejo tudi negativne vrednosti. V takšnih primerih je bolje uporabiti gručne stolpčne grafikone.</p>
+
+<p align="justify">Pri gručnih stolpčnih grafikonih so podatki v vsaki skupini prikazani v istem vrstnem redu. Pri naloženih stolpčnih grafikonih pa so podatki v vsakem stolpcu prikazani v istem vrstnem redu.</p>
+
+<p align="justify">Vse kar smo povedali o gručnih in naloženih stolpčnih grafikonih velja tudi za gručne in naložene palične grafikone.</p>
+
+<div id="tabs">	
+<ul class="nav nav-tabs">
+  <li>&nbsp;&nbsp;&nbsp;</li>
+  <li class="active"><a href="#online" data-toggle="tab">Preglednica</a></li>
+  <li><a href="#offline" data-toggle="tab">Prenos</a></li>
+</ul>
+
+<div class="tab-content clearfix">
+<!-- Online tab -->
+<div class="tab-pane active" id="online" style="height:520px">
+  <br />
+  <center>
+    <iframe id="spreadsheet" width="100%" height="500" frameborder="0" scrolling="no" style="border:1px solid white" src="
+	https://onedrive.live.com/embed?resid=3E8EC42E257225C%21160&authkey=AC1j9NTJWfpy9xM&em=2&wdAllowInteractivity=True&AllowTyping=True&ActiveCell='List1'!A1&wdInConfigurator=True"></iframe>
+  </center>
+</div>
+
+<!-- Offline tab -->
+<div class="tab-pane" id="offline" style="height:520px">
+  <br />
+  <div style="height:350px">
+    <p align="justify">Za uporabo vgrajene interaktivne preglednice, mora ta delovati v povezanem načinu, kar pomeni, da moraš imeti delujočo povezavo na internet.</p>
+	<p align="justify">Če povezava na internet ne deluje, lahko v nepovezanem načinu, v ustreznem programu, odpreš eno izmed spodnjih različic preglednice.</p>
+	<p align="justify">Ustrezno različico preglednice lahko odpreš tudi, če želiš videti ali spremeniti formule in funkcije, ki jih preglednica vsebuje.</p>
+	<p align="center">
+	  <a class="btn btn-excel" href="file/2302-05.xlsx" target="_blank"><span class="fa fa-table"></span> Microsoft Excel</a>
+	  &nbsp;
+      <a class="btn btn-calc" href="file/2302-05.ods" target="_blank"><span class="fa fa-table"></span> LibreOffice Calc</a>
+	  &nbsp;
+      <a class="btn btn-numbers" href="file/2302-05.numbers" target="_blank"><span class="fa fa-table"></span> Apple Numbers</a>
+	</p>
+  </div>
+</div>
+
+</div>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2301/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2302/index4.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2302/index.html">1</a></li>
+					<li><a href="../2302/index1.html">2</a></li>
+					<li><a href="../2302/index2.html">3</a></li>
+					<li><a href="../2302/index3.html">4</a></li>
+					<li><a href="../2302/index4.html">5</a></li>
+					<li class="active"><a href="#">6</a></li>
+					<li><a href="../2302/index6.html">7</a></li>
+					<li><a href="../2302/index7.html">8</a></li>
+					<li><a href="../2302/index8.html">9</a></li>
+					<li><a href="../2302/index9.html">10</a></li>
+					<li><a href="../2302/index10.html">11</a></li>
+					<li><a href="../2302/index11.html">12</a></li>
+					<li><a href="../2302/index12.html">13</a></li>
+					<li><a href="../2302/index13.html">14</a></li>
+					<li><a href="../2302/index14.html">15</a></li>
+					<li><a href="../2302/index15.html">16</a></li>
+					<li><a href="../2302/index16.html">17</a></li>
+					<li><a href="../2302/index17.html">18</a></li>
+					<li><a href="../2302/index6.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2303/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

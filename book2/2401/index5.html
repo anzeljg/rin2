@@ -154,16 +154,15 @@
 <!-- Left column start -->
 <h1>Lastnosti</h1>
 
-<p align="justify">Kot predmeti v resničnem svetu, imajo tudi primerki objektov tako lastnosti, kot tudi metode.</p>
-
 <p align="justify">Lastnosti posameznega primerka lahko spremenimo z uporabo zapisa s piko:
 <pre>
+&gt;&gt;&gt; p = Tocka()
 &gt;&gt;&gt; p.x = 4
 &gt;&gt;&gt; p.y = 3
 </pre>
 </p>
 
-<p align="justify">Spodnji diagram stanja prikazuje rezultat gornjih dveh prireditevnih stavkov:</p>
+<p align="justify">Spodnji diagram stanja prikazuje stanje po izvedbi zgornjih stavkov:</p>
 
 <p align="center"><img src="img/lastnosti.svg" onerror="this.src='lastnosti.png'" class="img-responsive"></p>
 
@@ -186,7 +185,7 @@
 print("(x=" + str(p.x) + ", y=" + str(p.y) + ")")
 kvadrat_razdalje_od_izhodisca = p.x * p.x + p.y * p.y
 </pre>
-Prva vrstica izpiše <code>(x=4, y=3)</code>. Druga vrstica izračuna vrednost 25.</p>
+Prvi stavek izpiše <code>(x=4, y=3)</code>. Drugi stavek  v spremenljivko shrani izračunano vrednost 25.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -223,9 +222,9 @@ p = Tocka(4, 2)
 q = Tocka(6, 3)
 r = Tocka()     # Koordinatno izhodišče (0, 0)
 
-print(p.x)
-print(q.y)
-print(r.x)
+print(p.x, p.y)
+print(q.x, q.y)
+print(r.x, r.y)
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -238,9 +237,9 @@ print(r.x)
 
 <p align="justify">Gornji program izpiše:
 <pre>
-4
-3
-0
+(4, 2)
+(6, 3)
+(0, 0)
 </pre>
 </p>
 <!-- Right column end -->
@@ -352,7 +351,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "python",
   theme: "rin-light"
 });
-editor.setSize('100%', 310);
+editor.setSize('100%', 305);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

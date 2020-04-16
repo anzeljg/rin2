@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Osnovni koncepti objektno usmerjenega programiranja</title>
+	<title>Osnovni koncepti objektnega programiranja</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -172,7 +172,7 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Osnovni koncepti objektno usmerjenega programiranja</h1>
+<h1>Osnovni koncepti objektnega programiranja</h1>
 
 <h2>Razredi</h2>
 
@@ -198,17 +198,21 @@
 </p>
 
 <p align="justify">Ker objekt izdelamo iz razreda, pogosto rečemo, da je objekt <b>primerek</b> (<i>ang. instance</i>) razreda.</p>
+
+<h2>Lastnosti</h2>
+
+<p align="justify">Vrednosti podatkov, ki jih vsebuje objekt, so shranjene v posebnih spremenljivkah, ki jih imenujemo <b>lastnosti</b> (<i>ang. properties</i>). Lastnosti objekta so tesno povezane s samim objektom. Čeprav imajo vsi objekti, ki jih ustvarimo iz danega razreda, iste lastnosti, se vrednosti teh lastnosti med posameznimi objekti razlikujejo.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 <!-- Right column start -->
-<h2>Lastnosti</h2>
-
-<p align="justify">Vrednosti podatkov, ki jih vsebuje objekt, so shranjene v posebnih spremenljivkah, ki jih imenujemo <b>lastnosti</b> (<i>ang. properties</i>). Lastnosti objekta so tesno povezane s samim objektom. Čeprav imajo vsi objekti, ki jih ustvarimo iz danega razreda, iste lastnosti, se vrednosti teh lastnosti med posameznimi objekti razlikujejo.</p>
-
 <h2>Metode</h2>
 
-<p align="justify">Funkcije, ki so definirane znotraj razreda &ndash; in uporabljene v objektu &ndash; imenujemo <b>metode</b> (<i>ang. methods</i>). V veliko pogledih so to kot običajne funkcije &ndash; lahko jim posredujemo vrednosti, lahko vsebujejo lokalne spremenljivke in lahko vračajo vrednosti. Vendar metode objekta tipično uporabljamo za delo z lastnostmi objekta. Na primer metoda <code>prijava()</code>, ki jo uporabimo, da prijavimo člana v spletni forum, nastavi članovo lastnost <code>Prijavljen</code> na resnično oziroma true. Od funkcij se razlikujejo tudi po tem, da vedno vedo, nad katerim objektom jih izvajamo.</p>
+<p align="justify">Funkcije, ki so definirane znotraj razreda &ndash; in uporabljene v objektu &ndash; imenujemo <b>metode</b> (<i>ang. methods</i>). V veliko pogledih so to kot običajne funkcije &ndash; lahko jim posredujemo vrednosti, lahko vsebujejo lokalne spremenljivke in lahko vračajo vrednosti. Vendar metode objekta tipično uporabljamo za delo z lastnostmi objekta.</p>
+
+<p align="justify">Na primer metoda <code>prijava()</code>, ki jo uporabimo, da prijavimo člana v spletni forum, nastavi članovo lastnost <code>prijavljen</code> na resnično oziroma <code>True</code>. Podobno bo metoda <code>obseg()</code> v razredu <code>Pravokotnik</code> iz podatkov o pravokotniku izračunala in vrnila njegov obseg.</p>
+
+<p align="justify">Metode se od funkcij razlikujejo tudi po tem, da vedno »vedo«, nad katerim objektom jih izvajamo.</p>
 
 <p align="center">
 <img src="img/atom_punk_car_sketch_by_fernand0fc.jpg" class="img-responsive" />

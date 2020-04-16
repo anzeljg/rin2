@@ -246,27 +246,25 @@
 
 <p align="justify">Pri <b>objektno usmerjenem programiranju</b> (<i>ang. object-oriented programming &ndash; OOP</i>) pa izhajamo iz samih podatkov za katere določimo postopke, ki jih lahko nad temi podatki izvajamo. Tako so podatki in funkcije, ki delujejo nad temi podatki, združeni v samostojno enoto oziroma entiteto, ki ji rečemo <b>objekt</b> (<i>ang. object</i>). Namesto, da bi funkcijam posredovali podatke, naložimo podatke, s katerimi želimo delati, v objekt ter nato pokličemo funkcije objekta, ki na podlagi podatkov objekta ustvarijo želeni rezultat.</p>
 
-<p align="justify">Objekti, ki jih ustvarimo, pogosto odražajo entitete v resničnem svetu. Na primer, če bi želeli napisati programsko kodo za forum na spletni strani, bi zelo verjetno ustvarili objekt <code>Oseba</code>, ki bi vseboval vse informacije o nekem članu foruma (na primer ime, uporabniško ime, e-poštni naslov, geslo itd.), kot tudi funkcije, ki bi delovale s temi podatki ali nad temi podatki (na primer registracija, prijava, odjava, prepoved itd.).</p>
+<p align="justify">Poglejmo enostaven primer. Denimo, da imamo podatka o dolžini stranic pravokotnika. Pri »navadnem« programiranju bi ta dva podatka shranili v dve spremenljivki. V kodi med spremenljivkama ni nobene povezave, je le v programerjevi glavi. Ko želimo izračunati ploščino tega pravokotnika, napišemo funkcijo, ki sprejme dva parametra (dolžini stranic) in vrne ploščino. </p>
 
-<p align="justify"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#differences"><span class="fa fa-balance-scale"></span> Razlike med strukturiranim in objektno usmerjenim programiranjem</a></p>
-
-<p align="justify">Z objektno usmerjenim programiranjem dobimo možnost ustvarjanja novih podatkovnih tipov oziroma podatkovnih struktur. S tem lahko predpišemo, kaj smemo z določenimi podatki početi. Za podatkovne tipe, ki so vgrajeni v jezik, je poskrbljeno (dveh nizov ne moremo zmnožiti), a načeloma ne dovolj.</p>
+<p align="justify">Pri objektno usmerjenem programiranju pa bi ustvarili razred <code>Pravokotnik</code>. Ta bi omogočal tako hranjenje podatkov o dolžini stranic določenega pravokotnika, kot tudi vseboval funkcijo, ki pove ploščino tega pravokotnika. Podatka sta sedaj povezana, saj sta del istega objekta. Prav tako funkcija, ki računa ploščino, »ve«, da podatka predstavljata dolžini stranic.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
+<p align="justify">Objekti, ki jih ustvarimo, pogosto odražajo entitete v resničnem svetu. Na primer, če bi želeli napisati programsko kodo za forum na spletni strani, bi zelo verjetno ustvarili objekt <code>Oseba</code>, ki bi vseboval vse informacije o nekem članu foruma (na primer ime, uporabniško ime, e-poštni naslov, geslo itd.), kot tudi funkcije, ki bi delovale s temi podatki ali nad temi podatki (na primer registracija, prijava, odjava, prepoved itd.).</p>
+
+<p align="justify"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#differences"><span class="fa fa-balance-scale"></span> Razlike med strukturiranim in objektno usmerjenim programiranjem</a></p>
+
+<p align="justify">Z objektno usmerjenim programiranjem dobimo možnost ustvarjanja novih podatkovnih tipov oziroma podatkovnih struktur. S tem lahko predpišemo, kaj smemo z določenimi podatki početi. Za podatkovne tipe, ki so vgrajeni v jezik, je poskrbljeno (dveh nizov ne moremo zmnožiti), a načeloma ne dovolj.</p>
+
 <p align="justify">Recimo, da imamo podatek o tem, koliko sporočil je v forumu objavil uporabnik. Dobro bi bilo, če bi ta podatek imeli shranjen v podatkovnem tipu, ki ne bi dovolil, da dva tovrstna podatka med sabo zmnožimo!</p>
 
 <p align="center">
 <img src="img/PhpBB_forum.png" data-toggle="modal" data-target="#image" class="img-responsive" style="cursor:pointer" />
 </p>
-
-<h2>Dogodkovno programiranje</h2>
-
-<p align="justify"><b>Dogodkovno programiranje</b> (<i>ang. event-driven programming</i>) je slog programiranja, pri katerem tok programa določajo različni dogodki, kot na primer dejanja uporabnikov (klik z miško, pritisk tipke), izhodi senzorjev ali sporočila, ustvarjena v tem ali v drugih programih. Dogodkovno programiranje je prevladujoči slog programiranja, ki se uporablja pri programih, opremljenih z grafičnimi uporabniškimi vmesniki (take so danes praktično vse aplikacije) in deluje tako, da izvaja določena dejanja kot odgovor na dejanja uporabnikov (klik z miško, vnos podatka itd.)</p>
-
-<p align="justify">Programi razviti z uporabo dogodkovnega porgramiranja običajno delujejo tako, da zaženejo glavno zanko (<i>ang. main loop</i>), ki čaka na dogodke. Ko se zgodi eden izmed dogodkov, glavna zanka sproži povratno funkcijo (<i>ang. callback function</i>), ki izvede določeno dejanje oziroma funkcijo.</p>
 <!-- Right column end -->
 					</div>
 				</div>

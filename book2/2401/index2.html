@@ -151,20 +151,34 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
+<h1>Kaj je objektno usmerjeno programiranje</h1>
+
+<p align="justify">Zelo pomembno pri objektno usmerjenem programiranju je tudi to, da na enostaven način omogoča, da podatke o določeni stvari hranimo na en način, uporabljamo pa na drug način.</p>
+
+<p align="justify">Verjetno si že opazil(-a), da programi za preglednice datume hranijo v obliki celega števila, nam pa jih prikazujejo na »običajen način« (denimo kot 21. 3. 2019). Zaradi takega načina se lahko zelo poenostavijo določeni postopki, denimo računanje števila dni med dvema datumoma. Prav tako je enostavneje omogočiti prikaz datumov še na druge načine (denimo kot 21-Mar-2019).</p>
+
+<p align="justify">Ne zanima nas način, kako je podatek (o objektu vrste <code>Datum</code>) shranjen, objektu le naročimo (nad njim izvedemo funkcijo), v kakšni obliki naj posreduje hranjeni datum.</p>
+
+<h2>Dogodkovno programiranje</h2>
+
+<p align="justify"><b>Dogodkovno programiranje</b> (<i>ang. event-driven programming</i>) je slog programiranja, pri katerem tok programa določajo različni dogodki, kot na primer dejanja uporabnikov (klik z miško, pritisk tipke), izhodi senzorjev ali sporočila, ustvarjena v tem ali v drugih programih. Dogodkovno programiranje je prevladujoči slog programiranja pri programih, opremljenih z grafičnimi uporabniškimi vmesniki (take so danes praktično vse aplikacije). Deluje tako, da izvaja določena dejanja kot odgovor na dejanja uporabnikov (klik z miško, vnos podatka itd.)</p>
+
+<p align="justify">Programi, razviti z uporabo dogodkovnega programiranja, običajno delujejo tako, da zaženejo glavno zanko (<i>ang. main loop</i>), ki čaka na dogodke. Ko se zgodi eden izmed dogodkov, glavna zanka sproži povratno funkcijo tega dogodka (<i>ang. callback function</i>). Ta izvede določeno dejanje oziroma postopek.</p>
+
 <h1>Prednosti objektno usmerjenega programiranja</h1>
 
 <p align="justify">Strukturirano in objektno usmerjeno programiranje sta dva različna načina za dosego istega cilja. Nobeden izmed obeh načinov ni »boljši« od drugega, to je v veliki meri odvisno od osebnega okusa programerja oziroma razvijalca programske kode. Obstaja nekaj prednosti, ki jih programrerjem oziroma razvijalcem ponuja uporaba objektno usmerjenega sloga programiranja:</p>
 
 <p align="justify"><b>Enostavna preslikava situacij iz resničnega življenja:</b> Objekte je enostavno preslikati v »objekte« v resničnem življenju, kot so na primer osebe, različni predmeti, izdelki, nakupovalni vozički v spletnih trgovinah, objave v spletnem dnevniku itd. To zelo olajša pisanje programov. Vnaprej je precej jasna vloga vsakega objekta, podobno pa so jasni tudi odnosi oziroma povezave med posameznimi objekti.</p>
-
-<p align="justify"><b>Enostavno pisanje modularne kode:</b> Objektno usmerjen slog programiranja je zelo primeren za pisanje kode v ločenih modulih. Z ločevanjem kode v ločene module je koda bolj obvladljiva, saj so moduli namenski &ndash; rešujejo točno določene probleme oziroma naloge nad določeno vrsto podatkov. Posledično je tako kodo lažje razhroščevati in razširiti njene zmožnosti.</p>
-
-<p align="justify"><b>Enostavno pisanje kode za večkratno uporabo:</b> Objektno usmerjeno programiranje omogoča relativno enostavno pisanje kode za večkratno uporabo, saj so podatkovne strukture in funkcije združene v enem objektu, primernem za večkratno uporabo. To nam pri pisanju aplikacij prihrani veliko časa. Sčasoma lahko zgradimo celo knjižnico modulov kode za večkratno uporabo. Te module potem lahko uporabimo v različnih aplikacijah. Prav tako je mogoče vzeti obstoječi objekt in ga razširiti za uporabo v novi aplikaciji tako, da objektu dodamo nove funkcionalnosti. Tudi tako lahko objekte na enostaven način uporabimo večkrat.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
+<p align="justify"><b>Enostavno pisanje modularne kode:</b> Objektno usmerjen slog programiranja je zelo primeren za pisanje kode v ločenih modulih. Z ločevanjem kode v ločene module je koda bolj obvladljiva, saj so moduli namenski &ndash; rešujejo točno določene probleme oziroma naloge nad določeno vrsto podatkov. Posledično je tako kodo lažje razhroščevati in razširiti njene zmožnosti.</p>
+
+<p align="justify"><b>Enostavno pisanje kode za večkratno uporabo:</b> Objektno usmerjeno programiranje omogoča relativno enostavno pisanje kode za večkratno uporabo, saj so podatkovne strukture in funkcije združene v enem objektu, primernem za večkratno uporabo. To nam pri pisanju aplikacij prihrani veliko časa. Sčasoma lahko zgradimo celo knjižnico modulov kode za večkratno uporabo. Te module potem lahko uporabimo v različnih aplikacijah. Prav tako je mogoče vzeti obstoječi objekt in ga razširiti za uporabo v novi aplikaciji tako, da objektu dodamo nove funkcionalnosti. Tudi tako lahko objekte na enostaven način uporabimo večkrat.</p>
+
 <p align="justify"><b>Določanje novih podatkovnih tipov:</b> Na posamezne razrede lahko gledamo kot na nove podatkovne tipe. Razrede lahko sestavimo tako, da so podatki, ki opisujejo določen objekt vedno smiselni oziroma v določenem stanju. Na primer razred <code>Ulomek</code> lahko sestavimo tako, da bo imenovalec vedno pozitiven. Na ta način lahko poenostavimo delo s podatki, ki nam predstavljajo ulomke, saj ni treba paziti na to, da je imenovalec morda enak 0. Prav tako lahko ločimo način, kako podatke hranimo in kako so predstavljeni &ndash; na primer v objektu tipa <code>Datum</code> lahko datum hranimo v obliki števila (datum je predstavljen na primer kot število dni po 1. 1. 1800), ob prirejanju in izpisovanju pa lahko uporabimo »običajni« zapis kot »21/3/2018«.</p>
 
 <p align="center">

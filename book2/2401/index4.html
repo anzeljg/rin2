@@ -183,7 +183,6 @@ class Tocka:
   def __init__(self):
     self.x = 0
     self.y = 0
-
 </pre>
 </p>
 <!-- Left column end -->
@@ -191,9 +190,9 @@ class Tocka:
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">Definicije razredov so lahko kjerkoli v programu, vendar jih običajno postavimo na začetek programa (takoj za uvozom zunanjih knjižnic &ndash; stavki <code>import</code>). Nekateri programerji in nekateri programski jeziki zahtevajo, da je vsak razred v svoji datoteki &ndash; tega mi ne bomo počeli.</p>
+<p align="justify">Definicije razredov so lahko kjerkoli v programu, vendar jih običajno postavimo na začetek programa (takoj za uvozom zunanjih knjižnic &ndash; stavki <code>import</code>).</p>
 
-<p align="justify">Vsak razred mora imeti posebno metodo, ki se imenuje <code>__init__</code>. Ta metoda se samodejno izvede vsakokrat, ko se ustvari nov primerek objekta <code>Tocka</code>. Tako lahko nastavimo lastnosti objekta oziroma začetne vrednosti teh lastnosti. Namesto <code>self</code> bi lahko uporabili tudi katerokoli drugo ime, vendar uporabljamo <code>self</code>, ker je tak dogovor. Parameter <code>self</code> se samodejno nastavi tako, da se sklicuje na novo ustvarjeni objekt, ki mu nastavljamo začetne vrednosti.</p>
+<p align="justify">Razred  ima posebno metodo, ki se imenuje <code>__init__</code>. Ta metoda se samodejno izvede vsakokrat, ko se ustvari nov primerek objekta. V tej metodi nastavimo lastnosti objekta oziroma začetne vrednosti teh lastnosti. Parameter <code>self</code> označuje na novo ustvarjeni objekt, ki mu nastavljamo začetne vrednosti.</p>
 
 <p align="justify">Uporabimo razred <code>Tocka</code>, ki smo ga ustvarili:</p>
 
@@ -210,10 +209,8 @@ class Tocka:
 p = Tocka() # Ustvarimo prvi objekt Tocka
 q = Tocka() # Ustvarimo drugo točko
 
-print(p.x)
-print(p.y)
-print(q.x)
-print(q.y)
+print(p.x, p.y)
+print(q.x, q.y)
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -226,12 +223,10 @@ print(q.y)
 
 <p align="justify">Gornji program izpiše:
 <pre>
-0
-0
-0
-0
+(0, 0)
+(0, 0)
 </pre>
-saj smo med inicializacijo obeh objektov, ustvarili dve lastnosti <code>x</code> in <code>y</code> ter obe lastnosti nastavili na vrednost 0.</p>
+saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>x</code> in <code>y</code> ter ju nastavili na 0.</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -341,7 +336,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "python",
   theme: "rin-light"
 });
-editor.setSize('100%', 220);
+editor.setSize('100%', 240);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

@@ -174,18 +174,18 @@ class Tocka:
 </p>
 
 <p align="justify">Toda, ali ne obstaja funkcija <code>str</code>, ki samodejno pretvarja tip podatkov iz objekta v niz. Seveda obstaja! Tudi funkcija <code>print</code> samodejno pretvarja objekte v nize, ko jih izpisuje? Tudi to drži! Vendar ti samodejni mehanizmi še ne delujejo, kot bi si želeli:</p>
-<!-- Left column end -->
-					</div>
-					<div class="col-md-6">
-						<br />
-<!-- Right column start -->
+
 <p><pre>
 &gt;&gt;&gt; str(t)
 '<__main__.Tocka object>'
 &gt;&gt;&gt; print(t)
 '<__main__.Tocka object>'
 </pre></p>
-
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
 <p align="justify">To lahko zelo enostavno popravimo tako, da našo metodo <code>v_niz</code> preimenujemo v <code>__str__</code>. Tako se bo ta metoda izvedla vsakokrat, ko bomo želeli objekt <code>Tocka</code> spremeniti v niz, na primer, kadar bomo uporabili funkciji <code>str</code> in <code>print</code>. Spremenimo oziroma ustrezno dopolnimo naš program:</p>
 
 <div>
@@ -215,6 +215,12 @@ print(p)
 </form>
 </div>
 <pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše koordinate točke:
+<pre>
+(4, 3)
+</pre>
+</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -324,7 +330,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "python",
   theme: "rin-light"
 });
-editor.setSize('100%', 240);
+editor.setSize('100%', 305);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

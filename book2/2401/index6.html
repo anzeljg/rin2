@@ -171,16 +171,17 @@
 <p align="justify">Ustvarjanje razreda, kot na primer <code>Tocka</code>, prinaša našemu razmišljanju in programom, ki jih ustvarimo, izjemno količino »organizacijske moči«. To pomeni, da lahko združimo različne vrste podatkov s smiselnimi operacijami nad temi podatki. Vsak primerek razreda pa lahko ima tudi svoje stanje, ki je neodvisno od stanj drugih primerkov.</p>
 
 <p align="justify">Najprej ponovimo, kako izračunamo razdaljo $d$ med poljubno točko in koordinatnim izhodiščem. Ta razdalja je enaka kvadratnemu korenu vsote kvadratov obeh koordinat točke. Izračunamo jo s pomočjo spodnje formule: $$d = \sqrt{x^2 + y^2}$$
-Če imamo na primer točko $A = (4, 3)$ je njena razdalja od koordinatnega izhodišča $O$ enaka 5.</p>
+Če imamo na primer točko $A = (4, 3)$ je njena razdalja od koordinatnega izhodišča enaka 5.</p>
 
 <div id="jxgbox16" class="jxgbox" style="width:438px;height:200px;margin:8px auto;"></div>
+<br />
+
+<p align="justify">Sedaj, ko smo ponovili, kako izračunamo razdaljo med točko in koordinatnim izhodiščem, dodajmo razredu <code>Tocka</code> metodo <code>razdalja_od_izhodisca</code>, da bomo lažje razumeli, kako metode delujejo in kako jih uporabljamo:</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">Sedaj, ko smo ponovili, kako izračunamo razdaljo med točko in koordinatnim izhodiščem, dodajmo razredu <code>Tocka</code> metodo <code>razdalja_od_izhodisca</code>, da bomo lažje razumeli, kako metode delujejo in kako jih uporabljamo:</p>
-
 <div>
 <form>
 <p><textarea id="code">
@@ -328,7 +329,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "python",
   theme: "rin-light"
 });
-editor.setSize('100%', 280);
+editor.setSize('100%', 360);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

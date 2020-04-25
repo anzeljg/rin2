@@ -143,6 +143,62 @@
 			</div>
 		</div>
 
+		<!-- Modal (popup) window: EMŠO -->
+		<div id="description" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Enotna matična številka občana &ndash; EMŠO</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Enotna matična številka občana (kratica EMŠO) je osebna identifikacijska številka v Republiki Sloveniji. EMŠO določi upravljavec centralnega registra prebivalstva (CRP) enotno za vse prebivalce Republike Slovenije, vključno s tujimi državljani. EMŠO je bil uveden leta 1976 v SFRJ in je še danes v uporabi v državah na območju bivše Jugoslavije vključno s Slovenijo.</p>
+						<p align="justify">EMŠO sestavlja trinajst števk (DDMMLLLRRZZZK), ki imajo naslednji pomen:
+							<ul align="justify">
+								<li>od 1. do 7. števke: DDMMLLL &ndash; datum rojstva (dve mesti za dan, dve mesti za mesec in tri mesta za zadnje tri števke letnice rojstva)</li>
+								<li>8. in 9. števka: RR &ndash; številka registra, označuje območje rojstva osebe (50-59 za Slovenijo; uporabljena je samo 50)</li>
+								<li>10., 11. in 12. števka: ZZZ &ndash; zaporedna številka oziroma kombinacija spola in zaporedne številke za osebe, rojene istega dne (000-499 za moške in 500-999 za ženske)</li>
+								<li>13. števka: K &ndash; kontrolna števka, izračunana po modulu 11 (glej spodaj).</li>
+							</ul>
+						</p>
+						<p align="justify">Če je EMŠO določena na napačen datum rojstva ali spol, jo upravljavec centralnega registra razveljavi in ponovno določi, razveljavljena EMŠO pa ostane v evidenci. Ob spremembah drugih osebnih podatkov oseba obdrži dodeljeno EMŠO. Razveljavljene EMŠO se ne sme dodeliti drugemu posamezniku.</p>
+						<p><b>Izračun kontrolne vsote</b></p>
+						<p align="justify">Postopek:
+							<ul align="justify">
+								<li>prva številka EMŠO se pomnoži s 7</li>
+								<li>druga številka EMŠO se pomnoži s 6</li>
+								<li>tretja številka EMŠO se pomnoži s 5</li>
+								<li>četrta številka EMŠO se pomnoži s 4</li>
+								<li>peta številka EMŠO se pomnoži s 3</li>
+								<li>šesta številka EMŠO se pomnoži z 2</li>
+								<li>sedma številka EMŠO se pomnoži s 7</li>
+								<li>osma številka EMŠO se pomnoži s 6</li>
+								<li>deveta številka EMŠO se pomnoži s 5</li>
+								<li>deseta številka EMŠO se pomnoži s 4</li>
+								<li>enajsta številka EMŠO se pomnoži s 3</li>
+								<li>dvanajsta številka EMŠO se pomnoži z 2.</li>
+							</ul>
+						</p>
+						<p align="justify">Dobljeni zmnožki iz prvega odstavka se seštejejo. Seštevek se deli z enajst (delitev se omeji na celo število). Ostanek pri deljenju se odšteje od števila 11, razlika je kontrolna številka. Kontrolna številka je enomestna, ima lahko vrednost od 0 do 9. Če je ostanek pri deljenju 0, je kontrolna številka 0.</p>
+						<p align="justify">Kadar upravljavec CRP določa EMŠO in je ostanek pri deljenju enak 1, je razlika dvomestna in kontrolne številke ni mogoče izračunati. V takem primeru zaporedno število preskoči, vrednost zaporedne številke poveča za 1, izračun kontrolne številke pa ponovi po istem postopku.</p>
+						<p><b>Formula za elektronske preglednice</b></p>
+						<p align="justify">Če so v celici <code>A1</code> podatki (prvih 12 števk EMŠO), lahko izračunamo kontrolno vsoto (zadnja števka) po formuli:
+<pre>
+=IF(11-MOD((7*(MID(A1;1;1)+MID(A1;7;1)) + 6*(MID(A1;2;1)+MID(A1;8;1)) + 5*(MID(A1;3;1)+MID(A1;9;1)) + 4*(MID(A1;4;1)+MID(A1;10;1)) + 3*(MID(A1;5;1)+MID(A1;11;1)) + 2*(MID(A1;6;1)+MID(A1;12;1)));11) = 11; 0; 11-MOD((7*(MID(A1;1;1)+MID(A1;7;1)) + 6*(MID(A1;2;1)+MID(A1;8;1)) + 5*(MID(A1;3;1)+MID(A1;9;1)) + 4*(MID(A1;4;1)+MID(A1;10;1)) + 3*(MID(A1;5;1)+MID(A1;11;1)) + 2*(MID(A1;6;1)+MID(A1;12;1))); 11))
+</pre>
+						</p>
+						<p><small><a href="https://sl.wikipedia.org/wiki/Enotna_mati%C4%8Dna_%C5%A1tevilka_ob%C4%8Dana" target="_blank">Vir</a></small></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
@@ -159,7 +215,7 @@
 </p>
 <p align="justify">V občini Višnja Gora pripravljajo elektronski matični register občanov. Register je tabela v programu za delo s preglednicami, kot ga prikazuje spodnja slika:</p>
 <p align="center"><img src="img/2301-naloga6.png" width="520"></p>
-<p align="justify">Tabela vsebuje ime in priimek občana ter enotno matično številko občana – EMŠO. Za potrebe urejanja po datumu rojstva želijo dodati še datum rojstva v obliki leto-mesec-dan (LLLL-MM-DD). Ta podatek se bo nahajal v stolpcu <code>G</code>.</p>
+<p align="justify">Tabela vsebuje ime in priimek občana ter <a href="#description" title="EMŠO" data-toggle="modal" data-target="#description">enotno matično številko občana &ndash; EMŠO</a>. Za potrebe urejanja po datumu rojstva želijo dodati še datum rojstva v obliki leto-mesec-dan (LLLL-MM-DD). Ta podatek se bo nahajal v stolpcu <code>G</code>.</p>
 <p align="justify">(a) Najprej v stolpce <code>D</code>, <code>E</code> in <code>F</code> iz EMŠO številke izlušči ločeno dan, mesec in leto rojstva občana (uporabi funkcije <code>MID</code>, <code>IF</code> in <code>CONCATENATE</code>). Sestavi samo eno formulo in jo skopiraj po ostalih celicah.</p>
 <p align="justify">(b) Nato v stolpcu <code>G</code> sestavi datum rojstva v ustrezni obliki (uporabi vmesne rezultate iz stolpcev <code>D</code>, <code>E</code> in <code>F</code> ter funkcijo <code>CONCATENATE</code>). Sestavi samo eno formulo in jo skopiraj po ostalih celicah.</p>
 <p align="justify">(c) Nazadnje v stolpcu <code>H</code> izpiši spol občana (uporabi funkciji <code>MID</code> in <code>IF</code>). Sestavi samo eno formulo in jo skopiraj po ostalih celicah.</p>

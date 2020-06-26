@@ -242,7 +242,13 @@
 
 <p align="justify">Pomembno je, da iz grafikona odstranimo vse nebistvene stvari, kot sta temno ozadje in temne mrežne črte. Namesto tega poudarimo bistvene stvari &ndash; podatke, v spodnjem primeru so to stolpci. Mrežne črte je mogoče odstraniti ali obarvati tako, da bodo manj izstopajoče. Mrežne črte so podporno orodje in ne podatki. Podobno odstranimo nebistvene stvari iz <a href="#clearPie" data-toggle="modal" data-target="#clearPie">tortnih grafikonov</a> in <a href="#clearTable" data-toggle="modal" data-target="#clearTable">tabel</a>.</p>
 
-<p align="center"><a href="#clearChart" class="btn btn-default" data-toggle="modal" data-target="#clearChart" style="float:right">Vir</a><img src="img/DataLooksBetterNaked.gif" width="90%" class="img-responsive"></p>
+<p align="center">
+<div class="btn-group-vertical pull-right" role="group">
+  <a href="#" id="button1" class="btn btn-default pull-right" style="padding:6px 2px"><span id="icon1" class="fa fa-play"></span></a>
+  <a href="#clearChart" class="btn btn-default pull-right" style="padding:6px 2px" data-toggle="modal" data-target="#clearChart">Vir</a>
+</div>
+<img id="animation1" src="img/DataLooksBetterNaked.png" width="90%" class="img-responsive">
+</p>
 
 <p><span class="badge"><b>Nasvet 4</b></span></p>
 
@@ -316,6 +322,26 @@
 
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
+
+<script>
+$(function() {
+	var still1 = new Image();
+	still1.src = "./img/DataLooksBetterNaked.png";
+	var animated1 = new Image();
+	animated1.src = "./img/DataLooksBetterNaked.gif";
+
+	$("#button1").click(function(e) {
+		if ($("#icon1").hasClass("fa-play")) {
+			$("#animation1").attr("src", animated1.src);
+		}
+		else {
+			$("#animation1").attr("src", still1.src);
+		}
+		$("#icon1").toggleClass("fa-play");
+		$("#icon1").toggleClass("fa-stop");
+	});
+});
+</script>
 
 
 <!-- CookieCuttr -->

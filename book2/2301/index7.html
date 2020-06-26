@@ -153,7 +153,10 @@
 
 <p align="justify">Samodejno računanje rezultatov je super, ampak še vedno se zdi, da je potrebnega precej dela. Kaj pa če bi namesto delnic šestih podjetij imeli delnice 60 ali 600 podjetij. Bi morali v tem primeru napisati 60 ali 600 formul? Seveda ne. Preglednice nam omogočajo učinkovitejše delo tako, da lahko formule kopiramo. Najprej izberemo celico s formulo, ki jo želimo kopirati. Nato kliknemo kvadratek v desnem spodnjem kotu izbrane celice ter ga navpično povlečemo preko preostalih petih vrstic, kot prikazuje animacija. Preglednica med kopiranjem ustrezno spremeni formule tako, da je formula v tretji vrstcic <code>=B3*C3</code>, v četrti vrstici <code>=B4*C4</code> itd.</p>
 
-<p align="center"><img src="img/copying-formula.gif" width="80%" class="img-responsive"></p>
+<p align="center">
+<a href="#" id="button1" class="btn btn-default pull-right"><span id="icon1" class="fa fa-play"></span></a>
+<img id="animation1" src="img/copying-formula.png" width="80%" class="img-responsive">
+</p>
 
 <p align="justify">Formule lahko kopiramo tudi v vodoravni smeri tako, da kliknemo kvadratek v desnem spodnjem kotu izbrane celice in ga vodoravno povlečemo preko stolpcev. Večina preglednic nam omogoča poleg kopiranja formul tudi samodejno zapolnjevanje vrednosti, kot so dnevi v tednu, meseci v letu, števil, datumi, kot prikazuje animacija.</p>
 <!-- Left column end -->
@@ -161,13 +164,19 @@
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="center"><img src="img/automatic-fill.gif" width="80%" class="img-responsive"></p>
+<p align="center">
+<a href="#" id="button2" class="btn btn-default pull-right"><span id="icon2" class="fa fa-play"></span></a>
+<img id="animation2" src="img/automatic-fill.png" width="80%" class="img-responsive">
+</p>
 
 <p align="justify">Še bolj splošno deluje samodejno zapolnjevanje pri katerem na začetku izberemo dve celici. V tem primeru se samodejno zapolnjevanje obnaša kot aritmetično zaporedje. Vrednost prve celice predstavlja začetno vrednost, vrednost druge celice pa razliko za katero naj se naslednje vrednosti povečujejo oziroma zmanjšujejo.</p>
 
 <p align="justify">Tak način samodejnega zapolnjevanja deluje pri številih, datumih, imenih dnevov, imenih mesecev itd. Omenimo še, da lahko za delo z imeni dnevov in mesecev uporabljamo polna imena ali tri-črkovne kratice imen.</p>
 
-<p align="center"><img src="img/arithmetic-sequence.gif" width="80%" class="img-responsive"></p>
+<p align="center">
+<a href="#" id="button3" class="btn btn-default pull-right"><span id="icon3" class="fa fa-play"></span></a>
+<img id="animation3" src="img/arithmetic-sequence.png" width="80%" class="img-responsive">
+</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -233,6 +242,59 @@
 
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
+
+<script>
+$(function() {
+	var still1 = new Image();
+	still1.src = "./img/copying-formula.png";
+	var animated1 = new Image();
+	animated1.src = "./img/copying-formula.gif";
+
+	var still2 = new Image();
+	still2.src = "./img/automatic-fill.png";
+	var animated2 = new Image();
+	animated2.src = "./img/automatic-fill.gif";
+
+	var still3 = new Image();
+	still3.src = "./img/arithmetic-sequence.png";
+	var animated3 = new Image();
+	animated3.src = "./img/arithmetic-sequence.gif";
+
+	$("#button1").click(function(e) {
+		if ($("#icon1").hasClass("fa-play")) {
+			$("#animation1").attr("src", animated1.src);
+		}
+		else {
+			$("#animation1").attr("src", still1.src);
+		}
+		$("#icon1").toggleClass("fa-play");
+		$("#icon1").toggleClass("fa-stop");
+	});
+
+	$("#button2").click(function(e) {
+		if ($("#icon2").hasClass("fa-play")) {
+			$("#animation2").attr("src", animated2.src);
+		}
+		else {
+			$("#animation2").attr("src", still2.src);
+		}
+		$("#icon2").toggleClass("fa-play");
+		$("#icon2").toggleClass("fa-stop");
+	});
+
+	$("#button3").click(function(e) {
+		if ($("#icon3").hasClass("fa-play")) {
+			$("#animation3").attr("src", animated3.src);
+		}
+		else {
+			$("#animation3").attr("src", still3.src);
+		}
+		$("#icon3").toggleClass("fa-play");
+		$("#icon3").toggleClass("fa-stop");
+	});
+
+});
+</script>
 
 
 <!-- CookieCuttr -->

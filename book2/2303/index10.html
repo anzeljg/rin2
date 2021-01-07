@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>*Primeri simulacij modelov</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<link href="../css/jsxgraph.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/office.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li class="active"><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Model SIR -->
+		<div id="sir_model" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Model SIR (Kermack&ndash;McKendrick)</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Model SIR je eden najpreprostejših modelov z razdelki, številni modeli pa so izpeljani iz te osnovne oblike. Model je sestavljen iz treh razdelkov:
+						<ul align="justify">
+						  <li><b>S</b>: Število dovzetnih (<i>ang. susceptible</i>) posameznikov. Ko dovzetni in nalezljivi posameznik pride v "nalezljiv stik", dovzetni posameznik zboli za boleznijo in preide v razdelek okuženih.</li>
+						  <li><b>I</b>: Število okuženih (<i>ang. infected</i>) posameznikov. To so posamezniki, ki so bili okuženi in so sposobni okužiti dovzetne posameznike.</li>
+						  <li><b>R</b>: Število odstranjenih (<i>ang. removed</i>) ali umrlih posameznikov. To so posamezniki, ki so bili okuženi in so bodisi ozdraveli in vstopili v razdelek odstranjenih ali pa umrli. Predpostavlja se, da je število umrlih zanemarljivo glede na celotno populacijo. Ta razdelek lahko imenujemo tudi »ozdravljeni« (<i>ang. recovered</i>) ali »odporni« (<i>ang. resistant</i>).</li>
+						</ul>
+						</p>
+						<p align="justify">Dinamika epidemije, na primer gripe, je pogosto veliko hitrejša od dinamike rojstev in smrti, zato rojstva in smrti v preprostih modelih pogosto izpustimo. Model SIR brez tako imenovane vitalne dinamike (to je brez rojstev in smrti) lahko izrazimo z nizom običajnih diferencialnih enačb:
+						$$\frac{dS}{dt} = - \frac{\beta I S}{N}$$
+						$$\frac{dI}{dt} = \frac{\beta I S}{N} - \gamma I$$
+						$$\frac{dR}{dt} = \gamma I$$
+						</p>
+						<p align="justify">kjer velja:
+						  <ul align="justify">
+						    <li>$S$ = število dovzetnih</li>
+							<li>$I$ = število okuženih</li>
+							<li>$R$ = število odstranjenih</li>
+							<li>$N = S + I + R$</li>
+							<li>$\beta$ = stopnja okužbe</li>
+							<li>$\gamma$ = stopnja okrevanja</li>
+						  </ul>
+						</p>
+						<p align="justify">Dinamika razdelka okuženih je odvisna od naslednjega razmerja:
+						$$R_{0} = \frac{\beta}{\gamma}$$
+						oziroma od tako imenovanega osnovnega reprodukcijskega števila $R_{0}$. To razmerje izhaja iz pričakovanega števila novih okužb (ki jih včasih imenujemo tudi sekundarne okužbe) iz ene okužbe v populaciji, kjer so za okužbo dovzetni vsi.</p>
+						<p align="justify">Znanje, potrebno za reševanje takšnih enačb, presega srednješolsko stopnjo matematike.</p>
+						<p align="justify">Obstaja veliko izboljšav modela SIR, vključno s tistimi, kjer po okrevanju ni imunosti (model SIS), kjer imunost traja le kratek čas (SIRS), kjer je latentno obdobje bolezen, pri kateri oseba ni nalezljiva (SEIS in SEIR) in pri kateri se lahko dojenčki rodijo z imunostjo (MSIR).</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Model L-V -->
+		<div id="lv_model" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Model Lotka&ndash;Volterra</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Model Lotka&ndash;Volterra je primer splošnejšega Kolmogorovega modela, s pomočjo katerega lahko modeliramo dinamiko ekoloških sistemov z medsebojnimi vplivi plenilcev in plena, konkurenco, boleznimi in vzajemnostjo.</p>
+						<p align="justify">Populaciji plenilcev in plena se sčasoma spreminjata glede na par nelinearnih diferencialnih enačb:
+						$$\frac{dx}{dt} = \alpha x - \beta x y$$
+						$$\frac{dy}{dt} = \delta x y - \gamma y$$
+						</p>
+						<p align="justify">kjer velja:
+						  <ul align="justify">
+						    <li>$x$ = gostota plena</li>
+							<li>$y$ = gostota plenilcev</li>
+							<li>$\alpha$ = notranja stopnja povečanja populacije plena</li>
+							<li>$\beta$ = stopnja plenjenja oziroma stopnja umrljivosti plena glede na plenilca</li>
+							<li>$\gamma$ = stopnja umrljivosti plenilcev</li>
+							<li>$\delta$ = stopnja razmnoževanja plenilcev glede na ulovljeni plen</li>
+						  </ul>
+						</p>
+						<p align="justify">Znanje, potrebno za reševanje takšnih enačb, presega srednješolsko stopnjo matematike.</p>
+						<p align="justify">Model Lotka&ndash;Volterra ni preveč realen. Ne upošteva nobene konkurence med plenom ali plenilci. Posledično lahko populacija plena narašča neskončno brez omejitev virov. Plenilci nimajo nasičenosti: njihova stopnja porabe je neomejena. Stopnja porabe plena je sorazmerna z gostoto plena. Zato ni presenetljivo, da je vedenje modela nenaravno. Kljub temu obstajajo številne dopolnitve tega modela, zaradi česar je model bolj realističen.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>*Model SIR</h1>
+
+<p>
+  <div id='jxgbox_sir' class='jxgbox' style='width:550px;height:400px;margin-bottom:8px'></div>
+  <button class="btn btn-primary" onclick="clearturtle();run_sir()">Počisti in izvedi</button>
+  <select id="outbreak" name="outbreak" class="form-control" style="display:inline;width:60%;">
+    <option value="1918s-flu" selected>Španska gripa, pomladni val (1918, Evropa)</option>
+    <option value="1918a-flu">Španska gripa, jesenski val (1918, Evropa)</option>
+    <option value="poliomyelitis">Otroška paraliza (1955-1960, Evropa)</option>
+    <option value="asian-flu">Azijska gripa H2N2 (1957-1958, ZDA)</option>
+    <option value="measles">Ošpice (1960-1968, Gana)</option>
+    <option value="smallpox">Črne koze (1968-1973, Indija)</option>
+    <option value="sars-cov-1">SARS (2002-2004, Kitajska)</option>
+    <option value="avian-flu">Ptičja gripa H5N1 (2006-2007, Azija)</option>
+    <option value="swine-flu">Svinjska gripa H1N1 (2009-2010, Južna Afrika)</option>
+    <option value="ebola">Ebola (2014, Gvineja)</option>
+    <option value="zika">Zika (2015-2016, Južna Amerika)</option>
+    <option value="sars-cov-2">COVID-19 (2020, Italija)</option>
+  </select>
+</p>
+
+<p align="justify">Model SIR je epidemiološki model, s katerim izračunamo teoretično število ljudi, okuženih z nalezljivo boleznijo v zaprti populaciji v danem časovnem obdobju. Ime tega razreda modelov izhaja iz dejstva, da populacijo razdelimo na tri razdelke: na število dovzetnih ljudi (<i>ang. susceptible &ndash; S</i>), število okuženih (<i>ang. infected &ndash; I</i>) in število ljudi, ki so okrevali (<i>ang. recovered &ndash; R</i>). Eden najpreprostejših modelov SIR je model Kermack&ndash;McKendrick (1927).</p>
+
+<p align="justify">Z modeli skušamo napovedati stvari, kot na primer: kako se bolezen širi, skupno število okuženih ali trajanje epidemije in oceniti različne epidemiološke parametre, kot je reproduktivno število. Takšni modeli lahko prikažejo, kako lahko različni ukrepi na področju javnega zdravja vplivajo na izid epidemije, na primer katera je najučinkovitejša tehnika za izdajo omejenega števila cepiv v določeni populaciji.</p>
+
+<div role="alert" class="alert alert-danger">
+<p align="justify">Podrobnejši opis modela SIR si lahko prebereš s klikom na gumb.<br />
+<a href="#sir_model" title="Model SIR" class="btn btn-danger" data-toggle="modal" data-target="#sir_model">Model SIR</a></p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h1>*Model Lotka&ndash;Volterra</h1>
+
+<p>
+  <div id='jxgbox_lv' class='jxgbox' style='width:550px;height:400px;margin-bottom:8px'></div>
+</p>
+
+<p align="justify">Model Lotka&ndash;Volterra je najpreprostejši model medsebojnih vplivov med plenilci in plenom. Model sta neodvisno drug od drugega razvila Alfred J. Lotka (1925) in Vito Volterra (1926).</p>
+
+<p align="justify">Model Lotka&ndash;Volterra vsebuje številne domneve oziroma predpostavke o okolju in razvoju populacij plenilcev in plena, ki niso nujno uresničljive v naravi:
+<ul align="justify">
+  <li>Plen ima ves čas na voljo dovolj hrane.</li>
+  <li>Plenilci se prehranjujejo izključno s plenom, zato so v celoti odvisni od velikosti populacije plena.</li>
+  <li>Stopnja spremembe populacije je sorazmerna z njeno velikostjo.</li>
+  <li>Okolje ne spreminja v korist ene vrste, pa tudi genske prilagoditve niso pomembne.</li>
+  <li>Plenilci imajo neomejen apetit.</li>
+</ul>
+</p>
+
+<div role="alert" class="alert alert-danger">
+<p align="justify">Podrobnejši opis modela Lotka&ndash;Volterra si lahko prebereš s klikom na gumb.<br />
+<a href="#lv_model" title="Model Lotka-Volterra" class="btn btn-danger" data-toggle="modal" data-target="#lv_model">Model Lotka&ndash;Volterra</a></p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2302/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2303/index9.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2303/index.html">1</a></li>
+					<li><a href="../2303/index1.html">2</a></li>
+					<li><a href="../2303/index2.html">3</a></li>
+					<li><a href="../2303/index3.html">4</a></li>
+					<li><a href="../2303/index4.html">5</a></li>
+					<li><a href="../2303/index5.html">6</a></li>
+					<li><a href="../2303/index6.html">7</a></li>
+					<li><a href="../2303/index7.html">8</a></li>
+					<li><a href="../2303/index8.html">9</a></li>
+					<li><a href="../2303/index9.html">10</a></li>
+					<li class="active"><a href="#">11</a></li>
+					<li><a href="../2303/index11.html">12</a></li>
+					<li><a href="../2303/index12.html">13</a></li>
+					<li><a href="../2303/index13.html">14</a></li>
+					<li><a href="../2303/index14.html">15</a></li>
+					<li><a href="../2303/index15.html">16</a></li>
+					<li><a href="../2303/index16.html">17</a></li>
+					<li><a href="../2303/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2304/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
+
+<script type='text/javascript'>
+/*
+ * Interactive SIR model
+ *
+ */
+var board_sir = JXG.JSXGraph.initBoard('jxgbox_sir', {boundingbox: [-6.66, 1.2, 326.66, -0.7], axis:true});
+ 
+var S = board_sir.create('turtle',[],{strokeColor:'blue',strokeWidth:3});
+var I = board_sir.create('turtle',[],{strokeColor:'red',strokeWidth:3});
+var R = board_sir.create('turtle',[],{strokeColor:'green',strokeWidth:3});
+
+var s1 = board_sir.create('point',[275,-0.2], {name:'S',size:3,strokeColor:'blue',fillColor:'blue'});
+var i1 = board_sir.create('point',[275,-0.3], {name:'I',size:3,strokeColor:'red',fillColor:'red'});
+var i1 = board_sir.create('point',[275,-0.4], {name:'R',size:3,strokeColor:'green',fillColor:'green'});
+ 
+var s = board_sir.create('slider', [[0,-0.2], [60,-0.2],[0,1E-6,1]], {name:'s'});
+var beta = board_sir.create('slider', [[0,-0.3], [60,-0.3],[0,0.3000,2.0]], {name:'&beta;'});
+var gamma = board_sir.create('slider', [[0,-0.4], [60,-0.4],[0,0.2000,0.5]], {name:'&gamma;'});
+//var mort = board_sir.create('slider', [[0,-0.6], [60,-0.6],[0,0.4,50.0]], {name:'% smrtnost'});
+board_sir.create('text', [100,-0.2, "začetna stopnja okužene populacije"]);
+board_sir.create('text', [100,-0.3, function(){ return "&beta;: stopnja okužbe, R<sub>0</sub> = "+(beta.Value()/gamma.Value()).toFixed(2);}]);
+board_sir.create('text', [100,-0.4, function(){ return "&gamma;: stopnja okrevanja = 1/(trajanje okužbe),"}]);
+board_sir.create('text', [107,-0.48, function(){ return "trajanje okužbe = "+(1/gamma.Value()).toFixed(1)+" dni";}]);
+board_sir.create('text', [303,-0.1, "dni"]);
+ 
+var t = 0; // global
+ 
+/*
+board_sir.create('text', [100,-0.2, 
+        function() {return "Day "+t+
+                           ": infected="+(1000000*I.Y()).toFixed(1)+
+                           " recovered="+(1000000*R.Y()).toFixed(1)+
+                           " dead="+(1000000*R.Y()*mort.Value()*0.01).toFixed(0);}]);
+*/
+
+S.hideTurtle();
+I.hideTurtle();
+R.hideTurtle();
+ 
+function clearturtle() {
+  S.cs();
+  I.cs();
+  R.cs();
+ 
+  S.hideTurtle();
+  I.hideTurtle();
+  R.hideTurtle();
+}
+ 
+function run_sir() {
+  S.setPos(0,1.0-s.Value());
+  R.setPos(0,0);
+  I.setPos(0,s.Value());
+ 
+  delta = 1; // global
+  t = 0; // global
+  loop_sir();
+}
+ 
+function turtleMove_sir(turtle,dx,dy) {
+  turtle.moveTo([dx+turtle.X(),dy+turtle.Y()]);
+}
+ 
+function loop_sir() {
+  var dS = -beta.Value()*S.Y()*I.Y();
+  var dR = gamma.Value()*I.Y();
+  var dI = -(dS+dR);
+  turtleMove_sir(S,delta,dS);
+  turtleMove_sir(R,delta,dR);
+  turtleMove_sir(I,delta,dI);
+ 
+  t += delta;
+  if (t<300.0) {
+    active = setTimeout(loop_sir,10);
+  }
+}
+
+$(document).ready(function() {
+  run_sir();
+});
+
+$("#outbreak").change(function(e) {
+  if ($("#outbreak").val() == '1918s-flu') {
+    beta.setValue(0.3000);
+	gamma.setValue(0.2000);
+  }
+  if ($("#outbreak").val() == '1918a-flu') {
+    beta.setValue(0.7600);
+	gamma.setValue(0.2000);
+  }
+  if ($("#outbreak").val() == 'poliomyelitis') {
+    beta.setValue(0.5712);
+	gamma.setValue(0.0952);
+  }
+  if ($("#outbreak").val() == 'asian-flu') {
+    beta.setValue(0.3360);
+	gamma.setValue(0.2000);
+  }
+  if ($("#outbreak").val() == 'measles') {
+    beta.setValue(1.6111);
+	gamma.setValue(0.1111);
+  }
+  if ($("#outbreak").val() == 'smallpox') {
+    beta.setValue(0.1607);
+	gamma.setValue(0.0357);
+  }
+  if ($("#outbreak").val() == 'sars-cov-1') {
+    beta.setValue(0.3500);
+	gamma.setValue(0.1000);
+  }
+  if ($("#outbreak").val() == 'avian-flu') {
+    beta.setValue(0.3301);
+	gamma.setValue(0.1429);
+  }
+  if ($("#outbreak").val() == 'swine-flu') {
+    beta.setValue(0.2660);
+	gamma.setValue(0.2000);
+  }
+  if ($("#outbreak").val() == 'ebola') {
+    beta.setValue(0.1438);
+	gamma.setValue(0.0952);
+  }
+  if ($("#outbreak").val() == 'zika') {
+    beta.setValue(0.4577);
+	gamma.setValue(0.2222);
+  }
+  if ($("#outbreak").val() == 'sars-cov-2') {
+    beta.setValue(0.2857);
+	gamma.setValue(0.0714);
+  }
+  board_sir.update();
+  //board_lv.update();
+});
+
+/*
+function stop_sir() {
+  if (active) clearTimeout(active);
+  active = null;
+}
+
+function goOn_sir() {
+   if (t>0) {
+     if (active==null) {
+       active = setTimeout(loop,10);
+     }
+   } else {
+     run_sir();
+   }
+}
+*/
+
+/*
+ * Interactive Lotka-Volterra model
+ *
+ */
+// Initialise board
+board_lv = JXG.JSXGraph.initBoard('jxgbox_lv', {boundingbox: [-1.5, 28.5, 28.5, -3.5], axis: true, grid: false});
+
+// Define sliders to dynamically change parameters of the equations and create text elements to describe them
+lv_s = board_lv.createElement('slider', [[20.0,26.0],[25.0,26.0],[0.0,0.3,1.0]],{name:'&delta;'});
+lv_st = board_lv.createElement('text', [20,24.7, "razmnoževanje plenilcev"], {fixed:true});
+lv_u = board_lv.createElement('slider', [[20.0,23.0],[25.0,23.0],[0.0,0.9,1.0]],{name:'&gamma;'});
+lv_ut = board_lv.createElement('text', [20,21.7, "umrljivost plenilcev"], {fixed:true});
+
+lv_o = board_lv.createElement('slider', [[10.0,26.0],[15.0,26.0],[0.0,0.1,1.0]],{name:'&beta;'});
+lv_ot = board_lv.createElement('text', [10,24.7, "stopnja plenjenja"], {fixed:true});
+lv_p = board_lv.createElement('slider', [[10.0,23.0],[15.0,23.0],[0.0,0.3,1.0]],{name:'&alpha;'});
+lv_pt = board_lv.createElement('text', [10,21.7, "stopnja namnožitve plena"], {fixed:true});
+
+// Dynamic initial value as gliders on the y-axis
+lv_startpred = board_lv.createElement('glider', [0, 10, board_lv.defaultAxes.y], {name:'plen',strokeColor:'red',fillColor:'red'});
+lv_startprey = board_lv.createElement('glider', [0, 5, board_lv.defaultAxes.y], {name:'plenilci',strokeColor:'blue',fillColor:'blue'});
+
+
+// Variables for the JXG.Curves
+var lv_g3 = null;
+var lv_g4 = null;
+
+// Initialise ODE and solve it with JXG.Math.Numerics.rungeKutta()
+function lv_ode() {
+	// evaluation interval
+	var I = [0, 25];
+	// Number of steps. 1000 should be enough
+	var N = 1000;
+
+	// Right hand side of the ODE dx/dt = f(t, x)
+	var f = function(t, x) {
+		var bpred = lv_s.Value();//0.3;
+		var bprey = lv_u.Value();//0.7;
+		var dpred = lv_o.Value();//0.1;
+		var dprey = lv_p.Value();//0.3;
+
+		var y = [];
+		y[0] = x[0]*(bpred - dpred*x[1]);
+		y[1] = -x[1]*(bprey - dprey*x[0]);
+
+		return y;
+	}
+
+	// Initial value
+	var x0 = [lv_startpred.Y(), lv_startprey.Y()];
+
+	// Solve ode
+	var data = JXG.Math.Numerics.rungeKutta('euler', x0, I, N, f);
+
+	// to plot the data against time we need the times where the equations were solved
+	var lv_t = [];
+	var q = I[0];
+	var h = (I[1]-I[0])/N;
+	for(var i=0; i<data.length; i++) {
+		data[i].push(q);
+		q += h;
+	}
+
+	return data;
+}
+
+// get data points
+var lv_data = lv_ode();
+
+// copy data to arrays so we can plot it using JXG.Curve
+var lv_t = [];
+var lv_dataprey = [];
+var lv_datapred = [];
+for(var i=0; i<lv_data.length; i++) {
+	lv_t[i] = lv_data[i][2];
+	lv_datapred[i] = lv_data[i][0];
+	lv_dataprey[i] = lv_data[i][1];
+}
+
+// Plot Predator
+lv_g3 = board_lv.createElement('curve', [lv_t, lv_datapred], {strokeColor:'red', strokeWidth:3});
+lv_g3.updateDataArray = function() {
+	var lv_data = lv_ode();
+	this.dataX = [];
+	this.dataY = [];
+	for(var i=0; i<lv_data.length; i++) {
+		this.dataX[i] = lv_t[i];
+		this.dataY[i] = lv_data[i][0];
+	}
+}
+
+// Plot Prey
+lv_g4 = board_lv.createElement('curve', [lv_t, lv_dataprey], {strokeColor:'blue', strokeWidth:3});
+lv_g4.updateDataArray = function() {
+	var lv_data = lv_ode();
+	this.dataX = [];
+	this.dataY = [];
+	for(var i=0; i<lv_data.length; i++) {
+		this.dataX[i] = lv_t[i];
+		this.dataY[i] = lv_data[i][1];
+	}
+}
+
+/*
+ * Resize both graphs on page resize or menu toggle
+ *
+ */
+/*
+window.addEventListener("resize", onWindowResize);
+function onWindowResize() {
+  alert("Resize!");
+}
+
+$("#menu-toggle").click(function(e) {
+  alert("Resize menu!");
+  board_sir.update();
+  board_lv.update();
+});
+*/
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

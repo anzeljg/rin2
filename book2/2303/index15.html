@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/office.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li class="active"><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Wireframe -->
+		<div id="wireframe" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Skeletni pogled</h4>
+					</div>
+					<div class="modal-body">
+						<p align="center"><img src="img/golden-gate-wireframe.jpg"></p>
+						<p>pfmzxf. <i>旧金山金门大桥 (San Francisco Golden Gate Bridge).</i> [pridobljeno 4. 1. 2021]. Dostopno na <a href="https://www.flickr.com/photos/51294934@N00/4156214067/">https://www.flickr.com/photos/51294934@N00/4156214067/</a> &copy; pfmzxf [citat]</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solid view -->
+		<div id="solidview" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Realistični pogled</h4>
+					</div>
+					<div class="modal-body">
+						<p align="center">
+							<div id="gallery" class="carousel slide" data-ride="carousel">
+							  <!-- Indicators -->
+							  <ol class="carousel-indicators">
+								<li data-target="#gallery" data-slide-to="0" class="active"></li>
+								<li data-target="#gallery" data-slide-to="1"></li>
+							  </ol>
+
+							  <!-- Wrapper for slides -->
+							  <div class="carousel-inner" role="listbox">
+								<div class="item active">
+								  <img src="img/golden-gate-solid1.jpg" class="img-responsive" />
+								</div>
+
+								<div class="item">
+								  <img src="img/golden-gate-solid2.jpg" class="img-responsive" />
+								</div>
+
+							  <!-- Left and right controls -->
+							  <a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							  </a>
+							  <a class="right carousel-control" href="#gallery" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							  </a>
+							  </div>
+							</div>
+						</p>
+						<p>Joe Pan. <i>3D Render of Golden Gate Bridge in San Francisco.</i> [pridobljeno 4. 1. 2021]. Dostopno na <a href="https://www.behance.net/gallery/70163459/3D-Render-of-Golden-Gate-Bridge-in-San-Francisco">https://www.behance.net/gallery/70163459/3D-Render-of-Golden-Gate-Bridge-in-San-Francisco</a> &copy; Joe Pan [citat]</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 6 -->
+        <div id="solution6" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Rešitev (a):</b></p>
+						<p align="justify">Skeletna oblika mostu je videti kot sklop povezanih daljic. Struktura mostu in nosilcev je predstavljena z ustreznimi spremenljivkami »debelina«, »dolžina«, »material« itd. Te spremenljivke lahko arhitekt uporabi ali pa spremeni njihove vrednosti, kjer je to primerno. Vrednosti spremenljivk lahko spreminja tako, da vnese nove vrednosti, ali pa premika oglišča skeleta v skeletnem pogledu. Arhitekt lahko uporabi knjižnico vnaprej določenih oblik, ki jih lahko doda mostu. Z vrtenjem skeletnega modela si lahko ogleda vse dele mostu iz različnih zornih kotov.</p>
+						<p align="justify"><b>Rešitev (b):</b></p>
+						<p align="justify">Vsaka daljica, ki predstavja črto (rob), je v računalniškem spominu shranjena kot dve 3D koodrinati točk (oglišč). Z matematičnimi formulami in algoritmov se izračunajo presečišča robov in deli, ki niso vidni. Spremenljivke kot »debelina«, »material« itd. so povezane s seznamom daljic ali ploskev, na katere se nanašajo. Posamezna ploskev je sestavljena iz več povezanih daljic.</p>
+						<p align="justify"><b>Rešitev (c):</b></p>
+						<p align="justify">Prenos skeletnega modela iz pomnilnika na zaslon je hiter, kar arhitektu omogoča, da za več sprememb potrebuje zelo malo procesorske obdelave. Pri realističnem prikazu je treba za vsako še tako majhno spremembo v celoti izrisati celoten model, kar zahteva veliko pomnilniškega prostora in procesorske obdelave, zato je to zelo zamudno. Pri obračanju in vrtenju skeletnega  modela pa je, v primerjavi z realističnim prikazom, poraba ponliniškega prostora in procesorske obdelave minimalna.</p>
+						<p align="justify"><b>Rešitev (d):</b></p>
+						<p align="justify">Model je potrebno testirati z običajnim in maksimalnim prometom v ekstremnih vremenskih razmerah, kot so močni sunki vetra, močne padavine, močno sneženje, poledica, močan mraz in ekstremna vročina. Izmeriti je treba odziv konstrukcije na te pogoje, kot na primer upogibanje, zvijanje, pokanje, lom itd. Te parametre je nato potrebno ustrezno spremeniti ter ponovno preizkusiti, ali se most pri spremenjenih parametrih ustrezno odziva (se ne zvija, poka, lomi itd.).</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 7 -->
+        <div id="solution7" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Rešitev (a):</b></p>
+						<p align="justify">Simulacijo lahko vzpostavijo tako, da vnesejo trenutno vrednost polulacije. Nato za vsako naslednje leto vrednost populacije iz prejšnjega leta pomnožijo z 1,07 (povečajo za 7%).</p>
+						<p align="justify"><b>Rešitev (b):</b></p>
+						<p align="justify">Dejavniki, ki vplivajo na rast prebivalstva so:
+						<ul>
+						  <li>rodnost oziroma nataliteta,</li>
+						  <li>umrljivost oziroma mortaliteta,</li>
+						  <li>priseljevanje oziroma imigracija in</li>
+						  <li>izseljevanje oziroma emigracija.</li>
+						</ul>
+						</p>
+						<p align="justify"><b>Rešitev (c):</b></p>
+						<p align="justify">Simulacijo lahko izboljšajo tako, da pri naraščanju ali padanju populacije upoštevajo rodnost (in trende rodnosti v preteklih letih) ter umrljivost (in trende umrljivosti v preteklih letih). Za bolj natančno simulacijo morajo upoštevati trende priseljevanje in izseljevanja, ki pa jih je precej težje napovedati. Pri tem si morda lahko pomagajo s preteklimi podatki o priseljevanju v obstoječa mesta in izseljevanju iz obstoječih mest podobne velikosti. Pri tem pa lahko upoštevajo tudi gradnjo novih tovarn ali nastanek novih podjetij, kar tudi ugodno vpliva na priseljevanje.</p>
+						<p align="justify"><b>Rešitev (d):</b></p>
+						<p align="justify">Podatke o predvideni populaciji uporabljajo pri odločanju o gradnji šol, bolnišnic, trgovin itd. Če bo prebivalstvo veliko večje od predvidenega, bo to pomenilo, da ne bo na voljo dovolj storitev. Če pa bo prebivalstvo manjše od predvidenega, potem bodo v storitve vložili preveč denarja, kar lahko za mesto pomeni gospodarske težave.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 8 -->
+        <div id="solution8" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Rešitev (a):</b></p>
+						<p align="justify">Podatke o prometu morajo zbirati oziroma spremljati neprestano, na vseh ključnih mestih, kot so križišča, krožišča, semaforji, prehodi itd. Podatke naj zbirajo s pomočjo senzorjev, kot rezervo oziroma podporo pa lahko uporabijo tudi kamere. Spremljanje prometa na tak način morajo izvajati dalj časa, da zajamejo stanje prometa ob delavnikih, vikendih in prostih dneh, počitnicah, prmetnih konicah, slabem vremenu itd.</p>
+						<p align="justify"><b>Rešitev (b):</b></p>
+						<p align="justify">Izdelali bi lahko matematični model cest, ki bi prikazoval razdalje med ključnimi točkami, kot so semaforji, križišča, krožišča, prehodi, odcepi itd. S pomočjo zbranih podatkov bi nato lahko izračunali vzorce prometa kot časovne tokove. Te bi nato prenesli na model cest ter tako prikazovali stanje prometa oziroma razmere v prometu skozi dan/teden/mesec.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>6</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Arhitekt modelira mostove in nato modele preizkuša s pomočjo dovršene programske opreme, preden se začne dejanska gradnja. Programska oprema arhitektu omogoča:
+<ul align="justify">
+  <li>opredeliti obliko mostu,</li>
+  <li>na konstrukcijo uporabiti različne parametre, kot so širina, dolžina in material,</li>
+  <li>pogled na most iz različnih zornih kotov,</li>
+  <li>preizkušanje trdnosti in stabilnosti mostu v vseh pogojih.</li>
+</ul>
+</p>
+<p align="justify">Arhitekt začne modelirati most tako, da najprej določi osnovno obliko mostu. Osnovna oblika vključuje razpon mostu in opornike (stebre), ki so potrebni za podporo mostu. V tej fazi arhitekt dela s <a href="#wireframe" title="Skeletni pogled" data-toggle="modal" data-target="#wireframe">skeletnim pogledom</a> (<i>ang. wireframe</i>). Ko je zasnova končana, arhitekt s pomočjo programske opreme upodobi oziroma ustvari <a href="#solidview" title="Realistični pogled" data-toggle="modal" data-target="#solidview">realistični pogled</a> mostu iz različnih zornih kotov.</p>
+<p align="justify">(a) Opiši način, kako lahko arhitekt uporabi skeletni pogled mostu za prilagoditev parametrov in ogled mostu iz različnih zornih kotov.</p>
+<p align="justify">(b) Opiši, kako je skeletni pogled mostu shranjen v računalniškem spominu.</p>
+<p align="justify">(c) Zakaj je spremembe mostu bolje izvesti na modelu skeletnega pogleda namesto na modelu realističnega pogleda.</p>
+<p align="justify">(d) Predlagaj strategijo za preizkus modela, ki bo zagotovil, da bo zgrajeni most varen.</p>
+<p>
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution6"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>7</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Novo nastalo mesto je v zadnjem letu doživelo 7-odstotno rast prebivalstva, kar je več od pričakovanj. Trenutno v mestu živi 25.000 prebivalcev. Mestnim oblastem (županu, urbanistom itd.) je pomembno, da lahko napovedo rast prebivalstva v prihodnosti.</p>
+<p align="justify">(a) Kako lahko vzpostavijo simulacijo za napovedovanje rasti prebivalstva v naslednjih 10 letih samo z uporabo podatkov o trenutni stopnji rasti prebivalstva?</p>
+<p align="justify">(b) Navedi tri dejavnike, ki vplivajo na rast prebivalstva v mestu.</p>
+<p align="justify">(c) Kako lahko izbojšajo simulacijo z uporabo treh dejavnikov iz prejšnjega vprašanja?</p>
+<p align="justify">(d) Kateri sta dve družbeni posledici nepravilne simulacije rasti prebivalstva v mestu?</p>
+<p>
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution7"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>8</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Številna mesta se v najprometnejših urah dneva soočajo s težavami zaradi zastojev. Te težave lahko zmanjšajo z različnimi metodami, na primer:
+<ul align="justify">
+  <li>z gradnjo novih cest,</li>
+  <li>z uvajanjem večjega števila enosmernih ulic,</li>
+  <li>z zamenjavo semaforjev s krožišči,</li>
+  <li>s spreminjanjem časovnih intervalov semaforjev ob različnih urah dneva.</li>
+</ul>
+</p>
+<p align="justify">Pred uvedbo katere koli od teh metod je treba raziskati trenutne vzorce prometa in preučiti učinek, ki bi ga te metode imele na trenutno prometno situacijo. Eden izmed načinov je z ustvarjanjem in uporabo računalniške simulacije.</p>
+<p align="justify">(a) Predlagaj načine zbiranja podatkov, ki opisujejo trenutno prometno situacijo.</p>
+<p align="justify">(b) Opiši, kako bi lahko simulirali trenutni promet in prometno infrastrukturo.</p>
+<p>
+  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution8"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2302/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2303/index14.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2303/index.html">1</a></li>
+					<li><a href="../2303/index1.html">2</a></li>
+					<li><a href="../2303/index2.html">3</a></li>
+					<li><a href="../2303/index3.html">4</a></li>
+					<li><a href="../2303/index4.html">5</a></li>
+					<li><a href="../2303/index5.html">6</a></li>
+					<li><a href="../2303/index6.html">7</a></li>
+					<li><a href="../2303/index7.html">8</a></li>
+					<li><a href="../2303/index8.html">9</a></li>
+					<li><a href="../2303/index9.html">10</a></li>
+					<li><a href="../2303/index10.html">11</a></li>
+					<li><a href="../2303/index11.html">12</a></li>
+					<li><a href="../2303/index12.html">13</a></li>
+					<li><a href="../2303/index13.html">14</a></li>
+					<li><a href="../2303/index14.html">15</a></li>
+					<li class="active"><a href="#">16</a></li>
+					<li><a href="../2303/index16.html">17</a></li>
+					<li><a href="../2303/index16.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2304/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

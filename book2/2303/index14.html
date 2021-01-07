@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/office.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li class="active"><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 4 -->
+        <div id="solution4b" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Rešitev (b):</b></p>
+						<p align="justify">Pri spremembi oziroma dvigu temperature za 0,04&nbsp;°C bi se površina ledu zmanjšala na 960.000&nbsp;km<sup>2</sup>, gladina oceana pa bi se zvišala za 80&nbsp;mm.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 5 -->
+        <div id="solution5bc" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify"><b>Rešitev (b):</b></p>
+						<p align="justify">Iz izračunov pri uporabi modela v preglednici lahko ugotovimo, da bo površina ledu merila manj kot 10.000&nbsp;km<sup>2</sup> po letu 2129, led pa bo popolnoma izginil leta 2213.</p>
+						<p align="justify"><b>Rešitev (c):</b></p>
+						<p align="justify">Če je izračun stopnje zmanjšanja površine ledu nepravilen, to pomeni, da bo opravljenega ali premalo, ali pa preveč dela, povezanega z odpravljanjem posledic taljenja ledu. Leto, v katerem naj bi se površina ledu skrčila na 10.000&nbsp;km<sup>2</sup> bo napačno, kar bo pomenilo, da bo površina ledu netočen, izračun količine preostalega morskega ledu večja oziroma manjša od izračunane.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>4</b></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Dvig svetovnih temperatur je privedel do taljenja ledu v polarnih območjih. Znanstveniki so razvili številne računalniške modele, s katerimi lahko napovedujejo hitrost taljenja ledu v polarnih območjih in vpliv taljenja ledu na obalna območja po vsem svetu.</p>
+<p align="justify">Računalniški model učinkov taljenja ledu v Arktičnem oceanu vsebuje naslednji pravili:
+<ul align="justify">
+  <li>na vsakih 0,01 °C zvišanja temperature površja oceana se površina ledu zmanjša za 1% in</li>
+  <li>za vsak 1% zmanjšanja površine ledu se gladina morja dvigne za 20 mm.</li>
+</ul>
+</p>
+<p align="justify">Model vsebuje tudi naslednje vhodne podatke:
+<ul align="justify">
+  <li>površina ledu je 1.000.000 km<sup>2</sup> in</li>
+  <li>povprečna temperatura na površju oceana je 0,00 °C.</li>
+</ul>
+</p>
+<p align="justify">(a) V elektronski preglednici ustvari model z gornjimi pravili in vhodnimi podatki, ki bo omogočal izračun spremembe površine ledu in dviga morske gladine.</p>
+<p align="justify">(b) Kolikšna bi bila površina ledu in dvig morske gladine, če bi prišlo do zvišanja temperature površja oceana za 0,04 °C.</p>
+<p>
+<div class="dropdown" style="display:inline">
+  <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-check"></span> Rešitev (a)
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="file/2303-resitev4.xlsx">Microsoft Excel</a></li>
+    <li><a href="file/2303-resitev4.ods">LibreOffice Calc</a></li>
+    <li><a href="file/2303-resitev4.numbers">Apple Numbers</a></li>
+  </ul>
+</div>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution4b"><span class="fa fa-check"></span> Rešitev (b)</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Znanstveniki so model iz prejšnje naloge uporabljali z zgodovinskimi podatki in med uporabo opazili pomembne razlike med pričakovanimi in dejanskimi rezultati.</p>
+<p align="justify">Zato so razvili nov model z novimi vhodnimi podatki in pravili. V modelu so uporabili podatke o površini oceana in površini ledu ter podatke o albedu oceana in albedu ledu. <i>Albedo</i> ali <i>odbojnost</i> je delež svetlobe, ki se odbije od površine telesa.</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+	<span class="label label-info">nadaljevanje</span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Površina oceana odbija svetlobo sonca. Razmerje med površino ledu in površino odprtega oceana vpliva na vrednost povprečnega albeda. Nižji kot je albedo, hitreje se led topi. Povprečni albedo izračunamo z naslednjo formulo:
+$$\bar{a} = \frac{(p_{led} \times a_{led}) + (p_{ocean} \times a_{ocean})}{a_{led} + a_{ocean}}$$
+pri čemer je:
+<ul align="justify">
+  <li>$\bar{a}$ povprečni albedo,</li>
+  <li>$a_{led}$ albedo ledu (= 0,6),</li>
+  <li>$a_{ocean}$ albedo oceana (= 0,1),</li>
+  <li>$p_{led}$ površina ledu (= 1.000.000 km<sup>2</sup>) in</li>
+  <li>$p_{ocean}$ površina oceana (= 1.000.000 km<sup>2</sup>).</li>
+</ul>
+</p>
+<p align="justify">Povprečni albedo se bo spreminjal z vsako ponovitvijo uporabe modela. Vsaka ponovitev bo 2 leti po prejšnji ponovitvi. Model vsebuje tudi naslednja pravila:
+<ul align="justify">
+  <li>začetni albedo je 0,35 (za vajo ga lahko izračunaš),</li>
+  <li>začetno leto je 2019,</li>
+  <li>stopnja vzorčenja podatkov je vsaki 2 leti in</li>
+  <li>stopnja zmanjšanja ledu vsaki 2 leti je $\frac{0,3}{(\bar{a})^2}$.</li>
+</ul>
+</p>
+<p align="justify">(a) V elektronski preglednici ustvari model z gornjimi pravili in vhodnimi podatki, ki bo omogočal izračun spremembe površine ledu.</p>
+<p align="justify">(b) Kdaj (katerega leta) bo površina ledu merila manj kot 10.000 km<sup>2</sup>?</p>
+<p align="justify">(c) Pojasni, zakaj je natančnost simulacije pri napovedovanju površine ledu ključnega pomena.</p>
+<p>
+<div class="dropdown" style="display:inline">
+  <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown"><span class="fa fa-check"></span> Rešitev (a)
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="file/2303-resitev5.xlsx">Microsoft Excel</a></li>
+    <li><a href="file/2303-resitev5.ods">LibreOffice Calc</a></li>
+    <li><a href="file/2303-resitev5.numbers">Apple Numbers</a></li>
+  </ul>
+</div>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution5bc"><span class="fa fa-check"></span> Rešitvi (b) in (c)</button>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2302/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2303/index13.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2303/index.html">1</a></li>
+					<li><a href="../2303/index1.html">2</a></li>
+					<li><a href="../2303/index2.html">3</a></li>
+					<li><a href="../2303/index3.html">4</a></li>
+					<li><a href="../2303/index4.html">5</a></li>
+					<li><a href="../2303/index5.html">6</a></li>
+					<li><a href="../2303/index6.html">7</a></li>
+					<li><a href="../2303/index7.html">8</a></li>
+					<li><a href="../2303/index8.html">9</a></li>
+					<li><a href="../2303/index9.html">10</a></li>
+					<li><a href="../2303/index10.html">11</a></li>
+					<li><a href="../2303/index11.html">12</a></li>
+					<li><a href="../2303/index12.html">13</a></li>
+					<li><a href="../2303/index13.html">14</a></li>
+					<li class="active"><a href="#">15</a></li>
+					<li><a href="../2303/index15.html">16</a></li>
+					<li><a href="../2303/index16.html">17</a></li>
+					<li><a href="../2303/index15.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2304/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

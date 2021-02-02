@@ -200,7 +200,7 @@
   <button id="pixel-viewer-interactive-zoom-in" class="btn btn-primary pixel-viewer-interactive-zoom-button" data-equalizer-watch><span class="fa fa-search-plus"></span> Povečaj</button>
   <button id="pixel-viewer-interactive-zoom-out" class="btn btn-primary pixel-viewer-interactive-zoom-button" data-equalizer-watch><span class="fa fa-search-minus"></span> Pomanjšaj</button>
 </div>
-<div id="pixel-viewer-interactive-container" style="height:500px;background-color:black;border:1px solid black;">
+<div id="pixel-viewer-interactive-container" style="height:480px;background-color:black;border:1px solid black;">
   <img id="pixel-viewer-interactive-original-image" src="./img/coloured-roof-small.png" />
   <div id="pixel-viewer-interactive-loader"></div>
   <canvas id="pixel-viewer-interactive-content"></canvas>
@@ -217,6 +217,7 @@
 	<br /><h4>Naloži svojo sliko</h4>
 	<p>Klikni spodnji gumb in naloži sliko. Zaradi bolj učinkovitega delovanja, bo slika pomanjšana.</p>
 	<input type="file" class="form-control" name="image" onchange="loadImageDialog(this)" accept="image/*" />
+
 	<canvas id="pixel-viewer-interactive-source-canvas"></canvas>
 
 	<p><i><span id="pixel-viewer-interactive-resize-values"></span></i></p>

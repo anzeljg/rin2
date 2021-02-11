@@ -183,11 +183,12 @@
 <h4>Za radovedne</h4>
 
 <div class="alert alert-danger" role="alert">
-<p align="justify">Beseda piksel (<i>ang. pixel</i>) je kratica, sestavljena iz besed »slikovni element« (<i>ang. picture element</i>). Na računalniških zaslonih in tiskalnikih je slika skoraj vedno prikazana kot mreža pikslov, pri čemer je vsak piksel nastavljen na določeno barvo. Piksel običajno meri del milimetra, slike pa so sestavljene iz milijonov pikslov (en megapiksel je en milijon pikslov), zato običajno ne vidimo posameznih pikslov. Fotografije vsebujejo več megapikslov.</p>
+<p align="justify">Beseda piksel (<i>ang. pixel</i>) je kratica, sestavljena iz besed »slikovni element« (<i>ang. picture element</i>). Na računalniških zaslonih in tiskalnikih je slika skoraj vedno prikazana kot mreža pikslov, pri čemer je vsak piksel nastavljen na določeno barvo.</p>
+<p align="justify">Piksel običajno meri del milimetra, slike pa so sestavljene iz milijonov pikslov (en megapiksel je en milijon pikslov), zato običajno ne vidimo posameznih pikslov. Fotografije vsebujejo več megapikslov.</p>
 <p align="justify">Računalniške zaslone običajno sestavlja na milijone pikslov in računalnik mora predstaviti barvo za vsakega izmed njih.</p>
 </div>
 
-<p align="justify">Najpogosteje barve predstavimo s števili tako, da uporabimo števila v razponu od 0 do 255. Ta števila povedo računalniku, kako močno vklopiti vsako izmed »luči« v treh osnovnih barvah, v posameznem pikslu. Če je rdeča barva nastavljena na 0, to pomeni, da je rdeča »luč« popolnoma izklopljena oziroma ne sveti. Če je rdeča barva nastavljena na 255, to pomeni, da je "luč" popolnoma vključena oziroma popolnoma sveti.</p>
+<p align="justify">Najpogosteje barve predstavimo s števili tako, da uporabimo števila v razponu od 0 do 255. Ta števila povedo računalniku, kako močno vklopiti vsako izmed »luči« v treh osnovnih barvah, v posameznem pikslu. Če je rdeča barva nastavljena na 0, to pomeni, da je rdeča »luč« popolnoma izklopljena oziroma ne sveti. Če je rdeča barva nastavljena na 255, to pomeni, da je »luč« popolnoma vključena oziroma popolnoma sveti.</p>
 
 <p align="justify">Z 256 možnimi vrednostmi za vsako od treh osnovnih barv (ne pozabite, da štejemo od 0 naprej), dobimo 256 × 256 × 256 = 16.777.216 možnih barv &ndash; več kot jih lahko zazna človeško oko!</p>
 <!-- Left column end -->
@@ -201,15 +202,14 @@
   <button id="pixel-viewer-interactive-zoom-out" class="btn btn-primary pixel-viewer-interactive-zoom-button" data-equalizer-watch><span class="fa fa-search-minus"></span> Pomanjšaj</button>
 </div>
 <div id="pixel-viewer-interactive-container" style="height:480px;background-color:black;border:1px solid black;">
-  <img id="pixel-viewer-interactive-original-image" src="./img/coloured-roof-small.png" />
+  <img id="pixel-viewer-interactive-original-image" src="./img/zelenci-2165609_640.jpg" />
   <div id="pixel-viewer-interactive-loader"></div>
-  <canvas id="pixel-viewer-interactive-content"></canvas>
-  <canvas id="pixel-viewer-interactive-source-canvas"></canvas>
+  <canvas id="pixel-viewer-interactive-content" crossorigin="anonymous"></canvas>
 </div>
 <div class="row full-width">
   <div id="pixel-viewer-interactive-settings">
 	<h3>Navodila</h3>
-	<p>Interaktivnost ti omogoča ogled posameznih pikslov slike. Če sliko dovolj <b>približaš</b> lahko vidiš rdeče-zeleno-modro vrednost barve za vsak posamezen piksel.</p>
+	<p>Interaktivnost ti omogoča ogled posameznih pikslov slike. Če sliko dovolj <b>približaš</b> lahko vidiš podrobnosti za vsak posamezen piksel.</p>
 
 	<br /><h4>Možnosti</h4>
 	<p><input id="pixel-viewer-interactive-show-pixel-fill" type="checkbox" checked="checked"> Prikaži barvo piksla</p>

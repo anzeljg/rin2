@@ -261,7 +261,7 @@ V tem zapisu so $m$ in $n$ dvojiške števke.</p>
 <table width="320" style="border-collapse: collapse;">
 <tr>
   <td align="center" width="20" style="border:1px solid #333">$p$</td>
-  <td align="center" width="100" style="border:1px solid #333">$E = n - 127$</td>
+  <td align="center" width="100" style="border:1px solid #333">$E = n + odmik$</td>
   <td align="center" width="200" style="border:1px solid #333">$m$</td>
 </tr>
 </table>
@@ -276,7 +276,7 @@ V tem zapisu so $m$ in $n$ dvojiške števke.</p>
 
 <p align="justify">Predstavitev z enojno natančnostjo (32 bitov) vsebuje 1 bit za predznak $p$, 8 bitov za eksponent $E$ in 23 bitov za mantiso $m$. Predstavitev z dvojno natančnostjo (64 bitov) pa vsebuje 1 bit za predznak $p$, 11 bitov za eksponent $E$ in 52 bitov za mantiso $m$.</p>
 
-<p align="justify">Eksponent $n$ je zapisan z odmikom 127</b>. To pomeni, da računalnik obravnava vrednost $n$ kot eksponent, ko od njega odšteje vrednost 127 ($E = n - 127$). Tako eksponent 0 zapišemo kot 127, oz. dvojiško kot <tt>01111111</tt>. Tak način omogoča zapis eksponentov od -127 do +128.</p>
+<p align="justify">Eksponent $n$ je pri enojni natančnosti zapisan z odmikom 127</b>. To pomeni, da računalnik obravnava vrednost $n$ kot eksponent, ko mu prišteje vrednost 127 ($E = n + 127$). Tako eksponent 0 zapišemo kot 127, oz. dvojiško kot <tt>01111111</tt>. Tak način omogoča zapis eksponentov od -127 do +128. Pri dvojni natančnosti pa je eksponent $n$ zapisan z odmikom 1023.</p>
 
 <p align="justify">Mantiso $m$ vedno najprej normaliziramo, da dobimo zaporedje bitov $1,mmm...m$ &ndash; zato prvi bit (ki je vedno enak 1) ni zajet v delu mantise $m$, ki je zapisana. Ko realno število zapisujemo v znanstveni notaciji, pa ta prvi bit (in dvojiško vejico) samodejno pripišemo na začetek mantise.</p>
 

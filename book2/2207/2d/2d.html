@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>2D spreminjanje oblike</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, shrink-to-fit=no">
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../../mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../../css/style.css" rel="stylesheet">
+
+    <!-- 2D Shape Manipulation Interactive -->
+    <link rel="stylesheet" href="../css/2d-shape-manipulations.css">
+</head>
+
+<body>
+
+	<!-- interactive start -->
+	<div class="row mb-3 shape-manipulations">
+		<div class="col no-margins" role="group">
+		  <title>2D spreminjanje oblike</title>
+		  <div id="container">
+			<div id="warning">
+			  <label>Ta interaktivnost je namenjena zaslonom večjim od 600x600px.</label>
+			</div>
+		  
+			<svg class="svg-background" width="99%" height="99%">
+			  <polygon id="target-polygon" points="0,0 0,0 0,0 0,0 0,0 0,0 0,0"/>
+			  <polygon id="dynamic-polygon" points="0,0 0,0 0,0 0,0 0,0 0,0 0,0"/>
+			  <circle id="c0" cx="0" cy="0" r="3"/>
+			  <circle id="c1" cx="0" cy="0" r="3"/>
+			  <circle id="c2" cx="0" cy="0" r="3"/>
+			  <circle id="c3" cx="0" cy="0" r="3"/>
+			  <circle id="c4" cx="0" cy="0" r="3"/>
+			  <circle id="c5" cx="0" cy="0" r="3"/>
+			  <circle id="c6" cx="0" cy="0" r="3"/>
+			</svg>
+			
+			<div id="shape-manipulation" class="container-fluid">
+			  <!--<div class="row justify-content-center">-->
+			  <div class="row">
+				<label id="y-label">y</label>
+			  </div>
+			
+			  <div class="row">
+				<div class="col-xs-11">
+				  <div id="instructions">
+					<h1 id="title"></h1>
+					<p id="task"></p>
+					<div id="config-dropdown" class="btn-group" style="margin-bottom:5px;display:none;">
+					  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Izberi nastavitev <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu">
+						<li><a href="?config=coord-translate&showIndex">Koordinate: translacija</a></li>
+						<li><a href="?config=coord-scale&showIndex">Koordinate: skaliranje</a></li>
+						<li><a href="?config=coord-scale-translate&showIndex">Koordinate: skaliranje in translacija</a></li>
+						<li><a href="?config=coord-swap&showIndex">Koordinate: zamenjava koordinat</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="?config=matrix-scale&showIndex">Matrika: skaliranje</a></li>
+						<li><a href="?config=matrix-rotate&showIndex">Matrika: rotacija</a></li>
+						<li><a href="?config=matrix-translate&showIndex">Matrika: translacija</a></li>
+						<li><a href="?config=matrix-scale-translate&showIndex">Matrika: skaliranje in translacija I</a></li>
+						<li><a href="?config=matrix-scale-translate-2&showIndex">Matrika: skaliranje in translacija II</a></li>
+						<li><a href="?config=matrix-scale-translate-3&showIndex">Matrika: skaliranje in translacija III</a></li>
+						<li><a href="?config=matrix-rotate-translate&showIndex">Matrika: rotacija in translacija</a></li>
+						<li><a href="?config=matrix-rotate-scale-translate&showIndex">Matrika: izziv več transformacij I</a></li>
+						<li><a href="?config=matrix-rotate-scale-translate-2&showIndex">Matrika: izziv več transformacij II</a></li>
+						<li><a href="?config=matrix-single&showIndex">Matrika: izziv enojne matrike</a></li>
+					  </ul>
+					</div>
+				  </div>
+			  
+				  <div id="modules">
+					<div id="coordinates">
+					  <div id="heading"><p>$x$</p><p>$y$</p></div>
+					  <div node-id="c0">
+						<input class="input-box" id="p0-input-x"/>
+						<input class="input-box" id="p0-input-y"/>
+					  </div>
+					  <div node-id="c1">
+						<input class="input-box" id="p1-input-x"/>
+						<input class="input-box" id="p1-input-y"/>
+					  </div>
+					  <div node-id="c2">
+						<input class="input-box" id="p2-input-x"/>
+						<input class="input-box" id="p2-input-y"/>
+					  </div>
+					  <div node-id="c3">
+						<input class="input-box" id="p3-input-x"/>
+						<input class="input-box" id="p3-input-y"/>
+					  </div>
+					  <div node-id="c4">
+						<input class="input-box" id="p4-input-x"/>
+						<input class="input-box" id="p4-input-y"/>
+					  </div>
+					  <div node-id="c5">
+						<input class="input-box" id="p5-input-x"/>
+						<input class="input-box" id="p5-input-y"/>
+					  </div>
+					  <div node-id="c6">
+						<input class="input-box" id="p6-input-x"/>
+						<input class="input-box" id="p6-input-y"/>
+					  </div>
+					</div>
+				
+					<div id="matrices">
+					  <div id="matrix-first-scale">
+						<h2>Matrika skaliranja/rotacije</h2>
+				
+						<!-- default value is identity matrix -->
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-first-scale-row-0-col-0" value="1"/>
+						  <input class="input-box" id="matrix-first-scale-row-0-col-1" value="0"/>
+						</div>
+				
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-first-scale-row-1-col-0" value="0"/>
+						  <input class="input-box" id="matrix-first-scale-row-1-col-1" value="1"/>
+						</div>
+					  </div>
+				
+					  <div id="matrix-first-translate">
+						<h2>Matrika translacije</h2>
+				
+						<!-- default value is identity matrix -->
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-first-translate-row-0-col-0" value="0"/>
+						</div>
+				
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-first-translate-row-1-col-0" value="0"/>
+						</div>
+					  </div>
+				
+					  <div id="matrix-second-scale">
+						<h2>Matrika skaliranja/rotacije</h2>
+				
+						<!-- default value is identity matrix -->
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-second-scale-row-0-col-0" value="1"/>
+						  <input class="input-box" id="matrix-second-scale-row-0-col-1" value="0"/>
+						</div>
+				
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-second-scale-row-1-col-0" value="0"/>
+						  <input class="input-box" id="matrix-second-scale-row-1-col-1" value="1"/>
+						</div>
+					  </div>
+				
+					  <div id="matrix-second-translate">
+						<h2>Matrika translacije</h2>
+				
+						<!-- default value is identity matrix -->
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-second-translate-row-0-col-0" value="0"/>
+						</div>
+				
+						<div class="matrix-row">
+						  <input class="input-box" id="matrix-second-translate-row-1-col-0" value="0"/>
+						</div>
+					  </div>
+					</div>
+				
+					<div id="coord-buttons">
+					  <button id="get-new-coordinates-button" class="btn btn-primary">Posodobi</button>
+					  <button id="reset-coordinates-button" class="btn btn-primary">Ponastavi</button>
+					</div>
+				
+					<div id="matrix-buttons">
+					  <button id="matrix-operations-button" class="btn btn-primary">Posodobi</button>
+					  <button id="reset-matrices-button" class="btn btn-primary">Ponastavi</button>
+					</div>
+					<label id="instant-update-label"><input class="input-box" type="checkbox" id="instant-update-check" checked/>sprotna posodobitev</label>
+				  </div>
+				</div>
+				<div class="col-xs-1">
+				  <label id="x-label">x</label>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+    </div>
+	<!-- Interactive end -->
+
+	<!-- jQuery -->
+	<script src="../../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../../js/bootstrap.min.js"></script>
+
+    <!-- 2D Shape Manipulation Interactive -->
+    <script src="../js/2d-shape-manipulations.js"></script>
+
+</body>
+</html>

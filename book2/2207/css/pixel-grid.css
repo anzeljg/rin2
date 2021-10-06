@@ -1,0 +1,22 @@
+table#pixel-grid,
+table#pixel-grid2 {
+  margin: auto;
+}
+
+table#pixel-grid td,
+table#pixel-grid2 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  color: black;
+  background-color: white;
+}
+
+table#pixel-grid td.selected,
+table#pixel-grid2 td.selected {
+  color: white;
+  background-color: black;
+}

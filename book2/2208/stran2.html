@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Ponovno pozdravljen, CSS</title>
+  <link rel="stylesheet" href="slogi.css" />
+</head>
+
+<body>
+
+    <h2>Ponovno pozdravljen, CSS</h2>
+	
+	<p>To je prazna stran, ki nam pomaga prikazati slogovne predloge,
+	ki jih lahko uporabimo na več spletnih straneh.
+	<a href="stran1.html">Pojdi nazaj</a>.</p>
+	
+	<p>Ali želite prečrtati <a id="dead" href="stran3.html">zastarelo povezavo</a>?
+	Zdaj imate priložnost!</p>
+
+<script>
+if (window.name == 'dead_link') {
+  var link = document.getElementById('dead');
+  link.style = 'text-decoration:line-through';
+}
+</script>
+</body>
+</html>

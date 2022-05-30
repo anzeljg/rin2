@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- W3Schools style buttons -->
+	<style>
+	.btn-w3schools,
+	.btn-w3schools:visited {
+		color: #FFFFFF;
+		background-color: #00B266;
+	}
+	.btn-w3schools:hover,
+	.btn-w3schools:active {
+		color: #FFFFFF;
+		background-color: #007D47;
+	}
+	</style>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li class="active"><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 7a -->
+		<div id="solution7a" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+                        <p align="justify">Razlika med slogovnima izbirnikoma <code>id</code> in <code>class</code> je v tem, da izbirnik <code>id</code> uporabljamo za oblikovanje posameznega točno določenega elementa. Izbrinik <code>class</code> pa tipično uporabljamo za oblikovanje skupine elementov.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 7b -->
+		<div id="solution7b" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+                        <p align="justify">Besedica »voda« bo obarvana modro, saj je ta element seznama določen z izbirnikom <code>id</code>, ki ima v slogovni predlogi nastavljeno modro barvo.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: True -->
+		<div id="true" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odgovor</h4>
+					</div>
+					<div class="modal-body bg-success">
+						<p class="text-success">Odgovor je pravilen.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: False -->
+		<div id="false" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Odgovor</h4>
+					</div>
+					<div class="modal-body bg-danger">
+						<p class="text-danger">Odgovor je napačen.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+</p>
+<p align="justify">Pri izdelavi spletne strani o astronomiji želimo uporabiti značke HTML, zapisane v spodnji preglednici. Izberite, kje moramo te značke zapisati: v glavo <code>&lt;head&gt;</code> ali v telo <code>&lt;body&gt;</code> strani HTML.</p>
+<p>
+<style>
+#tableCheckboxes {
+  background-color: #eee;
+}
+#tableCheckboxes th,
+#tableCheckboxes td {
+  border: 0;
+  border-bottom: 1px solid #31708f;
+  border-collapse: collapse;
+  padding: 3px 5px;
+}
+#tableCheckboxes td input[type=checkbox] {
+  margin: 4px;
+}
+</style>
+<table id="tableCheckboxes" width="100%">
+<tr>
+  <td><b>Značka HTML</b></td>
+  <td align="center"><b>Glava</b></td>
+  <td align="center"><b>Telo</b></td>
+</tr>
+<tr>
+  <td><tt>&lt;title&gt;Zvezde&lt;/title&gt;</tt></td>
+  <td align="center"><span id ="22_250_2"><input type="checkbox" id="22_250" value="True" style="margin:4px;padding-top:4px" /></span></td>
+  <td align="center"><span id ="22_251_2"><input type="checkbox" id="22_251" value="False" /></span></td>
+</tr>
+<tr>
+  <td><tt>&lt;img src="severnica.png"&gt;</tt></td>
+  <td align="center"><span id ="22_252_2"><input type="checkbox" id="22_252" value="False" style="margin:4px;padding-top:4px" /></span></td>
+  <td align="center"><span id ="22_253_2"><input type="checkbox" id="22_253" value="True" /></span></td>
+</tr>
+<tr>
+  <td><tt>&lt;h1&gt;Rimska cesta&lt;/h1&gt;</tt></td>
+  <td align="center"><span id ="22_254_2"><input type="checkbox" id="22_254" value="False" style="margin:4px;padding-top:4px" /></span></td>
+  <td align="center"><span id ="22_255_2"><input type="checkbox" id="22_255" value="True" /></span></td>
+</tr>
+<tr>
+  <td><tt>&lt;p&gt;Zgodbe o Mlečni cesti&lt;/p&gt;</tt></td>
+  <td align="center"><span id ="22_256_2"><input type="checkbox" id="22_256" value="False" style="margin:4px;padding-top:4px" /></span></td>
+  <td align="center"><span id ="22_257_2"><input type="checkbox" id="22_257" value="True" /></span></td>
+</tr>
+<tr>
+  <td><tt>&lt;meta charset="utf-8"&gt;</tt></td>
+  <td align="center"><span id ="22_258_2"><input type="checkbox" id="22_258" value="True" style="margin:4px;padding-top:4px" /></span></td>
+  <td align="center"><span id ="22_259_2"><input type="checkbox" id="22_259" value="False" /></span></td>
+</tr>
+<tr>
+  <td><tt>&lt;a href="galaksija.html"&gt;GALAKSIJA&lt;/a&gt;</tt></td>
+  <td align="center"><span id ="22_2510_2"><input type="checkbox" id="22_2510" value="False" style="margin:4px;padding-top:4px" /></span></td>
+  <td align="center"><span id ="22_2511_2"><input type="checkbox" id="22_2511" value="True" /></span></td>
+</tr>
+</table>
+</p>
+<p>
+<button class="btn btn-info" name="submitSelect" id="fb22_25" onclick='showFeedback(12,"22_25")'><span class="fa fa-check"></span> Prikaži odzive</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>6</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Kako izgleda tabela, ki jo opisuje spodnja koda HTML.
+<pre>
+&lt;table border="1"&gt;
+   &lt;tr&gt;
+      &lt;td colspan="2"&gt;A&lt;/td&gt;
+      &lt;td rowspan="2"&gt;B&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+      &lt;td&gt;C&lt;/td&gt;
+      &lt;td&gt;D&lt;/td&gt;
+   &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+</p>
+<p>
+<table border="0" width="100%">
+<tr align="center">
+  <td>
+    <img src="img/odgovor_6a.png"><br>
+    <input type="radio" name="option88_6" id="i88_6a" data-toggle="modal" data-target="#false" />
+  </td>
+  <td>
+    <img src="img/odgovor_6b.png"><br>
+    <input type="radio" name="option88_6" id="i88_6b" data-toggle="modal" data-target="#false" />
+  </td>
+  <td>
+    <img src="img/odgovor_6c.png"><br>
+    <input type="radio" name="option88_6" id="i88_6c" data-toggle="modal" data-target="#true" />
+  </td>
+  <td>
+    <img src="img/odgovor_6d.png"><br>
+    <input type="radio" name="option88_6" id="i88_6d" data-toggle="modal" data-target="#false" />
+  </td>
+</tr>
+</table>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>7</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Spodaj je prikazana izvorna koda spletne strani.
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+    &lt;style&gt;
+      body {font-family: sans-serif; color: #000000;}
+      .element {color: #ff0000;}
+      #element {color: #0000ff;}
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;p&gt;To je seznam petih osnovnih elementov:
+    &lt;ul&gt;
+      &lt;li&gt;les&lt;/li&gt;
+      &lt;li class="element"&gt;ogenj&lt;/li&gt;
+      &lt;li&gt;zemlja&lt;/li&gt;
+      &lt;li&gt;kovina&lt;/li&gt;
+      &lt;li id="element"&gt;voda&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</p>
+<p align="justify">(a) Pojasni razliko med elementoma <code>.element</code> in <code>#element</code> v slogovni predlogi</p>
+<p align="justify">(b) Kakšne barve bo besedica »voda«, ko bo brskalnik prikazal zgornjo izvorno kodo?</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution7a"><span class="fa fa-check"></span> Rešitev (a)</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution7b"><span class="fa fa-check"></span> Rešitev (b)</button>
+</p>
+</div>
+
+<h4>Kvizi o spletnih tehnologijah</h4>
+
+<div class="alert alert-success" role="alert">
+<p align="justify">S klikom na enega izmed spodnjih gumbov lahko odpreš ustrezni kviz, ga nato rešiš ter tako preveriš svoje znanje.</p>
+<p align="center" style="padding-top:4px">
+  <a href="kviz/jquiz_html.html" target="_blank" class="btn btn-w3schools" style="min-width:120px"><img src="img/logo_html5.png"><br>Osnove HTML</a>
+  <a href="kviz/jquiz_css.html" target="_blank" class="btn btn-w3schools" style="min-width:120px"><img src="img/logo_css3.png"><br>Osnove CSS</a>
+  <a href="kviz/jquiz_js.html" target="_blank" class="btn btn-w3schools" style="min-width:120px"><img src="img/logo_javascript.png"><br>Osnove JS</a>
+</a>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2207/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2208/index22.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2208/index.html">1</a></li>
+					<li><a href="../2208/index1.html">2</a></li>
+					<li><a href="../2208/index2.html">3</a></li>
+					<li><a href="../2208/index3.html">4</a></li>
+					<li><a href="../2208/index4.html">5</a></li>
+					<li><a href="../2208/index5.html">6</a></li>
+					<li><a href="../2208/index6.html">7</a></li>
+					<li><a href="../2208/index7.html">8</a></li>
+					<li><a href="../2208/index8.html">9</a></li>
+					<li><a href="../2208/index9.html">10</a></li>
+					<li><a href="../2208/index10.html">11</a></li>
+					<li><a href="../2208/index11.html">12</a></li>
+					<li><a href="../2208/index12.html">13</a></li>
+					<li><a href="../2208/index13.html">14</a></li>
+					<li><a href="../2208/index14.html">15</a></li>
+					<li><a href="../2208/index15.html">16</a></li>
+					<li><a href="../2208/index16.html">17</a></li>
+					<li><a href="../2208/index17.html">18</a></li>
+					<li><a href="../2208/index18.html">19</a></li>
+					<li><a href="../2208/index19.html">20</a></li>
+					<li><a href="../2208/index20.html">21</a></li>
+					<li><a href="../2208/index21.html">22</a></li>
+					<li><a href="../2208/index22.html">23</a></li>
+					<li class="active"><a href="#">24</a></li>
+					<li><a href="../2301/index.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2301/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+	<script src="../js/exe/cloze.js"></script>
+
+	<!-- Base conversion Quiz -->
+	<script src="js/spaceIt.js"></script>
+	<script src="js/base-conversion-quiz.js"></script>
+	<script>
+	$(document).ready(function () {
+		buildQuiz(5);
+	});
+	</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

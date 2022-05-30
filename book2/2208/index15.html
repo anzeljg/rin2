@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Osnove CSS</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li class="active"><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Izbirnik -->
+		<div id="izbirnik" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Izbirnik</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Izbirnik je lahko sestavljen iz imena značke HTML. V tem primeru pravilo CSS velja za vse značke s tem imenom.</p>
+						<p align="justify">Če želimo pravilo CSS uporabiti zgolj za posamezni element HTML, potem za izbirnik uporabimo atribut <code>id</code> tega elementa s predpono <code>#</code>. Recimo, da imamo odstavek besedila, ki ga želimo izpisati v modri barvi. V tem primeru znački za odstavek <code>&lt;p&gt;</code> dodamo atribut <code>id</code>, ki ima vrednost na primer <code>modro</code>, da dobimo značko <code>&lt;p id="modro"&gt;</code>. Za ustrezno pravilo CSS moramo nato uporabiti ustrezen izbrnik, kot v spodnjem primeru:</p>
+						<p>
+							<div class="CodeMirror cm-s-rin-light" style="width: 100%; height: 137px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 51.2px; left: 148.375px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-scrollbar-filler" style="width: 17px; height: 17px;"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 29px; min-width: 357.237px; min-height: 135px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 118.375px; top: 91px; height: 18.2px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">/*</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-comment"> * Pravilo bo veljalo za vse elemente, ki imajo vrednost</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-comment"> * atributa 'id' nastavljeno na 'modro'.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-builtin">#modro</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre><span style="padding-right: 0.1px;">  <span class="cm-property">color</span>: <span class="cm-atom">#0000FF</span>; <span class="cm-comment">/* modra barva besedila */</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre class=""><span style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 135px;"></div><div class="CodeMirror-gutters" style="height: 135px; left: -1.14441e-05px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div></div></div></div>
+						</p>
+						<p align="justify">Če želimo pravilo CSS uporabiti za skupino elementov HTML, potem za izbirnik uporabimo atribut <code>class</code> teh elementov s predpono <code>.</code>. Recimo, da imamo spletni časopis z več novicami. Vsak prvi odstavek novice je uvodnik, ki ga želimo izpisati drugače, kot preostalo besedilo. V tem primeru znački za odstavek <code>&lt;p&gt;</code> dodamo atribut <code>class</code>, ki ima vrednost na primer <code>uvodnik</code>, da dobimo značko <code>&lt;p class="uvodnik"&gt;</code>. Za ustrezno pravilo CSS moramo nato uporabiti ustrezen izbrnik, kot v spodnjem primeru:</p>
+						<p>
+							<div class="CodeMirror cm-s-rin-light" style="width: 100%; height: 174px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.2px; left: 198.413px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="false"><div class="CodeMirror-sizer" style="margin-left: 29px; min-width: 407.263px; min-height: 172px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>&ZeroWidthSpace;</span>x</span><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>10</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 168.413px; top: 109.2px; height: 18.2px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">/*</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment"> * Pravilo bo veljalo za vse elemente, ki imajo vrednost</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment"> * atributa 'class' nastavljeno na 'uvodnik'.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">*/</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-builtin">.uvodnik</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-property">font-weight</span>: <span class="cm-atom">bold</span>; <span class="cm-comment">/* krepko besedilo */</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-property">font-size</span>: <span class="cm-atom">larger</span>; <span class="cm-comment">/* večje, kot preostalo besedilo */</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">8</div></div><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-property">text-transform</span>: <span class="cm-atom">uppercase</span>; <span class="cm-comment">/* velike tiskane črke */</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">9</div></div><pre class=""><span style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 172px;"></div><div class="CodeMirror-gutters" style="height: 172px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div></div></div></div>
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnove CSS</h1>
+
+<p align="justify">V začetku te učne enote smo se v glavnem osredotočili izključno na HTML. Zdaj je čas, da spletne strani polepšamo z uporabo stopničastih slogovnih predlog CSS (<i>ang. Cascading Style Sheets</i>). CSS si lahko predstavljamo kot definiranje »oblikovanja« spletne strani. CSS namreč določa stvari, kot so velikost pisave, robovi in ​​barve z uporabo jezika, ki je popolnoma ločen od jezika HTML.</p>
+
+<p align="justify">CSS je ločen jezik, saj služi povsem drugemu namenu kot HTML. HTML predstavlja vsebino spletne strani, CSS pa določa, kako je ta vsebina predstavljena uporabniku. To je temeljna razlika, ki je središče sodobnega spletnega razvoja.</p>
+
+<p align="justify">CSS ponuja besednjak, s pomočjo katerega lahko spletnemu brskalniku povemo stvari, kot so: »Želim, da so naslovi res veliki in da se stranska vrstica prikaže na levi strani glavnega članka.« HTML nima ustreznega besedišča za sprejemanje tovrstnih odločitev glede postavitve vsebine &ndash; vse, kar lahko pove HTML, je: »to je naslov in to stranska vrstica«.</p>
+
+<p align="justify">V nadaljevanju bomo spoznali osnovno sintakso CSS in kako jo povezati z elementi jezika HTML. Cilj ni toliko postati strokovnjak za CSS ali si zapomniti vse razpoložljive sloge, temveč razumeti, kako delujeta in sta medsebojno povezana CSS in HTML. CSS pravila (<i>ang. rules</i>) so običajno zapisana v ločeni datoteki.</p>
+
+<p align="justify">Pravilo CSS se vedno začne z <a href="#izbirnik" title="Licenca" data-toggle="modal" data-target="#izbirnik">izbirnikom</a> (<i>ang. selector</i>), ki določa, na katere elemente HTML se pravilo nanaša. V tem primeru poskušamo oblikovati element <code>&lt;body&gt;</code>. Izbirniku v zavitih oklepajih sledijo dejanska pravila, ki so sestavljena iz parov lastnost (<i>ang. property</i>) in vrednost (<i>ang. value</i>). Vsaka lastnost ima določeno oziroma nastavljeno vrednost, ki vpliva na element <code>&lt;body&gt;</code>, kot v spodnjem primeru:</p>
+
+<p>
+<div style="min-width:450px;width:100%">
+<textarea id="code">body {
+  color: #FF0000;
+}</textarea>
+</div>
+</p>
+
+<p align="justify">Lastnost <code>color</code> je vgrajena v jezik CSS in določa barvo besedila vseh izbranih elementov HTML. Za vrednost lastnosti <code>color</code> lahko vnesemo šestnajstiško vrednost, ki predstavlja barvo. Vrednost <code>#FF0000</code> predstavlja šestnajstiški zapis svetlo rdeče barve.</p>
+
+<p align="justify">Lastnosti CSS so na nek način podobne atributom HTML, saj so tako lastnosti, kot atributi določeni s pari ključ/vrednost. Razlika je v tem, da pri latnostih določamo predstavitvene informacije, z atributi pa spreminjamo semantični pomen osnovne vsebine.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Kot smo že omenili, so CSS pravila običajno zapisana v ločeni datoteki, ki jo moramo povezati z datoteko HTML, tako da zna spletni brskalnik nato prikazati vsebino datoteke HTML, ki bo ustrezno oblikovana s pravili iz datoteke CSS. Datoteko CSS vključimo v datoteko HTML z elementom <code>&lt;link /&gt;</code>, kot v spodnjem primeru:</p>
+
+<p>
+<div style="min-width:450px;width:100%">
+<textarea id="code2"><head>
+  <meta charset="UTF-8" />
+  <title>Pozdravljen, CSS</title>
+  <link rel="stylesheet" href="slogi.css" />
+</head></textarea>
+</div>
+</p>
+
+<p align="justify">Element <code>&lt;link /&gt;</code> je podoben elementu <code>&lt;a&gt;</code>, vendar ga uporabljamo smo znotraj elementa <code>&lt;head&gt;</code>. Atribut <code>rel</code> določa razmerje med virom in dokumentom HTML. Daleč najpogostejše razmerje je <code>stylesheet</code> za slogovne predloge, vendar obstaja še nekaj drugih možnosti. Atribut <code>href</code> deluje enako kot pri elementu <code>&lt;a&gt;</code>, le da mora kazati na datoteko <code>.css</code> namesto na drugo spletno stran. Vrednost za <code>href</code> je lahko absolutna ali relativna povezava do datoteke.
+</p>
+
+<p align="justify">Med brskalnikom in slogovno predlogo sicer ni neposredne povezave. Brskalnik lahko slogovno predlogo najde le s pomočjo ustrezne značke jezika HTML. Spletna stran je tista, ki poveže skupaj vsebino, označeno z značkami HTML, ter zunanje datoteke s slikami, slogovnimi predlogami in kodo JavaScript. Zato je jezik HTML središče spletnega razvoja.</p>
+
+<p align="justify">Stopničasti del poimenovanja CSS izhaja iz dejstva, da se pravila stopničasto prelivajo iz večih virov. Do sedaj smo spoznali samo en vir, kjer je mogoče definirati pravila CSS. To so zunanje datoteke s končnico <code>.css</code>. Vendar pa so zunanje datoteke s slogi le eden izmed virov definiranja pravil CSS. Hierarhija virov pravil CSS za vsako spletno stran je videti takole:
+<ul align="justify">
+  <li>Privzeti slogi brskalnika</li>
+  <li>Uporabniško določeni slogi v zunanji datoteki</li>
+  <li>Uporabniško določeni slogi posamezne spletne strani</li>
+  <li>Uporabniško določeni slogi posameznega elementa</li>
+</ul>
+</p>
+
+<p align="justify">Zgornja hierarhija virov je urejena po prednosti od najmanjše do največje. To pomeni, da slogi, ki so definirani v vsakem naslednjem koraku, preglasijo prejšnje sloge. To pomeni, da slogi posameznega elementa preglasijo sloge posamezne spletne strani, ki preglasijo sloge iz zunanje datoteke, ti pa preglasijo privzete sloge brskalnika. V nadaljevanju si bomo ogledali, kako določimo sloge posameznega elementa in sloge posamezne spletne strani, čeprav je daleč najbolj učinkovito, če določimo sloge v zunanji datoteki.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2207/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2208/index14.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2208/index.html">1</a></li>
+					<li><a href="../2208/index1.html">2</a></li>
+					<li><a href="../2208/index2.html">3</a></li>
+					<li><a href="../2208/index3.html">4</a></li>
+					<li><a href="../2208/index4.html">5</a></li>
+					<li><a href="../2208/index5.html">6</a></li>
+					<li><a href="../2208/index6.html">7</a></li>
+					<li><a href="../2208/index7.html">8</a></li>
+					<li><a href="../2208/index8.html">9</a></li>
+					<li><a href="../2208/index9.html">10</a></li>
+					<li><a href="../2208/index10.html">11</a></li>
+					<li><a href="../2208/index11.html">12</a></li>
+					<li><a href="../2208/index12.html">13</a></li>
+					<li><a href="../2208/index13.html">14</a></li>
+					<li><a href="../2208/index14.html">15</a></li>
+					<li class="active"><a href="#">16</a></li>
+					<li><a href="../2208/index16.html">17</a></li>
+					<li><a href="../2208/index17.html">18</a></li>
+					<li><a href="../2208/index18.html">19</a></li>
+					<li><a href="../2208/index19.html">20</a></li>
+					<li><a href="../2208/index20.html">21</a></li>
+					<li><a href="../2208/index21.html">22</a></li>
+					<li><a href="../2208/index22.html">23</a></li>
+					<li><a href="../2208/index23.html">24</a></li>
+					<li><a href="../2208/index16.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2301/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+
+<!-- HTML interactive editor -->
+<script src="js/xml.js"></script>
+<script src="js/javascript.js"></script>
+<script src="js/css.js"></script>
+<script src="js/htmlmixed.js"></script>
+<script type="text/javascript">
+function runit() {
+    var content = editor.getValue();
+    var doc = document.getElementById("output").contentWindow.document;
+    doc.open();
+    doc.write(content);
+    doc.close();
+}
+</script>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "css",
+  theme: "rin-light"
+});
+editor.setSize('100%', 70);
+
+var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "htmlmixed",
+  theme: "rin-light"
+});
+editor2.setSize('100%', 105);
+
+/* Code snippet(s) in modal window */
+var editorX = CodeMirror.fromTextArea(document.getElementById("codeX"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "htmlmixed",
+  theme: "rin-light"
+});
+editorX.setSize('100%', 105);
+/*
+var editorY = CodeMirror.fromTextArea(document.getElementById("codeY"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "htmlmixed",
+  theme: "rin-light"
+});
+editorY.setSize('100%', 105);
+*/
+</script>
+<script src="../js/skulpt/theme.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

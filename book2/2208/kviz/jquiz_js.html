@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" prefix="dc: http://purl.org/dc/elements/1.1/">
+<head>
+  <meta name="author" content="Created with Hot Potatoes by Half-Baked Software, registered to anzeljg."/>
+  <meta name="keywords" content="Hot Potatoes, Hot Potatoes, Half-Baked Software, Windows, University of Victoria"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="dc:creator" content="anzeljg" />
+  <meta name="dc:title" content="Osnove JavaScript" />
+
+  <title>Osnove JavaScript</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Made with executable version 7.0 Release 3 Build 0 -->
+  <!-- The following insertion allows you to add your own code directly to this head tag from the configuration screen -->
+
+  <link href="jquiz_style.css" rel="stylesheet">
+  <script src="jquiz_js.js" type="text/javascript"></script>
+</head>
+
+<body onload="StartUp()" id="TheBody" >
+
+  <!-- BeginTopNavButtons -->
+  <!-- EndTopNavButtons -->
+
+  <div class="Titles">
+    <h2 class="ExerciseTitle">Osnove JavaScript</h2>
+    <h3 class="ExerciseSubtitle">Kviz</h3>
+  </div>
+
+  <div id="InstructionsDiv" class="StdDiv">
+    <div id="Instructions"></div>
+  </div>
+
+  <div id="ContainerDiv">
+
+    <div class="ExerciseContainer">
+      <div id="QNav" class="QuestionNavigation">
+        <p style="text-align: right;">
+          <button id="ShowMethodButton" class="btn btn-info" onclick="ShowHideQuestions(); return false;">Poka&#x017E;i vsa vpra&#x0161;anja</button>
+        </p>
+
+        <div id="OneByOneReadout">
+          <button id="PrevQButton" class="btn btn-info" onclick="ChangeQ(-1); return false;"><i class="fa fa-step-backward"></i></button>
+          <span id="QNumReadout" class="QNum">&#160;</span>
+          <button id="NextQButton" class="btn btn-info" onclick="ChangeQ(1); return false;"><i class="fa fa-step-forward"></i></button>
+          <br />
+        </div>
+      </div>
+
+      <ol class="QuizQuestions" id="Questions">
+        <li class="QuizQuestion" id="Q_0" style="display: none;"><div class="QuestionText">Znotraj katerega elementa HTML vpi&#x0161;emo programsko kodo JavaScript?</div><ol class="MCAnswers"><li id="Q_0_0"><button class="btn btn-info" id="Q_0_0_Btn" onclick="CheckMCAnswer(0,0,this)">?</button>&#160;&#160;&lt;javascript&gt;</li><li id="Q_0_1"><button class="btn btn-info" id="Q_0_1_Btn" onclick="CheckMCAnswer(0,1,this)">?</button>&#160;&#160;&lt;scripting&gt;</li><li id="Q_0_2"><button class="btn btn-info" id="Q_0_2_Btn" onclick="CheckMCAnswer(0,2,this)">?</button>&#160;&#160;&lt;js&gt;</li><li id="Q_0_3"><button class="btn btn-info" id="Q_0_3_Btn" onclick="CheckMCAnswer(0,3,this)">?</button>&#160;&#160;&lt;script&gt;</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_1" style="display: none;"><div class="QuestionText">Kje v dokumentu HTML je najustreznej&#x0161;e mesto za vklju&#x010D;itev programov JavaScript?</div><ol class="MCAnswers"><li id="Q_1_0"><button class="btn btn-info" id="Q_1_0_Btn" onclick="CheckMCAnswer(1,0,this)">?</button>&#160;&#160;V razdelku &lt;head&gt;</li><li id="Q_1_1"><button class="btn btn-info" id="Q_1_1_Btn" onclick="CheckMCAnswer(1,1,this)">?</button>&#160;&#160;V razdelku &lt;body&gt;</li><li id="Q_1_2"><button class="btn btn-info" id="Q_1_2_Btn" onclick="CheckMCAnswer(1,2,this)">?</button>&#160;&#160;V razdelku &lt;head&gt; ali razdelku &lt;body&gt;</li><li id="Q_1_3"><button class="btn btn-info" id="Q_1_3_Btn" onclick="CheckMCAnswer(1,3,this)">?</button>&#160;&#160;Na koncu dokumenta HTML, pred &lt;/body&gt;</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_2" style="display: none;"><div class="QuestionText">S katero zna&#x010D;ko HTML vklju&#x010D;imo zunanjo datoteko JavaScript?</div><ol class="MCAnswers"><li id="Q_2_0"><button class="btn btn-info" id="Q_2_0_Btn" onclick="CheckMCAnswer(2,0,this)">?</button>&#160;&#160;&lt;script href="mojakoda.js"&gt;&lt;/script&gt;</li><li id="Q_2_1"><button class="btn btn-info" id="Q_2_1_Btn" onclick="CheckMCAnswer(2,1,this)">?</button>&#160;&#160;&lt;script name="mojakoda.js"&gt;&lt;/script&gt;</li><li id="Q_2_2"><button class="btn btn-info" id="Q_2_2_Btn" onclick="CheckMCAnswer(2,2,this)">?</button>&#160;&#160;&lt;script src="mojakoda.js"&gt;&lt;/script&gt;</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_3" style="display: none;"><div class="QuestionText">Zunanja datoteka JavaScript mora vsebovati zna&#x010D;ko &lt;script&gt;.</div><ol class="MCAnswers"><li id="Q_3_0"><button class="btn btn-info" id="Q_3_0_Btn" onclick="CheckMCAnswer(3,0,this)">?</button>&#160;&#160;Pravilno</li><li id="Q_3_1"><button class="btn btn-info" id="Q_3_1_Btn" onclick="CheckMCAnswer(3,1,this)">?</button>&#160;&#160;Nepravilno</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_4" style="display: none;"><div class="QuestionText">Kako dodamo komentar v program JavaScript?</div><ol class="MCAnswers"><li id="Q_4_0"><button class="btn btn-info" id="Q_4_0_Btn" onclick="CheckMCAnswer(4,0,this)">?</button>&#160;&#160;' To je komentar</li><li id="Q_4_1"><button class="btn btn-info" id="Q_4_1_Btn" onclick="CheckMCAnswer(4,1,this)">?</button>&#160;&#160;&lt;!-- To je komentar --&gt;</li><li id="Q_4_2"><button class="btn btn-info" id="Q_4_2_Btn" onclick="CheckMCAnswer(4,2,this)">?</button>&#160;&#160;// To je komentar</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_5" style="display: none;"><div class="QuestionText">Programski jezik JavaScript je enak kot programski jezik Java.</div><ol class="MCAnswers"><li id="Q_5_0"><button class="btn btn-info" id="Q_5_0_Btn" onclick="CheckMCAnswer(5,0,this)">?</button>&#160;&#160;Pravilno</li><li id="Q_5_1"><button class="btn btn-info" id="Q_5_1_Btn" onclick="CheckMCAnswer(5,1,this)">?</button>&#160;&#160;Nepravilno</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_6" style="display: none;"><div class="QuestionText">Kateri dogodek se zgodi, ko uporabnik klikne na element HTML?</div><ol class="MCAnswers"><li id="Q_6_0"><button class="btn btn-info" id="Q_6_0_Btn" onclick="CheckMCAnswer(6,0,this)">?</button>&#160;&#160;onMouseClick</li><li id="Q_6_1"><button class="btn btn-info" id="Q_6_1_Btn" onclick="CheckMCAnswer(6,1,this)">?</button>&#160;&#160;onChange</li><li id="Q_6_2"><button class="btn btn-info" id="Q_6_2_Btn" onclick="CheckMCAnswer(6,2,this)">?</button>&#160;&#160;onClick</li><li id="Q_6_3"><button class="btn btn-info" id="Q_6_3_Btn" onclick="CheckMCAnswer(6,3,this)">?</button>&#160;&#160;onMouseOver</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_7" style="display: none;"><div class="QuestionText">Kako napovemo spremenljivko v programskem jeziku JavaScript?</div><ol class="MCAnswers"><li id="Q_7_0"><button class="btn btn-info" id="Q_7_0_Btn" onclick="CheckMCAnswer(7,0,this)">?</button>&#160;&#160;v imeOsebe;</li><li id="Q_7_1"><button class="btn btn-info" id="Q_7_1_Btn" onclick="CheckMCAnswer(7,1,this)">?</button>&#160;&#160;var imeOsebe;</li><li id="Q_7_2"><button class="btn btn-info" id="Q_7_2_Btn" onclick="CheckMCAnswer(7,2,this)">?</button>&#160;&#160;variable imeOsebe;</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_8" style="display: none;"><div class="QuestionText">Kateri operator uporabimo v programskem jeziku JavaScript za prirejanje vrednosti spremenljivki?</div><ol class="MCAnswers"><li id="Q_8_0"><button class="btn btn-info" id="Q_8_0_Btn" onclick="CheckMCAnswer(8,0,this)">?</button>&#160;&#160;=</li><li id="Q_8_1"><button class="btn btn-info" id="Q_8_1_Btn" onclick="CheckMCAnswer(8,1,this)">?</button>&#160;&#160;-</li><li id="Q_8_2"><button class="btn btn-info" id="Q_8_2_Btn" onclick="CheckMCAnswer(8,2,this)">?</button>&#160;&#160;*</li><li id="Q_8_3"><button class="btn btn-info" id="Q_8_3_Btn" onclick="CheckMCAnswer(8,3,this)">?</button>&#160;&#160;==</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_9" style="display: none;"><div class="QuestionText">Ali programski jezik JavaScript razlikuje med velikimi in malimi &#x010D;rkami?</div><ol class="MCAnswers"><li id="Q_9_0"><button class="btn btn-info" id="Q_9_0_Btn" onclick="CheckMCAnswer(9,0,this)">?</button>&#160;&#160;Ne</li><li id="Q_9_1"><button class="btn btn-info" id="Q_9_1_Btn" onclick="CheckMCAnswer(9,1,this)">?</button>&#160;&#160;Da</li></ol></li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="FeedbackDiv" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"onclick="HideFeedback(); return false;">&times;</button>
+          <h4 class="modal-title FeedbackText">Odgovor</h4>
+        </div>
+        <div class="modal-body FeedbackText">
+          <p id="FeedbackContent"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"onclick="HideFeedback(); return false;">Zapri</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BeginBottomNavButtons -->
+  <!-- EndBottomNavButtons -->
+
+  <!-- BeginSubmissionForm -->
+  <!-- EndSubmissionForm -->
+
+</body>
+</html>

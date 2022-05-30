@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pozdravljen, JavaScript</title>
+  </head>
+  <body>
+
+	<p>Trenutni datum in čas: <span id="ura"></span></p>
+	<p><button onClick="pretvori()">Pretvori °C v °F</button></p>
+
+    <script src="ura.js" type="text/javascript"></script>
+	<script>
+      function pretvori() {
+	    tempC = prompt('Vnesite temperaturo v °C:');
+		// izračunaj in rezultat zaokroži na 1 decimalko
+	    tempF = ((tempC * 1.8) + 32).toFixed(1);
+	    alert(tempC + '°C je ' + tempF + '°F');
+	  }
+
+      // izvaja funkcijo datumCas iz datoteke 'ura.js' v nedogled
+	  var run = setInterval(datumCas, 100); // zakasnitev = 100 ms
+    </script>
+
+  </body>
+</html>

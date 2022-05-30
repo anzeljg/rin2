@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Osnove HTML</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li class="active"><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Absolutne povezave -->
+		<div id="absolute" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Absolutne povezave</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">»Absolutne« povezave so najbolj podroben način, na katerega se lahko sklicujemo na spletni vir. Začnejo se s shemo (običajno <code>http://</code> ali <code>https://</code>), ki ji sledi ime domene spletnega mesta in nato še pot do vira na spletnem strežniku (običajno je to spletna stran).</p>
+						<p align="justify">Sestavni deli absolutne povezave na trenutno spletno stran:
+						<ul>
+						  <li>Shema: <code><script>document.write(window.location.protocol);</script>//</code></li>
+						  <li>Domena: <code><script>document.write(window.location.host);</script></code></li>
+						  <li>Pot do vira: <code><script>document.write(window.location.pathname);</script></code></li>
+						</ul>
+						</p>
+						<p align="justify">Primer absolutne povezave na trenutno stran je torej:
+						<pre><script>document.write(window.location);</script></pre>
+						</p>
+						<p align="justify">Absolutne povezave lahko uporabljamo za sklicevanje na spletne strani v istem spletnem mestu, vendar lahko to povzroči tudi zaplete. Običajno uporabljamo absolutne povezave samo za usmerjanje uporabnikov na druga spletna mesta.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Relativne povezave -->
+		<div id="relative" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Relativne povezave</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">»Relativne« povezave se sklicujejo na drugo datoteko na istem spletnem mestu in to z vidika datoteke, ki jo urejamo. Predvideva se, da sta shema in ime domene enaka shemi in imenu domene trenutne spletne strani.</p>
+						<p align="justify">Atribut <code>href</code> predstavlja pot datoteke. Vsaka mapa in datoteka na poti sta ločeni s poševnico (<code>/</code>). Torej, če želimo priti do datoteke stran1.html, ki se nahaja v dveh mapah, bi potrebovali URL, kot je na primer:
+						<pre>mapa/podmapa/stran1.html</pre>
+						</p>
+						<p align="justify">To deluje za sklicevanje na datoteke, ki so v isti mapi ali v eni izmed podmap. Kaj pa sklicevanje na datoteke, ki so v mapi nad mapo, v kateri je trenutna datoteka?</p>
+						<p align="justify">Dve zaporedni piki (<code>..</code>) na poti datoteke predstavljata sklic na nadrejeno mapo. Torej, če želimo priti do datoteke stran2.html, ki je v nadrejeni mapi, bi potrebovali URL, kot je na primer:
+						<pre>../stran2.html</pre></p>
+						<p align="justify">Relativne povezave so zelo priročne, saj omogočajo premikanje med mapami, ne da bi morali posodobiti vse atribute href v vseh elementih <code>&lt;a&gt;</code>, vendar lahko postanejo nekoliko nejasne, ko se vse povezave začnejo s pikami. Običajno uporabljamo relativne povezave za sklicevanje na vire v isti mapi ali v samostojnem razdelku spletnega mesta.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnove HTML</h1>
+
+<p align="justify">Povezave in slike se od elementov, ki smo jih spoznali do sedaj bistveno razlikujejo po tem, da se ukvarjajo z zunanjimi viri. Povezave usmerjajo uporabnike na druge spletne strani, slike pa vgradijo zunanje datoteke na spletno stran. Za uporabo povezav in slik moramo spoznati še eno komponento sintakse jezika HTML &ndash; atribute (<i>ang. attributes</i>) oziroma lastnosti. Atributi predstavljajo nove možnosti za predstavitev podatkov na spletnih straneh.</p>
+
+<h2>Povezave</h2>
+
+<p align="justify">Povezave do drugih spletnih strani ustvarimo z elementom <code>&lt;a&gt;</code>, ki pomeni sidro (<i>ang. anchor</i>). Deluje tako kot vsi, ki so jih že spoznali &ndash; ko besedilo ovijemo z značkama <code>&lt;a&gt;</code>, spremenimo pomen vsebine. Oglejmo si primer povezave na spletno stran s slikami:</p>
+
+<div style="min-width:450px;width:100%">
+<textarea id="code2">  <!-- Primer povezave, ki ne deluje -->
+  <p>Ta primer prikazuje povezave in <a>slike</a>.</p></textarea>
+<br />
+</div>
+
+<p align="justify">Če bi to kodo HTML shanili v datoteko in jo odprli v spletnem brskalniku, bi opazili, da element <code>&lt;a&gt;</code> sploh ni videti kot povezava. Na žalost element <code>&lt;a&gt;</code> sam po sebi ne naredi veliko.</p>
+
+<p align="justify">Na enak način, kot element doda pomen vsebini, ki jo vsebuje, doda atribut pomen elementu, kateremu pripada. Različni elementi omogočajo različne atribute &ndash; podrobnosti o tem, kateri elementi vsebujejo katere atribute, pa lahko najdeš na spletu, na primer na <a href="https://www.w3schools.com/tags/ref_attributes.asp" target="_blank">spletišču W3Schools</a>. Trenutno nas zanima predvsem atribut <code>href</code>, ker določa na katero spletno stran bo brskalnik preusmeril uporabnika, ko bo ta kliknil element <code>&lt;a&gt;</code>. Posodobimo povezavo na spletno stran s slikami takole:</p>
+
+<div style="min-width:250px;width:100%">
+<textarea id="code"><!DOCTYPE html>
+<html>
+  <head>
+    <title>Druga spletna stran</title>
+  </head>
+  <body>
+    <h2>Povezave in slike</h2>
+	<p>Ta primer prikazuje povezave in <a href="slike.html">slike</a>.</p>
+  </body>
+</html></textarea>
+<div style="margin-top:4px">
+<button type="button" class="btn btn-primary" onclick="runit()"><span class="fa fa-play"></span> Prikaži</button>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</div>
+<br />
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Upoštevati moramo, da lahko atributi obstajajo samo znotraj začetne značke. Vsak atribut je sestavljen iz imena atributa, enačaja in vrednosti atributa v enojnih ali dvojnih narekovajih. Ta sintaksa razlikuje atribute od vsebine (ki je zapisana med začetno in končno značko).</p>
+
+<p align="justify">Dodatni del informacije, ki ga elementu oziroma znački zagotavlja atribut <code>href</code>, pove brskalniku, da je element <code>&lt;a&gt;</code> v resnici povezava, ki jo brskalnik privzeto upodobi kot podčrtano besedilo modre barve. Glede na vrednost atributa <code>href</code> ločimo absolutne in relativne povezave.</p>
+
+<p align="center">
+  <a href="#absolute" class="btn btn-primary" title="Absolutne povezave" data-toggle="modal" data-target="#absolute">Absolutne povezave</a>
+  <a href="#relative" class="btn btn-primary" title="Relativne povezave" data-toggle="modal" data-target="#relative">Relativne povezave</a>
+</p>
+
+<br />
+<div style="width:480px;height:555px;background:url('img/brskalnik.png') no-repeat;padding-top:70px;padding-left:2px;">
+<iframe id="output" src="about:blank" frameborder="0" width="476" height="475"></iframe>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2207/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2208/index9.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2208/index.html">1</a></li>
+					<li><a href="../2208/index1.html">2</a></li>
+					<li><a href="../2208/index2.html">3</a></li>
+					<li><a href="../2208/index3.html">4</a></li>
+					<li><a href="../2208/index4.html">5</a></li>
+					<li><a href="../2208/index5.html">6</a></li>
+					<li><a href="../2208/index6.html">7</a></li>
+					<li><a href="../2208/index7.html">8</a></li>
+					<li><a href="../2208/index8.html">9</a></li>
+					<li><a href="../2208/index9.html">10</a></li>
+					<li class="active"><a href="#">11</a></li>
+					<li><a href="../2208/index11.html">12</a></li>
+					<li><a href="../2208/index12.html">13</a></li>
+					<li><a href="../2208/index13.html">14</a></li>
+					<li><a href="../2208/index14.html">15</a></li>
+					<li><a href="../2208/index15.html">16</a></li>
+					<li><a href="../2208/index16.html">17</a></li>
+					<li><a href="../2208/index17.html">18</a></li>
+					<li><a href="../2208/index18.html">19</a></li>
+					<li><a href="../2208/index19.html">20</a></li>
+					<li><a href="../2208/index20.html">21</a></li>
+					<li><a href="../2208/index21.html">22</a></li>
+					<li><a href="../2208/index22.html">23</a></li>
+					<li><a href="../2208/index23.html">24</a></li>
+					<li><a href="../2208/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2301/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+
+<!-- HTML interactive editor -->
+<script src="js/xml.js"></script>
+<script src="js/javascript.js"></script>
+<script src="js/css.js"></script>
+<script src="js/htmlmixed.js"></script>
+<script type="text/javascript">
+function runit() {
+    var content = editor.getValue();
+    var doc = document.getElementById("output").contentWindow.document;
+    doc.open();
+    doc.write(content);
+    doc.close();
+}
+</script>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "htmlmixed",
+  theme: "rin-light"
+});
+editor.setSize('100%', 215);
+
+var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "htmlmixed",
+  theme: "rin-light"
+});
+editor2.setSize('100%', 50);
+</script>
+<script src="../js/skulpt/theme.js"></script>
+<script>
+$(function() {
+	// Also change theme for editor2 when changed for editor
+    $('#theme').change(function() {
+	    if ($(this).prop('checked') == true) {
+	        editor2.setOption('theme', 'rin-dark');
+	    } else {
+	        editor2.setOption('theme', 'rin-light');
+	    }
+    })
+});
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

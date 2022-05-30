@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Osnove CSS</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li class="active"><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnove CSS</h1>
+
+<h2>Slogi posameznega elementa</h2>
+
+<p align="justify">Pravila CSS lahko vstavimo neposredno v atribut <code>style</code> vsakega elementa HTML. Za ilustracijo oblikujmo nedelujočo povezavo na spletno stran tako, da bo povezava prikazana prečrtano. To storimo tako, da v element HTML dodamo atribut <code>style</code>, ki vsebuje pravilo CSS <code>text-decoration:line-through</code>.</p>
+
+<p align="justify">Tako kot pri slogih, določenih za posamezno spletno stran, tudi tu uporabljamo isto sintakso CSS. Ker pa so vsa pravila CSS v enem atributu, jih je treba strniti v eno vrstico. Vgrajeni slogi so najbolj specifičen način določanja CSS. Pravila CSS, definirana v atributu posameznega elementa HTML, preglasijo vsa prejšnja pravila CSS v zvezi s tem elementom.</p>
+
+<div class="btn-group btn-group-sm" role="group" aria-label="Tabs">
+  <button type="button" class="btn btn-link" id="tabBtn1" onclick="showCode('tab1')">stran1.html</button>
+  <button type="button" class="btn btn-link selected" id="tabBtn2" onclick="showCode('tab2')">stran2.html</button>
+  <button type="button" class="btn btn-link" id="tabBtn3" onclick="showCode('tab3')">slogi.css</button>
+</div>
+
+<div id="tabCode1" class="hidden" style="min-width:450px;width:100%">
+<textarea id="code"><!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pozdravljen, CSS</title>
+    <link rel="stylesheet" href="slogi.css" />
+    <style>
+      body { color: #0000FF; /* modra */ }
+    </style>
+  </head>
+  <body>
+
+    <h2>Pozdravljen, CSS</h2>
+	
+	<p>CSS nam omogoča oblikovanje HTML elementov. Tu je tudi
+	<a href="stran2.html">druga stran</a>, povezana s tem primerom.</p>
+
+  </body>
+</html></textarea>
+</div>
+
+<div id="tabCode2" style="min-width:450px;width:100%">
+<textarea id="code2"><!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ponovno pozdravljen, CSS</title>
+    <link rel="stylesheet" href="slogi.css" />
+  </head>
+  <body>
+
+    <h2>Ponovno pozdravljen, CSS</h2>
+	
+	<p>To je prazna stran, ki nam pomaga prikazati slogovne predloge, ki
+	jih lahko uporabimo na več spletnih straneh.
+	<a href="stran1.html">Pojdi nazaj</a>.</p>
+	
+	<p>Ali želite prečrtati <a href="stran3.html" style="text-decoration:
+	line-through">zastarelo povezavo</a>? Zdaj imate priložnost!</p>
+
+  </body>
+</html></textarea>
+</div>
+
+<div id="tabCode3" class="hidden" style="min-width:450px;width:100%">
+<textarea id="code3">body {
+  color: #FF0000; /* rdeča */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+p {
+  text-align: right;
+}
+
+a:link,
+a:visited {
+  /* običajna (neobiskana) in obiskana povezava 
+     naj bosta podčrtani z enojno rdečo črto */
+  text-decoration: underline solid red;
+}
+
+a:hover,
+a:active {
+  /* lebdeča (miška na povezavi) in aktivna
+     (ko z miško kliknemo in držimo) povezava
+     naj bosta podčrtani z dvojno modro črto */
+  text-decoration: underline double blue;
+}</textarea>
+</div>
+
+<div style="margin-top:4px">
+<button type="button" class="btn btn-primary" onclick="runit()"><span class="fa fa-play"></span> Prikaži</button>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</div>
+<br />
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Vgrajenim slogom se moramo izogibati za vsako ceno, ker onemogočajo spreminjanje slogov iz ločene slogovne datoteke. Če bi kdaj želeli preoblikovati svoje spletišče, ne bi bilo dovolj le spremeniti nekaj pravil CSS v slogovni datoteki <code>slogi.css</code> &ndash; namesto tega bi morali pregledati vsako posamezno spletno stran in posodobiti vsak posamezen element HTML, ki vsebuje določen slogovni atribut. To bi bilo naravnost grozljivo.</p>
+
+<p align="justify">Pravila CSS je mogoče razširiti na več zunanjih slogovnih datotek tako, da na spletno stran dodamo več elementov <code>&lt;link /&gt;</code>. Pogost primer uporabe je ločevanje slogov za različne dele spletišča. To omogoča izbirno uporabo skladnih slogov za različne dele spletišča.</p>
+
+<div style="width:480px;height:555px;background:url('img/brskalnik.png') no-repeat;padding-top:70px;padding-left:2px;margin-top:4px;">
+<iframe id="output" name="dead_link" src="about:blank" frameborder="0" width="476" height="475" sandbox="allow-scripts allow-same-origin"></iframe>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2207/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2208/index16.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2208/index.html">1</a></li>
+					<li><a href="../2208/index1.html">2</a></li>
+					<li><a href="../2208/index2.html">3</a></li>
+					<li><a href="../2208/index3.html">4</a></li>
+					<li><a href="../2208/index4.html">5</a></li>
+					<li><a href="../2208/index5.html">6</a></li>
+					<li><a href="../2208/index6.html">7</a></li>
+					<li><a href="../2208/index7.html">8</a></li>
+					<li><a href="../2208/index8.html">9</a></li>
+					<li><a href="../2208/index9.html">10</a></li>
+					<li><a href="../2208/index10.html">11</a></li>
+					<li><a href="../2208/index11.html">12</a></li>
+					<li><a href="../2208/index12.html">13</a></li>
+					<li><a href="../2208/index13.html">14</a></li>
+					<li><a href="../2208/index14.html">15</a></li>
+					<li><a href="../2208/index15.html">16</a></li>
+					<li><a href="../2208/index16.html">17</a></li>
+					<li class="active"><a href="#">18</a></li>
+					<li><a href="../2208/index18.html">19</a></li>
+					<li><a href="../2208/index19.html">20</a></li>
+					<li><a href="../2208/index20.html">21</a></li>
+					<li><a href="../2208/index21.html">22</a></li>
+					<li><a href="../2208/index22.html">23</a></li>
+					<li><a href="../2208/index23.html">24</a></li>
+					<li><a href="../2208/index18.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2301/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+
+<!-- HTML &CSS interactive editor -->
+<script src="js/xml.js"></script>
+<script src="js/javascript.js"></script>
+<script src="js/css.js"></script>
+<script src="js/htmlmixed.js"></script>
+<script type="text/javascript">
+function runit() {
+    var content = "";
+	if ($("#tabBtn2").hasClass("selected")) {
+	    content = editor2.getValue();
+	} else {
+		// default content
+	    content = editor.getValue();
+	}
+	var format = editor3.getValue();
+
+	// Inject CSS formatting into HTML
+	content = content.replace('<link rel="stylesheet" href="slogi.css" />', '<style>'+format+'</style>');	
+	
+	var doc = document.getElementById("output").contentWindow.document;
+    doc.open();
+    doc.write(content);
+    doc.close();
+}
+</script>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  readOnly: "nocursor",
+  mode: "htmlmixed",
+  theme: "rin-light"
+});
+editor.setSize('100%', 390);
+
+var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "htmlmixed",
+  theme: "rin-light"
+});
+editor2.setSize('100%', 390);
+
+var editor3 = CodeMirror.fromTextArea(document.getElementById("code3"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "css",
+  theme: "rin-light"
+});
+editor3.setSize('100%', 390);
+</script>
+<!--<script src="../js/skulpt/theme.js"></script>-->
+<script>
+$(function() {
+    $('#theme').change(function() {
+	    if ($(this).prop('checked') == true) {
+	        editor.setOption('theme', 'rin-dark');
+	        editor2.setOption('theme', 'rin-dark');
+	        editor3.setOption('theme', 'rin-dark');
+	    } else {
+	        editor.setOption('theme', 'rin-light');
+	        editor2.setOption('theme', 'rin-light');
+	        editor3.setOption('theme', 'rin-light');
+	    }
+    })
+})
+</script>
+
+<!-- HTML & CSS interactive editor tabbed files UI -->
+<style>
+.selected {
+  font-weight: bold;
+}
+</style>
+<script>
+function showCode(id) {
+  if (id == 'tab1') {
+    $("#tabBtn1").addClass("selected");
+    $("#tabCode1").removeClass("hidden");
+	$("#tabBtn2").removeClass("selected");
+    $("#tabCode2").addClass("hidden");
+	$("#tabBtn3").removeClass("selected");
+    $("#tabCode3").addClass("hidden");
+    editor.refresh();
+  }
+
+  if (id == 'tab2') {
+    $("#tabBtn1").removeClass("selected");
+    $("#tabCode1").addClass("hidden");
+	$("#tabBtn2").addClass("selected");
+    $("#tabCode2").removeClass("hidden");
+	$("#tabBtn3").removeClass("selected");
+    $("#tabCode3").addClass("hidden");
+    editor2.refresh();
+  }
+
+  if (id == 'tab3') {
+    $("#tabBtn1").removeClass("selected");
+    $("#tabCode1").addClass("hidden");
+	$("#tabBtn2").removeClass("selected");
+    $("#tabCode2").addClass("hidden");
+	$("#tabBtn3").addClass("selected");
+    $("#tabCode3").removeClass("hidden");
+    editor3.refresh();
+  }
+
+}
+</script>
+
+<!-- Handle HTML link clicks in the browser content-->
+<script>
+$(function() {
+    $('#output').click(function() {
+		var doc = document.getElementById("output").contentWindow.document;
+		console.log(doc);
+		if (doc.includes('a href="stran1.html"')) {
+			// dynamically load "stran1.html" = editor content to iframe!
+			console.log("stran1");
+		}
+		if (doc.includes('a href="stran2.html"')) {
+			// dynamically load "stran2.html" = editor2 content to iframe!
+			console.log("stran2");
+		}
+
+    })
+});
+</script>
+
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

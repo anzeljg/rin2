@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" prefix="dc: http://purl.org/dc/elements/1.1/">
+<head>
+  <meta name="author" content="Created with Hot Potatoes by Half-Baked Software, registered to anzeljg."/>
+  <meta name="keywords" content="Hot Potatoes, Hot Potatoes, Half-Baked Software, Windows, University of Victoria"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="dc:creator" content="anzeljg" />
+  <meta name="dc:title" content="Osnove CSS" />
+
+  <title>Osnove CSS</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Made with executable version 7.0 Release 3 Build 0 -->
+  <!-- The following insertion allows you to add your own code directly to this head tag from the configuration screen -->
+
+  <link href="jquiz_style.css" rel="stylesheet">
+  <script src="jquiz_css.js" type="text/javascript"></script>
+</head>
+
+<body onload="StartUp()" id="TheBody">
+
+  <!-- BeginTopNavButtons -->
+  <!-- EndTopNavButtons -->
+
+  <div class="Titles">
+    <h2 class="ExerciseTitle">Osnove CSS</h2>
+    <h3 class="ExerciseSubtitle">Kviz</h3>
+  </div>
+
+  <div id="InstructionsDiv" class="StdDiv">
+    <div id="Instructions"></div>
+  </div>
+
+  <div id="ContainerDiv">
+ 
+    <div class="ExerciseContainer">
+      <div id="QNav" class="QuestionNavigation">
+        <p style="text-align: right;">
+          <button id="ShowMethodButton" class="btn btn-info" onclick="ShowHideQuestions(); return false;">Poka&#x017E;i vsa vpra&#x0161;anja</button>
+        </p>
+
+        <div id="OneByOneReadout">
+          <button id="PrevQButton" class="btn btn-info" onclick="ChangeQ(-1); return false;"><i class="fa fa-step-backward"></i></button>
+          <span id="QNumReadout" class="QNum">&#160;</span>
+          <button id="NextQButton" class="btn btn-info" onclick="ChangeQ(1); return false;"><i class="fa fa-step-forward"></i></button>
+          <br />
+        </div>
+      </div>
+
+      <ol class="QuizQuestions" id="Questions">
+        <li class="QuizQuestion" id="Q_0" style="display: none;"><div class="QuestionText">Kaj pomeni kratica CSS?</div><ol class="MCAnswers"><li id="Q_0_0"><button class="btn btn-info" id="Q_0_0_Btn" onclick="CheckMCAnswer(0,0,this)">?</button>&#160;&#160;Cascading Style Sheets</li><li id="Q_0_1"><button class="btn btn-info" id="Q_0_1_Btn" onclick="CheckMCAnswer(0,1,this)">?</button>&#160;&#160;Creative Style Sheets</li><li id="Q_0_2"><button class="btn btn-info" id="Q_0_2_Btn" onclick="CheckMCAnswer(0,2,this)">?</button>&#160;&#160;Colorful Style Sheets</li><li id="Q_0_3"><button class="btn btn-info" id="Q_0_3_Btn" onclick="CheckMCAnswer(0,3,this)">?</button>&#160;&#160;Computer Style Sheets</li></ol></li>
+        
+        <li class="QuizQuestion" id="Q_1" style="display: none;"><div class="QuestionText">S katero zna&#x010D;ko HTML vklju&#x010D;imo zunanjo slogovno datoteko?</div><ol class="MCAnswers"><li id="Q_1_0"><button class="btn btn-info" id="Q_1_0_Btn" onclick="CheckMCAnswer(1,0,this)">?</button>&#160;&#160;&lt;link rel="stylesheet" type="text/css" href="mojslog.css"&gt;</li><li id="Q_1_1"><button class="btn btn-info" id="Q_1_1_Btn" onclick="CheckMCAnswer(1,1,this)">?</button>&#160;&#160;&lt;style src="mojslog.css"&gt;</li><li id="Q_1_2"><button class="btn btn-info" id="Q_1_2_Btn" onclick="CheckMCAnswer(1,2,this)">?</button>&#160;&#160;&lt;stylesheet&gt;mojslog.css&lt;/stylesheet&gt;</li></ol></li>
+        
+        <li class="QuizQuestion" id="Q_2" style="display: none;"><div class="QuestionText">Kje v dokumentu HTML je najustreznej&#x0161;e mesto za vklju&#x010D;itev zunanjih slogovnih datotek?</div><ol class="MCAnswers"><li id="Q_2_0"><button class="btn btn-info" id="Q_2_0_Btn" onclick="CheckMCAnswer(2,0,this)">?</button>&#160;&#160;Na koncu dokumenta</li><li id="Q_2_1"><button class="btn btn-info" id="Q_2_1_Btn" onclick="CheckMCAnswer(2,1,this)">?</button>&#160;&#160;V razdelku &lt;head&gt;</li><li id="Q_2_2"><button class="btn btn-info" id="Q_2_2_Btn" onclick="CheckMCAnswer(2,2,this)">?</button>&#160;&#160;V razdelku &lt;body&gt;</li></ol></li>
+        
+        <li class="QuizQuestion" id="Q_3" style="display: none;"><div class="QuestionText">Katero zna&#x010D;ko HTML uporabimo za dolo&#x010D;anje notranje slogovne predloge?</div><ol class="MCAnswers"><li id="Q_3_0"><button class="btn btn-info" id="Q_3_0_Btn" onclick="CheckMCAnswer(3,0,this)">?</button>&#160;&#160;&lt;style&gt;</li><li id="Q_3_1"><button class="btn btn-info" id="Q_3_1_Btn" onclick="CheckMCAnswer(3,1,this)">?</button>&#160;&#160;&lt;css&gt;</li><li id="Q_3_2"><button class="btn btn-info" id="Q_3_2_Btn" onclick="CheckMCAnswer(3,2,this)">?</button>&#160;&#160;&lt;script&gt;</li></ol></li>
+        
+        <li class="QuizQuestion" id="Q_4" style="display: none;"><div class="QuestionText">Kateri atribut HTML uporabimo za dolo&#x010D;anje notranje slogovne predloge?</div><ol class="MCAnswers"><li id="Q_4_0"><button class="btn btn-info" id="Q_4_0_Btn" onclick="CheckMCAnswer(4,0,this)">?</button>&#160;&#160;class</li><li id="Q_4_1"><button class="btn btn-info" id="Q_4_1_Btn" onclick="CheckMCAnswer(4,1,this)">?</button>&#160;&#160;styles</li><li id="Q_4_2"><button class="btn btn-info" id="Q_4_2_Btn" onclick="CheckMCAnswer(4,2,this)">?</button>&#160;&#160;style</li><li id="Q_4_3"><button class="btn btn-info" id="Q_4_3_Btn" onclick="CheckMCAnswer(4,3,this)">?</button>&#160;&#160;font</li></ol></li>
+        
+        <li class="QuizQuestion" id="Q_5" style="display: none;"><div class="QuestionText">Katera je pravilna sintaksa CSS?</div><ol class="MCAnswers"><li id="Q_5_0"><button class="btn btn-info" id="Q_5_0_Btn" onclick="CheckMCAnswer(5,0,this)">?</button>&#160;&#160;body {color: black;}</li><li id="Q_5_1"><button class="btn btn-info" id="Q_5_1_Btn" onclick="CheckMCAnswer(5,1,this)">?</button>&#160;&#160;body:color=black;</li><li id="Q_5_2"><button class="btn btn-info" id="Q_5_2_Btn" onclick="CheckMCAnswer(5,2,this)">?</button>&#160;&#160;{body:color=black;}</li><li id="Q_5_3"><button class="btn btn-info" id="Q_5_3_Btn" onclick="CheckMCAnswer(5,3,this)">?</button>&#160;&#160;{body;color:black;}</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_6" style="display: none;"><div class="QuestionText">Kako vnesemo komentar v datoteko CSS?</div><ol class="MCAnswers"><li id="Q_6_0"><button class="btn btn-info" id="Q_6_0_Btn" onclick="CheckMCAnswer(6,0,this)">?</button>&#160;&#160;// to je komentar //</li><li id="Q_6_1"><button class="btn btn-info" id="Q_6_1_Btn" onclick="CheckMCAnswer(6,1,this)">?</button>&#160;&#160;/* to je komentar */</li><li id="Q_6_2"><button class="btn btn-info" id="Q_6_2_Btn" onclick="CheckMCAnswer(6,2,this)">?</button>&#160;&#160;' to je komentar</li><li id="Q_6_3"><button class="btn btn-info" id="Q_6_3_Btn" onclick="CheckMCAnswer(6,3,this)">?</button>&#160;&#160;// to je komentar</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_7" style="display: none;"><div class="QuestionText">Katero lastnost uporabljamo za spreminjanje barve ozadja?</div><ol class="MCAnswers"><li id="Q_7_0"><button class="btn btn-info" id="Q_7_0_Btn" onclick="CheckMCAnswer(7,0,this)">?</button>&#160;&#160;background-color</li><li id="Q_7_1"><button class="btn btn-info" id="Q_7_1_Btn" onclick="CheckMCAnswer(7,1,this)">?</button>&#160;&#160;bgcolor</li><li id="Q_7_2"><button class="btn btn-info" id="Q_7_2_Btn" onclick="CheckMCAnswer(7,2,this)">?</button>&#160;&#160;color</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_8" style="display: none;"><div class="QuestionText">S katerim pravilom dodamo barvo ozadja vsem elementom &lt;h1&gt;?</div><ol class="MCAnswers"><li id="Q_8_0"><button class="btn btn-info" id="Q_8_0_Btn" onclick="CheckMCAnswer(8,0,this)">?</button>&#160;&#160;h1 {background-color:#FFFFFF;}</li><li id="Q_8_1"><button class="btn btn-info" id="Q_8_1_Btn" onclick="CheckMCAnswer(8,1,this)">?</button>&#160;&#160;all.h1 {background-color:#FFFFFF;}</li><li id="Q_8_2"><button class="btn btn-info" id="Q_8_2_Btn" onclick="CheckMCAnswer(8,2,this)">?</button>&#160;&#160;h1.all {background-color:#FFFFFF;}</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_9" style="display: none;"><div class="QuestionText">Katero lastnost uporabljamo za spreminjanje barve besedila?</div><ol class="MCAnswers"><li id="Q_9_0"><button class="btn btn-info" id="Q_9_0_Btn" onclick="CheckMCAnswer(9,0,this)">?</button>&#160;&#160;color</li><li id="Q_9_1"><button class="btn btn-info" id="Q_9_1_Btn" onclick="CheckMCAnswer(9,1,this)">?</button>&#160;&#160;fgcolor</li><li id="Q_9_2"><button class="btn btn-info" id="Q_9_2_Btn" onclick="CheckMCAnswer(9,2,this)">?</button>&#160;&#160;text-color</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_10" style="display: none;"><div class="QuestionText">Katero lastnost uporabljamo za dolo&#x010D;anje velikosti besedila?</div><ol class="MCAnswers"><li id="Q_10_0"><button class="btn btn-info" id="Q_10_0_Btn" onclick="CheckMCAnswer(10,0,this)">?</button>&#160;&#160;font-style</li><li id="Q_10_1"><button class="btn btn-info" id="Q_10_1_Btn" onclick="CheckMCAnswer(10,1,this)">?</button>&#160;&#160;text-style</li><li id="Q_10_2"><button class="btn btn-info" id="Q_10_2_Btn" onclick="CheckMCAnswer(10,2,this)">?</button>&#160;&#160;text-size</li><li id="Q_10_3"><button class="btn btn-info" id="Q_10_3_Btn" onclick="CheckMCAnswer(10,3,this)">?</button>&#160;&#160;font-size</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_11" style="display: none;"><div class="QuestionText">S katerim pravilom izpi&#x0161;emo krepko vse elemente &lt;p&gt;?</div><ol class="MCAnswers"><li id="Q_11_0"><button class="btn btn-info" id="Q_11_0_Btn" onclick="CheckMCAnswer(11,0,this)">?</button>&#160;&#160;&lt;p style="text-size:bold;"&gt;</li><li id="Q_11_1"><button class="btn btn-info" id="Q_11_1_Btn" onclick="CheckMCAnswer(11,1,this)">?</button>&#160;&#160;p {font-weight:bold;}</li><li id="Q_11_2"><button class="btn btn-info" id="Q_11_2_Btn" onclick="CheckMCAnswer(11,2,this)">?</button>&#160;&#160;&lt;p style="font-size:bold;"&gt;</li><li id="Q_11_3"><button class="btn btn-info" id="Q_11_3_Btn" onclick="CheckMCAnswer(11,3,this)">?</button>&#160;&#160;p {text-size:bold;}</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_12" style="display: none;"><div class="QuestionText">S katerim pravilom prika&#x017E;emo nepod&#x010D;rtane povezave?</div><ol class="MCAnswers"><li id="Q_12_0"><button class="btn btn-info" id="Q_12_0_Btn" onclick="CheckMCAnswer(12,0,this)">?</button>&#160;&#160;a {underline:none;}</li><li id="Q_12_1"><button class="btn btn-info" id="Q_12_1_Btn" onclick="CheckMCAnswer(12,1,this)">?</button>&#160;&#160;a {text-decoration:none;}</li><li id="Q_12_2"><button class="btn btn-info" id="Q_12_2_Btn" onclick="CheckMCAnswer(12,2,this)">?</button>&#160;&#160;a {decoration:no-underline;}</li><li id="Q_12_3"><button class="btn btn-info" id="Q_12_3_Btn" onclick="CheckMCAnswer(12,3,this)">?</button>&#160;&#160;a {text-decoration:no-underline;}</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_13" style="display: none;"><div class="QuestionText">Kako izberemo element, katerega id je 'demo'?</div><ol class="MCAnswers"><li id="Q_13_0"><button class="btn btn-info" id="Q_13_0_Btn" onclick="CheckMCAnswer(13,0,this)">?</button>&#160;&#160;demo</li><li id="Q_13_1"><button class="btn btn-info" id="Q_13_1_Btn" onclick="CheckMCAnswer(13,1,this)">?</button>&#160;&#160;#demo</li><li id="Q_13_2"><button class="btn btn-info" id="Q_13_2_Btn" onclick="CheckMCAnswer(13,2,this)">?</button>&#160;&#160;*demo</li><li id="Q_13_3"><button class="btn btn-info" id="Q_13_3_Btn" onclick="CheckMCAnswer(13,3,this)">?</button>&#160;&#160;.demo</li></ol></li>
+
+        <li class="QuizQuestion" id="Q_14" style="display: none;"><div class="QuestionText">Kako izberemo elemente, katerih ime razreda (class) je 'test'?</div><ol class="MCAnswers"><li id="Q_14_0"><button class="btn btn-info" id="Q_14_0_Btn" onclick="CheckMCAnswer(14,0,this)">?</button>&#160;&#160;test</li><li id="Q_14_1"><button class="btn btn-info" id="Q_14_1_Btn" onclick="CheckMCAnswer(14,1,this)">?</button>&#160;&#160;#test</li><li id="Q_14_2"><button class="btn btn-info" id="Q_14_2_Btn" onclick="CheckMCAnswer(14,2,this)">?</button>&#160;&#160;*test</li><li id="Q_14_3"><button class="btn btn-info" id="Q_14_3_Btn" onclick="CheckMCAnswer(14,3,this)">?</button>&#160;&#160;.test</li></ol></li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="FeedbackDiv" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"onclick="HideFeedback(); return false;">&times;</button>
+          <h4 class="modal-title FeedbackText">Odgovor</h4>
+        </div>
+        <div class="modal-body FeedbackText">
+          <p id="FeedbackContent"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"onclick="HideFeedback(); return false;">Zapri</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BeginBottomNavButtons -->
+  <!-- EndBottomNavButtons -->
+
+  <!-- BeginSubmissionForm -->
+  <!-- EndSubmissionForm -->
+
+</body>
+</html>

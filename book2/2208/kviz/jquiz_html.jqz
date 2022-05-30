@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<hotpot-jquiz-file>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <rdf:Description rdf:about="">
+    <dc:creator>anzeljg</dc:creator>
+    <dc:title>Osnove HTML</dc:title>
+  </rdf:Description>
+</rdf:RDF><version>7</version>
+
+<data>
+<title>Osnove HTML</title>
+
+<timer><seconds>60</seconds><include-timer>0</include-timer></timer>
+
+<reading>
+<include-reading>0</include-reading>
+<reading-title></reading-title>
+<reading-text></reading-text>
+
+</reading>
+
+<questions><question-record><question>Kaj pomeni kratica HTML?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>Hyperlinks and Text Markup Language</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>Hyper Text Markup Language</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>Home Tool Markup Language</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>Kdo dolo&amp;#x010D;a spletne standarde?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>World Wide Web konzorcij</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>Microsoft</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>Google</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>Apple</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML prika&amp;#x017E;emo najve&amp;#x010D;ji naslov?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;head&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;h1&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;h6&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;heading&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML prika&amp;#x017E;emo izrazito besedilo?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;b&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;strong&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;important&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;i&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML prika&amp;#x017E;emo poudarjeno besedilo?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;em&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;italic&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;i&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML ustvarimo povezavo?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;a url=&quot;http://www.google.com&quot;&amp;#x0026;gt;Google&amp;#x0026;lt;/a&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;a name=&quot;http://www.google.com&quot;&amp;#x0026;gt;Google&amp;#x0026;lt;/a&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;a&amp;#x0026;gt;http://www.google.com&amp;#x0026;lt;/a&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;a href=&quot;http://www.google.com&quot;&amp;#x0026;gt;Google&amp;#x0026;lt;/a&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>Kako lahko odpre&amp;#x0161; povezavo v novem zavihku/oknu?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;a href=&quot;url&quot; target=&quot;new&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;a href=&quot;url&quot; target=&quot;_blank&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;a href=&quot;url&quot; new&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>Katere zna&amp;#x010D;ke HTML uporabljamo pri izdelavi tabel?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;table&amp;#x0026;gt;&amp;#x0026;lt;tr&amp;#x0026;gt;&amp;#x0026;lt;td&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;table&amp;#x0026;gt;&amp;#x0026;lt;head&amp;#x0026;gt;&amp;#x0026;lt;tfoot&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;thead&amp;#x0026;gt;&amp;#x0026;lt;body&amp;#x0026;gt;&amp;#x0026;lt;tr&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;table&amp;#x0026;gt;&amp;#x0026;lt;tr&amp;#x0026;gt;&amp;#x0026;lt;tt&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>Katero zna&amp;#x010D;ko HTMl uporabimo za prelom vrstice?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;lb&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;break&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;br&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML ustvarimo o&amp;#x0161;tevil&amp;#x010D;eni seznam?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;list&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;dl&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;ol&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;ul&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML ustvarimo neo&amp;#x0161;tevil&amp;#x010D;eni seznam?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;list&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;dl&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;ol&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;ul&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML vstavimo sliko?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;img src=&quot;slika.png&quot; alt=&quot;Moja slika&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;img href=&quot;slika.png&quot; alt=&quot;Moja slika&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;image src=&quot;slika.png&quot; alt=&quot;Moja slika&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;img alt=&quot;Moja slika&quot;&amp;#x0026;gt;slika.png&amp;#x0026;lt;/img&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>S katero zna&amp;#x010D;ko HTML vstavimo sliko za ozadje?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;body style=&quot;background-image:url(ozadje.png)&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;background img=&quot;ozadje.png&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;body bg=&quot;ozadje.png&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>Komentarji HTML se obi&amp;#x010D;ajno za&amp;#x010D;nejo z &amp;#x0026;lt;!-- in kon&amp;#x010D;ajo z --&amp;#x0026;gt;.</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>Pravilno</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>Nepravilno</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text></text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text></text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record><question-record><question>Katera definicija vrste dokumenta je pravilna za HTML5?</question><clue></clue><category></category><weighting>100</weighting><fixed>0</fixed><question-type>1</question-type><answers><answer><text>&amp;#x0026;lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 5.0//EN&quot; &quot;http://www.w3.org/TR/html5/strict.dtd&quot;&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;!DOCTYPE HTML5&amp;#x0026;gt;</text><feedback></feedback><correct>0</correct><percent-correct>0</percent-correct><include-in-mc-options>1</include-in-mc-options></answer><answer><text>&amp;#x0026;lt;!DOCTYPE html&amp;#x0026;gt;</text><feedback></feedback><correct>1</correct><percent-correct>100</percent-correct><include-in-mc-options>1</include-in-mc-options></answer></answers></question-record></questions>
+</data>
+
+<hotpot-config-file>
+<jquiz>
+<exercise-subtitle>Quiz</exercise-subtitle>
+<instructions></instructions>
+<guess-correct>Pravilno!</guess-correct>
+<guess-incorrect>Nepravilno! Poskusite znova.</guess-incorrect>
+<partly-incorrect>Odgovor je delno nepravilen: </partly-incorrect>
+<enter-a-guess>Prosimo, ugibajte.</enter-a-guess>
+<next-correct-letter>Naslednja pravilna &amp;#x010D;rka odgovora: </next-correct-letter>
+<correct-answers>Pravi odgovori: </correct-answers>
+<show-answer-caption>Poka&amp;#x017E;i odgovor</show-answer-caption>
+<include-hint>0</include-hint>
+<include-show-answer>1</include-show-answer>
+<next-ex-url>nextpage.htm</next-ex-url>
+<send-email>0</send-email>
+<continuous-scoring>1</continuous-scoring>
+<show-correct-first-time>1</show-correct-first-time>
+<shuffle-questions>1</shuffle-questions>
+<shuffle-answers>1</shuffle-answers>
+<show-limited-questions>0</show-limited-questions>
+<questions-to-show>2</questions-to-show>
+<short-answer-tries-on-hybrid-q>2</short-answer-tries-on-hybrid-q>
+<separate-javascript-file>1</separate-javascript-file>
+<case-sensitive>0</case-sensitive>
+<include-keypad>0</include-keypad>
+</jquiz>
+
+<global>
+<your-score-is>Rezultat je</your-score-is>
+<correct-indicator>&amp;#x2714;</correct-indicator>
+<incorrect-indicator>&amp;#x2718;</incorrect-indicator>
+<correct-first-time>Pravilno odgovorjenih vpra&amp;#x0161;anj v prvem poskusu: </correct-first-time>
+<completed-so-far>Odgovorjenih vpra&amp;#x0161;anj: </completed-so-far>
+<exercise-completed>Zaklju&amp;#x010D;ili ste kviz.</exercise-completed>
+<keypad-characters></keypad-characters>
+<times-up>Your time is over!</times-up>
+<next-ex-caption>=&amp;#x003E;</next-ex-caption>
+<back-caption>&amp;#x003C;=</back-caption>
+<contents-caption>Index</contents-caption>
+<include-next-ex>0</include-next-ex>
+<include-contents>0</include-contents>
+<include-back>0</include-back>
+<contents-url>contents.htm</contents-url>
+<graphic-url></graphic-url>
+<font-face>Geneva,Arial,sans-serif</font-face>
+<font-size>medium</font-size>
+<page-bg-color>#C0C0C0</page-bg-color>
+<title-color>#000000</title-color>
+<ex-bg-color>#FFFFFF</ex-bg-color>
+<text-color>#000000</text-color>
+<link-color>#0000FF</link-color>
+<vlink-color>#0000CC</vlink-color>
+<nav-bar-color>#000000</nav-bar-color>
+<formmail-url>http://yourserver.com/cgi-bin/FormMail.pl</formmail-url>
+<email>you@yourserver.com</email>
+<name-please>Please enter your name:</name-please>
+<user-string-1>one</user-string-1>
+<user-string-2>two</user-string-2>
+<user-string-3>three</user-string-3>
+<header-code></header-code>
+<correct-first-time>Pravilno odgovorjenih vpra&amp;#x0161;anj v prvem poskusu: </correct-first-time>
+<check-caption>Preveri</check-caption>
+<ok-caption>V redu</ok-caption>
+<next-q-caption>=&amp;#x003E;</next-q-caption>
+<last-q-caption>&amp;#x003C;=</last-q-caption>
+<hint-caption>Namig</hint-caption>
+<show-all-questions-caption>Poka&amp;#x017E;i vsa vpra&amp;#x0161;anja</show-all-questions-caption>
+<show-one-by-one-caption>Poka&amp;#x017E;i posamezna vpra&amp;#x0161;anja</show-one-by-one-caption>
+<show-also-correct>1</show-also-correct>
+<process-for-rtl>0</process-for-rtl>
+<include-scorm-12>0</include-scorm-12>
+</global>
+</hotpot-config-file>
+</hotpot-jquiz-file>

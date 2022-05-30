@@ -1,0 +1,26 @@
+body {
+  color: #FF0000; /* rdeča */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+p {
+  text-align: right;
+}
+
+a:link,
+a:visited {
+  /* običajna (neobiskana) in obiskana povezava 
+     naj bosta podčrtani z enojno rdečo črto */
+  text-decoration: underline solid red;
+}
+
+a:hover,
+a:active {
+  /* lebdeča (miška na povezavi) in aktivna
+     (ko z miško kliknemo in držimo) povezava
+     naj bosta podčrtani z dvojno modro črto */
+  text-decoration: underline double blue;
+}

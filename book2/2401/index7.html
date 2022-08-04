@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Objekti kot argumenti</title>
+	<title>Metode</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +18,20 @@
 
 	<!-- CodeMirror -->
 	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../mathjax/MathJax.js"></script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<link href="../css/jsxgraph.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -152,18 +166,17 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Objekti kot argumenti</h1>
+<h1>Metode</h1>
 
-<p align="justify">Objekte lahko uporabimo kot argumente funkcij na čisto običajen način, ki smo ga vajeni. Pri tem ne smemo pozabiti, da spremenljivka vsebuje samo sklic na dejanski objekt. Če torej spremenljivko kot argument posredujemo neki funkciji, to ustvari le nov sklic. Tako obe &ndash; spremenljivka in funkcija &ndash; vsebujeta sklica na objekt, ki pa je en sam.</p>
+<p align="justify">Ustvarjanje razreda, kot na primer <code>Tocka</code>, prinaša našemu razmišljanju in programom, ki jih ustvarimo, izjemno količino »organizacijske moči«. To pomeni, da lahko združimo različne vrste podatkov s smiselnimi operacijami nad temi podatki. Vsak primerek razreda pa lahko ima tudi svoje stanje, ki je neodvisno od stanj drugih primerkov.</p>
 
-<p align="justify">Oglejmo si primer enostavne funkcije, ki vključuje objekt <code>Tocka</code>:
-<pre>
-def izpisi_tocko(t):
-  print("(" + str(t.x) + ", " + str(t.y) + ")")
-</pre>
-</p>
+<p align="justify">Najprej ponovimo, kako izračunamo razdaljo $d$ med poljubno točko in koordinatnim izhodiščem. Ta razdalja je enaka kvadratnemu korenu vsote kvadratov obeh koordinat točke. Izračunamo jo s pomočjo spodnje formule: $$d = \sqrt{x^2 + y^2}$$
+Če imamo na primer točko $A = (4, 3)$ je njena razdalja od koordinatnega izhodišča enaka 5.</p>
 
-<p align="justify">Funkcija <code>izpisi_tocko</code> kot argument vzame oziroma sprejme objekt <code>Tocka</code> in oblikuje izpis na kateri koli način, ki ga izberemo oziroma določimo. Če funkcijo <code>izpisi_tocko(p)</code> pokličemo s točko <code>p</code>, ki smo jo definirali prej, bo izpis funkcije enak <code>(4, 3)</code>.</p>
+<div id="jxgbox16" class="jxgbox" style="width:438px;height:200px;margin:8px auto;"></div>
+<br />
+
+<p align="justify">Sedaj, ko smo ponovili, kako izračunamo razdaljo med točko in koordinatnim izhodiščem, dodajmo razredu <code>Tocka</code> metodo <code>razdalja</code>, da bomo lažje razumeli, kako metode delujejo in kako jih uporabljamo:</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -175,19 +188,37 @@ def izpisi_tocko(t):
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-  def razdalja_od_izhodisca(self):
-    return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
 
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
 
-def izpisi_tocko(t):
-  print("(" + str(t.x) + ", " + str(t.y) + ")")
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
 
 
 p = Tocka(4, 3)
-izpisi_tocko(p)
+print(p.razdalja())
+
+q = Tocka(5, 12)
+print(q.razdalja())
+
+r = Tocka() # Koordinatno izhodisce
+print(r.razdalja())
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -197,6 +228,14 @@ izpisi_tocko(p)
 </form>
 </div>
 <pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše naslednje razdalje od koordinatnega izhodišča:
+<pre>
+5.0
+13.0
+0.0
+</pre>
+</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -223,6 +262,7 @@ izpisi_tocko(p)
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index8.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -268,6 +308,10 @@ izpisi_tocko(p)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -304,11 +348,35 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 325);
+editor.setSize('100%', 372);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(14, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
+
+<script type='text/javascript'>
+  var brd16;
+
+  function init16() {
+    if (brd16 != null) JXG.JSXGraph.freeBoard(brd16);
+    brd16 = JXG.JSXGraph.initBoard('jxgbox16', {boundingbox:[-2, 4, 8, -1], keepaspectratio:true, axis:true, grid:true});
+    var o = brd16.create('point', [0, 0], {name:'O', size:3, fixed:true});
+    var p = brd16.create('point', [4, 3], {name:'A', size:3});
+	var t = brd16.create('tapemeasure', [[0, 0], [4, 3]], {name:'d'});
+  }
+
+  init16();
+</script>
 
 
 <!-- CookieCuttr -->

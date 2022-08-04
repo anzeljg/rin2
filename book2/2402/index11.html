@@ -162,7 +162,8 @@ class Ulomek:
   # ...
 
   def __str__(self):
-    return str(self.stevec) + "/" + str(self.imenovalec)
+    """ Vrne niz, ki vsebuje predstavitev ulomka """
+    return str(self._stevec) + "/" + str(self._imenovalec)
 </pre>
 
 					</div>
@@ -190,8 +191,12 @@ class Ulomek:
 class Ulomek:
   # ...
 
-  def vrni_stevec(self):
-    return self.stevec
+  def stevec(self, vrednost=None):
+    """ Vrne ali nastavi števec ulomka """
+    if vrednost is None:
+      return self._stevec
+    else:
+      self._stevec = int(vrednost)
 </pre>
 </p>
 
@@ -200,8 +205,16 @@ class Ulomek:
 class Ulomek:
   # ...
 
-  def vrni_imenovalec(self):
-    return self.imenovalec
+  def imenovalec(self, vrednost=None):
+    """ Vrne ali nastavi imenovalec ulomka """
+    if vrednost is None:
+      return self._imenovalec
+    else:
+      # Če je vrednost 0, sprožimo napako
+      if vrednost == 0:
+        raise ZeroDivisionError
+      else:
+        self._imenovalec = int(vrednost)
 </pre>
 </p>
 					</div>
@@ -245,8 +258,8 @@ print(u)
 <p>
 	<span class="label label-primary"><b>5</b></span>
 </p>
-<p align="justify">(a) Razredu <code>Ulomek</code> dodaj metodo <code>vrni_stevec</code>, ki vrne števec danega ulomka.</p>
-<p align="justify">(b) Razredu <code>Ulomek</code> dodaj metodo <code>vrni_imenovalec</code>, ki vrne imenovalec danega ulomka.</p>
+<p align="justify">(a) Razredu <code>Ulomek</code> dodaj metodo <code>stevec</code>, ki vrne ali nastavi števec ulomka.</p>
+<p align="justify">(b) Razredu <code>Ulomek</code> dodaj metodo <code>imenovalec</code>, ki vrne ali nastavi imenovalec ulomka.</p>
 <p>
 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution5"><span class="fa fa-check"></span> Rešitev</button>
 </p>
@@ -262,15 +275,13 @@ print(u)
 class Ulomek:
 
   def __init__(self, stevec, imenovalec):
-    try:
-      # Če je imenovalec 0, sprožimo napako
-      if imenovalec == 0:
-        raise ZeroDivisionError
-      else:
-        self.stevec = stevec
-        self.imenovalec = imenovalec
-    except ZeroDivisionError:
-      exit("Imenovalec ne sme biti 0")
+    """ Inicializator """
+    # Če je imenovalec 0, sprožimo napako
+    if imenovalec == 0:
+      raise ZeroDivisionError
+    else:
+      self._stevec = int(stevec)
+      self._imenovalec = int(imenovalec)
 
 
 </textarea></p>
@@ -356,6 +367,10 @@ class Ulomek:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -392,9 +407,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

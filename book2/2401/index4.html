@@ -176,13 +176,13 @@
 
 <p align="justify">Tipične operacije, ki jih povezujemo s točkami so računanje razdalje od točke do koordinatnega izhodišča ali do druge točke, računanje središča med dvema točkama, ugotavljanje ali leži točka znotraj danega pravokotnika ali kroga. Kmalu bomo videli, kako lahko te operacije organiziramo skupaj s podatki.</p>
 
-<p align="justify">Naravna predstavitev točke je z dvema številskima vrednostima. Za delo s točkami bomo ustvarili <b>razred</b> <code>Tocka</code>, ki bo za vsako točko vseboval dve lastnosti <code>x</code> in <code>y</code>, ki predstavljata koordinati točke. Naš razred izgleda takole:
+<p align="justify">Naravna predstavitev točke je z dvema številskima vrednostima. Za delo s točkami bomo ustvarili <b>razred</b> <code>Tocka</code>, ki bo za vsako točko vseboval dve lastnosti <code>_x</code> in <code>_y</code>, ki predstavljata koordinati točke. Kre gre za lastnosti objekta, torej notranji spremenljivki, njuni imeni pišemo s podčrtajem. Naš razred izgleda takole:
 <pre>
 class Tocka:
 
   def __init__(self):
-    self.x = 0
-    self.y = 0
+    self._x = 0
+    self._y = 0
 </pre>
 </p>
 <!-- Left column end -->
@@ -202,15 +202,16 @@ class Tocka:
 class Tocka:
 
   def __init__(self):
-    self.x = 0
-    self.y = 0
+    """ Inicializator """
+    self._x = 0
+    self._y = 0
 
 
 p = Tocka() # Ustvarimo prvi objekt Tocka
 q = Tocka() # Ustvarimo drugo točko
 
-print(p.x, p.y)
-print(q.x, q.y)
+print(p._x, p._y)
+print(q._x, q._y)
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -226,7 +227,7 @@ print(q.x, q.y)
 (0, 0)
 (0, 0)
 </pre>
-saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>x</code> in <code>y</code> ter ju nastavili na 0.</p>
+saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>_x</code> in <code>_y</code> ter njuni vrednosti nastavili na 0.</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -253,6 +254,7 @@ saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>x</code> in
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index5.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -298,6 +300,10 @@ saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>x</code> in
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -334,9 +340,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 255);
+editor.setSize('100%', 265);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

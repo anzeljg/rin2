@@ -264,9 +264,11 @@ $(document).ready(function(){
 		if(cloze_vsebina=="&gt;") cloze_vsebina=">";		cloze_temp_id=$(this).parent().attr('id');
 
 		var cloze_temp_id=$(this).parent();
+		/*
 		while(cloze_vsebina.indexOf("_")!=-1){
 			cloze_vsebina=cloze_vsebina.replace("_"," ");
 		}
+		*/
 		while(cloze_temp_id.hasClass("clozeBlock")!=true){
 			cloze_temp_id=cloze_temp_id.parent();
 		}

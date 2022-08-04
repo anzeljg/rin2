@@ -10,25 +10,13 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Naloge</title>
+	<title>Povzetek</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
 
-	<!-- CodeMirror -->
-	<link href="../css/codemirrorepl.css" rel="stylesheet">
-
-	<!-- MathJax - Beautiful math in all browsers -->
-    <script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
-        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
-        config:["TeX-AMS_HTML.js"],
-		imageFont: null
-	  });
-    </script>
- 	<script src="../mathjax/MathJax.js"></script>
+	<!-- jQuery QuickFlip -->
+	<link href="../css/jquery.quickflip.min.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -157,172 +145,98 @@
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Solution 1 -->
-		<div id="solution1" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Rešitev</h4>
-					</div>
-					<div class="modal-body">
-<pre>
-class Tocka:
-  # ...
-
-  def zrcali_x(self):
-    return Tocka(self.x, -self.y)
-
-  def zrcali_y(self):
-    return Tocka(-self.x, self.y)
-</pre>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Modal (popup) window: Solution 2 -->
-		<div id="solution2" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Rešitev</h4>
-					</div>
-					<div class="modal-body">
-<pre>
-class Tocka:
-  # ...
-
-  def zrcali(self):
-    return Tocka(-self.x, -self.y)
-</pre>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Modal (popup) window: Solution 3 -->
-		<div id="solution3" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Rešitev</h4>
-					</div>
-					<div class="modal-body">
-<p>
-<pre>
-class Tocka:
-  # ...
-
-  def naklon(self):
-    return self.y / self.x
-</pre>
-</p>
-<p align="justify">Metoda ne bo delovala, če bo $x$ enak 0. V tem primeru bi prišlo do deljenja s številom 0, kar pa ni definirano.</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6">
-<!-- Left column start -->
-<h1>Naloge</h1>
+					<div class="col-md-12">
+<!-- Summary start -->
+<h1>Povzetek</h1>
 
-<div class="alert alert-info" role="alert">
-<p>
-	<span class="label label-primary"><b>1</b></span>
-</p>
-<p align="justify">Razredu <code>Tocka</code> dodaj metodi <code>zrcali_x</code> in <code>zrcali_y</code>, ki vrneta nov objekt <code>Tocka</code>. Ta objekt predstavlja točko, prezrcaljeno preko $x$-osi oz. $y$-osi.<br />
-Na primer <code>Tocka(3, 5).zrcali_x()</code> vrne <code>(3, -5)</code>, medtem ko <nobr><code>Tocka(3, 5).zrcali_y()</code></nobr> vrne <code>(-3, 5)</code>.</p>
-<p>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution1"><span class="fa fa-check"></span> Rešitev</button>
-</p>
+<p align="justify">Za ponovitev učne snovi najprej navedi definicijo pojma, nato s klikom pojma preveri svoj odgovor.</p>
+
+<div class="card1">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
+    <p>Posebna metoda (imenovana <code>__init__</code>), ki se izvede samodejno, ko se ustvari nov objekt in nastavi lastnosti objekta na začetno ("tovarniško") vrednost.</p>
+  </div>
 </div>
-
-<div class="alert alert-info" role="alert">
-<p>
-	<span class="label label-primary"><b>2</b></span>
-</p>
-<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>zrcali</code>, ki vrne nov objekt <code>Tocka</code>. Ta objekt predstavlja točko, prezrcaljeno preko koordinatnega izhodišča.<br />
-Na primer <code>Tocka(3, 5).zrcali()</code> vrne <code>(-3, -5)</code>.</p>
-<p>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution2"><span class="fa fa-check"></span> Rešitev</button>
-</p>
+<div class="card2">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
+    <p>Vsak razred ima "tovarno", ki ima isto ime kot razred, za izdelavo novih primerkov razreda oz. objektov.</p>
+  </div>
 </div>
-
-<div class="alert alert-info" role="alert">
-<p>
-	<span class="label label-primary"><b>3</b></span>
-</p>
-<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>naklon</code>, ki vrne smerni koeficient oziroma naklon premice skozi koordinatno izhodišče in dano točko. Smerni koeficient premice lahko izračunaš s pomočjo enačbe $$k = 
-{\frac {\Delta y}{\Delta x}}$$
-Na primer <code>Tocka(4, 10).naklon()</code> vrne <code>2.5</code>.</p>
-<p align="justify">Kdaj ta metoda ne bo delovala?</p>
-<p>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution3"><span class="fa fa-check"></span> Rešitev</button>
-</p>
+<div class="card3">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
+    <p>Eden izmed poimenovanih podatkovnih elementov, ki sestavljajo objekt oz. primerek razreda.</p>
+  </div>
 </div>
-<!-- Left column end -->
-					</div>
-					<div class="col-md-6">
-						<br />
-<!-- Right column start -->
-<div>
-<form>
-<p><textarea id="code">
-class Tocka:
-
-  def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
-
-  def razdalja_od_izhodisca(self):
-    return ((self.x ** 2) + (self.y ** 2)) ** 0.5
-
-  def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
-
-  def na_pol_poti_do(self, target):
-    mx = (self.x + target.x) / 2
-    my = (self.y + target.y) / 2
-    return Tocka(mx, my)
-
-
-</textarea></p>
-<p>
-<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
-<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
-<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
-</p>
-</form>
+<div class="card4">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
+    <p>Funkcija, ki je definira znotraj definicije razreda in je uporabljena nad primerki tega razreda.</p>
+  </div>
 </div>
-<pre id="output"></pre>
-<!-- Right column end -->
+<div class="card5">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
+    <p>Sestavljen podatkovni tip, ki ga uporabimo, da modeliramo stvari ali koncepte iz resničnega sveta. Skupaj združuje podatke in operacije, ki so smiselne nad temi podatki.</p>
+  </div>
+</div>
+<div class="card6">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
+    <p>Programski jezik, ki podpira uporabniško definirane razrede in dedovanje, kar omogoča uporabo objektno usmerjenega sloga programiranja.</p>
+  </div>
+</div>
+<div class="card7">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
+    <p>Slog programinranje, pri katerem so podatki in operacije, ki spreminjajo te podatke, organizirani v objekte.</p>
+  </div>
+</div>
+<div class="card8">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
+    <p>Objekt, katerega tip je nek razred. Pojma primerek razreda in objekt pomenita isto oziroma ju lahko uporabljamo izmenično.</p>
+  </div>
+</div>
+<div class="card9">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
+    <p>Uporabniško definiran sestavljeni tip. Razred lahko vidimo tudi kot predlogo, s katero zgradimo posamezne objekte.</p>
+  </div>
+</div>
+<!-- Summary end -->
 					</div>
 				</div>
 			</div>
@@ -348,6 +262,7 @@ class Tocka:
 					<li class="active"><a href="#">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index13.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -363,9 +278,11 @@ class Tocka:
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>
 
+	<!-- jQuery QuickFlip -->
+	<script src="../js/jquery.quickflip.min.js"></script>
+
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/bootstrap-toggle.min.js"></script>
 
 	<!-- rPage: Highly responsive pagination for Bootstrap -->
 	<script src="../js/responsive-paginate.js"></script>
@@ -385,55 +302,6 @@ class Tocka:
 
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
-
-	<!-- Skulpt and CodeMirror -->
-	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="../js/skulpt/skulpt.js"></script>
-	<script src="../js/skulpt/skulpt-stdlib.js"></script>
-	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
-
-<script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("output");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "output";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-}
-</script>
-
-<script>
-var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-  lineNumbers: true,
-  matchBrackets: true,
-  mode: "python",
-  theme: "rin-light"
-});
-editor.setSize('100%', 600);
-</script>
-<script src="../js/skulpt/theme.js"></script>
 
 
 <!-- CookieCuttr -->

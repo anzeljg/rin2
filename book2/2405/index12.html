@@ -191,28 +191,28 @@ class Zoga:
 
   # Ustvari objekt 'Zoga' s privzeto barvo in velikostjo
   def __init__(self, barva="white", polmer=15):
-    self.barva = barva
-    self.polmer = polmer
-    self.polozaj = [polmer+10, polmer+10]
-    self.hitrost_x = random.randrange(-10, 10)
-    self.hitrost_y = random.randrange(-10, 10)
+    self._barva = barva
+    self._polmer = polmer
+    self._polozaj = [polmer+10, polmer+10]
+    self._hitrost_x = random.randrange(-10, 10)
+    self._hitrost_y = random.randrange(-10, 10)
 
   # Metoda, ki med animacijo premakne objekt
   def premakni(self, platno):
-    self.polozaj[0] += self.hitrost_x
-    self.polozaj[1] += self.hitrost_y
-    platno.draw_circle(self.polozaj, self.polmer, 1, \
-                       "black", self.barva)
-    if (self.polozaj[1] >= VISINA-self.polmer or
-        self.polozaj[1] <= self.polmer):
-        self.hitrost_y = -self.hitrost_y
-    if (self.polozaj[0] >= SIRINA-self.polmer or
-        self.polozaj[0] <= self.polmer):
-        self.hitrost_x = -self.hitrost_x
+    self._polozaj[0] += self._hitrost_x
+    self._polozaj[1] += self._hitrost_y
+    platno.draw_circle(self._polozaj, self._polmer, 1, \
+                       "black", self._barva)
+    if (self._polozaj[1] >= VISINA-self._polmer or
+        self._polozaj[1] <= self._polmer):
+        self._hitrost_y = -self._hitrost_y
+    if (self._polozaj[0] >= SIRINA-self._polmer or
+        self._polozaj[0] <= self._polmer):
+        self._hitrost_x = -self._hitrost_x
 
 
-barve  = ['red', 'green', 'blue', 'yellow', \
-          'orange', 'magenta', 'cyan']
+barve  = ["red", "green", "blue", "yellow", \
+          "orange", "magenta", "cyan"]
 zogice = []
 
 # Dodaj 100 žogic naključnih velikosti in barv
@@ -269,19 +269,19 @@ okvir.start()
 <span class="hl lin"> 19 </span>
 <span class="hl lin"> 20 </span>  <span class="hl slc"># Ustvari objekt &apos;Zoga&apos; s privzeto barvo in velikostjo</span>
 <span class="hl lin"> 21 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">,</span> barva<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> premer<span class="hl opt">=</span><span class="hl num">30</span><span class="hl opt">):</span>
-<span class="hl lin"> 22 </span>    self<span class="hl opt">.</span>lik <span class="hl opt">=</span> platno<span class="hl opt">.</span><span class="hl kwd">create_oval</span><span class="hl opt">(</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl num">10</span><span class="hl opt">,</span> premer<span class="hl opt">,</span> premer<span class="hl opt">,</span> \
-<span class="hl lin"> 23 </span>                                  fill<span class="hl opt">=</span>barva<span class="hl opt">)</span>
-<span class="hl lin"> 24 </span>    self<span class="hl opt">.</span>hitrost_x <span class="hl opt">=</span> random<span class="hl opt">.</span><span class="hl kwd">randrange</span><span class="hl opt">(-</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl num">10</span><span class="hl opt">)</span>
-<span class="hl lin"> 25 </span>    self<span class="hl opt">.</span>hitrost_y <span class="hl opt">=</span> random<span class="hl opt">.</span><span class="hl kwd">randrange</span><span class="hl opt">(-</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl num">10</span><span class="hl opt">)</span>
+<span class="hl lin"> 22 </span>    self<span class="hl opt">.</span>_lik <span class="hl opt">=</span> platno<span class="hl opt">.</span><span class="hl kwd">create_oval</span><span class="hl opt">(</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl num">10</span><span class="hl opt">,</span> premer<span class="hl opt">,</span> premer<span class="hl opt">,</span> \
+<span class="hl lin"> 23 </span>                                   fill<span class="hl opt">=</span>barva<span class="hl opt">)</span>
+<span class="hl lin"> 24 </span>    self<span class="hl opt">.</span>_hitrost_x <span class="hl opt">=</span> random<span class="hl opt">.</span><span class="hl kwd">randrange</span><span class="hl opt">(-</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl num">10</span><span class="hl opt">)</span>
+<span class="hl lin"> 25 </span>    self<span class="hl opt">.</span>_hitrost_y <span class="hl opt">=</span> random<span class="hl opt">.</span><span class="hl kwd">randrange</span><span class="hl opt">(-</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl num">10</span><span class="hl opt">)</span>
 <span class="hl lin"> 26 </span>
 <span class="hl lin"> 27 </span>  <span class="hl slc"># Metoda, ki med animacijo premakne objekt</span>
 <span class="hl lin"> 28 </span>  <span class="hl kwa">def</span> <span class="hl kwd">premakni</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 29 </span>    platno<span class="hl opt">.</span><span class="hl kwd">move</span><span class="hl opt">(</span>self<span class="hl opt">.</span>lik<span class="hl opt">,</span> self<span class="hl opt">.</span>hitrost_x<span class="hl opt">,</span> self<span class="hl opt">.</span>hitrost_y<span class="hl opt">)</span>
-<span class="hl lin"> 30 </span>    polozaj <span class="hl opt">=</span> platno<span class="hl opt">.</span><span class="hl kwd">coords</span><span class="hl opt">(</span>self<span class="hl opt">.</span>lik<span class="hl opt">)</span>
+<span class="hl lin"> 29 </span>    platno<span class="hl opt">.</span><span class="hl kwd">move</span><span class="hl opt">(</span>self<span class="hl opt">.</span>_lik<span class="hl opt">,</span> self<span class="hl opt">.</span>_hitrost_x<span class="hl opt">,</span> self<span class="hl opt">.</span>_hitrost_y<span class="hl opt">)</span>
+<span class="hl lin"> 30 </span>    polozaj <span class="hl opt">=</span> platno<span class="hl opt">.</span><span class="hl kwd">coords</span><span class="hl opt">(</span>self<span class="hl opt">.</span>_lik<span class="hl opt">)</span>
 <span class="hl lin"> 31 </span>    <span class="hl kwa">if</span> polozaj<span class="hl opt">[</span><span class="hl num">3</span><span class="hl opt">] &gt;=</span> VISINA <span class="hl kwa">or</span> polozaj<span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">] &lt;=</span> <span class="hl num">0</span><span class="hl opt">:</span>
-<span class="hl lin"> 32 </span>      self<span class="hl opt">.</span>hitrost_y <span class="hl opt">= -</span>self<span class="hl opt">.</span>hitrost_y
+<span class="hl lin"> 32 </span>      self<span class="hl opt">.</span>_hitrost_y <span class="hl opt">= -</span>self<span class="hl opt">.</span>_hitrost_y
 <span class="hl lin"> 33 </span>    <span class="hl kwa">if</span> polozaj<span class="hl opt">[</span><span class="hl num">2</span><span class="hl opt">] &gt;=</span> SIRINA <span class="hl kwa">or</span> polozaj<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">] &lt;=</span> <span class="hl num">0</span><span class="hl opt">:</span>
-<span class="hl lin"> 34 </span>      self<span class="hl opt">.</span>hitrost_x <span class="hl opt">= -</span>self<span class="hl opt">.</span>hitrost_x
+<span class="hl lin"> 34 </span>      self<span class="hl opt">.</span>_hitrost_x <span class="hl opt">= -</span>self<span class="hl opt">.</span>_hitrost_x
 <span class="hl lin"> 35 </span>
 <span class="hl lin"> 36 </span>
 <span class="hl lin"> 37 </span>barve  <span class="hl opt">= [</span><span class="hl str">&quot;red&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;green&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;blue&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;yellow&quot;</span><span class="hl opt">,</span> \
@@ -389,6 +389,10 @@ okvir.start()
 	<script src="js/skulpt-stdlib-simplegui.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -425,7 +429,11 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
 editor.setSize('100%', 500);
 </script>

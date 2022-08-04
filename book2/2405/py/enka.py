@@ -25,41 +25,41 @@ class Karta:
   def __init__(self, barva, opis):
     if ((barva in BARVE) and (opis in OPISI)) or \
        ((barva == "S") and (opis in ("D", "W"))):
-      self.barva = barva
-      self.opis = opis
+      self._barva = barva
+      self._opis = opis
     else:
-      self.barva = None
-      self.opis = None
+      self._barva = None
+      self._opis = None
       print("Neveljavna karta: ", barva, opis)
 
   # Vrne dvo-znakovno predstavitev karte
   def __str__(self):
-    return self.barva + self.opis
+    return self._barva + self._opis
 
   # Primerja dve karti, uporabno pri sortiranju
-  def __lt__(self, druga):
-    return str(self) < str(druga)
+  def __lt__(self, karta):
+    return str(self) < str(karta)
 
-  def __gt__(self, druga):
-    return str(self) > str(druga)
+  def __gt__(self, karta):
+    return str(self) > str(karta)
 
-  def __eq__(self, druga):
-    return str(self) == str(druga)
+  def __eq__(self, karta):
+    return str(self) == str(karta)
 
   # Vrne barvo karte
   def vrni_barvo(self):
-    return self.barva
+    return self._barva
 
   # Vrne opis ali rang karte
   def vrni_opis(self):
-    return self.opis
+    return self._opis
 
   # Izriše sliko karte na platnu, na danem položaju
   def izpis(self, platno, poz, hrbet=True):
     if hrbet:
       slika = KARTE["BG"]
     else:
-      k = self.barva + self.opis
+      k = self._barva + self._opis
       slika = KARTE[k]
     platno.create_image(poz[0], poz[1], \
       anchor=tk.NW, image=slika)
@@ -74,40 +74,53 @@ class Komplet:
   # - enkrat 0; 1*4*1 = 4
   # - štirikrat +4 in zamenjava barve; 4*1*2 = 8
   def __init__(self):
-    self.karte = []
+    self._karte = []
     for barva in BARVE:
       for opis in OPISI:
         karta = Karta(barva, opis)
-        self.karte.append(karta)
+        self._karte.append(karta)
       # Še enkrat vse karte iste barve, razen 0
       for opis in OPISI[1:]:
         karta = Karta(barva, opis)
-        self.karte.append(karta)
+        self._karte.append(karta)
     # Štirikrat dodaj +4 in poljubna barva
     for i in range(4):
       karta = Karta("S", "D") # +4
-      self.karte.append(karta)
+      self._karte.append(karta)
       karta = Karta("S", "W") # poljubna barva
-      self.karte.append(karta)
+      self._karte.append(karta)
 
   # Vrne besedilno predstavitev kompleta kart
   def __str__(self):
     sporocilo = "Komplet vsebuje"
-    for karta in self.karte:
+    for karta in self._karte:
       sporocilo += " " + str(karta)
     return sporocilo
 
   # Premešaj komplet kart
   def premesaj(self):
-    random.shuffle(self.karte)
+    random.shuffle(self._karte)
 
   # Sprazni komplet kart
   def sprazni(self):
-    self.karte = []
+    self._karte = []
 
   # Deli naslednjo karto iz kompleta
   def deli_karto(self):
-    return self.karte.pop()
+    return self._karte.pop()
+
+  # Doda karto na začetek kompleta
+  def vstavi_karto(self, karta):
+    self._karte.insert(0, karta)
+
+  # Doda karto med odložene
+  def vrzi_karto(self, karta):
+    global odlozene
+    odlozene._karte.append(karta)
+
+  # Vrne zadnjo karto v kompletu
+  def zadnja_karta(self):
+    return self._karte[-1]
 
   # Izriše karte, ki sta jih odvrgla igralec in delivec
   def izpis(self, platno, poz):
@@ -115,7 +128,7 @@ class Komplet:
     i = 0
     ODMIK = [[20, 0], [0, 20], [-20, 0], [0, -20], \
              [10, 10], [-10, 10], [-10, -10], [10, -10]]
-    for karta in self.karte:
+    for karta in self._karte:
       x = poz[0] + ODMIK[i%8][0]
       y = poz[1] + ODMIK[i%8][1]
       karta.izpis(platno, [x, y], False)
@@ -127,43 +140,54 @@ class Igralec(Komplet):
 
   # Ustvari objekt 'Igralec'
   def __init__(self):
-    self.karte = []
+    self._karte = []
 
   # Vrne predstavitev kart, ki jih v roki drži igralec
   def __str__(self):
     sporocilo = "V roki drži"
-    for karta in self.karte:
+    for karta in self._karte:
         sporocilo += " " + str(karta)
     return sporocilo
 
   # Igralcu doda nov objekt 'Karta' na konec
   def dodaj_karto(self, karta):
-    self.karte.append(karta)
+    self._karte.append(karta)
 
   # Igralcu doda objekt 'Karta' na začetek
   def vstavi_karto(self, karta):
-    self.karte.insert(0, karta)
+    self._karte.insert(0, karta)
 
   # Preveri, če ima igralec še eno karto iste
   # barve in vrednosti vrednosti med 0 in 9
   def ima_isto_karto(self, karta):
-    if (karta in self.karte and
-        "0" <= karta.opis <= "9"):
-      return self.karte.index(karta)
+    if (karta in self._karte and "0" <= karta._opis <= "9"):
+      return self._karte.index(karta)
     else:
       return -1
 
   # Igralcu odvzame objekt 'Karta' in ga da med odložene
   def vrzi_karto(self, indeks):
     global odlozene
-    if self.karte:
-      karta = self.karte[indeks]
-      odlozene.karte.append(karta)
-      del self.karte[indeks]
+    if self._karte:
+      karta = self._karte[indeks]
+      odlozene._karte.append(karta)
+      del self._karte[indeks]
+
+  # Vrne karto, ki jo ima igralec v roki
+  def vrni_karto(self, indeks):
+    return self._karte[indeks]
+
+  # Vrne karte, ki jih ima igralec v roki
+  def karte(self):
+    return self._karte
+
+  # Uredi karte, ki jih ima igralec v roki
+  def uredi_karte(self):
+    self._karte = sorted(self._karte)
 
   # Vrne število kart, ki jih ima igralec
   def stevilo(self):
-    return len(self.karte)
+    return len(self._karte)
 
   # Izriše karte, ki jih ima igralec in pri tem
   # uporabi metodo izpis razreda 'Karta'
@@ -175,7 +199,7 @@ class Igralec(Komplet):
     else:
       ROB = 35
     i = 0
-    for karta in self.karte:
+    for karta in self._karte:
       karta.izpis(platno, [poz[0]+i*ROB, poz[1]], hrbet)
       i += 1
 
@@ -203,24 +227,23 @@ def deli():
     delivec.dodaj_karto(komplet.deli_karto())
   print("Igralec: "+str(igralec))
   print("Delivec: "+str(delivec))
-  igralec.karte = sorted(igralec.karte)
+  igralec.uredi_karte()
 
   # Vleci začetno karto
   zacetna = False
   while not zacetna:
-    karta = komplet.karte.pop()
-    if ("0" <= karta.opis <= "9"):
+    karta = komplet.deli_karto()
+    if ("0" <= karta.vrni_opis() <= "9"):
       # Dodaj karto med odložene
-      odlozene.karte.append(karta)
+      komplet.vrzi_karto(karta)
       zacetna = True
     else:
-      # Vrni karto v komplet
-      komplet.karte.insert(0, karta)
+      # Vrni karto na začetek kompleta
+      komplet.vstavi_karto(karta)
   izpis()
 
 # Rokovalnik za klik miške na karto, igralec vrže karto
 def vrzi(polozaj):
-  print(polozaj)
   global igralec, delivec, izid, igra_poteka
 
   if igra_poteka:
@@ -240,14 +263,16 @@ def vrzi(polozaj):
         if x1+SIRINA <= polozaj.x <= x1+SIRINA+VEL[0]:
           indeks = igralec.stevilo()-1
 
-        karta = igralec.karte[indeks]
-        vrh = odlozene.karte[-1] # Zadnja odložena karta
+        karta = igralec.vrni_karto(indeks) # Vrni kliknjeno karto
+        vrh = odlozene.zadnja_karta() # Zadnja odložena karta
 
         # Če je karta prave barve ali vrednosti oziroma je
         # posebna karta (ZAMENJAJ BARVO ali +4), potem jo
         # lahko odvržeš...
-        if (karta.barva == vrh.barva or vrh.barva == "S" or \
-            karta.opis == vrh.opis or karta.barva == "S"):
+        if (karta.vrni_barvo() == vrh.vrni_barvo() or
+            karta.vrni_opis() == vrh.vrni_opis() or
+            vrh.vrni_barvo() == "S" or
+            karta.vrni_barvo() == "S"):
           igralec.vrzi_karto(indeks) # Vrzi kliknjeno karto
 
           # Vrzi še drugo karto iste barve in vrednosti
@@ -257,7 +282,7 @@ def vrzi(polozaj):
 
           # Če karta ni STOP ali OBRNI potem je na
           # potezi delivec
-          if karta.opis not in ["R", "S"]:
+          if karta.vrni_opis() not in ["R", "S"]:
             izid = "Jack vrže karto..."
             izpis()
             timer = okno.after(2000, vrzi2)
@@ -280,7 +305,7 @@ def vrzi2():
   global igralec, delivec, izid, igra_poteka, napoved_ena
 
   if igra_poteka:
-    vrh = odlozene.karte[-1] # Zadnja odložena karta
+    vrh = odlozene.zadnja_karta() # Zadnja odložena karta
     najdena = False # Ima delivec karto, ki jo bo vrgel
     #vrzena = None # Karta, ki jo bo vrgel delivec
 
@@ -291,7 +316,7 @@ def vrzi2():
 
     # Igralec je napovedal "Ena" oziroma "Uno"
     # Preveri, če je napoved pravilna in jo izbriši
-    if napoved_ena and vrh.opis not in ["R", "S"]:
+    if napoved_ena and vrh.vrni_opis() not in ["R", "S"]:
       napoved_ena = False
       oznaka.configure(text="")
       # Če je napoved prezgodnja, potem dodaj
@@ -302,18 +327,18 @@ def vrzi2():
 
     # Če je igralec vrgel karto +2 ali +4,
     # dodaj karte delivcu
-    if vrh.opis == "D":
+    if vrh.vrni_opis() == "D":
       delivec.dodaj_karto(komplet.deli_karto())
       delivec.dodaj_karto(komplet.deli_karto())
       # Če je karta +4 dodaj igralcu še dve karti
-      if vrh.barva == "S":
+      if vrh.vrni_barvo() == "S":
         delivec.dodaj_karto(komplet.deli_karto())
         delivec.dodaj_karto(komplet.deli_karto())
 
     # Če je igralec vrgel posebno karto (SPREMENI BARVO
     # ali +4) lahko delivec vrže katerokoli karto
-    if vrh.barva == "S":
-        karta = delivec.karte[0] # Prva karta
+    if vrh.vrni_barvo() == "S":
+        karta = delivec.vrni_karto(0) # Prva karta
         delivec.vrzi_karto(0)
         vrzena = karta
         najdena = True
@@ -321,8 +346,8 @@ def vrzi2():
     # Delivec najprej odvrže karto iste barve, če jo ima
     if not najdena:
       indeks = 0
-      for karta in delivec.karte:
-        if karta.barva == vrh.barva:
+      for karta in delivec.karte():
+        if karta.vrni_barvo() == vrh.vrni_barvo():
           delivec.vrzi_karto(indeks)
           vrzena = karta
           najdena = True
@@ -333,8 +358,8 @@ def vrzi2():
     # vrednosti, če jo ima
     if not najdena:
       indeks = 0
-      for karta in delivec.karte:
-        if karta.opis == vrh.opis:
+      for karta in delivec.karte():
+        if karta.vrni_opis() == vrh.vrni_opis():
           delivec.vrzi_karto(indeks)
           vrzena = karta
           najdena = True
@@ -345,8 +370,9 @@ def vrzi2():
     # karto (ZAMENJAJ BARVO ali +4), če jo ima
     if not najdena:
       indeks = 0
-      for karta in delivec.karte:
-        if karta.barva == "S" and karta.opis in ["D", "W"]:
+      for karta in delivec.karte():
+        if karta.vrni_barvo() == "S" and
+           karta.vrni_opis() in ["D", "W"]:
           delivec.vrzi_karto(indeks)
           vrzena = karta
           najdena = True
@@ -355,18 +381,18 @@ def vrzi2():
 
     # Če je delivec vrgel karto, ki ni STOP ali OBRNI,
     # potem je znova na potezi igralec
-    if najdena and vrzena.opis not in ["R", "S"]:
+    if najdena and vrzena.vrni_opis() not in ["R", "S"]:
       # Če je delivec vrgel karto +2 ali +4,
       # dodaj karte igralcu
       izid = "Vrzi karto..."
-      if vrzena.opis == "D":
+      if vrzena.vrni_opis() == "D":
         igralec.dodaj_karto(komplet.deli_karto())
         igralec.dodaj_karto(komplet.deli_karto())
         # Če je karta +4 dodaj igralcu še dve karti
-        if vrzena.barva == "S":
+        if vrzena.vrni_barvo() == "S":
           igralec.dodaj_karto(komplet.deli_karto())
           igralec.dodaj_karto(komplet.deli_karto())
-        igralec.karte = sorted(igralec.karte)
+        igralec.uredi_karte()
     else:
       izid = "Jack vrže še eno karto..."
 
@@ -391,7 +417,7 @@ def vrzi2():
 def vleci():
   global igralec, komplet
   igralec.dodaj_karto(komplet.deli_karto())
-  igralec.karte = sorted(igralec.karte)
+  igralec.uredi_karte()
   izpis()
 
 # Določi rokovalnik gumba 'Naprej'

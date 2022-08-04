@@ -162,7 +162,8 @@ class Ulomek:
   # ...
 
   def vrednost(self):
-    return self.stevec / self.imenovalec
+    """ Vrne vrednost ulomka """
+    return self._stevec / self._imenovalec
 </pre>
 					</div>
 					<div class="modal-footer">
@@ -189,31 +190,38 @@ class Ulomek:
   # ...
 
   def vrednost(self):
-    return self.stevec / self.imenovalec
+    """ Vrne vrednost ulomka """
+    return self._stevec / self._imenovalec
 
   # Rešitev (a)
-  def __eq__(self, other):
-    return self.vrednost() == other.vrednost()
+  def __eq__(self, ulomek):
+    """ Prekrije operator == za primerjanje ulomkov """
+    return self.vrednost() == ulomek.vrednost()
 
   # Rešitev (b)
-  def __ne__(self, other):
-    return self.vrednost() != other.vrednost()
+  def __ne__(self, ulomek):
+    """ Prekrije operator != za primerjanje ulomkov """
+    return self.vrednost() != ulomek.vrednost()
 
   # Rešitev (c)
-  def __lt__(self, other):
-    return self.vrednost() < other.vrednost()
+  def __lt__(self, ulomek):
+    """ Prekrije operator < za primerjanje ulomkov """
+    return self.vrednost() < ulomek.vrednost()
 
   # Rešitev (d)
-  def __le__(self, other):
-    return self.vrednost() <= other.vrednost()
+  def __le__(self, ulomek):
+    """ Prekrije operator <= za primerjanje ulomkov """
+    return self.vrednost() <= ulomek.vrednost()
 
   # Rešitev (e)
-  def __gt__(self, other):
-    return self.vrednost() > other.vrednost()
+  def __gt__(self, ulomek):
+    """ Prekrije operator > za primerjanje ulomkov """
+    return self.vrednost() > ulomek.vrednost()
 
   # Rešitev (f)
-  def __ge__(self, other):
-    return self.vrednost() >= other.vrednost()
+  def __ge__(self, ulomek):
+    """ Prekrije operator >= za primerjanje ulomkov """
+    return self.vrednost() >= ulomek.vrednost()
 </pre>
 					</div>
 					<div class="modal-footer">
@@ -236,7 +244,7 @@ class Ulomek:
 <p>
 	<span class="label label-primary"><b>1</b></span>
 </p>
-<p align="justify">Razredu <code>Ulomek</code> iz prejšnjega poglavja dodaj metodo <code>vrednost</code>, ki vrne vrednost ulomka. Spodnji primer izpiše <code>0.8</code> in <code>0.428571428571</code>:</p>
+<p align="justify">Razredu <code>Ulomek</code> iz prejšnje učne enote dodaj metodo <code>vrednost</code>, ki vrne vrednost ulomka. Spodnji primer izpiše <code>0.8</code> in <code>0.428571428571</code>:</p>
 <p>
 <pre>
 u1 = Ulomek(4, 5)
@@ -276,18 +284,17 @@ print(u2.vrednost())
 class Ulomek:
 
   def __init__(self, stevec, imenovalec):
-    try:
-      # Če je imenovalec 0, sprožimo napako
-      if imenovalec == 0:
-        raise ZeroDivisionError
-      else:
-        self.stevec = stevec
-        self.imenovalec = imenovalec
-    except ZeroDivisionError:
-      exit("Imenovalec ne sme biti 0")
+    """ Inicializator """
+    # Če je imenovalec 0, sprožimo napako
+    if imenovalec == 0:
+      raise ZeroDivisionError
+    else:
+      self._stevec = int(stevec)
+      self._imenovalec = int(imenovalec)
 
   def __str__(self):
-    return str(self.stevec) + "/" + str(self.imenovalec)
+    """ Vrne niz, ki vsebuje predstavitev ulomka """
+    return str(self._stevec) + "/" + str(self._imenovalec)
 
 
 </textarea></p>
@@ -367,6 +374,10 @@ class Ulomek:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -403,9 +414,15 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

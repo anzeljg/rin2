@@ -162,16 +162,17 @@
 class Ulomek:
   # ...
 
-  def __add__(self, other):
+  def __add__(self, ulomek):
+    """ Prekrije operator + za pravilno seštevanje ulomkov """
     # Rešitev (a)
-    if (self.imenovalec == other.imenovalec):
-      zgoraj = self.stevec + other.stevec
-      spodaj = self.imenovalec
+    if (self._imenovalec == ulomek._imenovalec):
+      zgoraj = self._stevec + ulomek._stevec
+      spodaj = self._imenovalec
     # Rešitev (b)
     else:
-      zgoraj = self.stevec * other.imenovalec + \
-               other.stevec * self.imenovalec
-      spodaj = self.imenovalec * other.imenovalec
+      zgoraj = self._stevec * ulomek._imenovalec + \
+               ulomek._stevec * self._imenovalec
+      spodaj = self._imenovalec * ulomek._imenovalec
     return Ulomek(zgoraj, spodaj)
 </pre>
 </p>
@@ -200,16 +201,17 @@ class Ulomek:
 class Ulomek:
   # ...
 
-  def __sub__(self, other):
+  def __sub__(self, ulomek):
+    """ Prekrije operator - za pravilno odštevanje ulomkov """
     # Rešitev (a)
-    if (self.imenovalec == other.imenovalec):
-      zgoraj = self.stevec - other.stevec
-      spodaj = self.imenovalec
+    if (self._imenovalec == ulomek._imenovalec):
+      zgoraj = self._stevec - ulomek._stevec
+      spodaj = self._imenovalec
     # Rešitev (b)
     else:
-      zgoraj = self.stevec * other.imenovalec - \
-               other.stevec * self.imenovalec
-      spodaj = self.imenovalec * other.imenovalec
+      zgoraj = self._stevec * ulomek._imenovalec - \
+               ulomek._stevec * self._imenovalec
+      spodaj = self._imenovalec * ulomek._imenovalec
     return Ulomek(zgoraj, spodaj)
 </pre>
 </p>
@@ -238,7 +240,8 @@ class Ulomek:
   # ...
 
   def obrni(self):
-    return Ulomek(self.imenovalec, self.stevec)
+    """ Vrne obrnjeni ulomek """
+    return Ulomek(self._imenovalec, self._stevec)
 </pre>
 					</div>
 					<div class="modal-footer">
@@ -317,18 +320,17 @@ print(u3 - u1)
 class Ulomek:
 
   def __init__(self, stevec, imenovalec):
-    try:
-      # Če je imenovalec 0, sprožimo napako
-      if imenovalec == 0:
-        raise ZeroDivisionError
-      else:
-        self.stevec = stevec
-        self.imenovalec = imenovalec
-    except ZeroDivisionError:
-      exit("Imenovalec ne sme biti 0")
+    """ Inicializator """
+    # Če je imenovalec 0, sprožimo napako
+    if imenovalec == 0:
+      raise ZeroDivisionError
+    else:
+      self._stevec = int(stevec)
+      self._imenovalec = int(imenovalec)
 
   def __str__(self):
-    return str(self.stevec) + "/" + str(self.imenovalec)
+    """ Vrne niz, ki vsebuje predstavitev ulomka """
+    return str(self._stevec) + "/" + str(self._imenovalec)
 
 
 </textarea></p>
@@ -414,6 +416,10 @@ class Ulomek:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -450,9 +456,15 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 550);
+editor.setSize('100%', 555);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

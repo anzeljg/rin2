@@ -160,47 +160,62 @@
 <pre>
 class Karta:
 
-  barve = ["Križev", "Karin", "Srčev", "Pikov"]
-  opisi = [None, "as", "2", "3", "4", "5", "6", "7",
-           "8", "9", "10", "fant", "dama", "kralj"]
+  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "fant", "dama", "kralj"]
 
   def __init__(self, barva=0, vrednost=0):
-    self.barva = barva
-    self.vrednost = vrednost
+    """ Inicializator """
+    self._barva = barva
+    self._vrednost = vrednost
 
-  # Manjkajo nekatere metode
+  def __str__(self):
+    """ Vrne niz, ki predstavlja karto """
+    b = self._barva
+    v = self._vrednost
+    k = "" # Končnica za moško obliko
+    if (v >= 2 and v <= 10 or v == 12):
+      k = "a" # Končnica za žensko obliko
+    return (self._barve[b] + k + " " + self._opisi[v])
 
-  def cmp(self, other):
+  def cmp(self, karta):
+    """ Primerja dve karti """
     # Preveri barve
-    if self.barva > other.barva: return 1
-    if self.barva < other.barva: return -1
+    if self._barva > karta._barva: return 1
+    if self._barva < karta._barva: return -1
     # Ista barva... preveri vrednosti
-    <b>if self.vrednost > other.vrednost or \
-       self.vrednost == 1 and other.vrednost > 1:
+    <b>if self._vrednost > karta._vrednost or \
+       self._vrednost == 1 and karta._vrednost > 1:
          return 1
-    if self.vrednost < other.vrednost or \
-       self.vrednost > 1 and other.vrednost == 1:
+    if self._vrednost < karta._vrednost or \
+       self._vrednost > 1 and karta._vrednost == 1:
          return -1</b>
     # Ista vrednost... ista karta
     return 0
 
-  def __eq__(self, other):
-    return self.cmp(other) == 0
+  def __eq__(self, karta):
+    """ Prekrije operator == za primerjanje kart """
+    return self.cmp(karta) == 0
 
-  def __le__(self, other):
-    return self.cmp(other) <= 0
+  def __le__(self, karta):
+    """ Prekrije operator <= za primerjanje kart """
+    return self.cmp(karta) <= 0
 
-  def __ge__(self, other):
-    return self.cmp(other) >= 0
+  def __ge__(self, karta):
+    """ Prekrije operator >= za primerjanje kart """
+    return self.cmp(karta) >= 0
 
-  def __gt__(self, other):
-    return self.cmp(other) > 0
+  def __gt__(self, karta):
+    """ Prekrije operator > za primerjanje kart """
+    return self.cmp(karta) > 0
 
-  def __lt__(self, other):
-    return self.cmp(other) < 0
+  def __lt__(self, karta):
+    """ Prekrije operator < za primerjanje kart """
+    return self.cmp(karta) < 0
 
-  def __ne__(self, other):
-    return self.cmp(other) != 0
+  def __ne__(self, karta):
+    """ Prekrije operator != za primerjanje kart """
+    return self.cmp(karta) != 0
 
 
 karta1 = Karta(2, 1)  # Srčev as
@@ -231,18 +246,19 @@ print(karta1 > karta2)
 <pre>
 class Karta:
 
-  barve = ["♣", "♦", "♥", "♠"]
-  opisi = [None, "A", "2", "3", "4", "5", "6",
-           "7", "8", "9", "10", "J", "Q", "K"]
+  _barve = ["♣", "♦", "♥", "♠"]
+  _opisi = [None, "A", "2", "3", "4", "5", "6",
+            "7", "8", "9", "10", "J", "Q", "K"]
 
   def __init__(self, barva=0, vrednost=0):
-    self.barva = barva
-    self.vrednost = vrednost
+    """ Inicializator """
+    self._barva = barva
+    self._vrednost = vrednost
 
   def __str__(self):
-    b = self.barva
-    v = self.vrednost
-    return self.barve[b] + self.opisi[v]
+    b = self._barva
+    v = self._vrednost
+    return self._barve[b] + self._opisi[v]
 
 
 niz = ""
@@ -284,7 +300,7 @@ print(niz)
 	<span class="label label-primary"><b>4</b></span>
 	<span class="fa fa-star pull-right"></span>
 </p>
-<p align="justify">Spremeni lastnosti <code>barve</code> in <code>opisi</code> ter metodo <code>__str__</code> razreda <code>Karta</code> tako, da bo za vsako karto izpisal dva znaka (en znak za simbol barve in en znak kot okrajšavo vrednosti). Na primer za srčevo kraljico naj metoda izpiše <b>&hearts;Q</b>, za pikovega asa pa <b>&spades;A</b>.</p>
+<p align="justify">Spremeni lastnosti <code>_barve</code> in <code>_opisi</code> ter metodo <code>__str__</code> razreda <code>Karta</code> tako, da bo za vsako karto izpisal dva znaka (en znak za simbol barve in en znak kot okrajšavo vrednosti). Na primer za srčevo kraljico naj metoda izpiše <b>&hearts;Q</b>, za pikovega asa pa <b>&spades;A</b>.</p>
 <p align="justify">Za barve uporabi naslednje (Unicode) simbole:
 <pre>
 pik  --> 3 = &spades;
@@ -392,6 +408,10 @@ kralj --> K
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -428,9 +448,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

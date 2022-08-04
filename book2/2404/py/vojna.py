@@ -2,106 +2,126 @@
 
 class Karta:
 
-  barve = ["Križev", "Karin", "Srčev", "Pikov"]
-  opisi = [None, "as", "2", "3", "4", "5", "6", "7",
-           "8", "9", "10", "fant", "dama", "kralj"]
+  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "fant", "dama", "kralj"]
 
   def __init__(self, barva=0, vrednost=0):
-    self.barva = barva
-    self.vrednost = vrednost
+    """ Inicializator """
+    self._barva = barva
+    self._vrednost = vrednost
 
   def __str__(self):
-    b = self.barva
-    v = self.vrednost
+    """ Vrne niz, ki predstavlja karto """
+    b = self._barva
+    v = self._vrednost
     k = "" # Končnica za moško obliko
     if (v >= 2 and v <= 10 or v == 12):
       k = "a" # Končnica za žensko obliko
-    return (self.barve[b] + k + " " + self.opisi[v])
+    return (self._barve[b] + k + " " + self._opisi[v])
 
-  def cmp(self, other):
+  def cmp(self, karta):
+    """ Primerja dve karti """
     # Preveri barve
-    if self.barva > other.barva: return 1
-    if self.barva < other.barva: return -1
+    if self._barva > karta._barva: return 1
+    if self._barva < karta._barva: return -1
     # Ista barva... preveri vrednosti
-    if self.vrednost > other.vrednost: return 1
-    if self.vrednost < other.vrednost: return -1
+    if self._vrednost > karta._vrednost: return 1
+    if self._vrednost < karta._vrednost: return -1
     # Ista vrednost... ista karta
     return 0
 
-  def __eq__(self, other):
-    return self.cmp(other) == 0
+  def __eq__(self, karta):
+    """ Prekrije operator == za primerjanje kart """
+    return self.cmp(karta) == 0
 
-  def __le__(self, other):
-    return self.cmp(other) <= 0
+  def __le__(self, karta):
+    """ Prekrije operator <= za primerjanje kart """
+    return self.cmp(karta) <= 0
 
-  def __ge__(self, other):
-    return self.cmp(other) >= 0
+  def __ge__(self, karta):
+    """ Prekrije operator >= za primerjanje kart """
+    return self.cmp(karta) >= 0
 
-  def __gt__(self, other):
-    return self.cmp(other) > 0
+  def __gt__(self, karta):
+    """ Prekrije operator > za primerjanje kart """
+    return self.cmp(karta) > 0
 
-  def __lt__(self, other):
-    return self.cmp(other) < 0
+  def __lt__(self, karta):
+    """ Prekrije operator < za primerjanje kart """
+    return self.cmp(karta) < 0
 
-  def __ne__(self, other):
-    return self.cmp(other) != 0
+  def __ne__(self, karta):
+    """ Prekrije operator != za primerjanje kart """
+    return self.cmp(karta) != 0
 
 
 class Komplet:
 
   def __init__(self):
-    self.karte = []
+    """ Inicializator """
+    self._karte = []
     for barva in range(4):
       for vrednost in range(1, 14):
-        self.karte.append(Karta(barva, vrednost))
+        self._karte.append(Karta(barva, vrednost))
 
   def __str__(self):
+    """ Vrne niz, ki predstavlja komplet kart """
     s = ""
-    for i in range(len(self.karte)):
-      s = s + " " * i + str(self.karte[i]) + "\n"
+    for i in range(len(self._karte)):
+      s = s + " " * i + str(self._karte[i]) + "\n"
     return s
 
   def premesaj(self):
+    """ Premeša karte v kompletu """
     import random
-    random.shuffle(self.karte)
+    random.shuffle(self._karte)
 
   def uredi(self):
-    self.karte.sort()
+    """ Uredi karte v kompletu """
+    self._karte.sort()
 
   def dodaj(self, karta):
-    self.karte.append(karta)
+    """ Doda karto v komplet kart """
+    self._karte.append(karta)
 
   def odstrani(self, karta):
-    if karta in self.karte:
-      self.karte.remove(karta)
+    """ Odstrani karto iz kompleta kart """
+    if karta in self._karte:
+      self._karte.remove(karta)
       return True
     else:
       return False
 
   def deli(self, igralci, stev_kart=999):
+    """ Razdeli karte igralcem, ki igrajo igro """
     stev_igralcev = len(igralci)
     for i in range(stev_kart):
       if self.je_prazen():
-        break
-      karta = self.karte.pop()
-      igralec = igralci[i % stev_igralcev]
-      igralec.dodaj(karta)
+        break                               # Ni več kart; končaj
+      karta = self._karte.pop()             # Vzemi vrhnjo karto
+      igralec = igralci[i % stev_igralcev]  # Kdo je naslednji?
+      igralec.dodaj(karta)                  # Dodaj karto igralcu
 
   def je_prazen(self):
-    return self.karte == []
+    """ Vrne, ali je komplet kart prazen """
+    return self._karte == []
 
   def sprazni(self):
-    self.karte = []
+    """ Sprazni komplet kart """
+    self._karte = []
 
 
 class Igralec(Komplet):
 
   def __init__(self, ime=""):
-    self.karte = []
-    self.ime = ime
+    """ Inicializator """
+    self._karte = []
+    self._ime = ime
 
   def __str__(self):
-    s = "Igralec " + str(self.ime)
+    """ Vrne niz, ki predstavlja igralčeve karte """
+    s = "Igralec " + str(self._ime)
     if self.je_prazen():
       s += " nima kart\n"
     else:
@@ -112,97 +132,100 @@ class Igralec(Komplet):
 class IgraKart:
 
   def __init__(self):
-    self.komplet = Komplet()
-    self.komplet.premesaj()
+    """ Inicializator """
+    self._komplet = Komplet()
+    self._komplet.premesaj()
 
 
 class VojnaIgralec(Igralec):
 
   def __init__(self, ime=""):
-    self.karte = []
-    self.ime = ime
+    """ Inicializator """
+    self._karte = []
+    self._ime = ime
     # Začasno odlagališče kart
-    self.shramba = []
+    self._shramba = []
 
 
 class VojnaIgra(IgraKart):
 
   def igraj(self, imena):
-
+    """ Igra igro s kartami: vojna """
     # Dodaj igralce
-    self.igralci = []
+    self._igralci = []
     for ime in imena:
-      self.igralci.append(VojnaIgralec(ime))
+      self._igralci.append(VojnaIgralec(ime))
 
     # Razdeli karte
-    self.komplet.deli(self.igralci)
+    self._komplet.deli(self._igralci)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
     # Odstrani začetne pare
     print("---------- Igra se začenja")
-    igralec1 = self.igralci[0]
-    igralec2 = self.igralci[1]
+    igralec1 = self._igralci[0]
+    igralec2 = self._igralci[1]
     #TODO
-    while len(igralec1.karte) > 0 and len(igralec2.karte) > 0:
-      karta1 = igralec1.karte.pop()
-      karta2 = igralec2.karte.pop()
+    while len(igralec1._karte) > 0 and len(igralec2._karte) > 0:
+      karta1 = igralec1._karte.pop()
+      karta2 = igralec2._karte.pop()
       print(str(karta1) + " : " + str(karta2))
-      if karta1.vrednost > karta2.vrednost:
-        igralec1.karte.append(karta1)
-        igralec1.karte.append(karta2)
-      elif karta1.vrednost < karta2.vrednost:
-        igralec2.karte.append(karta1)
-        igralec2.karte.append(karta2)
+      if karta1._vrednost > karta2._vrednost:
+        igralec1._karte.append(karta1)
+        igralec1._karte.append(karta2)
+      elif karta1._vrednost < karta2._vrednost:
+        igralec2._karte.append(karta1)
+        igralec2._karte.append(karta2)
       else:
         # Vojna!
-        igralec1.shramba.append(karta1)
-        igralec2.shramba.append(karta2)
+        igralec1._shramba.append(karta1)
+        igralec2._shramba.append(karta2)
 
-        while karta1.vrednost == karta2.vrednost:
+        while karta1._vrednost == karta2._vrednost:
           stev = 3
-          if (len(igralec1.karte) < 3):
-            stev = len(igralec1.karte)
+          if (len(igralec1._karte) < 3):
+            stev = len(igralec1._karte)
           for i in range(stev):
-            karta1 = igralec1.karte.pop()
-            igralec1.shramba.append(karta1)
+            karta1 = igralec1._karte.pop()
+            igralec1._shramba.append(karta1)
           stev = 3
-          if (len(igralec2.karte) < 3):
-            stev = len(igralec2.karte)
+          if (len(igralec2._karte) < 3):
+            stev = len(igralec2._karte)
           for i in range(stev):
-            karta2 = igralec2.karte.pop()
-            igralec2.shramba.append(karta2)
+            karta2 = igralec2._karte.pop()
+            igralec2._shramba.append(karta2)
 
-        if karta1.vrednost > karta2.vrednost:
-          while len(igralec1.shramba) > 0:
-            karta = igralec1.shramba.pop()
-            igralec1.karte.append(karta)
-          while len(igralec2.shramba) > 0:
-            karta = igralec2.shramba.pop()
-            igralec1.karte.append(karta)
-        elif karta1.vrednost < karta2.vrednost:
-          while len(igralec1.shramba) > 0:
-            karta = igralec1.shramba.pop()
-            igralec2.karte.append(karta)
-          while len(igralec2.shramba) > 0:
-            karta = igralec2.shramba.pop()
-            igralec2.karte.append(karta)
+        if karta1._vrednost > karta2._vrednost:
+          while len(igralec1._shramba) > 0:
+            karta = igralec1._shramba.pop()
+            igralec1._karte.append(karta)
+          while len(igralec2._shramba) > 0:
+            karta = igralec2._shramba.pop()
+            igralec1._karte.append(karta)
+        elif karta1._vrednost < karta2._vrednost:
+          while len(igralec1._shramba) > 0:
+            karta = igralec1._shramba.pop()
+            igralec2._karte.append(karta)
+          while len(igralec2._shramba) > 0:
+            karta = igralec2._shramba.pop()
+            igralec2._karte.append(karta)
         else:
           pass # do tega sploh ne bi smelo priti!
       self.izpisi_igralce()
 
     # Konec igre
     print("---------- Konec igre")
-    if len(igralec1.karte) > 0:
-      print("Zmagal je igralec " + igralec1.ime)
+    if len(igralec1._karte) > 0:
+      print("Zmagal je igralec " + igralec1._ime)
     else:
-      print("Zmagal je igralec " + igralec2.ime)
+      print("Zmagal je igralec " + igralec2._ime)
 
   def izpisi_igralce(self):
-    stev_igralcev = len(self.igralci)
+    """ Izpiše igralce, ki igrajo igro """
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      print("Igralec " + self.igralci[i].ime + " ima " +
-            str(len(self.igralci[i].karte)) + " kart")
+      print("Igralec " + self._igralci[i]._ime + " ima " +
+            str(len(self._igralci[i]._karte)) + " kart")
 
 
 igra = VojnaIgra()

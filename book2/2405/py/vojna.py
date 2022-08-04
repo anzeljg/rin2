@@ -26,31 +26,31 @@ class Karta:
   # Ustvari objekt 'Karta'
   def __init__(self, barva, opis):
     if (barva in BARVE) and (opis in OPISI):
-      self.barva = barva
-      self.opis = opis
+      self._barva = barva
+      self._opis = opis
     else:
-      self.barva = None
-      self.opis = None
+      self._barva = None
+      self._opis = None
       print("Neveljavna karta: ", barva, opis)
 
   # Vrne dvo-znakovno predstavitev karte
   def __str__(self):
-    return self.barva + self.opis
+    return self._barva + self._opis
 
   # Vrne barvo karte
   def vrni_barvo(self):
-    return self.barva
+    return self._barva
 
   # Vrne opis ali rang karte
   def vrni_opis(self):
-    return self.opis
+    return self._opis
 
   # Izriše sliko karte na platnu, na danem položaju
   def izpis(self, platno, poz, hrbet=True):
     if hrbet:
       slika = KARTE["BG"]
     else:
-      k = self.barva + self.opis
+      k = self._barva + self._opis
       slika = KARTE[k]
     platno.create_image(poz[0], poz[1], \
       anchor=tk.NW, image=slika)
@@ -61,24 +61,24 @@ class Komplet:
 
   # Ustvari objekt 'Komplet', ki vsebuje vseh 52 kart
   def __init__(self):
-    self.karte = []
+    self._karte = []
     for barva in BARVE:
       for opis in OPISI:
         karta = Karta(barva, opis)
-        self.karte.append(karta)
+        self._karte.append(karta)
 
   # Premešaj komplet kart
   def premesaj(self):
-    random.shuffle(self.karte)
+    random.shuffle(self._karte)
 
   # Deli naslednjo karto iz kompleta
   def deli_karto(self):
-    return self.karte.pop()
+    return self._karte.pop()
 
   # Vrne besedilno predstavitev kompleta kart
   def __str__(self):
     sporocilo = "Komplet vsebuje"
-    for karta in self.karte:
+    for karta in self._karte:
       sporocilo += " " + str(karta)
     return sporocilo
 
@@ -88,35 +88,62 @@ class Igralec(Komplet):
 
   # Ustvari objekt 'Igralec'
   def __init__(self):
-    self.karte = []
+    self._karte = []
     # Karte, ki jih igralec odloži/vrže med igro
-    self.zaloga = []
+    self._zaloga = []
 
   # Vrne predstavitev kart, ki jih v roki drži igralec
   def __str__(self):
     sporocilo = "V roki drži"
-    for karta in self.karte:
+    for karta in self._karte:
         sporocilo += " " + str(karta)
     return sporocilo
 
   # Igralcu doda nov objekt 'Karta' na konec
   def dodaj_karto(self, karta):
-    self.karte.append(karta)
+    self._karte.append(karta)
 
   # Igralcu doda objekt 'Karta' na začetek
   def vstavi_karto(self, karta):
-    self.karte.insert(0, karta)
+    self._karte.insert(0, karta)
 
   # Igralcu odvzame objekt 'Karta' in ga doda v zalogo
   def vrzi_karto(self):
-    if self.karte:
-      karta = self.karte.pop()
-      self.zaloga.append(karta)
+    if self._karte:
+      karta = self._karte.pop()
+      self._zaloga.append(karta)
+
+  # Vrne zadnjo karto, ki jo je vrgel igralec
+  # t.j. zadnjo karto iz igralčeve zaloge
+  def zadnja_vrzena_karta(self):
+    return self._zaloga[-1]._opis
+
+  # Vrne, ali ima igralec v roki karte, ali ne
+  def ima_karte(self):
+    if self._karte:
+      return True
+    else:
+      return False
+
+  # Vrne, ali ima igralec zalogo kart, ali ne
+  def ima_zalogo(self):
+    if self._zaloga:
+      return True
+    else:
+      return False
+
+  # Vrne igralčevo zalogo kart
+  def zaloga(self):
+    return self._zaloga
+
+  # Sprazni igralčevo zalogo kart
+  def sprazni_zalogo(self):
+    self._zaloga = []
 
   # Vrne število kart, ki jih ima igralec:
   # tistih v roki in odloženih
   def stevilo(self):
-    return len(self.karte) + len(self.zaloga)
+    return len(self._karte) + len(self._zaloga)
 
   # Izriše karte - uporabi metodo izpis razreda 'Karta'
   def izpis(self, platno, poz, delivec=False):
@@ -124,17 +151,17 @@ class Igralec(Komplet):
     # še v roki. Vse karte so obrnjene
     ROB = 1
     i = 0
-    for karta in self.karte:
+    for karta in self._karte:
       karta.izpis(platno, [poz[0]+i*ROB, poz[1]], True)
       i += 1
     # Izpis odvrženih kart
     ROB = 12
     ODMIK = 180
     i = 0
-    for karta in self.zaloga:
+    for karta in self._zaloga:
       # Ali prikaže sprednjo ali zadnjo stran karte
-      obrni = i % 3
-      if i == len(self.zaloga)-1:
+      obrni = i % 2
+      if i == len(self._zaloga)-1:
         obrni = False
       karta.izpis(platno, [ODMIK+poz[0]+i*ROB, poz[1]],
                   obrni)
@@ -167,16 +194,14 @@ def vrzi():
 
   if igra_poteka:
     # Zadnja vržena karta delivca in igralca
-    if delivec.zaloga and igralec.zaloga:
-      karta_d = delivec.zaloga[-1].vrni_opis()
-      karta_i = igralec.zaloga[-1].vrni_opis()
+    if delivec.ima_zalogo() and igralec.ima_zalogo():
+      karta_d = delivec.zadnja_vrzena_karta()
+      karta_i = igralec.zadnja_vrzena_karta()
 
       # Če je vojna
       if karta_d == karta_i:
         vojna_poteka = True
         delivec.vrzi_karto()
-        delivec.vrzi_karto()
-        igralec.vrzi_karto()
         igralec.vrzi_karto()
         izid = "Vojna!"
 
@@ -186,29 +211,29 @@ def vrzi():
         # da dobi svoje in igralčeve karte
         vojna_poteka = False
         if VREDNOSTI[karta_d] > VREDNOSTI[karta_i]:
-          for karta in igralec.zaloga:
+          for karta in igralec.zaloga():
             delivec.vstavi_karto(karta)
-          for karta in delivec.zaloga:
+          for karta in delivec.zaloga():
             delivec.vstavi_karto(karta)
-          if not igralec.karte:
+          if not igralec.ima_karte():
             igra_poteka = False
             izid = "Jack je zmagal! Nova igra?"
             REZULTAT["SKUPAJ"] += 1
         # Igralec dobi vse karte
         else:
-          for karta in delivec.zaloga:
+          for karta in delivec.zaloga():
             igralec.vstavi_karto(karta)
-          for karta in igralec.zaloga:
+          for karta in igralec.zaloga():
             igralec.vstavi_karto(karta)
-          if not delivec.karte:
+          if not delivec.ima_karte():
             igra_poteka = False
             izid = "Zmagal si! Nova igra?"
             REZULTAT["SKUPAJ"] += 1
             REZULTAT["ZMAGE"] += 1
 
       if not vojna_poteka:
-        delivec.zaloga = []
-        igralec.zaloga = []
+        delivec.sprazni_zalogo()
+        igralec.sprazni_zalogo()
         izid = "Vrzi karto..."
 
     delivec.vrzi_karto()

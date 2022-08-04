@@ -156,23 +156,26 @@
 
 <p align="justify">Napišimo še metodo <code>rezultat</code>, ki preveri rezultat igre &ndash; ali je igralec zmagal proti delivcu &ndash; in vrne niz, ki predstavlja rezultat igre:
 <pre>
-def rezultat(self, rezultat_delivca):
-  s = "Igralec " + self.ime + ":\n"
-  s += " Vrednost kart v roki " + str(self.vrednost_kart())
-  if self.ima_blackjack():
-    s += " (Black Jack)"
-  s += "\n"
+class BlackJackIgralec(Igralec):
+  # ...
 
-  rezultat = self.vrednost_kart()
-  if self.ima_blackjack():
-    s += " ZMAGA\n"
-  elif rezultat <= 21 and rezultat > rezultat_delivca:
-    s += " ZMAGA\n"
-  elif rezultat <= 21 and rezultat_delivca > 21:
-    s += " ZMAGA\n"
-  else:
-    s += " PORAZ\n"
-  return s
+  def rezultat(self, rezultat_delivca):
+    s = "Igralec " + self._ime + ":\n"
+    s += " Vrednost kart v roki " + str(self.vrednost_kart())
+    if self.ima_blackjack():
+      s += " (Black Jack)"
+    s += "\n"
+
+    rezultat = self.vrednost_kart()
+    if self.ima_blackjack():
+      s += " ZMAGA\n"
+    elif rezultat <= 21 and rezultat > rezultat_delivca:
+      s += " ZMAGA\n"
+    elif rezultat <= 21 and rezultat_delivca > 21:
+      s += " ZMAGA\n"
+    else:
+      s += " PORAZ\n"
+    return s
 </pre>
 </p>
 
@@ -197,13 +200,18 @@ from karte import *
 
 class BlackJackIgralec(Igralec):
 
+  def stevilo_kart(self):
+    """ Vrne število kart, ki jih ima igralec """
+    return len(self._karte)
+
   def vrednost_kart(self):
+    """ Vrne vrednost kart, ki jih ima igralec """
     vsota = 0
-    for karta in self.karte:
-      if karta.vrednost >= 10: # figura ali 10
+    for karta in self._karte:
+      if karta._vrednost >= 10: # figura ali 10
         vsota += 10
-      elif karta.vrednost > 1: # karta od 2 do 9
-        vsota += karta.vrednost
+      elif karta._vrednost > 1: # karta od 2 do 9
+        vsota += karta._vrednost
       else: # as, prištej 1 ali 11
         if vsota + 11 <= 21:
           vsota += 11
@@ -212,6 +220,7 @@ class BlackJackIgralec(Igralec):
     return vsota
 
   def ima_blackjack(self):
+    """ Ali ima igralec Black Jack """
     asi = [Karta(0,1), Karta(1,1), Karta(2,1), Karta(3,1)]
     # figure: desetke, fanti, dame in kralji
     f = [Karta(0,10), Karta(0,11), Karta(0,12), Karta(0,13),
@@ -219,19 +228,20 @@ class BlackJackIgralec(Igralec):
          Karta(2,10), Karta(2,11), Karta(2,12), Karta(2,13),
          Karta(3,10), Karta(3,11), Karta(3,12), Karta(3,13)]
     blackjack = False
-    if self.karte[0] in asi and self.karte[1] in f:
+    if self._karte[0] in asi and self._karte[1] in f:
       blackjack = True
-    if self.karte[0] in f and self.karte[1] in asi:
+    if self._karte[0] in f and self._karte[1] in asi:
       blackjack = True
     return blackjack
 
   def rezultat(self, rezultat_delivca):
-    s = "Igralec " + self.ime + ":\n"
-    s += " Vrednost kart v roki "
-    s += str(self.vrednost_kart())
+    """ Vrne rezultat igralca """
+    s = "Igralec " + self._ime + ":\n"
+    s += " Vrednost kart v roki " + str(self.vrednost_kart())
     if self.ima_blackjack():
       s += " (Black Jack)"
     s += "\n"
+
     rezultat = self.vrednost_kart()
     if self.ima_blackjack():
       s += " ZMAGA\n"
@@ -246,7 +256,7 @@ class BlackJackIgralec(Igralec):
 
 igra = IgraKart()
 igralec = BlackJackIgralec("Francelj")
-igra.komplet.deli([igralec], 2)
+igra._komplet.deli([igralec], 2)
 print(igralec)
 print(igralec.rezultat(17)) # Recimo, da ima delivec 17
 </textarea></p>
@@ -332,6 +342,10 @@ print(igralec.rezultat(17)) # Recimo, da ima delivec 17
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<script src="js/skulpt-stdlib-modul-karte.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -368,9 +382,16 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(4, 0));
+editor.foldCode(CodeMirror.Pos(8, 0));
+editor.foldCode(CodeMirror.Pos(23, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

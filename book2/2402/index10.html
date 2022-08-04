@@ -162,7 +162,8 @@ class Pravokotnik:
   # ...
 
   def ploscina(self):
-    return self.sirina * self.visina
+    """ Vrne ploščino pravokotnika """
+    return self._sirina * self._visina
 </pre>
 
 					</div>
@@ -190,7 +191,8 @@ class Pravokotnik:
   # ...
 
   def obseg(self):
-    return 2 * self.sirina + 2 * self.visina
+    """ Vrne obseg pravokotnika """
+    return 2 * self._sirina + 2 * self._visina
 </pre>
 					</div>
 					<div class="modal-footer">
@@ -216,10 +218,11 @@ class Pravokotnik:
 class Pravokotnik:
   # ...
 
-  def obrni(self):
-    temp = self.sirina
-    self.sirina = self.visina
-    self.visina = temp
+  def zamenjaj(self):
+    """ Zamenja vrednosti stranic pravokotnika """
+    temp = self._sirina
+    self._sirina = self._visina
+    self._visina = temp
 </pre>
 					</div>
 					<div class="modal-footer">
@@ -274,13 +277,13 @@ print(r.obseg())
 <p>
 	<span class="label label-primary"><b>3</b></span>
 </p>
-<p align="justify">Razredu <code>Pravokotnik</code> dodaj metodo <code>obrni</code>, ki zamenja širino in dolžino poljubnega primerka. Spodnji primer dvakrat izpiše <code>True</code>:</p>
+<p align="justify">Razredu <code>Pravokotnik</code> dodaj metodo <code>zamenjaj</code>, ki zamenja širino in dolžino poljubnega primerka. Spodnji primer dvakrat izpiše <code>True</code>:</p>
 <p>
 <pre>
 r = Pravokotnik(Tocka(100, 50), 10, 5)
-print(r.sirina == 10 and r.visina == 5)
-r.obrni()
-print(r.sirina == 5 and r.visina == 10)
+print(r.sirina() == 10 and r.visina() == 5)
+r.zamenjaj()
+print(r.sirina() == 5 and r.visina() == 10)
 </pre>
 </p>
 <p>
@@ -298,25 +301,135 @@ print(r.sirina == 5 and r.visina == 10)
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
+
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
 
   def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
-  # Tukaj manjkajo druge metode!
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
+    return Tocka(mx, my)
+
+  def zrcali_x(self):
+    """ Vrne točko, zrcaljeno preko x-osi """
+    return Tocka(self._x, -self._y)
+
+  def zrcali_y(self):
+    """ Vrne točko, zrcaljeno preko y-osi """
+    return Tocka(-self._x, self._y)
+
+  def zrcali(self):
+    """ Vrne točko, zrcaljeno preko koordinatnega izhodišča """
+    return Tocka(-self._x, -self._y)
+
+  def razdalja_do(self, tocka):
+    """ Vrne razdaljo do druge točke """
+    dx = self._x - tocka._x
+    dy = self._y - tocka._y
+    return (dx ** 2 + dy ** 2) ** 0.5
+
+  def premica_skozi(self, tocka):
+    """ Vrne koeficienta premice skozi dani točki """
+    k = (self._y - tocka._y) / (self._x - tocka._x)
+    n = self._y - k * self._x
+    return "(" + str(k) + ", " + str(n) + ")"
+
+  def polarno(self):
+    """ Vrne točko v polarni obliki """
+    import math
+    r = self.razdalja()
+    fi_r = math.atan2(self._x, self._y)
+    fi = math.degrees(fi_r)
+    return (r, fi) 
+
+  def premik(self, tocka):
+    """ Vrne premaknjeno točko """
+    self._x += tocka._x
+    self._y += tocka._y
+
+  def __add__(self, tocka):
+    """ Prekrije operator + za pravilno seštevanje točk """
+    return Tocka(self._x + tocka._x, self._y + tocka._y)
+
+  def __sub__(self, tocka):
+    """ Prekrije operator - za pravilno odštevanje točk """
+    return Tocka(self._x - tocka._x, self._y - tocka._y)
+
+  def __mul__(self, tocka):
+    """ Prekrije operator * za skalarno množenje točk """
+    return self._x * tocka._x + self._y * tocka._y
+
+  def __rmul__(self, vrednost):
+    """ Prekrije operator * za množenje točke s skalarjem """
+    return Tocka(vrednost * self._x,  vrednost * self._y)
 
 
 class Pravokotnik:
 
   def __init__(self, polozaj=Tocka(), sirina=0, visina=0):
-    self.oglisce = polozaj
-    self.sirina = sirina
-    self.visina = visina
+    """ Inicializator """
+    self._oglisce = polozaj
+    self._sirina = sirina
+    self._visina = visina
 
   def __str__(self):
-    return "(" + str(self.oglisce) + ", " + \
-	  str(self.sirina) + ", " + str(self.visina) + ")"
+    """ Vrne niz, ki vsebuje položaj in dimenzije pravokotnika """
+    return "(" + str(self._oglisce) + ", " + \
+	  str(self._sirina) + ", " + str(self._visina) + ")"
+
+  def sirina(self, vrednost=None):
+    """ Vrne ali nastavi širino pravokotnika """
+	if vrednost is None:
+      return self._sirina
+	else:
+	  self._sirina = vrednost
+
+  def visina(self, vrednost=None):
+    """ Vrne ali nastavi višino pravokotnika """
+	if vrednost is None:
+      return self._visina
+	else:
+	  self._visina = vrednost
+
+  def oglisce(self, polozaj=None):
+    """ Vrne ali nastavi položaj pravokotnika """
+    if polozaj is None:
+      return self._oglisce
+    else:
+      self._oglisce = polozaj
+
+  def spremeni(self, delta_sirine=0, delta_visine=0):
+    """ Spremeni dimenzije (širino in višino) pravokotnika """
+    self._sirina += delta_sirine
+    self._visina += delta_visine
+
+  def premakni(self, dx=0, dy=0):
+    """ Spremeni položaj pravokotnika oz. premakne pravokotnik """
+    self._oglisce._x = dx
+    self._oglisce._y = dy
 
 
 </textarea></p>
@@ -402,6 +515,10 @@ class Pravokotnik:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -438,9 +555,21 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(0, 0));
+editor.foldCode(CodeMirror.Pos(91, 0));
+editor.foldCode(CodeMirror.Pos(97, 0));
+editor.foldCode(CodeMirror.Pos(102, 0));
+editor.foldCode(CodeMirror.Pos(109, 0));
+editor.foldCode(CodeMirror.Pos(116, 0));
+editor.foldCode(CodeMirror.Pos(123, 0));
+editor.foldCode(CodeMirror.Pos(128, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

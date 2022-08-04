@@ -176,25 +176,19 @@
 
 <p align="justify">Sedaj, ko imamo razred <code>Igralec</code>, želimo iz objekta <code>Komplet</code> razdeliti karte igralcem. Na prvi pogled ni jasno, ali naj to metodo dodamo razredu <code>Igralec</code> ali razredu <code>Komplet</code>, toda ker deluje nad enim kompletom kart in (verjetno) nekaj igralci, je bolj naravno, da metodo dodamo v razred <code>Komplet</code>.</p>
 
-<p align="justify">Metodo <code>deli</code> smo napisali že v prejšnjem poglavju, vendar je bila napisana zelo osnovno &ndash; omogočala je le deljenje ene posamezne karte:
-<pre>
-class Komplet:
-  ...
-  def deli(self):
-    return self.karte.pop()
-</pre>
-</p>
+<p align="justify">Metodo <code>deli</code> smo napisali že v <a href="../2403/index7.html">prejšnji učni enoti</a>, vendar je bila napisana zelo osnovno &ndash; omogočala je le deljenje ene posamezne karte. Poizkusimo jo malce izboljšati.</p>
 
-<p align="justify">Poizkusimo metodo <code>deli</code> malce izboljšati. Metoda mora biti precej splošna, saj imajo različne igre različne zahteve glede deljenja kart. Morda želimo razdeliti celoten komplet kart naenkrat ali samo dodati po eno karto vsakemu igralcu. Metoda <code>deli</code> bo imela dva parametra, seznam igralcev in skupno število kart, ki jh bomo razdelili tem igralcem. Če v kompletu ni dovolj kart, bo metoda <code>deli</code> razdelila vse karte v kompletu, nato pa se bo ustavila:
+<p align="justify">Metoda mora biti precej splošna, saj imajo različne igre različne zahteve glede deljenja kart. Morda želimo razdeliti celoten komplet kart naenkrat ali samo dodati po eno karto vsakemu igralcu. Metoda <code>deli</code> bo imela dva parametra, seznam igralcev in skupno število kart, ki jih bomo razdelili tem igralcem. Če v kompletu ni dovolj kart, bo metoda <code>deli</code> razdelila vse karte v kompletu, nato pa se bo ustavila:
 <pre>
 class Komplet:
-  ...
+  # ...
+
   def deli(self, igralci, stev_kart=999):
     stev_igralcev = len(igralci)
     for i in range(stev_kart):
       if self.je_prazen():
         break                               # Ni več kart; končaj
-      karta = self.karte.pop()              # Vzemi vrhnjo karto
+      karta = self._karte.pop()             # Vzemi vrhnjo karto
       igralec = igralci[i % stev_igralcev]  # Kdo je naslednji?
       igralec.dodaj(karta)                  # Dodaj karto igralcu
 </pre>

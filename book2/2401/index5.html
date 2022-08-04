@@ -157,8 +157,8 @@
 <p align="justify">Lastnosti posameznega primerka lahko spremenimo z uporabo zapisa s piko:
 <pre>
 &gt;&gt;&gt; p = Tocka()
-&gt;&gt;&gt; p.x = 4
-&gt;&gt;&gt; p.y = 3
+&gt;&gt;&gt; p._x = 4
+&gt;&gt;&gt; p._y = 3
 </pre>
 </p>
 
@@ -168,39 +168,41 @@
 
 <p align="justify">Spremenljivka <code>p</code> kaže na objekt <code>Tocka</code>, ki vsebuje dve lastnosti. Vsaka izmed obeh lastnosti kaže na število.</p>
 
-<p align="justify">Do vrednosti posamezne lastnosti lahko dostopano na enak način, z uporabo zapisa s piko:
+<p align="justify">Do vrednosti posamezne lastnosti lahko dostopamo na enak način, z uporabo zapisa s piko:
 <pre>
-&gt;&gt;&gt; print(p.y)
+&gt;&gt;&gt; print(p._y)
 3
-&gt;&gt;&gt; x = p.x
+&gt;&gt;&gt; x = p._x
 &gt;&gt;&gt; print(x)
 4
 </pre>
 </p>
 
-<p align="justify">Izraz <code>p.x</code> pomeni, »Pojdi do objekta, na katerega kaže <code>p</code> in dobi njegovo lastnost <code>x</code>«. V gornjem primeru nato spremenljivki <code>x</code> priredimo vrednost lastnosti <code>x</code>, vendar kljub temu ne pride do spora oziroma konflikta. Namen zapisa s piko je, da nedvoumno in jasno določa, za katero spremenljivko gre.</p>
+<p align="justify">Izraz <code>p._x</code> pomeni, »Pojdi do objekta, na katerega kaže <code>p</code> in dobi njegovo lastnost <code>_x</code>«. V gornjem primeru nato spremenljivki <code>x</code> priredimo vrednost lastnosti <code>_x</code>, vendar kljub temu ne pride do spora oziroma konflikta. Namen zapisa s piko je, da nedvoumno in jasno določa, za katero spremenljivko gre.</p>
 
 <p align="justify">Zapis s piko lahko uporabimo v katerem koli izrazu, zato sta spodnja stavka veljavna:
 <pre>
-print("(x=" + str(p.x) + ", y=" + str(p.y) + ")")
-kvadrat_razdalje_od_izhodisca = p.x * p.x + p.y * p.y
+print("(x=" + str(p._x) + ", y=" + str(p._y) + ")")
+kvadrat_razdalje_od_izhodisca = p._x * p._x + p._y * p._y
 </pre>
 Prvi stavek izpiše <code>(x=4, y=3)</code>. Drugi stavek  v spremenljivko shrani izračunano vrednost 25.</p>
 
+<div class="alert alert-danger">
+<p align="justify">Pri objektnem programiranju do lastnosti objekta običajno ne dostopamo neposredno, t.j. z uporabo zapisa s piko. Običajno za delo z lastnostmi objekta uporabljamo metodi <b>nastavi</b> (<i>ang. set</i>; od tod izraz <i>setter</i>) in <b>vrni</b> (<i>ang. get</i>; od tod izraz <i>getter</i>), ki ju moramo definirati.</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
 <h1>Izboljšajmo inicializator</h1>
 
 <p align="justify">Če želimo ustvariti točko <code>(7, 6)</code> trenutno potrebujemo tri vrstice kode:</p>
 
-<!-- Left column end -->
-					</div>
-					<div class="col-md-6">
-						<br />
-<!-- Right column start -->
 <p>
 <pre>
 t = Tocka()
-t.x = 7
-t.y = 6
+t.nastavi_x(7)
+t.nastavi_y(6)
 </pre>
 </p>
 
@@ -212,23 +214,34 @@ t.y = 6
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-  def vrni_x():
-    return self.x
+  def vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
 
-  def vrni_y():
-    return self.y
+  def vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
 
 
 p = Tocka(4, 2)
 q = Tocka(6, 3)
 r = Tocka()     # Koordinatno izhodišče (0, 0)
 
-print(p.x, p.y)
-print(q.x, q.y)
-print(r.x, r.y)
+print(p.vrni_x(), p.vrni_y())
+print(q.vrni_x(), q.vrni_y())
+print(r.vrni_x(), r.vrni_y())
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -272,6 +285,7 @@ print(r.x, r.y)
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index6.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -317,6 +331,10 @@ print(r.x, r.y)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -353,9 +371,17 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 395);
+editor.setSize('100%', 373);
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
+editor.foldCode(CodeMirror.Pos(15, 0));
+editor.foldCode(CodeMirror.Pos(19, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

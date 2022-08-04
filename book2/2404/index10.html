@@ -158,22 +158,27 @@
 
 <p align="justify">Razred <code>BlackJackDelivec</code> bo imel posodobljneno metodo <code>__init__</code>, ki bo vsebovala lastnost <code>self.skrito</code>. Privzeta vrednost te lastnosti bo <code>True</code> kar bo pomenilo, da bo ena izmed dveh delivčevih kart na začetku igre skrita. To karto bomo odkrili šele, ko bodo vsi igralci odigrali igro, saj delivec zadnji vleče morebitne dodatne karte:
 <pre>
-def __init__(self):
-  self.karte = []
-  self.skrito = True
+class BlackJackDelivec(BlackJackIgralec):
+
+  def __init__(self):
+    self._karte = []
+    self._skrito = True
 </pre></p>
 
 <p align="justify">Metoda <code>__init__</code> ne bo vsebovala lastnosti <code>self.ime</code>, saj ni nujno, da vemo ime delivca.</p>
 
 <p align="justify">Posodobili bomo tudi metodo <code>__str__</code>, ki bo izpisala samo katere karte ima delivec, ne pa tudi ali je delivec zmagal ali izgubil. To niti ni smiselno, saj pri tej igri igrajo igralci proti delivcu in nas v resnici zanima samo, ali je posamezen igralec premagal delivca ali ne:
 <pre>
-def __str__(self):
-  s = "Delivec ima\n"
-  if self.skrito:
-    s += str(self.karte[0]) + "\n (skrita karta)\n"
-  else:
-    s += Komplet.__str__(self)
-  return s
+class BlackJackDelivec(BlackJackIgralec):
+  # ...
+
+  def __str__(self):
+    s = "Delivec ima\n"
+    if self.skrito:
+      s += str(self.karte[0]) + "\n (skrita karta)\n"
+    else:
+      s += Komplet.__str__(self)
+    return s
 </pre>
 </p>
 
@@ -190,15 +195,18 @@ from karte import *
 
 class BlackJackIgralec(Igralec):
 
-  # Manjkajo določene metode
+  def stevilo_kart(self):
+    """ Vrne število kart, ki jih ima igralec """
+    return len(self._karte)
 
   def vrednost_kart(self):
+    """ Vrne vrednost kart, ki jih ima igralec """
     vsota = 0
-    for karta in self.karte:
-      if karta.vrednost >= 10: # figura ali 10
+    for karta in self._karte:
+      if karta._vrednost >= 10: # figura ali 10
         vsota += 10
-      elif karta.vrednost > 1: # karta od 2 do 9
-        vsota += karta.vrednost
+      elif karta._vrednost > 1: # karta od 2 do 9
+        vsota += karta._vrednost
       else: # as, prištej 1 ali 11
         if vsota + 11 <= 21:
           vsota += 11
@@ -207,6 +215,7 @@ class BlackJackIgralec(Igralec):
     return vsota
 
   def ima_blackjack(self):
+    """ Ali ima igralec Black Jack """
     asi = [Karta(0,1), Karta(1,1), Karta(2,1), Karta(3,1)]
     # figure: desetke, fanti, dame in kralji
     f = [Karta(0,10), Karta(0,11), Karta(0,12), Karta(0,13),
@@ -214,31 +223,52 @@ class BlackJackIgralec(Igralec):
          Karta(2,10), Karta(2,11), Karta(2,12), Karta(2,13),
          Karta(3,10), Karta(3,11), Karta(3,12), Karta(3,13)]
     blackjack = False
-    if self.karte[0] in asi and self.karte[1] in f:
+    if self._karte[0] in asi and self._karte[1] in f:
       blackjack = True
-    if self.karte[0] in f and self.karte[1] in asi:
+    if self._karte[0] in f and self._karte[1] in asi:
       blackjack = True
     return blackjack
+
+  def rezultat(self, rezultat_delivca):
+    """ Vrne rezultat igralca """
+    s = "Igralec " + self._ime + ":\n"
+    s += " Vrednost kart v roki " + str(self.vrednost_kart())
+    if self.ima_blackjack():
+      s += " (Black Jack)"
+    s += "\n"
+
+    rezultat = self.vrednost_kart()
+    if self.ima_blackjack():
+      s += " ZMAGA\n"
+    elif rezultat <= 21 and rezultat > rezultat_delivca:
+      s += " ZMAGA\n"
+    elif rezultat <= 21 and rezultat_delivca > 21:
+      s += " ZMAGA\n"
+    else:
+      s += " PORAZ\n"
+    return s
 
 
 class BlackJackDelivec(BlackJackIgralec):
 
   def __init__(self):
-    self.karte = []
-    self.skrito = True
+    """ Inicializator """
+    self._karte = []
+    self._skrito = True
 
   def __str__(self):
+    """ Vrne niz, ki predstavlja delivčeve karte """
     s = "Delivec ima\n"
-    if self.skrito:
-      s += str(self.karte[0]) + "\n (skrita karta)\n"
+    if self._skrito:
+      s += str(self._karte[0]) + "\n (skrita karta)\n"
     else:
       s += Komplet.__str__(self)
     return s
 
   def rezultat(self, rezultat_delivca=0):
+    """ Vrne rezultat delivca """
     s = "Delivec:\n"
-    s += " Vrednost kart v roki "
-    s += str(self.vrednost_kart())
+    s += " Vrednost kart v roki " + str(self.vrednost_kart())
     if self.ima_blackjack():
       s += " (Black Jack)"
     s += "\n"
@@ -247,11 +277,11 @@ class BlackJackDelivec(BlackJackIgralec):
 
 igra = IgraKart()
 delivec = BlackJackDelivec()
-igra.komplet.deli([delivec], 2)
+igra._komplet.deli([delivec], 2)
 print(delivec)
 
 # Odkrijmo delivčevo skrito karto
-delivec.skrito = False
+delivec._skrito = False
 print(delivec)
 print(delivec.rezultat())
 </textarea></p>
@@ -337,6 +367,10 @@ print(delivec.rezultat())
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<script src="js/skulpt-stdlib-modul-karte.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -373,9 +407,14 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(2, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

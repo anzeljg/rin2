@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Metode</title>
+	<title>Delo z lastnostmi</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -18,20 +18,6 @@
 
 	<!-- CodeMirror -->
 	<link href="../css/codemirrorepl.css" rel="stylesheet">
-
-	<!-- MathJax - Beautiful math in all browsers -->
-    <script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
-        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
-        config:["TeX-AMS_HTML.js"],
-		imageFont: null
-	  });
-    </script>
- 	<script src="../mathjax/MathJax.js"></script>
-
-	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
-	<link href="../css/jsxgraph.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -166,17 +152,40 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Metode</h1>
+<h1>Delo z lastnostmi</h1>
 
-<p align="justify">Ustvarjanje razreda, kot na primer <code>Tocka</code>, prinaša našemu razmišljanju in programom, ki jih ustvarimo, izjemno količino »organizacijske moči«. To pomeni, da lahko združimo različne vrste podatkov s smiselnimi operacijami nad temi podatki. Vsak primerek razreda pa lahko ima tudi svoje stanje, ki je neodvisno od stanj drugih primerkov.</p>
+<p align="justify">Omenili smo, da za delo z lastnostmi posameznega objekta uporabljamo metodi <b>vrni</b> in <b>nastavi</b>, s katerima vračamo ali nastavljamo vrednosti posamezne lastnosti. Za vsako od dejanj lahko ustvarimo ločeno metodo, kar smo počeli do sedaj. Lahko pa obe dejanji združimo v eno metodo, ki jo običajno poimenujemo kar po lastnosti.</p>
 
-<p align="justify">Najprej ponovimo, kako izračunamo razdaljo $d$ med poljubno točko in koordinatnim izhodiščem. Ta razdalja je enaka kvadratnemu korenu vsote kvadratov obeh koordinat točke. Izračunamo jo s pomočjo spodnje formule: $$d = \sqrt{x^2 + y^2}$$
-Če imamo na primer točko $A = (4, 3)$ je njena razdalja od koordinatnega izhodišča enaka 5.</p>
+<p align="justify">Oglejmo si to na primeru lastnosti <code>_x</code> objekta <code>Tocka</code>, ki predstavlja absciso točke. Ustvarimo metodo, ki se bo, enako kot lastnost, imenovala <code>x</code> in jo bomo uporabljali za vračanje ali nastavljanje vrednosti abscise točke:
+<pre>
+class Tocka:
+  # ...
 
-<div id="jxgbox16" class="jxgbox" style="width:438px;height:200px;margin:8px auto;"></div>
-<br />
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
+</pre>
+</p>
 
-<p align="justify">Sedaj, ko smo ponovili, kako izračunamo razdaljo med točko in koordinatnim izhodiščem, dodajmo razredu <code>Tocka</code> metodo <code>razdalja_od_izhodisca</code>, da bomo lažje razumeli, kako metode delujejo in kako jih uporabljamo:</p>
+<p align="justify">Lastnost <code>_x</code> torej vrnemo tako, da pokličemo metodo <code>x</code> brez argumenta:
+<pre>
+&gt;&gt;&gt; p = Tocka(4, 2)
+&gt;&gt;&gt; print(p.x())
+4
+</pre>
+</p>
+
+<p align="justify">Če pa želimo lastnost <code>_x</code> spremeniti oziroma nastaviti na novo vrednost, potem pokličemo metodo <code>x</code> z ustrezno vrednostjo kot argumentom:
+<pre>
+&gt;&gt;&gt; p = Tocka(4, 2)
+&gt;&gt;&gt; p.x(8)
+&gt;&gt;&gt; print(p.x())
+8
+</pre>
+</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -188,21 +197,30 @@
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-  def razdalja_od_izhodisca(self):
-    return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
+
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
 
 
-p = Tocka(4, 3)
-print(p.razdalja_od_izhodisca())
-
-q = Tocka(5, 12)
-print(q.razdalja_od_izhodisca())
-
-r = Tocka() # Koordinatno izhodisce
-print(r.razdalja_od_izhodisca())
+p = Tocka(4, 2)
+print(p.x(), p.y())
+p.x(8)
+p.y(3)
+print(p.x(), p.y())
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -213,11 +231,10 @@ print(r.razdalja_od_izhodisca())
 </div>
 <pre id="output"></pre>
 
-<p align="justify">Gornji program izpiše naslednje razdalje od koordinatnega izhodišča:
+<p align="justify">Gornji program izpiše naslednje:
 <pre>
-5.0
-13.0
-0.0
+(4, 2)
+(8, 3)
 </pre>
 </p>
 <!-- Right column end -->
@@ -246,6 +263,7 @@ print(r.razdalja_od_izhodisca())
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index7.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -291,6 +309,10 @@ print(r.razdalja_od_izhodisca())
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -327,28 +349,16 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 360);
+editor.setSize('100%', 518);
+editor.foldCode(CodeMirror.Pos(2, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
-
-	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
-	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
-
-<script type='text/javascript'>
-  var brd16;
-
-  function init16() {
-    if (brd16 != null) JXG.JSXGraph.freeBoard(brd16);
-    brd16 = JXG.JSXGraph.initBoard('jxgbox16', {boundingbox:[-2, 4, 8, -1], keepaspectratio:true, axis:true, grid:true});
-    var o = brd16.create('point', [0, 0], {name:'O', size:3, fixed:true});
-    var p = brd16.create('point', [4, 3], {name:'A', size:3});
-	var t = brd16.create('tapemeasure', [[0, 0], [4, 3]], {name:'d'});
-  }
-
-  init16();
-</script>
 
 
 <!-- CookieCuttr -->

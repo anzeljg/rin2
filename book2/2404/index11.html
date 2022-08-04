@@ -159,18 +159,18 @@
 <p align="justify">Ker bo metoda <code>__init__</code> podedovana, bo objekt <code>BlackJackIgra</code> že vseboval premešan komplet kart. Iz kompleta kart bomo vsem izgralcem (tudi delivcu) razdelili po dve karti:
 <pre>
 class BlackJackIgra(IgraKart):
-  ...
+
   def igraj(self, imena):
     # Dodaj igralce
-    self.igralci = []
+    self._igralci = []
     for ime in imena:
-      self.igralci.append(BlackJackIgralec(ime))
+      self._igralci.append(BlackJackIgralec(ime))
 
     # Dodaj delivca
-    self.igralci.append(BlackJackDelivec())
+    self._igralci.append(BlackJackDelivec())
 
     # Razdeli karte - vsakemu igralcu 2 karti
-    self.komplet.deli(self.igralci, len(self.igralci)*2)
+    self._komplet.deli(self._igralci, len(self._igralci)*2)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 </pre>
@@ -179,11 +179,12 @@ class BlackJackIgra(IgraKart):
 <p align="justify">Dodajmo metodo <code>izpisi_igralce</code>, ki bo izpisala kateri karti imajo igralci v rokah. Pri delivcu bo druga karta skrita:
 <pre>
 class BlackJackIgra(IgraKart):
-  ...
+  # ...
+
   def izpisi_igralce(self):
-    stev_igralcev = len(self.igralci)
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      print(self.igralci[i])
+      print(self._igralci[i])
 </pre>
 </p>
 <!-- Left column end -->
@@ -202,23 +203,25 @@ from blackjack import *
 class BlackJackIgra(IgraKart):
 
   def igraj(self, imena):
+    """ Igra igro s kartami: Black Jack """
     # Dodaj igralce
-    self.igralci = []
+    self._igralci = []
     for ime in imena:
-      self.igralci.append(BlackJackIgralec(ime))
+      self._igralci.append(BlackJackIgralec(ime))
 
     # Dodaj delivca
-    self.igralci.append(BlackJackDelivec())
+    self._igralci.append(BlackJackDelivec())
 
     # Razdeli karte - vsakemu igralcu 2 karti
-    self.komplet.deli(self.igralci, len(self.igralci)*2)
+    self._komplet.deli(self._igralci, len(self._igralci)*2)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
   def izpisi_igralce(self):
-    stev_igralcev = len(self.igralci)
+    """ Izpiše igralce, ki igrajo igro """
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      print(self.igralci[i])
+      print(self._igralci[i])
 
 
 igra = BlackJackIgra()
@@ -306,6 +309,10 @@ igra.igraj(["Janez", "Karel", "Lojze"])
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<script src="js/skulpt-stdlib-modul-blackjack.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -342,9 +349,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

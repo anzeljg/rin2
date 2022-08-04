@@ -10,10 +10,11 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Sprememba perspektive</title>
+	<title>Objekti kot vrnjene vrednosti</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
 
 	<!-- CodeMirror -->
 	<link href="../css/codemirrorepl.css" rel="stylesheet">
@@ -145,58 +146,93 @@
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Source -->
-		<div id="source" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Vir fotografije</h4>
-					</div>
-					<div class="modal-body">
-						<p>Christian Schütt. <i>BMW Kreditkarte mit Schlüsselfunktion</i>. [pridobljeno 6. 4. 2017]<br />Dostopno na naslovu: <a href="https://www.7-forum.com/bilder/news/2015/ces_las_vegas/bmw_kreditkarte_p90171210-b_jpg.html">https://www.7-forum.com/bilder/news/2015/ces_las_vegas/ bmw_kreditkarte_p90171210-b_jpg.html</a> Vse pravice pridržane [citat]</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Sprememba perspektive</h1>
+<h1>Objekti kot vrnjene vrednosti</h1>
 
-<p align="justify">Izvirna sintaksa klica funkcije, na primer <code>izpisi_cas(trenutni_cas)</code>, kaže na to, da je funkcija aktivni predstavnik. Pravi nekako takole: <i>»Hej <tt>izpisi_cas</tt>! Tu imaš objekt, ki ga izpiši.«</i></p>
+<p align="justify">Funkcije in metode lahko vračajo objekte. Na primer, če imamo dva objekta <code>Tocka</code>, lahko izračunamo njuno sredino oziroma središčno točko. Najprej napišimo kodo kot običajno funkcijo:
+<pre>
+def sredina(p1, p2):
+  mx = (p1.x() + p2.x()) / 2
+  my = (p1.y() + p2.y()) / 2
+  return Tocka(mx, my)
+</pre>
+</p>
 
-<p align="justify">Pri objektno usmerjenem programiranju pa kot aktivne predstavnike obravnavamo objekte. Poziv kot na primer <code>trenutni_cas.izpisi_cas()</code> pravi: <i>»Hej <tt>trenutni_cas</tt>! Izpiši samega sebe!«</i></p>
+<p align="justify">Ta funkcija ustvari in vrne nov objekt <code>Tocka</code>:
+<pre>
+&gt;&gt;&gt; p = Tocka(4, 3)
+&gt;&gt;&gt; q = Tocka(12, 6)
+&gt;&gt;&gt; r = sredina(p, q)
+&gt;&gt;&gt; r
+(8.0, 4.5)
+</pre>
+</p>
 
-<p align="justify">Ta sprememba v perspektivi je morda bolj vljudna, vendar na prvi pogled ni videti, da bi bila uporabna. Vendar včasih premik odgovornosti iz funkcij na objekte omogoča pisanje bolj raznolikih funkcij ter posledično lažje vzdrževanje in ponovno uporabo kode.</p>
-
-<p align="justify">Najpomembnejša prednost objektno usmerjenega sloga programiranja je v tem, da se natančno prilega našemu miselnemu razčlenjevanju in izkušnjam iz resničnega življenja. V resničnem življenju je metoda <code>kuhaj</code> del mikrovalovne pečice &ndash; funkcija <code>kuhaj</code> ne sedi nekje v kotu kuhinje in čaka, da ji posredujemo mikrovalovno pečico! Podobno uporabljamo lastne metode mobilnega telefona za pošiljanje SMS sporočil in za utišanje mobilnega telefona.</p>
-
-<p align="justify">Funkcionalnost predmetov v resničnem življenju je običajno tesno povezana s predmeti samimi. Objektno usmerjeno programiranje nam omogoča, da to natančno preslikamo, ko načrtujemo, organiziramo in izdelujemo programe.</p>
+<p align="justify">Sedaj pa namesto funkcije kodo raje zapišimo v obliki metode. Recimo, da imamo objekt <code>Tocka</code> in želimo najti središčno točko na pol poti do drugega ciljnega objekta <code>Tocka</code></p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
+						<br />
 <!-- Right column start -->
-<h1>Objekti lahko imajo stanje</h1>
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
 
-<p align="justify">Objekti so najbolj koristni takrat, kadar moramo spremljati tudi neko stanje, ki se od časa do časa spremeni. Razmislimo na primer o objektu avtomobil. Stanje avtomobila sestoji iz stvari, kot so na primer njegov položaj, njegova smer, njegova barva, njegova oblika itd. Metoda <code>levo(90)</code> posodobi smer avtomobila, metoda <code>naprej</code> spremeni njegov položaj itd.</p>
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-<p align="justify">Glavna komponenta stanja objekta bančni račun, bi najverjetneje bilo trenutno stanje na bančnem računu in morda dnevnik vseh transakcij. Metode bi omogočale da se pozanimamo o trenutnem stanju, položimo denar na račun ali izvedemo plačilo. Izvedba plačila bi vsebovala znesek in opis, kar bi se zapisalo v dnevnik transakcij. Verjetno bi potrebovali tudi metodo za izpis dnevnika transakcij.</p>
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
 
-<p align="center">
-<img src="img/bmw_kreditkarte_p90171210-b.jpg" class="img-responsive" style="width:75%" />
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
+    return Tocka(mx, my)
+
+
+p = Tocka(4, 3)
+q = Tocka(12, 6)
+r = p.sredina(q)
+print(r)
+# Alternativni zapis brez uporabe spremenljivk
+print(Tocka(4, 3).sredina(Tocka(12, 6)))
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
 </p>
-<p align="center"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir fotografije</button></p>
+</form>
+</div>
+<pre id="output"></pre>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -223,6 +259,7 @@
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -240,6 +277,7 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
 
 	<!-- rPage: Highly responsive pagination for Bootstrap -->
 	<script src="../js/responsive-paginate.js"></script>
@@ -267,6 +305,10 @@
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -303,10 +345,20 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "mbo"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 360);
+editor.setSize('100%', 460);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(14, 0));
+editor.foldCode(CodeMirror.Pos(21, 0));
+editor.foldCode(CodeMirror.Pos(25, 0));
 </script>
+<script src="../js/skulpt/theme.js"></script>
 
 
 <!-- CookieCuttr -->

@@ -157,8 +157,8 @@
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Solution 4 -->
-		<div id="solution4" class="modal fade" role="dialog">
+		<!-- Modal (popup) window: Solution 1 -->
+		<div id="solution1" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 
 				<!-- Modal content-->
@@ -172,10 +172,13 @@
 class Tocka:
   # ...
 
-  def razdalja_do(self, target):
-    dx = self.x - target.x
-    dy = self.y - target.y
-    return (dx ** 2 + dy ** 2) ** 0.5
+  def zrcali_x(self):
+    """ Vrne točko, zrcaljeno preko x-osi """
+    return Tocka(self._x, -self._y)
+
+  def zrcali_y(self):
+    """ Vrne točko, zrcaljeno preko y-osi """
+    return Tocka(-self._x, self._y)
 </pre>
 
 					</div>
@@ -187,8 +190,36 @@ class Tocka:
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Solution 5 -->
-		<div id="solution5" class="modal fade" role="dialog">
+		<!-- Modal (popup) window: Solution 2 -->
+		<div id="solution2" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<pre>
+class Tocka:
+  # ...
+
+  def zrcali(self):
+    """ Vrne točko, zrcaljeno preko koordinatnega izhodišča """
+    return Tocka(-self._x, -self._y)
+</pre>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 3 -->
+		<div id="solution3" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 
 				<!-- Modal content-->
@@ -203,149 +234,12 @@ class Tocka:
 class Tocka:
   # ...
 
-  def premica_skozi(self, target):
-    k = (self.y - target.y) / (self.x - target.x)
-    n = self.y - k * self.x
-    return "(" + str(k) + ", " + str(n) + ")"
+  def naklon(self):
+    """ Vrne smerni koeficient premice skozi točko """
+    return self._y / self._x
 </pre>
 </p>
-<p align="justify">Metoda ne bo delovala, kadar bosta $x$ koordinati obeh točk enaki. V tem primeru bi prišlo do deljenja s številom 0, kar pa ni definirano.</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Modal (popup) window: Construction 6 -->
-		<div id="construction6" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Načrtovanje</h4>
-					</div>
-					<div class="modal-body">
-<p align="justify">
-<ol>
-  <li>načrtaj 3 dane točke: $A$, $B$ in $C$</li>
-  <li>načrtaj daljico $\overline{AB}$</li>
-  <li>načrtaj daljico $\overline{BC}$</li>
-  <li>načrtaj premico $p$, ki razpolavlja daljico $\overline{AB}$ v točki $X$</li>
-  <li>načrtaj premico $q$, ki razpolavlja daljico $\overline{BC}$ v točki $Y$</li>
-  <li>načrtaj krožnico s središčem v točki $S$ (presečišče daljic $p$ in $q$) in polmerom $r = \overline{AS}$</li>
-</ol>
-</p>
-
-<div id="jxgbox113" class="jxgbox" style="width:500px;height:300px;margin:8px auto;"></div>
-<a href="#" class="btn btn-primary"  onclick="play113()"><span class="fa fa-play"></span> Načrtaj</a>
-<a href="#" class="btn btn-primary"  onclick="init113()">Počisti</a>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Modal (popup) window: Explanation 6 -->
-		<div id="explanation6" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Načrtovanje</h4>
-					</div>
-					<div class="modal-body">
-<p align="justify"><b>Računanje koordinat središča</b></p>
-
-<p align="justify">Če imamo dane tri točke $T_{1}(x_{1}, y_{1})$, $T_{2}(x_{2}, y_{2})$ in $T_{3}(x_{3}, y_{3})$, lahko ustvarimo dve premici tako, da premica $a$ poteka skozi točki $T_{1}$ in $T_{2}$, premica $b$ pa skozi točki $T_{2}$ in $T_{3}$.</p>
-
-<p align="justify">Enačbi teh dveh premic sta:</p>
-
-<p align="center">
-$$y_{a} = n_{a} (x - x_{1}) + y_{1}$$
-$$y_{b} = n_{b} (x - x_{2}) + y_{2}$$
-</p>
-
-<p align="justify">kjer $n$ predstavlja smerni koeficient oziroma naklon, ki ga izračunamo tako:</p>
-
-<p align="center">
-$$n_{a} = \frac{y_{2} - y_{1}}{x_{2} - y_{1}}$$
-$$n_{b} = \frac{y_{3} - y_{2}}{x_{3} - y_{2}}$$
-</p>
-
-<p align="justify">Središče krožnice je presečišče premic, ki sta pravokotni na daljici $\overline{T_{1}T_{2}}$ in $\overline{T_{2}T_{3}}$ ter hkrati potekata skozi središči obeh daljic. Pravokotnica na premico s smernim koeficinetom oziroma naklonom $n$ ima smerni koeficient oziroma naklon $-\frac{1}{n}$. Zato sta enačbi premic, ki sta pravokotni na premici $a$ in $b$ ter potekata skozi središči daljic $\overline{T_{1}T_{2}}$ in $\overline{T_{2}T_{3}}$, enaki:</p>
-
-<p align="center">
-$$y'_{a} = -\frac{1}{n_{a}}\left ( x - \frac{x_{1} + x_{2}}{2} \right ) + \frac{y_{1} + y_{2}}{2}$$
-$$y'_{b} = -\frac{1}{n_{b}}\left ( x - \frac{x_{2} + x_{3}}{2} \right ) + \frac{y_{2} + y_{3}}{2}$$
-</p>
-
-<p align="justify">Ker se ti dve premici sekata v središču krožnice, lahko iz njunih enačb izračunamo koordinato $x$ središča krožnice:</p>
-
-<p align="center">
-$$x = \frac{n_{a}n_{b}(y_{1} - y_{3}) + n_{b}(x_{1} + x_{2}) - n_{a}(x_{2} + x_{3})}{2(n_{b} - n_{a})}$$
-</p>
-
-<p align="justify">Koordinato $y$ središča krožnice pa lahko izračunamo tako, da $x$ vstavimo v eno izmed gornjih enačb pravokotnic.</p>
-
-<p align="justify"><b>Računanje polmera</b></p>
-
-<p align="justify">Ko smo izračunali koordinati središča krožnice $S(x, y)$ je računanje dolžine polmera $r$ precej enostavno. Izračunati moramo samo razdaljo med središčem $S$ in točko, ki leži na krožnici, na primer $T_{1}$.</p>
-
-<p align="center">
-$$r = \sqrt{(x - x_{1})^{2} + (y - y_{1})^{2}}$$
-</p>
-
-<small><p align="justify">Podrobna razlaga je na voljo tukaj: <a href="http://paulbourke.net/geometry/circlesphere/" target="_blank">Equation of a Circle from 3 Points (2 dimensions)</a></p></small>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Modal (popup) window: Solution 6 -->
-		<div id="solution6" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Rešitev</h4>
-					</div>
-					<div class="modal-body">
-<pre>
-def sredisce_kroznice(a, b, c):
-  s = Tocka()
-  na = (b.y - a.y) / (b.x - a.x) # naklon premice a
-  nb = (c.y - b.y) / (c.x - b.x) # naklon premice b
-  # imenovalec ulomka za izračun koordinate x
-  im = na*nb*(a.y - c.y) + nb*(a.x + b.x) - na*(b.x + c.x)
-  # števec ulomka za izračun koordinate x
-  st = 2*(nb - na)
-  # izračun koordinate x središča krožnice
-  s.x = im / st
-  # izračun koordinate y središča krožnice
-  s.y = -1*(s.x - (a.x + b.x)/2)/na + (a.y + b.y)/2
-
-  return s
-
-def polmer_kroznice(a, s):
-  return ((s.x - a.x) ** 2 + (s.y - a.y) ** 2) ** 0.5
-</pre>
+<p align="justify">Metoda ne bo delovala, če bo $x$ enak 0. V tem primeru bi prišlo do deljenja s številom 0, kar pa ni definirano.</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
@@ -365,41 +259,36 @@ def polmer_kroznice(a, s):
 
 <div class="alert alert-info" role="alert">
 <p>
-	<span class="label label-primary"><b>4</b></span>
+	<span class="label label-primary"><b>1</b></span>
 </p>
-<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>razdalja_do</code>, ki vrne razdaljo med dvema točkama.<br />
-Na primer <code>Tocka(3, 5).razdalja_do(Tocka(-1, 2))</code> vrne <code>5.0</code>.</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodi <code>zrcali_x</code> in <code>zrcali_y</code>, ki vrneta nov objekt <code>Tocka</code>. Ta objekt predstavlja točko, prezrcaljeno preko $x$-osi oziroma $y$-osi.<br />
+Na primer <code>Tocka(3, 5).zrcali_x()</code> vrne <code>(3, -5)</code>, <nobr><code>Tocka(3, 5).zrcali_y()</code></nobr> pa vrne <code>(-3, 5)</code>.</p>
 <p>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution4"><span class="fa fa-check"></span> Rešitev</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution1"><span class="fa fa-check"></span> Rešitev</button>
 </p>
 </div>
 
 <div class="alert alert-info" role="alert">
 <p>
-	<span class="label label-primary"><b>5</b></span>
-	<span class="fa fa-star pull-right"></span>
+	<span class="label label-primary"><b>2</b></span>
 </p>
-<p align="justify">Enačba premice je $y = kx + n$. Koeficienta $k$ in $n$ v celoti opisujeta premico. Razredu <code>Tocka</code> dodaj metodo <code>premica_skozi</code>, ki bo izračunala premico skozi dani točki. Metoda naj vrne oba koeficienta, kot dvojico vrednosti $(k, n)$.<br />
-Na primer <code>Tocka(4, 11).premica_skozi(Tocka(6, 15))</code> vrne <code>(2, 3)</code>.<p align="justify">Kdaj ta metoda ne bo delovala?</p>
-</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>zrcali</code>, ki vrne nov objekt <code>Tocka</code>. Ta objekt predstavlja točko, prezrcaljeno preko koordinatnega izhodišča.<br />
+Na primer <code>Tocka(3, 5).zrcali()</code> vrne <code>(-3, -5)</code>.</p>
 <p>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution5"><span class="fa fa-check"></span> Rešitev</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution2"><span class="fa fa-check"></span> Rešitev</button>
 </p>
 </div>
 
 <div class="alert alert-info" role="alert">
 <p>
-	<span class="label label-primary"><b>6</b></span>
-	<span class="fa fa-star pull-right"></span>
-	<span class="fa fa-star pull-right"></span>
+	<span class="label label-primary"><b>3</b></span>
 </p>
-<p align="justify">Napiši funkcijo, ki izračuna koordinati središča krožnice in polmer krožnice, če imaš podane tri točke, ki ležijo na tej krožnici.</p>
-<p align="justify"><b>Primer:</b> Če imaš podane točke $A = (1, 1)$, $B = (2, 4)$ in $C = (5, 3)$, potem je središče krožnice točka $S = (3, 2)$ in polmer krožnice $r = \sqrt{5}$.</p>
-<p align="justify"><b>Namig:</b> Preden sploh začneš razmišljati o programiranju moraš poznati geometrijsko rešitev tega problema. Ne moreš sprogramirati rešitve problema, če ne razumeš, kaj naj bi računalnik sploh naredil!</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>naklon</code>, ki vrne smerni koeficient oziroma naklon premice skozi koordinatno izhodišče in dano točko. Smerni koeficient premice lahko izračunaš s pomočjo enačbe $$k = 
+{\frac {\Delta y}{\Delta x}}$$
+Na primer <code>Tocka(4, 10).naklon()</code> vrne <code>2.5</code>.</p>
+<p align="justify">Kdaj ta metoda ne bo delovala?</p>
 <p>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#construction6"><span class="fa fa-location-arrow"></span> Načrtovanje</button>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#explanation6"><span class="fa fa-info"></span> Razlaga</button>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution6"><span class="fa fa-check"></span> Rešitev</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution3"><span class="fa fa-check"></span> Rešitev</button>
 </p>
 </div>
 <!-- Left column end -->
@@ -413,21 +302,37 @@ Na primer <code>Tocka(4, 11).premica_skozi(Tocka(6, 15))</code> vrne <code>(2, 3
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-  def razdalja_od_izhodisca(self):
-    return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
+
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
 
   def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
-  def na_pol_poti_do(self, target):
-    mx = (self.x + target.x) / 2
-    my = (self.y + target.y) / 2
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
     return Tocka(mx, my)
-
-
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -463,6 +368,7 @@ class Tocka:
 					<li><a href="../2401/index12.html">13</a></li>
 					<li class="active"><a href="#">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index14.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -508,6 +414,10 @@ class Tocka:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -544,60 +454,21 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(14, 0));
+editor.foldCode(CodeMirror.Pos(21, 0));
+editor.foldCode(CodeMirror.Pos(25, 0));
+editor.foldCode(CodeMirror.Pos(29, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
-
-	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
-	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
-
-<script type='text/javascript'>
-  var brd113;
-  var a, b, c;
-  var e, f;
-  var x, y, p, q;
-  var s;
-
-  function init113() {
-    step = 1;
-    if (brd113 != null) JXG.JSXGraph.freeBoard(brd113);
-    brd113 = JXG.JSXGraph.initBoard('jxgbox113', {boundingbox:[-3, 6, 9, -1], keepaspectratio:true, axis:true, grid:true});
-  }
-
-  function step1() {
-	  a = brd113.create('point', [1, 1], {name:'A', size:3});
-	  b = brd113.create('point', [2, 4], {name:'B', size:3});
-	  c = brd113.create('point', [5, 3], {name:'C', size:3});
-  }
-
-  function step2() {
-	  e = brd113.create('segment', [a, b]);
-	  f = brd113.create('segment', [b, c]);
-  }
-
-  function step3() {
-	  x = brd113.create('midpoint', [a, b], {name:'X', size:1});
-	  y = brd113.create('midpoint', [b, c], {name:'Y', size:1});
-	  p = brd113.create('bisector', [a, x, b], {strokeColor:'#cccccc', strokeWidth:1});
-	  q = brd113.create('bisector', [b, y, c], {strokeColor:'#cccccc', strokeWidth:1});
-  }
-
-  function step4() {
-	  s = brd113.create('intersection', [p, q, 0], {name:'S', size:3});
-	  brd113.create('circle', [s, a]);
-  }
-
-  function play113() {
-    setTimeout(step1, 1000);
-    setTimeout(step2, 2500);
-    setTimeout(step3, 4000);
-    setTimeout(step4, 5500);
-  }
-
-  init113();
-</script>
 
 
 <!-- CookieCuttr -->

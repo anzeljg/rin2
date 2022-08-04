@@ -25,28 +25,28 @@ class Karta:
   # Ustvari objekt 'Karta'
   def __init__(self, barva, opis):
     if (barva in BARVE) and (opis in OPISI):
-      self.barva = barva
-      self.opis = opis
+      self._barva = barva
+      self._opis = opis
     else:
-      self.barva = None
-      self.opis = None
+      self._barva = None
+      self._opis = None
       print("Neveljavna karta: ", barva, opis)
 
   # Vrne dvo-znakovno predstavitev karte
   def __str__(self):
-    return self.barva + self.opis
+    return self._barva + self._opis
 
   # Vrne barvo karte
   def vrni_barvo(self):
-    return self.barva
+    return self._barva
 
   # Vrne opis ali rang karte
   def vrni_opis(self):
-    return self.opis
+    return self._opis
 
   # Izriše sliko karte na platnu, na danem položaju
   def izpis(self, platno, poz):
-    k = self.barva + self.opis
+    k = self._barva + self._opis
     platno.create_image(poz[0], poz[1], \
       anchor=tk.NW, image=KARTE[k])
 
@@ -56,24 +56,24 @@ class Komplet:
 
   # Ustvari objekt 'Komplet', ki vsebuje vseh 52 kart
   def __init__(self):
-    self.karte = []
+    self._karte = []
     for barva in BARVE:
       for opis in OPISI:
         karta = Karta(barva, opis)
-        self.karte.append(karta)
+        self._karte.append(karta)
 
   # Premešaj komplet kart
   def premesaj(self):
-    random.shuffle(self.karte)
+    random.shuffle(self._karte)
 
   # Deli naslednjo karto iz kompleta
   def deli_karto(self):
-    return self.karte.pop()
+    return self._karte.pop()
 
   # Vrne besedilno predstavitev kompleta kart
   def __str__(self):
     sporocilo = "Komplet vsebuje"
-    for karta in self.karte:
+    for karta in self._karte:
       sporocilo += " " + str(karta)
     return sporocilo
 
@@ -83,18 +83,18 @@ class Igralec(Komplet):
 
   # Ustvari objekt 'Igralec', ki privzeto ni delivec
   def __init__(self, delivec=False):
-    self.karte = []
-    self.delivec = delivec
+    self._karte = []
+    self._delivec = delivec
 
   # Vrne predstavitev kart, ki jih v roki drži igralec
   def __str__(self):
     sporocilo = "V roki drži"
     skrita = False
-    if self.delivec:
+    if self._delivec:
       skrita = True
-    for karta in self.karte:
+    for karta in self._karte:
 	  # Skrije prvo karto delivca
-      if self.delivec and skrita:
+      if self._delivec and skrita:
         sporocilo += " ??"
         skrita = False
       else:
@@ -103,7 +103,7 @@ class Igralec(Komplet):
 
   # Igralcu doda nov objekt 'Karta'
   def dodaj_karto(self, karta):
-    self.karte.append(karta)
+    self._karte.append(karta)
 
   # Vrne skupno vrednost kart, ki jih igralec drži v roki
   def vrednost_kart(self):
@@ -112,9 +112,9 @@ class Igralec(Komplet):
     # vrednosti še 10 - saj je as vreden 1 ali 11 točk.
     vrednost = 0
     asi = 0
-    for karta in self.karte:
-      vrednost += VREDNOSTI[karta.opis]
-      if karta.opis == "A":
+    for karta in self._karte:
+      vrednost += VREDNOSTI[karta._opis]
+      if karta._opis == "A":
         asi += 1
     for a in range(asi):
       # Če je vrednost kart v roki igralca dovolj nizka,
@@ -128,7 +128,7 @@ class Igralec(Komplet):
   def izpis(self, platno, poz, delivec=False):
     ROB = 10
     i = 0
-    for karta in self.karte:
+    for karta in self._karte:
       karta.izpis(platno, [poz[0]+i*(VEL[0]+ROB),poz[1]])
       # Če izrisujemo karte delivca in igra še poteka,
       # potem skrijemo prvo karto delivca tako, da čez

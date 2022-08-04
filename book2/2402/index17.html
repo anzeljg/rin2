@@ -161,10 +161,11 @@
 class DNK:
   # ...
 
-  def vrni_komplementarni_niz(self):
+  def komplementarni_niz(self):
+    """ Vrne komplementarni niz DNK niza """
     n = ''
-    for nukleotid in self.niz:
-        n = n + self.vrni_komplement(nukleotid)
+    for nukleotid in self._niz:
+        n = n + self.komplement(nukleotid)
     return DNK(n)
 </pre>
 
@@ -193,10 +194,11 @@ class DNK:
   # ...
 
   def mutacija(self):
+    """ Vrne mutacijo DNK niza """
     import random
-    mesto = random.randint(0, len(self.niz)-1)
-    k = self.vrni_komplement(self.niz[mesto])
-    return self.niz[:mesto] + k + self.niz[mesto+1:]
+    mesto = random.randint(0, len(self._niz)-1)
+    k = self.komplement(self._niz[mesto])
+    return self._niz[:mesto] + k + self._niz[mesto+1:]
 </pre>
 					</div>
 					<div class="modal-footer">
@@ -219,13 +221,13 @@ class DNK:
 <p>
 	<span class="label label-primary"><b>18</b></span>
 </p>
-<p align="justify">Razredu <code>DNK</code> dodaj metodo <code>vrni_komplementarni_niz</code>, ki vrne komplementarni niz danega DNK niza. To pomeni, da v danem DNK nizu zamenja vse nukleotide <code>A</code> in <code>T</code> ter <code>C</code> in <code>G</code>. <b>Namig:</b> Uporabi metodo <code>vrni_komplement</code>, ki vrne komplement danega nukleotida. Na primer:</p>
+<p align="justify">Razredu <code>DNK</code> dodaj metodo <code>komplementarni_niz</code>, ki vrne komplementarni niz danega DNK niza. To pomeni, da v danem DNK nizu zamenja vse nukleotide <code>A</code> in <code>T</code> ter <code>C</code> in <code>G</code>. <b>Namig:</b> Uporabi metodo <code>komplement</code>, ki vrne komplement danega nukleotida. Na primer:</p>
 <p>
 <pre>
 dnk1 = DNK('ATCGGC')
-print(dnk1.vrni_komplementarni_niz()) # 'TAGCCG'
+print(dnk1.komplementarni_niz()) # 'TAGCCG'
 dnk2 = DNK('ATCTA')
-print(dnk2.vrni_komplementarni_niz()) # 'TAGAT'
+print(dnk2.komplementarni_niz()) # 'TAGAT'
 </pre>
 </p>
 <p>
@@ -242,7 +244,7 @@ print(dnk2.vrni_komplementarni_niz()) # 'TAGAT'
 <pre>
 &gt;&gt;&gt; dnk1 = DNK('ATCGGC')
 &gt;&gt;&gt; dnk1.mutacija()
-'ATGGGC' // mutacija na tretjem mestu (indeks 2)
+'ATGGGC' # mutacija na tretjem mestu (indeks 2)
 </pre>
 </p>
 <p>
@@ -260,12 +262,15 @@ print(dnk2.vrni_komplementarni_niz()) # 'TAGAT'
 class DNK:
 
   def __init__(self, zaporedje=""):
-    self.niz = zaporedje
+    """ Inicializator """
+    self._niz = zaporedje
 
   def __str__(self):
-    return self.niz
+    """ Vrne DNK niz """
+    return self._niz
 
-  def vrni_komplement(self, nukleotid):
+  def komplement(self, nukleotid):
+    """ Vrne komplement danega nukleotida """
     if (nukleotid == 'A'):
       return 'T'
     if (nukleotid == 'T'):
@@ -359,6 +364,10 @@ class DNK:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -395,9 +404,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

@@ -163,19 +163,21 @@
 
 <p align="justify">Najprej napišimo metodo <code>vrednost_kart</code>, ki izračuna vsoto vrednosti kart, ki jih ima igralec v roki. Pri tem je vrednost figur (fant, dama, kralj) in desetk enaka 10, vrednost asa je enaka 1 ali 11 (kar bolj odgovarja igralcu), vrednost preostalih kart pa je enaka vrednosti, ki je zapisana na kartah:
 <pre>
-def vrednost_kart(self):
-  vsota = 0
-  for karta in self.karte:
-    if karta.vrednost >= 10: # figura ali 10
-      vsota += 10
-    elif karta.vrednost > 1: # karta od 2 do 9
-      vsota += karta.vrednost
-    else: # as, prištej 1 ali 11
-      if vsota + 11 <= 21:
-        vsota += 11
-      else:
-        vsota += 1
-  return vsota
+class BlackJackIgralec(Igralec):
+
+  def vrednost_kart(self):
+    vsota = 0
+    for karta in self._karte:
+      if karta._vrednost >= 10: # figura ali 10
+        vsota += 10
+      elif karta._vrednost > 1: # karta od 2 do 9
+        vsota += karta._vrednost
+      else: # as, prištej 1 ali 11
+        if vsota + 11 <= 21:
+          vsota += 11
+        else:
+          vsota += 1
+    return vsota
 </pre>
 </p>
 <!-- Left column end -->
@@ -185,8 +187,11 @@ def vrednost_kart(self):
 <!-- Right column start -->
 <p align="justify">Napišimo metodo <code>stevilo_kart</code>, ki vrne število kart, ki jih ima igralec v roki:
 <pre>
-def stevilo_kart(self):
-  return len(self.karte)
+class BlackJackIgralec(Igralec):
+  # ...
+
+  def stevilo_kart(self):
+    return len(self._karte)
 </pre>
 </p>
 
@@ -198,15 +203,17 @@ from karte import *
 class BlackJackIgralec(Igralec):
 
   def stevilo_kart(self):
-    return len(self.karte)
+    """ Vrne število kart, ki jih ima igralec """
+    return len(self._karte)
 
   def vrednost_kart(self):
+    """ Vrne vrednost kart, ki jih ima igralec """
     vsota = 0
-    for karta in self.karte:
-      if karta.vrednost >= 10: # figura ali 10
+    for karta in self._karte:
+      if karta._vrednost >= 10: # figura ali 10
         vsota += 10
-      elif karta.vrednost > 1: # karta od 2 do 9
-        vsota += karta.vrednost
+      elif karta._vrednost > 1: # karta od 2 do 9
+        vsota += karta._vrednost
       else: # as, prištej 1 ali 11
         if vsota + 11 <= 21:
           vsota += 11
@@ -217,7 +224,7 @@ class BlackJackIgralec(Igralec):
 
 igra = IgraKart()
 igralec = BlackJackIgralec("Francelj")
-igra.komplet.deli([igralec], 2)
+igra._komplet.deli([igralec], 2)
 print(igralec)
 print("Število kart:  " + str(igralec.stevilo_kart()))
 print("Vrednost kart: " + str(igralec.vrednost_kart()))
@@ -304,6 +311,10 @@ print("Vrednost kart: " + str(igralec.vrednost_kart()))
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<script src="js/skulpt-stdlib-modul-karte.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -340,9 +351,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 500);
+editor.setSize('100%', 482);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

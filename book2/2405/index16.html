@@ -170,28 +170,28 @@ class Kvadrat:
 
   # Ustvari objekt 'Kvadrat' privzete barve in velikosti
   def __init__(self, barva="white", dolzina=30):
-    self.barva = barva
-    self.d = dolzina
-    self.polozaj = [dolzina+1, dolzina+1]
-    self.hitrost_x = random.randrange(-10, 10)
-    self.hitrost_y = random.randrange(-10, 10)
+    self._barva = barva
+    self._d = dolzina
+    self._polozaj = [dolzina+1, dolzina+1]
+    self._hitrost_x = random.randrange(-10, 10)
+    self._hitrost_y = random.randrange(-10, 10)
 
   def premakni(self, platno):
-    self.polozaj[0] += self.hitrost_x
-    self.polozaj[1] += self.hitrost_y
+    self._polozaj[0] += self._hitrost_x
+    self._polozaj[1] += self._hitrost_y
     tocke = [
-      (self.polozaj[0], self.polozaj[1]),
-      (self.polozaj[0]+self.d, self.polozaj[1]),
-      (self.polozaj[0]+self.d, self.polozaj[1]+self.d),
-      (self.polozaj[0], self.polozaj[1]+self.d)
+      (self._polozaj[0], self._polozaj[1]),
+      (self._polozaj[0]+self._d, self._polozaj[1]),
+      (self._polozaj[0]+self._d, self._polozaj[1]+self._d),
+      (self._polozaj[0], self._polozaj[1]+self._d)
     ]
-    platno.draw_polygon(tocke, 1, "black", self.barva)
-    if (self.polozaj[1] >= VISINA-self.d or
-	    self.polozaj[1] <= 0):
-        self.hitrost_y = -self.hitrost_y
-    if (self.polozaj[0] >= SIRINA-self.d or
-	    self.polozaj[0] <= 0):
-        self.hitrost_x = -self.hitrost_x
+    platno.draw_polygon(tocke, 1, "black", self._barva)
+    if (self._polozaj[1] >= VISINA-self._d or
+	    self._polozaj[1] <= 0):
+        self._hitrost_y = -self._hitrost_y
+    if (self._polozaj[0] >= SIRINA-self._d or
+	    self._polozaj[0] <= 0):
+        self._hitrost_x = -self._hitrost_x
 
 barve  = ["red", "green", "blue", "yellow", \
           "orange", "magenta", "cyan"]
@@ -256,19 +256,19 @@ class Kvadrat:
 
   # Ustvari objekt 'Kvadrat' s privzeto barvo in dolžino
   def __init__(self, barva="white", d=30):
-    self.oblika = platno.create_rectangle(10, 10, d, d, \
-                                          fill=barva)
-    self.hitrost_x = random.randrange(-10, 10)
-    self.hitrost_y = random.randrange(-10, 10)
+    self._oblika = platno.create_rectangle(10, 10, d, d, \
+                                           fill=barva)
+    self._hitrost_x = random.randrange(-10, 10)
+    self._hitrost_y = random.randrange(-10, 10)
 
   # Metoda, ki med animacijo premakne objekt
   def premakni(self):
-    platno.move(self.oblika, self.hitrost_x, self.hitrost_y)
-    polozaj = platno.coords(self.oblika)
+    platno.move(self._oblika, self._hitrost_x, self._hitrost_y)
+    polozaj = platno.coords(self._oblika)
     if polozaj[3] >= VISINA or polozaj[1] <= 0:
-      self.hitrost_y = -self.hitrost_y
+      self._hitrost_y = -self._hitrost_y
     if polozaj[2] >= SIRINA or polozaj[0] <= 0:
-      self.hitrost_x = -self.hitrost_x
+      self._hitrost_x = -self._hitrost_x
 
 
 barve  = ["red", "green", "blue", "yellow", \
@@ -326,28 +326,28 @@ class Kvadrat:
 
   # Ustvari objekt 'Kvadrat' privzete barve in velikosti
   def __init__(self, barva="white", dolzina=30):
-    self.barva = barva
-    self.d = dolzina
-    self.polozaj = [dolzina+1, dolzina+1]
-    self.hitrost_x = random.randrange(-10, 10)
-    self.hitrost_y = random.randrange(-10, 10)
+    self._barva = barva
+    self._d = dolzina
+    self._polozaj = [dolzina+1, dolzina+1]
+    self._hitrost_x = random.randrange(-10, 10)
+    self._hitrost_y = random.randrange(-10, 10)
 
   def premakni(self, platno):
-    self.polozaj[0] += self.hitrost_x
-    self.polozaj[1] += self.hitrost_y
+    self._polozaj[0] += self._hitrost_x
+    self._polozaj[1] += self._hitrost_y
     tocke = [
-      (self.polozaj[0], self.polozaj[1]),
-      (self.polozaj[0]+self.d, self.polozaj[1]),
-      (self.polozaj[0]+self.d, self.polozaj[1]+self.d),
-      (self.polozaj[0], self.polozaj[1]+self.d)
+      (self._polozaj[0], self._polozaj[1]),
+      (self._polozaj[0]+self._d, self._polozaj[1]),
+      (self._polozaj[0]+self._d, self._polozaj[1]+self._d),
+      (self._polozaj[0], self._polozaj[1]+self._d)
     ]
-    platno.draw_polygon(tocke, 1, "black", self.barva)
-    if (self.polozaj[1] >= VISINA-self.d or
-        self.polozaj[1] <= 0):
-        self.hitrost_y = -self.hitrost_y
-    if (self.polozaj[0] >= SIRINA-self.d or
-        self.polozaj[0] <= 0):
-        self.hitrost_x = -self.hitrost_x
+    platno.draw_polygon(tocke, 1, "black", self._barva)
+    if (self._polozaj[1] >= VISINA-self._d or
+	    self._polozaj[1] <= 0):
+        self._hitrost_y = -self._hitrost_y
+    if (self._polozaj[0] >= SIRINA-self._d or
+	    self._polozaj[0] <= 0):
+        self._hitrost_x = -self._hitrost_x
 
 barve  = ["red", "green", "blue", "yellow", \
           "orange", "magenta", "cyan"]
@@ -435,19 +435,19 @@ class Kvadrat:
 
   # Ustvari objekt 'Kvadrat' s privzeto barvo in dolžino
   def __init__(self, barva="white", d=30):
-    self.oblika = platno.create_rectangle(10, 10, d, d, \
-                                          fill=barva)
-    self.hitrost_x = random.randrange(-10, 10)
-    self.hitrost_y = random.randrange(-10, 10)
+    self._oblika = platno.create_rectangle(10, 10, d, d, \
+                                           fill=barva)
+    self._hitrost_x = random.randrange(-10, 10)
+    self._hitrost_y = random.randrange(-10, 10)
 
   # Metoda, ki med animacijo premakne objekt
   def premakni(self):
-    platno.move(self.oblika, self.hitrost_x, self.hitrost_y)
-    polozaj = platno.coords(self.oblika)
+    platno.move(self._oblika, self._hitrost_x, self._hitrost_y)
+    polozaj = platno.coords(self._oblika)
     if polozaj[3] >= VISINA or polozaj[1] <= 0:
-      self.hitrost_y = -self.hitrost_y
+      self._hitrost_y = -self._hitrost_y
     if polozaj[2] >= SIRINA or polozaj[0] <= 0:
-      self.hitrost_x = -self.hitrost_x
+      self._hitrost_x = -self._hitrost_x
 
 
 barve  = ["red", "green", "blue", "yellow", \
@@ -627,6 +627,10 @@ okno.mainloop()
 	<script src="js/skulpt-stdlib-simplegui.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -663,9 +667,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

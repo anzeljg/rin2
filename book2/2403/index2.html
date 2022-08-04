@@ -154,13 +154,13 @@
 <!-- Left column start -->
 <h1>Lastnosti razreda</h1>
 
-<p align="justify">Da bi lahko izpisali objekte <code>Karta</code> v ljudem razumljivi obliki, moramo preslikati števila v ustrezne besede. To najnaravneje naredimo z uporabo tabel nizov. Ti tabeli nizov priredimo <b>lastnostim razreda</b> (<i>ang. class attributes</i>) na vrhu definicije razreda (glej primer v interaktivnem urejevalniku &ndash; <code>barve</code> in <code>opisi</code>). Lastnost razreda je definirana izven metod razreda, uporabimo pa jo lahko v vsaki metodi razreda.</p>
+<p align="justify">Da bi lahko izpisali objekte <code>Karta</code> v ljudem razumljivi obliki, moramo preslikati števila v ustrezne besede. To najnaravneje naredimo z uporabo tabel nizov. Ti tabeli nizov priredimo <b>lastnostim razreda</b> (<i>ang. class attributes</i>) na vrhu definicije razreda (glej primer v interaktivnem urejevalniku &ndash; <code>_barve</code> in <code>_opisi</code>). Lastnost razreda je definirana izven metod razreda, uporabimo pa jo lahko v vsaki metodi razreda.</p>
 
 <p align="center"><img src="img/razred.svg" onerror="this.src='razred.png'" class="img-responsive"></p>
 
-<p align="justify">V metodi <code>__str__</code> lahko uporabimo <b>lastnosti objekta</b> (<i>ang. instance attribute</i>) <code>barva</code> in <code>vrednost</code>, da preslikamo števili v niza. Na primer izraz <code>self.barve[self.barva]</code> pomeni, da uporabimo lastnost <code>barva</code> objekta <code>self</code> kot indeks v tabeli, imenovani <code>barve</code>, ki je lastnost razreda ter tako izberemo ustrezen niz iz te tabele.</p>
+<p align="justify">V metodi <code>__str__</code> lahko uporabimo <b>lastnosti objekta</b> (<i>ang. instance attribute</i>) <code>_barva</code> in <code>_vrednost</code>, da preslikamo števili v niza. Na primer izraz <code>self._barve[self._barva]</code> pomeni, da uporabimo lastnost <code>_barva</code> objekta <code>self</code> kot indeks v tabeli, imenovani <code>_barve</code>, ki je lastnost razreda ter tako izberemo ustrezen niz iz te tabele.</p>
 
-<p align="justify">Razlog, da smo v tabeli <code>vrednosti</code> kot prvi element uporabili <code>None</code> je v tem, da ta element služi kot ničelni element seznama, ki ne bo nikoli uporabljen. Veljavne vrednosti so samo tiste med 1 in 13. Ta prvi element bi lahko tudi izpustili. Lahko bi začeli pri indeksu 0, kot običajno, vendar je manj moteče, če kodiramo vrednost 2 kot število oziroma indeks 2, 3 kot 3 in tako dalje.</p>
+<p align="justify">Razlog, da smo v tabeli <code>_vrednosti</code> kot prvi element uporabili <code>None</code> je v tem, da ta element služi kot ničelni element seznama, ki ne bo nikoli uporabljen. Veljavne vrednosti so samo tiste med 1 in 13. Ta prvi element bi lahko tudi izpustili. Lahko bi začeli pri indeksu 0, kot običajno, vendar je manj moteče, če kodiramo vrednost 2 kot število oziroma indeks 2, 3 kot 3 in tako dalje.</p>
 
 <p align="justify">Z metodama <code>__init__</code> in <code>__str__</code> lahko ustvarimo in izpišemo karte:
 <pre>
@@ -174,20 +174,17 @@ Karina 3
 </p>
 
 <p align="justify">Ker se vsak objekt <code>Karta</code> sklicuje na isto lastnost razreda, imamo lahko težavo. Težava je v tem, da, če spremenimo lastnost razreda (pri enem objektu), to vpliva na vse objekte. Če bi se na primer odločili, naj se »Karin fant« dejansko imenuje »Kitov fant«, bi lahko naredili tole:
+<pre>
+&gt;&gt;&gt; karta1._barve[1] = "Kitov"
+&gt;&gt;&gt; print(karta1)
+Kitov fant
+</pre>
 </p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p>
-<pre>
-&gt;&gt;&gt; karta1.barve[1] = "Kitov"
-&gt;&gt;&gt; print(karta1)
-Kitov fant
-</pre>
-</p>
-
 <p align="justify">Težava je v tem, da bi sedaj <i>vse</i> »karine« karte v bistvu postale »kitove« karte, na primer:
 <pre>
 &gt;&gt;&gt; print(karta2)
@@ -195,28 +192,30 @@ Kitova 3
 </pre>
 </p>
 
-<p align="justify">Zato običajno <i>ne</i> spreminjamo lastnosti razreda.</p>
+<p align="justify">Zato običajno <i>ne</i> spreminjamo lastnosti razreda. Prav tako tega običajno ne počnemo neposredno, ampak kvečjemu z uporabo ustreznih metod za vračanje in nastavljanje vrednosti lastnosti.</p>
 
 <div>
 <form>
 <p><textarea id="code">
 class Karta:
 
-  barve = ["Križev", "Karin", "Srčev", "Pikov"]
-  opisi = [None, "as", "2", "3", "4", "5", "6", "7",
-           "8", "9", "10", "fant", "dama", "kralj"]
+  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "fant", "dama", "kralj"]
 
   def __init__(self, barva=0, vrednost=0):
-    self.barva = barva
-    self.vrednost = vrednost
+    """ Inicializator """
+    self._barva = barva
+    self._vrednost = vrednost
 
   def __str__(self):
-    b = self.barva
-    v = self.vrednost
+    """ Vrne niz, ki predstavlja karto """
+    b = self._barva
+    v = self._vrednost
     k = "" # Končnica za moško obliko
     if (v >= 2 and v <= 10 or v == 12):
       k = "a" # Končnica za žensko obliko
-    return (self.barve[b] + k + " " + self.opisi[v])
+    return (self._barve[b] + k + " " + self._opisi[v])
 
 
 karta1 = Karta(1, 11)
@@ -224,9 +223,8 @@ print(karta1)
 karta2 = Karta(1, 3)
 print(karta2)
 
-karta1.barve[1] = "Kitov"
+karta1._barve[1] = "Kitov"
 print(karta1)
-
 print(karta2)
 </textarea></p>
 <p>
@@ -305,6 +303,10 @@ print(karta2)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -341,9 +343,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 420);
+editor.setSize('100%', 483);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

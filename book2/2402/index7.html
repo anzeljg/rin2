@@ -158,15 +158,21 @@
 
 <p align="justify">Če je levi operand množenja objekt tipa <code>Tocka</code>, potem Python pokliče metodo <code>__mul__</code>, ki predvideva, da je tudi drugi operand tipa <code>Tocka</code>. Metoda izračuna <b>skalarni produkt</b> (<i>ang. dot product</i>) dveh objetov <code>Tocka</code>, ki je definiran skladno s pravili linearne algebre:
 <pre>
-def __mul__(self, other):
-  return self.x * other.x + self.y * other.y
+Class Tocka:
+  # ...
+
+  def __mul__(self, tocka):
+    return self._x * tocka._x + self._y * tocka._y
 </pre>
 </p>
 
 <p align="justify">Če je levi operand množenja število (oziroma osnovni številski tip) in desni operand objekt tipa <code>Tocka</code>, potem Python pokliče  metodo <code>__rmul__</code>, ki izračuna <b>produkt s skalarjem</b> (<i>ang. scalar multiplication</i>):
 <pre>
-def __rmul__(self, other):
-  return Tocka(other * self.x,  other * self.y)
+Class Tocka:
+  # ...
+
+  def __rmul__(self, vrednost):
+    return Tocka(vrednost * self._x,  vrednost * self._y)
 </pre>
 </p>
 
@@ -187,10 +193,10 @@ def __rmul__(self, other):
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">Kaj bi se zgodilo, če bi želeli pomnožiti <code>t2 * 2</code>? Ker je prvi parameter tipa <code>Tocka</code>, bi Python poklical metodo <code>__mul__</code> s številom <code>2</code> kot drugim parametrom. Znotraj metode <code>__mul__</code> bi program skušal dostopati do lastnosti <code>x</code> spremenljivke <code>other</code>, kar ne bi uspelo, saj število nima lastnosti <code>x</code>:
+<p align="justify">Kaj bi se zgodilo, če bi želeli pomnožiti <code>t2 * 2</code>? Ker je prvi parameter vrste <code>Tocka</code>, bi Python poklical metodo <code>__mul__</code> s številom <code>2</code> kot drugim parametrom. Znotraj metode <code>__mul__</code> bi program skušal dostopati do lastnosti <code>_x</code> spremenljivke <code>tocka</code>, kar ne bi uspelo, saj število nima lastnosti <code>_x</code>:
 <pre>
 &gt;&gt;&gt; print(t2 * 2)
-AttributeError: 'int' object has no attribute 'x'
+AttributeError: 'int' object has no attribute '_x'
 </pre>
 </p>
 
@@ -200,22 +206,31 @@ AttributeError: 'int' object has no attribute 'x'
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
   def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
   # Tukaj manjkajo druge metode!
 
-  def __add__(self, other):
-    return Tocka(self.x + other.x, self.y + other.y)
+  def __add__(self, tocka):
+    """ Prekrije operator + za pravilno seštevanje točk """
+    return Tocka(self._x + tocka._x, self._y + tocka._y)
 
-  def __mul__(self, other):
-    return self.x * other.x + self.y * other.y
+  def __sub__(self, tocka):
+    """ Prekrije operator - za pravilno odštevanje točk """
+    return Tocka(self._x - tocka._x, self._y - tocka._y)
 
-  def __rmul__(self, other):
-    return Tocka(other * self.x,  other * self.y)
+  def __mul__(self, tocka):
+    """ Prekrije operator * za skalarno množenje točk """
+    return self._x * tocka._x + self._y * tocka._y
+
+  def __rmul__(self, vrednost):
+    """ Prekrije operator * za množenje točke s skalarjem """
+    return Tocka(vrednost * self._x,  vrednost * self._y)
 
 
 t1 = Tocka(4, 3)
@@ -305,6 +320,10 @@ print(2 * t2)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -341,9 +360,17 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 400);
+editor.setSize('100%', 446);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(13, 0));
+editor.foldCode(CodeMirror.Pos(17, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

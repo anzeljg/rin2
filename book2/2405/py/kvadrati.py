@@ -19,19 +19,19 @@ class Kvadrat:
 
   # Ustvari objekt 'Kvadrat' s privzeto barvo in dolžino
   def __init__(self, barva="white", d=30):
-    self.oblika = platno.create_rectangle(10, 10, d, d, \
-                                          fill=barva)
-    self.hitrost_x = random.randrange(-10, 10)
-    self.hitrost_y = random.randrange(-10, 10)
+    self._oblika = platno.create_rectangle(10, 10, d, d, \
+                                           fill=barva)
+    self._hitrost_x = random.randrange(-10, 10)
+    self._hitrost_y = random.randrange(-10, 10)
 
   # Metoda, ki med animacijo premakne objekt
   def premakni(self):
-    platno.move(self.oblika, self.hitrost_x, self.hitrost_y)
-    polozaj = platno.coords(self.oblika)
+    platno.move(self._oblika, self._hitrost_x, self._hitrost_y)
+    polozaj = platno.coords(self._oblika)
     if polozaj[3] >= VISINA or polozaj[1] <= 0:
-      self.hitrost_y = -self.hitrost_y
+      self._hitrost_y = -self._hitrost_y
     if polozaj[2] >= SIRINA or polozaj[0] <= 0:
-      self.hitrost_x = -self.hitrost_x
+      self._hitrost_x = -self._hitrost_x
 
 
 barve  = ["red", "green", "blue", "yellow", \

@@ -154,118 +154,145 @@
 <!-- Left column start -->
 <h1>Dodajanje, odstranjevanje in deljenje kart</h1>
 
-<p align="justify">Razredu <code>Komplet</code> dodajmo metodo <code>dodaj</code>, ki kot parameter dobi karto, ki jo doda v komplet kart. To stori tako, da uporabi funkcijo <code>append</code>, ki doda element v tabelo <code>self.karte</code>:
+<p align="justify">Razredu <code>Komplet</code> dodajmo metodo <code>dodaj</code>, ki kot parameter dobi karto, ki jo doda v komplet kart. To stori tako, da uporabi funkcijo <code>append</code>, ki doda element v tabelo <code>self._karte</code>:
 <pre>
 class Komplet:
-  ...
+  # ...
+
   def dodaj(self, karta):
-    self.karte.append(karta)
+    self._karte.append(karta)
 </pre>
 </p>
 
 <p align="justify">Razredu <code>Komplet</code> dodajmo metodo <code>odstrani</code>, ki kot parameter dobi karto, ki jo odstrani iz kompleta kart. Operator <code>in</code> vrne <code>True</code>, če je prvi operand del drugega. Če je prvi operand objekt, potem Python uporabi metodo <code>__eq__</code> tega objekta, ki pa smo jo na srečo že definirali.
 <pre>
 class Komplet:
-  ...
+  # ...
+
   def odstrani(self, karta):
-    if karta in self.karte:
-      self.karte.remove(karta)
+    if karta in self._karte:
+      self._karte.remove(karta)
       return True
     else:
       return False
 </pre>
 </p>
 
-<p align="justify">Razredu <code>Komplet</code> dodajmo metodo <code>deli</code>, ki vrne zadnjo karto iz kompleta kart in jo iz kompleta tudi odstrani. To stori tako, da uporabi funkcijo <code>pop</code>, ki odstrani zadnji element iz tabele <code>self.karte</code>:
+<p align="justify">Razredu <code>Komplet</code> dodajmo metodo <code>deli</code>, ki vrne zadnjo karto iz kompleta kart in jo iz kompleta tudi odstrani. To stori tako, da uporabi funkcijo <code>pop</code>, ki odstrani zadnji element iz tabele <code>self._karte</code>:
 <pre>
 class Komplet:
-  ...
+  # ...
+
   def deli(self):
-    return self.karte.pop()
+    return self._karte.pop()
 </pre>
 </p>
-
-<p align="justify">Primer v interaktivnem urejevalniku prikazuje uporabo metod za dodajanje karte v komplet kart ter odstranjevanje in deljenje karte iz kompleta kart.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
+<p align="justify">Primer v interaktivnem urejevalniku prikazuje uporabo metod za dodajanje karte v komplet kart ter odstranjevanje in deljenje karte iz kompleta kart.</p>
+
 <div>
 <form>
 <p><textarea id="code">
 class Karta:
 
-  barve = ["Križev", "Karin", "Srčev", "Pikov"]
-  opisi = [None, "as", "2", "3", "4", "5", "6", "7",
-           "8", "9", "10", "fant", "dama", "kralj"]
+  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "fant", "dama", "kralj"]
 
   def __init__(self, barva=0, vrednost=0):
-    self.barva = barva
-    self.vrednost = vrednost
+    """ Inicializator """
+    self._barva = barva
+    self._vrednost = vrednost
 
   def __str__(self):
-    b = self.barva
-    v = self.vrednost
+    """ Vrne niz, ki predstavlja karto """
+    b = self._barva
+    v = self._vrednost
     k = "" # Končnica za moško obliko
     if (v >= 2 and v <= 10 or v == 12):
       k = "a" # Končnica za žensko obliko
-    return (self.barve[b] + k + " " + self.opisi[v])
+    return (self._barve[b] + k + " " + self._opisi[v])
 
-  def cmp(self, other):
+  def cmp(self, karta):
+    """ Primerja dve karti """
     # Preveri barve
-    if self.barva > other.barva: return 1
-    if self.barva < other.barva: return -1
+    if self._barva > karta._barva: return 1
+    if self._barva < karta._barva: return -1
     # Ista barva... preveri vrednosti
-    if self.vrednost > other.vrednost: return 1
-    if self.vrednost < other.vrednost: return -1
+    if self._vrednost > karta._vrednost: return 1
+    if self._vrednost < karta._vrednost: return -1
     # Ista vrednost... ista karta
     return 0
 
-  def __eq__(self, other):
-    return self.cmp(other) == 0
+  def __eq__(self, karta):
+    """ Prekrije operator == za primerjanje kart """
+    return self.cmp(karta) == 0
 
-  def __le__(self, other):
-    return self.cmp(other) <= 0
+  def __le__(self, karta):
+    """ Prekrije operator <= za primerjanje kart """
+    return self.cmp(karta) <= 0
 
-  def __ge__(self, other):
-    return self.cmp(other) >= 0
+  def __ge__(self, karta):
+    """ Prekrije operator >= za primerjanje kart """
+    return self.cmp(karta) >= 0
 
-  def __gt__(self, other):
-    return self.cmp(other) > 0
+  def __gt__(self, karta):
+    """ Prekrije operator > za primerjanje kart """
+    return self.cmp(karta) > 0
 
-  def __lt__(self, other):
-    return self.cmp(other) < 0
+  def __lt__(self, karta):
+    """ Prekrije operator < za primerjanje kart """
+    return self.cmp(karta) < 0
 
-  def __ne__(self, other):
-    return self.cmp(other) != 0
+  def __ne__(self, karta):
+    """ Prekrije operator != za primerjanje kart """
+    return self.cmp(karta) != 0
+
 
 class Komplet:
 
   def __init__(self):
-    self.karte = []
+    """ Inicializator """
+    self._karte = []
     for barva in range(4):
       for vrednost in range(1, 14):
-        self.karte.append(Karta(barva, vrednost))
+        self._karte.append(Karta(barva, vrednost))
 
   def __str__(self):
+    """ Vrne niz, ki predstavlja komplet kart """
     s = ""
-    for i in range(len(self.karte)):
-      s = s + " " * i + str(self.karte[i]) + "\n"
+    for i in range(len(self._karte)):
+      s = s + " " * i + str(self._karte[i]) + "\n"
     return s
 
+  def premesaj(self):
+    """ Premeša karte v kompletu """
+    import random
+    random.shuffle(self._karte)
+
+  def uredi(self):
+    """ Uredi karte v kompletu """
+    self._karte.sort()
+
   def dodaj(self, karta):
-    self.karte.append(karta)
+    """ Doda karto v komplet kart """
+    self._karte.append(karta)
 
   def odstrani(self, karta):
-    if karta in self.karte:
-      self.karte.remove(karta)
+    """ Odstrani karto iz kompleta kart """
+    if karta in self._karte:
+      self._karte.remove(karta)
       return True
     else:
       return False
 
   def deli(self):
-    return self.karte.pop()
+    """ Vrne zadnjo karto in jo odstrani iz kompleta """
+    return self._karte.pop()
 
 
 rdeci_komplet = Komplet()
@@ -349,6 +376,10 @@ print(rdeci_komplet)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -385,9 +416,18 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(0, 0));
+editor.foldCode(CodeMirror.Pos(58, 0));
+editor.foldCode(CodeMirror.Pos(65, 0));
+editor.foldCode(CodeMirror.Pos(72, 0));
+editor.foldCode(CodeMirror.Pos(77, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

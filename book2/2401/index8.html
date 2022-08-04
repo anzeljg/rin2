@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Pretvarjanje objekta v niz</title>
+	<title>Objekti kot argumenti</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -146,66 +146,141 @@
 			</div>
 		</div>
 
+		<!-- Modal (popup) window: Docstring -->
+		<div id="docstring" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Uporaba dokumentacijskih nizov</h4>
+					</div>
+					<div class="modal-body">
+						<p align="justify">Uporaba dokumentacijskih nizov v jeziku Python je bolj podrobno določena v dokumentu <a href="https://peps.python.org/pep-0257/" target="_blank">PEP 257 – Docstring Conventions</a>.</p>
+						<p align="justify">Dokumentacijski niz se mora vedno začeti v prvi vrstici modula, funkcije, razreda ali metode. Lahko je enovrstičen ali večvrstičen. Začne in konča se s tremi dvojnimi narekovaji. Oglejmo si naslednji primer:
+<pre>
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  # Druge metode
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+
+def izpisi_tocko(t):
+  """ Izpiše koordinati točke """
+  print("(" + str(t.x()) + ", " + str(t.y()) + ")")</pre>
+</p>
+						<p align="justify">Dokumentacijske nize iz gornjega primera lahko uporabljamo s funkcijo <code>print</code> in metodo <code>__doc__</code>, ki ji kot argument podamo ime modula, funkcije, razreda ali metode, vendar brez argumentov in brez oklepajev. Fukcija <code>print</code> bo nato izpisala ustrezen dokumentacijski niz. Na primer:
+<pre>
+&gt;&gt;&gt; print(izpisi_tocko.__doc__)
+Izpiše koordinati točke
+
+&gt;&gt;&gt; print(Tocka.razdalja.__doc__)
+Vrne razdaljo točke od koordinatnega izhodišča
+</pre>
+</p>
+						<p align="justify">Lahko pa preprosto uporabimo funkcijo <code>help</code>. Na primer:
+<pre>
+&gt;&gt;&gt; help(izpisi_tocko)
+Help on function izpisi_tocko in module __main__:
+
+izpisi_tocko(t)
+    Izpiše koordinati točke
+
+&gt;&gt;&gt; help(Tocka.razdalja)
+Help on function razdalja in module __main__:
+
+razdalja(self)
+    Vrne razdaljo točke od koordinatnega izhodišča
+
+</pre>
+</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Pretvarjanje objekta v niz</h1>
+<h1>Objekti kot argumenti</h1>
 
-<p align="justify">Večina objektno usmerjenih programerjev verjetno ne bi napisala in uporabila funkcije <code>izpisi_tocko</code>. Kadar delamo z razredi in objekti, raje dodamo novo metodo razredu. Prav tako ne maramo preveč metod, ki bi uporabljale funkcijo <code>print</code>. Boljši pristop je, da razred vsebuje metodo, ki omogoča vsakemu objektu, da ustvari niz oziroma besedilno predstavitev samega sebe. Ustvarimo takšno metodo in jo poimenujmo <code>v_niz</code>:
+<p align="justify">Objekte lahko uporabimo kot argumente funkcij na čisto običajen način, ki smo ga vajeni. Pri tem ne smemo pozabiti, da spremenljivka vsebuje samo sklic na dejanski objekt. Če torej spremenljivko kot argument posredujemo neki funkciji, to ustvari le nov sklic. Tako obe &ndash; spremenljivka in funkcija &ndash; vsebujeta sklica na objekt, ki pa je en sam.</p>
+
+<p align="center"><img src="img/argument.svg" onerror="this.src='argument.png'" class="img-responsive"></p>
+
+<p align="justify">Oglejmo si primer enostavne funkcije, ki vključuje objekt <code>Tocka</code>:
 <pre>
-class Tocka:
-  # ...
-
-  def v_niz(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
-
+def izpisi_tocko(t):
+  print("(" + str(t.x()) + ", " + str(t.y()) + ")")
 </pre>
 </p>
 
-<p align="justify">Metodo lahko uporabimo takole:
-<pre>
-&gt;&gt;&gt; t = Tocka(7, 8)
-&gt;&gt;&gt; print(t.v_niz())
-(7, 8)
-</pre>
+<p align="justify">Funkcija <code>izpisi_tocko</code> kot argument vzame oziroma sprejme objekt <code>Tocka</code> in oblikuje izpis na kateri koli način, ki ga izberemo oziroma določimo. Če funkcijo <code>izpisi_tocko(p)</code> pokličemo s točko <code>p</code>, ki smo jo definirali prej, bo izpis funkcije enak <code>(4, 3)</code>.</p>
+
+<div class="alert alert-success" role="alert">
+<p align="justify">Ustrezno dokumentiranje izvorne kode je zelo pomembno, zato je priporočena uporaba <b>dokumentacijskih nizov</b> (<i>ang. documentation strings &ndash; docstrings</i>), ki so priročen način povezovanja dokumentacije z moduli, funkcijami, razredi in metodami.</p>
+<p align="justify">Dokumentacijske nize uporabljamo za dokumentiranje določenih delov izvorne kode, podobno kot uporabljamo običajne komentarje. Za razliko od običajnih komentarjev mora dokumentacijski niz opisovati, kaj funkcija počne in ne, kako to počne.</p>
+<p>
+<a href="#docstring" class="btn btn-success" data-toggle="modal" data-target="#docstring">Uporaba dokumentacijskih nizov</a>
 </p>
-
-<p align="justify">Toda, ali ne obstaja funkcija <code>str</code>, ki samodejno pretvarja tip podatkov iz objekta v niz. Seveda obstaja! Tudi funkcija <code>print</code> samodejno pretvarja objekte v nize, ko jih izpisuje? Tudi to drži! Vendar ti samodejni mehanizmi še ne delujejo, kot bi si želeli:</p>
-
-<p><pre>
-&gt;&gt;&gt; str(t)
-'<__main__.Tocka object>'
-&gt;&gt;&gt; print(t)
-'<__main__.Tocka object>'
-</pre></p>
+</div>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">To lahko zelo enostavno popravimo tako, da našo metodo <code>v_niz</code> preimenujemo v <code>__str__</code>. Tako se bo ta metoda izvedla vsakokrat, ko bomo želeli objekt <code>Tocka</code> spremeniti v niz, na primer, kadar bomo uporabili funkciji <code>str</code> in <code>print</code>. Spremenimo oziroma ustrezno dopolnimo naš program:</p>
-
 <div>
 <form>
 <p><textarea id="code">
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-  def razdalja_od_izhodisca(self):
-    return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
 
-  def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+
+def izpisi_tocko(t):
+  """ Izpiše koordinati točke """
+  print("(" + str(t.x()) + ", " + str(t.y()) + ")")
 
 
 p = Tocka(4, 3)
-print(p)
+izpisi_tocko(p)
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -215,12 +290,6 @@ print(p)
 </form>
 </div>
 <pre id="output"></pre>
-
-<p align="justify">Gornji program izpiše koordinate točke:
-<pre>
-(4, 3)
-</pre>
-</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -247,6 +316,7 @@ print(p)
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index9.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -292,6 +362,10 @@ print(p)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -328,9 +402,17 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 305);
+editor.setSize('100%', 465);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(14, 0));
+editor.foldCode(CodeMirror.Pos(21, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

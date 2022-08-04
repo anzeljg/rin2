@@ -161,8 +161,9 @@
 class DNK:
   # ...
 
-  def vrni_dolzino(self):
-    return len(self.niz)
+  def dolzina(self):
+    """ Vrne dolžino DNK niza """
+    return len(self._niz)
 </pre>
 
 					</div>
@@ -189,8 +190,9 @@ class DNK:
 class DNK:
   # ...
 
-  def je_daljse(self, other):
-    if len(self.niz) > len(other.niz):
+  def je_daljsi(self, dnk):
+    """ Vrne ali je DNK niz daljši od drugega DNK niza """
+    if len(self._niz) > len(dnk._niz):
       return True
     else:
       return False
@@ -220,11 +222,11 @@ class DNK:
 <p>
 	<span class="label label-primary"><b>12</b></span>
 </p>
-<p align="justify">Razredu <code>DNK</code> dodaj metodo <code>vrni_dolzino</code>, ki vrne dolžino DNK niza. Spodnji primer izpiše <code>6</code>:</p>
+<p align="justify">Razredu <code>DNK</code> dodaj metodo <code>dolzina</code>, ki vrne dolžino DNK niza. Spodnji primer izpiše vrednost <code>6</code>:</p>
 <p>
 <pre>
 dnk1 = DNK('ATCGAT')
-print(dnk1.vrni_dolzino())
+print(dnk1.dolzina())
 </pre>
 </p>
 <p>
@@ -236,12 +238,12 @@ print(dnk1.vrni_dolzino())
 <p>
 	<span class="label label-primary"><b>13</b></span>
 </p>
-<p align="justify">Razredu <code>DNK</code> dodaj metodo <code>je_daljse</code>, ki primerja dolžini dveh DNK nizov. Metoda vrne <code>True</code>, če je dani DNK niz daljši od drugega DNK niza. V nasprotnem primeru vrne <code>False</code>. Spodnja primera izpišeta <code>True</code> in <code>False</code>:</p>
+<p align="justify">Razredu <code>DNK</code> dodaj metodo <code>je_daljsi</code>, ki primerja dolžini dveh DNK nizov. Metoda vrne <code>True</code>, če je dani DNK niz daljši od drugega DNK niza. V nasprotnem primeru vrne <code>False</code>. Spodnja primera izpišeta <code>True</code> in <code>False</code>:</p>
 <p>
 <pre>
 dnk1 = DNK('ATCG')
-print(dnk1.je_daljse(DNK('AT')))
-print(dnk1.je_daljse(DNK('ATCGGA')))
+print(dnk1.je_daljsi(DNK('AT')))
+print(dnk1.je_daljsi(DNK('ATCGGA')))
 </pre>
 </p>
 <p>
@@ -259,10 +261,12 @@ print(dnk1.je_daljse(DNK('ATCGGA')))
 class DNK:
 
   def __init__(self, zaporedje=""):
-    self.niz = zaporedje
+    """ Inicializator """
+    self._niz = zaporedje
 
   def __str__(self):
-    return self.niz
+    """ Vrne DNK niz """
+    return self._niz
 
 
 </textarea></p>
@@ -348,6 +352,10 @@ class DNK:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -384,9 +392,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

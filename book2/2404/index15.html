@@ -163,14 +163,15 @@ from karte import *
 class CrniPeterIgralec(Igralec):
 
   def odstrani_pare(self):
+    """ Odstrani pare iz igralčevih kart """
     stevec = 0
-    originalne_karte = self.karte[:]
+    originalne_karte = self._karte[:]
     for karta in originalne_karte:
-      par = Karta(3 - karta.barva, karta.vrednost)
-      if par in self.karte:
-        self.karte.remove(karta)
-        self.karte.remove(par)
-        print("Igralec " + self.ime +  ": " +
+      par = Karta(3 - karta._barva, karta._vrednost)
+      if par in self._karte:
+        self._karte.remove(karta)
+        self._karte.remove(par)
+        print("Igralec " + self._ime +  ": " +
               str(karta) + " se ujema s " + str(par))
         stevec += 1
     return stevec
@@ -179,16 +180,17 @@ class CrniPeterIgralec(Igralec):
 class CrniPeterIgra(IgraKart):
 
   def igraj(self, imena):
-    # Odstrani križevega fanta
-    self.komplet.odstrani(Karta(0,11))
+    """ Igra igro s kartami: Črni Peter """
+    # Odstrani križevega fanta - t.j. Črnega Petra
+    self._komplet.odstrani(Karta(0,11))
 
     # Dodaj igralce
-    self.igralci = []
+    self._igralci = []
     for ime in imena:
-      self.igralci.append(CrniPeterIgralec(ime))
+      self._igralci.append(CrniPeterIgralec(ime))
 
     # Razdeli karte
-    self.komplet.deli(self.igralci)
+    self._komplet.deli(self._igralci)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
@@ -199,7 +201,7 @@ class CrniPeterIgra(IgraKart):
 
     # Igraj, dokler ne najdeš pare za vseh 50 kart
     obrat = 0
-    stev_igralcev = len(self.igralci)
+    stev_igralcev = len(self._igralci)
     while pari < 25:
       pari += self.igraj_en_obrat(obrat)
       obrat = (obrat + 1) % stev_igralcev
@@ -208,33 +210,37 @@ class CrniPeterIgra(IgraKart):
     self.izpisi_igralce()
 
   def odstrani_vse_pare(self):
+    """ Odstrani vse pare iz kart vseh igralcev """
     stevec = 0
-    for igralec in self.igralci:
+    for igralec in self._igralci:
       stevec += igralec.odstrani_pare()
     return stevec
 
   def igraj_en_obrat(self, i):
-    if self.igralci[i].je_prazen():
+    """ Odigra en krog igre """
+    if self._igralci[i].je_prazen():
       return 0
     sosed = self.najdi_soseda(i)
-    izbrana_karta = self.igralci[sosed].karte.pop()
-    self.igralci[i].dodaj(izbrana_karta)
-    print("Igralec", self.igralci[i].ime, "je izbral", izbrana_karta)
-    stevec = self.igralci[i].odstrani_pare()
-    self.igralci[i].premesaj()
+    izbrana_karta = self._igralci[sosed]._karte.pop()
+    self._igralci[i].dodaj(izbrana_karta)
+    print("Igralec", self._igralci[i]._ime, "je izbral", izbrana_karta)
+    stevec = self._igralci[i].odstrani_pare()
+    self._igralci[i].premesaj()
     return stevec
 
   def najdi_soseda(self, i):
-    stev_igralcev = len(self.igralci)
+    """ Najde soseda trenutnega igralca """
+    stev_igralcev = len(self._igralci)
     for naslednji in range(1, stev_igralcev):
       sosed = (i + naslednji) % stev_igralcev
-      if not self.igralci[sosed].je_prazen():
+      if not self._igralci[sosed].je_prazen():
         return sosed
 
   def izpisi_igralce(self):
-    stev_igralcev = len(self.igralci)
+    """ Izpiše igralce, ki igrajo igro """
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      print(self.igralci[i])
+      print(self._igralci[i])
 
 
 igra = CrniPeterIgra()
@@ -379,6 +385,10 @@ igra.igraj(["Janez", "Karel", "Lojze"])
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<script src="js/skulpt-stdlib-modul-karte.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -415,9 +425,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

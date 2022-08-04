@@ -162,8 +162,9 @@ class DNK:
   # ...
 
   def je_veljaven_niz(self):
+    """ Vrne ali je DNK niz veljaven """
     nukleotidi = ['A', 'T', 'C', 'G']
-    for znak in self.niz:
+    for znak in self._niz:
       if znak not in nukleotidi:
         return False
     return True
@@ -193,8 +194,9 @@ class DNK:
 class DNK:
   # ...
 
-  def vrini_zaporedje(self, other, mesto):
-    n = self.niz[:mesto] + other.niz + self.niz[mesto:]
+  def vrini_zaporedje(self, dnk, mesto):
+    """ Vrne DNK niz z vrinjenim drugim DNK nizom """
+    n = self._niz[:mesto] + dnk._niz + self._niz[mesto:]
     return DNK(n)
 </pre>
 					</div>
@@ -260,10 +262,12 @@ print(dnk1.vrini_zaporedje(DNK('TA'), 8)) # 'ATCGGCTA'
 class DNK:
 
   def __init__(self, zaporedje=""):
-    self.niz = zaporedje
+    """ Inicializator """
+    self._niz = zaporedje
 
   def __str__(self):
-    return self.niz
+    """ Vrne DNK niz """
+    return self._niz
 
 
 </textarea></p>
@@ -349,6 +353,10 @@ class DNK:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -385,9 +393,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

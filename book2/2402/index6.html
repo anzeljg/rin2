@@ -159,9 +159,10 @@
 					<div class="modal-body">
 <pre>
 class Tocka:
+  # ...
 
-  def __sub__(self, other):
-    return Tocka(self.x - other.x, self.y - other.y)
+  def __sub__(self, tocka):
+    return Tocka(self._x - tocka._x, self._y - tocka._y)
 </pre>
 					</div>
 					<div class="modal-footer">
@@ -187,9 +188,10 @@ class Tocka:
 <p align="justify">Če želimo na primer prekriti metodo operatorja za seštevanje <code>+</code>, potem moramo ustvariti metodo z imenom <code>__add__</code>. Vrnimo se k razredu <code>Tocka</code>, ki smo ga definirali v prejšnjem poglavju. Če želimo sešteti dve točki to pomeni, da ločeno seštejemo nujni koordinati:
 <pre>
 class Tocka:
+  # ...
 
-  def __add__(self, other):
-    return Tocka(self.x + other.x, self.y + other.y)
+  def __add__(self, tocka):
+    return Tocka(self._x + tocka._x, self._y + tocka._y)
 </pre>
 </p>
 
@@ -212,19 +214,23 @@ class Tocka:
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
   def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
   # Tukaj manjkajo druge metode!
 
-  def __add__(self, other):
-    return Tocka(self.x + other.x, self.y + other.y)
+  def __add__(self, tocka):
+    """ Prekrije operator + za pravilno seštevanje točk """
+    return Tocka(self._x + tocka._x, self._y + tocka._y)
 
-  def __sub__(self, other):
-    # Namesto pass napišite manjkajočo kodo
+  def __sub__(self, tocka):
+    """ Prekrije operator - za pravilno odštevanje točk """
+    # Namesto pass napiši manjkajočo kodo
     pass
 
 
@@ -315,6 +321,10 @@ print(t1 - t2)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -351,9 +361,15 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
 editor.setSize('100%', 450);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

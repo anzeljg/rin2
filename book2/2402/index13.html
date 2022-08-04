@@ -161,9 +161,10 @@
 class Ulomek:
   # ...
 
-  def __rmul__(self, other):
-    zgoraj = self.stevec * other
-    spodaj = self.imenovalec
+  def __rmul__(self, vrednost):
+    """ Prekrije operator * za množenje ulomka s številom """
+    zgoraj = self._stevec * vrednost
+    spodaj = self._imenovalec
     return Ulomek(zgoraj, spodaj)
 </pre>
 					</div>
@@ -190,9 +191,10 @@ class Ulomek:
 class Ulomek:
   # ...
 
-  def __mul__(self, other):
-    zgoraj = self.stevec * other.stevec
-    spodaj = self.imenovalec * other.imenovalec
+  def __mul__(self, ulomek):
+    """ Prekrije operator * za množenje ulomkov """
+    zgoraj = self._stevec * ulomek._stevec
+    spodaj = self._imenovalec * ulomek._imenovalec
     return Ulomek(zgoraj, spodaj)
 </pre>
 					</div>
@@ -219,9 +221,10 @@ class Ulomek:
 class Ulomek:
   # ...
 
-  def __div__(self, other):
-    zgoraj = self.stevec * other.imenovalec
-    spodaj = self.imenovalec * other.stevec
+  def __div__(self, ulomek):
+    """ Prekrije operator / za deljenje ulomkov """
+    zgoraj = self._stevec * ulomek._imenovalec
+    spodaj = self._imenovalec * ulomek._stevec
     return Ulomek(zgoraj, spodaj)
 </pre>
 					</div>
@@ -301,18 +304,17 @@ print(u1 / u2)
 class Ulomek:
 
   def __init__(self, stevec, imenovalec):
-    try:
-      # Če je imenovalec 0, sprožimo napako
-      if imenovalec == 0:
-        raise ZeroDivisionError
-      else:
-        self.stevec = stevec
-        self.imenovalec = imenovalec
-    except ZeroDivisionError:
-      exit("Imenovalec ne sme biti 0")
+    """ Inicializator """
+    # Če je imenovalec 0, sprožimo napako
+    if imenovalec == 0:
+      raise ZeroDivisionError
+    else:
+      self._stevec = int(stevec)
+      self._imenovalec = int(imenovalec)
 
   def __str__(self):
-    return str(self.stevec) + "/" + str(self.imenovalec)
+    """ Vrne niz, ki vsebuje predstavitev ulomka """
+    return str(self._stevec) + "/" + str(self._imenovalec)
 
 
 </textarea></p>
@@ -398,6 +400,10 @@ class Ulomek:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -434,9 +440,15 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

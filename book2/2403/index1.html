@@ -157,7 +157,7 @@
 
 <p align="center"><img src="img/cards-316501_1280.jpg" class="img-responsive" /></p>
 
-<p align="justify">Če želimo ustvariti nov objekt, ki bo predstavljal igralno karto, je precej očitno, da bo tak objekt vseboval dve lastnosti: <code>barva</code> in <code>vrednost</code>. Vendar ni tako očitno, kakšnega tipa naj bosta ti dve lastnosti. Lahko bi uporabili nize, ki bi vsebovali na primer <code>"pik"</code> za barvo in na primer <code>"kraljica"</code> za vrednost. Težava pri takšnem načinu je ta, da bi bilo zelo težko primerjati, katera izmed kart ima višjo barvo oziroma vrednost.</p>
+<p align="justify">Če želimo ustvariti nov objekt, ki bo predstavljal igralno karto, je precej očitno, da bo tak objekt vseboval dve lastnosti: <code>_barva</code> in <code>_vrednost</code>. Vendar ni tako očitno, kakšnega tipa naj bosta ti dve lastnosti. Lahko bi uporabili nize, ki bi vsebovali na primer <code>"pik"</code> za barvo in na primer <code>"kraljica"</code> za vrednost. Težava pri takšnem načinu je ta, da bi bilo zelo težko primerjati, katera izmed kart ima višjo barvo oziroma vrednost.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -186,15 +186,15 @@ kralj --&gt; 13
 class Karta:
 
   def __init__(self, barva=0, vrednost=0):
-    self.barva = barva
-    self.vrednost = vrednost
+    self._barva = barva
+    self._vrednost = vrednost
 </pre>
 </p>
 
-<p align="justify">Če želimo ustvariti objekta, ki predstavljata na primer karti križevo tri in karo fanta, to storimo takole:
+<p align="justify">Če želimo ustvariti objekta, ki predstavljata na primer karti križevo tri in karinega fanta, to storimo takole:
 <pre>
-kriz_tri = Karta(0, 3)
-karta1 = Karta(1, 11)
+kriz_tri = Karta(0, 3) # križeva tri
+karta1 = Karta(1, 11)  # karin fant
 </pre>
 </p>
 <!-- Right column end -->

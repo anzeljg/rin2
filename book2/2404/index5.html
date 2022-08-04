@@ -173,9 +173,9 @@ Pikova 2
 <p align="justify">Čeprav je priročno podedovati obstoječe metode, pa objekt <code>Igralec</code> vsebuje dodatne informacije, ki bi jih želeli vključiti v izpis. To storimo tako, da v razred <code>Igralec</code> vklučimo metodo <code>__str__</code>, ki bo nadomestila isto imensko metodo iz razreda <code>Komplet</code>:
 <pre>
 class Igralec(Komplet)
-  ...
+
   def __str__(self):
-    s = "Igralec " + str(self.ime)
+    s = "Igralec " + str(self._ime)
     if self.je_prazen():
       s += " nima kart\n"
     else:
@@ -195,65 +195,122 @@ class Igralec(Komplet)
 <p><textarea id="code">
 class Karta:
 
-  barve = ["Križev", "Karin", "Srčev", "Pikov"]
-  opisi = [None, "as", "2", "3", "4", "5", "6", "7",
-           "8", "9", "10", "fant", "dama", "kralj"]
+  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "fant", "dama", "kralj"]
 
   def __init__(self, barva=0, vrednost=0):
-    self.barva = barva
-    self.vrednost = vrednost
+    """ Inicializator """
+    self._barva = barva
+    self._vrednost = vrednost
 
   def __str__(self):
-    b = self.barva
-    v = self.vrednost
+    """ Vrne niz, ki predstavlja karto """
+    b = self._barva
+    v = self._vrednost
     k = "" # Končnica za moško obliko
     if (v >= 2 and v <= 10 or v == 12):
       k = "a" # Končnica za žensko obliko
-    return (self.barve[b] + k + " " + self.opisi[v])
+    return (self._barve[b] + k + " " + self._opisi[v])
+
+  def cmp(self, karta):
+    """ Primerja dve karti """
+    # Preveri barve
+    if self._barva > karta._barva: return 1
+    if self._barva < karta._barva: return -1
+    # Ista barva... preveri vrednosti
+    if self._vrednost > karta._vrednost: return 1
+    if self._vrednost < karta._vrednost: return -1
+    # Ista vrednost... ista karta
+    return 0
+
+  def __eq__(self, karta):
+    """ Prekrije operator == za primerjanje kart """
+    return self.cmp(karta) == 0
+
+  def __le__(self, karta):
+    """ Prekrije operator <= za primerjanje kart """
+    return self.cmp(karta) <= 0
+
+  def __ge__(self, karta):
+    """ Prekrije operator >= za primerjanje kart """
+    return self.cmp(karta) >= 0
+
+  def __gt__(self, karta):
+    """ Prekrije operator > za primerjanje kart """
+    return self.cmp(karta) > 0
+
+  def __lt__(self, karta):
+    """ Prekrije operator < za primerjanje kart """
+    return self.cmp(karta) < 0
+
+  def __ne__(self, karta):
+    """ Prekrije operator != za primerjanje kart """
+    return self.cmp(karta) != 0
 
 
 class Komplet:
 
   def __init__(self):
-    self.karte = []
+    """ Inicializator """
+    self._karte = []
     for barva in range(4):
       for vrednost in range(1, 14):
-        self.karte.append(Karta(barva, vrednost))
+        self._karte.append(Karta(barva, vrednost))
 
   def __str__(self):
+    """ Vrne niz, ki predstavlja komplet kart """
     s = ""
-    for i in range(len(self.karte)):
-      s = s + " " * i + str(self.karte[i]) + "\n"
+    for i in range(len(self._karte)):
+      s = s + " " * i + str(self._karte[i]) + "\n"
     return s
 
   def premesaj(self):
+    """ Premeša komplet kart """
     import random
-    random.shuffle(self.karte)
+    random.shuffle(self._karte)
 
   def dodaj(self, karta):
-    self.karte.append(karta)
+    """ Doda karto v komplet kart """
+    self._karte.append(karta)
+
+  def odstrani(self, karta):
+    """ Odstrani karto iz kompleta kart """
+    if karta in self._karte:
+      self._karte.remove(karta)
+      return True
+    else:
+      return False
 
   def deli(self, igralci, stev_kart=999):
+    """ Vrne zadnjo karto in jo odstrani iz kompleta """
     stev_igralcev = len(igralci)
     for i in range(stev_kart):
       if self.je_prazen():
         break
-      karta = self.karte.pop()
+      karta = self._karte.pop()
       igralec = igralci[i % stev_igralcev]
       igralec.dodaj(karta)
 
   def je_prazen(self):
-    return self.karte == []
+    """ Vrne, ali je komplet kart prazen """
+    return self._karte == []
+
+  def sprazni(self):
+    """ Sprazni komplet kart """
+    self._karte = []
 
 
 class Igralec(Komplet):
 
   def __init__(self, ime=""):
-    self.karte = []
-    self.ime = ime
+    """ Inicializator """
+    self._karte = []
+    self._ime = ime
 
   def __str__(self):
-    s = "Igralec " + str(self.ime)
+    """ Vrne niz, ki predstavlja igralčeve karte """
+    s = "Igralec " + str(self._ime)
     if self.je_prazen():
       s += " nima kart\n"
     else:
@@ -348,6 +405,10 @@ print(igralec)
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -384,9 +445,15 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(0, 0));
+editor.foldCode(CodeMirror.Pos(56, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

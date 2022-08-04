@@ -10,13 +10,10 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Povzetek</title>
+	<title>Sprememba perspektive</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- jQuery QuickFlip -->
-	<link href="../css/jquery.quickflip.min.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -145,98 +142,59 @@
 			</div>
 		</div>
 
+		<!-- Modal (popup) window: Source -->
+		<div id="source" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Vir fotografije</h4>
+					</div>
+					<div class="modal-body">
+						<p>Christian Schütt. <i>BMW Kreditkarte mit Schlüsselfunktion</i>. [pridobljeno 6. 4. 2017]<br />Dostopno na naslovu: <a href="https://www.7-forum.com/bilder/news/2015/ces_las_vegas/bmw_kreditkarte_p90171210-b_jpg.html">https://www.7-forum.com/bilder/news/2015/ces_las_vegas/ bmw_kreditkarte_p90171210-b_jpg.html</a> Vse pravice pridržane [citat]</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-12">
-<!-- Summary start -->
-<h1>Povzetek</h1>
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Sprememba perspektive</h1>
 
-<p align="justify">Za ponovitev učne snovi najprej navedi definicijo pojma, nato s klikom pojma preveri svoj odgovor.</p>
+<p align="justify">Izvirna sintaksa klica funkcije, na primer <code>izpisi_cas(trenutni_cas)</code>, kaže na to, da je funkcija aktivni predstavnik. Pravi nekako takole: <i>»Hej <tt>izpisi_cas</tt>! Tu imaš objekt, ki ga izpiši.«</i></p>
 
-<div class="card1">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
-    <p>Posebna metoda (imenovana <code>__init__</code>), ki se izvede samodejno, ko se ustvari nov objekt in nastavi lastnosti objekta na začetno ("tovarniško") vrednost.</p>
-  </div>
-</div>
-<div class="card2">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
-    <p>Vsak razred ima "tovarno", ki ima isto ime kot razred, za izdelavo novih primerkov razreda oz. objektov.</p>
-  </div>
-</div>
-<div class="card3">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
-    <p>Eden izmed poimenovanih podatkovnih elementov, ki sestavljajo objekt oz. primerek razreda.</p>
-  </div>
-</div>
-<div class="card4">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
-    <p>Funkcija, ki je definira znotraj definicije razreda in je uporabljena nad primerki tega razreda.</p>
-  </div>
-</div>
-<div class="card5">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
-    <p>Sestavljen podatkovni tip, ki ga uporabimo, da modeliramo stvari ali koncepte iz resničnega sveta. Skupaj združuje podatke in operacije, ki so smiselne nad temi podatki.</p>
-  </div>
-</div>
-<div class="card6">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
-    <p>Programski jezik, ki podpira uporabniško definirane razrede in dedovanje, kar omogoča uporabo objektno usmerjenega sloga programiranja.</p>
-  </div>
-</div>
-<div class="card7">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
-    <p>Slog programinranje, pri katerem so podatki in operacije, ki spreminjajo te podatke, organizirani v objekte.</p>
-  </div>
-</div>
-<div class="card8">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
-    <p>Objekt, katerega tip je nek razred. Pojma primerek razreda in objekt pomenita isto oziroma ju lahko uporabljamo izmenično.</p>
-  </div>
-</div>
-<div class="card9">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
-    <p>Uporabniško definiran sestavljeni tip. Razred lahko vidimo tudi kot predlogo, s katero zgradimo posamezne objekte.</p>
-  </div>
-</div>
-<!-- Summary end -->
+<p align="justify">Pri objektno usmerjenem programiranju pa kot aktivne predstavnike obravnavamo objekte. Poziv kot na primer <code>trenutni_cas.izpisi_cas()</code> pravi: <i>»Hej <tt>trenutni_cas</tt>! Izpiši samega sebe!«</i></p>
+
+<p align="justify">Ta sprememba v perspektivi je morda bolj vljudna, vendar na prvi pogled ni videti, da bi bila uporabna. Vendar včasih premik odgovornosti iz funkcij na objekte omogoča pisanje bolj raznolikih funkcij ter posledično lažje vzdrževanje in ponovno uporabo kode.</p>
+
+<p align="justify">Najpomembnejša prednost objektno usmerjenega sloga programiranja je v tem, da se natančno prilega našemu miselnemu razčlenjevanju in izkušnjam iz resničnega življenja. V resničnem življenju je metoda <code>kuhaj</code> del mikrovalovne pečice &ndash; funkcija <code>kuhaj</code> ne sedi nekje v kotu kuhinje in čaka, da ji posredujemo mikrovalovno pečico! Podobno uporabljamo lastne metode mobilnega telefona za pošiljanje SMS sporočil in za utišanje mobilnega telefona.</p>
+
+<p align="justify">Funkcionalnost predmetov v resničnem življenju je običajno tesno povezana s predmeti samimi. Objektno usmerjeno programiranje nam omogoča, da to natančno preslikamo, ko načrtujemo, organiziramo in izdelujemo programe.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h1>Objekti lahko imajo stanje</h1>
+
+<p align="justify">Objekti so najbolj koristni takrat, kadar moramo spremljati tudi neko stanje, ki se od časa do časa spremeni. Razmislimo na primer o objektu avtomobil. Stanje avtomobila sestoji iz stvari, kot so na primer njegov položaj, njegova smer, njegova barva, njegova oblika itd. Metoda <code>levo(90)</code> posodobi smer avtomobila, metoda <code>naprej</code> spremeni njegov položaj itd.</p>
+
+<p align="justify">Glavna komponenta stanja objekta bančni račun, bi najverjetneje bilo trenutno stanje na bančnem računu in morda dnevnik vseh transakcij. Metode bi omogočale da se pozanimamo o trenutnem stanju, položimo denar na račun ali izvedemo plačilo. Izvedba plačila bi vsebovala znesek in opis, kar bi se zapisalo v dnevnik transakcij. Verjetno bi potrebovali tudi metodo za izpis dnevnika transakcij.</p>
+
+<p align="center">
+<img src="img/bmw_kreditkarte_p90171210-b.jpg" class="img-responsive" style="width:75%" />
+</p>
+<p align="center"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir fotografije</button></p>
+<!-- Right column end -->
 					</div>
 				</div>
 			</div>
@@ -262,6 +220,7 @@
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index12.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -276,9 +235,6 @@
 
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>
-
-	<!-- jQuery QuickFlip -->
-	<script src="../js/jquery.quickflip.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>

@@ -163,10 +163,10 @@
 class Komplet:
 
   def __init__(self):
-    self.karte = []
+    self._karte = []
     for barva in range(4):
       for vrednost in range(1, 14):
-        self.karte.append(Karta(barva, vrednost))
+        self._karte.append(Karta(barva, vrednost))
 </pre>
 </p>
 

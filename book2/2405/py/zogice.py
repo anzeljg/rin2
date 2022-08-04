@@ -19,19 +19,19 @@ class Zoga:
 
   # Ustvari objekt 'Zoga' s privzeto barvo in velikostjo
   def __init__(self, barva="white", premer=30):
-    self.lik = platno.create_oval(10, 10, premer, premer, \
-                                  fill=barva)
-    self.hitrost_x = random.randrange(-10, 10)
-    self.hitrost_y = random.randrange(-10, 10)
+    self._lik = platno.create_oval(10, 10, premer, premer, \
+                                   fill=barva)
+    self._hitrost_x = random.randrange(-10, 10)
+    self._hitrost_y = random.randrange(-10, 10)
 
   # Metoda, ki med animacijo premakne objekt
   def premakni(self):
-    platno.move(self.lik, self.hitrost_x, self.hitrost_y)
-    polozaj = platno.coords(self.lik)
+    platno.move(self._lik, self._hitrost_x, self._hitrost_y)
+    polozaj = platno.coords(self._lik)
     if polozaj[3] >= VISINA or polozaj[1] <= 0:
-      self.hitrost_y = -self.hitrost_y
+      self._hitrost_y = -self._hitrost_y
     if polozaj[2] >= SIRINA or polozaj[0] <= 0:
-      self.hitrost_x = -self.hitrost_x
+      self._hitrost_x = -self._hitrost_x
 
 
 barve  = ["red", "green", "blue", "yellow", \

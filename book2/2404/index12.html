@@ -157,23 +157,25 @@
 <p align="justify">Dopolnimo metodo <code>igraj</code>, ki bo za vsakega igralca (in delivca na koncu) vlekla dodatne karte, dokler bo vsota vrednosti kart manjša ali enaka 16. Pri delivcu bo metoda nastavila tudi, da druga karta ne bo več skrita. Nato bo metoda, s klicem metode <code>izpisi_igralce</code>, izpisala stanje kart v rokah igralcev in delivca ob koncu igre. Nazadnje bo metoda, s klicem metode <code>izpisi_rezultate</code>, izpisala še rezultate igre:
 <pre>
 class BlackJackIgra(IgraKart):
-  ...
+  # ...
+ 
   def igraj(self, imena):
-    ...
+    # ...
+
     # Igralci in delivec vlečejo karte,
     # dokler je vsota manjša ali enaka 16
-    stev_igralcev = len(self.igralci)
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      igralec = self.igralci[i]
+      igralec = self._igralci[i]
       while igralec.vrednost_kart() <= 16:
         # Igralec lahko ima največ 5 kart
         if igralec.stevilo_kart() == 5:
           break
-        karta = self.komplet.karte.pop()
+        karta = self._komplet._karte.pop()
         igralec.dodaj(karta)
       # Če je zadnji igralec, obrni skrito karto
       if i == stev_igralcev-1:
-        self.igralci[i].skrito = False
+        self._igralci[i]._skrito = False
     print("---------- Igralci igrajo proti delivcu")
     self.izpisi_igralce()
 
@@ -192,13 +194,14 @@ class BlackJackIgra(IgraKart):
 <p>
 <pre>
 class BlackJackIgra(IgraKart):
-  ...
+  # ...
+
   def izpisi_rezultate(self):
-    delivec = self.igralci[-1] # zadnji igralec
+    delivec = self._igralci[-1] # zadnji igralec
     rezultat_delivca = delivec.vrednost_kart()
-    stev_igralcev = len(self.igralci)
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      print(self.igralci[i].rezultat(rezultat_delivca))
+      print(self._igralci[i].rezultat(rezultat_delivca))
 </pre>
 </p>
 
@@ -213,33 +216,34 @@ from blackjack import *
 class BlackJackIgra(IgraKart):
 
   def igraj(self, imena):
+    """ Igra igro s kartami: Black Jack """
     # Dodaj igralce
-    self.igralci = []
+    self._igralci = []
     for ime in imena:
-      self.igralci.append(BlackJackIgralec(ime))
+      self._igralci.append(BlackJackIgralec(ime))
 
     # Dodaj delivca
-    self.igralci.append(BlackJackDelivec())
+    self._igralci.append(BlackJackDelivec())
 
     # Razdeli karte - vsakemu igralcu 2 karti
-    self.komplet.deli(self.igralci, len(self.igralci)*2)
+    self._komplet.deli(self._igralci, len(self._igralci)*2)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
     # Igralci in delivec vlečejo karte,
     # dokler je vsota manjša ali enaka 16
-    stev_igralcev = len(self.igralci)
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      igralec = self.igralci[i]
+      igralec = self._igralci[i]
       while igralec.vrednost_kart() <= 16:
         # Igralec lahko ima največ 5 kart
         if igralec.stevilo_kart() == 5:
           break
-        karta = self.komplet.karte.pop()
+        karta = self._komplet._karte.pop()
         igralec.dodaj(karta)
       # Če je zadnji igralec, obrni skrito karto
       if i == stev_igralcev-1:
-        self.igralci[i].skrito = False
+        self._igralci[i]._skrito = False
     print("---------- Igralci igrajo proti delivcu")
     self.izpisi_igralce()
 
@@ -248,16 +252,18 @@ class BlackJackIgra(IgraKart):
     self.izpisi_rezultate()
 
   def izpisi_igralce(self):
-    stev_igralcev = len(self.igralci)
+    """ Izpiše igralce, ki igrajo igro """
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      print(self.igralci[i])
+      print(self._igralci[i])
 
   def izpisi_rezultate(self):
-    delivec = self.igralci[-1] # zadnji igralec
+    """ Izpiše rezultate vseh igralcev """
+    delivec = self._igralci[-1] # zadnji igralec
     rezultat_delivca = delivec.vrednost_kart()
-    stev_igralcev = len(self.igralci)
+    stev_igralcev = len(self._igralci)
     for i in range(stev_igralcev):
-      print(self.igralci[i].rezultat(rezultat_delivca))
+      print(self._igralci[i].rezultat(rezultat_delivca))
 
 
 igra = BlackJackIgra()
@@ -345,6 +351,10 @@ igra.igraj(["Janez", "Karel", "Lojze"])
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<script src="js/skulpt-stdlib-modul-blackjack.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -381,9 +391,14 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 450);
+editor.setSize('100%', 445);
+editor.foldCode(CodeMirror.Pos(43, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

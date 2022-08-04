@@ -162,8 +162,9 @@ class DNK:
   # ...
 
   def stevilo_nukleotidov(self, nukleotid):
+    """ Vrne število nukleotidov, ki jih vsebuje DNK niz """
     stevilo = 0
-    for znak in self.niz:
+    for znak in self._niz:
       if (znak == nukleotid):
         stevilo = stevilo + 1
     return stevilo
@@ -193,8 +194,9 @@ class DNK:
 class DNK:
   # ...
 
-  def vsebuje_zaporedje(self, other):
-    mesto = self.niz.find(other.niz, 0)
+  def vsebuje_zaporedje(self, dnk):
+    """ Vrne ali DNK niz vsebuje drug DNK niz """
+    mesto = self._niz.find(dnk._niz, 0)
     if (mesto >= 0):
       return True
     else:
@@ -262,10 +264,12 @@ print(dnk1.vsebuje_zaporedje(DNK('GT')))
 class DNK:
 
   def __init__(self, zaporedje=""):
-    self.niz = zaporedje
+    """ Inicializator """
+    self._niz = zaporedje
 
   def __str__(self):
-    return self.niz
+    """ Vrne DNK niz """
+    return self._niz
 
 
 </textarea></p>
@@ -351,6 +355,10 @@ class DNK:
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -387,9 +395,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 600);
+editor.setSize('100%', 590);
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

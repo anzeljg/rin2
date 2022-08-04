@@ -205,6 +205,7 @@ def vleci():
 <pre>
 def obdrzi():
   # Če igra poteka, potem delivec vleče karte, dokler
+  # je njihova skupna vrednost manjša od 17.
   global izid, REZULTAT, igra_poteka, komplet, delivec
   while delivec.vrednost_kart() < 17:
     delivec.dodaj_karto(komplet.deli_karto())
@@ -288,55 +289,6 @@ def obdrzi():
 
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
-
-	<!-- Skulpt and CodeMirror -->
-	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="js/skulpt.min.js"></script>
-	<script src="js/skulpt-stdlib-simplegui.js"></script>
-	<script src="js/codeskulptor.min.js"></script>
-	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
-
-<script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("console");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("console");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "console";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("console");
-    mypre.innerHTML = '';
-}
-</script>
-
-<script>
-var editor = CodeMirror.fromTextArea(document.getElementById("eddiv"), {
-  lineNumbers: true,
-  matchBrackets: true,
-  mode: "python",
-  theme: "mbo"
-});
-editor.setSize('100%', 500);
-</script>
 
 
 <!-- CookieCuttr -->

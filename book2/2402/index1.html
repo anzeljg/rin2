@@ -182,11 +182,11 @@
 <p align="justify">Da bi lahko določili zgornje-levo oglišče smo v naš nov objekt <code>Pravokotnik</code> vključili objekt <code>Tocka</code>, kot smo ga definirali v prejšnjem poglavju. Ustvarimo dva nova objekta <code>Pravokotnik</code> in ju izpišimo:
 <pre>
 okvir: ((0, 0), 100, 200)
-bomba: ((100, 80), 5, 10)
+bomba: ((160, 80), 5, 10)
 </pre>
 </p>
 
-<p align="justify">Zapis s piko je sestavljiv. Izraz <code>okvir.oglisce.x</code> pomeni, »Pojdi do objekta, na katerega kaže <code>okvir</code> in dobi njegovo lastnost, imenovano <code>oglisce</code>, potem pojdi do tega objekta (<code>oglisce</code>) in dobi njegovo lastnost <code>x</code>«.</p>
+<p align="justify">Zapis s piko je sestavljiv. Poklicati moramo le ustrezne metodo objekta, ki vrača vrednost lastnosti. Na primer izraz <code>bomba.oglisce().x()</code> pomeni, »Pojdi do objekta, na katerega kaže <code>bomba</code> in dobi njegovo lastnost, imenovano <code>_oglisce</code>, ki tudi kaže na objekt. Potem pojdi do tega drugega objekta in dobi njegovo lastnost <code>_x</code>«.</p>
 
 <p align="justify">Slika prikazuje stanje tega objekta:</p>
 
@@ -202,31 +202,103 @@ bomba: ((100, 80), 5, 10)
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
+
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
 
   def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
-  # Tukaj manjkajo druge metode!
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
+    return Tocka(mx, my)
+
+  def zrcali_x(self):
+    """ Vrne točko, zrcaljeno preko x-osi """
+    return Tocka(self._x, -self._y)
+
+  def zrcali_y(self):
+    """ Vrne točko, zrcaljeno preko y-osi """
+    return Tocka(-self._x, self._y)
+
+  def zrcali(self):
+    """ Vrne točko, zrcaljeno preko koordinatnega izhodišča """
+    return Tocka(-self._x, -self._y)
+
+  def razdalja_do(self, tocka):
+    """ Vrne razdaljo do druge točke """
+    dx = self._x - tocka._x
+    dy = self._y - tocka._y
+    return (dx ** 2 + dy ** 2) ** 0.5
+
+  def premica_skozi(self, tocka):
+    """ Vrne koeficienta premice skozi dani točki """
+    k = (self._y - tocka._y) / (self._x - tocka._x)
+    n = self._y - k * self._x
+    return "(" + str(k) + ", " + str(n) + ")"
+
+  def polarno(self):
+    """ Vrne točko v polarni obliki """
+    import math
+    r = self.razdalja()
+    fi_r = math.atan2(self._x, self._y)
+    fi = math.degrees(fi_r)
+    return (r, fi) 
+
+  def premik(self, tocka):
+    """ Vrne premaknjeno točko """
+    self._x += tocka._x
+    self._y += tocka._y
 
 
 class Pravokotnik:
 
   def __init__(self, polozaj=Tocka(), sirina=0, visina=0):
-    self.oglisce = polozaj
-    self.sirina = sirina
-    self.visina = visina
+    """ Inicializator """
+    self._oglisce = polozaj
+    self._sirina = sirina
+    self._visina = visina
 
   def __str__(self):
-    return "(" + str(self.oglisce) + ", " + \
-	  str(self.sirina) + ", " + str(self.visina) + ")"
+    """ Vrne niz, ki vsebuje položaj in dimenzije pravokotnika """
+    return "(" + str(self._oglisce) + ", " + \
+	  str(self._sirina) + ", " + str(self._visina) + ")"
+
+  def oglisce(self, polozaj=None):
+    """ Vrne ali nastavi položaj pravokotnika """
+    if polozaj is None:
+      return self._oglisce
+    else:
+      self._oglisce = polozaj
 
 
 okvir = Pravokotnik(Tocka(0, 0), 100, 200)
-bomba = Pravokotnik(Tocka(100, 80), 5, 10) # V igrici...
+bomba = Pravokotnik(Tocka(160, 80), 5, 10) # V igrici...
 print("okvir: " + str(okvir))
 print("bomba: " + str(bomba))
+
+print(bomba.oglisce().x())
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -310,6 +382,10 @@ print("bomba: " + str(bomba))
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -346,9 +422,14 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 580);
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(0, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

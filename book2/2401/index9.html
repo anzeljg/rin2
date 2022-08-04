@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Objekti kot vrnjene vrednosti</title>
+	<title>Pretvarjanje objekta v niz</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -152,60 +152,77 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Objekti kot vrnjene vrednosti</h1>
+<h1>Pretvarjanje objekta v niz</h1>
 
-<p align="justify">Funkcije in metode lahko vračajo objekte. Na primer, če imamo dva objekta <code>Tocka</code>, lahko izračunamo njuno sredino oziroma središčno točko. Najprej napišimo kodo kot običajno funkcijo:
+<p align="justify">Večina objektno usmerjenih programerjev verjetno ne bi napisala in uporabila funkcije <code>izpisi_tocko</code>. Kadar delamo z razredi in objekti, raje dodamo novo metodo razredu. Prav tako ne maramo preveč metod, ki bi uporabljale funkcijo <code>print</code>. Boljši pristop je, da razred vsebuje metodo, ki omogoča vsakemu objektu, da ustvari niz oziroma besedilno predstavitev samega sebe. Ustvarimo takšno metodo in jo poimenujmo <code>v_niz</code>:
 <pre>
-def sredina(p1, p2):
-  mx = (p1.x + p2.x) / 2
-  my = (p1.y + p2.y) / 2
-  return Tocka(mx, my)
+class Tocka:
+  # ...
+
+  def v_niz(self):
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
 </pre>
 </p>
 
-<p align="justify">Ta funkcija ustvari in vrne nov objekt <code>Tocka</code>:
+<p align="justify">Metodo lahko uporabimo takole:
 <pre>
-&gt;&gt;&gt; p = Tocka(4, 3)
-&gt;&gt;&gt; q = Tocka(12, 5)
-&gt;&gt;&gt; r = sredina(p, q)
-&gt;&gt;&gt; r
-(8.0, 4.0)
+&gt;&gt;&gt; t = Tocka(7, 8)
+&gt;&gt;&gt; print(t.v_niz())
+(7, 8)
 </pre>
 </p>
 
-<p align="justify">Sedaj pa namesto funkcije kodo raje zapišimo v obliki metode. Recimo, da imamo objekt <code>Tocka</code> in želimo najti središčno točko na pol poti do drugega ciljnega objekta <code>Tocka</code></p>
+<p align="justify">Toda, ali ne obstaja funkcija <code>str</code>, ki samodejno pretvarja tip podatkov iz objekta v niz. Seveda obstaja! Tudi funkcija <code>print</code> samodejno pretvarja objekte v nize, ko jih izpisuje? Tudi to drži! Vendar ti samodejni mehanizmi še ne delujejo, kot bi si želeli:</p>
+
+<p><pre>
+&gt;&gt;&gt; str(t)
+'<__main__.Tocka object>'
+&gt;&gt;&gt; print(t)
+'<__main__.Tocka object>'
+</pre></p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
+<p align="justify">To lahko zelo enostavno popravimo tako, da našo metodo <code>v_niz</code> preimenujemo v <code>__str__</code>. Tako se bo ta metoda izvedla vsakokrat, ko bomo želeli objekt <code>Tocka</code> spremeniti v niz, na primer, kadar bomo uporabili funkciji <code>str</code> in <code>print</code>. Spremenimo oziroma ustrezno dopolnimo naš program:</p>
+
 <div>
 <form>
 <p><textarea id="code">
 class Tocka:
 
   def __init__(self, x=0, y=0):
-    self.x = x
-    self.y = y
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-  def razdalja_od_izhodisca(self):
-    return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+  def x(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti x """
+    if vrednost is None:
+      return self._x
+    else:
+      self._x = vrednost
+
+  def y(self, vrednost=None):
+    """ Vrne ali nastavi vrednost lastnosti y """
+    if vrednost is None:
+      return self._y
+    else:
+      self._y = vrednost
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
 
   def __str__(self):
-    return "(" + str(self.x) + ", " + str(self.y) + ")"
-
-  def na_pol_poti_do(self, target):
-    mx = (self.x + target.x) / 2
-    my = (self.y + target.y) / 2
-    return Tocka(mx, my)
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
 
 p = Tocka(4, 3)
-q = Tocka(12, 5)
-r = p.na_pol_poti_do(q)
-print(r)
-# Alternativni zapis brez uporabe spremenljivk
-print(Tocka(4, 3).na_pol_poti_do(Tocka(12, 5)))
+print(p)
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -215,6 +232,12 @@ print(Tocka(4, 3).na_pol_poti_do(Tocka(12, 5)))
 </form>
 </div>
 <pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše koordinati točke:
+<pre>
+(4, 3)
+</pre>
+</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -241,6 +264,7 @@ print(Tocka(4, 3).na_pol_poti_do(Tocka(12, 5)))
 					<li><a href="../2401/index12.html">13</a></li>
 					<li><a href="../2401/index13.html">14</a></li>
 					<li><a href="../2401/index14.html">15</a></li>
+					<li><a href="../2401/index15.html">16</a></li>
 					<li><a href="../2401/index10.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -286,6 +310,10 @@ print(Tocka(4, 3).na_pol_poti_do(Tocka(12, 5)))
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
 function outf(text) {
@@ -322,9 +350,17 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
   mode: "python",
-  theme: "rin-light"
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 460);
+editor.setSize('100%', 336);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(14, 0));
+editor.foldCode(CodeMirror.Pos(21, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

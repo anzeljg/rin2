@@ -1,0 +1,7 @@
+Enaka podatkovna baza kot "database.sqlite" vendar z nekaj razlikami, da lahko dijaki vadijo upravljanje podatkov (dodajanje, popravljanje/spreminjanje in brisanje):
+
+- izbrisan zapis 97 v tabeli film
+- izbrisan zapis 97 v tabeli blagajna
+- pri zapisu 9 naj bo režiser "Janez Novak"
+- pri zapisu 13 naj bo leto 1899
+- pri zapisu 46 naj bo naslov "Toy Story 8" in režiser "Janez Novak"

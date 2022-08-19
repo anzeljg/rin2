@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Relacijski podatkovni model: tuji ključ</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/office.css" rel="stylesheet">
+
+	<!-- jQuery TableSorter plugin -->
+	<link href="css/jquery.tablesorter.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li class="active"><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Relacijski podatkovni model</h1>
+
+<h2>Tuji ključ</h2>
+
+<p align="justify">Kot že vemo, v relacijskem podatkovnem modelu ustvarimo relacijo med dvema tabelama tako, da obema tabelama dodamo skupno polje. To skupno polje mora biti primarni ključ ene tabele, v drugi tabeli pa to isto polje predstavlja tuji ključ. Z drugimi besedami, primarni ključ prve tabele, predstavlja tuji ključ v drugi tabeli oziroma tuji ključ kaže na primarni ključ prve tabele.</p>
+
+<p align="justify">Oglejmo si, kako so na primer povezani učitelji in predmeti, ki jih učitelji poučujejo. V tabeli predmetov vsak zapis posameznega predmeta vsebuje tudi polje s »Kodo učitelja«, ki poučuje ta predmet. To polje predstavlja tuji ključ, saj kaže na polje oziroma je povezano s poljem »Koda učitelja« v tabeli učiteljev, kot prikazuje spodnja slika:</p>
+
+<p align="center"><img src="img/db_primeri_tuji_kljuc.svg" class="img-responsive" /></p>
+
+<p align="justify">Tuji ključi omogočajo nekaj, kar imenujemo <b>referenčna celovitost</b> (<i>ang. referential integrity</i>). To pomeni, da če tuji ključ vsebuje vrednost, se ta vrednost nanaša na obstoječi zapis (in njegov primarni ključ) v povezani tabeli. Oglejmo si na primer spodnji tabeli:</p>
+
+<p align="justify">
+<div class="row">
+  <div class="col-md-6">
+	<b>Tabela učiteljev <code>ucitelj</code></b>
+	<table id="sqlTable4" class="tablesorter" border="1" width="100%">
+	  <thead>
+		<tr>
+		  <th style="width:20%"><i>koda</i></th>
+		  <th style="width:40%">ime</th>
+		  <th style="width:40%">priimek</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>1</td>
+		  <td>Vilko</td>
+		  <td>Kovačič</td>
+		</tr>
+		<tr>
+		  <td>2</td>
+		  <td>Zvone</td>
+		  <td>Zupančič</td>
+		</tr>
+		<tr>
+		  <td>3</td>
+		  <td>Hilda</td>
+		  <td>Mlakar</td>
+		</tr>
+	  </tbody>
+	</table>
+  </div>
+  <div class="col-md-6">
+	<b>Tabela predmetov <code>predmet</code></b>
+	<table id="sqlTable5" class="tablesorter" border="1" width="100%">
+	  <thead>
+		<tr>
+		  <th style="width:20%">koda</th>
+		  <th style="width:40%">naziv</th>
+		  <th style="width:40%"><i>koda_ucitelja</i></th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>1</td>
+		  <td>Matematika</td>
+		  <td>1</td>
+		</tr>
+		<tr>
+		  <td>2</td>
+		  <td>Fizika</td>
+		  <td>3</td>
+		</tr>
+		<tr>
+		  <td>3</td>
+		  <td>Geografija</td>
+		  <td>2</td>
+		</tr>
+	  </tbody>
+	</table>
+  </div>
+</div>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Med tabelama obstaja referenčna celovitost, saj vsi učitelji (oziroma njihove kode) v tabeli predmetov, obstajajo v tabeli učiteljev.</p>
+
+<p align="justify">Poglejmo, kaj se zgodi v primeru, da učitelj Vilko Kovačič zapusti šolo in ga zato odstranimo iz tabele učiteljev. V primeru, da referenčna celovitost ni zahtevana in uveljavljena, bi se zgodilo, da bi učitelja odstranili iz tabele učiteljev, ne pa tudi iz tabele predmetov, kjer bi še vedno ostala njegova koda, kot je prikazano spodaj:</p>
+
+<p align="justify">
+<div class="row">
+  <div class="col-md-6">
+	<b>Tabela učiteljev <code>ucitelj</code></b>
+	<table id="sqlTable6" class="tablesorter" border="1" width="100%">
+	  <thead>
+		<tr>
+		  <th style="width:20%"><i>koda</i></th>
+		  <th style="width:40%">ime</th>
+		  <th style="width:40%">priimek</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>2</td>
+		  <td>Zvone</td>
+		  <td>Zupančič</td>
+		</tr>
+		<tr>
+		  <td>3</td>
+		  <td>Hilda</td>
+		  <td>Mlakar</td>
+		</tr>
+	  </tbody>
+	</table>
+  </div>
+  <div class="col-md-6">
+	<b>Tabela predmetov <code>predmet</code></b>
+	<table id="sqlTable7" class="tablesorter" border="1" width="100%">
+	  <thead>
+		<tr>
+		  <th style="width:20%">koda</th>
+		  <th style="width:40%">naziv</th>
+		  <th style="width:40%"><i>koda_ucitelja</i></th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>1</td>
+		  <td>Matematika</td>
+		  <td>1</td>
+		</tr>
+		<tr>
+		  <td>2</td>
+		  <td>Fizika</td>
+		  <td>3</td>
+		</tr>
+		<tr>
+		  <td>3</td>
+		  <td>Geografija</td>
+		  <td>2</td>
+		</tr>
+	  </tbody>
+	</table>
+  </div>
+</div>
+</p>
+
+<p align="justify">To pomeni, da v tabeli predmetov še vedno obstaja koda učitelja, ki ga ni več v tabeli učiteljev. Če bi želeli poiskati učitelja, ki uči matematiko, bi nas podatkovna baza skušala preusmeriti na neobstoječi zapis &ndash; posledično bi prišlo do napake. To imenujemo slaba celovitost podatkov.</p>
+
+<p align="justify">Tuji ključi omogočajo tudi stopničasto (<i>ang. cascade</i>) oziroma zaporedno brisanje in posodabljanje podatkov v ustreznih tabelah oziroma zapisih.</p>
+
+<p align="justify"> Če bi na primer učitelj Vilko Kovačič zapustil šolo, bi ga lahko z enim ukazom izbrisali najprej iz tabele učiteljev, nato pa bi zaporedno iz tabele predmetov izbrisali še vse predmete, ki jih Vilko Kovačič poučuje. Brisanje torej poteka v vseh povezanih tabelah in v ustreznem zaporedju odstrani vse ustrezne zapise.</p>
+
+<p align="justify">Tuji ključi lahko vsebujejo tudi ničelne vrednosti, kar pomeni, da relacija ne obstaja.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2303/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2304/index6.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2304/index.html">1</a></li>
+					<li><a href="../2304/index1.html">2</a></li>
+					<li><a href="../2304/index2.html">3</a></li>
+					<li><a href="../2304/index3.html">4</a></li>
+					<li><a href="../2304/index4.html">5</a></li>
+					<li><a href="../2304/index5.html">6</a></li>
+					<li><a href="../2304/index6.html">7</a></li>
+					<li class="active"><a href="#">8</a></li>
+					<li><a href="../2304/index8.html">9</a></li>
+					<li><a href="../2304/index9.html">10</a></li>
+					<li><a href="../2304/index10.html">11</a></li>
+					<li><a href="../2304/index11.html">12</a></li>
+					<li><a href="../2304/index12.html">13</a></li>
+					<li><a href="../2304/index13.html">14</a></li>
+					<li><a href="../2304/index14.html">15</a></li>
+					<li><a href="../2304/index15.html">16</a></li>
+					<li><a href="../2304/index16.html">17</a></li>
+					<li><a href="../2304/index17.html">18</a></li>
+					<li><a href="../2304/index18.html">19</a></li>
+					<li><a href="../2304/index19.html">20</a></li>
+					<li><a href="../2304/index20.html">21</a></li>
+					<li><a href="../2304/index21.html">22</a></li>
+					<li><a href="../2304/index22.html">23</a></li>
+					<li><a href="../2304/index23.html">24</a></li>
+					<li><a href="../2304/index8.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2305/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- jQuery TableSorter plugin -->
+	<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+	<script>
+	$(document).ready(function() { 
+		$("#sqlTable4").tablesorter(); 
+		$("#sqlTable5").tablesorter(); 
+		$("#sqlTable6").tablesorter(); 
+		$("#sqlTable7").tablesorter(); 
+	}); 
+	</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

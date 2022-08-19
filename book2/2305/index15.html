@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Upravljanje tabel</title>
+
+	<!-- Prefetch large files used later -->
+	<link rel="prefetch" href="js/sql_3.8.7.4.js">
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Interactive SQL editor -->
+	<link type="text/css" href="css/sql_exercise.min.css" rel="stylesheet">
+	<link type="text/css" href="css/ace_editor.min.css" rel="stylesheet">
+	<link type="text/css" href="css/ace-sqlserver.css" rel="stylesheet">
+	<link type="text/css" href="css/error_widget.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li class="active"><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Upravljanje tabel</h1>
+
+<h2>Ustvarjanje tabel</h2>
+
+<p align="justify">S stavkom <code>CREATE TABLE</code> v podatkovni bazi ustvarimo novo tabelo, v katero shranjujemo entitete in relacije.</p>
+
+<div class="alert alert-info">
+Ustvarjanje nove tabele
+<pre>
+<b>CREATE TABLE IF NOT EXISTS</b> tabela (
+  stolpec1 <i>vrsta_podatkov</i> <i>omejitev</i> <b>DEFAULT</b> <i>privzeta_vrednost</i>,
+  stolpec2 <i>vrsta_podatkov</i> <i>omejitev</i> <b>DEFAULT</b> <i>privzeta_vrednost</i>,
+  stolpec3 <i>vrsta_podatkov</i> <i>omejitev</i> <b>DEFAULT</b> <i>privzeta_vrednost</i>,
+  ...
+);
+</pre>
+</div>
+
+<p align="justify">Strukturo nove tabele določa njena shema, ki določa niz stolpcev oziroma atributov. Vsak stolpec ima ime, vrsto podatkov, dovoljenih v tem stolpcu, izbirne omejitve za vstavljene vrednosti in izbirno privzeto vrednost.</p>
+
+<p align="justify">Če že obstaja tabela z enakim imenom, bo SQL običajno vrnil napako. Tej napaki se lahko izognemo in preskočimo ustvarjanje že obstoječe tabele tako, da v stavku <code>CREATE TABLE</code> uporabimo pogoj <code>IF NOT EXISTS</code>, kot je prikazano v zgornjem primeru.</p>
+
+<h4>Vrste podatkov</h4>
+
+<p align="justify">Različne podatkovne baze podpirajo različne vrste podatkov, vendar običajno podpirajo vsaj številske, besedilne in druge vrste podatkov, kot so datumi, logične vrednosti ali celo podatki v dvojiškem zapisu, na primer slike ali druge datoteke. Tabela vsebuje nekaj primerov različnih vrst podatkov, ki jih lahko uporabljamo v kodi SQL.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+	  <th>Vrsta podatkov</th>
+      <th width="70%">Opis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+	  <td><code>INTEGER</code>, <code>BOOLEAN</code></td>
+	  <td align="justify">Uporabimo ju za shranjevanje celih števil, kot so na primer števec, višina  ali starost. Logična vrednost je predstavljena kot celoštevilska vrednost, ki lahko vsebuje samo 0 ali 1.</td>
+	</tr>
+    <tr>
+	  <td><code>FLOAT</code>, <code>DOUBLE</code>, <code>REAL</code></td>
+	  <td align="justify">Uporabimo jih za shranjevanje realnih števil, zapisanih s plavajočo vejico, kot so na primer rezultati meritev ali druge natančnejše številske vrednosti. Uporabimo lahko različne vrste, odvisno od natančnosti plavajoče vejice, ki jo potrebujemo za shranjevanje vrednosti.</td>
+	</tr>
+    <tr>
+	  <td><code>CHARACTER(<i>štev_znakov</i>)</code>, <code>VARCHAR(<i>štev_znakov</i>)</code>, <code>TEXT</code></td>
+	  <td><p align="justify">Uporabimo jih za shranjevanje besedilnih podatkov v vseh vrstah jezikov. Razlika med različnimi vrstami na splošno pomeni učinkovitost podatkovne baze pri delu s temi podatki.</p>
+	  <p align="justify">Vrsti <code>CHARACTER</code> in <code>VARCHAR</code> (okrajšava za spremenljivo število znakov &ndash; <i>ang. variable charater</i>) sta navedeni z največjim številom znakov, ki jih lahko shranita, zato sta lahko učinkovitejši za shranjevanje in poizvedovanje pri tabelah, ki vsebujejo veliko podatkov. Če je besedilo daljše, potem se v podatkovno bazo shrani samo navedeno število znakov.</p></td>
+	</tr>
+    <tr>
+	  <td><code>DATE</code>, <code>DATETIME</code></td>
+	  <td align="justify">Uporabimo ju za shranjevanje datumskih in časovnih žigov za spremljanje časovnih podatkov in podatkov o dogodkih. Delo s temi podatki je lahko težavno, zlasti pri uporavljanju podatkov med različnimi časovnimi pasovi.</td>
+	</tr>
+    <tr>
+	  <td><code>BLOB</code></td>
+	  <td align="justify">Uporabljamo ga za shranjevanje dvojiških podatkov (na primer datotek) neposredno v podatkovni bazi. Shraniti jih moramo s pravimi metapodatki, če želimo po teh podatkih poizvedovati.</td>
+	</tr>
+  </tbody>
+</table>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2304/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2305/index14.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2305/index.html">1</a></li>
+					<li><a href="../2305/index1.html">2</a></li>
+					<li><a href="../2305/index2.html">3</a></li>
+					<li><a href="../2305/index3.html">4</a></li>
+					<li><a href="../2305/index4.html">5</a></li>
+					<li><a href="../2305/index5.html">6</a></li>
+					<li><a href="../2305/index6.html">7</a></li>
+					<li><a href="../2305/index7.html">8</a></li>
+					<li><a href="../2305/index8.html">9</a></li>
+					<li><a href="../2305/index9.html">10</a></li>
+					<li><a href="../2305/index10.html">11</a></li>
+					<li><a href="../2305/index11.html">12</a></li>
+					<li><a href="../2305/index12.html">13</a></li>
+					<li><a href="../2305/index13.html">14</a></li>
+					<li><a href="../2305/index14.html">15</a></li>
+					<li class="active"><a href="#">16</a></li>
+					<li><a href="../2305/index16.html">17</a></li>
+					<li><a href="../2305/index17.html">18</a></li>
+					<li><a href="../2305/index18.html">19</a></li>
+					<li><a href="../2305/index19.html">20</a></li>
+					<li><a href="../2305/index20.html">21</a></li>
+					<li><a href="../2305/index21.html">22</a></li>
+					<li><a href="../2305/index22.html">23</a></li>
+					<li><a href="../2305/index23.html">24</a></li>
+					<li><a href="../2305/index16.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2306/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- Interactive SQL editor incl. jQuery & Bootstrap -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/underscore.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/highlight.min.js"></script>
+	<script type="text/javascript" src="js/modernizr.min.js"></script>
+	<script type="text/javascript" src="js/sql_exercise.min.js"></script>
+	<script type="text/javascript" src="js/sql_3.8.7.4.js"></script>
+	<script type="text/javascript" src="js/ace.js"></script>
+	<script type="text/javascript" src="js/mode-sql.js"></script>
+	<script type="text/javascript" src="js/theme-sqlserver.js"></script>
+	<script type="text/javascript" src="db/database.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+		console.log(window.location.origin);
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+
+<script type="text/javascript">
+    "use strict";
+
+    // Setup the exercises
+    var exerciseJson = "{\"tasks_title\": \"Vaja 6\", \"database\": \"database.js\", \"is_two_up\": true, \"targetDatatableId\": \"_result\", \"inputDefaultQuery\": \"SELECT * FROM zaposleni;\", \"inputDefaultQuerySelection\": [20, 20], \"datatable\": {\"_tables\": [\"stavba\", \"zaposleni\"], \"_result\": {\"defaultQuery\": \"SELECT * FROM zaposleni;\"}, \"stavba\": {\"defaultQuery\": \"SELECT * FROM stavba;\"}, \"zaposleni\": {\"defaultQuery\": \"SELECT * FROM zaposleni;\"}}, \"tasks\": [{\"text\": \"Poišči vse stavbe in njihove kapacitete.\", \"solution\": \"SELECT naziv, kapaciteta FROM stavba;\", \"checks\": [{\"type\": \"row_col_val_solution_query\", \"data\": null}]}, {\"text\": \"Poišči id in naziv vseh stavb, v katerih so zaposleni in jih uredi po nazivu v padajočem vrstnem redu.\", \"solution\": \"SELECT DISTINCT stavba_id, naziv FROM zaposleni\\nLEFT JOIN stavba ON zaposleni.stavba_id = stavba.id\\nORDER BY naziv DESC;\", \"checks\": [{\"type\": \"row_col_val_solution_query\", \"data\": null}]}, {\"text\": \"Izpiši nazive vseh stavb in različne vloge zaposlenih v vsaki stavbi (vključno s praznimi stavbami).\", \"solution\": \"SELECT DISTINCT naziv, vloga FROM stavba\\nLEFT JOIN zaposleni ON stavba.id = zaposleni.stavba_id;\", \"checks\": [{\"type\": \"row_col_val_solution_query\", \"data\": null}]}, {\"text\": \"Poišči imena, priimke in vloge vseh zaposlenih, ki niso bili dodeljeni nobeni stavbi.\", \"solution\": \"SELECT ime, priimek, vloga FROM zaposleni\\nWHERE stavba_id IS NULL;\", \"checks\": [{\"type\": \"row_col_val_solution_query\", \"data\": null}]}, {\"text\": \"Poišči imena stavb, v katerih ni zaposlenih.\", \"solution\": \"SELECT DISTINCT naziv FROM stavba\\nLEFT JOIN zaposleni ON stavba.id = zaposleni.stavba_id\\nWHERE vloga IS NULL;\", \"checks\": [{\"type\": \"row_col_val_solution_query_ordered\", \"data\": null}]}]}";
+    
+    initializeDocumentLoad(exerciseJson);
+    exerciseJson = null;
+</script>
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

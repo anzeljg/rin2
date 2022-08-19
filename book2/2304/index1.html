@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Podatkovne baze</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/office.css" rel="stylesheet">
+
+	<!-- jQuery TableSorter plugin -->
+	<link href="css/jquery.tablesorter.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li class="active"><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Kaj je podatkovna baza?</h1>
+
+<p align="justify">Podatkovno bazo si najlažje predstavljamo kot zbirko povezanih tabel. Predstavljajmo si tabelo (v papirnati ali v digitalni obliki) s prodajnimi naročili v trgovini. Potem imamo še eno tabelo izdelkov, ki vsebuje evidenco zalog. Če želimo izpolniti naročilo, moramo najprej izdelek poiskati v tabeli z naročilom, nato pa poiskati in prilagoditi raven zalog tega izdelka v tabeli izdelkov. za take naloge uporabljamo podatkovno bazo (<i>ang. database</i>) in programsko opremo za upravljanje podatkovnih baz, ki jo imenujemo sistem za upravljanje podatkovnih baz (<i>database management system &ndash; DBMS</i>).</p>
+
+<p align="justify">Večina današnjih podatkovnih baz je relacijskih (<i>ang. relational</i>). Relacijske podatkovne baze jih imenujemo zato, ker vsebujejo tabele podatkov, ki so med seboj povezane oziroma v relaciji preko skupnega polja. Na primer »Tabela 1« prikazuje tabelo izdelkov, »Tabela 2« pa prikazuje tabelo računa. Opazimo lahko, da povezava oziroma relacija med obema tabelama temelji na skupnem polju <code>koda_izdelka</code>. Kateri koli dve tabeli lahko med seboj preprosto povežemo preko skupnega polja.</p>
+
+<p>
+<b>Tabela 1</b>
+<table id="sqlTable1" class="tablesorter" border="1" width="100%">
+  <thead>
+    <tr>
+      <th style="width:30%"><i>koda_izdelka</i></th>
+      <th style="width:25%">opis</th>
+      <th style="width:25%">enota</th>
+      <th style="width:20%">cena</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A416</td>
+      <td>žeblji</td>
+      <td>škatla</td>
+      <td>2,58 €</td>
+    </tr>
+    <tr>
+      <td>C923</td>
+      <td>žebljički</td>
+      <td>škatla</td>
+      <td>1,97 €</td>
+    </tr>
+    <tr>
+      <td>B587</td>
+      <td>vijaki</td>
+      <td>škatla</td>
+      <td>2,36 €</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+
+<p>
+<b>Tabela 2</b>
+<table id="sqlTable2" class="tablesorter" border="1" width="100%">
+  <thead>
+    <tr>
+      <th style="width:30%">koda_racuna</th>
+      <th style="width:20%">vrstica_racuna</th>
+      <th style="width:30%"><i>koda_izdelka</i></th>
+      <th style="width:20%">kolicina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3676</td>
+      <td>1</td>
+      <td>A416</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>3676</td>
+      <td>2</td>
+      <td>C923</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Podrobneje poglejmo prejšnji dve tabeli, da ugotovimo, kako sta organizirani:
+<ul align="justify">
+  <li>Vsaka tabela je sestavljena iz večih vrstic (<i>ang. rows</i>) in stolpcev (<i>ang. columns</i>).</li>
+  <li>Vsaka vrstica vsebuje podatke o enem samem primerku entitete (na primer enem izdeleku ali eni vrstici naročila). To imenujemo zapis (<i>ang. record</i>). Na primer, prva vrstica v tabeli 1 je zapis; opisuje izdelek A416 &ndash; škatlo žebljev, ki stane dva evra in oseminpetdeset centov. Izraza vrstica in zapis pomenita isto in ju lahko zamenjujemo.</li>
+  <li>Vsak stolpec &ndash; imenujemo ga tudi atribut (<i>ang. attribute</i>) &ndash; vsebuje en del podatkov, ki se nanaša na zapis. Primeri atributov so količina prodanega izdelka ali cena izdelka. Kadar govorimo o podatkovnih bazah, lahko atribut imenujemo tudi polje (<i>ang. field</i>). Podatki v stolpcu »opis« v tabeli 1 so primer polja. Izraza atribut in polje pomenita isto in ju lahko zamenjujemo.</li>
+</ul>
+</p>
+
+<p align="justify">S takšno strukturo nam podatkovna baza omogoča upravljanje s podatki s pomočjo SQL. Strukturiran povpraševalni jezik (<i>ang. structured query language &ndash; SQL</i>) je zmogljiv način iskanja ali spreminjanja zapisov, ki si ga bomo podrobneje ogledali v naslednji učni enoti.</p>
+
+<p align="justify">Za lažje delo s podatkovnimi bazami oziroma za lažje upravljanje podatkovnih baz običajno uporabljamo sisteme za upravljanje podatkovnih baz (<i>ang. database management systems &ndash; DBMS</i>). Naštejmo še nekaj najbolj razširjenih: MySQL, PostgreSQL, Microsoft SQL Server, SQLite, MongoDB, Redis, MariaDB, Oracle, Firebase, Elasticsearch, DynamoDB, Cassandra, IMB DB2, Couchbase in drugi.</p>
+
+<div id="gallery" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#gallery" data-slide-to="0" class="active"></li>
+    <li data-target="#gallery" data-slide-to="1"></li>
+    <li data-target="#gallery" data-slide-to="2"></li>
+    <li data-target="#gallery" data-slide-to="3"></li>
+    <li data-target="#gallery" data-slide-to="4"></li>
+    <li data-target="#gallery" data-slide-to="5"></li>
+    <li data-target="#gallery" data-slide-to="6"></li>
+    <li data-target="#gallery" data-slide-to="7"></li>
+    <li data-target="#gallery" data-slide-to="8"></li>
+    <li data-target="#gallery" data-slide-to="9"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <center>
+	  <img src="img/dbms_MySQL.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>MySQL</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_PostgreSQL.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>PostgreSQL</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_MS-SQL-Server.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>Microsoft SQL Server</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_SQLite.png" />
+      <div class="carousel-caption">
+        <p>SQLite</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_MongoDB.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>MongoDB</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_Redis.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>Redis</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_MariaDB.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>MariaDB</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+      <img src="img/dbms_Oracle.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>Oracle</p>
+      </div>
+      </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_Firebase.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>Firebase</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_Elasticsearch.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>Elasticsearch</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_DynamoDB.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>DynamoDB</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_Cassandra.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>Cassandra</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_IBM-DB2.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>IMB DB2</p>
+      </div>
+	  </center>
+    </div>
+
+    <div class="item">
+      <center>
+	  <img src="img/dbms_Couchbase.png" class="img-responsive" />
+      <div class="carousel-caption">
+        <p>Couchbase</p>
+      </div>
+	  </center>
+    </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#gallery" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#gallery" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2303/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2304/index.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2304/index.html">1</a></li>
+					<li class="active"><a href="#">2</a></li>
+					<li><a href="../2304/index2.html">3</a></li>
+					<li><a href="../2304/index3.html">4</a></li>
+					<li><a href="../2304/index4.html">5</a></li>
+					<li><a href="../2304/index5.html">6</a></li>
+					<li><a href="../2304/index6.html">7</a></li>
+					<li><a href="../2304/index7.html">8</a></li>
+					<li><a href="../2304/index8.html">9</a></li>
+					<li><a href="../2304/index9.html">10</a></li>
+					<li><a href="../2304/index10.html">11</a></li>
+					<li><a href="../2304/index11.html">12</a></li>
+					<li><a href="../2304/index12.html">13</a></li>
+					<li><a href="../2304/index13.html">14</a></li>
+					<li><a href="../2304/index14.html">15</a></li>
+					<li><a href="../2304/index15.html">16</a></li>
+					<li><a href="../2304/index16.html">17</a></li>
+					<li><a href="../2304/index17.html">18</a></li>
+					<li><a href="../2304/index18.html">19</a></li>
+					<li><a href="../2304/index19.html">20</a></li>
+					<li><a href="../2304/index20.html">21</a></li>
+					<li><a href="../2304/index21.html">22</a></li>
+					<li><a href="../2304/index22.html">23</a></li>
+					<li><a href="../2304/index23.html">24</a></li>
+					<li><a href="../2304/index2.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2305/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- jQuery TableSorter plugin -->
+	<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+	<script>
+	$(document).ready(function() { 
+		$("#sqlTable1").tablesorter(); 
+		$("#sqlTable2").tablesorter(); 
+	}); 
+	</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+</body>
+
+</html>

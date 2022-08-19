@@ -322,13 +322,13 @@
 <script src="js/htmlmixed.js"></script>
 <script type="text/javascript">
 function runit() {
-    clearInterval(run);
+	//clearInterval(run);
 
     var content = editor2.getValue();
 	var jscode = editor3.getValue();
 
 	// Inject JavaScript into HTML
-	content = content.replace('<script src="ura.js" type="text/javascript"><\/script>', "<script>"+jscode+"<\/script></body>");	
+	content = content.replace("<script src='ura.js' type='text/javascript'><\/script>", "<script>"+jscode+"<\/script></body>");	
 	
     var doc = document.getElementById("output").contentWindow.document;
     doc.open();

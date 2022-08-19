@@ -156,7 +156,7 @@
 
 <h2>Slogi posamezne spletne strani</h2>
 
-<p align="justify">Za dodajanje pravil CSS na posamezno spletno stran uporabimo element <code>&lt;style&gt;</code>, ki da vedno dodamo v element <code>&lt;head&gt;</code> spletne strani. To je smiselno, saj so pravila CSS metapodatki in ne dejanska vsebina.</p>
+<p align="justify">Za dodajanje pravil CSS na posamezno spletno stran uporabimo element <code>&lt;style&gt;</code>, ki ga vedno dodamo v element <code>&lt;head&gt;</code> spletne strani. To je smiselno, saj so pravila CSS metapodatki in ne dejanska vsebina.</p>
 
 <p align="justify">Vsa pravila CSS, ki smo jih vnesli v datoteko <code>slogi.css</code> lahko obstajajo tudi v elementu <code>&lt;style&gt;</code>, vendar bodo ta pravila preglasila pravila iz datoteke <code>slogi.css</code>. Oglejmo si spodnji primer, v katerem brskalniku povemo, naj prezre barvo besedila za element <code>&lt;body&gt;</code>, ki smo jo določili v zunanji datoteki <code>slogi.css</code> in namesto tega uporabi modro barvo <code>#0000FF</code>.</p>
 
@@ -348,7 +348,7 @@ function runit() {
 	var format = editor3.getValue();
 
 	// Inject CSS formatting into HTML
-	content = content.replace("<link rel="stylesheet" href="slogi.css" />", "<style>"+format+"</style>");	
+	content = content.replace("<link rel='stylesheet' href='slogi.css' />", "<style>"+format+"</style>");	
 	
     var doc = document.getElementById("output").contentWindow.document;
     doc.open();

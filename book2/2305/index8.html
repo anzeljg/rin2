@@ -222,7 +222,7 @@ Poizvedba <tt>SELECT</tt> iz dveh tabel združenih z <tt>LEFT/RIGHT/FULL JOIN</t
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">Pri uporabi katerega koli zunanjega združevanja podatkov se bo najverjetneje zgodilo, da bodo v rezultatu poizvedbe določeni podatki manjkali (ker ne obstajajo v izborni tabeli). V tem primeru bomo morali dodati pogoje, s pomočjo katerih bomo razrešili težavo ničelnih oziroma neobstoječih vrednosti (<i>ang. <code>NULL</code> values</i>). Razliko med vrednostjo nič in ničelno vrednostjo zelo nazorno prikazuje spodnja slika.</p>
+<p align="justify">Pri uporabi katerega koli zunanjega združevanja podatkov se bo najverjetneje zgodilo, da bodo v rezultatu poizvedbe določeni podatki manjkali (ker ne obstajajo v izvorni tabeli). V tem primeru bomo morali dodati pogoje, s pomočjo katerih bomo razrešili težavo ničelnih oziroma neobstoječih vrednosti (<i>ang. <code>NULL</code> values</i>). Razliko med vrednostjo nič in ničelno vrednostjo zelo nazorno prikazuje spodnja slika.</p>
 
 <p align="center"><img src="img/0_vs_null.png" class="img-responsive"></p>
 
@@ -230,7 +230,7 @@ Poizvedba <tt>SELECT</tt> iz dveh tabel združenih z <tt>LEFT/RIGHT/FULL JOIN</t
 
 Zato je bolje, če namesto ničelnih vrednosti v podatkovni bazi nastavimo privzete vrednosti podatkov, na primer 0 za številske podatke, prazen niz za besedilne podatke itd. Če moramo v podatkovni bazi hraniti nepopolne podatke, potem je primerno uporabiti ničelne vrednosti, da ne pokvarimo rezultatov pri kasnejši analizi podatkov (na primer pri izračunu povprečne vrednosti številskih podatkov).</p>
 
-<p align="justify">Včasih se ničelnim vrednostim preprosto ni mogoče izogniti, kot na primer pri primeru, pri katerem smo zunanje povezali dve tabeli z asimetričnimi podatki. V tekih primerih lahko omejimo rezultate poizvedbe s pogojema <code>IS NULL</code> ali <code>IS NOT NULL</code>.</p>
+<p align="justify">Včasih se ničelnim vrednostim preprosto ni mogoče izogniti, kot na primer pri primeru, pri katerem smo zunanje povezali dve tabeli z asimetričnimi podatki. V takih primerih lahko omejimo rezultate poizvedbe s pogojema <code>IS NULL</code> ali <code>IS NOT NULL</code>.</p>
 
 <div class="alert alert-info">
 Poizvedba <tt>SELECT</tt> z omejitvijo ničelnih (<tt>NULL</tt>) vrednosti

@@ -211,7 +211,7 @@ Dodajanje novega stolpca
 </pre>
 </div>
 
-<p align="justify">Brisanje stolpcev je preprosto, vendar nekatere podatkovne baze (tudi SQLite) ne podpirajo te funkcije. Namesto tega boste moramo ustvariti novo tabelo in preseliti podatke.</p>
+<p align="justify">Brisanje stolpcev je preprosto, vendar nekatere podatkovne baze (tudi SQLite) ne podpirajo te funkcije. Namesto tega moramo ustvariti novo tabelo in preseliti podatke.</p>
 
 <div class="alert alert-info">
 Brisanje obstoječega stolpca
@@ -242,7 +242,7 @@ Brisanje obstoječe tabele
 </pre>
 </div>
 
-<p align="justify">Podobno kot pri <a href="index15.html">ustvarjanju tabele</a> lahko tudi pri brisanju tabele podatkovna baza vrne napako, če tabela ne obstaja. Tej napaki se lahko izognemo in preskočimo brisanje že obstoječe tabele tako, da v stavku <code>DROP TABLE</code> uporabimo pogoj <code>IF NOT EXISTS</code>.</p>
+<p align="justify">Podobno kot pri <a href="index15.html">ustvarjanju tabele</a> lahko tudi pri brisanju tabele podatkovna baza vrne napako, če tabela ne obstaja. Tej napaki se lahko izognemo tako, da v stavku <code>DROP TABLE</code> uporabimo pogoj <code>IF EXISTS</code>.</p>
 
 <p align="justify">Če imamo poleg tega še drugo tabelo, ki je odvisna od vrednosti stolpcev v tabeli, ki jo želimo izbrisati (na primer preko tujega ključa), potem bomo morali ali najprej posodobiti vse vrednosti v odvisni tabeli, ali pa odvisno tabelo v celoti odstraniti.</p>
 <!-- Right column end -->

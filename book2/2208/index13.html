@@ -185,7 +185,21 @@
 	  <img src="img/uharica.jpg" alt="Velika uharica" />
 	</p>
 
-  </body>
+  
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index12.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index14.html");
+    }
+});
+</script>
+
+</body>
 </html></textarea>
 <div style="margin-top:4px">
 <button type="button" class="btn btn-primary" onclick="runit()"><span class="fa fa-play"></span> Prikaži</button>
@@ -314,6 +328,20 @@ editor.setSize('100%', 490);
 <link rel="stylesheet" href="../cc/cookiecuttr.css">
 <script type="text/javascript" src="../cc/google-analytics.js"></script>
 <script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index12.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index14.html");
+    }
+});
+</script>
 
 </body>
 

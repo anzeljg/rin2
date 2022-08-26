@@ -49,6 +49,20 @@
                 (<span class="keysym">control-M</span>).  The name
                 <code class="code">Enter</code> refers to a
                 mouse-related event, not a keypress; see <a href="events.html" title="54. Events: responding to stimuli">Section 54, “Events”</a></td></tr><tr><td align="left"><code class="code">Right</code></td><td align="left"><code class="code">102</code></td><td align="left"><code class="code">65363</code></td><td align="left">→</td></tr><tr><td align="left"><code class="code">Scroll_Lock</code></td><td align="left"><code class="code">78</code></td><td align="left"><code class="code">65300</code></td><td align="left"><span class="keysym">ScrollLock</span></td></tr><tr><td align="left"><code class="code">Shift_L</code></td><td align="left"><code class="code">50</code></td><td align="left"><code class="code">65505</code></td><td align="left">The left-hand <span class="keysym">shift</span> key</td></tr><tr><td align="left"><code class="code">Shift_R</code></td><td align="left"><code class="code">62</code></td><td align="left"><code class="code">65506</code></td><td align="left">The right-hand <span class="keysym">shift</span> key</td></tr><tr><td align="left"><code class="code">Tab</code></td><td align="left"><code class="code">23</code></td><td align="left"><code class="code">65289</code></td><td align="left">The <span class="keysym">tab</span> key</td></tr><tr><td align="left"><code class="code">Up</code></td><td align="left"><code class="code">98</code></td><td align="left"><code class="code">65362</code></td><td align="left">↑</td></tr></tbody></table></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="event-handlers.html">54.6. Writing your handler: The <code class="code">Event</code>
-      class</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="event-modifiers.html">54.4. Event modifiers</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/key-names.html</span></div></div></div></body>
+      class</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="event-modifiers.html">54.4. Event modifiers</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/key-names.html</span></div></div></div>
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("");
+    }
+});
+</script>
+
+</body>
 <!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/key-names.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
 </html>

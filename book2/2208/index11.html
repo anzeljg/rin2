@@ -183,7 +183,21 @@
 	<p>Trenutno najbolj znani spletni iskalnik je verjetno
 	<a href="https://www.google.com">Google</a>.</p>
 
-  </body>
+  
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index10.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index12.html");
+    }
+});
+</script>
+
+</body>
 </html></textarea>
 <div style="margin-top:4px">
 <button type="button" class="btn btn-primary" onclick="runit()"><span class="fa fa-play"></span> Prikaži</button>
@@ -295,7 +309,21 @@ function runit() {
 }
 
 function solveit() {
-  editor.setValue('<!DOCTYPE html>\n<html>\n  <head>\n    <title>Tretja spletna stran</title>\n  </head>\n  <body>\n    <h2>Spletni iskalnik in brskalnik</h2>\n\n	<p>Spletni iskalnik in spletni brskalnik sta dve različni stvari.</p>\n\n	<p>V spletnem brskalniku prikažemo spletne strani, ki smo jih našli\n	s pomočjo spletnega iskalnika.</p>\n\n	<p>Trenutno najbolj znani spletni iskalnik je verjetno\n	<a href="https://www.google.com" target="_blank">Google</a>.</p>\n\n  </body>\n</html>');
+  editor.setValue('<!DOCTYPE html>\n<html>\n  <head>\n    <title>Tretja spletna stran</title>\n  </head>\n  <body>\n    <h2>Spletni iskalnik in brskalnik</h2>\n\n	<p>Spletni iskalnik in spletni brskalnik sta dve različni stvari.</p>\n\n	<p>V spletnem brskalniku prikažemo spletne strani, ki smo jih našli\n	s pomočjo spletnega iskalnika.</p>\n\n	<p>Trenutno najbolj znani spletni iskalnik je verjetno\n	<a href="https://www.google.com" target="_blank">Google</a>.</p>\n\n  
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index10.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index12.html");
+    }
+});
+</script>
+
+</body>\n</html>');
 }
 </script>
 
@@ -337,6 +365,20 @@ $(function() {
 <link rel="stylesheet" href="../cc/cookiecuttr.css">
 <script type="text/javascript" src="../cc/google-analytics.js"></script>
 <script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index10.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index12.html");
+    }
+});
+</script>
 
 </body>
 

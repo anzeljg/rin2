@@ -156,7 +156,7 @@
 			<div class="col-md-12">
 				<center>
 				<ul class="pagination">
-					<li class="next"><a href="1101/index.html">Naprej</a></li>
+					<li class="next"><a href="2101/index.html">Naprej</a></li>
 				</ul>
 				</center>
 			</div>
@@ -197,6 +197,19 @@ $(document).ready(function () {
 		cookieWhatAreLinkText: 'Kaj so piškotki?',
 		cookieNotificationLocationBottom: true
 	});	
+});
+</script>
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("2101/index.html");
+    }
 });
 </script>
 

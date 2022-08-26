@@ -58,6 +58,20 @@
             <span class="keysym">PrintScrn</span> key, whose “key
             name” is <code class="code">'Print'</code>:
           </p><pre class="programlisting">    self.bind_all('&lt;Key-Print&gt;', self.__printScreen)
-</pre></li></ol></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="event-sequences.html">54.2. Event sequences</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="events.html">54. Events: responding to stimuli</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/binding-levels.html</span></div></div></div></body>
+</pre></li></ol></div></div><hr><div class="navfooter"><div class="botlinks"><div class="bot-next"><b>Next: </b><a href="event-sequences.html">54.2. Event sequences</a></div><div class="bot-contents"><b>Contents: </b><a href="index.html"><span class="application">Tkinter</span> 8.5 reference: a GUI for Python</a></div><div class="bot-prev"><b>Previous: </b><a href="events.html">54. Events: responding to stimuli</a></div><div><b>Home: </b><a href="http://www.nmt.edu/">About New Mexico Tech</a></div></div><hr><div class="colophon"><address><div class="colophon-author">John W. Shipman</div><div class="colophon-mailto">Comments welcome: <a href="mailto:tcc-doc@nmt.edu">tcc-doc@nmt.edu</a></div></address><div class="colophon-date">Last updated: 2013-12-31 17:59</div><div class="colophon-url">URL: <span class="colophon-uri">http://www.nmt.edu/tcc/help/pubs/tkinter/web/binding-levels.html</span></div></div></div>
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("");
+    }
+});
+</script>
+
+</body>
 <!-- Mirrored from infohost.nmt.edu/tcc/help/pubs/tkinter/web/binding-levels.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Nov 2017 11:41:57 GMT -->
 </html>

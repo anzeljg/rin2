@@ -196,7 +196,21 @@
 	  var run = setInterval(datumCas, 100); // zakasnitev = 100 ms
     </script>
 
-  </body>
+  
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index17.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index19.html");
+    }
+});
+</script>
+
+</body>
 </html></textarea>
 </div>
 
@@ -328,7 +342,21 @@ function runit() {
 	var jscode = editor3.getValue();
 
 	// Inject JavaScript into HTML
-	content = content.replace("<script src='ura.js' type='text/javascript'><\/script>", "<script>"+jscode+"<\/script></body>");	
+	content = content.replace("<script src='ura.js' type='text/javascript'><\/script>", "<script>"+jscode+"<\/script>
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index17.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index19.html");
+    }
+});
+</script>
+
+</body>");	
 	
     var doc = document.getElementById("output").contentWindow.document;
     doc.open();
@@ -413,6 +441,20 @@ function showCode(id) {
 <link rel="stylesheet" href="../cc/cookiecuttr.css">
 <script type="text/javascript" src="../cc/google-analytics.js"></script>
 <script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2208/index17.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2208/index19.html");
+    }
+});
+</script>
 
 </body>
 

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Naloge</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+    <script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
+        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
+        config:["TeX-AMS_HTML.js"],
+		imageFont: null
+	  });
+    </script>
+ 	<script src="../js/mathjax/MathJax.js"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li class="active"><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 7 -->
+		<div id="solution7" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<p>
+<pre>
+class Tocka:
+  # ...
+
+  def polarno(self):
+    """ Vrne točko v polarni obliki """
+    import math
+    r = self.razdalja()
+    fi_r = math.atan2(self._x, self._y)
+    fi = math.degrees(fi_r)
+    return (r, fi) 
+</pre>
+</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 8 -->
+		<div id="solution8" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<p>
+<pre>
+class Tocka:
+  # ...
+
+  def premik(self, tocka):
+    """ Vrne premaknjeno točko """
+    self._x += tocka._x
+    self._y += tocka._y
+</pre>
+</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Solution 9 -->
+		<div id="solution9" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Rešitev</h4>
+					</div>
+					<div class="modal-body">
+<pre>
+class Tocka3D:
+
+  def __init__(self, x=0, y=0, z=0):
+    """ Inicializator preveri, da so lastnosti števila """
+    self._x = x
+    self._y = y
+    self._z = z
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  def _vrni_z(self):
+    """ Vrne vrednost lastnosti z """
+    return self._z
+
+  def _nastavi_z(self, z):
+    """ Nastavi vrednost lastnosti z """
+    self._z = z
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  z = property(
+    fget = _vrni_z,    # Ime metode getter
+    fset = _nastavi_z  # Ime metode setter
+  )
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinate točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ", " + str(self._z) + ")"
+
+  def zrcali(self):
+    """ Vrne točko, zrcaljeno preko koordinatnega izhodišča """
+    return Tocka(-self._x, -self._y, -self._z)
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2) + (self._z ** 2)) ** 0.5
+
+  def razdalja_do(self, tocka):
+    """ Vrne razdaljo do druge točke """
+    dx = self._x - tocka._x
+    dy = self._y - tocka._y
+    dz = self._z - tocka._z
+    return (dx ** 2 + dy ** 2 + dz ** 2) ** 0.5
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2.0
+    my = (self._y + tocka._y) / 2.0
+    mz = (self._z + tocka._z) / 2.0
+    return Tocka(mx, my, mz)
+</pre>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>7</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>polarno</code>, ki vrne točko v polarni obliki, kot par $(r, \varphi)$.<br />
+Na primer <code>Tocka(3, 5).polarno()</code> vrne <code>(5.830951894845301, 30.96375653207352)</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution7"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>8</b></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>premik</code>, ki točko premakne za vektor, predstavljen z drugo točko.<br />
+Na primer <code>Tocka(3, 5).premik(Tocka(-1, 2))</code> vrne <code>(2, 7)</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution8"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>9</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Napiši kodo za razred <code>Tocka3D</code>, ki opisuje točke v prostoru. Koda razreda mora vsebovati metodi <code>__init__</code> in <code>__str__</code>. Razredu <code>Tocka3D</code> dodaj še naslednje metode:
+<ul>
+  <li><code>zrcali</code></li>
+  <li><code>razdalja</code></li>
+  <li><code>razdalja_do</code></li>
+  <li><code>sredina</code></li>
+</ul>
+</p>
+<p align="justify"><b>Namig:</b> Pomagaj si z metodami razreda <code>Tocka</code>, v urejevalniku.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution9"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2.0
+    my = (self._y + tocka._y) / 2.0
+    return Tocka(mx, my)
+
+  def zrcali_x(self):
+    """ Vrne točko, zrcaljeno preko x-osi """
+    return Tocka(self._x, -self._y)
+
+  def zrcali_y(self):
+    """ Vrne točko, zrcaljeno preko y-osi """
+    return Tocka(-self._x, self._y)
+
+  def zrcali(self):
+    """ Vrne točko, zrcaljeno preko koordinatnega izhodišča """
+    return Tocka(-self._x, -self._y)
+
+  def razdalja_do(self, tocka):
+    """ Vrne razdaljo do druge točke """
+    dx = self._x - tocka._x
+    dy = self._y - tocka._y
+    return (dx ** 2 + dy ** 2) ** 0.5
+
+  def premica_skozi(self, tocka):
+    """ Vrne koeficienta premice skozi dani točki """
+    k = (self._y - tocka._y) / (self._x - tocka._x)
+    n = self._y - k * self._x
+    return "(" + str(k) + ", " + str(n) + ")"
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2306/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2401/index16.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2401/index.html">251</a></li>
+					<li><a href="../2401/index1.html">252</a></li>
+					<li><a href="../2401/index2.html">253</a></li>
+					<li><a href="../2401/index3.html">254</a></li>
+					<li><a href="../2401/index4.html">255</a></li>
+					<li><a href="../2401/index5.html">256</a></li>
+					<li><a href="../2401/index6.html">257</a></li>
+					<li><a href="../2401/index7.html">258</a></li>
+					<li><a href="../2401/index8.html">259</a></li>
+					<li><a href="../2401/index9.html">260</a></li>
+					<li><a href="../2401/index10.html">261</a></li>
+					<li><a href="../2401/index11.html">262</a></li>
+					<li><a href="../2401/index12.html">263</a></li>
+					<li><a href="../2401/index13.html">264</a></li>
+					<li><a href="../2401/index14.html">265</a></li>
+					<li><a href="../2401/index15.html">266</a></li>
+					<li><a href="../2401/index16.html">267</a></li>
+					<li class="active"><a href="#">268</a></li>
+					<li><a href="../2402/index.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+	<script src="../js/skulpt/repl.js"></script>
+	<script src="../js/skulpt/skulpt.min.js"></script>
+	<script src="../js/skulpt/skulpt-stdlib.js"></script>
+	<script src="../js/skulpt/python.js"></script>
+	<script>Sk.python3 = true;</script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
+
+<script type="text/javascript">
+function outf(text) {
+  var mypre = document.getElementById("output");
+  mypre.innerHTML = mypre.innerHTML + text;
+}
+function builtinRead(x) {
+  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+    throw "File not found: '" + x + "'";
+  return Sk.builtinFiles["files"][x];
+}
+function runit() {
+    var prog = editor.getValue();
+    var mypre = document.getElementById("output");
+    mypre.innerHTML = '';
+    Sk.canvas = "mycanvas";
+    Sk.pre = "output";
+    Sk.configure({output:outf, read:builtinRead});
+    try {
+        eval(Sk.importMainWithBody("<stdin>",false,prog));
+    }
+    catch(e) {
+        alert(e.toString())
+    }
+}
+function clearit() {
+    var mypre = document.getElementById("output");
+    mypre.innerHTML = '';
+}
+</script>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "python",
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
+});
+editor.setSize('100%', 590);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
+editor.foldCode(CodeMirror.Pos(15, 0));
+editor.foldCode(CodeMirror.Pos(19, 0));
+editor.foldCode(CodeMirror.Pos(23, 0));
+editor.foldCode(CodeMirror.Pos(28, 0));
+editor.foldCode(CodeMirror.Pos(37, 0));
+editor.foldCode(CodeMirror.Pos(47, 0));
+editor.foldCode(CodeMirror.Pos(51, 0));
+editor.foldCode(CodeMirror.Pos(65, 0));
+</script>
+<script src="../js/skulpt/theme.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2401/index14.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2402/index.html");
+    }
+});
+</script>
+
+</body>
+
+</html>

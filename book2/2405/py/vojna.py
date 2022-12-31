@@ -4,20 +4,15 @@ import random
 
 VEL = (86, 120) # Velikost posamezne karte
 SRED = (43, 60) # Središče posamezne karte
-
-# Definicija globalnih spremenljivk
-igra_poteka = False
-vojna_poteka = False
-izid = "Vrzi karto..."
-REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
+KARTE = {}      # Slovar bo vseboval slike kart
 
 # Definicija globalnih spremenljivk za karte
-BARVE = ("C", "S", "H", "D") # Club/Spade/Heart/Diamond
-OPISI = ("A", "2", "3", "4", "5", "6", "7", "8", "9",
-         "X", "J", "Q", "K")
-VREDNOSTI = {"A":14, "2":2, "3":3, "4":4, "5":5,
-             "6":6, "7":7, "8":8, "9":9, "X":10,
-             "J":11, "Q":12, "K":13}
+BARVE = ("S", "H", "D", "C")  # Spade/Heart/Diamond/Club
+ZNAKI = ("♠", "♥", "♦", "♣")
+OPISI = ("A", "2", "3", "4", "5", "6", "7",
+         "8", "9", "X", "J", "Q", "K")
+VREDNOSTI = {"A":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7,
+             "8":8, "9":9, "X":10, "J":10, "Q":10, "K":10}
 
 
 # Definicija razreda 'Karta'
@@ -64,8 +59,7 @@ class Komplet:
     self._karte = []
     for barva in BARVE:
       for opis in OPISI:
-        karta = Karta(barva, opis)
-        self._karte.append(karta)
+        self._karte.append(Karta(barva, opis))
 
   # Premešaj komplet kart
   def premesaj(self):
@@ -146,7 +140,7 @@ class Igralec(Komplet):
     return len(self._karte) + len(self._zaloga)
 
   # Izriše karte - uporabi metodo izpis razreda 'Karta'
-  def izpis(self, platno, poz, delivec=False):
+  def narisi_karte(self, platno, poz, delivec=False):
     # Izpis obrnjenih kart, ki jih ima igralec
     # še v roki. Vse karte so obrnjene
     ROB = 1
@@ -168,135 +162,158 @@ class Igralec(Komplet):
       i += 1
 
 
-# Določi rokovalnik gumba 'Deli'
-def deli():
-  global komplet
-  komplet = Komplet()
-  komplet.premesaj()
+# Definicija razreda 'Vojna'
+class Vojna():
 
-  global igra_poteka, igralec, delivec
-  igra_poteka = True
-  igralec = Igralec()
-  delivec = Igralec()
-  # Izmenično razdeli 26 kart igralcu in delivcu
-  for i in range(26):
-    igralec.dodaj_karto(komplet.deli_karto())
-    delivec.dodaj_karto(komplet.deli_karto())
-  print("Igralec: "+str(igralec))
-  print("Delivec: "+str(delivec))
-  izpis()
+  _igra_poteka = False
+  _vojna_poteka = False
+  _izid = "Vrzi karto..."
+  _REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
 
 
-# Določi rokovalnik gumba 'Vrzi'
-def vrzi():
-  global igra_poteka, vojna_poteka
-  global izid, igralec, delivec
+  def __init__(self):
+    """ Inicializator """
+    # Ustvari okno, okvir in platno
+    self.okno = tk.Tk()
+    self.okno.title("Vojna")
+    self.okno.geometry("840x640")
+    self.okvir = tk.Frame(self.okno)
+    self.okvir.grid(row=0, column=0, pady=20)
+    self.platno = tk.Canvas(self.okno, width=650, height=600)
+    self.platno.configure(bg="darkgreen")
+    self.platno.grid(row=0, column=1, pady=20)
 
-  if igra_poteka:
-    # Zadnja vržena karta delivca in igralca
-    if delivec.ima_zalogo() and igralec.ima_zalogo():
-      karta_d = delivec.zadnja_vrzena_karta()
-      karta_i = igralec.zadnja_vrzena_karta()
+    # Naloži slike kart. Slike kart so v podmapi 'karte', ki je v isti
+    # mapi kot datoteka 'vojna.py'
+    global KARTE
+    KARTE = {'BG': tk.PhotoImage(file="karte/BG1.gif")}
+    for barva in BARVE:
+      for opis in OPISI:
+        karta = barva + opis
+        datoteka = "karte/" + karta + ".gif"
+        KARTE[karta] = tk.PhotoImage(file=datoteka)
 
-      # Če je vojna
-      if karta_d == karta_i:
-        vojna_poteka = True
-        delivec.vrzi_karto()
-        igralec.vrzi_karto()
-        izid = "Vojna!"
+    # Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
+    self.gumb1 = tk.Button(self.okvir, text="Deli", command=self.deli)
+    self.gumb1.configure(width=10)
+    self.gumb1.grid(row=0, column=0, padx=45)
+    self.gumb2 = tk.Button(self.okvir, text="Vrzi", command=self.vrzi)
+    self.gumb2.configure(width=10)
+    self.gumb2.grid(row=1, column=0, padx=45)
 
-      # Sicer (če ni vojne)
-      else:
-        # Delivec ima višjo karto, kar pomeni,
-        # da dobi svoje in igralčeve karte
-        vojna_poteka = False
-        if VREDNOSTI[karta_d] > VREDNOSTI[karta_i]:
-          for karta in igralec.zaloga():
-            delivec.vstavi_karto(karta)
-          for karta in delivec.zaloga():
-            delivec.vstavi_karto(karta)
-          if not igralec.ima_karte():
-            igra_poteka = False
-            izid = "Jack je zmagal! Nova igra?"
-            REZULTAT["SKUPAJ"] += 1
-        # Igralec dobi vse karte
+    # Dodaj igralca in delivca
+    self._igralec = Igralec()
+    self._delivec = Igralec()
+
+    # Razdeli karte
+    self.deli()
+
+    # Zaženi dogodkovno zanko
+    self.okno.mainloop()
+
+  def deli(self):
+    """ Rokovalnik gumba 'Deli' """
+    # Ustvari nov komplet kart in ga premešaj
+    self._komplet = Komplet()
+    self._komplet.premesaj()
+
+    # Dodaj igralca in delivca ter začni igro
+    self._igralec._karte = []
+    self._delivec._karte = []
+    self._igra_poteka = True
+    self._izid = ""
+
+    # Izmenično razdeli 26 kart igralcu in delivcu
+    for i in range(26):
+      self._igralec.dodaj_karto(self._komplet.deli_karto())
+      self._delivec.dodaj_karto(self._komplet.deli_karto())
+
+    # Nariši karte igralca in delivca
+    self.narisi()
+
+  def vrzi(self):
+    """ Rokovalnik gumba 'Vrzi' """
+    if self._igra_poteka:
+      # Zadnja vržena karta delivca in igralca
+      if self._delivec.ima_zalogo() and self._igralec.ima_zalogo():
+        karta_d = self._delivec.zadnja_vrzena_karta()
+        karta_i = self._igralec.zadnja_vrzena_karta()
+
+        # Če je vojna
+        if karta_d == karta_i:
+          self._vojna_poteka = True
+          self._delivec.vrzi_karto()
+          self._igralec.vrzi_karto()
+          self._izid = "Vojna!"
+
+        # Sicer (če ni vojne)
         else:
-          for karta in delivec.zaloga():
-            igralec.vstavi_karto(karta)
-          for karta in igralec.zaloga():
-            igralec.vstavi_karto(karta)
-          if not delivec.ima_karte():
-            igra_poteka = False
-            izid = "Zmagal si! Nova igra?"
-            REZULTAT["SKUPAJ"] += 1
-            REZULTAT["ZMAGE"] += 1
+          # Delivec ima višjo karto, kar pomeni,
+          # da dobi svoje in igralčeve karte
+          self._vojna_poteka = False
+          if VREDNOSTI[karta_d] > VREDNOSTI[karta_i]:
+            for karta in self._igralec.zaloga():
+              self._delivec.vstavi_karto(karta)
+            for karta in self._delivec.zaloga():
+              self._delivec.vstavi_karto(karta)
+            if not self._igralec.ima_karte():
+              self._igra_poteka = False
+              self._izid = "Jack je zmagal! Nova igra?"
+              self._REZULTAT["SKUPAJ"] += 1
+          # Igralec dobi vse karte
+          else:
+            for karta in self._delivec.zaloga():
+              self._igralec.vstavi_karto(karta)
+            for karta in self._igralec.zaloga():
+              self._igralec.vstavi_karto(karta)
+            if not self._delivec.ima_karte():
+              self._igra_poteka = False
+              self._izid = "Zmagal si! Nova igra?"
+              self._REZULTAT["SKUPAJ"] += 1
+              self._REZULTAT["ZMAGE"] += 1
 
-      if not vojna_poteka:
-        delivec.sprazni_zalogo()
-        igralec.sprazni_zalogo()
-        izid = "Vrzi karto..."
+        if not self._vojna_poteka:
+          self._delivec.sprazni_zalogo()
+          self._igralec.sprazni_zalogo()
+          self._izid = "Vrzi karto..."
 
-    delivec.vrzi_karto()
-    igralec.vrzi_karto()
-    izpis()
+      if self._igra_poteka:
+        self._delivec.vrzi_karto()
+        self._igralec.vrzi_karto()
+
+    # Nariši karte igralca in delivca
+    self.narisi()
+
+  def narisi(self):
+    """ Rokovalnik izpisa oz. izrisa """
+    # Izbriši vsebino platna
+    self.platno.delete("all")
+
+    # Nariši karte igralca in delivca
+    self._igralec.narisi_karte(self.platno, [50, 220])
+    self._delivec.narisi_karte(self.platno, [50, 400])
+    # Skrij prvo karto delivca, če igra poteka
+    #if self._igra_poteka:
+    #  self._delivec.obrni_karto(self.platno, [50, 400])
+
+    _txt1 = "Vojna"
+    _txt2 = "Tvoje karte (" + str(self._igralec.stevilo()) + ")"
+    _txt3 = "Jackove karte (" + str(self._delivec.stevilo()) + ")"
+    _txt4 = "STANJE: " + self._izid
+    _txt5 = "REZULTAT: zmage: " + str(self._REZULTAT["ZMAGE"]) \
+            + ", skupaj: " + str(self._REZULTAT["SKUPAJ"])
+
+    self.platno.create_text(50, 50, fill="white", anchor=tk.NW, \
+      text=_txt1, font=("Times", 30))
+    self.platno.create_text(50, 180, fill="white", anchor=tk.NW, \
+      text=_txt2, font=("Times", 15))
+    self.platno.create_text(50, 360, fill="white", anchor=tk.NW, \
+      text=_txt3, font=("Times", 15))
+    self.platno.create_text(50, 120, fill="white", anchor=tk.NW, \
+      text=_txt4, font=("Times", 15))
+    self.platno.create_text(50, 540, fill="white", anchor=tk.NW, \
+      text=_txt5, font=("Times", 15))
 
 
-# Določi rokovalnik izpisa/izrisa
-def izpis():
-  # Izbriši vsebino platna
-  platno.delete("all")
-
-  global igra_poteka, izid, igralec, delivec
-  igralec.izpis(platno, [50, 230])
-  delivec.izpis(platno, [50, 410])
-
-  txt1 = "Vojna"
-  txt2 = "Tvoje karte (" + str(igralec.stevilo()) + ")"
-  txt3 = "Jackove karte (" + str(delivec.stevilo()) + ")"
-  txt4 = "STANJE: " + izid
-  txt5 = "REZULTAT: zmage: " + str(REZULTAT["ZMAGE"]) \
-         + ", skupaj: " + str(REZULTAT["SKUPAJ"])
-
-  platno.create_text(50, 70, fill="white", anchor=tk.NW, \
-    text=txt1, font=("Times", 30))
-  platno.create_text(50, 200, fill="white", anchor=tk.NW, \
-    text=txt2, font=("Times", 15))
-  platno.create_text(50, 380, fill="white", anchor=tk.NW, \
-    text=txt3, font=("Times", 15))
-  platno.create_text(50, 140, fill="white", anchor=tk.NW, \
-    text=txt4, font=("Times", 15))
-  platno.create_text(50, 560, fill="white", anchor=tk.NW, \
-    text=txt5, font=("Times", 15))
-
-# Ustvari okno, okvir in platno
-okno = tk.Tk()
-okno.title("Vojna")
-okno.geometry("840x640")
-
-okvir = tk.Frame(okno)
-okvir.grid(row=0, column=0, pady=20)
-
-platno = tk.Canvas(okno, width=650, height=600)
-platno.configure(bg="darkgreen")
-platno.grid(row=0, column=1, pady=20)
-
-# Naloži slike kart. Slike kart so v podmapi 'karte',
-# ki je v isti mapi kot datoteka 'vojna.py'
-KARTE = {'BG': tk.PhotoImage(file="karte/BG.gif")}
-for barva in BARVE:
-  for opis in OPISI:
-    karta = barva + opis
-    datoteka = "karte/" + karta + ".gif"
-    KARTE[karta] = tk.PhotoImage(file=datoteka)
-
-# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
-gumb1 = tk.Button(okvir, text="Deli", command=deli)
-gumb1.configure(width=10)
-gumb1.grid(row=0, column=0, padx=45)
-gumb2 = tk.Button(okvir, text="Vrzi", command=vrzi)
-gumb2.configure(width=10)
-gumb2.grid(row=1, column=0, padx=45)
-
-# Zaženi dogodkovno zanko
-deli()
-okno.mainloop()
+# Zaženemo igro
+Vojna()

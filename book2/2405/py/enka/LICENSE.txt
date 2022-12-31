@@ -1,0 +1,13 @@
+A complete Uno cards deck
+Полная колода карт для игры Уно
+
+Author: Дмитрий Фомин (Dmitry Fomin)
+License: This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication.
+
+The person who associated a work with this deed has dedicated the work to the public domain by
+waiving all of their rights to the work worldwide under copyright law, including all related and 
+neighboring rights, to the extent allowed by law. You can copy, modify, distribute and perform 
+the work, even for commercial purposes, all without asking permission.
+
+
+https://commons.wikimedia.org/wiki/File:UNO_cards_deck.svg

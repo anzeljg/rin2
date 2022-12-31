@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Metode</title>
+	<title>Izboljšajmo inicializator</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -18,20 +18,6 @@
 
 	<!-- CodeMirror -->
 	<link href="../css/codemirrorepl.css" rel="stylesheet">
-
-	<!-- MathJax - Beautiful math in all browsers -->
-    <script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
-        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
-        config:["TeX-AMS_HTML.js"],
-		imageFont: null
-	  });
-    </script>
- 	<script src="../mathjax/MathJax.js"></script>
-
-	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
-	<link href="../css/jsxgraph.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -166,22 +152,20 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Metode</h1>
+<h1>Izboljšajmo inicializator</h1>
 
-<p align="justify">Ustvarjanje razreda, kot na primer <code>Tocka</code>, prinaša našemu razmišljanju in programom, ki jih ustvarimo, izjemno količino »organizacijske moči«. To pomeni, da lahko združimo različne vrste podatkov s smiselnimi operacijami nad temi podatki. Vsak primerek razreda pa lahko ima tudi svoje stanje, ki je neodvisno od stanj drugih primerkov.</p>
+<p align="justify">Če želimo ustvariti točko <code>(7, 6)</code> trenutno potrebujemo tri vrstice kode:</p>
 
-<p align="justify">Najprej ponovimo, kako izračunamo razdaljo $d$ med poljubno točko in koordinatnim izhodiščem. Ta razdalja je enaka kvadratnemu korenu vsote kvadratov obeh koordinat točke. Izračunamo jo s pomočjo spodnje formule: $$d = \sqrt{x^2 + y^2}$$
-Če imamo na primer točko $A = (4, 3)$ je njena razdalja od koordinatnega izhodišča enaka 5.</p>
+<p>
+<pre>
+t = Tocka()
+t.nastavi_x(7)
+t.nastavi_y(6)
+</pre>
+</p>
 
-<div id="jxgbox16" class="jxgbox" style="width:438px;height:200px;margin:8px auto;"></div>
-<br />
+<p align="justify">Inicializator &ndash; t.j. metodo <code>__init__</code>, ki nastavi začetne vrednosti &ndash; lahko posplošimo tako, da ji dodamo dodatna parametra. Oba parametra <code>x</code> in <code>y</code> sta neobvezna. Če ju ne vključimo, bosta lastnosti dobili privzeto vrednost 0. Naš izboljšani razred sedaj izgleda takole:</p>
 
-<p align="justify">Sedaj, ko smo ponovili, kako izračunamo razdaljo med točko in koordinatnim izhodiščem, dodajmo razredu <code>Tocka</code> metodo <code>razdalja</code>, da bomo lažje razumeli, kako metode delujejo in kako jih uporabljamo:</p>
-<!-- Left column end -->
-					</div>
-					<div class="col-md-6">
-						<br />
-<!-- Right column start -->
 <div>
 <form>
 <p><textarea id="code">
@@ -192,33 +176,30 @@ class Tocka:
     self._x = x
     self._y = y
 
-  def x(self, vrednost=None):
-    """ Vrne ali nastavi vrednost lastnosti x """
-    if vrednost is None:
-      return self._x
-    else:
-      self._x = vrednost
+  def vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
 
-  def y(self, vrednost=None):
-    """ Vrne ali nastavi vrednost lastnosti y """
-    if vrednost is None:
-      return self._y
-    else:
-      self._y = vrednost
+  def nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
 
-  def razdalja(self):
-    """ Vrne razdaljo točke od koordinatnega izhodišča """
-    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+  def vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
 
 
-p = Tocka(4, 3)
-print(p.razdalja())
+p = Tocka(4, 2)
+q = Tocka(6, 3)
+r = Tocka()     # Koordinatno izhodišče (0, 0)
 
-q = Tocka(5, 12)
-print(q.razdalja())
-
-r = Tocka() # Koordinatno izhodisce
-print(r.razdalja())
+print(p.vrni_x(), p.vrni_y())
+print(q.vrni_x(), q.vrni_y())
+print(r.vrni_x(), r.vrni_y())
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -229,13 +210,50 @@ print(r.razdalja())
 </div>
 <pre id="output"></pre>
 
-<p align="justify">Gornji program izpiše naslednje razdalje od koordinatnega izhodišča:
+<p align="justify">Gornji program izpiše:
 <pre>
-5.0
-13.0
-0.0
+4 2
+6 3
+0 0
 </pre>
 </p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h1>Delo z lastnostmi</h1>
+
+<p align="justify">Izboljšani inicializator nam omogoča, da lahko hkrati ko ustvarimo novo točko, nastavimo tudi vrednosti lastnosti <code>_x</code> in <code>_y</code>, ki predstavljata absciso in ordinato točke.</p>
+
+<p align="justify">Oglejmo si, kako uporabljamo inicializator in metodi za vračanje oziroma spreminjanje lastnosti točke. Najprej ustvarimo točko <code>(7, 6)</code>. Če želimo na primer spremeniti absciso točke iz vrednosti <code>7</code> na vrednost <code>(3)</code>, to storimo z metodo <code>nastavi_x(<i>vrednost</i>)</code>.
+<pre>
+a = Tocka(7, 6)
+a.nastavi_x(3)
+</pre>
+</p>
+
+<p align="justify">Podobno za spreminjanje ordinate točke uporabimo metodo <code>nastavi_y(<i>vrednost</i>)</code>. Če pa želimo samo izvedeti absciso ali ordinato točke, potem uporabimo metodi <code>vrni_x()</code> oziroma <code>vrni_y()</code>.</p>
+
+<p align="justify">Vse skupaj postane bolj zanimivo, če želimo vrednost abscise ali ordinate točke povečati ali zmanjšati glede na trenutno vrednost abscise oziroma ordinate.</p>
+
+<p align="justify">Oglejmo si primer, pri katerem ustvarimo točko ter nato povečamo odrinato točke za 1. To storimo tako, da najprej s pomočjo inicializatorja usvarimo nov objekt. Nato z metodo <code>vrni_y()</code> preberemo trenutno vrednost ordinate točke, ki jo nato povečamo za 1 ter s pomočjo metode <code>nastavi_y(<i>vrednost</i>)</code> ustrezno spremenimo oziroma popravimo vrednost lastnosti objekta.
+<pre>
+b = Tocka(2, -3)
+b.nastavi_y(b.vrni_y() + 1) # Povečamo trenutno vrednost ordinate za 1
+</pre>
+</p>
+
+<p align="justify">Če bi sedaj točko izpisali, bi dobili naslednji izpis:
+<pre>
+2 -2
+</pre>
+</p>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Pri objektnem programiranju lahko lastnosti objekta vračamo ali spreminjamo samo z metodama <b>vrni</b> oziroma <b>nastavi</b> (ki ju lahko imenujemo tudi drugače, dokler vemo, da gre za metodi <i>getter</i> in <i>setter</i>).</p>
+
+<p align="justify">Python nam omogoča elegantnejši in razumljivejši zapis klica teh metod, ki si ga bomo ogledali v nadaljevanju. Gre za to, da spremenljivki, ki jo lahko poimenujemo enako kot lastnost objekta, dinamično priredimo metode <i>getter</i>, <i>setter</i> in po potrebi tudi <i>deleter</i>. To naredimo s funkcijo <code>property()</code>. Glede na sintakso Python poskrbi za to, da pokliče ustrezno (zasebno) metodo.</p>
+</div>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -263,6 +281,8 @@ print(r.razdalja())
 					<li><a href="../2401/index13.html">264</a></li>
 					<li><a href="../2401/index14.html">265</a></li>
 					<li><a href="../2401/index15.html">266</a></li>
+					<li><a href="../2401/index16.html">267</a></li>
+					<li><a href="../2401/index17.html">268</a></li>
 					<li><a href="../2401/index8.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -303,47 +323,41 @@ print(r.razdalja())
 
 	<!-- Skulpt and CodeMirror -->
 	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="../js/skulpt/skulpt.js"></script>
+	<script src="../js/skulpt/skulpt.min.js"></script>
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
 	<!-- CodeMirror Fold addon -->
 	<script src="../js/skulpt/fold/foldcode.js"></script>
 	<script src="../js/skulpt/fold/foldgutter.js"></script>
 	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("output");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "output";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-}
-</script>
+var output = $('#output');
+var outf = function (text) {
+	output.text(output.text() + text);
+};
 
-<script>
+function builtinRead(x) {
+	if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+		throw "File not found: '" + x + "'";
+	return Sk.builtinFiles["files"][x];
+}
+
+function runit() {
+	Sk.configure({output: outf, read: builtinRead, __future__: Sk.python3});
+	try {
+		Sk.misceval.asyncToPromise(function() {
+			return Sk.importMainWithBody("<stdin>", false, editor.getValue(), true);
+		});
+	} catch(e) {
+		outf(e.toString() + "\n")
+	}
+}
+
+function clearit() {
+	$('#output').text('');
+}
+
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
@@ -354,29 +368,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
   extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 372);
-editor.foldCode(CodeMirror.Pos(2, 0));
+editor.setSize('100%', 373);
 editor.foldCode(CodeMirror.Pos(7, 0));
-editor.foldCode(CodeMirror.Pos(14, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
+editor.foldCode(CodeMirror.Pos(15, 0));
+editor.foldCode(CodeMirror.Pos(19, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
-
-	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
-	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
-
-<script type='text/javascript'>
-  var brd16;
-
-  function init16() {
-    if (brd16 != null) JXG.JSXGraph.freeBoard(brd16);
-    brd16 = JXG.JSXGraph.initBoard('jxgbox16', {boundingbox:[-2, 4, 8, -1], keepaspectratio:true, axis:true, grid:true});
-    var o = brd16.create('point', [0, 0], {name:'O', size:3, fixed:true});
-    var p = brd16.create('point', [4, 3], {name:'A', size:3});
-	var t = brd16.create('tapemeasure', [[0, 0], [4, 3]], {name:'d'});
-  }
-
-  init16();
-</script>
 
 
 <!-- CookieCuttr -->
@@ -392,10 +390,10 @@ document.body.addEventListener("keydown", function (event) {
     var code = event.keyCode || event.which;
     var alt  = event.altKey;
     if (alt && code === 33 /* Alt+PgUp */) {
-        window.location.replace("../2401/index6.html");
+        window.location.replace("../2401/index4.html");
     }
     if (alt && code === 34 /* Alt+PgDn */) {
-        window.location.replace("../2401/index8.html");
+        window.location.replace("../2401/index6.html");
     }
 });
 </script>

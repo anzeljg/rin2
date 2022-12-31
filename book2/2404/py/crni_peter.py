@@ -2,7 +2,7 @@
 
 class Karta:
 
-  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _barve = ["Pikov", "Srčev", "Karin", "Križev"]
   _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "fant", "dama", "kralj"]
 
@@ -125,16 +125,8 @@ class Igralec(Komplet):
     if self.je_prazen():
       s += " nima kart\n"
     else:
-      s += " ima\n"
-    return s + Komplet.__str__(self)
-
-
-class IgraKart:
-
-  def __init__(self):
-    """ Inicializator """
-    self._komplet = Komplet()
-    self._komplet.premesaj()
+      s += " ima\n" + Komplet.__str__(self)
+    return s
 
 
 class CrniPeterIgralec(Igralec):
@@ -154,20 +146,23 @@ class CrniPeterIgralec(Igralec):
     return stevec
 
 
-class CrniPeterIgra(IgraKart):
+class CrniPeter(Komplet):
 
   def igraj(self, imena):
     """ Igra igro s kartami: Črni Peter """
     # Odstrani križevega fanta - t.j. Črnega Petra
-    self._komplet.odstrani(Karta(0,11))
+    self.odstrani(Karta(0,11))
 
     # Dodaj igralce
     self._igralci = []
     for ime in imena:
       self._igralci.append(CrniPeterIgralec(ime))
 
+    # Premešaj karte
+    self.premesaj()
+
     # Razdeli karte
-    self._komplet.deli(self._igralci)
+    self.deli(self._igralci)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
@@ -220,5 +215,5 @@ class CrniPeterIgra(IgraKart):
       print(self._igralci[i])
 
 
-igra = CrniPeterIgra()
+igra = CrniPeter()
 igra.igraj(["Janez", "Karel", "Lojze"])

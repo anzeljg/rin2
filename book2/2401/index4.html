@@ -10,28 +10,11 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Razred</title>
+	<title>Osnovni koncepti objektno usmerjenega programiranja</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
-
-	<!-- CodeMirror -->
-	<link href="../css/codemirrorepl.css" rel="stylesheet">
-
-	<!-- MathJax - Beautiful math in all browsers -->
-    <script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
-        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
-        config:["TeX-AMS_HTML.js"],
-		imageFont: null
-	  });
-    </script>
- 	<script src="../mathjax/MathJax.js"></script>
-
-	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
-	<link href="../css/jsxgraph.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -166,68 +149,37 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Razred</h1>
+<h1>Osnovni koncepti objektno usmerjenega programiranja</h1>
 
-<p align="justify">V preteklosti smo že uporabljali razrede kot so <code>str</code>, <code>int</code>, <code>float</code> (imenovali smo jih podatkovni tipi) in pa <code>Turtle</code>. Ustvarimo svoj lasten razred, imenovan <code>Tocka</code>.</p>
+<p align="justify">Objektno usmerjeno programiranje ima štiri osnovne koncepte: <b>ograjevanje</b> ali <b>enkapsulacijo</b> (<i>ang. encapsulation</i>), <b>zakrivanje</b> ali <b>abstrakcijo</b> (<i>ang. abstraction</i>), <b>dedovanje</b> (<i>ang. inheritance</i>) in <b>večobličnost</b> ali <b>polimorfizem</b> (<i>ang. polymorphism</i>). Čeprav se ti koncepti morda zdijo zapleteni, ti bo razumevanje njihovega delovanja pomagalo razumeti osnove objektno usmerjenega programa.</p>
 
-<p align="justify">Razmislimo o konceptu matematične točke. V ravnini točko predstavljata dve števili (koordinati), ki ju obravnavamo kot en predmet. Točke zapisujemo v oklepajih, z vejico, ki ločuje koordinati. Na primer <code>(0, 0)</code> predstavlja koordinatno izhodišče $O$, <code>(4, 3)</code> pa predstavlja točko $A$, ki je 4 enote desno in 3 enote nad koordinatnim izhodiščem.</p>
+<h2>Ograjevanje ali enkapsulacija</h2>
 
-<div id="jxgbox14" class="jxgbox" style="width:438px;height:200px;margin:8px auto;"></div>
+<p align="justify">Na podoben način kot pilula »ogradi« zdravilo od zunanjega sveta, deluje tudi ograjevanje v objektno usmerjenem programiranju. Pri ograjevanju oblikujemo zaščitno pregrado okoli informacij, ki jih vsebuje objekt, od preostale programske kode.</p>
 
-<p align="justify">Tipične operacije, ki jih povezujemo s točkami so računanje razdalje od točke do koordinatnega izhodišča ali do druge točke, računanje središča med dvema točkama, ugotavljanje ali leži točka znotraj danega pravokotnika ali kroga. Kmalu bomo videli, kako lahko te operacije organiziramo skupaj s podatki.</p>
+<p align="justify"><img src="img/tablets-4019447_1280.jpg" class="img-responsive" width="50%" style="float:right;margin:5px 0 10px 10px;">To storimo tako, da povežemo podatke in metode, ki delujejo nad temi podatki, v eno samo enoto, imenovano razred. Tako zakrijemo zasebne podrobnosti razreda pred zunanjim svetom in izpostavimo samo funkcionalnost, ki je pomembna za povezovanje oziroma komuniciranje razreda z zunanjim svetom. Kadar razred ne dovoli neposrednega dostopa do svojih zasebnih podatkov, pravimo, da je dobro ograjen.</p>
 
-<p align="justify">Naravna predstavitev točke je z dvema številskima vrednostima. Za delo s točkami bomo ustvarili <b>razred</b> <code>Tocka</code>, ki bo za vsako točko vseboval dve lastnosti <code>_x</code> in <code>_y</code>, ki predstavljata koordinati točke. Kre gre za lastnosti objekta, torej notranji spremenljivki, njuni imeni pišemo s podčrtajem. Naš razred izgleda takole:
-<pre>
-class Tocka:
+<h4>Primer</h4>
 
-  def __init__(self):
-    self._x = 0
-    self._y = 0
-</pre>
-</p>
+<p align="justify">Recimo, da imamo razred, ki predstavlja osebo. Ta razred lahko vsebuje zasebne podatke razreda, kot je na primer številka zdravstvenega zavarovanja <code>stevilka_zzzs</code>. Ko iz razreda ustvarimo objekt, številka zdravstvenega zavarovanja tega objekta ne sme biti izpostavljena drugim objektom v programu. Z ograjevanjem te lastnosti razreda zunanja koda nima neposrednega dostopa do nje &ndash; lastnost tako ostane varna znotraj razreda osebe.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">Definicije razredov so lahko kjerkoli v programu, vendar jih običajno postavimo na začetek programa (takoj za uvozom zunanjih knjižnic &ndash; stavki <code>import</code>).</p>
+<p align="justify">Če je v razredu osebe zapisana metoda, ki preveri ali ima oseba predpisano zdravilo, imenovana <code>predpisano_zdravilo()</code>, lahko ta metoda nato po potrebi dostopa do spremenljivke <code>stevilka_zzzs</code> in preveri ali je zdravnik osebi s to številko zdravstvenega zavarovanja predpisal določeno zdravilo. Zasebni podatki osebe so tako dobro ograjeni v razredu.</p>
 
-<p align="justify">Razred  ima posebno metodo, ki se imenuje <code>__init__</code>. Ta metoda se samodejno izvede vsakokrat, ko se ustvari nov primerek objekta. V tej metodi nastavimo lastnosti objekta oziroma začetne vrednosti teh lastnosti. Parameter <code>self</code> označuje na novo ustvarjeni objekt, ki mu nastavljamo začetne vrednosti.</p>
+<h2>Zakrivanje ali abstrakcija</h2>
 
-<p align="justify">Uporabimo razred <code>Tocka</code>, ki smo ga ustvarili:</p>
+<p align="justify">Pogosto je lažje razmišljati in oblikovati program, ko lahko ločimo vmesnik razreda od njegove izvedbe in se osredotočimo samo na vmesnik. To je podobno obravnavanju sistema kot »črne skrinjice«, kjer za uporabo ni pomembno razumeti podrobnosti notranjega delovanja.</p>
 
-<div>
-<form>
-<p><textarea id="code">
-class Tocka:
+<p align="justify">Ta proces pri objektno usmerjenem programiranju imenujemo »zakrivanje«, ker zakrijemo podrobnosti izvedbe razreda in predstavimo samo vmesnik, ki je enostaven in omogoča uporabo samo preko javnih metod razreda. Ustrezno uporabljena abstrakcija pomaga izolirati vpliv sprememb programske kode. To pomeni, da bodo spremembe kode, če gre kaj narobe, vplivale samo na podrobnosti izvedbe razreda in ne na zunanjo programsko kodo.</p>
 
-  def __init__(self):
-    """ Inicializator """
-    self._x = 0
-    self._y = 0
+<h4>Primer</h4>
 
+<p align="justify"><img src="img/ipod-1752963_1280.jpg" class="img-responsive" width="40%" style="float:right;margin:5px 0 10px 10px;">Predstavljajmo si zvočni predvajalnik kot objekt, ki v notranjosti vsebuje zapleteno logično vezje. Na zunanji strani ima gumbe, ki omogočajo interakcijo z objektom. Ko pritisnemo gumb, ne razmišljamo o tem, kaj se dogaja v notranjosti, ker tega ne vidimo. Čeprav ne vidimo, da zaradi pritiska na gumb logično vezje izpolni določeno funkcijo, logično vezje to funkcijo še vedno izvede.</p>
 
-p = Tocka() # Ustvarimo prvi objekt Tocka
-q = Tocka() # Ustvarimo drugo točko
-
-print(p._x, p._y)
-print(q._x, q._y)
-</textarea></p>
-<p>
-<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
-<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
-<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
-</p>
-</form>
-</div>
-<pre id="output"></pre>
-
-<p align="justify">Gornji program izpiše:
-<pre>
-(0, 0)
-(0, 0)
-</pre>
-saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>_x</code> in <code>_y</code> ter njuni vrednosti nastavili na 0.</p>
+<p align="justify">Zakrivanje skrije podrobnosti pred uporabnikom. Včasih je bila notranjost zvočnega predvajalnika povsem drugačna, glasba pa je bila shranjena na avdio kasetah. Danes je glasba shranjena v datotekah in tudi postopek predvajanja je povsem drugačen. Za uporabnika pa se zaradi zakrivanja ni spremenilo praktično nič. Za predvajanje zvočnih posnetkov mora samo pritisniti gumb <button type="button" class="btn btn-default btn-sm"><span class="fa fa-play"></span></button>.</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -255,6 +207,8 @@ saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>_x</code> i
 					<li><a href="../2401/index13.html">264</a></li>
 					<li><a href="../2401/index14.html">265</a></li>
 					<li><a href="../2401/index15.html">266</a></li>
+					<li><a href="../2401/index16.html">267</a></li>
+					<li><a href="../2401/index17.html">268</a></li>
 					<li><a href="../2401/index5.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -292,79 +246,6 @@ saj smo med inicializacijo obema objektoma ustvarili lastnosti <code>_x</code> i
 
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
-
-	<!-- Skulpt and CodeMirror -->
-	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="../js/skulpt/skulpt.js"></script>
-	<script src="../js/skulpt/skulpt-stdlib.js"></script>
-	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
-	<!-- CodeMirror Fold addon -->
-	<script src="../js/skulpt/fold/foldcode.js"></script>
-	<script src="../js/skulpt/fold/foldgutter.js"></script>
-	<script src="../js/skulpt/fold/indent-fold.js"></script>
-
-<script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("output");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "output";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-}
-</script>
-
-<script>
-var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-  lineNumbers: true,
-  matchBrackets: true,
-  mode: "python",
-  theme: "rin-light",
-  lineWrapping: true,
-  foldGutter: true,
-  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
-});
-editor.setSize('100%', 265);
-</script>
-<script src="../js/skulpt/theme.js"></script>
-
-	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
-	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
-
-<script type='text/javascript'>
-  var brd14;
-
-  function init14() {
-    if (brd14 != null) JXG.JSXGraph.freeBoard(brd14);
-    brd14 = JXG.JSXGraph.initBoard('jxgbox14', {boundingbox:[-2, 4, 8, -1], keepaspectratio:true, axis:true, grid:true});
-    var o = brd14.create('point', [0, 0], {name:'O', size:3, fixed:true});
-    var p = brd14.create('point', [4, 3], {name:'A', size:3});	  
-  }
-
-  init14();
-</script>
 
 
 <!-- CookieCuttr -->

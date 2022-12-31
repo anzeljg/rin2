@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Objekti kot vrnjene vrednosti</title>
+	<title>Objekti kot argumenti</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -146,34 +146,106 @@
 			</div>
 		</div>
 
+		<!-- Modal (popup) window: Docstring -->
+		<div id="docstring" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Uporaba dokumentacijskih nizov</h4>
+					</div>
+					<div class="modal-body">
+<p align="justify">Uporaba dokumentacijskih nizov v jeziku Python je bolj podrobno določena v dokumentu <a href="https://peps.python.org/pep-0257/" target="_blank">PEP 257 – Docstring Conventions</a>.</p>
+
+<p align="justify">Dokumentacijski niz se mora vedno začeti v prvi vrstici modula, funkcije, razreda ali metode. Lahko je enovrstičen ali večvrstičen. Začne in konča se s tremi dvojnimi narekovaji. Oglejmo si naslednji primer:
+
+<pre>
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  # Druge metode
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+
+def izpisi_tocko(t):
+  """ Izpiše koordinati točke """
+  print("(" + str(t.x) + ", " + str(t.y) + ")")</pre>
+</p>
+
+<p align="justify">Dokumentacijske nize iz gornjega primera lahko uporabljamo s funkcijo <code>print</code> in metodo <code>__doc__</code>, ki ji kot argument podamo ime modula, funkcije, razreda ali metode, vendar brez argumentov in brez oklepajev. Fukcija <code>print</code> bo nato izpisala ustrezen dokumentacijski niz. Na primer:
+
+<pre>
+&gt;&gt;&gt; print(izpisi_tocko.__doc__)
+Izpiše koordinati točke
+
+&gt;&gt;&gt; print(Tocka.razdalja.__doc__)
+Vrne razdaljo točke od koordinatnega izhodišča
+</pre>
+</p>
+
+<p align="justify">Lahko pa preprosto uporabimo funkcijo <code>help</code>. Na primer:
+
+<pre>
+&gt;&gt;&gt; help(izpisi_tocko)
+Help on function izpisi_tocko in module __main__:
+
+izpisi_tocko(t)
+    Izpiše koordinati točke
+
+&gt;&gt;&gt; help(Tocka.razdalja)
+Help on function razdalja in module __main__:
+
+razdalja(self)
+    Vrne razdaljo točke od koordinatnega izhodišča
+
+</pre>
+</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Objekti kot vrnjene vrednosti</h1>
+<h1>Objekti kot argumenti</h1>
 
-<p align="justify">Funkcije in metode lahko vračajo objekte. Na primer, če imamo dva objekta <code>Tocka</code>, lahko izračunamo njuno sredino oziroma središčno točko. Najprej napišimo kodo kot običajno funkcijo:
+<p align="justify">Objekte lahko uporabimo kot argumente funkcij na čisto običajen način, ki smo ga vajeni. Pri tem ne smemo pozabiti, da spremenljivka vsebuje samo sklic na dejanski objekt. Če torej spremenljivko kot argument posredujemo neki funkciji, to ustvari le nov sklic. Tako obe &ndash; spremenljivka in funkcija &ndash; vsebujeta sklica na objekt, ki pa je en sam.</p>
+
+<p align="center"><img src="img/argument.svg" onerror="this.src='argument.png'" class="img-responsive"></p>
+
+<p align="justify">Oglejmo si primer enostavne funkcije, ki vključuje objekt <code>Tocka</code>:
 <pre>
-def sredina(p1, p2):
-  mx = (p1.x() + p2.x()) / 2
-  my = (p1.y() + p2.y()) / 2
-  return Tocka(mx, my)
+def izpisi_tocko(t):
+  print("(" + str(t.x) + ", " + str(t.y) + ")")
 </pre>
 </p>
 
-<p align="justify">Ta funkcija ustvari in vrne nov objekt <code>Tocka</code>:
-<pre>
-&gt;&gt;&gt; p = Tocka(4, 3)
-&gt;&gt;&gt; q = Tocka(12, 6)
-&gt;&gt;&gt; r = sredina(p, q)
-&gt;&gt;&gt; r
-(8.0, 4.5)
-</pre>
-</p>
+<p align="justify">Funkcija <code>izpisi_tocko</code> kot argument vzame oziroma sprejme objekt <code>Tocka</code> in oblikuje izpis na kateri koli način, ki ga izberemo oziroma določimo. Če funkcijo <code>izpisi_tocko(p)</code> pokličemo s točko <code>p</code>, ki smo jo definirali prej, bo izpis funkcije enak <code>(4, 3)</code>.</p>
 
-<p align="justify">Sedaj pa namesto funkcije kodo raje zapišimo v obliki metode. Recimo, da imamo objekt <code>Tocka</code> in želimo najti središčno točko na pol poti do drugega ciljnega objekta <code>Tocka</code></p>
+<div class="alert alert-success" role="alert">
+<p align="justify">Ustrezno dokumentiranje izvorne kode je zelo pomembno, zato je priporočena uporaba <b>dokumentacijskih nizov</b> (<i>ang. documentation strings &ndash; docstrings</i>), ki so priročen način povezovanja dokumentacije z moduli, funkcijami, razredi in metodami.</p>
+<p align="justify">Dokumentacijske nize uporabljamo za dokumentiranje določenih delov izvorne kode, podobno kot uporabljamo običajne komentarje. Za razliko od običajnih komentarjev mora dokumentacijski niz opisovati, kaj funkcija počne in ne, kako to počne.</p>
+<p>
+<a href="#docstring" class="btn btn-success" data-toggle="modal" data-target="#docstring">Uporaba dokumentacijskih nizov</a>
+</p>
+</div>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -189,41 +261,44 @@ class Tocka:
     self._x = x
     self._y = y
 
-  def x(self, vrednost=None):
-    """ Vrne ali nastavi vrednost lastnosti x """
-    if vrednost is None:
-      return self._x
-    else:
-      self._x = vrednost
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
 
-  def y(self, vrednost=None):
-    """ Vrne ali nastavi vrednost lastnosti y """
-    if vrednost is None:
-      return self._y
-    else:
-      self._y = vrednost
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
 
   def razdalja(self):
     """ Vrne razdaljo točke od koordinatnega izhodišča """
     return ((self._x ** 2) + (self._y ** 2)) ** 0.5
 
-  def __str__(self):
-    """ Vrne niz, ki vsebuje koordinati točke """
-    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
-  def sredina(self, tocka):
-    """ Vrne središče med točkama """
-    mx = (self._x + tocka._x) / 2
-    my = (self._y + tocka._y) / 2
-    return Tocka(mx, my)
+def izpisi_tocko(t):
+  """ Izpiše koordinati točke """
+  print("(" + str(t.x) + ", " + str(t.y) + ")")
 
 
 p = Tocka(4, 3)
-q = Tocka(12, 6)
-r = p.sredina(q)
-print(r)
-# Alternativni zapis brez uporabe spremenljivk
-print(Tocka(4, 3).sredina(Tocka(12, 6)))
+izpisi_tocko(p)
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -260,6 +335,8 @@ print(Tocka(4, 3).sredina(Tocka(12, 6)))
 					<li><a href="../2401/index13.html">264</a></li>
 					<li><a href="../2401/index14.html">265</a></li>
 					<li><a href="../2401/index15.html">266</a></li>
+					<li><a href="../2401/index16.html">267</a></li>
+					<li><a href="../2401/index17.html">268</a></li>
 					<li><a href="../2401/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -300,47 +377,41 @@ print(Tocka(4, 3).sredina(Tocka(12, 6)))
 
 	<!-- Skulpt and CodeMirror -->
 	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="../js/skulpt/skulpt.js"></script>
+	<script src="../js/skulpt/skulpt.min.js"></script>
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
 	<!-- CodeMirror Fold addon -->
 	<script src="../js/skulpt/fold/foldcode.js"></script>
 	<script src="../js/skulpt/fold/foldgutter.js"></script>
 	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("output");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "output";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-}
-</script>
+var output = $('#output');
+var outf = function (text) {
+	output.text(output.text() + text);
+};
 
-<script>
+function builtinRead(x) {
+	if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+		throw "File not found: '" + x + "'";
+	return Sk.builtinFiles["files"][x];
+}
+
+function runit() {
+	Sk.configure({output: outf, read: builtinRead, __future__: Sk.python3});
+	try {
+		Sk.misceval.asyncToPromise(function() {
+			return Sk.importMainWithBody("<stdin>", false, editor.getValue(), true);
+		});
+	} catch(e) {
+		outf(e.toString() + "\n")
+	}
+}
+
+function clearit() {
+	$('#output').text('');
+}
+
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
@@ -351,12 +422,15 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
   extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
-editor.setSize('100%', 460);
+editor.setSize('100%', 465);
 editor.foldCode(CodeMirror.Pos(2, 0));
 editor.foldCode(CodeMirror.Pos(7, 0));
-editor.foldCode(CodeMirror.Pos(14, 0));
-editor.foldCode(CodeMirror.Pos(21, 0));
-editor.foldCode(CodeMirror.Pos(25, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
+editor.foldCode(CodeMirror.Pos(15, 0));
+editor.foldCode(CodeMirror.Pos(19, 0));
+editor.foldCode(CodeMirror.Pos(23, 0));
+editor.foldCode(CodeMirror.Pos(28, 0));
+editor.foldCode(CodeMirror.Pos(33, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 
@@ -374,10 +448,10 @@ document.body.addEventListener("keydown", function (event) {
     var code = event.keyCode || event.which;
     var alt  = event.altKey;
     if (alt && code === 33 /* Alt+PgUp */) {
-        window.location.replace("../2401/index9.html");
+        window.location.replace("../2401/index7.html");
     }
     if (alt && code === 34 /* Alt+PgDn */) {
-        window.location.replace("../2401/index11.html");
+        window.location.replace("../2401/index9.html");
     }
 });
 </script>

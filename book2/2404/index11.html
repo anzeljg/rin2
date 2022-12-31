@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Razred BlackJackIgra</title>
+	<title>Razred BlackJack</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -152,13 +152,13 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Razred <code>BlackJackIgra</code></h1>
+<h1>Razred <code>BlackJack</code></h1>
 
-<p align="justify">Sedaj se lahko posvetimo razredu <code>BlackJackIgra</code>, ki je podrazred razreda <code>IgraKart</code>. Dodajmo mu novo metodo <code>igraj</code>, ki bo kot parameter dobila tabelo igralcev, ki bodo igrali igro. Poleg igralcev, bomo igri dodali tudi delivca, ki bo zadnji na seznamu igralcev.</p>
+<p align="justify">Sedaj se lahko posvetimo razredu <code>BlackJack</code>, ki je podrazred razreda <code>Komplet</code>. Dodajmo mu novo metodo <code>igraj</code>, ki bo kot parameter dobila tabelo igralcev, ki bodo igrali igro. Poleg igralcev, bomo igri dodali tudi delivca, ki bo zadnji na seznamu igralcev.</p>
 
-<p align="justify">Ker bo metoda <code>__init__</code> podedovana, bo objekt <code>BlackJackIgra</code> že vseboval premešan komplet kart. Iz kompleta kart bomo vsem izgralcem (tudi delivcu) razdelili po dve karti:
+<p align="justify">Ker bo metoda <code>__init__</code> podedovana, bo objekt <code>BlackJack</code> že vseboval komplet kart, ki ga bomo morali pred pričetkom igre še premešati. Iz kompleta kart bomo nato vsem igralcem (tudi delivcu) razdelili po dve karti:
 <pre>
-class BlackJackIgra(IgraKart):
+class BlackJack(Komplet):
 
   def igraj(self, imena):
     # Dodaj igralce
@@ -169,16 +169,19 @@ class BlackJackIgra(IgraKart):
     # Dodaj delivca
     self._igralci.append(BlackJackDelivec())
 
+    # Premešaj karte
+    self.premesaj()
+
     # Razdeli karte - vsakemu igralcu 2 karti
-    self._komplet.deli(self._igralci, len(self._igralci)*2)
+    self.deli(self._igralci, len(self._igralci)*2)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 </pre>
 </p>
 
-<p align="justify">Dodajmo metodo <code>izpisi_igralce</code>, ki bo izpisala kateri karti imajo igralci v rokah. Pri delivcu bo druga karta skrita:
+<p align="justify">Dodajmo metodo <code>izpisi_igralce</code>, ki bo izpisala katere karti imajo igralci v rokah. Pri delivcu bo druga karta skrita:
 <pre>
-class BlackJackIgra(IgraKart):
+class BlackJack(Komplet):
   # ...
 
   def izpisi_igralce(self):
@@ -200,7 +203,7 @@ class BlackJackIgra(IgraKart):
 
 from blackjack import *
 
-class BlackJackIgra(IgraKart):
+class BlackJack(Komplet):
 
   def igraj(self, imena):
     """ Igra igro s kartami: Black Jack """
@@ -212,8 +215,11 @@ class BlackJackIgra(IgraKart):
     # Dodaj delivca
     self._igralci.append(BlackJackDelivec())
 
+    # Premešaj karte
+    self.premesaj()
+
     # Razdeli karte - vsakemu igralcu 2 karti
-    self._komplet.deli(self._igralci, len(self._igralci)*2)
+    self.deli(self._igralci, len(self._igralci)*2)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
@@ -224,7 +230,7 @@ class BlackJackIgra(IgraKart):
       print(self._igralci[i])
 
 
-igra = BlackJackIgra()
+igra = BlackJack()
 igra.igraj(["Janez", "Karel", "Lojze"])
 </textarea></p>
 <p>
@@ -246,23 +252,23 @@ igra.igraj(["Janez", "Karel", "Lojze"])
 				<ul class="pagination pagination-sm">
 					<li><a href="../2403/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
 					<li><a href="../2404/index10.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
-					<li><a href="../2404/index.html">297</a></li>
-					<li><a href="../2404/index1.html">298</a></li>
-					<li><a href="../2404/index2.html">299</a></li>
-					<li><a href="../2404/index3.html">300</a></li>
-					<li><a href="../2404/index4.html">301</a></li>
-					<li><a href="../2404/index5.html">302</a></li>
-					<li><a href="../2404/index6.html">303</a></li>
-					<li><a href="../2404/index7.html">304</a></li>
-					<li><a href="../2404/index8.html">305</a></li>
-					<li><a href="../2404/index9.html">306</a></li>
-					<li><a href="../2404/index10.html">307</a></li>
-					<li class="active"><a href="#">308</a></li>
-					<li><a href="../2404/index12.html">309</a></li>
-					<li><a href="../2404/index13.html">310</a></li>
-					<li><a href="../2404/index14.html">311</a></li>
-					<li><a href="../2404/index15.html">312</a></li>
-					<li><a href="../2404/index16.html">313</a></li>
+					<li><a href="../2404/index.html">299</a></li>
+					<li><a href="../2404/index1.html">300</a></li>
+					<li><a href="../2404/index2.html">301</a></li>
+					<li><a href="../2404/index3.html">302</a></li>
+					<li><a href="../2404/index4.html">303</a></li>
+					<li><a href="../2404/index5.html">304</a></li>
+					<li><a href="../2404/index6.html">305</a></li>
+					<li><a href="../2404/index7.html">306</a></li>
+					<li><a href="../2404/index8.html">307</a></li>
+					<li><a href="../2404/index9.html">308</a></li>
+					<li><a href="../2404/index10.html">309</a></li>
+					<li class="active"><a href="#">310</a></li>
+					<li><a href="../2404/index12.html">311</a></li>
+					<li><a href="../2404/index13.html">312</a></li>
+					<li><a href="../2404/index14.html">313</a></li>
+					<li><a href="../2404/index15.html">314</a></li>
+					<li><a href="../2404/index16.html">315</a></li>
 					<li><a href="../2404/index12.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2405/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -303,48 +309,45 @@ igra.igraj(["Janez", "Karel", "Lojze"])
 
 	<!-- Skulpt and CodeMirror -->
 	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="../js/skulpt/skulpt.js"></script>
+	<script src="../js/skulpt/skulpt.min.js"></script>
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
-	<script src="js/skulpt-stdlib-modul-blackjack.js"></script>
 	<!-- CodeMirror Fold addon -->
 	<script src="../js/skulpt/fold/foldcode.js"></script>
 	<script src="../js/skulpt/fold/foldgutter.js"></script>
 	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
+<!-- Skulpt stdlib extended with own modules:
+     blackjack.py
+//-->
+<script src="js/skulpt-extlib-blackjack.js"></script>
 <script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("output");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "output";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-}
-</script>
+var output = $('#output');
+var outf = function (text) {
+	output.text(output.text() + text);
+};
 
-<script>
+function builtinRead(x) {
+	if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+		throw "File not found: '" + x + "'";
+	return Sk.builtinFiles["files"][x];
+}
+
+function runit() {
+	Sk.configure({output: outf, read: builtinRead, __future__: Sk.python3});
+	try {
+		Sk.misceval.asyncToPromise(function() {
+			return Sk.importMainWithBody("<stdin>", false, editor.getValue(), true);
+		});
+	} catch(e) {
+		outf(e.toString() + "\n")
+	}
+}
+
+function clearit() {
+	$('#output').text('');
+}
+
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,

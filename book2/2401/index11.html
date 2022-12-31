@@ -10,10 +10,14 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Sprememba perspektive</title>
+	<title>Pretvarjanje objekta v niz</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -142,58 +146,114 @@
 			</div>
 		</div>
 
-		<!-- Modal (popup) window: Source -->
-		<div id="source" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Vir fotografije</h4>
-					</div>
-					<div class="modal-body">
-						<p>Christian Schütt. <i>BMW Kreditkarte mit Schlüsselfunktion</i>. [pridobljeno 6. 4. 2017]<br />Dostopno na naslovu: <a href="https://www.7-forum.com/bilder/news/2015/ces_las_vegas/bmw_kreditkarte_p90171210-b_jpg.html">https://www.7-forum.com/bilder/news/2015/ces_las_vegas/ bmw_kreditkarte_p90171210-b_jpg.html</a> Vse pravice pridržane [citat]</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Sprememba perspektive</h1>
+<h1>Pretvarjanje objekta v niz</h1>
 
-<p align="justify">Izvirna sintaksa klica funkcije, na primer <code>izpisi_cas(trenutni_cas)</code>, kaže na to, da je funkcija aktivni predstavnik. Pravi nekako takole: <i>»Hej <tt>izpisi_cas</tt>! Tu imaš objekt, ki ga izpiši.«</i></p>
+<p align="justify">Večina objektno usmerjenih programerjev verjetno ne bi napisala in uporabila funkcije <code>izpisi_tocko</code>. Kadar delamo z razredi in objekti, raje dodamo novo metodo razredu. Prav tako ne maramo preveč metod, ki bi uporabljale funkcijo <code>print</code>. Boljši pristop je, da razred vsebuje metodo, ki omogoča vsakemu objektu, da ustvari niz oziroma besedilno predstavitev samega sebe. Ustvarimo takšno metodo in jo poimenujmo <code>v_niz</code>:
+<pre>
+class Tocka:
+  # ...
 
-<p align="justify">Pri objektno usmerjenem programiranju pa kot aktivne predstavnike obravnavamo objekte. Poziv kot na primer <code>trenutni_cas.izpisi_cas()</code> pravi: <i>»Hej <tt>trenutni_cas</tt>! Izpiši samega sebe!«</i></p>
+  def v_niz(self):
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
 
-<p align="justify">Ta sprememba v perspektivi je morda bolj vljudna, vendar na prvi pogled ni videti, da bi bila uporabna. Vendar včasih premik odgovornosti iz funkcij na objekte omogoča pisanje bolj raznolikih funkcij ter posledično lažje vzdrževanje in ponovno uporabo kode.</p>
+</pre>
+</p>
 
-<p align="justify">Najpomembnejša prednost objektno usmerjenega sloga programiranja je v tem, da se natančno prilega našemu miselnemu razčlenjevanju in izkušnjam iz resničnega življenja. V resničnem življenju je metoda <code>kuhaj</code> del mikrovalovne pečice &ndash; funkcija <code>kuhaj</code> ne sedi nekje v kotu kuhinje in čaka, da ji posredujemo mikrovalovno pečico! Podobno uporabljamo lastne metode mobilnega telefona za pošiljanje SMS sporočil in za utišanje mobilnega telefona.</p>
+<p align="justify">V gornjem primeru in od tu dalje, bo komentar s tremi pikami (<code># ...</code>) označeval, da smo izpustili druge metode tega razreda.</p>
 
-<p align="justify">Funkcionalnost predmetov v resničnem življenju je običajno tesno povezana s predmeti samimi. Objektno usmerjeno programiranje nam omogoča, da to natančno preslikamo, ko načrtujemo, organiziramo in izdelujemo programe.</p>
+<p align="justify">Metodo lahko uporabimo takole:
+<pre>
+&gt;&gt;&gt; t = Tocka(7, 8)
+&gt;&gt;&gt; print(t.v_niz())
+(7, 8)
+</pre>
+</p>
+
+<p align="justify">Toda, ali ne obstaja funkcija <code>str</code>, ki samodejno pretvarja tip podatkov iz objekta v niz. Seveda obstaja! Tudi funkcija <code>print</code> samodejno pretvarja objekte v nize, ko jih izpisuje? Tudi to drži! Vendar ti samodejni mehanizmi še ne delujejo, kot bi si želeli:</p>
+
+<p><pre>
+&gt;&gt;&gt; str(t)
+'<__main__.Tocka object>'
+&gt;&gt;&gt; print(t)
+'<__main__.Tocka object>'
+</pre></p>
+
+<p align="justify">To lahko zelo enostavno popravimo tako, da našo metodo <code>v_niz</code> preimenujemo v <code>__str__</code>. Tako se bo ta metoda izvedla vsakokrat, ko bomo želeli objekt <code>Tocka</code> spremeniti v niz, na primer, kadar bomo uporabili funkciji <code>str</code> in <code>print</code>.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
+						<br />
 <!-- Right column start -->
-<h1>Objekti lahko imajo stanje</h1>
+<p align="justify">Spremenimo oziroma ustrezno dopolnimo naš program:</p>
 
-<p align="justify">Objekti so najbolj koristni takrat, kadar moramo spremljati tudi neko stanje, ki se od časa do časa spremeni. Razmislimo na primer o objektu avtomobil. Stanje avtomobila sestoji iz stvari, kot so na primer njegov položaj, njegova smer, njegova barva, njegova oblika itd. Metoda <code>levo(90)</code> posodobi smer avtomobila, metoda <code>naprej</code> spremeni njegov položaj itd.</p>
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
 
-<p align="justify">Glavna komponenta stanja objekta bančni račun, bi najverjetneje bilo trenutno stanje na bančnem računu in morda dnevnik vseh transakcij. Metode bi omogočale da se pozanimamo o trenutnem stanju, položimo denar na račun ali izvedemo plačilo. Izvedba plačila bi vsebovala znesek in opis, kar bi se zapisalo v dnevnik transakcij. Verjetno bi potrebovali tudi metodo za izpis dnevnika transakcij.</p>
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
 
-<p align="center">
-<img src="img/bmw_kreditkarte_p90171210-b.jpg" class="img-responsive" style="width:75%" />
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+
+p = Tocka(4, 3)
+print(p)
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
 </p>
-<p align="center"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir fotografije</button></p>
+</form>
+</div>
+<pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše koordinati točke:
+<pre>
+(4, 3)
+</pre>
+</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -221,6 +281,8 @@
 					<li><a href="../2401/index13.html">264</a></li>
 					<li><a href="../2401/index14.html">265</a></li>
 					<li><a href="../2401/index15.html">266</a></li>
+					<li><a href="../2401/index16.html">267</a></li>
+					<li><a href="../2401/index17.html">268</a></li>
 					<li><a href="../2401/index12.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -238,6 +300,7 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
 
 	<!-- rPage: Highly responsive pagination for Bootstrap -->
 	<script src="../js/responsive-paginate.js"></script>
@@ -258,6 +321,65 @@
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
 
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+	<script src="../js/skulpt/skulpt.min.js"></script>
+	<script src="../js/skulpt/skulpt-stdlib.js"></script>
+	<script src="../js/skulpt/python.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
+
+<script type="text/javascript">
+var output = $('#output');
+var outf = function (text) {
+	output.text(output.text() + text);
+};
+
+function builtinRead(x) {
+	if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+		throw "File not found: '" + x + "'";
+	return Sk.builtinFiles["files"][x];
+}
+
+function runit() {
+	Sk.configure({output: outf, read: builtinRead, __future__: Sk.python3});
+	try {
+		Sk.misceval.asyncToPromise(function() {
+			return Sk.importMainWithBody("<stdin>", false, editor.getValue(), true);
+		});
+	} catch(e) {
+		outf(e.toString() + "\n")
+	}
+}
+
+function clearit() {
+	$('#output').text('');
+}
+
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "python",
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
+});
+editor.setSize('100%', 500);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
+editor.foldCode(CodeMirror.Pos(15, 0));
+editor.foldCode(CodeMirror.Pos(19, 0));
+editor.foldCode(CodeMirror.Pos(23, 0));
+editor.foldCode(CodeMirror.Pos(28, 0));
+editor.foldCode(CodeMirror.Pos(33, 0));
+</script>
+<script src="../js/skulpt/theme.js"></script>
+
 
 <!-- CookieCuttr -->
 <script type="text/javascript" src="../cc/jquery.cookie.js"></script>
@@ -272,10 +394,10 @@ document.body.addEventListener("keydown", function (event) {
     var code = event.keyCode || event.which;
     var alt  = event.altKey;
     if (alt && code === 33 /* Alt+PgUp */) {
-        window.location.replace("../2401/index10.html");
+        window.location.replace("../2401/index8.html");
     }
     if (alt && code === 34 /* Alt+PgDn */) {
-        window.location.replace("../2401/index12.html");
+        window.location.replace("../2401/index10.html");
     }
 });
 </script>

@@ -2,7 +2,7 @@
 
 class Karta:
 
-  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _barve = ["Pikov", "Srčev", "Karin", "Križev"]
   _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "fant", "dama", "kralj"]
 
@@ -125,16 +125,8 @@ class Igralec(Komplet):
     if self.je_prazen():
       s += " nima kart\n"
     else:
-      s += " ima\n"
-    return s + Komplet.__str__(self)
-
-
-class IgraKart:
-
-  def __init__(self):
-    """ Inicializator """
-    self._komplet = Komplet()
-    self._komplet.premesaj()
+      s += " ima\n" + Komplet.__str__(self)
+    return s
 
 
 class VojnaIgralec(Igralec):
@@ -147,7 +139,7 @@ class VojnaIgralec(Igralec):
     self._shramba = []
 
 
-class VojnaIgra(IgraKart):
+class Vojna(Komplet):
 
   def igraj(self, imena):
     """ Igra igro s kartami: vojna """
@@ -156,8 +148,11 @@ class VojnaIgra(IgraKart):
     for ime in imena:
       self._igralci.append(VojnaIgralec(ime))
 
+    # Premešaj karte
+    self.premesaj()
+
     # Razdeli karte
-    self._komplet.deli(self._igralci)
+    self.deli(self._igralci)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
@@ -165,7 +160,7 @@ class VojnaIgra(IgraKart):
     print("---------- Igra se začenja")
     igralec1 = self._igralci[0]
     igralec2 = self._igralci[1]
-    #TODO
+
     while len(igralec1._karte) > 0 and len(igralec2._karte) > 0:
       karta1 = igralec1._karte.pop()
       karta2 = igralec2._karte.pop()
@@ -228,5 +223,5 @@ class VojnaIgra(IgraKart):
             str(len(self._igralci[i]._karte)) + " kart")
 
 
-igra = VojnaIgra()
+igra = Vojna()
 igra.igraj(["Janez", "Karel"]) # 2 igralca

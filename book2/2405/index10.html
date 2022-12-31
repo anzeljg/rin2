@@ -154,29 +154,34 @@
 <!-- Left column start -->
 <h1>Igra Black Jack</h1>
 
-<p align="justify">Rokovalnik izpisa na platno izpiše ustrezno besedilo. Za izris kart pa pokliče metodo <code>izpis</code> razreda <code>Igralec</code>, ki poskrbi za izpis vseh kart, ki jih ima igralec v roki. Metoda <code>Igralec.izpis()</code> pa nadalje pokliče metodo <code>izpis</code> razreda <code>Karta</code>, ki poskrbi za izpis oziroma izris slike karte na ustreznem mestu na platnu.</p>
+<p align="justify">Rokovalnik izpisa na platno izpiše ustrezno besedilo. Za izris kart pa pokliče metodo <code>narisi_karte</code> razreda <code>Igralec</code>, ki poskrbi za izpis vseh kart, ki jih ima igralec v roki. Metoda <code>Igralec.narisi_karte()</code> pa nadalje pokliče metodo <code>narisi</code> razreda <code>Karta</code>, ki poskrbi za izpis oziroma izris slike karte na ustreznem mestu na platnu.</p>
 
 <pre>
-def izpis(platno):
-  global izid, igralec, delivec
-  igralec.izpis(platno, [50, 220])
-  delivec.izpis(platno, [50, 400], True)
+class BlackJack():
+  # ...
 
-  txt1 = "Black Jack"
-  txt2 = "Tvoje karte"
-  txt3 = "Jackove karte"
-  txt4 = "STANJE: " + izid
-  txt5 = "REZULTAT: zmage: " + str(REZULTAT["ZMAGE"]) \
-         + ", skupaj: " + str(REZULTAT["SKUPAJ"])
+  def narisi(self, platno):
+    self._igralec.narisi_karte(platno, [50, 220])
+    self._delivec.narisi_karte(platno, [50, 400])
+    # Skrij prvo karto delivca, če igra poteka
+    if self._igra_poteka:
+      self._delivec.obrni_karto(platno, [50, 400])
 
-  platno.draw_text(txt1, [50, 70], 40, "white")
-  platno.draw_text(txt2, [50, 200], 20, "white")
-  platno.draw_text(txt3, [50, 380], 20, "white")
-  platno.draw_text(txt4, [50, 140], 20, "white")
-  platno.draw_text(txt5, [50, 560], 20, "white")
+    _txt1 = "Black Jack"
+    _txt2 = "Tvoje karte"
+    _txt3 = "Jackove karte"
+    _txt4 = "STANJE: " + self._izid
+    _txt5 = "REZULTAT: zmage: " + str(self._REZULTAT["ZMAGE"]) \
+            + ", skupaj: " + str(self._REZULTAT["SKUPAJ"])
+
+    platno.draw_text(_txt1, [50, 70], 40, "white")
+    platno.draw_text(_txt2, [50, 200], 20, "white")
+    platno.draw_text(_txt3, [50, 380], 20, "white")
+    platno.draw_text(_txt4, [50, 140], 20, "white")
+    platno.draw_text(_txt5, [50, 560], 20, "white")
 </pre>
 
-<p align="justify">Razrede <code>Karta</code>, <code>Igralec</code> in <code>Komplet</code> smo sicer spoznali že v <a href="../2404/index13.html">prejšnji učni enoti</a>. Tukaj smo jih samo še priredili, da jih lahko uporabimo v GUI vmesniku programa.</p>
+<p align="justify">Razrede <code>Karta</code>, <code>Igralec</code> in <code>Komplet</code> smo sicer spoznali že v <a href="../2404/index13.html">prejšnji učni enoti</a>. Tukaj smo jih samo priredili (in izbrisali metode, ki jih ne potrebujemo), da jih lahko uporabimo v GUI vmesniku programa.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -197,30 +202,25 @@ def izpis(platno):
 import simplegui
 import random
 
-# Naloži sliko kompleta kart, ki vsebuje vse karte
+# Definicija konstant
 VEL = (86, 120) # Velikost posamezne karte
 SRED = (43, 60) # Središče posamezne karte
-slike_kart = simplegui.load_image("http://tiny.cc/deck")
-
-# Definicija globalnih spremenljivk
-igra_poteka = False
-izid = ""
-REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
+slike_kart = simplegui.load_image("https://i.imgur.com/02fPJzJ.gif")
 
 # Definicija globalnih spremenljivk za karte
-BARVE = ("C", "S", "H", "D") # Club/Spade/Heart/Diamond
-OPISI = ("A", "2", "3", "4", "5", "6", "7", "8", "9",
-         "X", "J", "Q", "K")
-VREDNOSTI = {"A":1, "2":2, "3":3, "4":4, "5":5,
-             "6":6, "7":7, "8":8, "9":9, "X":10,
-             "J":10, "Q":10, "K":10}
+BARVE = ("S", "H", "D", "C")  # Spade/Heart/Diamond/Club
+ZNAKI = ("♠", "♥", "♦", "♣")
+OPISI = ("A", "2", "3", "4", "5", "6", "7",
+         "8", "9", "X", "J", "Q", "K")
+VREDNOSTI = {"A":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7,
+             "8":8, "9":9, "X":10, "J":10, "Q":10, "K":10}
 
 
 # Definicija razreda 'Karta'
 class Karta:
 
-  # Ustvari objekt 'Karta'
   def __init__(self, barva, opis):
+    """ Inicializator """
     if (barva in BARVE) and (opis in OPISI):
       self._barva = barva
       self._opis = opis
@@ -229,20 +229,16 @@ class Karta:
       self._opis = None
       print("Neveljavna karta: ", barva, opis)
 
-  # Vrne dvo-znakovno predstavitev karte
   def __str__(self):
-    return self._barva + self._opis
+    """ Vrne niz, ki predstavlja karto """
+    znak = BARVE.index(self._barva)
+    opis = self._opis
+    if opis == "X":
+      opis = "10"
+    return ZNAKI[znak] + opis
 
-  # Vrne barvo karte
-  def vrni_barvo(self):
-    return self._barva
-
-  # Vrne opis ali rang karte
-  def vrni_opis(self):
-    return self._opis
-
-  # Izriše sliko karte na platnu, na danem položaju
-  def izpis(self, platno, poz):
+  def narisi(self, platno, poz):
+    """ Nariše sliko karte na platnu, na danem položaju """
     polozaj = (SRED[0]+VEL[0] * OPISI.index(self._opis), 
                SRED[1]+VEL[1] * BARVE.index(self._barva))
     platno.draw_image(slike_kart, polozaj, VEL,
@@ -252,62 +248,60 @@ class Karta:
 # Definicija razreda 'Komplet' 
 class Komplet:
 
-  # Ustvari objekt 'Komplet', ki vsebuje vseh 52 kart
   def __init__(self):
+    """ Inicializator """
     self._karte = []
     for barva in BARVE:
       for opis in OPISI:
-        karta = Karta(barva, opis)
-        self._karte.append(karta)
+        self._karte.append(Karta(barva, opis))
 
-  # Premešaj komplet kart
-  def premesaj(self):
-    random.shuffle(self._karte)
-
-  # Deli naslednjo karto iz kompleta
-  def deli_karto(self):
-    return self._karte.pop()
-
-  # Vrne besedilno predstavitev kompleta kart
   def __str__(self):
+    """ Vrne niz, ki predstavlja komplet kart """
     sporocilo = "Komplet vsebuje"
     for karta in self._karte:
       sporocilo += " " + str(karta)
     return sporocilo
 
+  def premesaj(self):
+    """ Premeša karte v kompletu """
+    random.shuffle(self._karte)
+
+  def deli_karto(self):
+    """ Deli naslednjo karto iz kompleta """
+    return self._karte.pop()
+
 
 # Definicija razreda 'Igralec'
 class Igralec(Komplet):
-
-  # Ustvari objekt 'Igralec', ki privzeto ni delivec
+  
   def __init__(self, delivec=False):
+    """ Inicializator """
     self._karte = []
     self._delivec = delivec
+    self._skrij_karto = False
 
-  # Vrne predstavitev kart, ki jih v roki drži igralec
   def __str__(self):
-    sporocilo = "V roki drži"
-    skrita = False
-    if self._delivec:
-      skrita = True
+    """ Vrne niz, ki predstavlja igralčeve karte """
+    sporocilo = ""
+    skrita_karta = self._skrij_karto
     for karta in self._karte:
-	  # Skrije prvo karto delivca
-      if self._delivec and skrita:
+      # Skrije prvo karto delivca
+      if self._delivec and skrita_karta:
         sporocilo += " ??"
-        skrita = False
+        skrita_karta = False
       else:
         sporocilo += " " + str(karta)
     return sporocilo
 
-  # Igralcu doda nov objekt 'Karta'
   def dodaj_karto(self, karta):
+    """ Igralcu doda nov objekt 'Karta' """
     self._karte.append(karta)
 
-  # Vrne skupno vrednost kart, ki jih igralec drži v roki
   def vrednost_kart(self):
-    # Če ima igralec v roki karto as, jo šteje kot 1 in
-    # nato, če vrednost kart v roki ne preseže 21, doda
-    # vrednosti še 10 - saj je as vreden 1 ali 11 točk.
+    """ Vrne skupno vrednost kart, ki jih igralec drži v roki """
+    # Če ima igralec v roki karto as, jo šteje kot 1 in nato, če
+    # vrednost kart v roki ne preseže 21, doda vrednosti še 10 -
+    # saj je as vreden 1 ali 11 točk.
     vrednost = 0
     asi = 0
     for karta in self._karte:
@@ -315,138 +309,152 @@ class Igralec(Komplet):
       if karta._opis == "A":
         asi += 1
     for a in range(asi):
-      # Če je vrednost kart v roki igralca dovolj nizka,
-      # lahko štejemo asa kot 11, namesto 1...
+      # Če je vrednost kart v roki igralca dovolj nizka, lahko
+      # štejemo asa kot 11, namesto 1...
       # To pomeni: vrednosti dodaj dodatnih 10 točk!
       if vrednost <= 11:
         vrednost += 10
     return vrednost
-
-  # Izriše karte - uporabi metodo izpis razreda 'Karta'
-  def izpis(self, platno, poz, delivec=False):
+  
+  def narisi_karte(self, platno, poz):
+    """ Nariše karte - uporabi metodo narisi razreda 'Karta' """
     ROB = 10
     i = 0
     for karta in self._karte:
-      karta.izpis(platno, [poz[0]+i*(VEL[0]+ROB),poz[1]])
-      # Če izrisujemo karte delivca in igra še poteka,
-      # potem skrijemo prvo karto delivca tako, da čez
-      # njo izrišemo sliko hrbtne strani karte.
-      if delivec and igra_poteka and i == 0:
-        polozaj = (SRED[0]+VEL[0] * 2, 
-                   SRED[1]+VEL[1] * 4)
-        platno.draw_image(slike_kart, polozaj, VEL,
-		          [poz[0]+SRED[0], poz[1]+SRED[1]], VEL)
+      karta.narisi(platno, [poz[0]+i*(VEL[0]+ROB), poz[1]])
       i += 1
 
+  def skrij_karto(self):
+    """ Skrije prvo karto delivca """
+    self._skrij_karto = True
 
-# Določi rokovalnik gumba 'Deli'
-def deli():
-  # Če kliknemo gumb medtem, ko igra poteka
-  global izid, REZULTAT, igra_poteka
-  if igra_poteka:
-    izid = "Jack je zmagal."
-    REZULTAT["SKUPAJ"] += 1
+  def razkrij_karto(self):
+    """ Razkrije prvo karto delivca """
+    self._skrij_karto = False
 
-  global komplet
-  komplet = Komplet()
-  komplet.premesaj()
-
-  global igralec, delivec
-  igralec = Igralec()
-  delivec = Igralec(True)
-  # Izmenično razdeli dve karti igralcu in delivcu
-  igralec.dodaj_karto(komplet.deli_karto())
-  delivec.dodaj_karto(komplet.deli_karto())
-  igralec.dodaj_karto(komplet.deli_karto())
-  delivec.dodaj_karto(komplet.deli_karto())
-  print("Igralec: " + str(igralec))
-  print("Delivec: " + str(delivec))
-
-  izid = "Na vrsti si. Vleci ali obdrži?"
-  igra_poteka = True
+  def obrni_karto(self, platno, poz):
+    """ Prvo karto delivca nariše obrnjeno na hrbtno stran """
+    if self._delivec:
+      polozaj = (SRED[0]+VEL[0] * 0, 
+                 SRED[1]+VEL[1] * 4)
+      platno.draw_image(slike_kart, polozaj, VEL,
+                [poz[0]+SRED[0], poz[1]+SRED[1]], VEL)
 
 
-# Določi rokovalnik gumba 'Vleci'
-def vleci():
-  # Če igra poteka, potem igralec vleče karto
-  global izid, REZULTAT, igra_poteka, komplet, igralec
-  if igra_poteka:
-    igralec.dodaj_karto(komplet.deli_karto())
-    print("Vrednost kart igralca: " + 
-          str(igralec.vrednost_kart()))
-  # Če igralec preseže 21, potem priredi sporočilo
-  # spremeljivki izid, posodobi vrednosti spremeljivk
-  # igra_poteka in REZULTAT
-  if igralec.vrednost_kart() > 21:
-    izid = "Imaš več kot 21. Jack je zmagal. Nova igra?"
-    igra_poteka = False
-    print(izid)
-    REZULTAT["SKUPAJ"] += 1
-    print(REZULTAT)
+# Definicija razreda 'BlackJack'
+class BlackJack():
 
+  _igra_poteka = False
+  _izid = ""
+  _REZULTAT = {"SKUPAJ":0, "ZMAGE":0}
 
-# Določi rokovalnik gumba 'Obdrži'
-def obdrzi():
-  # Če igra poteka, potem delivec vleče karte, dokler
-  # ni njihova skupna vrednost 17 ali več
-  global izid, REZULTAT, igra_poteka, komplet, delivec
-  while delivec.vrednost_kart() < 17:
-    delivec.dodaj_karto(komplet.deli_karto())
-    print("Vrednost kart delivca: " +
-          str(delivec.vrednost_kart()))
-  igra_poteka = False
-  # Priredi sporočilo spremeljivki izid, posodobi
-  # vrednosti spremeljivk igra_poteka in REZULTAT
-  if delivec.vrednost_kart() > 21:
-    izid = "Jack ima več kot 21. Zmagal si! Nova igra?"
-    print(izid)
-    REZULTAT["SKUPAJ"] += 1
-    REZULTAT["ZMAGE"] += 1
-    print(REZULTAT)
-  else:
-    # Določi zmagovalca
-    REZULTAT["SKUPAJ"] += 1
-    if igralec.vrednost_kart() > delivec.vrednost_kart():
-      izid = "Zmagal si! Nova igra?"
-      REZULTAT["ZMAGE"] += 1
+  def __init__(self):
+    """ Inicializator """
+    # Ustvari okvir
+    self.frame = simplegui.create_frame("Black Jack", 650, 600)
+    self.frame.set_canvas_background("green")
+
+    # Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
+    self.frame.add_button("Deli", self.deli, 200)
+    self.frame.add_button("Vleci",  self.vleci, 200)
+    self.frame.add_button("Obdrži", self.obdrzi, 200)
+    self.frame.set_draw_handler(self.narisi)
+
+    # Dodaj igralca in delivca
+    self._igralec = Igralec()
+    self._delivec = Igralec(True)
+
+    # Razdeli karte
+    self.deli()
+
+    # Zaženi animacijo okvirja (dogodkovno zanko)
+    self.frame.start()
+
+  def deli(self):
+    """ Rokovalnik gumba 'Deli' """
+    # Ustvari nov komplet kart in ga premešaj
+    self._komplet = Komplet()
+    self._komplet.premesaj()
+
+    # Dodaj igralca in delivca ter začni igro
+    self._igralec._karte = []
+    self._delivec._karte = []
+    self._igra_poteka = True
+    self._delivec.skrij_karto()
+    self._izid = ""
+
+    # Izmenično razdeli dve karti igralcu in delivcu
+    self._igralec.dodaj_karto(self._komplet.deli_karto())
+    self._delivec.dodaj_karto(self._komplet.deli_karto())
+    self._igralec.dodaj_karto(self._komplet.deli_karto())
+    self._delivec.dodaj_karto(self._komplet.deli_karto())
+
+  def vleci(self):
+    """ Rokovalnik gumba 'Vleci' """
+    if self._igra_poteka:
+      self._igralec.dodaj_karto(self._komplet.deli_karto())
+
+    # Če igralec preseže 21, priredi sporočilo spremeljivki _izid
+    # ter posodobi vrednosti spremeljivk _igra_poteka in _REZULTAT
+    if self._igralec.vrednost_kart() > 21:
+      self._izid = "Imaš več kot 21. Jack je zmagal. Nova igra?"
+      self._igra_poteka = False
+      self._REZULTAT["SKUPAJ"] += 1
+      # Končaj igro
+      self._igra_poteka = False
+      self._delivec.razkrij_karto()
+
+  def obdrzi(self):
+    """ Rokovalnik gumba 'Obdrži' """
+    # Če igra poteka, potem delivec vleče karte, dokler ni njihova
+    # skupna vrednost 17 ali več
+    while self._delivec.vrednost_kart() < 17:
+      self._delivec.dodaj_karto(self._komplet.deli_karto())
+    
+    # Končaj igro
+    self._igra_poteka = False
+    self._delivec.razkrij_karto()
+
+    # Priredi sporočilo spremeljivki _izid ter posodobi vrednosti
+    # spremeljivk _igra_poteka in _REZULTAT
+    if self._delivec.vrednost_kart() > 21:
+      self._izid = "Jack ima več kot 21. Zmagal si! Nova igra?"
+      self._REZULTAT["SKUPAJ"] += 1
+      self._REZULTAT["ZMAGE"] += 1
     else:
-      izid = "Jack je zmagal. Nova igra?"
-    print(izid)
-    print(REZULTAT)
+      # Določi zmagovalca
+      self._REZULTAT["SKUPAJ"] += 1
+      if self._igralec.vrednost_kart() > self._delivec.vrednost_kart():
+        self._izid = "Zmagal si! Nova igra?"
+        self._REZULTAT["ZMAGE"] += 1
+      else:
+        self._izid = "Jack je zmagal. Nova igra?"
+
+  def narisi(self, platno):
+    """ Rokovalnik izpisa oz. izrisa """
+    self._igralec.narisi_karte(platno, [50, 220])
+    self._delivec.narisi_karte(platno, [50, 400])
+    # Skrij prvo karto delivca, če igra poteka
+    if self._igra_poteka:
+      self._delivec.obrni_karto(platno, [50, 400])
+
+    _txt1 = "Black Jack"
+    _txt2 = "Tvoje karte"
+    _txt3 = "Jackove karte"
+    _txt4 = "STANJE: " + self._izid
+    _txt5 = "REZULTAT: zmage: " + str(self._REZULTAT["ZMAGE"]) \
+            + ", skupaj: " + str(self._REZULTAT["SKUPAJ"])
+
+    platno.draw_text(_txt1, [50, 70], 40, "white")
+    platno.draw_text(_txt2, [50, 200], 20, "white")
+    platno.draw_text(_txt3, [50, 380], 20, "white")
+    platno.draw_text(_txt4, [50, 140], 20, "white")
+    platno.draw_text(_txt5, [50, 560], 20, "white")
 
 
-# Določi rokovalnik izpisa/izrisa
-def izpis(platno):
-  global izid, igralec, delivec
-  igralec.izpis(platno, [50, 220])
-  delivec.izpis(platno, [50, 400], True)
+# Zaženemo igro
+BlackJack()
 
-  txt1 = "Black Jack"
-  txt2 = "Tvoje karte"
-  txt3 = "Jackove karte"
-  txt4 = "STANJE: " + izid
-  txt5 = "REZULTAT: zmage: " + str(REZULTAT["ZMAGE"]) \
-         + ", skupaj: " + str(REZULTAT["SKUPAJ"])
-
-  platno.draw_text(txt1, [50, 70], 40, "white")
-  platno.draw_text(txt2, [50, 200], 20, "white")
-  platno.draw_text(txt3, [50, 380], 20, "white")
-  platno.draw_text(txt4, [50, 140], 20, "white")
-  platno.draw_text(txt5, [50, 560], 20, "white")
-
-# Ustvari okvir
-frame = simplegui.create_frame("Black Jack", 650, 600)
-frame.set_canvas_background("green")
-
-# Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki
-frame.add_button("Deli", deli, 200)
-frame.add_button("Vleci",  vleci, 200)
-frame.add_button("Obdrži", obdrzi, 200)
-frame.set_draw_handler(izpis)
-
-# Zaženi animacijo okvirja
-deli()
-frame.start()
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -454,300 +462,319 @@ frame.start()
 <input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
 </p>
 </div>
-<pre id="console"></pre>
+<pre id="output"></pre>
 </div>
 
 <!-- Tkinter tab -->
 <div class="tab-pane" id="tkinter">
 <div style="padding-top:10px">
-<!--HTML generated by highlight 3.36, http://www.andre-simon.de/-->
+<!--HTML generated by highlight 4.3, http://www.andre-simon.de/-->
 <link href="css/rin-light.css" rel="stylesheet">
-<pre class="hl">
-<span class="hl lin">  1 </span><span class="hl slc"># encoding: utf-8</span>
+<pre class="hl"><span class="hl lin">  1 </span><span class="hl slc"># encoding: utf-8</span>
 <span class="hl lin">  2 </span><span class="hl kwa">import</span> tkinter <span class="hl kwa">as</span> tk
 <span class="hl lin">  3 </span><span class="hl kwa">import</span> random
 <span class="hl lin">  4 </span>
-<span class="hl lin">  5 </span>VEL <span class="hl opt">= (</span><span class="hl num">86</span><span class="hl opt">,</span> <span class="hl num">120</span><span class="hl opt">)</span> <span class="hl slc"># Velikost posamezne karte</span>
-<span class="hl lin">  6 </span>SRED <span class="hl opt">= (</span><span class="hl num">43</span><span class="hl opt">,</span> <span class="hl num">60</span><span class="hl opt">)</span> <span class="hl slc"># Središče posamezne karte</span>
-<span class="hl lin">  7 </span>
-<span class="hl lin">  8 </span><span class="hl slc"># Definicija globalnih spremenljivk</span>
-<span class="hl lin">  9 </span>igra_poteka <span class="hl opt">=</span> <span class="hl kwa">False</span>
-<span class="hl lin"> 10 </span>izid <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>
-<span class="hl lin"> 11 </span>REZULTAT <span class="hl opt">= {</span><span class="hl str">&quot;SKUPAJ&quot;</span><span class="hl opt">:</span><span class="hl num">0</span><span class="hl opt">,</span> <span class="hl str">&quot;ZMAGE&quot;</span><span class="hl opt">:</span><span class="hl num">0</span><span class="hl opt">}</span>
-<span class="hl lin"> 12 </span>
-<span class="hl lin"> 13 </span><span class="hl slc"># Definicija globalnih spremenljivk za karte</span>
-<span class="hl lin"> 14 </span>BARVE <span class="hl opt">= (</span><span class="hl str">&quot;C&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;S&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;H&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;D&quot;</span><span class="hl opt">)</span> <span class="hl slc"># Club/Spade/Heart/Diamond</span>
-<span class="hl lin"> 15 </span>OPISI <span class="hl opt">= (</span><span class="hl str">&quot;A&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;2&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;3&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;4&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;5&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;6&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;7&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;8&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;9&quot;</span><span class="hl opt">,</span>
-<span class="hl lin"> 16 </span>         <span class="hl str">&quot;X&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;J&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;Q&quot;</span><span class="hl opt">,</span> <span class="hl str">&quot;K&quot;</span><span class="hl opt">)</span>
-<span class="hl lin"> 17 </span>VREDNOSTI <span class="hl opt">= {</span><span class="hl str">&quot;A&quot;</span><span class="hl opt">:</span><span class="hl num">1</span><span class="hl opt">,</span> <span class="hl str">&quot;2&quot;</span><span class="hl opt">:</span><span class="hl num">2</span><span class="hl opt">,</span> <span class="hl str">&quot;3&quot;</span><span class="hl opt">:</span><span class="hl num">3</span><span class="hl opt">,</span> <span class="hl str">&quot;4&quot;</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl opt">,</span> <span class="hl str">&quot;5&quot;</span><span class="hl opt">:</span><span class="hl num">5</span><span class="hl opt">,</span>
-<span class="hl lin"> 18 </span>             <span class="hl str">&quot;6&quot;</span><span class="hl opt">:</span><span class="hl num">6</span><span class="hl opt">,</span> <span class="hl str">&quot;7&quot;</span><span class="hl opt">:</span><span class="hl num">7</span><span class="hl opt">,</span> <span class="hl str">&quot;8&quot;</span><span class="hl opt">:</span><span class="hl num">8</span><span class="hl opt">,</span> <span class="hl str">&quot;9&quot;</span><span class="hl opt">:</span><span class="hl num">9</span><span class="hl opt">,</span> <span class="hl str">&quot;X&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">,</span>
-<span class="hl lin"> 19 </span>             <span class="hl str">&quot;J&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl str">&quot;Q&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl str">&quot;K&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">}</span>
-<span class="hl lin"> 20 </span>
+<span class="hl lin">  5 </span><span class="hl slc"># Definicija konstant</span>
+<span class="hl lin">  6 </span>VEL <span class="hl opt">= (</span><span class="hl num">86</span><span class="hl opt">,</span> <span class="hl num">120</span><span class="hl opt">)</span> <span class="hl slc"># Velikost posamezne karte</span>
+<span class="hl lin">  7 </span>SRED <span class="hl opt">= (</span><span class="hl num">43</span><span class="hl opt">,</span> <span class="hl num">60</span><span class="hl opt">)</span> <span class="hl slc"># Središče posamezne karte</span>
+<span class="hl lin">  8 </span>KARTE <span class="hl opt">= {}</span>      <span class="hl slc"># Slovar bo vseboval slike kart</span>
+<span class="hl lin">  9 </span>
+<span class="hl lin"> 10 </span><span class="hl slc"># Definicija globalnih spremenljivk za karte</span>
+<span class="hl lin"> 11 </span>BARVE <span class="hl opt">= (</span><span class="hl sng">&quot;S&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;H&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;D&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;C&quot;</span><span class="hl opt">)</span>  <span class="hl slc"># Spade/Heart/Diamond/Club</span>
+<span class="hl lin"> 12 </span>ZNAKI <span class="hl opt">= (</span><span class="hl sng">&quot;♠&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;♥&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;♦&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;♣&quot;</span><span class="hl opt">)</span>
+<span class="hl lin"> 13 </span>OPISI <span class="hl opt">= (</span><span class="hl sng">&quot;A&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;2&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;3&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;4&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;5&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;6&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;7&quot;</span><span class="hl opt">,</span>
+<span class="hl lin"> 14 </span>         <span class="hl sng">&quot;8&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;9&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;X&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;J&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;Q&quot;</span><span class="hl opt">,</span> <span class="hl sng">&quot;K&quot;</span><span class="hl opt">)</span>
+<span class="hl lin"> 15 </span>VREDNOSTI <span class="hl opt">= {</span><span class="hl sng">&quot;A&quot;</span><span class="hl opt">:</span><span class="hl num">1</span><span class="hl opt">,</span> <span class="hl sng">&quot;2&quot;</span><span class="hl opt">:</span><span class="hl num">2</span><span class="hl opt">,</span> <span class="hl sng">&quot;3&quot;</span><span class="hl opt">:</span><span class="hl num">3</span><span class="hl opt">,</span> <span class="hl sng">&quot;4&quot;</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl opt">,</span> <span class="hl sng">&quot;5&quot;</span><span class="hl opt">:</span><span class="hl num">5</span><span class="hl opt">,</span> <span class="hl sng">&quot;6&quot;</span><span class="hl opt">:</span><span class="hl num">6</span><span class="hl opt">,</span> <span class="hl sng">&quot;7&quot;</span><span class="hl opt">:</span><span class="hl num">7</span><span class="hl opt">,</span>
+<span class="hl lin"> 16 </span>             <span class="hl sng">&quot;8&quot;</span><span class="hl opt">:</span><span class="hl num">8</span><span class="hl opt">,</span> <span class="hl sng">&quot;9&quot;</span><span class="hl opt">:</span><span class="hl num">9</span><span class="hl opt">,</span> <span class="hl sng">&quot;X&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl sng">&quot;J&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl sng">&quot;Q&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">,</span> <span class="hl sng">&quot;K&quot;</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl opt">}</span>
+<span class="hl lin"> 17 </span>
+<span class="hl lin"> 18 </span>
+<span class="hl lin"> 19 </span><span class="hl slc"># Definicija razreda &#39;Karta&#39;</span>
+<span class="hl lin"> 20 </span><span class="hl kwa">class</span> Karta<span class="hl opt">:</span>
 <span class="hl lin"> 21 </span>
-<span class="hl lin"> 22 </span><span class="hl slc"># Definicija razreda &apos;Karta&apos;</span>
-<span class="hl lin"> 23 </span><span class="hl kwa">class</span> Karta<span class="hl opt">:</span>
-<span class="hl lin"> 24 </span>
-<span class="hl lin"> 25 </span>  <span class="hl slc"># Ustvari objekt &apos;Karta&apos;</span>
-<span class="hl lin"> 26 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">,</span> barva<span class="hl opt">,</span> opis<span class="hl opt">):</span>
-<span class="hl lin"> 27 </span>    <span class="hl kwa">if</span> <span class="hl opt">(</span>barva <span class="hl kwa">in</span> BARVE<span class="hl opt">)</span> <span class="hl kwa">and</span> <span class="hl opt">(</span>opis <span class="hl kwa">in</span> OPISI<span class="hl opt">):</span>
-<span class="hl lin"> 28 </span>      self<span class="hl opt">.</span>_barva <span class="hl opt">=</span> barva
-<span class="hl lin"> 29 </span>      self<span class="hl opt">.</span>_opis <span class="hl opt">=</span> opis
-<span class="hl lin"> 30 </span>    <span class="hl kwa">else</span><span class="hl opt">:</span>
-<span class="hl lin"> 31 </span>      self<span class="hl opt">.</span>_barva <span class="hl opt">=</span> <span class="hl kwa">None</span>
-<span class="hl lin"> 32 </span>      self<span class="hl opt">.</span>_opis <span class="hl opt">=</span> <span class="hl kwa">None</span>
-<span class="hl lin"> 33 </span>      <span class="hl kwa">print</span><span class="hl opt">(</span><span class="hl str">&quot;Neveljavna karta: &quot;</span><span class="hl opt">,</span> barva<span class="hl opt">,</span> opis<span class="hl opt">)</span>
-<span class="hl lin"> 34 </span>
-<span class="hl lin"> 35 </span>  <span class="hl slc"># Vrne dvo-znakovno predstavitev karte</span>
-<span class="hl lin"> 36 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__str__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 37 </span>    <span class="hl kwa">return</span> self<span class="hl opt">.</span>_barva <span class="hl opt">+</span> self<span class="hl opt">.</span>_opis
-<span class="hl lin"> 38 </span>
-<span class="hl lin"> 39 </span>  <span class="hl slc"># Vrne barvo karte</span>
-<span class="hl lin"> 40 </span>  <span class="hl kwa">def</span> <span class="hl kwd">vrni_barvo</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 41 </span>    <span class="hl kwa">return</span> self<span class="hl opt">.</span>_barva
-<span class="hl lin"> 42 </span>
-<span class="hl lin"> 43 </span>  <span class="hl slc"># Vrne opis ali rang karte</span>
-<span class="hl lin"> 44 </span>  <span class="hl kwa">def</span> <span class="hl kwd">vrni_opis</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 45 </span>    <span class="hl kwa">return</span> self<span class="hl opt">.</span>_opis
-<span class="hl lin"> 46 </span>
-<span class="hl lin"> 47 </span>  <span class="hl slc"># Izriše sliko karte na platnu, na danem položaju</span>
-<span class="hl lin"> 48 </span>  <span class="hl kwa">def</span> <span class="hl kwd">izpis</span><span class="hl opt">(</span>self<span class="hl opt">,</span> platno<span class="hl opt">,</span> poz<span class="hl opt">):</span>
-<span class="hl lin"> 49 </span>    k <span class="hl opt">=</span> self<span class="hl opt">.</span>_barva <span class="hl opt">+</span> self<span class="hl opt">.</span>_opis
-<span class="hl lin"> 50 </span>    platno<span class="hl opt">.</span><span class="hl kwd">create_image</span><span class="hl opt">(</span>poz<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">],</span> poz<span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">],</span> \
-<span class="hl lin"> 51 </span>      anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> image<span class="hl opt">=</span>KARTE<span class="hl opt">[</span>k<span class="hl opt">])</span>
-<span class="hl lin"> 52 </span>
+<span class="hl lin"> 22 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">,</span> barva<span class="hl opt">,</span> opis<span class="hl opt">):</span>
+<span class="hl lin"> 23 </span>    <span class="hl sng">&quot;&quot;&quot; Inicializator &quot;&quot;&quot;</span>
+<span class="hl lin"> 24 </span>    <span class="hl kwa">if</span> <span class="hl opt">(</span>barva <span class="hl kwa">in</span> BARVE<span class="hl opt">)</span> <span class="hl kwa">and</span> <span class="hl opt">(</span>opis <span class="hl kwa">in</span> OPISI<span class="hl opt">):</span>
+<span class="hl lin"> 25 </span>      self<span class="hl num">._</span>barva <span class="hl opt">=</span> barva
+<span class="hl lin"> 26 </span>      self<span class="hl num">._</span>opis <span class="hl opt">=</span> opis
+<span class="hl lin"> 27 </span>    <span class="hl kwa">else</span><span class="hl opt">:</span>
+<span class="hl lin"> 28 </span>      self<span class="hl num">._</span>barva <span class="hl opt">=</span> <span class="hl kwa">None</span>
+<span class="hl lin"> 29 </span>      self<span class="hl num">._</span>opis <span class="hl opt">=</span> <span class="hl kwa">None</span>
+<span class="hl lin"> 30 </span>      <span class="hl kwa">print</span><span class="hl opt">(</span><span class="hl sng">&quot;Neveljavna karta: &quot;</span><span class="hl opt">,</span> barva<span class="hl opt">,</span> opis<span class="hl opt">)</span>
+<span class="hl lin"> 31 </span>
+<span class="hl lin"> 32 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__str__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 33 </span>    <span class="hl sng">&quot;&quot;&quot; Vrne niz, ki predstavlja karto &quot;&quot;&quot;</span>
+<span class="hl lin"> 34 </span>    <span class="hl kwa">return</span> self<span class="hl num">._</span>barva <span class="hl opt">+</span> self<span class="hl num">._</span>opis
+<span class="hl lin"> 35 </span>
+<span class="hl lin"> 36 </span>  <span class="hl kwa">def</span> <span class="hl kwd">vrni_barvo</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 37 </span>    <span class="hl sng">&quot;&quot;&quot; Vrne barvo karte &quot;&quot;&quot;</span>
+<span class="hl lin"> 38 </span>    <span class="hl kwa">return</span> self<span class="hl num">._</span>barva
+<span class="hl lin"> 39 </span>
+<span class="hl lin"> 40 </span>  <span class="hl kwa">def</span> <span class="hl kwd">vrni_opis</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 41 </span>    <span class="hl sng">&quot;&quot;&quot; Vrne opis ali rang karte &quot;&quot;&quot;</span>
+<span class="hl lin"> 42 </span>    <span class="hl kwa">return</span> self<span class="hl num">._</span>opis
+<span class="hl lin"> 43 </span>
+<span class="hl lin"> 44 </span>  <span class="hl kwa">def</span> <span class="hl kwd">narisi</span><span class="hl opt">(</span>self<span class="hl opt">,</span> platno<span class="hl opt">,</span> poz<span class="hl opt">):</span>
+<span class="hl lin"> 45 </span>    <span class="hl sng">&quot;&quot;&quot; Nariše sliko karte na platnu, na danem položaju &quot;&quot;&quot;</span>
+<span class="hl lin"> 46 </span>    k <span class="hl opt">=</span> self<span class="hl num">._</span>barva <span class="hl opt">+</span> self<span class="hl num">._</span>opis
+<span class="hl lin"> 47 </span>    platno<span class="hl opt">.</span><span class="hl kwd">create_image</span><span class="hl opt">(</span>poz<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">],</span> poz<span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">],</span> \
+<span class="hl lin"> 48 </span>      anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> image<span class="hl opt">=</span>KARTE<span class="hl opt">[</span>k<span class="hl opt">])</span>
+<span class="hl lin"> 49 </span>
+<span class="hl lin"> 50 </span>
+<span class="hl lin"> 51 </span><span class="hl slc"># Definicija razreda &#39;Komplet&#39;</span>
+<span class="hl lin"> 52 </span><span class="hl kwa">class</span> Komplet<span class="hl opt">:</span>
 <span class="hl lin"> 53 </span>
-<span class="hl lin"> 54 </span><span class="hl slc"># Definicija razreda &apos;Komplet&apos;</span>
-<span class="hl lin"> 55 </span><span class="hl kwa">class</span> Komplet<span class="hl opt">:</span>
-<span class="hl lin"> 56 </span>
-<span class="hl lin"> 57 </span>  <span class="hl slc"># Ustvari objekt &apos;Komplet&apos;, ki vsebuje vseh 52 kart</span>
-<span class="hl lin"> 58 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 59 </span>    self<span class="hl opt">.</span>_karte <span class="hl opt">= []</span>
-<span class="hl lin"> 60 </span>    <span class="hl kwa">for</span> barva <span class="hl kwa">in</span> BARVE<span class="hl opt">:</span>
-<span class="hl lin"> 61 </span>      <span class="hl kwa">for</span> opis <span class="hl kwa">in</span> OPISI<span class="hl opt">:</span>
-<span class="hl lin"> 62 </span>        karta <span class="hl opt">=</span> <span class="hl kwd">Karta</span><span class="hl opt">(</span>barva<span class="hl opt">,</span> opis<span class="hl opt">)</span>
-<span class="hl lin"> 63 </span>        self<span class="hl opt">.</span>_karte<span class="hl opt">.</span><span class="hl kwd">append</span><span class="hl opt">(</span>karta<span class="hl opt">)</span>
-<span class="hl lin"> 64 </span>
-<span class="hl lin"> 65 </span>  <span class="hl slc"># Premešaj komplet kart</span>
-<span class="hl lin"> 66 </span>  <span class="hl kwa">def</span> <span class="hl kwd">premesaj</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 67 </span>    random<span class="hl opt">.</span><span class="hl kwd">shuffle</span><span class="hl opt">(</span>self<span class="hl opt">.</span>_karte<span class="hl opt">)</span>
-<span class="hl lin"> 68 </span>
-<span class="hl lin"> 69 </span>  <span class="hl slc"># Deli naslednjo karto iz kompleta</span>
-<span class="hl lin"> 70 </span>  <span class="hl kwa">def</span> <span class="hl kwd">deli_karto</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 71 </span>    <span class="hl kwa">return</span> self<span class="hl opt">.</span>_karte<span class="hl opt">.</span><span class="hl kwd">pop</span><span class="hl opt">()</span>
-<span class="hl lin"> 72 </span>
-<span class="hl lin"> 73 </span>  <span class="hl slc"># Vrne besedilno predstavitev kompleta kart</span>
-<span class="hl lin"> 74 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__str__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 75 </span>    sporocilo <span class="hl opt">=</span> <span class="hl str">&quot;Komplet vsebuje&quot;</span>
-<span class="hl lin"> 76 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl opt">.</span>_karte<span class="hl opt">:</span>
-<span class="hl lin"> 77 </span>      sporocilo <span class="hl opt">+=</span> <span class="hl str">&quot; &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>karta<span class="hl opt">)</span>
-<span class="hl lin"> 78 </span>    <span class="hl kwa">return</span> sporocilo
+<span class="hl lin"> 54 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 55 </span>    <span class="hl sng">&quot;&quot;&quot; Inicializator &quot;&quot;&quot;</span>
+<span class="hl lin"> 56 </span>    self<span class="hl num">._</span>karte <span class="hl opt">= []</span>
+<span class="hl lin"> 57 </span>    <span class="hl kwa">for</span> barva <span class="hl kwa">in</span> BARVE<span class="hl opt">:</span>
+<span class="hl lin"> 58 </span>      <span class="hl kwa">for</span> opis <span class="hl kwa">in</span> OPISI<span class="hl opt">:</span>
+<span class="hl lin"> 59 </span>        self<span class="hl num">._</span>karte<span class="hl opt">.</span><span class="hl kwd">append</span><span class="hl opt">(</span><span class="hl kwd">Karta</span><span class="hl opt">(</span>barva<span class="hl opt">,</span> opis<span class="hl opt">))</span>
+<span class="hl lin"> 60 </span>
+<span class="hl lin"> 61 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__str__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 62 </span>    <span class="hl sng">&quot;&quot;&quot; Vrne niz, ki predstavlja komplet kart &quot;&quot;&quot;</span>
+<span class="hl lin"> 63 </span>    sporocilo <span class="hl opt">=</span> <span class="hl sng">&quot;Komplet vsebuje&quot;</span>
+<span class="hl lin"> 64 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl num">._</span>karte<span class="hl opt">:</span>
+<span class="hl lin"> 65 </span>      sporocilo <span class="hl opt">+=</span> <span class="hl sng">&quot; &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>karta<span class="hl opt">)</span>
+<span class="hl lin"> 66 </span>    <span class="hl kwa">return</span> sporocilo
+<span class="hl lin"> 67 </span>
+<span class="hl lin"> 68 </span>  <span class="hl kwa">def</span> <span class="hl kwd">premesaj</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 69 </span>    <span class="hl sng">&quot;&quot;&quot; Premeša karte v kompletu &quot;&quot;&quot;</span>
+<span class="hl lin"> 70 </span>    random<span class="hl opt">.</span><span class="hl kwd">shuffle</span><span class="hl opt">(</span>self<span class="hl num">._</span>karte<span class="hl opt">)</span>
+<span class="hl lin"> 71 </span>
+<span class="hl lin"> 72 </span>  <span class="hl kwa">def</span> <span class="hl kwd">sprazni</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 73 </span>    <span class="hl sng">&quot;&quot;&quot; Sprazni komplet kart &quot;&quot;&quot;</span>
+<span class="hl lin"> 74 </span>    self<span class="hl num">._</span>karte <span class="hl opt">= []</span>
+<span class="hl lin"> 75 </span>
+<span class="hl lin"> 76 </span>  <span class="hl kwa">def</span> <span class="hl kwd">deli_karto</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin"> 77 </span>    <span class="hl sng">&quot;&quot;&quot; Deli naslednjo karto iz kompleta &quot;&quot;&quot;</span>
+<span class="hl lin"> 78 </span>    <span class="hl kwa">return</span> self<span class="hl num">._</span>karte<span class="hl opt">.</span><span class="hl kwd">pop</span><span class="hl opt">()</span>
 <span class="hl lin"> 79 </span>
 <span class="hl lin"> 80 </span>
-<span class="hl lin"> 81 </span><span class="hl slc"># Definicija razreda &apos;Igralec&apos;</span>
+<span class="hl lin"> 81 </span><span class="hl slc"># Definicija razreda &#39;Igralec&#39;</span>
 <span class="hl lin"> 82 </span><span class="hl kwa">class</span> <span class="hl kwd">Igralec</span><span class="hl opt">(</span>Komplet<span class="hl opt">):</span>
 <span class="hl lin"> 83 </span>
-<span class="hl lin"> 84 </span>  <span class="hl slc"># Ustvari objekt &apos;Igralec&apos;, ki privzeto ni delivec</span>
-<span class="hl lin"> 85 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">,</span> delivec<span class="hl opt">=</span><span class="hl kwa">False</span><span class="hl opt">):</span>
-<span class="hl lin"> 86 </span>    self<span class="hl opt">.</span>_karte <span class="hl opt">= []</span>
-<span class="hl lin"> 87 </span>    self<span class="hl opt">.</span>_delivec <span class="hl opt">=</span> delivec
-<span class="hl lin"> 88 </span>
-<span class="hl lin"> 89 </span>  <span class="hl slc"># Vrne predstavitev kart, ki jih v roki drži igralec</span>
+<span class="hl lin"> 84 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">,</span> delivec<span class="hl opt">=</span><span class="hl kwa">False</span><span class="hl opt">):</span>
+<span class="hl lin"> 85 </span>    <span class="hl sng">&quot;&quot;&quot; Inicializator &quot;&quot;&quot;</span>
+<span class="hl lin"> 86 </span>    self<span class="hl num">._</span>karte <span class="hl opt">= []</span>
+<span class="hl lin"> 87 </span>    self<span class="hl num">._</span>delivec <span class="hl opt">=</span> delivec
+<span class="hl lin"> 88 </span>    self<span class="hl num">._</span>skrij<span class="hl num">_</span>karto <span class="hl opt">=</span> <span class="hl kwa">False</span>
+<span class="hl lin"> 89 </span>
 <span class="hl lin"> 90 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__str__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin"> 91 </span>    sporocilo <span class="hl opt">=</span> <span class="hl str">&quot;V roki drži&quot;</span>
-<span class="hl lin"> 92 </span>    skrita <span class="hl opt">=</span> <span class="hl kwa">False</span>
-<span class="hl lin"> 93 </span>    <span class="hl kwa">if</span> self<span class="hl opt">.</span>_delivec<span class="hl opt">:</span>
-<span class="hl lin"> 94 </span>      skrita <span class="hl opt">=</span> <span class="hl kwa">True</span>
-<span class="hl lin"> 95 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl opt">.</span>_karte<span class="hl opt">:</span>
-<span class="hl lin"> 96 </span>	  <span class="hl slc"># Skrije prvo karto delivca</span>
-<span class="hl lin"> 97 </span>      <span class="hl kwa">if</span> self<span class="hl opt">.</span>_delivec <span class="hl kwa">and</span> skrita<span class="hl opt">:</span>
-<span class="hl lin"> 98 </span>        sporocilo <span class="hl opt">+=</span> <span class="hl str">&quot; ??&quot;</span>
-<span class="hl lin"> 99 </span>        skrita <span class="hl opt">=</span> <span class="hl kwa">False</span>
-<span class="hl lin">100 </span>      <span class="hl kwa">else</span><span class="hl opt">:</span>
-<span class="hl lin">101 </span>        sporocilo <span class="hl opt">+=</span> <span class="hl str">&quot; &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>karta<span class="hl opt">)</span>
-<span class="hl lin">102 </span>    <span class="hl kwa">return</span> sporocilo
-<span class="hl lin">103 </span>
-<span class="hl lin">104 </span>  <span class="hl slc"># Igralcu doda nov objekt &apos;Karta&apos;</span>
-<span class="hl lin">105 </span>  <span class="hl kwa">def</span> <span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl opt">,</span> karta<span class="hl opt">):</span>
-<span class="hl lin">106 </span>    self<span class="hl opt">.</span>_karte<span class="hl opt">.</span><span class="hl kwd">append</span><span class="hl opt">(</span>karta<span class="hl opt">)</span>
-<span class="hl lin">107 </span>
-<span class="hl lin">108 </span>  <span class="hl slc"># Vrne skupno vrednost kart, ki jih igralec drži v roki</span>
-<span class="hl lin">109 </span>  <span class="hl kwa">def</span> <span class="hl kwd">vrednost_kart</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
-<span class="hl lin">110 </span>    <span class="hl slc"># Če ima igralec v roki karto as, jo šteje kot 1 in</span>
-<span class="hl lin">111 </span>    <span class="hl slc"># nato, če vrednost kart v roki ne preseže 21, doda</span>
-<span class="hl lin">112 </span>    <span class="hl slc"># vrednosti še 10 - saj je as vreden 1 ali 11 točk.</span>
-<span class="hl lin">113 </span>    vrednost <span class="hl opt">=</span> <span class="hl num">0</span>
-<span class="hl lin">114 </span>    asi <span class="hl opt">=</span> <span class="hl num">0</span>
-<span class="hl lin">115 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl opt">.</span>karte<span class="hl opt">:</span>
-<span class="hl lin">116 </span>      vrednost <span class="hl opt">+=</span> VREDNOSTI<span class="hl opt">[</span>karta<span class="hl opt">.</span>_opis<span class="hl opt">]</span>
-<span class="hl lin">117 </span>      <span class="hl kwa">if</span> karta<span class="hl opt">.</span>_opis <span class="hl opt">==</span> <span class="hl str">&quot;A&quot;</span><span class="hl opt">:</span>
-<span class="hl lin">118 </span>        asi <span class="hl opt">+=</span> <span class="hl num">1</span>
-<span class="hl lin">119 </span>    <span class="hl kwa">for</span> a <span class="hl kwa">in</span> <span class="hl kwb">range</span><span class="hl opt">(</span>asi<span class="hl opt">):</span>
-<span class="hl lin">120 </span>      <span class="hl slc"># Če je vrednost kart v roki igralca dovolj nizka,</span>
-<span class="hl lin">121 </span>      <span class="hl slc"># lahko štejemo asa kot 11, namesto 1...</span>
-<span class="hl lin">122 </span>      <span class="hl slc"># To pomeni: vrednosti dodaj dodatnih 10 točk!</span>
-<span class="hl lin">123 </span>      <span class="hl kwa">if</span> vrednost <span class="hl opt">&lt;=</span> <span class="hl num">11</span><span class="hl opt">:</span>
-<span class="hl lin">124 </span>        vrednost <span class="hl opt">+=</span> <span class="hl num">10</span>
-<span class="hl lin">125 </span>    <span class="hl kwa">return</span> vrednost
-<span class="hl lin">126 </span>
-<span class="hl lin">127 </span>  <span class="hl slc"># Izriše karte - uporabi metodo izpis razreda &apos;Karta&apos;</span>
-<span class="hl lin">128 </span>  <span class="hl kwa">def</span> <span class="hl kwd">izpis</span><span class="hl opt">(</span>self<span class="hl opt">,</span> platno<span class="hl opt">,</span> poz<span class="hl opt">,</span> delivec<span class="hl opt">=</span><span class="hl kwa">False</span><span class="hl opt">):</span>
-<span class="hl lin">129 </span>    ROB <span class="hl opt">=</span> <span class="hl num">10</span>
-<span class="hl lin">130 </span>    i <span class="hl opt">=</span> <span class="hl num">0</span>
-<span class="hl lin">131 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl opt">.</span>_karte<span class="hl opt">:</span>
-<span class="hl lin">132 </span>      karta<span class="hl opt">.</span><span class="hl kwd">izpis</span><span class="hl opt">(</span>platno<span class="hl opt">, [</span>poz<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">]+</span>i<span class="hl opt">*(</span>VEL<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">]+</span>ROB<span class="hl opt">),</span>poz<span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">]])</span>
-<span class="hl lin">133 </span>      <span class="hl slc"># Če izrisujemo karte delivca in igra še poteka,</span>
-<span class="hl lin">134 </span>      <span class="hl slc"># potem skrijemo prvo karto delivca tako, da čez</span>
-<span class="hl lin">135 </span>      <span class="hl slc"># njo izrišemo sliko hrbtne strani karte.</span>
-<span class="hl lin">136 </span>      <span class="hl kwa">if</span> <span class="hl opt">(</span>delivec <span class="hl kwa">and</span> igra_poteka <span class="hl kwa">and</span> i <span class="hl opt">==</span> <span class="hl num">0</span><span class="hl opt">):</span>
-<span class="hl lin">137 </span>        platno<span class="hl opt">.</span><span class="hl kwd">create_image</span><span class="hl opt">(</span>poz<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">],</span> poz<span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">],</span> \
-<span class="hl lin">138 </span>          anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> image<span class="hl opt">=</span>KARTE<span class="hl opt">[</span><span class="hl str">&apos;BG&apos;</span><span class="hl opt">])</span>
-<span class="hl lin">139 </span>      i <span class="hl opt">+=</span> <span class="hl num">1</span>
+<span class="hl lin"> 91 </span>    <span class="hl sng">&quot;&quot;&quot; Vrne niz, ki predstavlja igralčeve karte &quot;&quot;&quot;</span>
+<span class="hl lin"> 92 </span>    sporocilo <span class="hl opt">=</span> <span class="hl sng">&quot;&quot;</span>
+<span class="hl lin"> 93 </span>    skrita_karta <span class="hl opt">=</span> self<span class="hl num">._</span>skrij<span class="hl num">_</span>karto
+<span class="hl lin"> 94 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl num">._</span>karte<span class="hl opt">:</span>
+<span class="hl lin"> 95 </span>      <span class="hl kwa">if</span> self<span class="hl num">._</span>delivec <span class="hl kwa">and</span> skrita_karta<span class="hl opt">:</span>
+<span class="hl lin"> 96 </span>        sporocilo <span class="hl opt">+=</span> <span class="hl sng">&quot; ??&quot;</span>
+<span class="hl lin"> 97 </span>        skrita_karta <span class="hl opt">=</span> <span class="hl kwa">False</span>
+<span class="hl lin"> 98 </span>      <span class="hl kwa">else</span><span class="hl opt">:</span>
+<span class="hl lin"> 99 </span>        sporocilo <span class="hl opt">+=</span> <span class="hl sng">&quot; &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>karta<span class="hl opt">)</span>
+<span class="hl lin">100 </span>    <span class="hl kwa">return</span> sporocilo
+<span class="hl lin">101 </span>
+<span class="hl lin">102 </span>  <span class="hl kwa">def</span> <span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl opt">,</span> karta<span class="hl opt">):</span>
+<span class="hl lin">103 </span>    <span class="hl sng">&quot;&quot;&quot; Igralcu doda nov objekt &#39;Karta&#39; &quot;&quot;&quot;</span>
+<span class="hl lin">104 </span>    self<span class="hl num">._</span>karte<span class="hl opt">.</span><span class="hl kwd">append</span><span class="hl opt">(</span>karta<span class="hl opt">)</span>
+<span class="hl lin">105 </span>
+<span class="hl lin">106 </span>  <span class="hl kwa">def</span> <span class="hl kwd">vrednost_kart</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">107 </span>    <span class="hl sng">&quot;&quot;&quot; Vrne skupno vrednost kart, ki jih igralec drži v roki &quot;&quot;&quot;</span>
+<span class="hl lin">108 </span>    <span class="hl slc"># Če ima igralec v roki karto as, jo šteje kot 1 in nato, če</span>
+<span class="hl lin">109 </span>    <span class="hl slc"># vrednost kart v roki ne preseže 21, doda vrednosti še 10 -</span>
+<span class="hl lin">110 </span>    <span class="hl slc"># saj je as vreden 1 ali 11 točk.</span>
+<span class="hl lin">111 </span>    vrednost <span class="hl opt">=</span> <span class="hl num">0</span>
+<span class="hl lin">112 </span>    asi <span class="hl opt">=</span> <span class="hl num">0</span>
+<span class="hl lin">113 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl num">._</span>karte<span class="hl opt">:</span>
+<span class="hl lin">114 </span>      vrednost <span class="hl opt">+=</span> VREDNOSTI<span class="hl opt">[</span>karta<span class="hl num">._</span>opis<span class="hl opt">]</span>
+<span class="hl lin">115 </span>      <span class="hl kwa">if</span> karta<span class="hl num">._</span>opis <span class="hl opt">==</span> <span class="hl sng">&quot;A&quot;</span><span class="hl opt">:</span>
+<span class="hl lin">116 </span>        asi <span class="hl opt">+=</span> <span class="hl num">1</span>
+<span class="hl lin">117 </span>    <span class="hl kwa">for</span> a <span class="hl kwa">in</span> <span class="hl kwb">range</span><span class="hl opt">(</span>asi<span class="hl opt">):</span>
+<span class="hl lin">118 </span>      <span class="hl slc"># Če je vrednost kart v roki igralca dovolj nizka, lahko</span>
+<span class="hl lin">119 </span>      <span class="hl slc"># štejemo asa kot 11, namesto 1...</span>
+<span class="hl lin">120 </span>      <span class="hl slc"># To pomeni: vrednosti dodaj dodatnih 10 točk!</span>
+<span class="hl lin">121 </span>      <span class="hl kwa">if</span> vrednost <span class="hl opt">&lt;=</span> <span class="hl num">11</span><span class="hl opt">:</span>
+<span class="hl lin">122 </span>        vrednost <span class="hl opt">+=</span> <span class="hl num">10</span>
+<span class="hl lin">123 </span>    <span class="hl kwa">return</span> vrednost
+<span class="hl lin">124 </span>
+<span class="hl lin">125 </span>  <span class="hl kwa">def</span> <span class="hl kwd">narisi_karte</span><span class="hl opt">(</span>self<span class="hl opt">,</span> platno<span class="hl opt">,</span> poz<span class="hl opt">):</span>
+<span class="hl lin">126 </span>    <span class="hl sng">&quot;&quot;&quot; Nariše karte - uporabi metodo narisi razreda &#39;Karta&#39; &quot;&quot;&quot;</span>
+<span class="hl lin">127 </span>    ROB <span class="hl opt">=</span> <span class="hl num">10</span>
+<span class="hl lin">128 </span>    i <span class="hl opt">=</span> <span class="hl num">0</span>
+<span class="hl lin">129 </span>    <span class="hl kwa">for</span> karta <span class="hl kwa">in</span> self<span class="hl num">._</span>karte<span class="hl opt">:</span>
+<span class="hl lin">130 </span>      karta<span class="hl opt">.</span><span class="hl kwd">narisi</span><span class="hl opt">(</span>platno<span class="hl opt">, [</span>poz<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">]+</span>i<span class="hl opt">*(</span>VEL<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">]+</span>ROB<span class="hl opt">),</span>poz<span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">]])</span>
+<span class="hl lin">131 </span>      i <span class="hl opt">+=</span> <span class="hl num">1</span>
+<span class="hl lin">132 </span>
+<span class="hl lin">133 </span>  <span class="hl kwa">def</span> <span class="hl kwd">skrij_karto</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">134 </span>    <span class="hl sng">&quot;&quot;&quot; Skrije prvo karto delivca &quot;&quot;&quot;</span>
+<span class="hl lin">135 </span>    self<span class="hl num">._</span>skrij<span class="hl num">_</span>karto <span class="hl opt">=</span> <span class="hl kwa">True</span>
+<span class="hl lin">136 </span>
+<span class="hl lin">137 </span>  <span class="hl kwa">def</span> <span class="hl kwd">razkrij_karto</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">138 </span>    <span class="hl sng">&quot;&quot;&quot; Razkrije prvo karto delivca &quot;&quot;&quot;</span>
+<span class="hl lin">139 </span>    self<span class="hl num">._</span>skrij<span class="hl num">_</span>karto <span class="hl opt">=</span> <span class="hl kwa">False</span>
 <span class="hl lin">140 </span>
-<span class="hl lin">141 </span>
-<span class="hl lin">142 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Deli&apos;</span>
-<span class="hl lin">143 </span><span class="hl kwa">def</span> <span class="hl kwd">deli</span><span class="hl opt">():</span>
-<span class="hl lin">144 </span>  <span class="hl slc"># Če kliknemo gumb medtem, ko igra poteka</span>
-<span class="hl lin">145 </span>  <span class="hl kwa">global</span> izid<span class="hl opt">,</span> REZULTAT<span class="hl opt">,</span> igra_poteka
-<span class="hl lin">146 </span>  <span class="hl kwa">if</span> igra_poteka<span class="hl opt">:</span>
-<span class="hl lin">147 </span>    izid <span class="hl opt">=</span> <span class="hl str">&quot;Jack je zmagal.&quot;</span>
-<span class="hl lin">148 </span>    REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;SKUPAJ&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
-<span class="hl lin">149 </span>
-<span class="hl lin">150 </span>  <span class="hl kwa">global</span> komplet
-<span class="hl lin">151 </span>  komplet <span class="hl opt">=</span> <span class="hl kwd">Komplet</span><span class="hl opt">()</span>
-<span class="hl lin">152 </span>  komplet<span class="hl opt">.</span><span class="hl kwd">premesaj</span><span class="hl opt">()</span>
-<span class="hl lin">153 </span>
-<span class="hl lin">154 </span>  <span class="hl kwa">global</span> igralec<span class="hl opt">,</span> delivec
-<span class="hl lin">155 </span>  igralec <span class="hl opt">=</span> <span class="hl kwd">Igralec</span><span class="hl opt">()</span>
-<span class="hl lin">156 </span>  delivec <span class="hl opt">=</span> <span class="hl kwd">Igralec</span><span class="hl opt">(</span><span class="hl kwa">True</span><span class="hl opt">)</span>
-<span class="hl lin">157 </span>  <span class="hl slc"># Izmenično razdeli dve karti igralcu in delivcu</span>
-<span class="hl lin">158 </span>  igralec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
-<span class="hl lin">159 </span>  delivec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
-<span class="hl lin">160 </span>  igralec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
-<span class="hl lin">161 </span>  delivec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
-<span class="hl lin">162 </span>  <span class="hl kwa">print</span><span class="hl opt">(</span><span class="hl str">&quot;Igralec: &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>igralec<span class="hl opt">))</span>
-<span class="hl lin">163 </span>  <span class="hl kwa">print</span><span class="hl opt">(</span><span class="hl str">&quot;Delivec: &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>delivec<span class="hl opt">))</span>
-<span class="hl lin">164 </span>
-<span class="hl lin">165 </span>  izid <span class="hl opt">=</span> <span class="hl str">&quot;Na vrsti si. Vleci ali obdrži?&quot;</span>
-<span class="hl lin">166 </span>  igra_poteka <span class="hl opt">=</span> <span class="hl kwa">True</span>
-<span class="hl lin">167 </span>  <span class="hl kwd">izpis</span><span class="hl opt">()</span>
+<span class="hl lin">141 </span>  <span class="hl kwa">def</span> <span class="hl kwd">obrni_karto</span><span class="hl opt">(</span>self<span class="hl opt">,</span> platno<span class="hl opt">,</span> poz<span class="hl opt">):</span>
+<span class="hl lin">142 </span>    <span class="hl sng">&quot;&quot;&quot; Prvo karto delivca nariše obrnjeno na hrbtno stran &quot;&quot;&quot;</span>
+<span class="hl lin">143 </span>    <span class="hl kwa">if</span> self<span class="hl num">._</span>delivec<span class="hl opt">:</span>
+<span class="hl lin">144 </span>      platno<span class="hl opt">.</span><span class="hl kwd">create_image</span><span class="hl opt">(</span>poz<span class="hl opt">[</span><span class="hl num">0</span><span class="hl opt">],</span> poz<span class="hl opt">[</span><span class="hl num">1</span><span class="hl opt">],</span> \
+<span class="hl lin">145 </span>        anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> image<span class="hl opt">=</span>KARTE<span class="hl opt">[</span><span class="hl sng">&#39;BG&#39;</span><span class="hl opt">])</span>
+<span class="hl lin">146 </span>
+<span class="hl lin">147 </span>
+<span class="hl lin">148 </span><span class="hl slc"># Definicija razreda &#39;BlackJack&#39;</span>
+<span class="hl lin">149 </span><span class="hl kwa">class</span> <span class="hl kwd">BlackJack</span><span class="hl opt">():</span>
+<span class="hl lin">150 </span>
+<span class="hl lin">151 </span>  _igra_poteka <span class="hl opt">=</span> <span class="hl kwa">False</span>
+<span class="hl lin">152 </span>  _izid <span class="hl opt">=</span> <span class="hl sng">&quot;&quot;</span>
+<span class="hl lin">153 </span>  _REZULTAT <span class="hl opt">=</span> {&quot;SKUPAJ&quot;:0, &quot;ZMAGE&quot;:0}
+<span class="hl lin">154 </span>
+<span class="hl lin">155 </span>  _komplet <span class="hl opt">=</span> <span class="hl kwd">Komplet</span><span class="hl opt">()</span>
+<span class="hl lin">156 </span>
+<span class="hl lin">157 </span>  <span class="hl kwa">def</span> <span class="hl kwd">__init__</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">158 </span>    <span class="hl sng">&quot;&quot;&quot; Inicializator &quot;&quot;&quot;</span>
+<span class="hl lin">159 </span>    <span class="hl slc"># Ustvari okno, okvir in platno</span>
+<span class="hl lin">160 </span>    self<span class="hl opt">.</span>okno <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Tk</span><span class="hl opt">()</span>
+<span class="hl lin">161 </span>    self<span class="hl opt">.</span>okno<span class="hl opt">.</span><span class="hl kwd">title</span><span class="hl opt">(</span><span class="hl sng">&quot;Black Jack&quot;</span><span class="hl opt">)</span>
+<span class="hl lin">162 </span>    self<span class="hl opt">.</span>okno<span class="hl opt">.</span><span class="hl kwd">geometry</span><span class="hl opt">(</span><span class="hl sng">&quot;840x640&quot;</span><span class="hl opt">)</span>
+<span class="hl lin">163 </span>    self<span class="hl opt">.</span>okvir <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Frame</span><span class="hl opt">(</span>self<span class="hl opt">.</span>okno<span class="hl opt">)</span>
+<span class="hl lin">164 </span>    self<span class="hl opt">.</span>okvir<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> pady<span class="hl opt">=</span><span class="hl num">20</span><span class="hl opt">)</span>
+<span class="hl lin">165 </span>    self<span class="hl opt">.</span>platno <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Canvas</span><span class="hl opt">(</span>self<span class="hl opt">.</span>okno<span class="hl opt">,</span> width<span class="hl opt">=</span><span class="hl num">650</span><span class="hl opt">,</span> height<span class="hl opt">=</span><span class="hl num">600</span><span class="hl opt">)</span>
+<span class="hl lin">166 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>bg<span class="hl opt">=</span><span class="hl sng">&quot;darkgreen&quot;</span><span class="hl opt">)</span>
+<span class="hl lin">167 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">1</span><span class="hl opt">,</span> pady<span class="hl opt">=</span><span class="hl num">20</span><span class="hl opt">)</span>
 <span class="hl lin">168 </span>
-<span class="hl lin">169 </span>
-<span class="hl lin">170 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Vleci&apos;</span>
-<span class="hl lin">171 </span><span class="hl kwa">def</span> <span class="hl kwd">vleci</span><span class="hl opt">():</span>
-<span class="hl lin">172 </span>  <span class="hl slc"># Če igra poteka, potem igralec vleče karto</span>
-<span class="hl lin">173 </span>  <span class="hl kwa">global</span> izid<span class="hl opt">,</span> REZULTAT<span class="hl opt">,</span> igra_poteka<span class="hl opt">,</span> komplet<span class="hl opt">,</span> igralec
-<span class="hl lin">174 </span>  <span class="hl kwa">if</span> igra_poteka<span class="hl opt">:</span>
-<span class="hl lin">175 </span>    igralec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
-<span class="hl lin">176 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span><span class="hl str">&quot;Vrednost kart igralca: &quot;</span> <span class="hl opt">+</span>
-<span class="hl lin">177 </span>          <span class="hl kwb">str</span><span class="hl opt">(</span>igralec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">()))</span>
-<span class="hl lin">178 </span>  <span class="hl slc"># Če igralec preseže 21, potem priredi sporočilo</span>
-<span class="hl lin">179 </span>  <span class="hl slc"># spremeljivki izid, posodobi vrednosti spremeljivk</span>
-<span class="hl lin">180 </span>  <span class="hl slc"># igra_poteka in REZULTAT</span>
-<span class="hl lin">181 </span>  <span class="hl kwa">if</span> igralec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &gt;</span> <span class="hl num">21</span><span class="hl opt">:</span>
-<span class="hl lin">182 </span>    izid <span class="hl opt">=</span> <span class="hl str">&quot;Imaš več kot 21. Jack je zmagal. Nova igra?&quot;</span>
-<span class="hl lin">183 </span>    igra_poteka <span class="hl opt">=</span> <span class="hl kwa">False</span>
-<span class="hl lin">184 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span>izid<span class="hl opt">)</span>
-<span class="hl lin">185 </span>    REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;SKUPAJ&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
-<span class="hl lin">186 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span>REZULTAT<span class="hl opt">)</span>
-<span class="hl lin">187 </span>  <span class="hl kwd">izpis</span><span class="hl opt">()</span>
-<span class="hl lin">188 </span>
+<span class="hl lin">169 </span>    <span class="hl slc"># Naloži slike kart. Slike kart so v podmapi &#39;karte&#39;, ki je v isti</span>
+<span class="hl lin">170 </span>    <span class="hl slc"># mapi kot datoteka &#39;blackjack.py&#39;</span>
+<span class="hl lin">171 </span>    <span class="hl kwa">global</span> KARTE
+<span class="hl lin">172 </span>    KARTE <span class="hl opt">=</span> {&#39;BG&#39;: tk.PhotoImage(file=&quot;karte/BG1.gif&quot;)}
+<span class="hl lin">173 </span>    <span class="hl kwa">for</span> barva <span class="hl kwa">in</span> BARVE<span class="hl opt">:</span>
+<span class="hl lin">174 </span>      <span class="hl kwa">for</span> opis <span class="hl kwa">in</span> OPISI<span class="hl opt">:</span>
+<span class="hl lin">175 </span>        karta <span class="hl opt">=</span> barva <span class="hl opt">+</span> opis
+<span class="hl lin">176 </span>        datoteka <span class="hl opt">=</span> <span class="hl sng">&quot;karte/&quot;</span> <span class="hl opt">+</span> karta <span class="hl opt">+</span> <span class="hl sng">&quot;.gif&quot;</span>
+<span class="hl lin">177 </span>        KARTE<span class="hl opt">[</span>karta<span class="hl opt">] =</span> tk<span class="hl opt">.</span><span class="hl kwd">PhotoImage</span><span class="hl opt">(</span><span class="hl kwb">file</span><span class="hl opt">=</span>datoteka<span class="hl opt">)</span>
+<span class="hl lin">178 </span>
+<span class="hl lin">179 </span>    <span class="hl slc"># Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki</span>
+<span class="hl lin">180 </span>    self<span class="hl opt">.</span>gumb1 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>self<span class="hl opt">.</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl sng">&quot;Deli&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>self<span class="hl opt">.</span>deli<span class="hl opt">)</span>
+<span class="hl lin">181 </span>    self<span class="hl opt">.</span>gumb1<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
+<span class="hl lin">182 </span>    self<span class="hl opt">.</span>gumb1<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>
+<span class="hl lin">183 </span>    self<span class="hl opt">.</span>gumb2 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>self<span class="hl opt">.</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl sng">&quot;Vleci&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>self<span class="hl opt">.</span>vleci<span class="hl opt">)</span>
+<span class="hl lin">184 </span>    self<span class="hl opt">.</span>gumb2<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
+<span class="hl lin">185 </span>    self<span class="hl opt">.</span>gumb2<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">1</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>
+<span class="hl lin">186 </span>    self<span class="hl opt">.</span>gumb3 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>self<span class="hl opt">.</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl sng">&quot;Obdrži&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>self<span class="hl opt">.</span>obdrzi<span class="hl opt">)</span>
+<span class="hl lin">187 </span>    self<span class="hl opt">.</span>gumb3<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
+<span class="hl lin">188 </span>    self<span class="hl opt">.</span>gumb3<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">2</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>
 <span class="hl lin">189 </span>
-<span class="hl lin">190 </span><span class="hl slc"># Določi rokovalnik gumba &apos;Obdrži&apos;</span>
-<span class="hl lin">191 </span><span class="hl kwa">def</span> <span class="hl kwd">obdrzi</span><span class="hl opt">():</span>
-<span class="hl lin">192 </span>  <span class="hl slc"># Če igra poteka, potem delivec vleče karte, dokler</span>
-<span class="hl lin">193 </span>  <span class="hl slc"># ni njihova skupna vrednost 17 ali več</span>
-<span class="hl lin">194 </span>  <span class="hl kwa">global</span> izid<span class="hl opt">,</span> REZULTAT<span class="hl opt">,</span> igra_poteka<span class="hl opt">,</span> komplet<span class="hl opt">,</span> delivec
-<span class="hl lin">195 </span>  <span class="hl kwa">while</span> delivec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &lt;</span> <span class="hl num">17</span><span class="hl opt">:</span>
-<span class="hl lin">196 </span>    delivec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
-<span class="hl lin">197 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span><span class="hl str">&quot;Vrednost kart delivca: &quot;</span> <span class="hl opt">+</span>
-<span class="hl lin">198 </span>          <span class="hl kwb">str</span><span class="hl opt">(</span>delivec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">()))</span>
-<span class="hl lin">199 </span>  igra_poteka <span class="hl opt">=</span> <span class="hl kwa">False</span>
-<span class="hl lin">200 </span>  <span class="hl slc"># Priredi sporočilo spremeljivki izid, posodobi</span>
-<span class="hl lin">201 </span>  <span class="hl slc"># vrednosti spremeljivk igra_poteka in REZULTAT</span>
-<span class="hl lin">202 </span>  <span class="hl kwa">if</span> delivec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &gt;</span> <span class="hl num">21</span><span class="hl opt">:</span>
-<span class="hl lin">203 </span>    izid <span class="hl opt">=</span> <span class="hl str">&quot;Jack ima več kot 21. Zmagal si! Nova igra?&quot;</span>
-<span class="hl lin">204 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span>izid<span class="hl opt">)</span>
-<span class="hl lin">205 </span>    REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;SKUPAJ&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
-<span class="hl lin">206 </span>    REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;ZMAGE&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
-<span class="hl lin">207 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span>REZULTAT<span class="hl opt">)</span>
-<span class="hl lin">208 </span>  <span class="hl kwa">else</span><span class="hl opt">:</span>
-<span class="hl lin">209 </span>    <span class="hl slc"># Določi zmagovalca</span>
-<span class="hl lin">210 </span>    REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;SKUPAJ&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
-<span class="hl lin">211 </span>    <span class="hl kwa">if</span> igralec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &gt;</span> delivec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">():</span>
-<span class="hl lin">212 </span>      izid <span class="hl opt">=</span> <span class="hl str">&quot;Zmagal si! Nova igra?&quot;</span>
-<span class="hl lin">213 </span>      REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;ZMAGE&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
-<span class="hl lin">214 </span>    <span class="hl kwa">else</span><span class="hl opt">:</span>
-<span class="hl lin">215 </span>      izid <span class="hl opt">=</span> <span class="hl str">&quot;Jack je zmagal. Nova igra?&quot;</span>
-<span class="hl lin">216 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span>izid<span class="hl opt">)</span>
-<span class="hl lin">217 </span>    <span class="hl kwa">print</span><span class="hl opt">(</span>REZULTAT<span class="hl opt">)</span>
-<span class="hl lin">218 </span>  <span class="hl kwd">izpis</span><span class="hl opt">()</span>
-<span class="hl lin">219 </span>
-<span class="hl lin">220 </span>
-<span class="hl lin">221 </span><span class="hl slc"># Določi rokovalnik izpisa/izrisa</span>
-<span class="hl lin">222 </span><span class="hl kwa">def</span> <span class="hl kwd">izpis</span><span class="hl opt">():</span>
-<span class="hl lin">223 </span>  <span class="hl slc"># Izbriši vsebino platna</span>
-<span class="hl lin">224 </span>  platno<span class="hl opt">.</span><span class="hl kwd">delete</span><span class="hl opt">(</span><span class="hl str">&quot;all&quot;</span><span class="hl opt">)</span>
-<span class="hl lin">225 </span>
-<span class="hl lin">226 </span>  <span class="hl kwa">global</span> izid<span class="hl opt">,</span> igralec<span class="hl opt">,</span> delivec
-<span class="hl lin">227 </span>  igralec<span class="hl opt">.</span><span class="hl kwd">izpis</span><span class="hl opt">(</span>platno<span class="hl opt">, [</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">230</span><span class="hl opt">])</span>
-<span class="hl lin">228 </span>  delivec<span class="hl opt">.</span><span class="hl kwd">izpis</span><span class="hl opt">(</span>platno<span class="hl opt">, [</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">410</span><span class="hl opt">],</span> <span class="hl kwa">True</span><span class="hl opt">)</span>
-<span class="hl lin">229 </span>
-<span class="hl lin">230 </span>  txt1 <span class="hl opt">=</span> <span class="hl str">&quot;Black Jack&quot;</span>
-<span class="hl lin">231 </span>  txt2 <span class="hl opt">=</span> <span class="hl str">&quot;Tvoje karte&quot;</span>
-<span class="hl lin">232 </span>  txt3 <span class="hl opt">=</span> <span class="hl str">&quot;Jackove karte&quot;</span>
-<span class="hl lin">233 </span>  txt4 <span class="hl opt">=</span> <span class="hl str">&quot;STANJE: &quot;</span> <span class="hl opt">+</span> izid
-<span class="hl lin">234 </span>  txt5 <span class="hl opt">=</span> <span class="hl str">&quot;REZULTAT: zmage: &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;ZMAGE&quot;</span><span class="hl opt">])</span> \
-<span class="hl lin">235 </span>         <span class="hl opt">+</span> <span class="hl str">&quot;, skupaj: &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>REZULTAT<span class="hl opt">[</span><span class="hl str">&quot;SKUPAJ&quot;</span><span class="hl opt">])</span>
+<span class="hl lin">190 </span>    <span class="hl slc"># Dodaj igralca in delivca</span>
+<span class="hl lin">191 </span>    self<span class="hl num">._</span>igralec <span class="hl opt">=</span> <span class="hl kwd">Igralec</span><span class="hl opt">()</span>
+<span class="hl lin">192 </span>    self<span class="hl num">._</span>delivec <span class="hl opt">=</span> <span class="hl kwd">Igralec</span><span class="hl opt">(</span><span class="hl kwa">True</span><span class="hl opt">)</span>
+<span class="hl lin">193 </span>
+<span class="hl lin">194 </span>    <span class="hl slc"># Razdeli karte</span>
+<span class="hl lin">195 </span>    self<span class="hl opt">.</span><span class="hl kwd">deli</span><span class="hl opt">()</span>
+<span class="hl lin">196 </span>
+<span class="hl lin">197 </span>    <span class="hl slc"># Zaženi dogodkovno zanko</span>
+<span class="hl lin">198 </span>    self<span class="hl opt">.</span>okno<span class="hl opt">.</span><span class="hl kwd">mainloop</span><span class="hl opt">()</span>
+<span class="hl lin">199 </span>
+<span class="hl lin">200 </span>  <span class="hl kwa">def</span> <span class="hl kwd">deli</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">201 </span>    <span class="hl sng">&quot;&quot;&quot; Rokovalnik gumba &#39;Deli&#39; &quot;&quot;&quot;</span>
+<span class="hl lin">202 </span>    <span class="hl slc"># Ustvari nov komplet kart in ga premešaj</span>
+<span class="hl lin">203 </span>    self<span class="hl num">._</span>komplet <span class="hl opt">=</span> <span class="hl kwd">Komplet</span><span class="hl opt">()</span>
+<span class="hl lin">204 </span>    self<span class="hl num">._</span>komplet<span class="hl opt">.</span><span class="hl kwd">premesaj</span><span class="hl opt">()</span>
+<span class="hl lin">205 </span>
+<span class="hl lin">206 </span>    <span class="hl slc"># Dodaj igralca in delivca ter začni igro</span>
+<span class="hl lin">207 </span>    self<span class="hl num">._</span>igralec<span class="hl num">._</span>karte <span class="hl opt">= []</span>
+<span class="hl lin">208 </span>    self<span class="hl num">._</span>delivec<span class="hl num">._</span>karte <span class="hl opt">= []</span>
+<span class="hl lin">209 </span>    self<span class="hl num">._</span>igra<span class="hl num">_</span>poteka <span class="hl opt">=</span> <span class="hl kwa">True</span>
+<span class="hl lin">210 </span>    self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">skrij_karto</span><span class="hl opt">()</span>
+<span class="hl lin">211 </span>    self<span class="hl num">._</span>izid <span class="hl opt">=</span> <span class="hl sng">&quot;&quot;</span>
+<span class="hl lin">212 </span>
+<span class="hl lin">213 </span>    <span class="hl slc"># Izmenično razdeli dve karti igralcu in delivcu</span>
+<span class="hl lin">214 </span>    self<span class="hl num">._</span>igralec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl num">._</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
+<span class="hl lin">215 </span>    self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl num">._</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
+<span class="hl lin">216 </span>    self<span class="hl num">._</span>igralec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl num">._</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
+<span class="hl lin">217 </span>    self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl num">._</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
+<span class="hl lin">218 </span>
+<span class="hl lin">219 </span>    <span class="hl slc"># Nariši karte igralca in delivca</span>
+<span class="hl lin">220 </span>    self<span class="hl opt">.</span><span class="hl kwd">narisi</span><span class="hl opt">()</span>
+<span class="hl lin">221 </span>
+<span class="hl lin">222 </span>  <span class="hl kwa">def</span> <span class="hl kwd">vleci</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">223 </span>    <span class="hl sng">&quot;&quot;&quot; Rokovalnik gumba &#39;Vleci&#39; &quot;&quot;&quot;</span>
+<span class="hl lin">224 </span>    <span class="hl kwa">if</span> self<span class="hl num">._</span>igra<span class="hl num">_</span>poteka<span class="hl opt">:</span>
+<span class="hl lin">225 </span>      self<span class="hl num">._</span>igralec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl num">._</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
+<span class="hl lin">226 </span>
+<span class="hl lin">227 </span>    <span class="hl slc"># Če igralec preseže 21, priredi sporočilo spremeljivki _izid</span>
+<span class="hl lin">228 </span>    <span class="hl slc"># ter posodobi vrednosti spremeljivk _igra_poteka in _REZULTAT</span>
+<span class="hl lin">229 </span>    <span class="hl kwa">if</span> self<span class="hl num">._</span>igralec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &gt;</span> <span class="hl num">21</span><span class="hl opt">:</span>
+<span class="hl lin">230 </span>      self<span class="hl num">._</span>izid <span class="hl opt">=</span> <span class="hl sng">&quot;Imaš več kot 21. Jack je zmagal. Nova igra?&quot;</span>
+<span class="hl lin">231 </span>      self<span class="hl num">._</span>igra<span class="hl num">_</span>poteka <span class="hl opt">=</span> <span class="hl kwa">False</span>
+<span class="hl lin">232 </span>      self<span class="hl num">._</span>REZULTAT<span class="hl opt">[</span><span class="hl sng">&quot;SKUPAJ&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
+<span class="hl lin">233 </span>      <span class="hl slc"># Končaj igro</span>
+<span class="hl lin">234 </span>      self<span class="hl num">._</span>igra<span class="hl num">_</span>poteka <span class="hl opt">=</span> <span class="hl kwa">False</span>
+<span class="hl lin">235 </span>      self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">razkrij_karto</span><span class="hl opt">()</span>
 <span class="hl lin">236 </span>
-<span class="hl lin">237 </span>  platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">70</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
-<span class="hl lin">238 </span>    text<span class="hl opt">=</span>txt1<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">30</span><span class="hl opt">))</span>
-<span class="hl lin">239 </span>  platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">200</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
-<span class="hl lin">240 </span>    text<span class="hl opt">=</span>txt2<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
-<span class="hl lin">241 </span>  platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">380</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
-<span class="hl lin">242 </span>    text<span class="hl opt">=</span>txt3<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
-<span class="hl lin">243 </span>  platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">140</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
-<span class="hl lin">244 </span>    text<span class="hl opt">=</span>txt4<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
-<span class="hl lin">245 </span>  platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">560</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl str">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
-<span class="hl lin">246 </span>    text<span class="hl opt">=</span>txt5<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl str">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
-<span class="hl lin">247 </span>
-<span class="hl lin">248 </span><span class="hl slc"># Ustvari okno, okvir in platno</span>
-<span class="hl lin">249 </span>okno <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Tk</span><span class="hl opt">()</span>
-<span class="hl lin">250 </span>okno<span class="hl opt">.</span><span class="hl kwd">title</span><span class="hl opt">(</span><span class="hl str">&quot;Black Jack&quot;</span><span class="hl opt">)</span>
-<span class="hl lin">251 </span>okno<span class="hl opt">.</span><span class="hl kwd">geometry</span><span class="hl opt">(</span><span class="hl str">&quot;840x640&quot;</span><span class="hl opt">)</span>
-<span class="hl lin">252 </span>
-<span class="hl lin">253 </span>okvir <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Frame</span><span class="hl opt">(</span>okno<span class="hl opt">)</span>
-<span class="hl lin">254 </span>okvir<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> pady<span class="hl opt">=</span><span class="hl num">20</span><span class="hl opt">)</span>
-<span class="hl lin">255 </span>
-<span class="hl lin">256 </span>platno <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Canvas</span><span class="hl opt">(</span>okno<span class="hl opt">,</span> width<span class="hl opt">=</span><span class="hl num">650</span><span class="hl opt">,</span> height<span class="hl opt">=</span><span class="hl num">600</span><span class="hl opt">)</span>
-<span class="hl lin">257 </span>platno<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>bg<span class="hl opt">=</span><span class="hl str">&quot;darkgreen&quot;</span><span class="hl opt">)</span>
-<span class="hl lin">258 </span>platno<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">1</span><span class="hl opt">,</span> pady<span class="hl opt">=</span><span class="hl num">20</span><span class="hl opt">)</span>
-<span class="hl lin">259 </span>
-<span class="hl lin">260 </span><span class="hl slc"># Naloži slike kart. Slike kart so v podmapi &apos;karte&apos;,</span>
-<span class="hl lin">261 </span><span class="hl slc"># ki je v isti mapi kot datoteka &apos;blackjack.py&apos;</span>
-<span class="hl lin">262 </span>KARTE <span class="hl opt">= {</span><span class="hl str">&apos;BG&apos;</span><span class="hl opt">:</span> tk<span class="hl opt">.</span><span class="hl kwd">PhotoImage</span><span class="hl opt">(</span><span class="hl kwb">file</span><span class="hl opt">=</span><span class="hl str">&quot;karte/BG.gif&quot;</span><span class="hl opt">)}</span>
-<span class="hl lin">263 </span><span class="hl kwa">for</span> barva <span class="hl kwa">in</span> BARVE<span class="hl opt">:</span>
-<span class="hl lin">264 </span>  <span class="hl kwa">for</span> opis <span class="hl kwa">in</span> OPISI<span class="hl opt">:</span>
-<span class="hl lin">265 </span>    karta <span class="hl opt">=</span> barva <span class="hl opt">+</span> opis
-<span class="hl lin">266 </span>    datoteka <span class="hl opt">=</span> <span class="hl str">&quot;karte/&quot;</span> <span class="hl opt">+</span> karta <span class="hl opt">+</span> <span class="hl str">&quot;.gif&quot;</span>
-<span class="hl lin">267 </span>    KARTE<span class="hl opt">[</span>karta<span class="hl opt">] =</span> tk<span class="hl opt">.</span><span class="hl kwd">PhotoImage</span><span class="hl opt">(</span><span class="hl kwb">file</span><span class="hl opt">=</span>datoteka<span class="hl opt">)</span>
+<span class="hl lin">237 </span>    <span class="hl slc"># Nariši karte igralca in delivca</span>
+<span class="hl lin">238 </span>    self<span class="hl opt">.</span><span class="hl kwd">narisi</span><span class="hl opt">()</span>
+<span class="hl lin">239 </span>
+<span class="hl lin">240 </span>  <span class="hl kwa">def</span> <span class="hl kwd">obdrzi</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">241 </span>    <span class="hl sng">&quot;&quot;&quot; Rokovalnik gumba &#39;Obdrži&#39; &quot;&quot;&quot;</span>
+<span class="hl lin">242 </span>    <span class="hl slc"># Če igra poteka, potem delivec vleče karte, dokler ni njihova</span>
+<span class="hl lin">243 </span>    <span class="hl slc"># skupna vrednost 17 ali več</span>
+<span class="hl lin">244 </span>    <span class="hl kwa">while</span> self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &lt;</span> <span class="hl num">17</span><span class="hl opt">:</span>
+<span class="hl lin">245 </span>      self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">dodaj_karto</span><span class="hl opt">(</span>self<span class="hl num">._</span>komplet<span class="hl opt">.</span><span class="hl kwd">deli_karto</span><span class="hl opt">())</span>
+<span class="hl lin">246 </span>    
+<span class="hl lin">247 </span>    <span class="hl slc"># Končaj igro</span>
+<span class="hl lin">248 </span>    self<span class="hl num">._</span>igra<span class="hl num">_</span>poteka <span class="hl opt">=</span> <span class="hl kwa">False</span>
+<span class="hl lin">249 </span>    self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">razkrij_karto</span><span class="hl opt">()</span>
+<span class="hl lin">250 </span>
+<span class="hl lin">251 </span>    <span class="hl slc"># Priredi sporočilo spremeljivki _izid ter posodobi vrednosti</span>
+<span class="hl lin">252 </span>    <span class="hl slc"># spremeljivk _igra_poteka in _REZULTAT</span>
+<span class="hl lin">253 </span>    <span class="hl kwa">if</span> self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &gt;</span> <span class="hl num">21</span><span class="hl opt">:</span>
+<span class="hl lin">254 </span>      self<span class="hl num">._</span>izid <span class="hl opt">=</span> <span class="hl sng">&quot;Jack ima več kot 21. Zmagal si! Nova igra?&quot;</span>
+<span class="hl lin">255 </span>      self<span class="hl num">._</span>REZULTAT<span class="hl opt">[</span><span class="hl sng">&quot;SKUPAJ&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
+<span class="hl lin">256 </span>      self<span class="hl num">._</span>REZULTAT<span class="hl opt">[</span><span class="hl sng">&quot;ZMAGE&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
+<span class="hl lin">257 </span>    <span class="hl kwa">else</span><span class="hl opt">:</span>
+<span class="hl lin">258 </span>      <span class="hl slc"># Določi zmagovalca</span>
+<span class="hl lin">259 </span>      self<span class="hl num">._</span>REZULTAT<span class="hl opt">[</span><span class="hl sng">&quot;SKUPAJ&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
+<span class="hl lin">260 </span>      <span class="hl kwa">if</span> self<span class="hl num">._</span>igralec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">() &gt;</span> self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">vrednost_kart</span><span class="hl opt">():</span>
+<span class="hl lin">261 </span>        self<span class="hl num">._</span>izid <span class="hl opt">=</span> <span class="hl sng">&quot;Zmagal si! Nova igra?&quot;</span>
+<span class="hl lin">262 </span>        self<span class="hl num">._</span>REZULTAT<span class="hl opt">[</span><span class="hl sng">&quot;ZMAGE&quot;</span><span class="hl opt">] +=</span> <span class="hl num">1</span>
+<span class="hl lin">263 </span>      <span class="hl kwa">else</span><span class="hl opt">:</span>
+<span class="hl lin">264 </span>        self<span class="hl num">._</span>izid <span class="hl opt">=</span> <span class="hl sng">&quot;Jack je zmagal. Nova igra?&quot;</span>
+<span class="hl lin">265 </span>
+<span class="hl lin">266 </span>    <span class="hl slc"># Nariši karte igralca in delivca ter izid igre</span>
+<span class="hl lin">267 </span>    self<span class="hl opt">.</span><span class="hl kwd">narisi</span><span class="hl opt">()</span>
 <span class="hl lin">268 </span>
-<span class="hl lin">269 </span><span class="hl slc"># Ustvari gumbe in jih poveži z dogodkovnimi rokovalniki</span>
-<span class="hl lin">270 </span>gumb1 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl str">&quot;Deli&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>deli<span class="hl opt">)</span>
-<span class="hl lin">271 </span>gumb1<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
-<span class="hl lin">272 </span>gumb1<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>
-<span class="hl lin">273 </span>gumb2 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl str">&quot;Vleci&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>vleci<span class="hl opt">)</span>
-<span class="hl lin">274 </span>gumb2<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
-<span class="hl lin">275 </span>gumb2<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">1</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>
-<span class="hl lin">276 </span>gumb3 <span class="hl opt">=</span> tk<span class="hl opt">.</span><span class="hl kwd">Button</span><span class="hl opt">(</span>okvir<span class="hl opt">,</span> text<span class="hl opt">=</span><span class="hl str">&quot;Obdrži&quot;</span><span class="hl opt">,</span> command<span class="hl opt">=</span>obdrzi<span class="hl opt">)</span>
-<span class="hl lin">277 </span>gumb3<span class="hl opt">.</span><span class="hl kwd">configure</span><span class="hl opt">(</span>width<span class="hl opt">=</span><span class="hl num">10</span><span class="hl opt">)</span>
-<span class="hl lin">278 </span>gumb3<span class="hl opt">.</span><span class="hl kwd">grid</span><span class="hl opt">(</span>row<span class="hl opt">=</span><span class="hl num">2</span><span class="hl opt">,</span> column<span class="hl opt">=</span><span class="hl num">0</span><span class="hl opt">,</span> padx<span class="hl opt">=</span><span class="hl num">45</span><span class="hl opt">)</span>
-<span class="hl lin">279 </span>
-<span class="hl lin">280 </span><span class="hl slc"># Zaženi dogodkovno zanko</span>
-<span class="hl lin">281 </span><span class="hl kwd">deli</span><span class="hl opt">()</span>
-<span class="hl lin">282 </span>okno<span class="hl opt">.</span><span class="hl kwd">mainloop</span><span class="hl opt">()</span>
-<span class="hl lin">283 </span>
+<span class="hl lin">269 </span>  <span class="hl kwa">def</span> <span class="hl kwd">narisi</span><span class="hl opt">(</span>self<span class="hl opt">):</span>
+<span class="hl lin">270 </span>    <span class="hl sng">&quot;&quot;&quot; Rokovalnik izpisa oz. izrisa &quot;&quot;&quot;</span>
+<span class="hl lin">271 </span>    <span class="hl slc"># Izbriši vsebino platna</span>
+<span class="hl lin">272 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">delete</span><span class="hl opt">(</span><span class="hl sng">&quot;all&quot;</span><span class="hl opt">)</span>
+<span class="hl lin">273 </span>
+<span class="hl lin">274 </span>    <span class="hl slc"># Nariši karte igralca in delivca</span>
+<span class="hl lin">275 </span>    self<span class="hl num">._</span>igralec<span class="hl opt">.</span><span class="hl kwd">narisi_karte</span><span class="hl opt">(</span>self<span class="hl opt">.</span>platno<span class="hl opt">, [</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">220</span><span class="hl opt">])</span>
+<span class="hl lin">276 </span>    self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">narisi_karte</span><span class="hl opt">(</span>self<span class="hl opt">.</span>platno<span class="hl opt">, [</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">400</span><span class="hl opt">])</span>
+<span class="hl lin">277 </span>    <span class="hl slc"># Skrij prvo karto delivca, če igra poteka</span>
+<span class="hl lin">278 </span>    <span class="hl kwa">if</span> self<span class="hl num">._</span>igra<span class="hl num">_</span>poteka<span class="hl opt">:</span>
+<span class="hl lin">279 </span>      self<span class="hl num">._</span>delivec<span class="hl opt">.</span><span class="hl kwd">obrni_karto</span><span class="hl opt">(</span>self<span class="hl opt">.</span>platno<span class="hl opt">, [</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">400</span><span class="hl opt">])</span>
+<span class="hl lin">280 </span>
+<span class="hl lin">281 </span>    _txt1 <span class="hl opt">=</span> <span class="hl sng">&quot;Black Jack&quot;</span>
+<span class="hl lin">282 </span>    _txt2 <span class="hl opt">=</span> <span class="hl sng">&quot;Tvoje karte&quot;</span>
+<span class="hl lin">283 </span>    _txt3 <span class="hl opt">=</span> <span class="hl sng">&quot;Jackove karte&quot;</span>
+<span class="hl lin">284 </span>    _txt4 <span class="hl opt">=</span> <span class="hl sng">&quot;STANJE: &quot;</span> <span class="hl opt">+</span> self<span class="hl num">._</span>izid
+<span class="hl lin">285 </span>    _txt5 <span class="hl opt">=</span> <span class="hl sng">&quot;REZULTAT: zmage: &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>self<span class="hl num">._</span>REZULTAT<span class="hl opt">[</span><span class="hl sng">&quot;ZMAGE&quot;</span><span class="hl opt">])</span> \
+<span class="hl lin">286 </span>            <span class="hl opt">+</span> <span class="hl sng">&quot;, skupaj: &quot;</span> <span class="hl opt">+</span> <span class="hl kwb">str</span><span class="hl opt">(</span>self<span class="hl num">._</span>REZULTAT<span class="hl opt">[</span><span class="hl sng">&quot;SKUPAJ&quot;</span><span class="hl opt">])</span>
+<span class="hl lin">287 </span>
+<span class="hl lin">288 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">50</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl sng">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
+<span class="hl lin">289 </span>      text<span class="hl opt">=</span>_txt1<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl sng">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">30</span><span class="hl opt">))</span>
+<span class="hl lin">290 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">180</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl sng">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
+<span class="hl lin">291 </span>      text<span class="hl opt">=</span>_txt2<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl sng">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
+<span class="hl lin">292 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">360</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl sng">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
+<span class="hl lin">293 </span>      text<span class="hl opt">=</span>_txt3<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl sng">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
+<span class="hl lin">294 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">120</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl sng">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
+<span class="hl lin">295 </span>      text<span class="hl opt">=</span>_txt4<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl sng">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
+<span class="hl lin">296 </span>    self<span class="hl opt">.</span>platno<span class="hl opt">.</span><span class="hl kwd">create_text</span><span class="hl opt">(</span><span class="hl num">50</span><span class="hl opt">,</span> <span class="hl num">540</span><span class="hl opt">,</span> fill<span class="hl opt">=</span><span class="hl sng">&quot;white&quot;</span><span class="hl opt">,</span> anchor<span class="hl opt">=</span>tk<span class="hl opt">.</span>NW<span class="hl opt">,</span> \
+<span class="hl lin">297 </span>      text<span class="hl opt">=</span>_txt5<span class="hl opt">,</span> font<span class="hl opt">=(</span><span class="hl sng">&quot;Times&quot;</span><span class="hl opt">,</span> <span class="hl num">15</span><span class="hl opt">))</span>
+<span class="hl lin">298 </span>
+<span class="hl lin">299 </span>
+<span class="hl lin">300 </span><span class="hl slc"># Zaženemo igro</span>
+<span class="hl lin">301 </span><span class="hl kwd">BlackJack</span><span class="hl opt">()</span>
+<span class="hl lin">302 </span>
+<span class="hl lin">303 </span>
 </pre>
-<!--HTML generated by highlight 3.36, http://www.andre-simon.de/-->
+<!--HTML generated by highlight 4.3, http://www.andre-simon.de/-->
 <p>
 <a href="py/blackjack.py" class="btn btn-primary" target="_blank"><img src="img/py16.png"> Izvorna koda</a>
 <a href="py/karte.zip" class="btn btn-primary" target="_blank"><span class="fa fa-download"></span> Slike kart</a>
@@ -768,25 +795,25 @@ frame.start()
 				<ul class="pagination pagination-sm">
 					<li><a href="../2404/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
 					<li><a href="../2405/index9.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
-					<li><a href="../2405/index.html">314</a></li>
-					<li><a href="../2405/index1.html">315</a></li>
-					<li><a href="../2405/index2.html">316</a></li>
-					<li><a href="../2405/index3.html">317</a></li>
-					<li><a href="../2405/index4.html">318</a></li>
-					<li><a href="../2405/index5.html">319</a></li>
-					<li><a href="../2405/index6.html">320</a></li>
-					<li><a href="../2405/index7.html">321</a></li>
-					<li><a href="../2405/index8.html">322</a></li>
-					<li><a href="../2405/index9.html">323</a></li>
-					<li class="active"><a href="#">324</a></li>
-					<li><a href="../2405/index11.html">325</a></li>
-					<li><a href="../2405/index12.html">326</a></li>
-					<li><a href="../2405/index13.html">327</a></li>
-					<li><a href="../2405/index14.html">328</a></li>
-					<li><a href="../2405/index15.html">329</a></li>
-					<li><a href="../2405/index16.html">330</a></li>
-					<li><a href="../2405/index17.html">331</a></li>
-					<li><a href="../2405/index18.html">332</a></li>
+					<li><a href="../2405/index.html">316</a></li>
+					<li><a href="../2405/index1.html">317</a></li>
+					<li><a href="../2405/index2.html">318</a></li>
+					<li><a href="../2405/index3.html">319</a></li>
+					<li><a href="../2405/index4.html">320</a></li>
+					<li><a href="../2405/index5.html">321</a></li>
+					<li><a href="../2405/index6.html">322</a></li>
+					<li><a href="../2405/index7.html">323</a></li>
+					<li><a href="../2405/index8.html">324</a></li>
+					<li><a href="../2405/index9.html">325</a></li>
+					<li class="active"><a href="#">326</a></li>
+					<li><a href="../2405/index11.html">327</a></li>
+					<li><a href="../2405/index12.html">328</a></li>
+					<li><a href="../2405/index13.html">329</a></li>
+					<li><a href="../2405/index14.html">330</a></li>
+					<li><a href="../2405/index15.html">331</a></li>
+					<li><a href="../2405/index16.html">332</a></li>
+					<li><a href="../2405/index17.html">333</a></li>
+					<li><a href="../2405/index18.html">334</a></li>
 					<li><a href="../2405/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2901/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -825,11 +852,10 @@ frame.start()
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
 
-	<!-- Skulpt and CodeMirror -->
+	<!-- Skulpt (CodeSkulptor version) and CodeMirror -->
 	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="js/skulpt.min.js"></script>
-	<script src="js/skulpt-stdlib-simplegui.js"></script>
+	<script src="js/codeskulptor/skulpt.min.js"></script>
+	<script src="js/codeskulptor/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<!-- CodeMirror Fold addon -->
@@ -839,35 +865,33 @@ frame.start()
 
 <script type="text/javascript">
 function outf(text) {
-  var mypre = document.getElementById("console");
-  mypre.innerHTML = mypre.innerHTML + text;
+    var output = document.getElementById("output");
+    output.innerHTML = output.innerHTML + text;
 }
+
 function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+    return Sk.builtinFiles["files"][x];
 }
+
 function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("console");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "console";
+    var output = document.getElementById("output");
+    output.innerHTML = '';
     Sk.configure({output:outf, read:builtinRead});
     try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
+        eval(Sk.importMainWithBody("<stdin>", false, editor.getValue()));
     }
     catch(e) {
         alert(e.toString())
     }
 }
-function clearit() {
-    var mypre = document.getElementById("console");
-    mypre.innerHTML = '';
-}
-</script>
 
-<script>
+function clearit() {
+    var output = document.getElementById("output");
+    output.innerHTML = '';
+}
+
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,
@@ -879,6 +903,10 @@ var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
 });
 editor.setSize('100%', 500);
+editor.foldCode(CodeMirror.Pos(18, 0));
+editor.foldCode(CodeMirror.Pos(47, 0));
+editor.foldCode(CodeMirror.Pos(73, 0));
+editor.foldCode(CodeMirror.Pos(142, 0));
 </script>
 <script src="../js/skulpt/theme.js"></script>
 

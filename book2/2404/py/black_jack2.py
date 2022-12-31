@@ -2,7 +2,7 @@
 
 class Karta:
 
-  _barve = ["Križev", "Karin", "Srčev", "Pikov"]
+  _barve = ["Pikov", "Srčev", "Karin", "Križev"]
   _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "fant", "dama", "kralj"]
 
@@ -125,16 +125,8 @@ class Igralec(Komplet):
     if self.je_prazen():
       s += " nima kart\n"
     else:
-      s += " ima\n"
-    return s + Komplet.__str__(self)
-
-
-class IgraKart:
-
-  def __init__(self):
-    """ Inicializator """
-    self._komplet = Komplet()
-    self._komplet.premesaj()
+      s += " ima\n" + Komplet.__str__(self)
+    return s
 
 
 class BlackJackIgralec(Igralec):
@@ -219,7 +211,7 @@ class BlackJackDelivec(BlackJackIgralec):
     return s
 
 
-class BlackJackIgra(IgraKart):
+class BlackJack(Komplet):
 
   def igraj(self, imena):
     """ Igra igro s kartami: Black Jack """
@@ -234,8 +226,11 @@ class BlackJackIgra(IgraKart):
     # Dodaj delivca
     self._igralci.append(BlackJackDelivec())
 
+    # Premešaj karte
+    self.premesaj()
+
     # Razdeli karte - vsakemu igralcu 2 karti
-    self._komplet.deli(self._igralci, len(self._igralci)*2)
+    self.deli(self._igralci, len(self._igralci)*2)
     print("---------- Karte so razdeljene")
     self.izpisi_igralce()
 
@@ -244,11 +239,12 @@ class BlackJackIgra(IgraKart):
     poteza = ""
     while poteza.lower() not in ["s", "stand", "stoj"]:
       # Igralec lahko ima največ 5 kart
-      if igralec.stevilo_kart() == 5:
+      # ali vrednost kart presega 21
+      if igralec.stevilo_kart() == 5 or igralec.vrednost_kart() > 21:
         break
       poteza = input("Hit ali Stand? ")
       if poteza.lower() in ["h", "hit", "d", "draw", "vleci"]:
-        karta = self._komplet._karte.pop()
+        karta = self._karte.pop()
         igralec.dodaj(karta)
       print("---------- Stanje kart igralca in delivca")
       self.izpisi_igralce()
@@ -262,11 +258,11 @@ class BlackJackIgra(IgraKart):
         # Igralec lahko ima največ 5 kart
         if igralec.stevilo_kart() == 5:
           break
-        karta = self._komplet._karte.pop()
+        karta = self._karte.pop()
         igralec.dodaj(karta)
       # Če je zadnji igralec (=delivec), obrni skrito karto
       if i == stev_igralcev-1:
-        self._igralci[i].skrito = False
+        self._igralci[i]._skrito = False
     print("---------- Drugi igralci igrajo proti delivcu")
     self.izpisi_igralce()
 
@@ -289,5 +285,5 @@ class BlackJackIgra(IgraKart):
       print(self._igralci[i].rezultat(rezultat_delivca))
 
 
-igra = BlackJackIgra()
+igra = BlackJack()
 igra.igraj(["Janez", "Karel", "Lojze"])

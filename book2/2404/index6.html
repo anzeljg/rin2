@@ -154,23 +154,35 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Razred <code>IgraKart</code></h1>
+<h1>Razred <code>BlackJack</code></h1>
 
-<p align="justify">Razred <code>IgraKart</code> poskrbi za osnovna opravila, ki so skupna vsem igram s kartami, kot na primer ustvarjanje in mešanje kompleta kart:
+<!--
+<p align="justify">Razred <code>IgraKart</code>, ki je razširitev razreda <code>Komplet</code>, poskrbi za osnovna opravila, ki so skupna vsem igram s kartami, kot na primer ustvarjanje in mešanje kompleta kart. Pri inicializaciji ne smemo pozabiti poklicati inicializatorja starševskega razreda <code>Komplet</code>, kot je prikazano:
 <pre>
-class IgraKart:
+class IgraKart(Komplet):
 
   def __init__(self):
+    super().__init__() # Inicializator starševskega razreda
     self._komplet = Komplet()
     self._komplet.premesaj()
 </pre>
 </p>
+//-->
 
-<p align="justify">Če želimo ustvariti točno določeno igro s kartami, potem uporabimo starševski razred <code>IgraKart</code>, podedujemo njegove metode in ga razširimo tako, da dodamo nove metode, ki so specifične za izbrano igro s kartami. Kot primer, bomo napisali kodo, s katero bomo simulirali igro <i>Black Jack</i>.</p>
+<p align="justify">Če želimo ustvariti točno določeno igro s kartami, potem uporabimo starševski razred <code>Komplet</code>, podedujemo njegove metode in ga razširimo tako, da dodamo nove metode, ki so specifične za izbrano igro s kartami. Kot primer, bomo napisali kodo, s katero bomo simulirali igro <i>Black Jack</i>.</p>
 
-<p align="justify">Cilj igre <i>Black Jack</i> je doseči seštevek kart 21 ali se mu čimbolj približati, vendar ga ne preseči. Polne igralne karte (fant, dama, kralj) predstavljajo vrednost 10, as predstavlja vrednost 1 ali 11 (kar igralcu v igri bolj odgovarja), druge karte imajo vrednost številk, ki jih predstavljajo. Delivec nato podeli vsakemu igralcu dve karti, sebi pa dve karti, od katerih je samo ena vidna. Igralci se nato odločajo, ali bodo še kupovali karte (uporabijo izraz <b>Hit</b>), ali se bodo zadovoljili s seštevkom prvih dveh kart (uporabijo izraz <b>Stand</b>).</p>
+<p align="justify">Ustvarimo razred <code>BlackJack</code>, ki bo metode podedoval iz starševskega razreda <code>Komplet</code>. Ker zaenkrat ne bomo dodali nobenih razširitev, saj starševski razred že vsebuje vse metode, ki jih potrebujemo, dodamo <code>pass</code> v telo kode razreda:
+<pre>
+class BlackJack(Komplet):
+  pass
+</pre>
+</p>
 
-<p align="justify">Naslednji korak igre je, da delivec še sebi podeli naslednjo karto. Igra je zaključena, ko delivec doseže seštevek najmanj 17, ali ko preseže seštevek 21. Sledi obračun posamezne igre. Če igralec že med svojo igro preseže 21 točk, stavo takoj izgubi. Če seštevek 21 preseže delivec, mora izplačati stave vsem igralcem, ki so ostali v igri. Kadar tako igralec, kot delivec ostaneta v igri, se njuna seštevka kart primerjata in stavo dobi tisti, ki je bližji seštevku 21. Ob enakih seštevkih zmaga delivec. Glavni dobitek je kombinacija asa in polne karte. To je vrednost 21, imenuje pa se <i>Black Jack</i>.</p>
+<p align="justify">Cilj igre <i>Black Jack</i> je doseči seštevek kart 21 ali se mu čimbolj približati, vendar ga ne preseči. Polne igralne karte (fant, dama, kralj) predstavljajo vrednost 10, as predstavlja vrednost 1 ali 11 (kar igralcu v igri bolj odgovarja), druge karte imajo vrednost številk, ki jih predstavljajo.</p>
+
+<p align="justify">Delivec nato podeli vsakemu igralcu dve karti, sebi pa dve karti, od katerih je samo ena vidna. Igralci se nato odločajo, ali bodo še kupovali karte (uporabijo izraz <b>Hit</b>), ali se bodo zadovoljili s seštevkom prvih dveh kart (uporabijo izraz <b>Stand</b>). Naslednji korak igre je, da delivec še sebi podeli naslednjo karto.</p>
+
+<p align="justify">Igra je zaključena, ko delivec doseže seštevek najmanj 17, ali ko preseže seštevek 21. Sledi obračun posamezne igre. Če igralec že med svojo igro preseže 21 točk, stavo takoj izgubi. Če seštevek 21 preseže delivec, mora izplačati stave vsem igralcem, ki so ostali v igri. Kadar tako igralec, kot delivec ostaneta v igri, se njuna seštevka kart primerjata in stavo dobi tisti, ki je bližji seštevku 21. Ob enakih seštevkih zmaga delivec. Glavni dobitek je kombinacija asa in polne karte. To je vrednost 21, imenuje pa se <i>Black Jack</i>.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
@@ -212,23 +224,23 @@ class IgraKart:
 				<ul class="pagination pagination-sm">
 					<li><a href="../2403/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
 					<li><a href="../2404/index5.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
-					<li><a href="../2404/index.html">297</a></li>
-					<li><a href="../2404/index1.html">298</a></li>
-					<li><a href="../2404/index2.html">299</a></li>
-					<li><a href="../2404/index3.html">300</a></li>
-					<li><a href="../2404/index4.html">301</a></li>
-					<li><a href="../2404/index5.html">302</a></li>
-					<li class="active"><a href="#">303</a></li>
-					<li><a href="../2404/index7.html">304</a></li>
-					<li><a href="../2404/index8.html">305</a></li>
-					<li><a href="../2404/index9.html">306</a></li>
-					<li><a href="../2404/index10.html">307</a></li>
-					<li><a href="../2404/index11.html">308</a></li>
-					<li><a href="../2404/index12.html">309</a></li>
-					<li><a href="../2404/index13.html">310</a></li>
-					<li><a href="../2404/index14.html">311</a></li>
-					<li><a href="../2404/index15.html">312</a></li>
-					<li><a href="../2404/index16.html">313</a></li>
+					<li><a href="../2404/index.html">299</a></li>
+					<li><a href="../2404/index1.html">300</a></li>
+					<li><a href="../2404/index2.html">301</a></li>
+					<li><a href="../2404/index3.html">302</a></li>
+					<li><a href="../2404/index4.html">303</a></li>
+					<li><a href="../2404/index5.html">304</a></li>
+					<li class="active"><a href="#">305</a></li>
+					<li><a href="../2404/index7.html">306</a></li>
+					<li><a href="../2404/index8.html">307</a></li>
+					<li><a href="../2404/index9.html">308</a></li>
+					<li><a href="../2404/index10.html">309</a></li>
+					<li><a href="../2404/index11.html">310</a></li>
+					<li><a href="../2404/index12.html">311</a></li>
+					<li><a href="../2404/index13.html">312</a></li>
+					<li><a href="../2404/index14.html">313</a></li>
+					<li><a href="../2404/index15.html">314</a></li>
+					<li><a href="../2404/index16.html">315</a></li>
 					<li><a href="../2404/index7.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2405/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>

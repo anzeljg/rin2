@@ -1,0 +1,25 @@
+Tarock Playing Cards
+
+Card designs from World Web Playing Card Museum
+
+Alexander Sukhorukov
+sukhty@aha.ru
+http://a.trionfi.eu/WWPCM/
+
+These files are in the public domain in countries with a
+copyright term of life of the author plus 70 years or less.
+
+
+
+Additional info:
+
+Cards are from "Industrie und Glück" tarock deck
+by Ferd. Piatnik & Söhne, Vienna, before 1917.
+(Piatnik added A.G. to it's name from 1917-1939)
+
+Card designs are by Josef Neumeyer around 1890,
+who based them on even older designs.
+
+The designs were first used by Piatnik around 1910.
+
+See: https://www.wopc.co.uk/austria/tarok/piatnik-tarok

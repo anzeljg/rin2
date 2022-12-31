@@ -10,14 +10,11 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Lastnosti</title>
+	<title>Osnovni koncepti objektno usmerjenega programiranja</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
-
-	<!-- CodeMirror -->
-	<link href="../css/codemirrorepl.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -152,113 +149,34 @@
 				<div class="row">
 					<div class="col-md-6">
 <!-- Left column start -->
-<h1>Lastnosti</h1>
+<h1>Osnovni koncepti objektno usmerjenega programiranja</h1>
 
-<p align="justify">Lastnosti posameznega primerka lahko spremenimo z uporabo zapisa s piko:
-<pre>
-&gt;&gt;&gt; p = Tocka()
-&gt;&gt;&gt; p._x = 4
-&gt;&gt;&gt; p._y = 3
-</pre>
-</p>
+<h2>Večobličnost ali polimorfizem</h2>
 
-<p align="justify">Spodnji diagram stanja prikazuje stanje po izvedbi zgornjih stavkov:</p>
+<p align="justify">Večobličnost v objektno usmerjenem programiranju omogoča enotno obravnavo razredov v hierarhiji. Zato je treba klicno kodo napisati samo za obravnavo objektov iz korena hierarhije in vsak objekt, ki bo primerek katerega koli podrejenega razreda v hierarhiji, bo obravnavan na enak način.</p>
 
-<p align="center"><img src="img/lastnosti.svg" onerror="this.src='lastnosti.png'" class="img-responsive"></p>
+<p align="justify">Ker imajo izpeljani objekti isti vmesnik kot njihovi starši, lahko klicna koda pokliče katero koli funkcijo v vmesniku tega razreda. V času izvajanja bo program poklical ustrezno metodo glede na vrsto posredovanega objekta, kar lahko povzroči različno vedenje.</p>
 
-<p align="justify">Spremenljivka <code>p</code> kaže na objekt <code>Tocka</code>, ki vsebuje dve lastnosti. Vsaka izmed obeh lastnosti kaže na število.</p>
+<h4>Primer</h4>
 
-<p align="justify">Do vrednosti posamezne lastnosti lahko dostopamo na enak način, z uporabo zapisa s piko:
-<pre>
-&gt;&gt;&gt; print(p._y)
-3
-&gt;&gt;&gt; x = p._x
-&gt;&gt;&gt; print(x)
-4
-</pre>
-</p>
+<p align="justify"><img src="img/dog-cat-3438453_1280.jpg" class="img-responsive" width="50%" style="float:right;margin:0 0 10px 10px;">Recimo, da imamo razred z imenom <code>Žival</code> ter dva podrejena razreda <code>Mačka</code> in <code>Pes</code>. Če ima razred <code>Žival</code> metodo za oglašanje, imenovano <code>glas()</code>, potem lahko metodo <code>glas()</code>, ki jo podedujeta podrazreda <code>Mačka</code> in <code>Pes</code>, preoblikujemo tako, da vrne »mijav« oziroma »hov«.</p>
 
-<p align="justify">Izraz <code>p._x</code> pomeni, »Pojdi do objekta, na katerega kaže <code>p</code> in dobi njegovo lastnost <code>_x</code>«. V gornjem primeru nato spremenljivki <code>x</code> priredimo vrednost lastnosti <code>_x</code>, vendar kljub temu ne pride do spora oziroma konflikta. Namen zapisa s piko je, da nedvoumno in jasno določa, za katero spremenljivko gre.</p>
-
-<p align="justify">Zapis s piko lahko uporabimo v katerem koli izrazu, zato sta spodnja stavka veljavna:
-<pre>
-print("(x=" + str(p._x) + ", y=" + str(p._y) + ")")
-kvadrat_razdalje_od_izhodisca = p._x * p._x + p._y * p._y
-</pre>
-Prvi stavek izpiše <code>(x=4, y=3)</code>. Drugi stavek  v spremenljivko shrani izračunano vrednost 25.</p>
-
-<div class="alert alert-danger">
-<p align="justify">Pri objektnem programiranju do lastnosti objekta običajno ne dostopamo neposredno, t.j. z uporabo zapisa s piko. Običajno za delo z lastnostmi objekta uporabljamo metodi <b>nastavi</b> (<i>ang. set</i>; od tod izraz <i>setter</i>) in <b>vrni</b> (<i>ang. get</i>; od tod izraz <i>getter</i>), ki ju moramo definirati.</p>
-</div>
+<p align="justify">Nato lahko napišemo drugo funkcijo, ki kot parameter sprejme kateri koli objekt <code>Žival</code> in pokliče njegovo metodo <code>glas()</code>. Torej bo oglašanje različno: bodisi »mijavkanje« ali »lajanje«, odvisno od vrste živalskega objekta, ki smo ga dejansko posredovali funkciji.</p>
 <!-- Left column end -->
 					</div>
 					<div class="col-md-6">
 <!-- Right column start -->
-<h1>Izboljšajmo inicializator</h1>
+<h2>Dedovanje</h2>
 
-<p align="justify">Če želimo ustvariti točko <code>(7, 6)</code> trenutno potrebujemo tri vrstice kode:</p>
+<p align="justify">Objektno usmerjeni jeziki, ki podpirajo razrede, skoraj vedno podpirajo pojem »dedovanja«. Razrede lahko organiziramo v hierarhije, kjer ima lahko razred enega ali več nadrejenih ali podrejenih razredov. Če ima razred nadrejeni razred, pravimo, da je izpeljan ali podedovan iz nadrejenega razreda in predstavlja razmerje tipa »je« (<i>ang. is-a</i>). To pomeni, da podrejeni razred »je« tipa nadrejenega razreda.</p>
 
-<p>
-<pre>
-t = Tocka()
-t.nastavi_x(7)
-t.nastavi_y(6)
-</pre>
-</p>
+<p align="justify">Če torej razred deduje od drugega razreda, samodejno pridobi večino enake funkcionalnosti in lastnosti od tega razreda in ga lahko razširimo tako, da vsebuje ločeno kodo in podatke. Podrejeni razred bo torej dedoval lastnosti nadrejenega razreda in zelo verjetno spremenil ali razširil njegovo vedenje. Lepa značilnost dedovanja je, da pogosto vodi do dobre ponovne uporabe kode, saj metod nadrejenega razreda ni treba ponovno definirati v katerem koli od njegovih podrejenih razredov.</p>
 
-<p align="justify">Inicializator &ndash; t.j. metodo <code>__init__</code>, ki nastavi začetne vrednosti &ndash; lahko posplošimo tako, da ji dodamo dodatna parametra. Oba parametra <code>x</code> in <code>y</code> sta neobvezna. Če ju ne vključimo, bosta lastnosti dobili privzeto vrednost 0. Naš izboljšani razred sedaj izgleda takole:</p>
+<h4>Primer</h4>
 
-<div>
-<form>
-<p><textarea id="code">
-class Tocka:
+<p align="justify"><img src="img/ladybug-1486479_1280.jpg" class="img-responsive" width="50%" style="float:right;margin:0 0 10px 10px;">Na primer, v živalskem svetu lahko žuželko predstavlja nadrazred <code>Žuželka</code>. Vse žuželke imajo podobne lastnosti, na primer šest nog in eksoskelet. Podrazrede lahko definiramo za pikapolonice in mravlje. Ker izhajajo iz razreda <code>Žuželka</code>, samodejno dedujejo vse lastnosti in obnašanje (oziroma metode) žuželk.</p>
 
-  def __init__(self, x=0, y=0):
-    """ Inicializator """
-    self._x = x
-    self._y = y
-
-  def vrni_x(self):
-    """ Vrne vrednost lastnosti x """
-    return self._x
-
-  def vrni_y(self):
-    """ Vrne vrednost lastnosti y """
-    return self._y
-
-  def nastavi_x(self, x):
-    """ Nastavi vrednost lastnosti x """
-    self._x = x
-
-  def nastavi_y(self, y):
-    """ Nastavi vrednost lastnosti y """
-    self._y = y
-
-
-p = Tocka(4, 2)
-q = Tocka(6, 3)
-r = Tocka()     # Koordinatno izhodišče (0, 0)
-
-print(p.vrni_x(), p.vrni_y())
-print(q.vrni_x(), q.vrni_y())
-print(r.vrni_x(), r.vrni_y())
-</textarea></p>
-<p>
-<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
-<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
-<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
-</p>
-</form>
-</div>
-<pre id="output"></pre>
-
-<p align="justify">Gornji program izpiše:
-<pre>
-(4, 2)
-(6, 3)
-(0, 0)
-</pre>
-</p>
+<p align="justify">Če se na primer mravlje obnašajo drugače, kot druge žuželke, moramo v razredu <code>Mravlja</code> samo spremeniti ustrezno metodo. Če pa mravlje počnejo nekaj, česar ne počnejo druge žuželke, moramo razredu <code>Mravlja</code> v tem primeru dodati novo metodo.</p>
 <!-- Right column end -->
 					</div>
 				</div>
@@ -286,6 +204,8 @@ print(r.vrni_x(), r.vrni_y())
 					<li><a href="../2401/index13.html">264</a></li>
 					<li><a href="../2401/index14.html">265</a></li>
 					<li><a href="../2401/index15.html">266</a></li>
+					<li><a href="../2401/index16.html">267</a></li>
+					<li><a href="../2401/index17.html">268</a></li>
 					<li><a href="../2401/index6.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -324,67 +244,6 @@ print(r.vrni_x(), r.vrni_y())
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
 
-	<!-- Skulpt and CodeMirror -->
-	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="../js/skulpt/skulpt.js"></script>
-	<script src="../js/skulpt/skulpt-stdlib.js"></script>
-	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
-	<!-- CodeMirror Fold addon -->
-	<script src="../js/skulpt/fold/foldcode.js"></script>
-	<script src="../js/skulpt/fold/foldgutter.js"></script>
-	<script src="../js/skulpt/fold/indent-fold.js"></script>
-
-<script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("output");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "output";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-}
-</script>
-
-<script>
-var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-  lineNumbers: true,
-  matchBrackets: true,
-  mode: "python",
-  theme: "rin-light",
-  lineWrapping: true,
-  foldGutter: true,
-  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
-});
-editor.setSize('100%', 373);
-editor.foldCode(CodeMirror.Pos(7, 0));
-editor.foldCode(CodeMirror.Pos(11, 0));
-editor.foldCode(CodeMirror.Pos(15, 0));
-editor.foldCode(CodeMirror.Pos(19, 0));
-</script>
-<script src="../js/skulpt/theme.js"></script>
-
 
 <!-- CookieCuttr -->
 <script type="text/javascript" src="../cc/jquery.cookie.js"></script>
@@ -399,10 +258,10 @@ document.body.addEventListener("keydown", function (event) {
     var code = event.keyCode || event.which;
     var alt  = event.altKey;
     if (alt && code === 33 /* Alt+PgUp */) {
-        window.location.replace("../2401/index4.html");
+        window.location.replace("../2401/index3.html");
     }
     if (alt && code === 34 /* Alt+PgDn */) {
-        window.location.replace("../2401/index6.html");
+        window.location.replace("../2401/index5.html");
     }
 });
 </script>

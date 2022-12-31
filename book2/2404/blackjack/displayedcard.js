@@ -19,7 +19,7 @@ function DisplayedCard(divid, card) {
    this.div.appendChild(div1);
    var cardImg = document.createElement("img");
    this.cardImg = cardImg;
-   cardImg.src = "blackjack/cards.png";
+   cardImg.src = "blackjack/karte.png";
    cardImg.style.position = "absolute";
    cardImg.style.width = (79 * 13) + "px";
    cardImg.style.height = (110 * 5) + "px";
@@ -30,7 +30,7 @@ function DisplayedCard(divid, card) {
 DisplayedCard.prototype.setPositionAndClip = function() {
    var left, top;
    if (this.faceDown) {
-      left = 2 * 79;
+      left = 0 * 79;
       top = 4 * 110;
    }
    else {

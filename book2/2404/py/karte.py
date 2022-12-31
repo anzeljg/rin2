@@ -2,7 +2,7 @@
 
 class Karta:
 
-  _barve = ["Kriev", "Karin", "Srèev", "Pikov"]
+  _barve = ["Pikov", "SrÄev", "Karin", "KriÅ¾ev"]
   _opisi = [None, "as", "2", "3", "4", "5", "6", "7",
             "8", "9", "10", "fant", "dama", "kralj"]
 
@@ -15,9 +15,9 @@ class Karta:
     """ Vrne niz, ki predstavlja karto """
     b = self._barva
     v = self._vrednost
-    k = "" # Konènica za moško obliko
+    k = "" # KonÄnica za moÅ¡ko obliko
     if (v >= 2 and v <= 10 or v == 12):
-      k = "a" # Konènica za ensko obliko
+      k = "a" # KonÄnica za Å¾ensko obliko
     return (self._barve[b] + k + " " + self._opisi[v])
 
   def cmp(self, karta):
@@ -73,7 +73,7 @@ class Komplet:
     return s
 
   def premesaj(self):
-    """ Premeša karte v kompletu """
+    """ PremeÅ¡a karte v kompletu """
     import random
     random.shuffle(self._karte)
 
@@ -98,7 +98,7 @@ class Komplet:
     stev_igralcev = len(igralci)
     for i in range(stev_kart):
       if self.je_prazen():
-        break                               # Ni veè kart; konèaj
+        break                               # Ni veÄ kart; konÄaj
       karta = self._karte.pop()             # Vzemi vrhnjo karto
       igralec = igralci[i % stev_igralcev]  # Kdo je naslednji?
       igralec.dodaj(karta)                  # Dodaj karto igralcu
@@ -120,18 +120,10 @@ class Igralec(Komplet):
     self._ime = ime
 
   def __str__(self):
-    """ Vrne niz, ki predstavlja igralèeve karte """
+    """ Vrne niz, ki predstavlja igralÄeve karte """
     s = "Igralec " + str(self._ime)
     if self.je_prazen():
       s += " nima kart\n"
     else:
-      s += " ima\n"
-    return s + Komplet.__str__(self)
-
-
-class IgraKart:
-
-  def __init__(self):
-    """ Inicializator """
-    self._komplet = Komplet()
-    self._komplet.premesaj()
+      s += " ima\n" + Komplet.__str__(self)
+    return s

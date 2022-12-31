@@ -161,7 +161,7 @@
 okvir = simplegui.create_frame("Okno", 300, 200)
 okvir.set_canvas_background("black")
 okvir.add_button("Klikni", klik)
-okvir.set_draw_handler(izpis)
+okvir.set_draw_handler(narisi)
 </pre>
 </p>
 
@@ -171,7 +171,7 @@ def klik():
   global sporocilo
   sporocilo = "Bravo!"
 
-def izpis(platno):
+def narisi(platno):
   platno.draw_text(sporocilo, [50, 100], 36, "red")
 </pre>
 </p>
@@ -205,26 +205,26 @@ def klik():
   sporocilo = "Bravo!"
 
 # Rokovalnik za risanje na platno
-def izpis(platno):
+def narisi(platno):
   platno.draw_text(sporocilo, [50, 100], 36, "red")
 
 # Ustvari okvir, poveži funkcije z dogodkovnimi rokovalniki
 okvir = simplegui.create_frame("Okno", 300, 200)
 okvir.set_canvas_background("black")
 okvir.add_button("Klikni", klik)
-okvir.set_draw_handler(izpis)
+okvir.set_draw_handler(narisi)
 
 # Zaženi animacijo okvirja
 okvir.start()
 </textarea></p>
 <p>
-<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary" onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
 <a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
 <input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
 </p>
 </form>
 </div>
-<pre id="console"></pre>
+<pre id="output"></pre>
 </div>
 
 <!-- Tkinter tab -->
@@ -291,25 +291,25 @@ okvir.start()
 				<ul class="pagination pagination-sm">
 					<li><a href="../2404/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
 					<li><a href="../2405/index3.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
-					<li><a href="../2405/index.html">314</a></li>
-					<li><a href="../2405/index1.html">315</a></li>
-					<li><a href="../2405/index2.html">316</a></li>
-					<li><a href="../2405/index3.html">317</a></li>
-					<li class="active"><a href="#">318</a></li>
-					<li><a href="../2405/index5.html">319</a></li>
-					<li><a href="../2405/index6.html">320</a></li>
-					<li><a href="../2405/index7.html">321</a></li>
-					<li><a href="../2405/index8.html">322</a></li>
-					<li><a href="../2405/index9.html">323</a></li>
-					<li><a href="../2405/index10.html">324</a></li>
-					<li><a href="../2405/index11.html">325</a></li>
-					<li><a href="../2405/index12.html">326</a></li>
-					<li><a href="../2405/index13.html">327</a></li>
-					<li><a href="../2405/index14.html">328</a></li>
-					<li><a href="../2405/index15.html">329</a></li>
-					<li><a href="../2405/index16.html">330</a></li>
-					<li><a href="../2405/index17.html">331</a></li>
-					<li><a href="../2405/index18.html">332</a></li>
+					<li><a href="../2405/index.html">316</a></li>
+					<li><a href="../2405/index1.html">317</a></li>
+					<li><a href="../2405/index2.html">318</a></li>
+					<li><a href="../2405/index3.html">319</a></li>
+					<li class="active"><a href="#">320</a></li>
+					<li><a href="../2405/index5.html">321</a></li>
+					<li><a href="../2405/index6.html">322</a></li>
+					<li><a href="../2405/index7.html">323</a></li>
+					<li><a href="../2405/index8.html">324</a></li>
+					<li><a href="../2405/index9.html">325</a></li>
+					<li><a href="../2405/index10.html">326</a></li>
+					<li><a href="../2405/index11.html">327</a></li>
+					<li><a href="../2405/index12.html">328</a></li>
+					<li><a href="../2405/index13.html">329</a></li>
+					<li><a href="../2405/index14.html">330</a></li>
+					<li><a href="../2405/index15.html">331</a></li>
+					<li><a href="../2405/index16.html">332</a></li>
+					<li><a href="../2405/index17.html">333</a></li>
+					<li><a href="../2405/index18.html">334</a></li>
 					<li><a href="../2405/index5.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2901/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -348,11 +348,10 @@ okvir.start()
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
 
-	<!-- Skulpt and CodeMirror -->
+	<!-- Skulpt (CodeSkulptor version) and CodeMirror -->
 	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="js/skulpt.min.js"></script>
-	<script src="js/skulpt-stdlib-simplegui.js"></script>
+	<script src="js/codeskulptor/skulpt.min.js"></script>
+	<script src="js/codeskulptor/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
 	<script>Sk.python3 = true;</script>
 	<!-- CodeMirror Fold addon -->
@@ -362,35 +361,33 @@ okvir.start()
 
 <script type="text/javascript">
 function outf(text) {
-  var mypre = document.getElementById("console");
-  mypre.innerHTML = mypre.innerHTML + text;
+    var output = document.getElementById("output");
+    output.innerHTML = output.innerHTML + text;
 }
+
 function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+    return Sk.builtinFiles["files"][x];
 }
+
 function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("console");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "console";
+    var output = document.getElementById("output");
+    output.innerHTML = '';
     Sk.configure({output:outf, read:builtinRead});
     try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
+        eval(Sk.importMainWithBody("<stdin>", false, editor.getValue()));
     }
     catch(e) {
         alert(e.toString())
     }
 }
-function clearit() {
-    var mypre = document.getElementById("console");
-    mypre.innerHTML = '';
-}
-</script>
 
-<script>
+function clearit() {
+    var output = document.getElementById("output");
+    output.innerHTML = '';
+}
+
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,

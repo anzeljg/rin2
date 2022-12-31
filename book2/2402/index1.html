@@ -28,7 +28,7 @@
 		imageFont: null
 	  });
     </script>
- 	<script src="../mathjax/MathJax.js"></script>
+ 	<script src="../js/mathjax/MathJax.js"></script>
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -186,7 +186,7 @@ bomba: ((160, 80), 5, 10)
 </pre>
 </p>
 
-<p align="justify">Zapis s piko je sestavljiv. Poklicati moramo le ustrezne metodo objekta, ki vrača vrednost lastnosti. Na primer izraz <code>bomba.oglisce().x()</code> pomeni, »Pojdi do objekta, na katerega kaže <code>bomba</code> in dobi njegovo lastnost, imenovano <code>_oglisce</code>, ki tudi kaže na objekt. Potem pojdi do tega drugega objekta in dobi njegovo lastnost <code>_x</code>«.</p>
+<p align="justify">Zapis s piko je sestavljiv. Poklicati moramo le ustrezne metodo objekta, ki vrača vrednost lastnosti. Na primer izraz <code>bomba.oglisce.x</code> pomeni, »Pojdi do objekta, na katerega kaže <code>bomba</code> in dobi njegovo lastnost, imenovano <code>_oglisce</code>, ki tudi kaže na objekt. Potem pojdi do tega drugega objekta in dobi njegovo lastnost <code>_x</code>«.</p>
 
 <p align="justify">Slika prikazuje stanje tega objekta:</p>
 
@@ -206,19 +206,31 @@ class Tocka:
     self._x = x
     self._y = y
 
-  def x(self, vrednost=None):
-    """ Vrne ali nastavi vrednost lastnosti x """
-    if vrednost is None:
-      return self._x
-    else:
-      self._x = vrednost
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
 
-  def y(self, vrednost=None):
-    """ Vrne ali nastavi vrednost lastnosti y """
-    if vrednost is None:
-      return self._y
-    else:
-      self._y = vrednost
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
 
   def razdalja(self):
     """ Vrne razdaljo točke od koordinatnega izhodišča """
@@ -230,8 +242,8 @@ class Tocka:
 
   def sredina(self, tocka):
     """ Vrne središče med točkama """
-    mx = (self._x + tocka._x) / 2
-    my = (self._y + tocka._y) / 2
+    mx = (self._x + tocka._x) / 2.0
+    my = (self._y + tocka._y) / 2.0
     return Tocka(mx, my)
 
   def zrcali_x(self):
@@ -285,12 +297,44 @@ class Pravokotnik:
     return "(" + str(self._oglisce) + ", " + \
 	  str(self._sirina) + ", " + str(self._visina) + ")"
 
-  def oglisce(self, polozaj=None):
-    """ Vrne ali nastavi položaj pravokotnika """
-    if polozaj is None:
-      return self._oglisce
-    else:
-      self._oglisce = polozaj
+  def _vrni_oglisce(self):
+    """ Vrne položaj pravokotnika """
+    return self._oglisce
+
+  def _nastavi_oglisce(self, polozaj=Tocka()):
+    """ Nastavi položaj pravokotnika """
+    self._oglisce = polozaj
+
+  def _vrni_sirina(self):
+    """ Vrne širino pravokotnika """
+    return self._sirina
+
+  def _nastavi_sirina(self, sirina=0):
+    """ Nastavi širino pravokotnika """
+    self._sirina = sirina
+
+  def _vrni_visina(self):
+    """ Vrne višino pravokotnika """
+    return self._visina
+
+  def _nastavi_visina(self, visina=0):
+    """ Nastavi višino pravokotnika """
+    self._visina = visina
+
+  oglisce = property(
+    fget = _vrni_oglisce,    # Ime metode getter
+    fset = _nastavi_oglisce  # Ime metode setter
+  )
+
+  sirina = property(
+    fget = _vrni_sirina,    # Ime metode getter
+    fset = _nastavi_sirina  # Ime metode setter
+  )
+
+  visina = property(
+    fget = _vrni_visina,    # Ime metode getter
+    fset = _nastavi_visina  # Ime metode setter
+  )
 
 
 okvir = Pravokotnik(Tocka(0, 0), 100, 200)
@@ -298,7 +342,7 @@ bomba = Pravokotnik(Tocka(160, 80), 5, 10) # V igrici...
 print("okvir: " + str(okvir))
 print("bomba: " + str(bomba))
 
-print(bomba.oglisce().x())
+print(bomba.oglisce.x)
 </textarea></p>
 <p>
 <a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
@@ -319,24 +363,24 @@ print(bomba.oglisce().x())
 				<ul class="pagination pagination-sm">
 					<li><a href="../2401/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
-					<li><a href="../2402/index.html">267</a></li>
-					<li class="active"><a href="#">268</a></li>
-					<li><a href="../2402/index2.html">269</a></li>
-					<li><a href="../2402/index3.html">270</a></li>
-					<li><a href="../2402/index4.html">271</a></li>
-					<li><a href="../2402/index5.html">272</a></li>
-					<li><a href="../2402/index6.html">273</a></li>
-					<li><a href="../2402/index7.html">274</a></li>
-					<li><a href="../2402/index8.html">275</a></li>
-					<li><a href="../2402/index9.html">276</a></li>
-					<li><a href="../2402/index10.html">277</a></li>
-					<li><a href="../2402/index11.html">278</a></li>
-					<li><a href="../2402/index12.html">279</a></li>
-					<li><a href="../2402/index13.html">280</a></li>
-					<li><a href="../2402/index14.html">281</a></li>
-					<li><a href="../2402/index15.html">282</a></li>
-					<li><a href="../2402/index16.html">283</a></li>
-					<li><a href="../2402/index17.html">284</a></li>
+					<li><a href="../2402/index.html">269</a></li>
+					<li class="active"><a href="#">270</a></li>
+					<li><a href="../2402/index2.html">271</a></li>
+					<li><a href="../2402/index3.html">272</a></li>
+					<li><a href="../2402/index4.html">273</a></li>
+					<li><a href="../2402/index5.html">274</a></li>
+					<li><a href="../2402/index6.html">275</a></li>
+					<li><a href="../2402/index7.html">276</a></li>
+					<li><a href="../2402/index8.html">277</a></li>
+					<li><a href="../2402/index9.html">278</a></li>
+					<li><a href="../2402/index10.html">279</a></li>
+					<li><a href="../2402/index11.html">280</a></li>
+					<li><a href="../2402/index12.html">281</a></li>
+					<li><a href="../2402/index13.html">282</a></li>
+					<li><a href="../2402/index14.html">283</a></li>
+					<li><a href="../2402/index15.html">284</a></li>
+					<li><a href="../2402/index16.html">285</a></li>
+					<li><a href="../2402/index17.html">286</a></li>
 					<li><a href="../2402/index2.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2403/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -377,47 +421,41 @@ print(bomba.oglisce().x())
 
 	<!-- Skulpt and CodeMirror -->
 	<script src="../js/skulpt/codemirrorepl.js"></script>
-	<script src="../js/skulpt/repl.js"></script>
-	<script src="../js/skulpt/skulpt.js"></script>
+	<script src="../js/skulpt/skulpt.min.js"></script>
 	<script src="../js/skulpt/skulpt-stdlib.js"></script>
 	<script src="../js/skulpt/python.js"></script>
-	<script>Sk.python3 = true;</script>
 	<!-- CodeMirror Fold addon -->
 	<script src="../js/skulpt/fold/foldcode.js"></script>
 	<script src="../js/skulpt/fold/foldgutter.js"></script>
 	<script src="../js/skulpt/fold/indent-fold.js"></script>
 
 <script type="text/javascript">
-function outf(text) {
-  var mypre = document.getElementById("output");
-  mypre.innerHTML = mypre.innerHTML + text;
-}
-function builtinRead(x) {
-  if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-    throw "File not found: '" + x + "'";
-  return Sk.builtinFiles["files"][x];
-}
-function runit() {
-    var prog = editor.getValue();
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-    Sk.canvas = "mycanvas";
-    Sk.pre = "output";
-    Sk.configure({output:outf, read:builtinRead});
-    try {
-        eval(Sk.importMainWithBody("<stdin>",false,prog));
-    }
-    catch(e) {
-        alert(e.toString())
-    }
-}
-function clearit() {
-    var mypre = document.getElementById("output");
-    mypre.innerHTML = '';
-}
-</script>
+var output = $('#output');
+var outf = function (text) {
+	output.text(output.text() + text);
+};
 
-<script>
+function builtinRead(x) {
+	if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+		throw "File not found: '" + x + "'";
+	return Sk.builtinFiles["files"][x];
+}
+
+function runit() {
+	Sk.configure({output: outf, read: builtinRead, __future__: Sk.python3});
+	try {
+		Sk.misceval.asyncToPromise(function() {
+			return Sk.importMainWithBody("<stdin>", false, editor.getValue(), true);
+		});
+	} catch(e) {
+		outf(e.toString() + "\n")
+	}
+}
+
+function clearit() {
+	$('#output').text('');
+}
+
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   matchBrackets: true,

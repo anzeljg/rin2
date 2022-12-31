@@ -28,11 +28,11 @@ def casovni_rokovalnik():
   else:
     cas10 = cas10 + 1
   if stevec:
-    izpis()
+    narisi()
     okvir.after(100, casovni_rokovalnik)
 
-# Določi rokovalnik izpisovanja na platno
-def izpis():
+# Določi rokovalnik za risanje na platno
+def narisi():
   # Izbriši vsebino platna
   platno.delete("all")
   # Na novo napiši besedilo
@@ -59,7 +59,7 @@ def ustavi():
     # Posodobi števec celih poizkusov
     if (cas10 % 10 == 0):
       celih = celih + 1
-    izpis()
+    narisi()
 
 # Določi rokovalnik gumba 'Nastavi'
 def nastavi():
@@ -68,7 +68,7 @@ def nastavi():
   celih  = 0
   skupaj = 0
   stevec = 0
-  izpis()
+  narisi()
 
 # Ustvari okno, okvir in platno
 okno = tk.Tk()

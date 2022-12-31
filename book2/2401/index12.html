@@ -10,13 +10,14 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="../favicon.ico" />
 
-	<title>Povzetek</title>
+	<title>Objekti kot vrnjene vrednosti</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/bootstrap-toggle.min.css" rel="stylesheet">
 
-	<!-- jQuery QuickFlip -->
-	<link href="../css/jquery.quickflip.min.css" rel="stylesheet">
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -149,94 +150,113 @@
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-12">
-<!-- Summary start -->
-<h1>Povzetek</h1>
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Objekti kot vrnjene vrednosti</h1>
 
-<p align="justify">Za ponovitev učne snovi najprej navedi definicijo pojma, nato s klikom pojma preveri svoj odgovor.</p>
+<p align="justify">Funkcije in metode lahko vračajo objekte. Na primer, če imamo dva objekta <code>Tocka</code>, lahko izračunamo njuno sredino oziroma središčno točko. Najprej napišimo kodo kot običajno funkcijo:
+<pre>
+def sredina(p1, p2):
+  mx = (p1.x + p2.x) / 2
+  my = (p1.y + p2.y) / 2
+  return Tocka(mx, my)
+</pre>
+</p>
 
-<div class="card1">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
-    <p>Posebna metoda (imenovana <code>__init__</code>), ki se izvede samodejno, ko se ustvari nov objekt in nastavi lastnosti objekta na začetno ("tovarniško") vrednost.</p>
-  </div>
+<p align="justify">Ta funkcija ustvari in vrne nov objekt <code>Tocka</code>:
+<pre>
+&gt;&gt;&gt; p = Tocka(4, 3)
+&gt;&gt;&gt; q = Tocka(12, 6)
+&gt;&gt;&gt; r = sredina(p, q)
+&gt;&gt;&gt; r
+(8.0, 4.5)
+</pre>
+</p>
+
+<p align="justify">Sedaj pa namesto funkcije kodo raje zapišimo v obliki metode. Recimo, da imamo objekt <code>Tocka</code> in želimo najti središčno točko na pol poti do drugega ciljnega objekta <code>Tocka</code>:
+<pre>
+class Tocka:
+  # ...
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
+    return Tocka(mx, my)
+</pre>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
+    return Tocka(mx, my)
+
+
+p = Tocka(4, 3)
+q = Tocka(12, 6)
+r = p.sredina(q)
+print(r)
+# Alternativni zapis brez uporabe spremenljivk
+print(Tocka(4, 3).sredina(Tocka(12, 6)))
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
 </div>
-<div class="card2">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
-    <p>Vsak razred ima "tovarno", ki ima isto ime kot razred, za izdelavo novih primerkov razreda oz. objektov.</p>
-  </div>
-</div>
-<div class="card3">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
-    <p>Eden izmed poimenovanih podatkovnih elementov, ki sestavljajo objekt oz. primerek razreda.</p>
-  </div>
-</div>
-<div class="card4">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
-    <p>Funkcija, ki je definira znotraj definicije razreda in je uporabljena nad primerki tega razreda.</p>
-  </div>
-</div>
-<div class="card5">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
-    <p>Sestavljen podatkovni tip, ki ga uporabimo, da modeliramo stvari ali koncepte iz resničnega sveta. Skupaj združuje podatke in operacije, ki so smiselne nad temi podatki.</p>
-  </div>
-</div>
-<div class="card6">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
-    <p>Programski jezik, ki podpira uporabniško definirane razrede in dedovanje, kar omogoča uporabo objektno usmerjenega sloga programiranja.</p>
-  </div>
-</div>
-<div class="card7">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
-    <p>Slog programinranje, pri katerem so podatki in operacije, ki spreminjajo te podatke, organizirani v objekte.</p>
-  </div>
-</div>
-<div class="card8">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
-    <p>Objekt, katerega tip je nek razred. Pojma primerek razreda in objekt pomenita isto oziroma ju lahko uporabljamo izmenično.</p>
-  </div>
-</div>
-<div class="card9">
-  <div class="front">
-    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
-  </div>
-  <div class="back">
-    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
-    <p>Uporabniško definiran sestavljeni tip. Razred lahko vidimo tudi kot predlogo, s katero zgradimo posamezne objekte.</p>
-  </div>
-</div>
-<!-- Summary end -->
+<pre id="output"></pre>
+<!-- Right column end -->
 					</div>
 				</div>
 			</div>
@@ -263,6 +283,8 @@
 					<li><a href="../2401/index13.html">264</a></li>
 					<li><a href="../2401/index14.html">265</a></li>
 					<li><a href="../2401/index15.html">266</a></li>
+					<li><a href="../2401/index16.html">267</a></li>
+					<li><a href="../2401/index17.html">268</a></li>
 					<li><a href="../2401/index13.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
 					<li><a href="../2402/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
 				</ul>
@@ -278,11 +300,9 @@
 	<!-- jQuery -->
 	<script src="../js/jquery.js"></script>
 
-	<!-- jQuery QuickFlip -->
-	<script src="../js/jquery.quickflip.min.js"></script>
-
 	<!-- Bootstrap Core JavaScript -->
 	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toggle.min.js"></script>
 
 	<!-- rPage: Highly responsive pagination for Bootstrap -->
 	<script src="../js/responsive-paginate.js"></script>
@@ -303,6 +323,66 @@
 	<!-- eXe Project -->
 	<script src="../js/exe/common.js"></script>
 
+	<!-- Skulpt and CodeMirror -->
+	<script src="../js/skulpt/codemirrorepl.js"></script>
+	<script src="../js/skulpt/skulpt.min.js"></script>
+	<script src="../js/skulpt/skulpt-stdlib.js"></script>
+	<script src="../js/skulpt/python.js"></script>
+	<!-- CodeMirror Fold addon -->
+	<script src="../js/skulpt/fold/foldcode.js"></script>
+	<script src="../js/skulpt/fold/foldgutter.js"></script>
+	<script src="../js/skulpt/fold/indent-fold.js"></script>
+
+<script type="text/javascript">
+var output = $('#output');
+var outf = function (text) {
+	output.text(output.text() + text);
+};
+
+function builtinRead(x) {
+	if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+		throw "File not found: '" + x + "'";
+	return Sk.builtinFiles["files"][x];
+}
+
+function runit() {
+	Sk.configure({output: outf, read: builtinRead, __future__: Sk.python3});
+	try {
+		Sk.misceval.asyncToPromise(function() {
+			return Sk.importMainWithBody("<stdin>", false, editor.getValue(), true);
+		});
+	} catch(e) {
+		outf(e.toString() + "\n")
+	}
+}
+
+function clearit() {
+	$('#output').text('');
+}
+
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  matchBrackets: true,
+  mode: "python",
+  theme: "rin-light",
+  lineWrapping: true,
+  foldGutter: true,
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }}
+});
+editor.setSize('100%', 500);
+editor.foldCode(CodeMirror.Pos(2, 0));
+editor.foldCode(CodeMirror.Pos(7, 0));
+editor.foldCode(CodeMirror.Pos(11, 0));
+editor.foldCode(CodeMirror.Pos(15, 0));
+editor.foldCode(CodeMirror.Pos(19, 0));
+editor.foldCode(CodeMirror.Pos(23, 0));
+editor.foldCode(CodeMirror.Pos(28, 0));
+editor.foldCode(CodeMirror.Pos(33, 0));
+editor.foldCode(CodeMirror.Pos(37, 0));
+</script>
+<script src="../js/skulpt/theme.js"></script>
+
 
 <!-- CookieCuttr -->
 <script type="text/javascript" src="../cc/jquery.cookie.js"></script>
@@ -317,10 +397,10 @@ document.body.addEventListener("keydown", function (event) {
     var code = event.keyCode || event.which;
     var alt  = event.altKey;
     if (alt && code === 33 /* Alt+PgUp */) {
-        window.location.replace("../2401/index11.html");
+        window.location.replace("../2401/index9.html");
     }
     if (alt && code === 34 /* Alt+PgDn */) {
-        window.location.replace("../2401/index13.html");
+        window.location.replace("../2401/index11.html");
     }
 });
 </script>

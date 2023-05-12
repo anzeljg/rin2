@@ -16,15 +16,24 @@
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- MathJax - Beautiful math in all browsers -->
-    <script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
-        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
-        config:["TeX-AMS_HTML.js"],
-		imageFont: null
-	  });
-    </script>
- 	<script src="../js/mathjax/MathJax.js"></script>
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -274,7 +283,7 @@
   </div>
 </div>
 
-<p align="justify">Slika, predstavljena s 24-bitnimi barvami, bi vsebovala 24 bitov na piksel. Sliki, velika 600 × 800 pikslov, bi torej vsebovala $600 \times 800 = 480.000$  pikslov in bi uporabila $480.000 \times 24 = 11.520.000$ bitov. To je približno $1,44$ megabajta. Če bi namesto 24-bitnih uporabili 8-bitne barve, bi uporabili samo tretjino pomnilnika ter tako prihranili skoraj megabajt pomnilnika. Pri prenosu slike pa bi prihranili megabajt pasovne širine.</p>
+<p align="justify">Slika, predstavljena s 24-bitnimi barvami, bi vsebovala 24 bitov na piksel. Slika, velika $600 \times 800$ pikslov, bi torej vsebovala $600 \times 800 = 480.000$  pikslov in bi porabila $480.000 \times 24 = 11.520.000$ bitov. To je približno $1,44$ megabajta. Če bi namesto 24-bitnih uporabili 8-bitne barve, bi uporabili samo tretjino pomnilnika ter tako prihranili skoraj megabajt pomnilnika. Pri prenosu slike pa bi prihranili megabajt pasovne širine.</p>
 
 <p align="justify">Predstavitev z 8-bitnimi barvami ne uporabljamo več, čeprav je lahko še vedno v pomoč pri situacijah, kot je dostop do računalnika preko počasne internetne povezave, saj lahko sliko namizja, namesto s 24-bitnimi barvami, pošiljamo z 8-bitnimi barvami. Čeprav to lahko povzroči, da se nam namizje zdi malo čudno, lahko še vedno opravimo, kar smo želeli. Če si sliko namizja ogledujemo v 24-bitnih barvah, nam to ni v veliko pomoč, če ne moremo opraviti svojega dela!</p>
 

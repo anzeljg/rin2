@@ -16,15 +16,24 @@
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- MathJax - Beautiful math in all browsers -->
-    <script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
-        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
-        config:["TeX-AMS_HTML.js"],
-		imageFont: null
-	  });
-    </script>
- 	<script src="../js/mathjax/MathJax.js"></script>
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">

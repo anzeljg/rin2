@@ -47816,7 +47816,8 @@ function get_euclidean_distance_for_error(error, num_dimensions) {
 }
 
 function update_mathjax($container) {
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, $container[0]]);
+    //MathJax.Hub.Queue(["Typeset", MathJax.Hub, $container[0]]);
+	MathJax.typesetPromise([$container[0]]); // MathJax v2 to v3 syntax
 }
 
 /**

@@ -16,15 +16,24 @@
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- MathJax - Beautiful math in all browsers -->
-    <script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-        "HTML-CSS": {availableFonts: ["TeX"], scale: 90},
-        tex2jax: {inlineMath: [["$","$"]],  displayMath: [["$$","$$"]],  processEscapes: true},
-        config:["TeX-AMS_HTML.js"],
-		imageFont: null
-	  });
-    </script>
- 	<script src="../js/mathjax/MathJax.js"></script>
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
 
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
@@ -168,7 +177,7 @@
 
 <p align="justify">Ljudje običajno uporabljamo desetiški številski sistem. Na hitro ponovimo njegove lastnosti, saj dvojiški številski sistem uporablja iste zamisli kot desetiški, samo z manj števkami.</p>
 
-<p align="justify">V desetiškem številskem sistemu je vrednost vsake števke v številu odvisna od mesta te števke v številu. Na primer, v $123\,€$ števka $3$ predstavlja $3\,€$, medtem ko števka $1$ predstavlja $100\,€$. Vrednost vsakega naslednjega mesta v številki je 10-krat večja, kot vrednost mesta na desni. To pomeni, da od desne proti levi obstajajo »enice«, »desetice«, »stotice«, »tisočice«, »desettisočice«, »stotisočice«, »milijonice« in tako naprej. Obstaja pa tudi deset števk (0, 1, 2, 3, 4, 5, 6, 7, 8 in 9), ki so lahko na vsakem od teh mest.</p>
+<p align="justify">V desetiškem številskem sistemu je vrednost vsake števke v številu odvisna od mesta te števke v številu. Na primer, v $123\,\unicode{0x20AC}$ števka $3$ predstavlja $3\,\unicode{0x20AC}$, medtem ko števka $1$ predstavlja $100\,\unicode{0x20AC}$. Vrednost vsakega naslednjega mesta v številki je 10-krat večja, kot vrednost mesta na desni. To pomeni, da od desne proti levi obstajajo »enice«, »desetice«, »stotice«, »tisočice«, »desettisočice«, »stotisočice«, »milijonice« in tako naprej. Obstaja pa tudi deset števk (0, 1, 2, 3, 4, 5, 6, 7, 8 in 9), ki so lahko na vsakem od teh mest.</p>
 
 <h4>Vaja: kalkulator z osnovo <span id="base-value"></span></h4>
 

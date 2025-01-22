@@ -1,0 +1,511 @@
+WEBVTT
+
+00:00.120 --> 00:05.020
+Evalvacija (vrednotenje, ocenjevanje) je pomemben element
+
+00:05.040 --> 00:06.820
+na vseh področjih znanosti in razvoja tehnologij.
+
+00:06.840 --> 00:10.580
+Enako velja za
+
+00:10.600 --> 00:12.940
+strojno učenje in umetno inteligenco.
+
+00:12.960 --> 00:16.420
+Evalvacija je bistvenega pomena, ko govorimo o programski opremi (softver).
+
+00:16.440 --> 00:21.900
+Programsko opremo naj bi uporabljali na varen način.
+
+00:21.920 --> 00:25.300
+Evalviramo (ovrednotimo, ocenimo) jo lahko
+na dva tipična načina.
+
+00:25.320 --> 00:27.700
+Prvi je s pomočjo matematike,
+
+00:27.720 --> 00:30.100
+kjer gre za "dokazovanje".
+
+00:30.120 --> 00:32.620
+Drugi način je testiranje.
+
+00:32.640 --> 00:38.580
+Inženirji programske opreme porabijo
+veliko časa za testiranje svojih izdelkov.
+
+00:38.600 --> 00:42.580
+Tudi v primeru umetne inteligence
+in strojnega učenja
+
+00:42.600 --> 00:45.700
+je to izredno pomembno.
+
+00:45.720 --> 00:47.140
+Toda pristop je pri vsakem drugačen.
+
+00:47.160 --> 00:52.260
+Medtem ko pri programski opremi ves
+čas pričakujemo pravilen odgovor,
+
+00:52.280 --> 00:54.020
+v primeru strojnega učenja
+
+00:54.040 --> 00:57.260
+ne pričakujemo vedno pravilnega odgovora.
+
+00:57.280 --> 01:03.140
+Pričakujemo le, da bo sistem naredil
+določeno število napak, kar je sprejemljivo.
+
+01:03.160 --> 01:05.960
+Pri strojnem učenju si torej v resnici prizadevamo
+
+01:05.960 --> 01:09.700
+zanesljivo izvedeti,
+
+01:09.720 --> 01:13.700
+koliko napak bo naredil sistem.
+
+01:13.720 --> 01:15.570
+Poglejmo primer.
+
+01:15.600 --> 01:19.360
+Recimo, da imamo
+
+01:19.360 --> 01:22.850
+programsko opremo, ki
+temelji na strojnem učenju
+
+01:22.880 --> 01:26.700
+in ki naj bi nam pomagala pri ocenjevanju
+
+01:26.720 --> 01:30.020
+testov, ki so
+jih pisali učenci.
+
+01:30.040 --> 01:34.660
+In zakaj bi takšna programska
+oprema delala napake?
+
+01:34.680 --> 01:36.570
+Razlogov je več.
+
+01:36.600 --> 01:40.420
+Prvi je, da sistem morda ni bil
+ustrezno naučen.
+
+01:40.440 --> 01:44.060
+Vemo, da strojno učenje
+temelji na primerih.
+
+01:44.080 --> 01:47.820
+In seveda, če se je sistem
+učil na premalem številu primerov,
+
+01:47.840 --> 01:49.850
+število napak, ki jih bo naredil,
+
+01:49.880 --> 01:55.490
+ne bo tako veliko kot če bi se
+učil na veliko več primerih.
+
+01:55.520 --> 01:56.800
+Drugi razlog je, da morda primeri,
+
+01:56.800 --> 02:00.420
+na katerih se je stroj učil,
+
+02:00.440 --> 02:05.460
+niso podobni našim učencem.
+
+02:05.480 --> 02:10.700
+Lahko da je tako, ker učenci prihajajo
+iz dveh različnih držav.
+
+02:10.720 --> 02:12.560
+Zato vedno ne moremo uporabljati
+
+02:12.560 --> 02:16.170
+programske opreme, ki "se je
+učila" nekje drugje.
+
+02:16.200 --> 02:17.280
+Tretji razlog je lahko,
+
+02:17.280 --> 02:19.560
+da uporabljamo programsko opremo,
+
+02:19.560 --> 02:22.450
+ki sicer ponuja določena zagotovila,
+
+02:22.480 --> 02:25.040
+hkrati pa ne ustreza
+
+02:25.040 --> 02:29.020
+načinu uporabe v učilnici, ki ga želimo.
+
+02:29.040 --> 02:31.780
+Tudi o tem velja razmisliti.
+
+02:31.800 --> 02:33.860
+Ko govorimo o napakah, vidimo,
+
+02:33.880 --> 02:39.020
+da so pogosto prikazane kot
+"magične" številke: 3 %, 2 %, 5 %.
+
+02:39.040 --> 02:41.660
+Nas pa zanima pomen teh številk.
+
+02:41.680 --> 02:43.420
+Kaj torej pomenijo?
+
+02:43.440 --> 02:48.660
+Na primer, napaka 3 % v določenem
+klasifikacijskem sistemu
+
+02:48.680 --> 02:54.420
+pomeni, da bodo v 100
+primerih trije napačni.
+
+02:54.440 --> 02:56.640
+Morda bo nek učenec namesto pozitivne ocene dobil negativno,
+
+02:56.640 --> 03:00.100
+ali obratno.
+
+03:00.120 --> 03:03.940
+V sistemih, ki
+pomagajo pri ocenjevanju,
+
+03:03.960 --> 03:06.100
+lahko napaka pri merjenju pomeni,
+
+03:06.120 --> 03:10.900
+da je sistem napovedal drugačno oceno
+
+03:10.920 --> 03:14.640
+od tiste, ki bi jo učencu dal učitelj.
+
+03:15.000 --> 03:17.700
+Zato moramo poskrbeti, da te sisteme, ki zagotovo delajo napake,
+
+03:17.720 --> 03:20.540
+pravilno interpretiramo.
+
+03:20.560 --> 03:22.640
+Poglejmo še en skrajni primer:
+
+03:22.640 --> 03:27.940
+recimo, da želimo napovedati, ali
+bo otrok postal zdravnik ali ne.
+
+03:27.960 --> 03:30.860
+Sistem, ki bo vedno napovedal negativen rezultat,
+
+03:30.880 --> 03:37.340
+bo pravzaprav zelo
+zanesljiv z vidika "magičnih številk",
+
+03:37.360 --> 03:42.380
+saj naj bi bilo v zahodnem
+svetu v populaciji
+
+03:42.400 --> 03:47.820
+v povprečju 1,5 zdravnika
+na 1000 prebivalcev;
+
+03:47.840 --> 03:52.180
+kar dejansko pomeni, da je napaka sistema
+manjša, veliko manjša od 1 %
+
+03:52.200 --> 03:56.500
+vsakič, ko napove, da nihče
+nikoli ne bo postal zdravnik.
+
+03:56.520 --> 04:01.610
+S tem se seveda ukvarjajo strokovnjaki na podorčju strojnega učenja,
+
+04:01.640 --> 04:04.820
+toda to vprašanje je zelo zapleteno.
+
+04:04.840 --> 04:07.820
+Na kakšen način torej želimo oceniti stopnjo napake?
+
+04:07.840 --> 04:11.580
+V starih časih so se zanašali na princip,
+"počakajamo-in-bomo-videli".
+
+04:11.600 --> 04:14.580
+Zavedati se moramo, da je
+napovedovanje vedno obstajalo.
+
+04:14.600 --> 04:16.260
+V srednjem veku so tistim,
+
+04:16.280 --> 04:18.880
+ki so napovedovali prihodnost,
+
+04:18.880 --> 04:22.060
+rekli čarovnice in
+jih sežigali na grmadah.
+
+04:22.080 --> 04:24.940
+Tega si seveda danes ne želimo.
+
+04:24.960 --> 04:26.740
+Zato tega ne počnemo na ta način.
+
+04:26.760 --> 04:29.980
+Ljudje želijo zagotovilo,
+še preden se kaj zgodi.
+
+04:30.000 --> 04:33.180
+Zato moramo
+eksperimentirati
+
+04:33.200 --> 04:37.660
+kar nam omogoča ne le napovedovanje rezultatov,
+
+04:37.680 --> 04:41.740
+temveč tudi napovedovanje števila napak
+v prihodnosti,
+
+04:41.760 --> 04:45.060
+ko bomo določen sistem uporabljali.
+
+04:45.080 --> 04:48.100
+Obstajajo številni teoretični
+
+04:48.120 --> 04:52.420
+in praktični protokoli, ki
+jih uporabljajo znanstveniki
+
+04:52.440 --> 04:55.220
+na področju umetne inteligence.
+
+04:55.240 --> 05:00.940
+Nekateri so zelo podobni
+tistim, ki jih uporabljajo zdravniki,
+
+05:00.960 --> 05:04.220
+ko uvajajo nova zdravila.
+
+05:04.240 --> 05:06.540
+Na primer, v dveh skupinah
+
+05:06.560 --> 05:10.600
+ena uporablja
+staro zdravilo, druga pa
+
+05:10.600 --> 05:13.460
+novo zdravilo.
+
+05:13.480 --> 05:16.180
+Nihče ne ve, katero zdravilo uporablja.
+
+05:16.200 --> 05:21.500
+Uspeh se nato izmeri
+po nekaj mesecih zdravljenja.
+
+05:21.520 --> 05:25.740
+Podobno počnemo na podorčju UI, kar imenujemo A/B testiranje.
+
+05:25.760 --> 05:29.820
+Toda ves čas se moramo
+zavedati, da s testiranjem
+
+05:29.840 --> 05:32.740
+dobimo le oceno napake.
+
+05:32.760 --> 05:36.820
+Nobene gotovosti ni
+o tem, kaj se bo v resnici zgodilo,
+
+05:36.840 --> 05:41.940
+saj se populacije
+sčasoma spreminjajo.
+
+05:41.960 --> 05:47.820
+To seveda velja predvsem za izobraževanje.
+
+05:47.840 --> 05:53.460
+Pomembno vprašanje pri testiranju
+je vprašanje pristranskosti.
+
+05:53.480 --> 05:55.380
+Kaj je pristranskost?
+
+05:55.400 --> 06:01.660
+Izraz pristranskost se v tem kontekstu
+uporablja, kadar govorimo o modelu,
+
+06:01.680 --> 06:04.500
+katerega rezultat bo
+
+06:04.520 --> 06:09.340
+pozitivna ali
+negativna tendenca
+
+06:09.360 --> 06:13.700
+v odnosu do posameznika ali
+do skupine posameznikov.
+
+06:13.720 --> 06:17.620
+To doživljamo kot nepošteno.
+
+06:17.640 --> 06:22.380
+Skupini, na katero se takšna tendenca nanaša,
+
+06:22.400 --> 06:26.940
+se to najbrž ne bo zdelo nepošteno,
+toda zdelo se bo nepošteno drugim.
+
+06:26.960 --> 06:29.860
+Pristranskost in predsodki se lahko
+pojavijo na več načinov.
+
+06:29.880 --> 06:32.860
+Za to je lahko kriv
+proces zbiranja podatkov.
+
+06:32.880 --> 06:35.340
+Ko smo zbirali podatke,
+
+06:35.360 --> 06:40.620
+smo jih zbirali samo za
+neko določeno podskupino.
+
+06:40.640 --> 06:43.220
+Predsodki in pristranskost pa so prisotni tudi v družbi nasploh,
+
+06:43.240 --> 06:45.700
+zato bodo podatki, ki jih zbiramo,
+
+06:45.720 --> 06:47.140
+četudi to počnemo na pošten način,
+
+06:47.160 --> 06:50.420
+odražali pristranskost družbe.
+
+06:50.440 --> 06:54.060
+Kaj pa se zgodi z učnimi algoritmi?
+
+06:54.080 --> 06:57.060
+Učni algoritem poskuša doseči uspeh.
+
+06:57.080 --> 06:59.980
+Njegov cilj je poskušati doseči rezultate,
+
+07:00.000 --> 07:02.860
+ki so boljši od rezultatov
+človeškega strokovnjaka
+
+07:02.880 --> 07:05.300
+in včasih je najboljša pot do uspeha
+
+07:05.320 --> 07:10.220
+žal ta, da smo pristranski.
+
+07:10.240 --> 07:16.080
+Zato moramo to pristranskost preveriti
+in preizkusiti na različne načine.
+
+07:16.360 --> 07:20.640
+V zadnjih nekaj letih je bilo
+opravljenega veliko dela
+
+07:20.640 --> 07:24.020
+na področju pristranskosti v umetni inteligenci.
+
+07:24.040 --> 07:28.420
+Naj omenimo na tem mestu le eno raziskavo,
+
+07:28.440 --> 07:33.940
+v kateri je UNESCO raziskoval
+različne oblike predsodkov in pristranskosti,
+
+07:33.960 --> 07:37.460
+večinoma v povezavi s spolom,
+toda ne izključno.
+
+07:37.480 --> 07:42.620
+Raziskava je bila objavljena leta 2019 in
+
+07:42.640 --> 07:46.300
+omogoča razumevanje tega, kako se pristranskost,
+
+07:46.320 --> 07:51.020
+če je prisotna v podatkih, odraža tudi v programski opremi.
+
+07:51.040 --> 07:54.700
+Statistični podatki nam
+povedo le del zgodbe.
+
+07:54.720 --> 08:00.300
+Ob zadnjem diapozitivu želimo
+poudariti,
+
+08:00.320 --> 08:06.780
+da kadar kot učitelji oz. vzgojitelji
+uporabljamo te sisteme -
+
+08:06.800 --> 08:08.820
+ki so lahko sicer odlični sistemi -
+
+08:08.840 --> 08:12.540
+ne smemo dovoliti, da nas ti odstotki zaslepijo.
+
+08:12.560 --> 08:17.460
+Te številke nam v resnici povedo le, da
+so bili temeljito preizkušeni.
+
+08:17.480 --> 08:22.580
+Toda naš cilj ni nujno, da se odločimo za sistem, ki deluje s 5 % stopnjo napake,
+
+08:22.600 --> 08:25.620
+ker morda to ni tisti sistem, ki bi najbolje ustrezal
+
+08:25.640 --> 08:30.460
+izobraževalnemu namenu, ki ga
+pravzaprav želimo doseči.
+
+08:30.480 --> 08:32.580
+To je prvi poudarek.
+
+08:32.600 --> 08:35.020
+Druga zadeva, ki jo želim izpostaviti je,
+
+08:35.040 --> 08:39.140
+da je napovedovanje prihodnosti
+vedno povezano s tveganjem,
+
+08:39.160 --> 08:41.460
+da želite v skladu z določeno napovedjo
+
+08:41.480 --> 08:45.500
+sami zagotoviti, da se
+bo ta napoved uresničila.
+
+08:45.520 --> 08:48.540
+Na primer, ko nam nek sistem
+
+08:48.560 --> 08:51.580
+napoveduje, kakšne ocene
+bodo naši učenci
+
+08:51.600 --> 08:55.020
+dosegli čez šest mesecev,
+
+08:55.040 --> 08:58.920
+moramo biti previdni, da se kot vzgojitelji
+
+08:58.920 --> 09:04.900
+ne počutimo "dolžni", da
+izpolnimo to napoved,
+
+09:04.920 --> 09:11.000
+torej da bi učence ocenili tako,
+kot nam predlaga sistem.

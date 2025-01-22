@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Pomnilni modul</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="css/truth_table.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					<li><a href="../2307/index.html">Umetna inteligenca</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu5" role="button" aria-expanded="false">Digitalna vezja*</a>
+				  <div id="menu5" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2501/index.html">Logična vrata*</a></li>
+					<li><a href="../2502/index.html">Logični izrazi in vezja*</a></li>
+					<li><a href="../2503/index.html">Minimizacija logičnih vezij*</a></li>
+					<li class="active"><a href="../2504/index.html">Osnove digitalnega računalništva*</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+<!-- Content column start -->
+<h1>Pomnilni modul</h1>
+
+<p align="justify">Spodnja interaktivnost prikazuje 4-bitni naslovni vhod &ndash; dva bita za dekodirnik stolpca in dva bita za dekodirnik vrstice. To pomeni, da lahko dekodirnik stolpca in dekodirnik vrstice nadzorujeta po štiri izhode. Skupaj je to 4 × 4 = 16 pomnilnih celic. Vhod <i>WE</i> omogoča oziroma onemogoča zapisovanje vrednosti, vrednost je zapisana v vhodu <i>D</i>, z vhodom <i>Clk</i> pa sprožimo (sinhronizirano) pomnjenje. Zaradi enostavnosti interaktivnost omogoča oziroma prikazuje le zapisovanje, ne pa tudi branja iz pomnilnih celic.</p>
+
+<p style="width:100%; height:650px; background:white url('img/bg-pomnilni-modul.svg') 0% 50% no-repeat;">
+  <logic-editor mode="tryout">
+    <script type="application/json">
+	{ // JSON5
+	  v: 6,
+	  opts: {wireStyle: 'straight', zoom: 90},
+	  components: {
+		ff0: {type: 'ff-d', pos: [470, 155], in: '20-23', out: [24, 25]},
+		ff1: {type: 'ff-d', pos: [470, 270], in: '26-29', out: [30, 31]},
+		ff2: {type: 'ff-d', pos: [470, 385], in: '32-35', out: [36, 37]},
+		ff3: {type: 'ff-d', pos: [470, 500], in: '38-41', out: [42, 43]},
+		demux0: {type: 'demux', pos: [190, 345], in: '54-56', out: '57-60', from: 1, to: 4},
+		demux1: {type: 'demux', pos: [770, 650], orient: 'n', in: '68-70', out: '71-74', from: 1, to: 4},
+		ff4: {type: 'ff-d', pos: [720, 155], in: '87-90', out: [91, 92]},
+		ff5: {type: 'ff-d', pos: [720, 270], in: '93-96', out: [97, 98]},
+		ff6: {type: 'ff-d', pos: [720, 385], in: '99-102', out: [103, 104]},
+		ff7: {type: 'ff-d', pos: [720, 500], in: '105-108', out: [109, 110]},
+		ff8: {type: 'ff-d', pos: [970, 155], in: '123-126', out: [127, 128]},
+		ff9: {type: 'ff-d', pos: [970, 270], in: '129-132', out: [133, 134]},
+		ff10: {type: 'ff-d', pos: [970, 385], in: '135-138', out: [139, 140]},
+		ff11: {type: 'ff-d', pos: [970, 500], in: '141-144', out: [145, 146]},
+		ff12: {type: 'ff-d', pos: [1220, 155], in: '159-162', out: [163, 164]},
+		ff13: {type: 'ff-d', pos: [1220, 270], in: '165-168', out: [169, 170]},
+		ff14: {type: 'ff-d', pos: [1220, 385], in: '171-174', out: [175, 176]},
+		ff15: {type: 'ff-d', pos: [1220, 500], in: '177-180', out: [181, 182]},
+		in0: {type: 'in', pos: [155, 165], orient: 's', id: '9-12', name: 'Addr',  bits: 4, val: '0000'},
+		/*in1: {type: 'in', pos: [65, 345], id: 13, val: 1, isConstant: true},*/
+		in1: {type: 'in', pos: [65, 345], id: 13, name: 'WE', val: 1},
+		in2: {type: 'in', pos: [65, 100], id: 15, name: 'Clk', isPushButton: true},
+		and2: {type: 'and', pos: [370, 290], in: [14, 16, 17], out: 18, bits: 3},
+		and0: {type: 'and', pos: [370, 175], in: [19, 47, 48], out: 49, bits: 3},
+		and1: {type: 'and', pos: [370, 405], in: '50-52', out: 53, bits: 3},
+		and3: {type: 'and', pos: [370, 520], in: '61-63', out: 64, bits: 3},
+		and4: {type: 'and', pos: [620, 175], in: '65-67', out: 183, bits: 3},
+		and5: {type: 'and', pos: [620, 290], in: '184-186', out: 187, bits: 3},
+		and6: {type: 'and', pos: [620, 405], in: '188-190', out: 191, bits: 3},
+		and7: {type: 'and', pos: [620, 520], in: '192-194', out: 195, bits: 3},
+		and8: {type: 'and', pos: [870, 175], in: '196-198', out: 199, bits: 3},
+		and9: {type: 'and', pos: [870, 290], in: '200-202', out: 203, bits: 3},
+		and10: {type: 'and', pos: [870, 405], in: '204-206', out: 207, bits: 3},
+		and11: {type: 'and', pos: [870, 520], in: '208-210', out: 211, bits: 3},
+		and15: {type: 'and', pos: [1120, 520], in: '212-214', out: 215, bits: 3},
+		and14: {type: 'and', pos: [1120, 405], in: '216-218', out: 219, bits: 3},
+		and13: {type: 'and', pos: [1120, 290], in: '220-222', out: 223, bits: 3},
+		and12: {type: 'and', pos: [1120, 175], in: '224-226', out: 227, bits: 3},
+		in3: {type: 'in', pos: [65, 65], id: 0, val: 1, name: 'D'},
+	  },
+	  wires: [[11, 69, {via: [[145, 640, 'e', {anchor: 'in0'}]]}], [12, 70, {via: [[125, 660, 'e', {anchor: 'in0'}]]}], [9, 55, {via: [[185, 230, 's', {anchor: 'in0'}], [200, 230, 's', {anchor: 'in0'}]]}], [10, 56, {via: [[165, 250, 's', {anchor: 'in0'}], [180, 250, 's', {anchor: 'in0'}]]}], [13, 54], [13, 68, {via: [[95, 680, 'e', {anchor: 'in1'}]]}], [49, 20], [18, 26], [53, 32], [64, 38], [195, 105], [191, 99], [187, 93], [183, 87], [199, 123], [203, 129], [207, 135], [211, 141], [227, 159], [223, 165], [219, 171], [215, 177], [15, 19, {via: [[300, 100, 'e', {anchor: 'in2'}], [300, 155, 's', {anchor: 'in2'}]]}], [15, 65, {via: [[550, 100, 'e', {anchor: 'in2'}], [550, 155, 's', {anchor: 'in2'}]]}], [15, 196, {via: [[800, 100, 'e', {anchor: 'in2'}], [800, 155, 's', {anchor: 'in2'}]]}], [15, 224, {via: [[1050, 100, 'e', {anchor: 'in2'}], [1050, 155, 's', {anchor: 'in2'}]]}], [15, 14, {via: [[300, 100, 'e', {anchor: 'in2'}], [300, 270, 's', {anchor: 'in2'}]]}], [15, 184, {via: [[550, 100, 'e', {anchor: 'in2'}], [550, 270, 's', {anchor: 'in2'}]]}], [15, 200, {via: [[800, 100, 'e', {anchor: 'in2'}], [800, 270, 's', {anchor: 'in2'}]]}], [15, 220, {via: [[1050, 100, 'e', {anchor: 'in2'}], [1050, 270, 's', {anchor: 'in2'}]]}], [15, 50, {via: [[300, 100, 's', {anchor: 'in2'}], [300, 385, 's', {anchor: 'in2'}]]}], [15, 188, {via: [[550, 100, 'e', {anchor: 'in2'}], [550, 385, 'e', {anchor: 'in2'}]]}], [15, 204, {via: [[800, 100, 'e', {anchor: 'in2'}], [800, 385, 'e', {anchor: 'in2'}]]}], [15, 216, {via: [[1050, 100, 'e', {anchor: 'in2'}], [1050, 385, 'e', {anchor: 'in2'}]]}], [15, 61, {via: [[300, 100, 's', {anchor: 'in2'}], [300, 500, 's', {anchor: 'in2'}]]}], [15, 192, {via: [[550, 100, 'e', {anchor: 'in2'}], [550, 500, 'e', {anchor: 'in2'}]]}], [15, 208, {via: [[800, 100, 'e', {anchor: 'in2'}], [800, 500, 'e', {anchor: 'in2'}]]}], [15, 212, {via: [[1050, 100, 'e', {anchor: 'in2'}], [1050, 500, 'e', {anchor: 'in2'}]]}], [58, 17, {via: [[320, 335, 'e', {anchor: 'demux0'}]]}], [58, 186, {via: [[570, 335, 'e', {anchor: 'demux0'}]]}], [58, 202, {via: [[820, 335, 'e', {anchor: 'demux0'}]]}], [58, 222, {via: [[1070, 335, 'e', {anchor: 'demux0'}]]}], [73, 209, {via: [[780, 520, 'n', {anchor: 'demux1'}]]}], [73, 205, {via: [[780, 405, 'n', {anchor: 'demux1'}]]}], [73, 201, {via: [[780, 290, 'n', {anchor: 'demux1'}]]}], [73, 197, {via: [[780, 175, 'n', {anchor: 'demux1'}]]}], [74, 213, {via: [[1030, 620, 'e', {anchor: 'demux1'}], [1030, 520, 'e', {anchor: 'demux1'}]]}], [74, 217, {via: [[1030, 620, 'e', {anchor: 'demux1'}], [1030, 405, 'e', {anchor: 'demux1'}]]}], [74, 221, {via: [[1030, 620, 'n', {anchor: 'demux1'}], [1030, 290, 'n', {anchor: 'demux1'}]]}], [74, 225, {via: [[1030, 620, 'n', {anchor: 'demux1'}], [1030, 175, 'n', {anchor: 'demux1'}]]}], [72, 193, {via: [[760, 595, 'w', {anchor: 'demux1'}], [530, 595, 'w', {anchor: 'demux1'}], [530, 520, 'w', {anchor: 'demux1'}]]}], [72, 189, {via: [[760, 595, 'n', {anchor: 'demux1'}], [530, 595, 'n', {anchor: 'demux1'}], [530, 405, 'n', {anchor: 'demux1'}]]}], [72, 185, {via: [[760, 595, 'w', {anchor: 'demux1'}], [530, 595, 'n', {anchor: 'demux1'}], [530, 290, 'n', {anchor: 'demux1'}]]}], [72, 66, {via: [[760, 595, 'w', {anchor: 'demux1'}], [530, 595, 'n', {anchor: 'demux1'}], [530, 175, 'n', {anchor: 'demux1'}]]}], [71, 62, {via: [[280, 620, 'w', {anchor: 'demux1'}], [280, 520, 'w', {anchor: 'demux1'}]]}], [71, 51, {via: [[280, 620, 'w', {anchor: 'demux1'}], [280, 405, 'w', {anchor: 'demux1'}]]}], [71, 16, {via: [[280, 620, 'w', {anchor: 'demux1'}], [280, 290, 'w', {anchor: 'demux1'}]]}], [71, 47, {via: [[280, 620, 'n', {anchor: 'demux1'}], [280, 175, 'n', {anchor: 'demux1'}]]}], [57, 48, {via: [[220, 220, 'n', {anchor: 'demux0'}], [320, 220, 'n', {anchor: 'demux0'}]]}], [57, 67, {via: [[220, 220, 'e', {anchor: 'demux0'}], [570, 220, 'e', {anchor: 'demux0'}]]}], [57, 198, {via: [[220, 220, 'e', {anchor: 'demux0'}], [820, 220, 'e', {anchor: 'demux0'}]]}], [57, 226, {via: [[220, 220, 'e', {anchor: 'demux0'}], [1070, 220, 'e', {anchor: 'demux0'}]]}], [59, 52, {via: [[245, 355, 's', {anchor: 'demux0'}], [245, 450, 'e', {anchor: 'demux0'}], [320, 450, 'e', {anchor: 'demux0'}]]}], [59, 190, {via: [[245, 355, 's', {anchor: 'demux0'}], [245, 450, 'e', {anchor: 'demux0'}], [570, 450, 'e', {anchor: 'demux0'}]]}], [59, 206, {via: [[245, 355, 's', {anchor: 'demux0'}], [245, 450, 'e', {anchor: 'demux0'}], [820, 450, 'e', {anchor: 'demux0'}]]}], [59, 218, {via: [[245, 355, 's', {anchor: 'demux0'}], [245, 450, 'e', {anchor: 'demux0'}], [1070, 450, 'e', {anchor: 'demux0'}]]}], [60, 63, {via: [[220, 565, 's', {anchor: 'demux0'}], [320, 565, 's', {anchor: 'demux0'}]]}], [60, 194, {via: [[220, 565, 'e', {anchor: 'demux0'}], [550, 565, 'e', {anchor: 'demux0'}], [550, 540, 'e', {anchor: 'demux0'}]]}], [60, 210, {via: [[220, 565, 'e', {anchor: 'demux0'}], [800, 565, 'e', {anchor: 'demux0'}], [800, 540, 'e', {anchor: 'demux0'}]]}], [60, 214, {via: [[220, 565, 'e', {anchor: 'demux0'}], [1050, 565, 'e', {anchor: 'demux0'}], [1050, 540, 'e', {anchor: 'demux0'}]]}], [0, 23, {via: [[415, 65, 'e', {anchor: 'in3'}], [415, 135, 'e', {anchor: 'in3'}]]}], [0, 29, {via: [[415, 65, 'e', {anchor: 'in3'}], [415, 250, 'e', {anchor: 'in3'}]]}], [0, 35, {via: [[415, 65, 'e', {anchor: 'in3'}], [415, 365, 'e', {anchor: 'in3'}]]}], [0, 41, {via: [[415, 65, 's', {anchor: 'in3'}], [415, 480, 's', {anchor: 'in3'}]]}], [0, 90, {via: [[665, 65, 'e', {anchor: 'in3'}], [665, 135, 'e', {anchor: 'in3'}]]}], [0, 96, {via: [[665, 65, 'e', {anchor: 'in3'}], [665, 250, 'e', {anchor: 'in3'}]]}], [0, 102, {via: [[665, 65, 'e', {anchor: 'in3'}], [665, 365, 'e', {anchor: 'in3'}]]}], [0, 108, {via: [[665, 65, 'e', {anchor: 'in3'}], [665, 480, 'e', {anchor: 'in3'}]]}], [0, 126, {via: [[915, 65, 'e', {anchor: 'in3'}], [915, 135, 'e', {anchor: 'in3'}]]}], [0, 132, {via: [[915, 65, 'e', {anchor: 'in3'}], [915, 250, 'e', {anchor: 'in3'}]]}], [0, 138, {via: [[915, 65, 'e', {anchor: 'in3'}], [915, 365, 'e', {anchor: 'in3'}]]}], [0, 144, {via: [[915, 65, 'e', {anchor: 'in3'}], [915, 480, 'e', {anchor: 'in3'}]]}], [0, 162, {via: [[1165, 65, 'e', {anchor: 'in3'}], [1165, 135, 'e', {anchor: 'in3'}]]}], [0, 168, {via: [[1165, 65, 'e', {anchor: 'in3'}], [1165, 250, 'e', {anchor: 'in3'}]]}], [0, 174, {via: [[1165, 65, 'e', {anchor: 'in3'}], [1165, 365, 'e', {anchor: 'in3'}]]}], [0, 180, {via: [[1165, 65, 'e', {anchor: 'in3'}], [1165, 480, 'e', {anchor: 'in3'}]]}]]
+	}
+    </script>
+  </logic-editor>
+</p>
+<!-- Content column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2503/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2504/index9.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2504/index.html">408</a></li>
+					<li><a href="../2504/index1.html">409</a></li>
+					<li><a href="../2504/index2.html">410</a></li>
+					<li><a href="../2504/index3.html">411</a></li>
+					<li><a href="../2504/index4.html">412</a></li>
+					<li><a href="../2504/index5.html">413</a></li>
+					<li><a href="../2504/index6.html">414</a></li>
+					<li><a href="../2504/index7.html">415</a></li>
+					<li><a href="../2504/index8.html">416</a></li>
+					<li><a href="../2504/index9.html">417</a></li>
+					<li class="active"><a href="#">418</a></li>
+					<li><a href="../2504/index11.html">419</a></li>
+					<li><a href="../2504/index12.html">420</a></li>
+					<li><a href="../2504/index13.html">421</a></li>
+					<li><a href="../2504/index11.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2901/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+    <!-- Logic Circuit Simulator -->
+	<script src="https://anzeljg.github.io/rin2/book2/js/logiga/bundle.js" type="module"></script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2504/index9.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2504/index11.html");
+    }
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="162"
+   height="220.5"
+   viewBox="-0.5 -0.5 162 220.5"
+   id="svg94"
+   sodipodi:docname="tranzistor-interaktivno.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata98">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview96"
+     showgrid="false"
+     inkscape:zoom="3.2796268"
+     inkscape:cx="-73.894754"
+     inkscape:cy="113.02783"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="switch64-2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2" />
+  <script
+     id="script36">//<![CDATA[
+  function toggleSwitch1() {
+	switch1_bg = document.getElementById("switch1_bg");
+	switch1_btn = document.getElementById("switch1_btn");
+
+	g_pin1 = document.getElementById("g_pin1");
+	g_pin2 = document.getElementById("g_pin2");
+	g_wire = document.getElementById("g_wire");
+
+	d_pin1 = document.getElementById("d_pin1");
+	d_pin2 = document.getElementById("d_pin2");
+	d_wire = document.getElementById("d_wire");
+
+	conductive_layer = document.getElementById("conductive_layer");
+
+	if (switch1_bg.style.fill == "rgb(91, 192, 222)") {
+	  switch1_bg.style.fill = "#ffffff";
+	  switch1_btn.setAttribute("transform", "translate(-215.42055,-246.32855)");
+
+	  g_pin1.style.stroke = "#000000";
+	  g_pin2.style.stroke = "#000000";
+	  g_wire.style.fill = "#c0c0c0";
+
+	  d_pin1.style.stroke = "#000000";
+	  d_pin2.style.stroke = "#000000";
+	  d_wire.style.fill = "#c0c0c0";
+
+	  conductive_layer.style.fill = "#ffd700";
+	}
+	else {
+	  switch1_bg.style.fill = "#5bc0de";
+	  switch1_btn.setAttribute("transform", "translate(55.42055,-246.32855)");
+
+	  g_pin1.style.stroke = "#5bc0de";
+	  g_pin2.style.stroke = "#5bc0de";
+	  g_wire.style.fill = "#5bc0de";
+
+	  d_pin1.style.stroke = "#5bc0de";
+	  d_pin2.style.stroke = "#5bc0de";
+	  d_wire.style.fill = "#5bc0de";
+
+	  conductive_layer.style.fill = "#5bc0de";
+	}
+  }
+//]]></script>
+  <path
+     style="fill:#f5f5f5;stroke:#666666;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+     d="m 0.5,40.5 v 25 a 10,10 0 0 1 10,10 10,10 0 0 1 -10,10 v 25 h 160 v -25 a 10,10 0 0 1 -10,-10 10,10 0 0 1 10,-10 v -25 z"
+     id="rect4"
+     inkscape:connector-curvature="0" />
+  <rect
+     style="fill:#f5f5f5;stroke:#666666;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+     id="rect14"
+     pointer-events="none"
+     height="40"
+     width="160"
+     y="0.5"
+     x="0.5" />
+  <circle
+     style="fill:#ffffff;stroke:#666666;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+     r="10"
+     id="ellipse16"
+     pointer-events="none"
+     cy="20.5"
+     cx="80.5" />
+  <rect
+     style="fill:#ffd700;stroke:none;stroke-opacity:1"
+     id="rect18"
+     pointer-events="none"
+     height="40"
+     width="120"
+     y="50.5"
+     x="20.5" />
+  <g
+     id="g-label"
+     transform="translate(-11)"
+     style="fill:#000000;fill-opacity:1">
+    <switch
+       id="switch22"
+       style="fill:#000000;fill-opacity:1">
+      <foreignObject
+         style="overflow: visible; text-align: left;"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="100%"
+         width="100%"
+         pointer-events="none">
+        <xhtml:div
+           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: 68px; margin-left: 32px;">
+          <xhtml:div
+             style="box-sizing: border-box; font-size: 0px; text-align: center;"
+             data-drawio-colors="color: rgb(0, 0, 0); ">
+            <xhtml:div
+               style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+              <xhtml:font
+                 style="font-size: 14px;">n</xhtml:font>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:16px;font-family:Helvetica;text-anchor:middle;fill:#000000;fill-opacity:1"
+         id="text20"
+         font-size="16px"
+         y="72"
+         x="91">n</text>
+    </switch>
+  </g>
+  <rect
+     style="fill:#ffd700;stroke:none;fill-opacity:1"
+     id="conductive_layer"
+     pointer-events="none"
+     height="5"
+     width="40"
+     y="85.5"
+     x="60.5" />
+  <rect
+     style="fill:#c0c0c0;stroke:none"
+     id="d_wire"
+     pointer-events="none"
+     height="20"
+     width="30"
+     y="70.5"
+     x="97.5" />
+  <g
+     id="d-label"
+     transform="translate(-11,2)"
+     style="fill:#000000;fill-opacity:1">
+    <switch
+       id="switch32"
+       style="fill:#000000;fill-opacity:1">
+      <foreignObject
+         style="overflow: visible; text-align: left;"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="100%"
+         width="100%"
+         pointer-events="none">
+        <xhtml:div
+           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 28px; height: 1px; padding-top: 78px; margin-left: 109px;">
+          <xhtml:div
+             style="box-sizing: border-box; font-size: 0px; text-align: center;"
+             data-drawio-colors="color: #333333; ">
+            <xhtml:div
+               style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+              <xhtml:p
+                 style="line-height: 100%;">
+                <xhtml:font
+                   style="font-size: 14px;">p</xhtml:font>
+              </xhtml:p>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:16px;font-family:Helvetica;text-anchor:middle;fill:#000000;fill-opacity:1"
+         id="text30"
+         font-size="16px"
+         y="82"
+         x="123">p</text>
+    </switch>
+  </g>
+  <rect
+     style="fill:#5bc0de;stroke:none;fill-opacity:1"
+     id="s_wire"
+     pointer-events="none"
+     height="20"
+     width="30"
+     y="70.5"
+     x="33.5" />
+  <rect
+     style="fill:#c0c0c0;stroke:none"
+     id="g_wire"
+     pointer-events="none"
+     height="9"
+     width="40"
+     y="91.5"
+     x="60.5" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:2, 2;stroke-dashoffset:0"
+     inkscape:connector-curvature="0"
+     id="path46"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="M 61.198902,90.849451 H 101.1989" />
+  <g
+     id="g54"
+     transform="matrix(1.5,0,0,1.5,-34.475098,-77.352539)">
+    <switch
+       id="switch52">
+      <foreignObject
+         style="overflow: visible; text-align: left;"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="100%"
+         width="100%"
+         pointer-events="none">
+        <xhtml:div
+           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 155px; margin-left: 38px;">
+          <xhtml:div
+             style="box-sizing: border-box; font-size: 0px; text-align: center;"
+             data-drawio-colors="color: rgb(0, 0, 0); ">
+            <xhtml:div
+               style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+              <xhtml:font
+                 style="font-size: 16px;">S</xhtml:font>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text50"
+         font-size="12px"
+         y="159"
+         x="47">S</text>
+    </switch>
+  </g>
+  <g
+     id="g60"
+     transform="matrix(1.5,0,0,1.5,-50.473633,-77.352539)"
+     style="fill:#000000;fill-opacity:1">
+    <switch
+       id="switch58"
+       style="fill:#000000;fill-opacity:1">
+      <foreignObject
+         style="overflow: visible; text-align: left;"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="100%"
+         width="100%"
+         pointer-events="none">
+        <xhtml:div
+           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 155px; margin-left: 70px;">
+          <xhtml:div
+             style="box-sizing: border-box; font-size: 0px; text-align: center;"
+             data-drawio-colors="color: rgb(0, 0, 0); ">
+            <xhtml:div
+               style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+              <xhtml:font
+                 style="font-size: 16px;">G</xhtml:font>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000;fill-opacity:1"
+         id="text56"
+         font-size="12px"
+         y="159"
+         x="79">G</text>
+    </switch>
+  </g>
+  <g
+     id="g66"
+     transform="matrix(1.5,0,0,1.5,-67.570312,-77.352539)">
+    <switch
+       id="switch64">
+      <foreignObject
+         style="overflow: visible; text-align: left;"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="100%"
+         width="100%"
+         pointer-events="none">
+        <xhtml:div
+           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 18px; height: 1px; padding-top: 155px; margin-left: 104px;">
+          <xhtml:div
+             style="box-sizing: border-box; font-size: 0px; text-align: center;"
+             data-drawio-colors="color: rgb(0, 0, 0); ">
+            <xhtml:div
+               style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+              <xhtml:font
+                 style="font-size: 16px;">D</xhtml:font>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text62"
+         font-size="12px"
+         y="159"
+         x="113">D</text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path68"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 80.5,170.5 0.5,20" />
+  <path
+     style="fill:none;stroke:#5bc0de;stroke-width:4;stroke-miterlimit:10;stroke-opacity:1"
+     inkscape:connector-curvature="0"
+     id="s_pin2"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 37.5,93.5 h 20" />
+  <path
+     style="fill:none;stroke:#5bc0de;stroke-width:4;stroke-miterlimit:10;stroke-opacity:1"
+     inkscape:connector-curvature="0"
+     id="s_pin1"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 47.5,170.5 v -77"
+     inkscape:label="#s_pin1" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="g_pin2"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 70.5,103.5 h 20" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="g_pin1"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 80.5,170.5 v -67" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="d_pin2"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 103.5,93.5 h 20"
+     inkscape:label="#d_pin2" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="d_pin1"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 113.5,170.5 v -77"
+     inkscape:label="#d_pin1" />
+  <circle
+     style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+     r="4"
+     id="ellipse82"
+     pointer-events="none"
+     cy="170.5"
+     cx="80.5" />
+  <g
+     id="s-label"
+     transform="translate(-74.547953,1.35924)">
+    <switch
+       id="switch32-8">
+      <foreignObject
+         style="overflow: visible; text-align: left;"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="100%"
+         width="100%"
+         pointer-events="none">
+        <xhtml:div
+           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 28px; height: 1px; padding-top: 78px; margin-left: 109px;">
+          <xhtml:div
+             style="box-sizing: border-box; font-size: 0px; text-align: center;"
+             data-drawio-colors="color: #333333; ">
+            <xhtml:div
+               style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(51, 51, 51); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+              <xhtml:p
+                 style="line-height: 100%;">
+                <xhtml:font
+                   style="font-size: 14px;">p</xhtml:font>
+              </xhtml:p>
+            </xhtml:div>
+          </xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:16px;font-family:Helvetica;text-anchor:middle;fill:#000000;stroke:none;stroke-opacity:1;fill-opacity:1;"
+         id="text30-6"
+         font-size="16px"
+         y="82"
+         x="123">p</text>
+    </switch>
+  </g>
+  <g
+     transform="matrix(0.13070312,0,0,0.13070312,38.625142,180.20409)"
+     onclick="toggleSwitch1()"
+     id="switch1"
+     style="fill:#000000">
+    <g
+       id="g884-5"
+       transform="translate(-215.42055,-246.32855)">
+      <g
+         transform="matrix(0.95,0,0,0.95,295.05085,191.91322)"
+         id="g6-0-7"
+         style="fill:#000000">
+        <g
+           id="g4-9-2">
+          <path
+             style="fill:#ffffff;fill-opacity:1"
+             sodipodi:nodetypes="sssssss"
+             inkscape:connector-curvature="0"
+             id="switch1_bg"
+             d="M 397.276,141.241 H 114.728 C 51.466,141.241 0,192.72 0,256 0,319.28 51.466,370.759 114.728,370.759 H 397.275 C 460.534,370.759 512,319.28 512,256 512,192.72 460.534,141.241 397.276,141.241 Z" />
+        </g>
+      </g>
+      <g
+         transform="translate(281.6,179.2)"
+         id="g6-8">
+        <g
+           id="g4-4">
+          <path
+             inkscape:connector-curvature="0"
+             id="path2-7-3"
+             d="M 397.276,141.241 H 114.728 C 51.466,141.241 0,192.72 0,256 0,319.28 51.466,370.759 114.728,370.759 H 397.275 C 460.534,370.759 512,319.28 512,256 512,192.72 460.534,141.241 397.276,141.241 Z m 0,211.862 H 114.728 c -53.526,0 -97.073,-43.56 -97.073,-97.103 0,-53.543 43.547,-97.103 97.073,-97.103 h 282.547 c 53.526,0 97.069,43.56 97.069,97.103 0,53.543 -43.542,97.103 -97.068,97.103 z" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="switch1_btn"
+       transform="translate(-215.42055,-246.32855)">
+      <g
+         transform="matrix(0.95,0,0,0.95,287.58607,192.00605)"
+         id="g12-3-3"
+         style="fill:#ffffff;fill-opacity:1">
+        <g
+           style="fill:#ffffff;fill-opacity:1"
+           id="g10-3-1">
+          <path
+             style="fill:#ffffff;fill-opacity:1"
+             sodipodi:nodetypes="ssscs"
+             inkscape:connector-curvature="0"
+             id="path8-2-8"
+             d="m 114.759,184.782 c -38.94,0 -70.621,31.681 -70.621,70.621 0,38.941 31.681,70.621 70.621,70.621 38.94,0 70.621,-31.68 70.621,-70.621 -0.001,-38.94 -31.682,-70.621 -70.621,-70.621 z" />
+        </g>
+      </g>
+      <g
+         transform="translate(281.6,179.2)"
+         id="g12-6">
+        <g
+           id="g10-7">
+          <path
+             inkscape:connector-curvature="0"
+             id="path8-4"
+             d="m 114.759,184.782 c -38.94,0 -70.621,31.681 -70.621,70.621 0,38.941 31.681,70.621 70.621,70.621 38.94,0 70.621,-31.68 70.621,-70.621 -0.001,-38.94 -31.682,-70.621 -70.621,-70.621 z m 0,123.587 c -29.207,0 -52.966,-23.759 -52.966,-52.965 0,-29.206 23.759,-52.966 52.966,-52.966 29.207,0 52.966,23.76 52.966,52.966 -0.001,29.206 -23.76,52.965 -52.966,52.965 z" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

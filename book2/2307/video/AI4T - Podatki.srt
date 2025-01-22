@@ -1,0 +1,407 @@
+1
+00:00:00,240 --> 00:00:01,540
+Podatki.
+
+2
+00:00:01,560 --> 00:00:05,610
+Podatki so različnih velikosti in oblik.
+
+3
+00:00:05,640 --> 00:00:08,520
+Dober način za razumevanje podatkov je,
+
+4
+00:00:08,520 --> 00:00:12,420
+da si jih predstavljate
+kot ogromne preglednice.
+
+5
+00:00:12,440 --> 00:00:17,220
+Preglednice so organizirane po sistemu
+vrstic in stolpcev.
+
+6
+00:00:17,240 --> 00:00:23,340
+V vrsticah so posamezni primeri,
+v stolpcih pa posamezne značilnosti.
+
+7
+00:00:23,360 --> 00:00:26,900
+Na presečišču določene vrstice in stolpca
+
+8
+00:00:26,920 --> 00:00:32,660
+najdemo vrednost za določeno značilnost določenega primera.
+
+9
+00:00:32,680 --> 00:00:37,180
+V primeru na tej sliki
+imamo pet učencev.
+
+10
+00:00:37,200 --> 00:00:40,300
+V stolpcih je navedena starost in trije šolski predmeti.
+
+11
+00:00:40,320 --> 00:00:43,500
+V celicah so vrednosti, ki ustrezajo starosti
+
+12
+00:00:43,520 --> 00:00:47,100
+ali oceni, ki jo je dobil učenec.
+
+13
+00:00:47,120 --> 00:00:51,140
+Nekatere vrednosti v tabeli manjkajo,
+
+14
+00:00:51,160 --> 00:00:55,180
+zato lahko rečemo, da je
+sklop podatkov nepopoln.
+
+15
+00:00:55,200 --> 00:00:59,640
+Podatki torej imajo svojo velikost.
+Način, kako programerji
+
+16
+00:00:59,640 --> 00:01:03,100
+štejejo velikost, je izjemno zapleten,
+
+17
+00:01:03,120 --> 00:01:04,540
+ker se je njihov obseg
+
+18
+00:01:04,560 --> 00:01:07,820
+v zgodovini računalniške
+znanosti povečeval.
+
+19
+00:01:07,840 --> 00:01:10,210
+Četudi je ta zgodovina kratka,
+
+20
+00:01:10,240 --> 00:01:15,740
+se je obseg obdelave in štetja velikosti podatkov zelo povečal.
+
+21
+00:01:15,760 --> 00:01:17,820
+Tega ne bomo podrobno opisovali.
+
+22
+00:01:17,840 --> 00:01:19,660
+To omenjamo zato, da vas ne prestrašijo
+
+23
+00:01:19,680 --> 00:01:27,260
+latinske predpone, ki označujejo
+petabajte, zetabajte in gigabajte.
+
+24
+00:01:27,280 --> 00:01:29,490
+Te velikosti zares obstajajo.
+
+25
+00:01:29,520 --> 00:01:31,850
+Vendar pa računalničarji
+
+26
+00:01:31,880 --> 00:01:36,660
+ne štejejo v stotinah in tisočih,
+kot to počnejo npr. fiziki.
+
+27
+00:01:36,680 --> 00:01:42,260
+Namesto tega štejejo v mnogokratnikih števila 1024.
+
+28
+00:01:42,280 --> 00:01:43,780
+In zakaj prav 1024?
+
+29
+00:01:43,800 --> 00:01:49,920
+Ker je 1024 enako 2 na 10. potenco.
+
+30
+00:01:51,080 --> 00:01:53,340
+Tukaj je nekaj primerov takšnih velikosti.
+
+31
+00:01:53,360 --> 00:01:57,570
+Slika prikazuje, kaj pomeni en zetabajt,
+
+32
+00:01:57,600 --> 00:02:00,140
+zato, da lažje razumemo,
+
+33
+00:02:00,160 --> 00:02:05,460
+da veliko pravil iz sveta
+fizične resničnosti na tem področju ne velja.
+
+34
+00:02:05,480 --> 00:02:09,600
+Količina informacij, ki jih lahko shranimo,
+
+35
+00:02:09,600 --> 00:02:13,700
+ki se jih lahko naučimo in preoblikujemo
+
+36
+00:02:13,720 --> 00:02:18,660
+v "inteligentne sisteme", je naravnost ogromna.
+
+37
+00:02:18,680 --> 00:02:20,700
+Podatki so na voljo v različnih oblikah.
+
+38
+00:02:20,720 --> 00:02:24,730
+Običajno podatkom, ki jih
+vsebuje določena spletna stran
+
+39
+00:02:24,760 --> 00:02:27,300
+pravimo strukturirani podatki.
+
+40
+00:02:27,320 --> 00:02:33,140
+Strukturirani podatki so tisto, s čimer
+operirate, ko ustvarite npr. stran HTML ali XML.
+
+41
+00:02:33,160 --> 00:02:37,420
+Prednost strukturiranih
+podatkov je, da lahko
+
+42
+00:02:37,440 --> 00:02:40,860
+posamezne dele teh podatkov preverite.
+
+43
+00:02:40,880 --> 00:02:44,860
+Druga vrsta podatkov, ki niso
+strukturirani, so na primer besedila.
+
+44
+00:02:44,880 --> 00:02:48,100
+Še en pomemben vir podatkov
+so zvočni podatki.
+
+45
+00:02:48,120 --> 00:02:51,440
+Zvočni podatki
+so znani tudi kot signali,
+
+46
+00:02:51,440 --> 00:02:58,060
+saj so bili zajeti s pomočjo fizičnih naprav.
+
+47
+00:02:58,080 --> 00:03:02,610
+Toda računalniki lahko to spremenijo
+
+48
+00:03:02,640 --> 00:03:09,340
+v bolj diskretne podatke, podatke, ki jih
+lahko dejansko kodiramo in pregledujemo.
+
+49
+00:03:09,360 --> 00:03:10,900
+V primeru glasbe
+
+50
+00:03:10,920 --> 00:03:15,940
+so to midi datoteke, ki
+omogočajo predstavitve, kot je tale.
+
+51
+00:03:15,960 --> 00:03:21,460
+In če gre za govor, kot
+ga uporabljam v tem trenutku,
+
+52
+00:03:21,480 --> 00:03:27,940
+bodo ti govorni podatki pretvorjeni
+v besedilo, ki ga lahko preberemo.
+
+53
+00:03:27,960 --> 00:03:32,220
+Ta proces se imenuje transkripcija.
+
+54
+00:03:32,240 --> 00:03:34,380
+Besedilo je lahko neobdelano.
+
+55
+00:03:34,400 --> 00:03:37,940
+Neobdelano besedilo pomeni, da ni organizirano,
+
+56
+00:03:37,960 --> 00:03:42,940
+ne le v smislu predstavitve, temveč tudi
+npr. v smislu zaporedja posameznih delov besedila.
+
+57
+00:03:42,960 --> 00:03:46,140
+Na spletu na neobdelana besedila
+naletimo v več oblikah.
+
+58
+00:03:46,160 --> 00:03:48,420
+Najdemo jih na Wikipediji,
+
+59
+00:03:48,440 --> 00:03:51,340
+na blogih, v spletnih časopisih, knjigah ipd.
+
+60
+00:03:51,360 --> 00:03:56,000
+Neobdelana besedila so tudi
+
+61
+00:03:56,000 --> 00:04:01,860
+transkripcije filmov ali predavanj.
+
+62
+00:04:01,880 --> 00:04:05,460
+Bistvo je v tem,
+da iz besedil nastajajo
+
+63
+00:04:05,480 --> 00:04:07,660
+veliki jezikovni modeli,
+
+64
+00:04:07,680 --> 00:04:12,300
+prav takšni, ki danes predstavljajo vrhunec sodobnih tehnologij.
+
+65
+00:04:12,320 --> 00:04:13,610
+Tudi slike so podatki.
+
+66
+00:04:13,640 --> 00:04:19,700
+Tudi ta del podatkov v veliki meri
+najdemo na spletu.
+
+67
+00:04:19,720 --> 00:04:23,700
+Pravzaprav so slike tako
+bistvenega pomena za umetno inteligenco,
+
+68
+00:04:23,720 --> 00:04:28,300
+da gre najvidnejše
+napredke na tem področju
+
+69
+00:04:28,320 --> 00:04:34,740
+(ki so se zgodili v obdobju med 2010
+in 2012), pripisati prav slikam.
+
+70
+00:04:34,760 --> 00:04:39,300
+Razlog za to je, da je v obliki slik na
+voljo ogromno podatkov.
+
+71
+00:04:39,320 --> 00:04:42,100
+Vsakič, ko digitaliziramo slike,
+
+72
+00:04:42,120 --> 00:04:46,940
+ustvarjamo podatke, ki
+jih lahko kasneje uporabimo.
+
+73
+00:04:46,960 --> 00:04:50,520
+Posebnost slik je v tem,
+
+74
+00:04:50,520 --> 00:04:56,340
+da je vsaka slika zbirka majhnih pikslov (slikovnih pik).
+
+75
+00:04:56,360 --> 00:04:59,540
+Na tej majhni sliki lahko vidite piksle,
+
+76
+00:04:59,560 --> 00:05:04,460
+pri čemer je vsak piksel posamično
+kodiran kot določena barva.
+
+77
+00:05:04,480 --> 00:05:06,740
+In vsaka določena barva je zgolj kombinacija
+
+78
+00:05:06,760 --> 00:05:12,380
+treh osnovnih barv računalnika,
+rdeče, zelene in modre.
+
+79
+00:05:12,400 --> 00:05:17,540
+Pri slikah visoke ločljivosti govorimo o
+milijonih slikovnih pik.
+
+80
+00:05:17,560 --> 00:05:19,700
+Če imate digitalni fotoaparat,
+
+81
+00:05:19,720 --> 00:05:27,300
+lahko preverite, s koliko slikovnimi
+pikami deluje vaš aparat.
+
+82
+00:05:27,320 --> 00:05:31,620
+Še bolj zapleteni od
+slik so videoposnetki.
+
+83
+00:05:31,640 --> 00:05:35,500
+Tudi v tem primeru je ogromno podatkov
+
+84
+00:05:35,520 --> 00:05:38,100
+na voljo na svetovnem spletu.
+
+85
+00:05:38,120 --> 00:05:42,980
+Pomislimo samo na umetno inteligenco,
+
+86
+00:05:43,000 --> 00:05:45,540
+na programe in aplikacije, ki vključujejo video posnetke na spletu.
+
+87
+00:05:45,560 --> 00:05:48,560
+Sistemi za kodiranje videoposnetkov so
+
+88
+00:05:48,560 --> 00:05:53,300
+veliko bolj zapleteni kot
+sistemi za kodiranje slik.
+
+89
+00:05:53,320 --> 00:05:56,940
+Toda iz vsakega videoposnetka
+
+90
+00:05:56,960 --> 00:06:00,660
+lahko seveda izluščimo tudi slike
+
+91
+00:06:00,680 --> 00:06:02,740
+in prav tako zvok.
+
+92
+00:06:02,760 --> 00:06:04,220
+Če to naredimo,
+
+93
+00:06:04,240 --> 00:06:09,040
+lahko pregledujemo oz. iščemo po posnetku glede na slike ali besedilo.
+

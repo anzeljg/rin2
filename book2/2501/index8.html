@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Pravilnostne tabele vseh logičnih operatorjev*</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="css/truth_table.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					<li><a href="../2307/index.html">Umetna inteligenca</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu5" role="button" aria-expanded="false">Digitalna vezja*</a>
+				  <div id="menu5" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li class="active"><a href="../2501/index.html">Logična vrata*</a></li>
+					<li><a href="../2502/index.html">Logični izrazi in vezja*</a></li>
+					<li><a href="../2503/index.html">Minimizacija logičnih vezij*</a></li>
+					<li><a href="../2504/index.html">Osnove digitalnega računalništva*</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Pravilnostne tabele vseh logičnih operatorjev*</h1>
+
+<p align="justify">Spodaj je pravilnostna tabela vseh možnih logičnih funkcij dveh spremenljivk $x$ in $y$. Vseh možnih funkcij je 16.</p>
+
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<p align="justify"></p>
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+
+<!-- Right column end -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+<!-- Content column start -->
+<p>
+<center>
+<table class="truth-table">
+ <tr align="center">
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+   <td class="index">0</td>
+   <td class="index">1</td>
+   <td class="index">2</td>
+   <td class="index">3</td>
+   <td class="index">4</td>
+   <td class="index">5</td>
+   <td class="index">6</td>
+   <td class="index">7</td>
+   <td class="index">8</td>
+   <td class="index">9</td>
+   <td class="index">10</td>
+   <td class="index">11</td>
+   <td class="index">12</td>
+   <td class="index">13</td>
+   <td class="index">14</td>
+   <td class="index">15</td>
+ </tr>
+ <tr align="center" class="bb">
+   <td>$x$</td>
+   <td>$y$</td>
+   <td class="bll">$\bot$</td>
+   <td class="bl">$x \downarrow y$</td>
+   <td class="bl">$x \not\leftarrow y$</td>
+   <td class="bl">$\neg{x}$</td>
+   <td class="bl">$x \not\rightarrow y$</td>
+   <td class="bl">$\neg{y}$</td>
+   <td class="bl">$x \oplus y$</td>
+   <td class="bl">$x \uparrow y$</td>
+   <td class="bll">$x \land y$</td>
+   <td class="bl">$x \Leftrightarrow y$</td>
+   <td class="bl">$y$</td>
+   <td class="bl">$x \rightarrow y$</td>
+   <td class="bl">$x$</td>
+   <td class="bl">$x \leftarrow y$</td>
+   <td class="bl">$x \lor y$</td>
+   <td class="bl">$\top$</td>
+ </tr>
+ <tr align="center">
+   <td>0</td>
+   <td>0</td>
+   <td class="bll">0</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bll">0</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+ </tr>
+ <tr align="center">
+   <td>0</td>
+   <td>1</td>
+   <td class="bll">0</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bll">0</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+ </tr>
+ <tr align="center">
+   <td>1</td>
+   <td>0</td>
+   <td class="bll">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bll">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+ </tr>
+ <tr align="center">
+   <td>1</td>
+   <td>1</td>
+   <td class="bll">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bl">0</td>
+   <td class="bll">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+   <td class="bl">1</td>
+ </tr>
+</table>
+</center>
+</p>
+<!-- Content column end -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+					<p align="justify"><br />Vsako izmed logičnih funkcij lahko predstavimo tudi z Vennovim diagramom:</p>
+					<p align="center">
+<!-- Content column start -->
+						<div class="col-xs-3 col-md-1 col-md-offset-2 venn">
+							<p align="center" class="index">0</p>
+							<img src="img/venn_00.svg" class="img-responsive">
+							<p align="center">$\bot$ (false)</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">1</p>
+							<img src="img/venn_01.svg" class="img-responsive">
+							<p align="center">$x \downarrow y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">2</p>
+							<img src="img/venn_02.svg" class="img-responsive">
+							<p align="center">$x \not\leftarrow y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">3</p>
+							<img src="img/venn_03.svg" class="img-responsive">
+							<p align="center">$\neg{x}$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">4</p>
+							<img src="img/venn_04.svg" class="img-responsive">
+							<p align="center">$x \not\rightarrow y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">5</p>
+							<img src="img/venn_05.svg" class="img-responsive">
+							<p align="center">$\neg{y}$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">6</p>
+							<img src="img/venn_06.svg" class="img-responsive">
+							<p align="center">$x \oplus y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">7</p>
+							<img src="img/venn_07.svg" class="img-responsive">
+							<p align="center">$x \uparrow y$</p>
+						</div>
+<!-- Content column end -->
+					</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+<!-- Content column start -->
+						<div class="col-xs-3 col-md-1 col-md-offset-2 venn">
+							<p align="center" class="index">15</p>
+							<img src="img/venn_15.svg" class="img-responsive">
+							<p align="center">$\top$ (true)</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">14</p>
+							<img src="img/venn_14.svg" class="img-responsive">
+							<p align="center">$x \lor y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">13</p>
+							<img src="img/venn_13.svg" class="img-responsive">
+							<p align="center">$x \leftarrow y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">12</p>
+							<img src="img/venn_12.svg" class="img-responsive">
+							<p align="center">$x$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">11</p>
+							<img src="img/venn_11.svg" class="img-responsive">
+							<p align="center">$x \rightarrow y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">10</p>
+							<img src="img/venn_10.svg" class="img-responsive">
+							<p align="center">$y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">9</p>
+							<img src="img/venn_09.svg" class="img-responsive">
+							<p align="center">$x \Leftrightarrow y$</p>
+						</div>
+						<div class="col-xs-3 col-md-1 venn">
+							<p align="center" class="index">8</p>
+							<img src="img/venn_08.svg" class="img-responsive">
+							<p align="center">$x \land y$</p>
+						</div>
+<!-- Content column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2405/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2501/index7.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2501/index.html">364</a></li>
+					<li><a href="../2501/index1.html">365</a></li>
+					<li><a href="../2501/index2.html">366</a></li>
+					<li><a href="../2501/index3.html">367</a></li>
+					<li><a href="../2501/index4.html">368</a></li>
+					<li><a href="../2501/index5.html">369</a></li>
+					<li><a href="../2501/index6.html">370</a></li>
+					<li><a href="../2501/index7.html">371</a></li>
+					<li class="active"><a href="#">372</a></li>
+					<li><a href="../2501/index9.html">373</a></li>
+					<li><a href="../2501/index10.html">374</a></li>
+					<li><a href="../2501/index11.html">375</a></li>
+					<li><a href="../2501/index9.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2502/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2501/index7.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2501/index9.html");
+    }
+});
+</script>
+
+</body>
+
+</html>

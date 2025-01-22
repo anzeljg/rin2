@@ -1,0 +1,344 @@
+WEBVTT
+
+00:00.600 --> 00:06.800
+Kakšna je razdalja med
+videoposnetkom in mano?
+
+00:07.360 --> 00:11.220
+Pri umetni inteligenci
+so razdalje pomembne.
+
+00:11.240 --> 00:12.260
+Kaj pomeni "razdalja"?
+
+00:12.280 --> 00:15.500
+Razdaljo med dvema mestoma znamo izmeriti.
+
+00:15.520 --> 00:18.860
+Znamo izmeriti tudi
+razdaljo med dvema točkama,
+
+00:18.880 --> 00:22.660
+za kar lahko uporabimo ravnilo in matematiko.
+
+00:22.680 --> 00:26.880
+V matematiki to področje obravnava topologija.
+
+00:27.040 --> 00:28.780
+In zakaj potrebujemo te podatke?
+
+00:28.800 --> 00:33.500
+Podatki o razdaljah nam pomagajo odgovoriti
+na bolj zapletena vprašanja.
+
+00:33.520 --> 00:36.340
+Lahko presodimo, kaj je bližje:
+
+00:36.360 --> 00:40.700
+ali hitreje pridemo od tukaj do
+Dublina, ali do Ljubljane?
+
+00:40.720 --> 00:45.700
+Lahko se vprašamo tudi, katera je najboljša
+pot od enega do drugega kraja.
+
+00:45.720 --> 00:48.560
+Na številna vprašanja lahko torej odgovorimo,
+
+00:48.560 --> 00:52.700
+ker imamo zemljevide, ki nam prikazujejo razdalje.
+
+00:52.720 --> 00:56.820
+Oglejmo si pobližje evklidsko razdaljo.
+
+00:56.840 --> 00:58.980
+O tem smo se učili v šoli...
+
+00:59.000 --> 01:01.540
+Na diapozitivu je prikazan matematični del,
+
+01:01.560 --> 01:04.850
+gre za preprosto matematiko.
+
+01:04.880 --> 01:10.050
+Če imam za mesti Dublin in
+Rim po dve koordinati,
+
+01:10.080 --> 01:14.850
+lahko uporabim enačbo in s pomočjo tega
+
+01:14.880 --> 01:20.980
+koordinate pretvorim
+v kilometre ali milje.
+
+01:21.000 --> 01:22.930
+Toliko o geografiji.
+
+01:22.960 --> 01:25.850
+Kaj pa se zgodi v preostalih operacijah?
+
+01:25.880 --> 01:30.400
+Zanimivo je, da lahko gradimo razdalje
+
+01:30.400 --> 01:34.660
+na podlagi nečesa drugega
+kot le fizične razdalje.
+
+01:34.680 --> 01:37.060
+Lahko jih gradimo na podlagi značilnosti,
+
+01:37.080 --> 01:42.260
+ki na nek način reprezentirajo
+predmet, ki nas zanima.
+
+01:42.280 --> 01:47.440
+Recimo, da sem turistični agent in
+želim prodati
+
+01:47.440 --> 01:50.180
+potovanje v Rim ali v Dublin.
+
+01:50.200 --> 01:51.260
+Določene podatke poznam.
+
+01:51.280 --> 01:53.880
+Vem, na primer, kako pogosto dežuje v obeh mestih,
+
+01:53.880 --> 01:57.180
+ali kako
+dobro so ocenjeni hoteli,
+
+01:57.200 --> 02:00.700
+in vem, koliko
+bodo stale moje počitnice.
+
+02:00.720 --> 02:04.520
+Vzemimo to kot tri značilnosti, ki
+mi omogočajo, da opredelim
+
+02:04.520 --> 02:08.580
+svoje potovanje v
+Dublin ali v Ljubljano
+
+02:08.600 --> 02:14.610
+z uporabo treh dimenzij, kot je
+prikazano na sliki.
+
+02:14.640 --> 02:17.340
+Uporabim lahko evklidsko razdaljo,
+
+02:17.360 --> 02:21.060
+ki je le matematična formula (pokazali smo jo na prejšnjem diapozitivu).
+
+02:21.080 --> 02:25.140
+za izračun razdalje med
+tema dvema mestoma.
+
+02:25.160 --> 02:31.340
+Po izračunih pridemo do
+magične številke 1,3.
+
+02:31.360 --> 02:36.260
+Zanimivost tega števila ni v tem,
+da dejansko nekaj pomeni,
+
+02:36.280 --> 02:39.700
+temveč v tem, da ga lahko primerjamo z
+drugim magičnim številom,
+
+02:39.720 --> 02:45.260
+ki bo predstavljalo npr. razdaljo
+med Parizom in Brusljem.
+
+02:45.280 --> 02:47.340
+Kako torej gradimo razdalje?
+
+02:47.360 --> 02:52.540
+Začnemo
+na podlagi značilnosti.
+
+02:52.560 --> 03:00.540
+Značilnosti so posamezni elementi tistega, kar želimo izmeriti.
+
+03:00.560 --> 03:02.380
+Vzemimo za primer zajca.
+
+03:02.400 --> 03:05.420
+Izmerimo lahko npr. dolžino njegovih ušes.
+
+03:05.440 --> 03:10.580
+Poznamo tudi starost živali,
+izraženo v mesecih.
+
+03:10.600 --> 03:14.740
+Recimo, da poznamo tudi podatke o številu korenčkov,
+ki jih ta zajec dobi na dan.
+
+03:14.760 --> 03:21.100
+Zdaj lahko za vsakega
+zajca izračunamo vektor,
+
+03:21.120 --> 03:24.340
+ki je sicer le sklop številk.
+
+03:24.360 --> 03:27.380
+Za vsako od značilnosti
+je določena ena številka.
+
+03:27.400 --> 03:31.900
+Imamo vektor, ki na
+nek način določa, da zajec
+
+03:31.920 --> 03:37.100
+spada v
+tridimenzionalni prostor.
+
+03:37.120 --> 03:39.420
+Poglejmo še drug primer.
+
+03:39.440 --> 03:45.180
+Ana je deklica, stara je 14
+let in ima osem dobrih ocen.
+
+03:45.200 --> 03:50.500
+Beppo je fant, star je 16 let,
+in ima šest dobrih ocen.
+
+03:50.520 --> 03:54.720
+Če določimo, da vrednost
+1 (ena) pomeni deklico
+
+03:54.720 --> 03:58.380
+vrednost 0 (nič) pa pomeni fanta,
+
+03:58.400 --> 04:03.340
+imamo sedaj vektor za
+Beppa in vektor za Ano.
+
+04:03.360 --> 04:05.460
+Kot v prejšnjem primeru,
+
+04:05.480 --> 04:09.610
+lahko tudi zdaj izračunamo
+razdaljo med vektorjema,
+
+04:09.640 --> 04:13.340
+ki bo za nas pomenila
+
+04:13.360 --> 04:16.300
+razdaljo med Ano in Beppom.
+
+04:16.320 --> 04:22.980
+To izračunamo z enako
+formulo in dobimo rezultat tri.
+
+04:23.000 --> 04:25.220
+Tri ni število kilometrov
+
+04:25.240 --> 04:30.340
+ali število metrov med
+tema dvema otrokoma.
+
+04:30.360 --> 04:34.940
+Tri je zgolj število, ki ima pomen le,
+
+04:34.960 --> 04:40.980
+kadar upoštevamo več otrok (skupino) in nato primerjamo dva po dva med seboj.
+
+04:41.000 --> 04:42.780
+Poglejmo si več podrobnosti.
+
+04:42.800 --> 04:45.900
+Evklidska razdalja je le en tip razdalje.
+
+04:45.920 --> 04:50.180
+Matematiki so izumili na
+stotine in tisoče razdalj.
+
+04:50.200 --> 04:52.780
+Z njihovo pomočjo lahko naredimo to, kar
+smo pravkar videli na primeru,
+
+04:52.800 --> 04:57.740
+a ne za osebe ali za kraje,
+temveč tudi za besedila.
+
+04:57.760 --> 05:01.980
+Besedilo lahko na primer obravnavamo zgolj kot
+
+05:02.000 --> 05:05.060
+vsoto vseh besed, ki se pojavijo v tem besedilu,
+
+05:05.080 --> 05:10.820
+in lahko preštejemo, kolikokrat se vsaka beseda pojavi v besedilu.
+
+05:10.840 --> 05:13.260
+Vsaka beseda je dimenzija nekega vektorja,
+
+05:13.280 --> 05:15.860
+katerega velikost v tem primeru seveda ne bo 3 (tri),
+
+05:15.880 --> 05:20.260
+temveč verjetno nekaj tisoč.
+
+05:20.280 --> 05:24.140
+Spet lahko izračunamo
+razdaljo med vektorjema.
+
+05:24.160 --> 05:27.580
+Če imamo
+dvakrat po isti vektor,
+
+05:27.600 --> 05:31.020
+bo razdalja enaka nič,
+
+05:31.040 --> 05:33.500
+kar je to, kar želimo.
+
+05:33.520 --> 05:37.300
+Dve besedili sta si podobni, če
+je razdalja med njima zelo majhna.
+
+05:37.320 --> 05:43.140
+Besedili pa se med seboj razlikujeta,
+če je razdalja med njima zelo, zelo velika.
+
+05:43.160 --> 05:45.860
+Doslej smo torej primerjali učence z učenci,
+
+05:45.880 --> 05:51.100
+zajce z zajci in
+besedila z besedili.
+
+05:51.120 --> 05:53.940
+Toda
+primerjamo lahko tudi ljudi in besedila!
+
+05:53.960 --> 06:00.600
+Zastavimo lahko hipotezo: "Si to, kar si prebral."
+
+06:00.680 --> 06:05.740
+Npr., če vzamem, recimo, zadnjih pet
+knjig, ki sem jih prebral,
+
+06:05.760 --> 06:09.660
+lahko vseh teh pet knjig obravnavam kot
+eno samo, zelo obsežno besedilo,
+
+06:09.680 --> 06:14.300
+in na podlagi iste logike kot zgoraj pridem do
+
+06:14.320 --> 06:21.060
+vektorja, ki predstavlja mene, oziroma vse knjige (besedila), ki sem jih prebral,
+
+06:21.080 --> 06:25.700
+in tako lahko izračunam razdaljo
+med mano in različnimi knjigami.
+
+06:25.720 --> 06:31.980
+Na podlagi tega sistemi izdelujejo priporočila o tem,
+katero knjigo naj beremo v prihodnje.
+
+06:32.000 --> 06:37.120
+Na enak način lahko seveda izračunamo tudi
+razdaljo med osebo in videoposnetkom.

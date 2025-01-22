@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.000 --> 00:03.500
+Ali je Alan Turing res izumil umetno inteligenco?
+
+00:03.530 --> 00:06.840
+Leta 1956 so na Dartmouth Collega v ZDA
+
+00:06.870 --> 00:09.920
+organizirali pomembno srečanje, na
+
+00:09.950 --> 00:12.640
+katerem so številni raziskovalci tistega časa
+
+00:12.670 --> 00:16.080
+premišljevali o tem, kaj vse bi lahko
+
+00:16.100 --> 00:17.920
+naredili s čudovitimi
+
+00:17.950 --> 00:19.540
+izumi svoje dobe - stroji.
+
+00:19.560 --> 00:22.280
+Do takrat so se stroji uporabljali
+
+00:22.310 --> 00:25.220
+praktično izključno za vojaške namene.
+
+00:25.240 --> 00:28.120
+Udeleženci tega srečanja pa so razmišljali, ali bi lahko
+
+00:28.150 --> 00:31.380
+izdelali nekaj, čemur bi rekli "pametni stroj"?
+
+00:31.400 --> 00:34.480
+To je bil torej poletni raziskovalni projekt
+
+00:34.500 --> 00:37.520
+univerze Dartmouth, ki je privedel
+
+00:37.550 --> 00:41.060
+do uradnega rojstva umetne inteligence.
+
+00:41.090 --> 00:43.360
+Ideja o tem pa dejansko
+
+00:43.390 --> 00:45.780
+sega še dlje v preteklost.
+
+00:45.810 --> 00:50.240
+Alan Turing je leta 1937 izumil napravo, ki jo danes poznamo kot
+
+00:50.270 --> 00:53.640
+Turingov stroj. Posebnost te naprave
+
+00:53.670 --> 00:57.040
+je bila v tem, da so algoritmi (programi)
+
+00:57.070 --> 01:00.300
+in podatki "prebivali" v istem objektu.
+
+01:00.330 --> 01:03.900
+Podobnost med algoritmi na eni strani in podatki na drugi,
+
+01:03.930 --> 01:06.840
+oboje namreč reprezentira zaporedje ničel in enic,
+
+01:06.870 --> 01:09.700
+je privedlo do naslednjega razmisleka:
+
+01:09.730 --> 01:12.280
+ne le, da algoritmi obdelujejo
+
+01:12.310 --> 01:13.880
+podatke, temveč tudi podatki
+
+01:13.910 --> 01:15.620
+vplivajo na delovanje algoritmov!
+
+01:15.650 --> 01:19.160
+Alan Turing je kasneje v pomembnem članku
+
+01:19.190 --> 01:22.320
+predstavil svoje zamisli o računskih
+
+01:22.350 --> 01:25.540
+strojih, nekakšnih "inteligentnih strojih"
+
+01:25.570 --> 01:27.100
+v povezavi z inteligenco nasploh.
+
+01:27.130 --> 01:31.360
+V tem članku je predstavil zamisel o
+
+01:31.390 --> 01:34.640
+"inteligentnem stroju", pri čemer je s pojmom inteligenca
+
+01:34.670 --> 01:37.760
+označeval veščine, kot so npr. biti dober v šahu ali
+
+01:37.790 --> 01:40.340
+izvajati jezikovne naloge
+
+01:40.370 --> 01:43.260
+(npr. samodejno prevajanje).
+
+01:43.290 --> 01:46.680
+Poleg tega si je zastavil tudi
+
+01:46.710 --> 01:50.180
+vprašanje, kako bi bil videti inteligentni stroj?
+
+01:50.210 --> 01:52.920
+Pojavila se je ideja o tem, da bi v sam stroj dejansko
+
+01:52.950 --> 01:54.900
+sprogramirali vso inteligenco,
+
+01:54.930 --> 01:56.700
+vendar je Turing razmišljal drugače.
+
+01:56.730 --> 02:00.320
+Predlagal je, naj program namesto simulacije delovanja možganov odraslega človeka
+
+02:00.350 --> 02:04.180
+raje simulira delovanje otroških možganov.
+
+02:04.210 --> 02:07.780
+Otroke namreč izrazito odlikuje sposobnost učenja.
+
+02:07.810 --> 02:10.040
+Zato si je zamislil koncept "učnega stroja",
+
+02:10.070 --> 02:12.220
+torej stroja, ki se zna učiti.
+
+02:12.250 --> 02:14.700
+V članku omeja tudi druge ideje,
+
+02:14.730 --> 02:16.580
+številne točke za razpravo,
+
+02:16.610 --> 02:18.730
+ki jih lahko prebere vsakdo.
+
+02:18.760 --> 02:22.170
+Branje ne zahteva naprednega znanja matematike.
+
+02:22.200 --> 02:25.020
+Opozoril je tudi na nekaj, kar danes dojemamo
+
+02:25.050 --> 02:28.610
+kot zelo pomembno, in sicer na vlogo naključnosti:
+
+02:28.640 --> 02:30.720
+inteligenten stroj
+
+02:30.750 --> 02:32.610
+ne sme biti determinističen.
+
+02:32.640 --> 02:34.940
+Vsebovati mora naključnost.
+
+02:34.970 --> 02:37.780
+Povzemimo še enkrat zamisli Alana Turinga:
+
+02:37.810 --> 02:40.980
+vpeljal je izraza "strojna inteligenca"
+
+02:41.010 --> 02:43.060
+in "učni stroj".
+
+02:43.090 --> 02:45.840
+Danes, veliko let pozneje, pa govorimo o
+
+02:45.870 --> 02:49.340
+"umetni inteligenci" in "strojnem učenju".
+
+02:49.370 --> 02:51.940
+Turing je znan tudi po tem,
+
+02:51.970 --> 02:55.860
+kar danes poznamo kot Turingov test.
+
+02:55.890 --> 02:58.960
+Kaj torej je Turingov test, in
+
+02:58.990 --> 03:02.020
+ali je leta 2023 še vedno aktualen?
+
+03:02.050 --> 03:06.360
+Del koncepta Turingovega testa je, da je
+
+03:06.390 --> 03:10.580
+računalnik skrit za platnom (ali pregrado, steno).
+
+03:10.600 --> 03:13.000
+(Ne pozabimo, da so bili v tistih dneh računalniki
+
+03:13.030 --> 03:16.100
+zelo težke in velikanske, okorne naprave!)
+
+03:16.130 --> 03:19.440
+Oseba na drugi strani pregrade mora pri interakciji
+
+03:19.470 --> 03:22.860
+s tem neznanim predmetom ugibati,
+
+03:22.890 --> 03:27.220
+ali komunicira s človekom ali z računalnikom.
+
+03:27.250 --> 03:31.500
+Opraviti Turingov test je bil torej cilj celotne skupnosti,
+
+03:31.530 --> 03:36.820
+ki se je od leta 1950 ukvarjala s področjem UI.
+
+03:36.850 --> 03:40.500
+Danes ljudje morda manj govorijo o tem.
+
+03:40.530 --> 03:43.900
+Toda, zakaj?
+
+03:43.930 --> 03:47.080
+Mogoče zato, ker "prestati Turingov test"
+
+03:47.110 --> 03:49.240
+(ki v resnici pomeni le sposobnost
+
+03:49.270 --> 03:54.940
+simulirati inteligenco), ni več cilj.
+
+03:54.970 --> 03:58.680
+Toda nedavni razvoj dogodkov (celo v zadnjih nekaj
+
+03:58.710 --> 04:02.520
+tednih) nas prepriča, da je Turingov test končno
+
+04:02.550 --> 04:07.520
+uspešno opravljen, saj pri interakciji s sistemi
+
+04:07.550 --> 04:10.740
+tipa GPT-4, nismo več prepričani,
+
+04:10.770 --> 04:13.660
+ali je rezultat ustvaril človek,
+
+04:13.690 --> 04:15.380
+ali stroj.
+
+04:15.410 --> 04:19.000
+To vpliva na nas vse, seveda pa
+
+04:19.030 --> 04:21.720
+še posebej na učitelje in vzgojitelje.

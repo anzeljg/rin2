@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Model računalnika</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="css/truth_table.css" rel="stylesheet">
+
+	<!-- jQuery UI -->
+	<link href="../css/jquery-ui.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					<li><a href="../2307/index.html">Umetna inteligenca</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu5" role="button" aria-expanded="false">Digitalna vezja*</a>
+				  <div id="menu5" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2501/index.html">Logična vrata*</a></li>
+					<li><a href="../2502/index.html">Logični izrazi in vezja*</a></li>
+					<li><a href="../2503/index.html">Minimizacija logičnih vezij*</a></li>
+					<li class="active"><a href="../2504/index.html">Osnove digitalnega računalništva*</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+<!-- Content start -->
+<h1>Model računalnika</h1>
+
+<p>&nbsp;</p>
+
+<style>
+#container_pc_text {
+    position: relative;
+    float: left;
+    width: 30%;
+    margin-left: 10px;
+    padding: 12px;
+	border-radius: 10px;
+    background-color: whitesmoke;
+}
+#container_pc_animation {
+    position: relative;
+    float: left;
+    width: 69%;
+}
+#slide_pc{
+    width: 100%;
+}
+#slider_pc {
+    position: absolute;
+    top: 97%;
+    left: 70%;
+    width: 30%
+}
+#speed_text_pc {
+    position: absolute;
+    top: 92%;
+    left: 76%;
+    font-weight: bold;
+}
+#besedilo-pc {
+    text-align: justify;
+}
+#btn-back-pc, #btn-forw-pc, #btn-start-pc, #btn-again-pc{
+    position: relative;
+    left: 0%;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+</style>
+<div id="container_pc_animation">
+    <img src="img/pc1.png" width="640" id="slide_pc"/>
+    <button class="btn btn-primary" id="btn-start-pc" onclick="zacni_ustavi_pc();"><span class="fa fa-play"></span> Začni</button>
+    <button class="btn btn-primary" id="btn-again-pc" onclick="slider_pc=false; pause_pc = false; zacni_pc = true; zacni_ustavi_pc();"><span class="fa fa-refresh"></span> Od začetka</button>
+    <button class="btn btn-primary" id="btn-back-pc" onclick="back_forw_pc(true);"><span class="fa fa-step-backward"></span> Nazaj</button>
+    <button class="btn btn-primary" id="btn-forw-pc" onclick="back_forw_pc(false);"><span class="fa fa-step-forward"></span> Naprej</button>
+    <br/>
+    <span id="speed_text_pc">Hitrost animacije: 3</span>
+    <div id="slider_pc" onchange="update();"></div>
+</div>
+<div id="container_pc_text">
+    <p id="besedilo-pc"></p>
+</div>
+<!-- Content end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2503/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2504/index11.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2504/index.html">408</a></li>
+					<li><a href="../2504/index1.html">409</a></li>
+					<li><a href="../2504/index2.html">410</a></li>
+					<li><a href="../2504/index3.html">411</a></li>
+					<li><a href="../2504/index4.html">412</a></li>
+					<li><a href="../2504/index5.html">413</a></li>
+					<li><a href="../2504/index6.html">414</a></li>
+					<li><a href="../2504/index7.html">415</a></li>
+					<li><a href="../2504/index8.html">416</a></li>
+					<li><a href="../2504/index9.html">417</a></li>
+					<li><a href="../2504/index10.html">418</a></li>
+					<li><a href="../2504/index11.html">419</a></li>
+					<li class="active"><a href="#">420</a></li>
+					<li><a href="../2504/index13.html">421</a></li>
+					<li><a href="../2504/index13.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2901/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+    <!-- Logic Circuit Simulator -->
+	<script src="https://anzeljg.github.io/rin2/book2/js/logiga/bundle.js" type="module"></script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+<script type="text/javascript">
+besedilo = [
+            "<p>Ogledali si bomo, kako so komponente, ki smo jih spoznali do sedaj, povezane v računalniku.</p><p>Centralno procesna enota oziroma CPE (<i>ang. Central processing unit – CPU</i>) vsebuje aritmetično-logično enoto oziroma ALE (<i>ang. arithmetic-logic unit – ALU</i>), različne registre ter kontrolno enoto (<i>ang. control unit – CU</i>) s podatkovnim/ukaznim registrom (<i>ang. memory data register – MDR</i>) in z naslovnim registrom (<i>ang. memory address register – MAR</i>).</p><p>Delovni oziroma bralno-pisalni pomnilnik (<i>ang. random access memory – RAM</i>), ki v našem primeru obsega 16 osembitnih zlogov.</p><p>Z gumboma <b>Naprej</b> in <b>Nazaj</b> se sprehodi skozi korake izvajanja spodnjega, preprostega programa v računalniku.<code><br>LOAD_A 14   # Beri vrednost (RAM, naslov 14)<br>LOAD_B 15   # Beri vrednost (RAM, naslov 15)<br>ADD RB RA   # Seštej vrednosti (3 + 14 = 17)<br>STOR_A 13   # Shrani vrednost (RAM, naslov 13)</code></p>",
+            "<p>Računalnik izvaja ukaze v ukaznih ciklih (<i>ang. instruction cycle</i>). Vsak ukazni cikel je sestavljen iz treh faz: pridobivanje, dekodiranje in izvedba (<i>ang. fetch, decode, execute</i>).</p><p>V fazi pridobivanja ukaza računalnik iz pomnilnika RAM kopira ukaz iz ustrezenga naslova. Naslov dobi v naslovnem registru (<i>ang. memory address register – MAR</i>) in nato omogoči branje iz pomnilnika RAM.</p><p>Računalnik prekopira vrednost ukaza <code>00101110</code> iz naslova <code>00000000 = 0</code> v podatkovni register (<i>ang. memory data register – MDR</i>)</p>",
+            "<p>Računalnik izvaja ukaze v ukaznih ciklih (<i>ang. instruction cycle</i>). Vsak ukazni cikel je sestavljen iz treh faz: pridobivanje, dekodiranje in izvedba (<i>ang. fetch, decode, execute</i>).</p><p>V fazi pridobivanja ukaza računalnik iz pomnilnika RAM kopira ukaz iz ustrezenga naslova. Naslov dobi v naslovnem registru (<i>ang. memory address register – MAR</i>) in nato omogoči branje iz pomnilnika RAM.</p><p>Računalnik prekopira vrednost ukaza <code>00101110</code> iz naslova <code>00000000 = 0</code> v podatkovni register (<i>ang. memory data register – MDR</i>)</p>",
+            "<p>Računalnik izvaja ukaze v ukaznih ciklih (<i>ang. instruction cycle</i>). Vsak ukazni cikel je sestavljen iz treh faz: pridobivanje, dekodiranje in izvedba (<i>ang. fetch, decode, execute</i>).</p><p>V fazi pridobivanja ukaza računalnik iz pomnilnika RAM kopira ukaz iz ustrezenga naslova. Naslov dobi v naslovnem registru (<i>ang. memory address register – MAR</i>) in nato omogoči branje iz pomnilnika RAM.</p><p>Računalnik prekopira vrednost ukaza <code>00101110</code> iz naslova <code>00000000 = 0</code> v podatkovni register (<i>ang. memory data register – MDR</i>)</p>",
+            "<p>Sledi faza dekodiranja ukaza.</p><p>Prvi del ukaza predstavlja kodo operacije (<i>ang. operation code – opcode</i>), za katero kontrolna enota poskrbi, da se izvede. Drugi del ukaza pa je naslov v pomnilniku RAM ali naslova dveh registrov v CPE, od koder naj se kopirajo podatki.</p><p>Naš model računalnika podpira naslednje kode:<table class='table' style='margin-bottom:0'><tr><td width='15%'><code>LOAD_A</code></td><td width='40%'>Bere vrednost iz RAM v register A</td><td width='15%'><code>0010</code></td><td width='30%'>4-bitni RAM naslov</td></tr><tr><td><code>LOAD_B</code></td><td>Bere vrednost iz RAM v register B</td><td><code>0001</code></td><td>4-bitni RAM naslov</td></tr><tr><td><code>STOR_A</code></td><td>Shrani vrednost registra A v RAM</td><td><code>0100</code></td><td>4-bitni RAM naslov</td></tr><tr><td><code>ADD</code></td><td>Sešteje vrednosti registrov, rezultat shrani v drugi register</td><td><code>1000</code></td><td>2-bitni ID registra,<br>2-bitni ID registra</td></tr></table></p>",
+            "<p>Sledi faza dekodiranja ukaza.</p><p>Prvi del ukaza predstavlja kodo operacije (<i>ang. operation code – opcode</i>), za katero kontrolna enota poskrbi, da se izvede. Drugi del ukaza pa je naslov v pomnilniku RAM ali naslova dveh registrov v CPE, od koder naj se kopirajo podatki.</p><p>Naš model računalnika podpira naslednje kode:<table class='table' style='margin-bottom:0'><tr><td width='15%'><code>LOAD_A</code></td><td width='40%'>Bere vrednost iz RAM v register A</td><td width='15%'><code>0010</code></td><td width='30%'>4-bitni RAM naslov</td></tr><tr><td><code>LOAD_B</code></td><td>Bere vrednost iz RAM v register B</td><td><code>0001</code></td><td>4-bitni RAM naslov</td></tr><tr><td><code>STOR_A</code></td><td>Shrani vrednost registra A v RAM</td><td><code>0100</code></td><td>4-bitni RAM naslov</td></tr><tr><td><code>ADD</code></td><td>Sešteje vrednosti registrov, rezultat shrani v drugi register</td><td><code>1000</code></td><td>2-bitni ID registra,<br>2-bitni ID registra</td></tr></table></p>",
+            "<p>Zadnja faza je faza izvedbe ukaza.</p><p>Prvi del ukaza, ki predstavlja kodo operacije, je <code>0010 = LOAD_A</code> kar pomeni, da bomo vrednost iz pomnilnika RAM kopirali oziroma zapisali v register A.</p><p>Drugi del ukaza, ki predstavlja naslov v pomnilniku RAM, je <code>1110 = 14</code>, kar pomeni, da bomo v register A zapisali vrednost <code>00000011 = 3</code>, ki je v pomnilniku RAM shranjena na naslovu 14.</p>",
+            "<p>Zadnja faza je faza izvedbe ukaza.</p><p>Prvi del ukaza, ki predstavlja kodo operacije, je <code>0010 = LOAD_A</code> kar pomeni, da bomo vrednost iz pomnilnika RAM kopirali oziroma zapisali v register A.</p><p>Drugi del ukaza, ki predstavlja naslov v pomnilniku RAM, je <code>1110 = 14</code>, kar pomeni, da bomo v register A zapisali vrednost <code>00000011 = 3</code>, ki je v pomnilniku RAM shranjena na naslovu 14.</p>",
+            "<p>Ukaz je zaključen, zato kontrolna enota samodejno poveča programski števec (<i>ang. program counter – PC</i>) za 1 na <code>00000001</code>, vrednost programskega števca pa se shrani tudi v naslovni register.",
+            "<p>V fazi pridobivanja ukaza računalnik iz pomnilnika RAM kopira ukaz <code>00011111</code> iz naslova <code>00000001 = 1</code>.",
+            "<p>V fazi pridobivanja ukaza računalnik iz pomnilnika RAM kopira ukaz <code>00011111</code> iz naslova <code>00000001 = 1</code>.",
+            "<p>Sledi faza dekodiranja ukaza.</p><p>Prvi del ukaza predstavlja kodo operacije, za katero kontrolna enota poskrbi, da se izvede. Drugi del ukaza pa je naslov v pomnilniku RAM ali naslova dveh registrov v CPE, od koder naj se kopirajo podatki.</p>",
+            "<p>Zadnja faza je faza izvedbe ukaza.</p><p>Prvi del ukaza, ki predstavlja kodo operacije, je <code>0001 = LOAD_B</code> kar pomeni, da bomo vrednost iz pomnilnika RAM kopirali oziroma zapisali v register B.</p><p>Drugi del ukaza, ki predstavlja naslov v pomnilniku RAM, je <code>1111 = 15</code>, kar pomeni, da bomo v register B zapisali vrednost <code>00001110 = 14</code>, ki je v pomnilniku RAM shranjena na naslovu 15.</p>",
+            "<p>Zadnja faza je faza izvedbe ukaza.</p><p>Prvi del ukaza, ki predstavlja kodo operacije, je <code>0001 = LOAD_B</code> kar pomeni, da bomo vrednost iz pomnilnika RAM kopirali oziroma zapisali v register B.</p><p>Drugi del ukaza, ki predstavlja naslov v pomnilniku RAM, je <code>1111 = 15</code>, kar pomeni, da bomo v register B zapisali vrednost <code>00001110 = 14</code>, ki je v pomnilniku RAM shranjena na naslovu 15.</p>",
+            "<p>Ukaz je zaključen, zato kontrolna enota samodejno poveča programski števec (<i>ang. program counter – PC</i>) za 1 na <code>00000010</code>, vrednost programskega števca pa se shrani tudi v naslovni register.",
+            "<p>V fazi pridobivanja ukaza računalnik iz pomnilnika RAM kopira ukaz <code>10000100</code> iz naslova <code>00000010 = 2</code>.",
+            "<p>Sledi faza dekodiranja ukaza.</p><p>Prvi del ukaza, ki predstavlja kodo operacije, je <code>1000 = ADD</code> kar pomeni, da bomo s pomočjo ALE sešteli vrednosti dveh registrov.</p><p>Drugi del ukaza, ki predstavlja identifikacijo dveh registrov, je <code>0100</code>, kar pomeni, da kot prvi register uporabimo register z identifikacijo <code>01</code> &ndash; register B. Kot drugi register pa uporabimo register z identifikacijo <code>00</code> &ndash; register A.</p>",
+            "<p>V fazi izvedbe ukaza se vrednosti iz registrov A in B zapišeta oziroma preneseta v ALE, iz podatkovnega registra pa se v ALE prenese koda operacije, to je seštevanja.</p><p>ALE sešteje vrednosti na vhodih ter rezultat vrne na izhodu. Hkrati se nastavijo morebitne zastavice (<i>ang. flags</i>), ki se shranijo v kontrolni enoti. Tudi rezultat se shrani v pomožni register v kontrolni enoti.</p>",
+            "<p>V fazi izvedbe ukaza se vrednosti iz registrov A in B zapišeta oziroma preneseta v ALE, iz podatkovnega registra pa se v ALE prenese koda operacije, to je seštevanja.</p><p>ALE sešteje vrednosti na vhodih ter rezultat vrne na izhodu. Hkrati se nastavijo morebitne zastavice (<i>ang. flags</i>), ki se shranijo v kontrolni enoti. Tudi rezultat se shrani v pomožni register v kontrolni enoti.</p>",
+            "<p>V fazi izvedbe ukaza se vrednosti iz registrov A in B zapišeta oziroma preneseta v ALE, iz podatkovnega registra pa se v ALE prenese koda operacije, to je seštevanja.</p><p>ALE sešteje vrednosti na vhodih ter rezultat vrne na izhodu. Hkrati se nastavijo morebitne zastavice (<i>ang. flags</i>), ki se shranijo v kontrolni enoti. Tudi rezultat se shrani v pomožni register v kontrolni enoti.</p>",
+            "<p>V fazi izvedbe ukaza se vrednosti iz registrov A in B zapišeta oziroma preneseta v ALE, iz podatkovnega registra pa se v ALE prenese koda operacije, to je seštevanja.</p><p>ALE sešteje vrednosti na vhodih ter rezultat vrne na izhodu. Hkrati se nastavijo morebitne zastavice (<i>ang. flags</i>), ki se shranijo v kontrolni enoti. Tudi rezultat se shrani v pomožni register v kontrolni enoti.</p>",
+            "<p>Kot rečeno se mora rezutat najprej shraniti v pomožni register v kontrolni enoti, sicer bi se vrednosti iz registrov neprenehoma dodajale oziroma prištevale rezultatu.</p><p>Kontrolna enota nato odklopi ALE in šele potem shrani izračunano vrednost <code>00010001 = 17</code> v drugi register, ki je v našem primeru register A.</p>",
+            "<p>Ukaz je zaključen, zato kontrolna enota samodejno poveča programski števec (<i>ang. program counter – PC</i>) za 1 na <code>00000011</code>, vrednost programskega števca pa se shrani tudi v naslovni register.",
+            "<p>V fazi pridobivanja ukaza računalnik iz pomnilnika RAM kopira ukaz <code>01001101</code> iz naslova <code>00000011 = 3</code>.",
+            "<p>Sledi faza dekodiranja ukaza.</p><p>Prvi del ukaza, ki predstavlja kodo operacije, je <code>0100 = STOR_A</code> kar pomeni, da bomo vrednost iz registra A kopirali oziroma shranili v pomnilnik RAM.</p><p>Drugi del ukaza, ki predstavlja naslov pomnilnika RAM, je <code>1101 = 13</code>, kar pomeni, da vrednost registra A shranimo v pomnilnik RAM na naslov 13.</p>",
+            "<p>V fazi izvedbe ukaza kontrolna enota najprej omogoči zapisovanje v pomnilnik RAM, nato pa na naslov <code>1101 = 13</code> zapiše vrednost <code>00010001 = 17</code> iz registra A.</p>",
+            "<p>V fazi izvedbe ukaza kontrolna enota najprej omogoči zapisovanje v pomnilnik RAM, nato pa na naslov <code>1101 = 13</code> zapiše vrednost <code>00010001 = 17</code> iz registra A.</p>"
+           ]
+$("#btn-back-pc").prop('disabled', true);
+$("#btn-back-pc").css('color', '#D0D0D0');
+var step_pc = 1;
+document.getElementById('besedilo-pc').innerHTML = besedilo[step_pc-1];
+var back_forw_pc = function (back){
+    if(back){
+        step_pc--;
+        step_pc = Math.max(step_pc, 1);
+        document.getElementById('slide_pc').src = "img/pc" + step_pc + ".png";
+        document.getElementById('besedilo-pc').innerHTML = besedilo[step_pc-1];
+        if(step_pc == 1){
+            $("#btn-back-pc").prop('disabled', true);
+            $("#btn-back-pc").css('color', '#D0D0D0');
+            $("#btn-forw-pc").prop("disabled", false);
+            $("#btn-forw-pc").css("color", "#ffffff");
+        }
+        else{
+            $("#btn-forw-pc").prop("disabled", false);
+            $("#btn-forw-pc").css("color", "#ffffff");
+            $("#btn-back-pc").prop("disabled", false);
+            $("#btn-back-pc").css("color", "#ffffff");
+        }
+    }
+    else{
+        step_pc++;
+        step_pc = Math.min(step_pc, 27);
+        if (step_pc == 27){
+            $("#btn-forw-pc").prop('disabled', true);
+            $("#btn-forw-pc").css('color', '#D0D0D0');
+        }
+        else{
+            $("#btn-forw-pc").prop("disabled", false);
+            $("#btn-forw-pc").css("color", "#ffffff");
+        }
+        document.getElementById('slide_pc').src = "img/pc" + step_pc + ".png";
+        document.getElementById('besedilo-pc').innerHTML = besedilo[step_pc-1];
+        $("#btn-back-pc").prop("disabled", false);
+        $("#btn-back-pc").css("color", "#ffffff");
+    }
+}
+/*
+function FireEvent(ElementId, EventName) {
+    if (document.getElementById(ElementId) != null) {
+        if (document.getElementById(ElementId).fireEvent) {
+            document.getElementById(ElementId).fireEvent('on' + EventName);
+        } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(EventName, true, false);
+            document.getElementById(ElementId).dispatchEvent(evObj);
+        }
+    }
+}
+*/
+var update = function () {
+    var val = $('#slider_pc').slider("option", "value");
+    console.log(val)
+}
+$(function () {
+    $("#slider_pc").slider({
+        range: "min",
+        value: 3,
+        min: 1,
+        max: 20,
+        change: function (event, ui) {
+            $('#speed_text_pc').html('Hitrost animacije: ' + ui.value);
+        }
+    });
+});
+//variable that will increment through the images
+var slider_pc = true;
+var running_pc = false;
+var step_pc = 1;
+var pause_pc = false;
+var zacni_pc = true;
+function zacni_ustavi_pc() {
+    var btn = document.getElementById("btn-start-pc");
+    if (zacni_pc) {
+        slider_pc = false;
+        zacni_pc = false;
+		$('#btn-start-pc').html('<span class="fa fa-stop"></span> Ustavi');
+        startSlide_pc();
+    } else {
+        slider_pc = false;
+        pause_pc = true;
+        zacni_pc = true;
+		$('#btn-start-pc').html('<span class="fa fa-play"></span> Začni');
+    }
+}
+function startSlide_pc() {
+    if (running_pc) {
+        setTimeout("startSlide_pc();", 25);
+        return;
+    }
+    running_pc = true;
+    slider_pc = true;
+    if (!pause_pc) {
+        step_pc = 1;
+        pause_pc = false;
+    }
+    slideit_pc();
+}
+function slideit_pc() {
+    if (!slider_pc) {
+        running_pc = false;
+        return;
+    }
+    //if browser does not support the image object, exit.
+    if (!document.images) {
+        return
+    }
+    document.getElementById('slide_pc').src = "img/pc" + step_pc + ".png";
+    document.getElementById('besedilo-pc').innerHTML = besedilo[step_pc-1];
+    if (step_pc < 27) {
+        step_pc++
+    } else {
+        running_pc = false;
+        return;
+    }
+    var val = $('#slider_pc').slider("option", "value");
+    //call function "slideit_pc()" in regular intervals
+    setTimeout("slideit_pc();", 10000 / val);
+}
+</script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2504/index11.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2504/index13.html");
+    }
+});
+</script>
+
+</body>
+
+</html>

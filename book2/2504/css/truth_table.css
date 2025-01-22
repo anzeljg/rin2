@@ -1,0 +1,45 @@
+.truth-table td {
+  padding: 0 4px;
+  min-width: 2.4em;
+}
+
+.bb {
+  border-bottom: 1px solid black;
+}
+
+.bl {
+  border-left: 1px solid black;
+}
+
+.bll {
+  border-left: 3px double black;
+  /*width: 3.5em;*/
+}
+
+.index {
+  font-size: 0.7em;
+  color: #c0c0c0;
+}
+
+.venn {
+  padding: 10px;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dt {
+  grid-column-start: 1;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+dd {
+  grid-column-start: 2;
+}
+
+.al {
+  text-align: left;
+}

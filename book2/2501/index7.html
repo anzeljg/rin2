@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Uporaba logičnih vrat</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					<li><a href="../2307/index.html">Umetna inteligenca</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu5" role="button" aria-expanded="false">Digitalna vezja*</a>
+				  <div id="menu5" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li class="active"><a href="../2501/index.html">Logična vrata*</a></li>
+					<li><a href="../2502/index.html">Logični izrazi in vezja*</a></li>
+					<li><a href="../2503/index.html">Minimizacija logičnih vezij*</a></li>
+					<li><a href="../2504/index.html">Osnove digitalnega računalništva*</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Uporaba logičnih vrat</h1>
+
+<p align="justify">Zaradi priročnosti lahko več logičnih vrat (iste vrste) združimo v integrirano vezje (<i>ang. integrated circuit</i>), to je mikrovezje, sestavljeno iz množice elektronskih elementov, ki so na skupnem substratu iz polprevodniškega materiala med seboj povezani v električno vezje. Vezje vsebuje poleg aktivnih elementov (tranzistor, dioda ...) tudi pasivne elemente (upor, kondenzator ...).</p>
+
+Integrirano vezje se po izdelavi vgradi v ohišje in tej celoti pa pravimo čip (<i>ang. chip</i>). Beseda čip izhaja iz ameriškega računalniškega slenga in pomeni silicijevo rezino.</p>
+
+<p align="justify">Uporabili bomo čipe iz družine 4000, ki jih je v preteklosti proizvajalo precej podjetij &ndash; čipe iz te družine je leta 1968 začelo proizvajati podjetje RCA. V spodnji tabeli je seznam čipov, ki jih bomo uporabili:
+<table class="table table-striped">
+<tr>
+  <th width="10%">Oznaka</th>
+  <th width="40%">Opis</th>
+  <th width="50%">Tehnični list</th>
+</tr>
+<tr>
+  <td>4001</td>
+  <td>Štiri 2-vhodna NOR vrata</td>
+  <td>
+    <a href="https://archive.org/details/bitsavers_rcadataBoook_74957274/page/n57/mode/2up">RCA</a>,
+    <a href="https://www.ti.com/lit/ds/symlink/cd4001b.pdf">CD4001B</a>,
+    <a href="https://assets.nexperia.com/documents/data-sheet/HEF4001B.pdf">HEF4001B</a>,
+    <a href="https://www.onsemi.com/pdf/datasheet/mc14001b-d.pdf">MC14001B</a>
+  </td>
+</tr>
+<tr>
+  <td>4011</td>
+  <td>Štiri 2-vhodna NAND vrata</td>
+  <td>
+    <a href="https://archive.org/details/bitsavers_rcadataBoook_74957274/page/n81/mode/2up">RCA</a>,
+    <a href="https://www.ti.com/lit/ds/symlink/cd4011b.pdf">CD4011B</a>,
+    <a href="https://assets.nexperia.com/documents/data-sheet/HEF4011B.pdf">HEF4011B</a>,
+    <a href="https://www.onsemi.com/pdf/datasheet/mc14001b-d.pdf">MC14011B</a>
+  </td>
+</tr>
+<tr>
+  <td>4049</td>
+  <td>Šest NOT (inverter) vrat</td>
+  <td>
+    <a href="https://archive.org/details/bitsavers_rcadataBoook_74957274/page/n201/mode/2up">RCA</a>,
+    <a href="https://www.ti.com/lit/ds/symlink/cd4050b.pdf">CD4049UB</a>,
+    <a href="https://assets.nexperia.com/documents/data-sheet/HEF4049B.pdf">HEF4049B</a>,
+    <a href="https://www.onsemi.com/pdf/datasheet/mc14049b-d.pdf">MC14049B</a>
+  </td>
+</tr>
+<tr>
+  <td>4070</td>
+  <td>Štiri 2-vhodna XOR vrata</td>
+  <td>
+    <a href="https://archive.org/details/bitsavers_rcadataBoook_74957274/page/n243/mode/2up">RCA</a>,
+    <a href="https://www.ti.com/lit/ds/symlink/cd4070b.pdf">CD4070B</a>,
+    <a href="https://assets.nexperia.com/documents/data-sheet/HEF4070B.pdf">HEF4070B</a>,
+    <a href="https://www.onsemi.com/pdf/datasheet/mc14070b-d.pdf">MC14070B</a>
+  </td>
+</tr>
+<tr>
+  <td>4071</td>
+  <td>Štiri 2-vhodna OR vrata</td>
+  <td>
+    <a href="https://archive.org/details/bitsavers_rcadataBoook_74957274/page/n245/mode/2up">RCA</a>,
+    <a href="https://www.ti.com/lit/ds/symlink/cd4071b.pdf">CD4071B</a>,
+    <a href="https://assets.nexperia.com/documents/data-sheet/HEF4071B.pdf">HEF4071B</a>,
+    <a href="https://www.onsemi.com/pdf/datasheet/mc14001b-d.pdf">MC14071B</a>
+  </td>
+</tr>
+<tr>
+  <td>4077</td>
+  <td>Štiri 2-vhodna XNOR vrata</td>
+  <td>
+    <a href="https://archive.org/details/bitsavers_rcadataBoook_74957274/page/n243/mode/2up">RCA</a>,
+    <a href="https://www.ti.com/lit/ds/symlink/cd4070b.pdf">CD4077B</a>,
+    <a href="https://assets.nexperia.com/documents/data-sheet/HEF4077B.pdf">HEF4077B</a>,
+    <a href="https://www.onsemi.com/pdf/datasheet/mc14070b-d.pdf">MC14077B</a>
+  </td>
+</tr>
+<tr>
+  <td>4081</td>
+  <td>Štiri 2-vhodna AND vrata</td>
+  <td>
+    <a href="https://archive.org/details/bitsavers_rcadataBoook_74957274/page/n249/mode/2up">RCA</a>,
+    <a href="https://www.ti.com/lit/ds/symlink/cd4081b.pdf">CD4081B</a>,
+    <a href="https://assets.nexperia.com/documents/data-sheet/HEF4081B.pdf">HEF4081B</a>,
+    <a href="https://www.onsemi.com/pdf/datasheet/mc14001b-d.pdf">MC14081B</a>
+  </td>
+</tr>
+</table>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Najprej si bomo ogledali le čipe, ki vsebujejo več istih logičnih vrat. Ogledali si bomo, kako čipe na preizkusni ploščici (<i>ang. breadboard</i>) s pomočjo žic povežemo z gumbi in diodo. S takim preprosim vezjem lahko nato preverimo delovanje posameznih logičnih vrat in preverimo, ali se ujema s teoretičnim znanjem, ki smo ga pridobili do sedaj.</p>
+
+<div id="tabs">	
+<ul class="nav nav-tabs">
+  <li>&nbsp;&nbsp;&nbsp;</li>
+  <li class="active"><a href="#4001" data-toggle="tab">4001</a></li>
+  <li><a href="#4011" data-toggle="tab">4011</a></li>
+  <li><a href="#4049" data-toggle="tab">4049</a></li>
+  <li><a href="#4070" data-toggle="tab">4070</a></li>
+  <li><a href="#4071" data-toggle="tab">4071</a></li>
+  <li><a href="#4077" data-toggle="tab">4077</a></li>
+  <li><a href="#4081" data-toggle="tab">4081</a></li>
+</ul>
+
+<div class="tab-content clearfix">
+<!-- Chip 4001 -->
+<div class="tab-pane active" id="4001">
+  <br />
+  <p align="center">
+    <img src="fritzing/4001_sc.svg" class="img-responsive" />
+	<br />
+    <img src="fritzing/4001_bb.svg" class="img-responsive" />
+  </p>
+</div>
+
+<!-- Chip 4011 -->
+<div class="tab-pane" id="4011">
+  <br />
+  <p align="center">
+    <img src="fritzing/4011_sc.svg" class="img-responsive" />
+	<br />
+    <img src="fritzing/4011_bb.svg" class="img-responsive" />
+  </p>
+</div>
+
+<!-- Chip 4049 -->
+<div class="tab-pane" id="4049">
+  <br />
+  <p align="center">
+    <img src="fritzing/4049_sc.svg" class="img-responsive" />
+	<br />
+    <img src="fritzing/4049_bb.svg" class="img-responsive" />
+  </p>
+</div>
+
+<!-- Chip 4070 -->
+<div class="tab-pane" id="4070">
+  <br />
+  <p align="center">
+    <img src="fritzing/4070_sc.svg" class="img-responsive" />
+	<br />
+    <img src="fritzing/4070_bb.svg" class="img-responsive" />
+  </p>
+</div>
+
+<!-- Chip 4071 -->
+<div class="tab-pane" id="4071">
+  <br />
+  <p align="center">
+    <img src="fritzing/4071_sc.svg" class="img-responsive" />
+	<br />
+    <img src="fritzing/4071_bb.svg" class="img-responsive" />
+  </p>
+</div>
+
+<!-- Chip 4077 -->
+<div class="tab-pane" id="4077">
+  <br />
+  <p align="center">
+    <img src="fritzing/4077_sc.svg" class="img-responsive" />
+	<br />
+    <img src="fritzing/4077_bb.svg" class="img-responsive" />
+  </p>
+</div>
+
+<!-- Chip 4081 -->
+<div class="tab-pane" id="4081">
+  <br />
+  <p align="center">
+    <img src="fritzing/4081_sc.svg" class="img-responsive" />
+	<br />
+    <img src="fritzing/4081_bb.svg" class="img-responsive" />
+  </p>
+</div>
+
+</div>
+</div><!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2405/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2501/index6.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2501/index.html">364</a></li>
+					<li><a href="../2501/index1.html">365</a></li>
+					<li><a href="../2501/index2.html">366</a></li>
+					<li><a href="../2501/index3.html">367</a></li>
+					<li><a href="../2501/index4.html">368</a></li>
+					<li><a href="../2501/index5.html">369</a></li>
+					<li><a href="../2501/index6.html">370</a></li>
+					<li class="active"><a href="#">371</a></li>
+					<li><a href="../2501/index8.html">372</a></li>
+					<li><a href="../2501/index9.html">373</a></li>
+					<li><a href="../2501/index10.html">374</a></li>
+					<li><a href="../2501/index11.html">375</a></li>
+					<li><a href="../2501/index8.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2502/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2501/index6.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2501/index8.html");
+    }
+});
+</script>
+
+</body>
+
+</html>

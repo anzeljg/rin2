@@ -1,0 +1,342 @@
+WEBVTT
+
+00:00.240 --> 00:03.620
+Strojno učenje operira z velikim številom objektov,
+
+00:03.640 --> 00:07.180
+zato so značilnosti teh objektov še posebej pomembne.
+
+00:07.200 --> 00:11.900
+Značilnosti so stvari,
+ki jih lahko izmerimo.
+
+00:11.920 --> 00:15.580
+Recimo, da želimo klasificirati zajce.
+
+00:15.600 --> 00:22.860
+S tem namenom identificiramo merljive dele zajca,
+
+00:22.880 --> 00:25.220
+na primer, dolžino ušes,
+
+00:25.240 --> 00:29.660
+starost v mesecih ali
+število korenčkov, ki jih zaužije na dan.
+
+00:29.680 --> 00:35.420
+Zahvaljujoč tem podatkom naš
+zajec postane vektor -
+
+00:35.440 --> 00:40.620
+seznam številk, ena številka
+za vsako od značilnosti.
+
+00:40.640 --> 00:45.340
+To je prva naloga strokovnjaka za strojno učenje:
+
+00:45.360 --> 00:48.380
+narediti seznam različnih značilnosti,
+
+00:48.400 --> 00:53.700
+ki jih je mogoče izmeriti, za
+tisto, kar želimo modelirati.
+
+00:53.720 --> 00:59.900
+Nato se določijo
+številke, povezane s posamezno značilnostjo,
+
+00:59.920 --> 01:02.680
+ki se sestavijo v vektorje.
+
+01:02.680 --> 01:08.340
+Vektorji so matematični objekti, ki jih
+obdelujejo računalniki.
+
+01:08.360 --> 01:09.700
+Zahvaljujoč značilnostim
+
+01:09.720 --> 01:14.260
+lahko sedaj vzamemo svoje podatke in
+jih vnesemo v podatkovne zbirke.
+
+01:14.280 --> 01:18.930
+Podatkovno zbirko si lahko predstavljamo
+kot tabelo ali preglednico,
+
+01:18.960 --> 01:22.290
+kjer vrstice ustrezajo primerom
+
+01:22.320 --> 01:25.620
+stolpci pa ustrezajo značilnostim.
+
+01:25.640 --> 01:28.740
+Seveda pa vse značilnosti nimajo enakih uteži.
+
+01:28.760 --> 01:34.570
+Nekatere so lahko pri reševanju
+naloge veliko pomembnejše od drugih.
+
+01:34.600 --> 01:39.260
+Človek lahko vrednosti teh
+značilnosti tudi prilagodi,
+
+01:39.280 --> 01:42.280
+in tako je nekoč delovala
+
+01:42.280 --> 01:43.930
+umetna inteligenca.
+
+01:43.960 --> 01:47.180
+Danes pa so algoritmi strojnega učenja
+
+01:47.200 --> 01:50.120
+tisti, ki izračunajo različne uteži
+
+01:50.120 --> 01:52.660
+povezane s posameznimi značilnostmi.
+
+01:52.680 --> 01:56.100
+Nekatere značilnosti imajo
+lahko celo negativne uteži.
+
+01:56.120 --> 02:00.260
+To poraja vprašanja. Morda
+smo izbrali napačne značilnosti.
+
+02:00.280 --> 02:03.930
+Nekatere značilnosti so lahko
+popolnoma nesmiselne,
+
+02:03.960 --> 02:08.940
+ali, kar je še slabše, lahko vsebujejo pristranskost.
+
+02:08.960 --> 02:15.560
+Tudi tukaj se zanašamo na algoritme, ki
+odkrivajo tiste značilnosti, ki so v korelaciji
+
+02:15.560 --> 02:18.940
+z vprašanji pristranskosti/predsodkov, na primer s spolom.
+
+02:18.960 --> 02:22.000
+Algoritme uporabljamo tudi
+
+02:22.000 --> 02:24.980
+za odkrivanje tistih značilnosti,
+ki jih je mogoče izločiti.
+
+02:25.000 --> 02:27.890
+Ne potrebujemo jih, zato lahko
+poskusimo poenostaviti problem
+
+02:27.920 --> 02:31.450
+in se tako izogniti
+pretiranemu prilagajanju.
+
+02:31.480 --> 02:36.420
+Algoritme lahko uporabimo tudi za
+oblikovanje kombinacij značilnosti
+
+02:36.440 --> 02:39.980
+in tako je naš problem/naloga bolje zastavljen.
+
+02:40.000 --> 02:42.940
+A tudi takrat lahko pomislimo,
+
+02:42.960 --> 02:45.780
+da morda še vedno nimamo pravih značilnosti.
+
+02:45.800 --> 02:49.900
+Morda bi morali meriti
+nekaj povsem drugega.
+
+02:49.920 --> 02:56.820
+Najsodobnejši pristopi
+globokega učenja temeljijo na teh idejah.
+
+02:56.840 --> 03:01.740
+Zakaj pa algoritmi sami
+
+03:01.760 --> 03:04.610
+ne odkrijejo značilnosti?
+
+03:04.640 --> 03:07.900
+Algoritem vzame samo
+neobdelane podatke.
+
+03:07.920 --> 03:11.960
+V primeru zajca vzame množico pikslov,
+
+03:11.960 --> 03:18.860
+torej sliko kot takšno in na podlagi te slike
+izbere značilnosti, ki jih bo potreboval
+
+03:18.880 --> 03:23.980
+(v svojem "jeziku stroja"), da bo lahko opravil nalogo.
+
+03:29.000 --> 03:30.500
+Pri tem se pojavijo težave.
+
+03:30.520 --> 03:34.600
+Kot vidimo na primeru,
+je z našim zajcem
+
+03:34.600 --> 03:41.100
+povezanih nekaj števil: število 17,
+število -33 in število 12.
+
+03:41.120 --> 03:43.300
+Toda v resnici nam s človeškega vidika
+
+03:43.320 --> 03:47.900
+te številke ne pomenijo prav veliko.
+
+03:47.920 --> 03:51.720
+In če so te številke tiste, ki odločajo
+
+03:51.720 --> 03:55.520
+in, na primer, odločijo,
+da lahko ta zajec
+
+03:55.520 --> 03:58.610
+prosto teka naokrog, ali pa da je
+predviden za kosilo prihodnji teden,
+
+03:58.640 --> 04:03.500
+potem seveda želimo, da bi sistem
+sprejemal pametne odločitve,
+
+04:03.520 --> 04:08.580
+mi pa želimo pri tem razumeti, na kakšni
+podlagi sprejema odločitve.
+
+04:08.600 --> 04:11.610
+Vse to kaže na nove izzive
+
+04:11.640 --> 04:15.380
+globokega učenja,
+
+04:15.400 --> 04:17.480
+ki se tičejo razumevanja tega,
+
+04:17.480 --> 04:21.740
+zakaj so bile odločitve, ki temeljijo
+na algoritmih globokega učenja
+
+04:21.760 --> 04:23.720
+sprejete.
+
+04:24.200 --> 04:26.780
+Kaj to pomeni za učitelje?
+
+04:26.800 --> 04:30.900
+Katera vprašanja bi morali
+izpostaviti učitelji na tej točki?
+
+04:30.920 --> 04:37.000
+Prvič, odločitve, ki jih sprejme
+sistem, ki temelji na modelih,
+
+04:37.000 --> 04:41.860
+o kakršnih smo govorili, so
+lahko 100 %,
+
+04:41.880 --> 04:46.580
+lahko so DA ali NE ali so izražene v odstotkih -stopnjah napake.
+
+04:46.600 --> 04:49.260
+Pomembno je, da se tega zavedamo.
+
+04:49.280 --> 04:52.820
+Ko boste učencu rekli:
+
+04:52.840 --> 04:58.780
+"Moj sistem je pokazal, da si pri
+matematiki 80-odstotno uspešen."
+
+04:58.800 --> 05:00.700
+Kaj to pomeni?
+
+05:00.720 --> 05:04.620
+Kaj pomeni tistih manjkajočih 20 %?
+
+05:04.640 --> 05:08.820
+Razumevanje teh številk se
+bo izkazalo za pomembno.
+
+05:08.840 --> 05:10.760
+Poleg tega
+
+05:10.760 --> 05:13.700
+te številke pogosto izražajo verjetnost,
+
+05:13.720 --> 05:16.580
+in sposobnost interpretacije verjetnosti
+
+05:16.600 --> 05:18.900
+bo v prihodnosti ključnega pomena.
+
+05:18.920 --> 05:21.060
+Ali gre za verjetnost napake?
+
+05:21.080 --> 05:24.180
+Ali gre za verjetnost, da se bo pojavilo?
+
+05:24.200 --> 05:27.180
+Ali gre za verjetnost, da pripada neki skupini?
+
+05:27.200 --> 05:31.180
+Razumevanje tega je
+pomembno, saj veliko
+
+05:31.200 --> 05:36.340
+priporočil/napovedi sistemov strojnega učenja
+in umetne inteligence
+
+05:36.360 --> 05:42.920
+vključuje določeno
+stopnjo verjetnosti.
+
+05:43.440 --> 05:45.260
+V zvezi z značilnostmi
+
+05:45.280 --> 05:49.200
+se postavlja vprašanje, katere
+značilnosti so vplivale na
+
+05:49.200 --> 05:53.880
+odločitev, ki jo bom kot učitelj
+moral sprejeti na podlagi, recimo,
+
+05:53.880 --> 05:58.100
+priporočila, ki mi ga je ponudil model?
+
+05:58.120 --> 06:00.620
+Na kakšni podlagi, oziroma,
+
+06:00.640 --> 06:04.940
+na podlagi česa je bila torej
+sprejeta odločitev?
+
+06:04.960 --> 06:08.180
+To je pomembno vprašanje, ko razmišljamo o učencih.
+
+06:08.200 --> 06:12.420
+Odločitev bi lahko vključevala spol,
+
+06:12.440 --> 06:16.740
+ali kraj, iz
+katerega učenec prihaja.
+
+06:16.760 --> 06:19.080
+Zato bi morali imeti jasno preglednost nad
+
+06:19.080 --> 06:21.740
+sistemi umetne inteligence,
+ki jih uporabljamo,
+
+06:21.760 --> 06:25.000
+v smislu značilnosti,
+
+06:25.000 --> 06:28.680
+ki jih uporabljajo
+sistemi strojnega učenja.

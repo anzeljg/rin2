@@ -1,0 +1,297 @@
+WEBVTT
+
+00:00.360 --> 00:03.100
+Modeli. Kaj so modeli?
+
+00:03.120 --> 00:08.090
+Modeli so pomemben element
+tehnologij UI.
+
+00:08.119 --> 00:12.060
+Kadar
+želimo rešiti določen problem,
+
+00:12.080 --> 00:15.220
+pogosto nimamo možnosti, da o tem
+povprašamo strokovnjaka,
+
+00:15.240 --> 00:19.220
+ali da v praksi preverimo,
+katera rešitev je pravilna.
+
+00:19.240 --> 00:22.820
+Preveriti si želimo na drug način,
+
+00:22.840 --> 00:28.060
+na nek bolj matematičen način, s pomočjo računalnika.
+
+00:28.080 --> 00:29.540
+Prav to omogočajo modeli.
+
+00:29.560 --> 00:32.439
+So alternativa resničnosti, ki nam je na voljo
+
+00:32.439 --> 00:36.820
+za postavljanje vprašanj.
+
+00:36.840 --> 00:41.760
+Modele lahko po preprosti analogiji primerjamo z zemljevidi.
+
+00:41.800 --> 00:43.300
+Pomisilite na zemljevide.
+
+00:43.320 --> 00:45.940
+Od kod prihajajo?
+
+00:45.960 --> 00:51.300
+Zgodovina izdelovanja zemljevidov je izredno pestra.
+
+00:51.320 --> 00:57.020
+Raziskovalci so
+hodili po vsem svetu,
+
+00:57.040 --> 01:00.380
+s potovanj so prinašali zemljevide in jih postopoma izboljševali.
+
+01:00.400 --> 01:04.620
+Kasneje smo zemljevide
+začeli izdelovati s pomočjo slik,
+
+01:04.640 --> 01:08.900
+posnetih z baloni in nato s pomočjo satelitskih posnetkov.
+
+01:08.920 --> 01:15.700
+Podobno velja za umetno inteligenco.
+
+01:15.720 --> 01:18.620
+Prvi modeli so bili izdelani ročno.
+
+01:18.640 --> 01:21.980
+Te modele so izdelovali ljudje,
+
+01:22.000 --> 01:26.140
+danes pa večina modelov
+nastane s pomočjo strojnega učenja.
+
+01:26.160 --> 01:29.760
+Algoritmi strojnega učenja
+obdelujejo podatke
+
+01:29.760 --> 01:36.060
+in jih pretvarjajo v zemljevide,
+ki se v tem primeru imenujejo modeli.
+
+01:36.080 --> 01:38.920
+Druga stvar v zvezi
+z zemljevidi in modeli je,
+
+01:38.920 --> 01:42.140
+da obstajajo zelo
+različne vrste zemljevidov.
+
+01:42.160 --> 01:44.000
+Zemljevidi za vožnjo z avtomobilom,
+
+01:44.000 --> 01:47.180
+zemljevidi za vožnjo s kolesom,
+
+01:47.200 --> 01:52.020
+zemljevidi z velikanskimi merili
+in zemljevidi manjših meril.
+
+01:52.040 --> 01:56.200
+Služijo različnim namenom in so prilagojeni
+
+01:56.200 --> 02:02.260
+za namene in potrebe vsakega posameznega
+primera. Enako velja za modele.
+
+02:02.280 --> 02:05.780
+Poglejmo primer modela učenca.
+
+02:05.800 --> 02:10.220
+Morda imamo model za napovedovanje
+
+02:10.240 --> 02:12.420
+ocen, ki jih bo dobil določen učenec.
+
+02:12.440 --> 02:16.980
+Morda pa skušamo napovedati nekaj
+veliko bolj zapletenega,
+
+02:17.000 --> 02:19.780
+v tem primeru bomo potrebovali drugačen model.
+
+02:19.800 --> 02:24.220
+Za vsak primer je potrebna uporaba drugačnega algoritma.
+
+02:24.240 --> 02:27.420
+Poleg tega je treba razumeti,
+da zemljevidi
+
+02:27.440 --> 02:29.890
+ne ponujajo odgovorov na vse, kar nas zanima.
+
+02:29.920 --> 02:32.220
+Zemljevide moramo tudi znati brati.
+
+02:32.240 --> 02:35.940
+Vsi poznamo kakšnega prijatelja,
+sodelavca ali družinskega člana,
+
+02:35.960 --> 02:40.660
+ki ne zna dobro brati zemljevidov,
+drugi pa so v tem boljši.
+
+02:40.680 --> 02:46.700
+Poiskati morate poti -
+algoritme za branje zemljevida.
+
+02:46.720 --> 02:48.820
+Enako velja za modele.
+
+02:48.840 --> 02:50.500
+Ko imamo nek model,
+
+02:50.520 --> 02:52.980
+mu postavljamo vprašanja,
+
+02:53.000 --> 02:55.180
+in to je veščina,
+
+02:55.200 --> 03:00.380
+v katerih so zelo dobri strokovnjaki
+za programiranje:
+
+03:00.400 --> 03:05.300
+sposobnost uporabe modela za
+postavljanje bolj zapletenih vprašanj.
+
+03:05.320 --> 03:10.500
+Zemljevidi lahko vsebujejo tudi napake.
+
+03:10.520 --> 03:13.360
+Včasih se nam je na cesti pripetilo, da smo ugotovili,
+
+03:13.360 --> 03:18.960
+da križišča, ki
+smo ga pričakovali, ni tam.
+
+03:19.040 --> 03:21.940
+To je posledica številnih dejavnikov.
+
+03:21.960 --> 03:24.660
+Morda so bile meritve opravljene napačno,
+
+03:24.680 --> 03:30.820
+morda je prišlo do sprememb na cesti,
+ali pa gre za pristranskost,
+
+03:30.840 --> 03:35.100
+kar pomeni, da je bil zemljevid
+namenjen za določeno uporabo
+
+03:35.120 --> 03:37.060
+vi pa ga uporabljate za drug namen.
+
+03:37.080 --> 03:39.920
+Na primer, zemljevid podzemne železnice
+
+03:39.920 --> 03:44.340
+vam morda ne bo v pomoč,
+
+03:44.360 --> 03:50.380
+če potrebujete zelo
+posebno vrsto storitev.
+
+03:50.400 --> 03:53.340
+Enako velja za modele, torej za "zemljevide",
+
+03:53.360 --> 03:57.100
+ki jih izdelajo računalniki.
+
+04:03.000 --> 04:04.940
+Tudi zelo dober model lahko vsebuje napake,
+
+04:04.960 --> 04:09.420
+saj je bil ustvarjen na podlagi
+podatkov.
+
+04:09.440 --> 04:12.540
+Zemljevide uporabljamo
+za odgovore na različna vprašanja.
+
+04:12.560 --> 04:15.980
+Če imam zemljevid, lahko ugotovim,
+kako priti od točke A do točke B,
+
+04:16.000 --> 04:19.660
+koliko časa bom potreboval, da
+pridem od točke A do točke B,
+
+04:19.680 --> 04:24.100
+kako gost bo promet
+v določenem trenutku itd.
+
+04:24.120 --> 04:29.620
+Morda lahko zemljevid pomaga tudi pri izbiri
+najboljše ali najbolj slikovite poti
+
+04:29.640 --> 04:31.860
+od enega kraja do drugega.
+
+04:31.880 --> 04:33.580
+Enako velja za modele.
+
+04:33.600 --> 04:35.180
+Ko imamo model,
+
+04:35.200 --> 04:40.340
+ga lahko uporabimo na številne načine
+za postavljanje raznih vprašanj.
+
+04:40.360 --> 04:44.900
+Zemljevide lahko uporabimo tudi za ustvarjanje simulatorjev.
+
+04:44.920 --> 04:49.020
+Danes imamo v avtomobilih
+navigacijske sisteme,
+
+04:49.040 --> 04:53.420
+ki so prav to - zemljevidi, ki simulirajo promet
+
+04:53.440 --> 04:58.000
+Omogočajo nam, da natančno vemo,
+koliko časa bomo potrebovali
+
+04:58.000 --> 05:00.060
+za pot od točke A do točke B.
+
+05:00.080 --> 05:01.580
+Podobno velja za plovila.
+
+05:01.600 --> 05:05.380
+Če plujete z ladjo, lahko
+zemljevid uporabite
+
+05:05.400 --> 05:10.660
+za preverjanje vetrovnih razmer
+ali iskanje najboljše možne poti.
+
+05:10.680 --> 05:16.140
+Modele lahko na enak način uporabimo
+za izdelavo simulatorjev,
+
+05:16.160 --> 05:20.220
+tipičen primer je vremenska napoved.
+
+05:20.240 --> 05:22.420
+Pri tem model služi za
+
+05:22.440 --> 05:26.700
+napovedovanje vremena
+v naslednjih nekaj urah,
+
+05:26.720 --> 05:30.120
+kar nam pove, ali
+bomo potrebovali dežnik ali ne.

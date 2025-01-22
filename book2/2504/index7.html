@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Pomnilna celica</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="css/truth_table.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					<li><a href="../2307/index.html">Umetna inteligenca</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu5" role="button" aria-expanded="false">Digitalna vezja*</a>
+				  <div id="menu5" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2501/index.html">Logična vrata*</a></li>
+					<li><a href="../2502/index.html">Logični izrazi in vezja*</a></li>
+					<li><a href="../2503/index.html">Minimizacija logičnih vezij*</a></li>
+					<li class="active"><a href="../2504/index.html">Osnove digitalnega računalništva*</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Pomnilna celica</h1>
+
+<p align="justify">Združimo prej omenjeni vezji v skupno vezje, ki nam bo omogočalo pomnjenje enega bita informacje &ndash; torej vrednost <code>0</code> ali <code>1</code>. Združeno vezje imenujemo <b>zatič IN-ALI</b> (<i>ang. AND-OR latch</i>). Vezje ima dva vhoda. S prvim vhodom, imenovanim <b>nastavi</b> (<i>ang. set &ndash; S</i>) nastavimo vezje tako, da pomni vrednost <code>1</code>. Z drugim vhodom, imenovanim <b>ponastavi</b> (<i>ang. reset &ndash; R</i>), pa nastavimo vezje tako, da pomni vrednost <code>0</code>.</p>
+
+<p style="width:100%; height:160px; background:white url('img/bg-and-or-latch.svg') 0% 50% no-repeat;">
+  <logic-editor mode="tryout">
+    <script type="application/json">
+	{ // JSON5
+	  v: 6,
+	  opts: {zoom: 90},
+	  components: {
+		in0: {type: 'in', pos: [80, 85], id: 33, name: 'S'},
+		out0: {type: 'out', pos: [435, 105], id: 0, name: 'Q'},
+		not0: {type: 'not', pos: [195, 135], in: 1, out: 2},
+		and0: {type: 'and', pos: [320, 105], in: [3, 4], out: 5},
+		or0: {type: 'or', pos: [195, 75], in: [6, 7], out: 8},
+		in1: {type: 'in', pos: [80, 135], id: 9, name: 'R'},
+	  },
+	  wires: [[33, 7], [8, 3], [2, 4], [9, 1], [5, 0], [5, 6, {via: [[200, 20, 'w', {anchor: 'and0'}]]}]]
+	}
+    </script>
+  </logic-editor>
+</p>
+
+<p align="justify">Zatič IN-ALI bolj splošno imenujemo tudi <b>zatič RS</b> (<i>ang. RS latch</i>) zaradi vhodov ponastavi in nastvi. V splošnem pa za to vezje uporabimo samo logična vrata NE-IN, lahko pa tudi NE-ALI.</p>
+
+<p align="justify">Zatiču dodamo še en vhod s katerim nadziramo pisanje in branje. Ta vhod običajno imenujemo <b>omogočeno</b> (<i>ang. enabled &ndash; E</i>), saj z njim omogočamo oziroma onemogočamo pisanje / spreminjanje / pomnjenje vrednosti v vezju. Takšno vezje imenujemo <b>pomnilna celica RS</b> (<i>ang. RS flip-flop</i>).</p>
+
+<p align="justify">V praksi je zelo nepraktično, da ima naše vezje dva vhoda za shranjevanje vrednosti. Veliko bolj praktično bi bilo, če bi imelo vezje samo en vhod, preko katerega bi shranjevalo vrednosti. To lahko dosežemo tako, da uporabimo samo eno žico za vhod ter jo povežemo tako z vhodom <i>nastavi</i>, kot tudi z vhodom <i>ponastavi</i>, le da v tem primeru vhod negiramo s pomočjo logičnih vrat NE.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Sedaj imamo le en vhod za podatke, ki ga imenujemo vhod <b>podatki</b> (<i>ang. data &ndash; D</i>), poleg tega pa imamo še vhod <i>omogočeno</i>, kot prej. Tako dobljeno vezje, ki ga prikazuje spodnja interaktivnost, imenujemo <b>pomnilna celica D</b> (<i>ang. D flip-flop</i>).</p>
+
+<p style="width:100%; height:290px; background:white url('img/bg-d-flip-flop.svg') 0% 50% no-repeat;">
+  <logic-editor mode="tryout">
+    <script type="application/json">
+	{ // JSON5
+	  v: 6,
+	  opts: {zoom: 90},
+	  components: {
+		rect0: {type: 'rect', pos: [385, 170], anchor: 'rect1', w: 250, h: 210, color: 'yellow', strokeWidth: 2, caption: 'pomnilna celica RS'},
+		rect2: {type: 'rect', pos: [440, 165], anchor: 'rect1', w: 110, h: 150, color: 'yellow', strokeWidth: 2, caption: 'zatič RS'},
+		rect1: {type: 'rect', pos: [330, 170], w: 400, h: 280, color: 'yellow', strokeWidth: 2, caption: 'pomnilna celica D'},
+		in0: {type: 'in', pos: [75, 130], id: 33, name: 'D', val: 1},
+		out0: {type: 'out', pos: [580, 130], id: 37, name: 'Q'},
+		in1: {type: 'in', pos: [75, 200], id: 0, name: 'E', val: 1},
+		nand0: {type: 'nand', pos: [330, 120], anchor: 'rect0', in: [1, 2], out: 3},
+		nand1: {type: 'nand', pos: [330, 210], anchor: 'rect0', in: [4, 5], out: 6},
+		nand2: {type: 'nand', pos: [445, 130], anchor: 'rect0', in: [7, 8], out: 9},
+		nand3: {type: 'nand', pos: [445, 200], anchor: 'rect0', in: [10, 11], out: 12},
+		out1: {type: 'out', pos: [580, 200], id: 13, name: "Q'"},
+		not0: {type: 'not', pos: [185, 220], anchor: 'rect1', in: 14, out: 15},
+		label0: {type: 'label', pos: [290, 90], anchor: 'rect0', text: 'S'},
+		label1: {type: 'label', pos: [290, 245], anchor: 'rect0', text: 'R'},
+	  },
+	  wires: [[3, 7], [6, 11], [9, 37], [12, 13], [9, 10], [12, 8], [15, 5], [0, 2], [0, 4, {via: [[235, 180, 'e', {anchor: 'in1'}]]}], [33, 1], [33, 14, {via: [[175, 140, 's', {anchor: 'in0'}]]}]]
+	}
+    </script>
+  </logic-editor>
+</p>
+
+<p align="justify">Pomnilne celice imajo dva izhoda &ndash; običajni izhod, označen kot <i>Q</i>, na katerem dobimo oziroma preberemo shranjeno stanje pomnilne celice ter drugi izhod, označen kot <i>Q'</i>, na katerem dobimo oziroma preberemo negacijo shranjenega stanja pomnilne celice.</p>
+
+<p align="justify">Naj dodamo še, da je pri pomnilnih celicah na vhod <i>omogočeno</i> običajno povezana <b>sistemska ura</b> (<i>ang. clock &ndash; Clk</i>), kar zagtavlja, da se spremembe stanja pomnilne celice dogajajo sinhronizirano v celotnem sistemu (ob vsakokratni fazni spremembi sistemske ure).</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2503/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2504/index6.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2504/index.html">408</a></li>
+					<li><a href="../2504/index1.html">409</a></li>
+					<li><a href="../2504/index2.html">410</a></li>
+					<li><a href="../2504/index3.html">411</a></li>
+					<li><a href="../2504/index4.html">412</a></li>
+					<li><a href="../2504/index5.html">413</a></li>
+					<li><a href="../2504/index6.html">414</a></li>
+					<li class="active"><a href="#">415</a></li>
+					<li><a href="../2504/index8.html">416</a></li>
+					<li><a href="../2504/index9.html">417</a></li>
+					<li><a href="../2504/index10.html">418</a></li>
+					<li><a href="../2504/index11.html">419</a></li>
+					<li><a href="../2504/index12.html">420</a></li>
+					<li><a href="../2504/index13.html">421</a></li>
+					<li><a href="../2504/index8.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2901/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+    <!-- Logic Circuit Simulator -->
+	<script src="https://anzeljg.github.io/rin2/book2/js/logiga/bundle.js" type="module"></script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2504/index6.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2504/index8.html");
+    }
+});
+</script>
+
+</body>
+
+</html>

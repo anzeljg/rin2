@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-52 -74 104 130">
+ <title>Karnaugh map torus</title>
+ <desc>A 4&#215;4 Karnaugh map visualised as a torus and a plane by CMG Lee.</desc>
+ <style type="text/css">
+rect    { stroke:#000000; stroke-opacity:0.5; stroke-width:0.05; }
+ </style>
+ <filter id="filter_shadow" x="-50%" y="-50%" width="200%" height="200%">
+  <feColorMatrix type="matrix" values="0,0,0,0,0 0,0,0,0,0 0,0,0,0,0 0,0,0,0.3,0"/>
+  <feGaussianBlur stdDeviation="0.8"/>
+  <feOffset dx="0" dy="1.5"/>
+  <feBlend in="SourceGraphic"/>
+ </filter>
+ <defs>
+  <path id="a1" d="M  9, -8 Q  7,  0 12,  6 A 15,10 0 0 0 -12,  6 Q  -7,  0  -9, -8 A 15,10 0 0 1  9, -8"/>
+  <path id="a2" d="M  9, -8 Q  7,  0 12,  6                                         A 15,10 0 0 0  9, -8"/>
+  <path id="b1" d="M 18,-20 Q 11,-16  9, -8 A 15,10 0 0 0  -9, -8 Q -11,-16 -18,-20 A 30,20 0 0 1 18,-20"/>
+  <path id="b2" d="M 18,-20 Q 11,-16  9, -8 A 15,10 0 0 1   9,  8 Q  13,  8  18, 12 A 30,20 0 0 0 18,-20"/>
+  <path id="b3" d="M  9,  8 Q 13,  8 18, 12 A 30,20 0 0 1 -18, 12 Q -13,  8  -9,  8 A 15,10 0 0 0  9,  8"/>
+  <path id="c1" d="M 18,-20 Q 24,-23 27,-22 A 45,30 0 0 0 -27,-22 Q -24,-23 -18,-20 A 30,20 0 0 1 18,-20"/>
+  <path id="c2" d="M 18,-20 Q 24,-23 27,-22 A 45,30 0 0 1  27, 26 Q  22, 15  18, 12 A 30,20 0 0 0 18,-20"/>
+  <path id="c3" d="M 27, 26 Q 22, 15 18, 12 A 30,20 0 0 1 -18, 12 Q -22, 15 -27, 26 A 45,30 0 0 0 27, 26"/>
+  <path id="d2" d="M 27, 26 Q 32, 37 30, 44 A 50,40 0 0 0  27,-22                   A 45,30 0 0 1 27, 26"/>
+  <path id="d3" d="M 27, 26 Q 32, 37 30, 44 A 50,40 0 0 1 -30, 44 Q -32, 37 -27, 26 A 45,30 0 0 0 27, 26"/>
+  <rect id="box" x="-10" y="-5" width="20" height="10"/>
+  <circle id="spot" cx="0" cy="0" r="1"/>
+ </defs>
+ <circle cx="0" cy="0" r="99999" fill="#ffffff"/>
+ <g font-family="Helvetica,Arial,sans-serif" font-size="5" text-anchor="middle" fill="#000000" stroke="#000000" stroke-width="0.1">
+  <g filter="url(#filter_shadow)">
+   <use xlink:href="#d3" fill="#ff0000"/>
+   <use xlink:href="#d2" fill="#cc0066"/>
+
+   <use xlink:href="#d2" fill="#3366ff" transform="scale(-1,1)"/>
+
+   <use xlink:href="#a2" fill="#cc9966"/>
+   <use xlink:href="#a1" fill="#6699cc"/>
+   <use xlink:href="#a2" fill="#0099ff" transform="scale(-1,1)"/>
+   <use xlink:href="#b3" fill="#ffcc00"/>
+   <use xlink:href="#b2" fill="#cccc66"/>
+   <use xlink:href="#b1" fill="#66cccc"/>
+   <use xlink:href="#b2" fill="#00ccff" transform="scale(-1,1)"/>
+   <use xlink:href="#c3" fill="#ffff00"/>
+   <use xlink:href="#c2" fill="#ccff66"/>
+   <use xlink:href="#c1" fill="#66ffcc"/>
+   <use xlink:href="#c2" fill="#00ffff" transform="scale(-1,1)"/>
+   <text transform="translate(  0, 43)" x="0" y="0.7ex">0000</text>
+   <text transform="translate( 38, 28)" x="0" y="0.7ex">0100</text>
+
+   <text transform="translate(-36, 33)" x="0" y="0.7ex">1000</text>
+
+   <text transform="translate( 12, -1)" x="0" y="0.7ex">0101</text>
+   <text transform="translate(  0, -5)" x="0" y="0.7ex">1101</text>
+   <text transform="translate(-12, -1)" x="0" y="0.7ex">1001</text>
+   <text transform="translate(  0, 12)" x="0" y="0.7ex">0011</text>
+   <text transform="translate( 20, -7)" x="0" y="0.7ex">0111</text>
+   <text transform="translate(  0,-17)" x="0" y="0.7ex">1111</text>
+   <text transform="translate(-20, -7)" x="0" y="0.7ex">1011</text>
+   <text transform="translate(  0, 24)" x="0" y="0.7ex">0010</text>
+   <text transform="translate( 35,  8)" x="0" y="0.7ex">0110</text>
+   <text transform="translate(  0,-26)" x="0" y="0.7ex">1110</text>
+   <text transform="translate(-35,  8)" x="0" y="0.7ex">1010</text>
+   <use xlink:href="#spot" transform="translate(-28.5,20) scale(2)"/>
+   <use xlink:href="#spot" transform="translate(-21  ,24) scale(2)"/>
+   <use xlink:href="#spot" transform="translate(-25  ,32) scale(2)"/>
+   <use xlink:href="#spot" transform="translate(-32.5,28) scale(2)"/>
+  </g>
+  <g transform="translate(-30,-67)" filter="url(#filter_shadow)">
+   <g transform="translate( 0, 0)"><use xlink:href="#box" fill="#ff0000"/><text x="0" y="0.7ex">0000</text></g>
+   <g transform="translate(20, 0)"><use xlink:href="#box" fill="#cc0066"/><text x="0" y="0.7ex">0100</text></g>
+   <g transform="translate(40, 0)"><use xlink:href="#box" fill="#9933cc"/><text x="0" y="0.7ex">1100</text></g>
+   <g transform="translate(60, 0)"><use xlink:href="#box" fill="#3366ff"/><text x="0" y="0.7ex">1000</text></g>
+   <g transform="translate( 0,10)"><use xlink:href="#box" fill="#ff9900"/><text x="0" y="0.7ex">0001</text></g>
+   <g transform="translate(20,10)"><use xlink:href="#box" fill="#cc9966"/><text x="0" y="0.7ex">0101</text></g>
+   <g transform="translate(40,10)"><use xlink:href="#box" fill="#6699cc"/><text x="0" y="0.7ex">1101</text></g>
+   <g transform="translate(60,10)"><use xlink:href="#box" fill="#0099ff"/><text x="0" y="0.7ex">1001</text></g>
+   <g transform="translate( 0,20)"><use xlink:href="#box" fill="#ffcc00"/><text x="0" y="0.7ex">0011</text></g>
+   <g transform="translate(20,20)"><use xlink:href="#box" fill="#cccc66"/><text x="0" y="0.7ex">0111</text></g>
+   <g transform="translate(40,20)"><use xlink:href="#box" fill="#66cccc"/><text x="0" y="0.7ex">1111</text></g>
+   <g transform="translate(60,20)"><use xlink:href="#box" fill="#00ccff"/><text x="0" y="0.7ex">1011</text></g>
+   <g transform="translate( 0,30)"><use xlink:href="#box" fill="#ffff00"/><text x="0" y="0.7ex">0010</text></g>
+   <g transform="translate(20,30)"><use xlink:href="#box" fill="#ccff66"/><text x="0" y="0.7ex">0110</text></g>
+   <g transform="translate(40,30)"><use xlink:href="#box" fill="#66ffcc"/><text x="0" y="0.7ex">1110</text></g>
+   <g transform="translate(60,30)"><use xlink:href="#box" fill="#00ffff"/><text x="0" y="0.7ex">1010</text></g>
+   <use xlink:href="#spot" transform="translate(-8,-3)"/>
+   <use xlink:href="#spot" transform="translate(68,-3)"/>
+   <use xlink:href="#spot" transform="translate(-8,33)"/>
+   <use xlink:href="#spot" transform="translate(68,33)"/>
+  </g>
+  <!--
+  <ellipse cx="0"  cy="0" rx="15" ry="10"/>
+  <ellipse cx="0" cy="-4" rx="30" ry="20"/>
+  <ellipse cx="0"  cy="2" rx="45" ry="30"/>
+  <ellipse cx="0" cy="12" rx="50" ry="40"/>
+  <path d="M 0,2 Q 6,2 12,6 Q 7,0 9,-8 Q 11,-16 18,-20 Q 24,-23 27,-22 M 39,-13 L 30,44 Q 32,39 27,26 Q 22,15 18,12 Q 13,8 9,8"/>
+  <circle cx="0" cy="0" r="99999" fill="url(#pattern_grid50)"/>
+  <pattern id="pattern_grid1" patternUnits="userSpaceOnUse" width="1" height="1">
+   <rect x="0" y="0" width="1" height="1" fill="none"/>
+  </pattern>
+  <pattern id="pattern_grid5" patternUnits="userSpaceOnUse" width="5" height="5">
+   <rect x="0" y="0" width="5" height="5" fill="url(#pattern_grid1)"/>
+  </pattern>
+  <pattern id="pattern_grid10" patternUnits="userSpaceOnUse" width="10" height="10">
+   <rect x="0" y="0" width="10" height="10" fill="url(#pattern_grid5)"/>
+  </pattern>
+  <pattern id="pattern_grid50" patternUnits="userSpaceOnUse" width="50" height="50">
+   <rect x="0" y="0" width="50" height="50" fill="url(#pattern_grid10)"/>
+  </pattern>
+  -->
+ </g>
+</svg>

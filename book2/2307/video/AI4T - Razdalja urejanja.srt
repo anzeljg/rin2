@@ -1,0 +1,438 @@
+1
+00:00:02,320 --> 00:00:05,340
+Oglejmo si več o razdalji urejanja (urejevalniški razdalji).
+
+2
+00:00:05,360 --> 00:00:10,090
+Razdalje igrajo pomembno
+vlogo pri strojnem učenju
+
+3
+00:00:10,120 --> 00:00:13,580
+in s tem tudi na področju
+umetne inteligence.
+
+4
+00:00:13,600 --> 00:00:19,620
+V algoritmih uporabljamo razdalje, da
+izmerimo, kako blizu smo rešitvi,
+
+5
+00:00:19,640 --> 00:00:23,460
+gre torej za merjenje napak.
+
+6
+00:00:23,480 --> 00:00:27,780
+Razdalje uporabljamo tudi pri
+algoritmih za gručenje.
+
+7
+00:00:27,800 --> 00:00:30,940
+Tako lahko opredelmo, ali sta si dva objekta blizu,
+
+8
+00:00:30,960 --> 00:00:34,620
+ali daleč narazen.
+
+9
+00:00:34,640 --> 00:00:38,540
+Razdalje pa potrebujemo tudi za
+
+10
+00:00:38,560 --> 00:00:42,940
+ustvarjanje okolij okrog
+rešitev ali okrog predmetov,
+
+11
+00:00:42,960 --> 00:00:46,460
+kar nam omogoča tudi obvladovanje šumov.
+
+12
+00:00:46,480 --> 00:00:50,700
+Šume lahko vsebujejo podatki,
+kakor tudi rešitve,
+
+13
+00:00:50,720 --> 00:00:56,940
+razdalje pa pri tem omogočajo merjenje
+količine šuma, ki se pojavlja.
+
+14
+00:00:56,960 --> 00:01:00,260
+Povejmo še nekaj o razdaljah med besedili.
+
+15
+00:01:00,280 --> 00:01:02,740
+Besedila so vsekakor zelo pomembna -
+
+16
+00:01:02,760 --> 00:01:05,380
+na internetu najdemo ogromne količine besedil
+
+17
+00:01:05,400 --> 00:01:07,340
+in zato je veliko vprašanj in problemov strojnega učenja
+
+18
+00:01:07,360 --> 00:01:09,720
+posvečenih prav besedilom.
+
+20
+00:01:12,880 --> 00:01:15,210
+Eno izmed teh področij je prevajanje.
+
+21
+00:01:15,240 --> 00:01:18,180
+Pri samodejnem prevajanju
+
+22
+00:01:18,200 --> 00:01:23,460
+običajno merimo
+kakovost prevajalnika tako,
+
+23
+00:01:23,480 --> 00:01:30,260
+da pogledamo, kolikšna je razdalja med
+stavkom, ki ga ponudi strojni prevod.
+
+24
+00:01:30,280 --> 00:01:34,060
+od objekta (v tem primeru stavka), ki bi ga naj dobili.
+
+25
+00:01:34,080 --> 00:01:39,980
+Pri tem je potrebno opredeliti razdalje
+in jih izmeriti znotraj posameznega besedila.
+
+26
+00:01:40,000 --> 00:01:41,490
+Kako to storimo?
+
+27
+00:01:41,520 --> 00:01:48,210
+Pri besedilih se večkrat pojavijo
+vprašanja, kot so: kaj je bližje?
+
+28
+00:01:48,240 --> 00:01:53,290
+Ali lahko rečemo, da je beseda školjka bližje
+besedi šola, ali besedi ostriga?
+
+29
+00:01:53,320 --> 00:01:57,980
+Z vidika semantike je to zelo težko vprašanje;
+
+30
+00:01:58,000 --> 00:02:01,850
+morda je školjka res blizu
+besedi ostriga, ker sta obe
+
+31
+00:02:01,880 --> 00:02:03,850
+povezani z morjem.
+
+32
+00:02:03,880 --> 00:02:10,020
+Če pa pogledamo z vidika tiskanja,
+
+33
+00:02:10,040 --> 00:02:14,860
+potem je školjka bližje
+besedi šola, ker je število možnih napak
+
+34
+00:02:14,880 --> 00:02:19,300
+pri črkovanju, ki bi jih lahko naredili,
+če bi besedo školjka spremenili v besedo šola
+
+35
+00:02:19,320 --> 00:02:21,980
+veliko manjša od števila možnih napak,
+
+36
+00:02:22,000 --> 00:02:26,100
+ki bi jih lahko naredili, če bi
+spremenili besedo školjka v besedo ostriga.
+
+37
+00:02:26,120 --> 00:02:29,940
+Poglejmo sedaj še
+razdaljo, ki meri
+
+38
+00:02:29,960 --> 00:02:35,380
+število napak, ki jih naredimo
+pri transkripciji neke besede,
+
+39
+00:02:35,400 --> 00:02:38,450
+ko smo imeli v mislih drugo besedo.
+
+40
+00:02:38,480 --> 00:02:42,500
+Če želimo izmeriti število
+napak, ki jih naredimo pri
+
+41
+00:02:42,520 --> 00:02:45,060
+pisanju enega besedila namesto drugega,
+
+42
+00:02:45,080 --> 00:02:48,540
+bomo šteli tako imenovane
+operacije urejanja.
+
+43
+00:02:48,560 --> 00:02:51,700
+Najbolj tipične
+operacije urejanja so tri:
+
+44
+00:02:51,720 --> 00:02:53,610
+prva je brisanje.
+
+45
+00:02:53,640 --> 00:02:55,860
+Pozabil sem znak (črko).
+
+46
+00:02:55,880 --> 00:02:58,380
+Na primer, želel sem napisati glavna,
+
+47
+00:02:58,400 --> 00:03:02,420
+vendar sem napisal glava,
+torej sem pozabil črko (znak) n.
+
+48
+00:03:02,440 --> 00:03:04,780
+Druga operacija urejanja je obratna.
+
+49
+00:03:04,800 --> 00:03:07,540
+Imenuje se vstavljanje.
+
+50
+00:03:07,560 --> 00:03:13,140
+Hotel sem napisati kes, a sem
+napisal keks, torej sem vstavil črko k.
+
+51
+00:03:13,160 --> 00:03:16,020
+Tretja tipična operacija urejanja je zamenjava.
+
+52
+00:03:16,040 --> 00:03:19,420
+Eno črko zamenjam z drugo.
+
+53
+00:03:19,440 --> 00:03:25,100
+Na primer, želel sem napisati
+januar, a sem napisal jaguar.
+
+54
+00:03:25,120 --> 00:03:29,740
+Vsaka od teh operacij se
+šteje kot ena napaka
+
+55
+00:03:29,760 --> 00:03:34,820
+in kar nas zanima je, da
+izračunamo, koliko napak
+
+56
+00:03:34,840 --> 00:03:38,740
+je bilo potrebnih za prehod
+od ene besede do druge.
+
+57
+00:03:38,760 --> 00:03:41,100
+To je torej razdalja urejanja, ali tudi, urejevalniška razdalja.
+
+58
+00:03:41,120 --> 00:03:46,380
+Razdalja urejanja pomeni najmanjše
+število operacij urejanja,
+
+59
+00:03:46,400 --> 00:03:50,900
+ki so potrebne za prehod
+od ene besede do druge.
+
+60
+00:03:50,920 --> 00:03:55,380
+To je na nek način dolžina
+najkrajše poti urejanja
+
+61
+00:03:55,400 --> 00:03:57,900
+za prehod od ene besede do druge.
+
+62
+00:03:57,920 --> 00:04:01,060
+Ti primeri
+se nanašajo na besede,
+
+63
+00:04:01,080 --> 00:04:05,740
+vendar je princip delovanja povsem enak tudi pri besednih zvezah in besedilih.
+
+64
+00:04:05,760 --> 00:04:09,780
+Štejemo, koliko
+besed smo morali vstaviti,
+
+65
+00:04:09,800 --> 00:04:15,060
+izbrisati ali zamenjati, da smo prišli od
+enega besedila do drugega.
+
+66
+00:04:15,080 --> 00:04:19,860
+Na primer: razdalja med ENA in GEN je tri.
+
+67
+00:04:19,880 --> 00:04:23,180
+Dolžina minimalne poti je 3 (tri):
+
+68
+00:04:23,200 --> 00:04:27,300
+ENA z izbrisom postane EN,
+
+69
+00:04:27,320 --> 00:04:34,620
+nato postane GN s substitucijo, nato pa iz
+GN pridemo do GEN z vstavljanjem.
+
+70
+00:04:34,640 --> 00:04:39,140
+To ni dokaz, da je razdalja
+tri, ampak je dokaz,
+
+71
+00:04:39,160 --> 00:04:41,100
+da je razdalja največ tri.
+
+72
+00:04:41,120 --> 00:04:43,340
+Morda pa obstaja boljša rešitev.
+
+73
+00:04:43,360 --> 00:04:45,260
+Jo imate?
+
+74
+00:04:45,280 --> 00:04:48,020
+Ne, ne morete je imeti, ker boljše rešitve ni.
+
+75
+00:04:48,040 --> 00:04:52,940
+Obstajajo algoritmi, ki nam
+omogočajo iskanje optimalne rešitve.
+
+76
+00:04:52,960 --> 00:04:58,980
+Za boljšo predstavo lahko izračunate bolj zapleteno razdaljo, npr. med besedama MAN in WOMAN
+
+77
+00:04:59,000 --> 00:05:03,620
+in preverite, v koliko operacijah
+pridete od ene do druge.
+
+78
+00:05:03,640 --> 00:05:08,040
+Bodite pozorni na to, da "manjkajoči" znaki (črke) - torej prazna
+mesta, štejejo enako kot ena črka.
+
+79
+00:05:08,600 --> 00:05:13,260
+To seveda ni
+edini način za računanje razdalje
+
+80
+00:05:13,280 --> 00:05:15,460
+med besedami ali besedili.
+
+81
+00:05:15,480 --> 00:05:18,460
+Ta primer sem izbral, ker menim, da gre za zelo
+
+82
+00:05:18,480 --> 00:05:23,380
+dobro znano razdaljo, poleg tega pa kaže,
+kako lahko izračunate razdalje med
+
+83
+00:05:23,400 --> 00:05:25,060
+zapletenimi objekti.
+
+84
+00:05:25,080 --> 00:05:30,500
+Še pomembnejša, danes zelo široko uporabljana,
+pa je kosinusna razdalja.
+
+85
+00:05:30,520 --> 00:05:33,900
+Ta je nekoliko bolj zapletena.
+
+86
+00:05:33,920 --> 00:05:37,540
+Imate dva stavka
+
+87
+00:05:37,560 --> 00:05:43,380
+in vsak stavek postane vektor v visokodimenzionalnem prostoru.
+
+88
+00:05:43,400 --> 00:05:46,820
+To pomeni, da je treba za vsak stavek
+
+89
+00:05:46,840 --> 00:05:50,820
+prešteti, kolikokrat se v njem
+pojavi posamezna beseda,
+
+90
+00:05:50,840 --> 00:05:53,580
+in enako naredimo z drugim stavkom,
+
+91
+00:05:53,600 --> 00:05:56,500
+da lahko nato uskladimo te dimenzije.
+
+92
+00:05:56,520 --> 00:05:59,980
+Kolikokrat se pojavi beseda "je"?
+
+93
+00:06:00,000 --> 00:06:03,300
+Kolikokrat se pojavi beseda "mož"?
+
+94
+00:06:03,320 --> 00:06:05,740
+Kolikokrat se pojavi beseda "videl"?
+
+95
+00:06:05,760 --> 00:06:09,260
+...in tako naprej. S primerjavo
+teh dveh vrednosti,
+
+96
+00:06:09,280 --> 00:06:15,380
+ki ju predstavljata vektorja,
+lahko izračunamo kot vektorja,
+
+97
+00:06:15,400 --> 00:06:20,860
+kosinus tega kota pa nam da
+dober podatek o tem, kako podobna,
+
+98
+00:06:20,880 --> 00:06:25,580
+oziroma, kako različna sta si oba
+vektorja med seboj, in s tem obe besedili.
+
+99
+00:06:25,600 --> 00:06:29,280
+Kosinusna razdalje je razdalja, ki se zelo pogosto
+uporablja pri strojnem učenju.

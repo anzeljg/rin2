@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100%"
+   height="100%"
+   viewBox="-52 -74 104 130"
+   version="1.1"
+   id="svg207"
+   sodipodi:docname="Karnaugh_map_torus_v2.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata211">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1058"
+     inkscape:window-height="974"
+     id="namedview209"
+     showgrid="false"
+     inkscape:zoom="4.47"
+     inkscape:cx="34.895714"
+     inkscape:cy="65"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g205" />
+  <title
+     id="title2">Karnaugh map torus</title>
+  <desc
+     id="desc4">A 4×4 Karnaugh map visualised as a torus and a plane by CMG Lee.</desc>
+  <style
+     type="text/css"
+     id="style6">
+rect    { stroke:#000000; stroke-opacity:0.5; stroke-width:0.05; }
+ </style>
+  <filter
+     id="filter_shadow"
+     x="-50%"
+     y="-50%"
+     width="200%"
+     height="200%">
+    <feColorMatrix
+       type="matrix"
+       values="0,0,0,0,0 0,0,0,0,0 0,0,0,0,0 0,0,0,0.3,0"
+       id="feColorMatrix8" />
+    <feGaussianBlur
+       stdDeviation="0.8"
+       id="feGaussianBlur10" />
+    <feOffset
+       dx="0"
+       dy="1.5"
+       id="feOffset12"
+       result="result1" />
+    <feBlend
+       in="SourceGraphic"
+       in2="result1"
+       id="feBlend14" />
+  </filter>
+  <defs
+     id="defs29">
+    <path
+       id="a1"
+       d="M  9, -8 Q  7,  0 12,  6 A 15,10 0 0 0 -12,  6 Q  -7,  0  -9, -8 A 15,10 0 0 1  9, -8" />
+    <path
+       id="a2"
+       d="M  9, -8 Q  7,  0 12,  6                                         A 15,10 0 0 0  9, -8" />
+    <path
+       id="b1"
+       d="M 18,-20 Q 11,-16  9, -8 A 15,10 0 0 0  -9, -8 Q -11,-16 -18,-20 A 30,20 0 0 1 18,-20" />
+    <path
+       id="b2"
+       d="M 18,-20 Q 11,-16  9, -8 A 15,10 0 0 1   9,  8 Q  13,  8  18, 12 A 30,20 0 0 0 18,-20" />
+    <path
+       id="b3"
+       d="M  9,  8 Q 13,  8 18, 12 A 30,20 0 0 1 -18, 12 Q -13,  8  -9,  8 A 15,10 0 0 0  9,  8" />
+    <path
+       id="c1"
+       d="M 18,-20 Q 24,-23 27,-22 A 45,30 0 0 0 -27,-22 Q -24,-23 -18,-20 A 30,20 0 0 1 18,-20" />
+    <path
+       id="c2"
+       d="M 18,-20 Q 24,-23 27,-22 A 45,30 0 0 1  27, 26 Q  22, 15  18, 12 A 30,20 0 0 0 18,-20" />
+    <path
+       id="c3"
+       d="M 27, 26 Q 22, 15 18, 12 A 30,20 0 0 1 -18, 12 Q -22, 15 -27, 26 A 45,30 0 0 0 27, 26" />
+    <path
+       id="d2"
+       d="M 27, 26 Q 32, 37 30, 44 A 50,40 0 0 0  27,-22                   A 45,30 0 0 1 27, 26" />
+    <path
+       id="d3"
+       d="M 27, 26 Q 32, 37 30, 44 A 50,40 0 0 1 -30, 44 Q -32, 37 -27, 26 A 45,30 0 0 0 27, 26" />
+    <rect
+       id="box"
+       x="-10"
+       y="-5"
+       width="20"
+       height="10" />
+    <circle
+       id="spot"
+       cx="0"
+       cy="0"
+       r="1" />
+  </defs>
+  <circle
+     cx="57.300274"
+     cy="-12.121212"
+     r="99999"
+     id="circle31"
+     style="fill:#ffffff" />
+  <g
+     font-family="Helvetica,Arial,sans-serif"
+     font-size="5"
+     text-anchor="middle"
+     fill="#000000"
+     stroke="#000000"
+     stroke-width="0.1"
+     id="g205">
+    <g
+       filter="url(#filter_shadow)"
+       id="g97">
+      <use
+         xlink:href="#d3"
+         fill="#ff0000"
+         id="use33" />
+      <use
+         xlink:href="#d2"
+         fill="#cc0066"
+         id="use35" />
+      <use
+         xlink:href="#d2"
+         fill="#3366ff"
+         transform="scale(-1,1)"
+         id="use37" />
+      <use
+         xlink:href="#a2"
+         fill="#cc9966"
+         id="use39" />
+      <use
+         xlink:href="#a1"
+         fill="#6699cc"
+         id="use41" />
+      <use
+         xlink:href="#a2"
+         fill="#0099ff"
+         transform="scale(-1,1)"
+         id="use43" />
+      <use
+         xlink:href="#b3"
+         fill="#ffcc00"
+         id="use45" />
+      <use
+         xlink:href="#b2"
+         fill="#cccc66"
+         id="use47" />
+      <use
+         xlink:href="#b1"
+         fill="#66cccc"
+         id="use49" />
+      <use
+         xlink:href="#b2"
+         fill="#00ccff"
+         transform="scale(-1,1)"
+         id="use51" />
+      <use
+         xlink:href="#c3"
+         fill="#ffff00"
+         id="use53" />
+      <use
+         xlink:href="#c2"
+         fill="#ccff66"
+         id="use55" />
+      <use
+         xlink:href="#c1"
+         fill="#66ffcc"
+         id="use57" />
+      <use
+         xlink:href="#c2"
+         fill="#00ffff"
+         transform="scale(-1,1)"
+         id="use59" />
+      <text
+         transform="translate(  0, 43)"
+         x="0"
+         y="0.7ex"
+         id="text61">0000</text>
+      <text
+         transform="translate(38,28)"
+         x="0"
+         y="0.69999999ex"
+         id="text63">0001</text>
+      <text
+         transform="translate(-36,33)"
+         x="0"
+         y="0.69999999ex"
+         id="text65">0010</text>
+      <text
+         transform="translate( 12, -1)"
+         x="0"
+         y="0.7ex"
+         id="text67">0101</text>
+      <text
+         transform="translate(0,-5)"
+         x="0"
+         y="0.69999999ex"
+         id="text69">0111</text>
+      <text
+         transform="translate(-12,-1)"
+         x="0"
+         y="0.69999999ex"
+         id="text71">0110</text>
+      <text
+         transform="translate(0,12)"
+         x="0"
+         y="0.69999999ex"
+         id="text73">1100</text>
+      <text
+         transform="translate(20,-7)"
+         x="0"
+         y="0.69999999ex"
+         id="text75">1101</text>
+      <text
+         transform="translate(  0,-17)"
+         x="0"
+         y="0.7ex"
+         id="text77">1111</text>
+      <text
+         transform="translate(-20,-7)"
+         x="0"
+         y="0.69999999ex"
+         id="text79">1110</text>
+      <text
+         transform="translate(0,24)"
+         x="0"
+         y="0.69999999ex"
+         id="text81">1000</text>
+      <text
+         transform="translate(35,8)"
+         x="0"
+         y="0.69999999ex"
+         id="text83">1001</text>
+      <text
+         transform="translate(0,-26)"
+         x="0"
+         y="0.69999999ex"
+         id="text85">1011</text>
+      <text
+         transform="translate(-35,  8)"
+         x="0"
+         y="0.7ex"
+         id="text87">1010</text>
+      <use
+         xlink:href="#spot"
+         transform="translate(-28.5,20) scale(2)"
+         id="use89" />
+      <use
+         xlink:href="#spot"
+         transform="translate(-21  ,24) scale(2)"
+         id="use91" />
+      <use
+         xlink:href="#spot"
+         transform="translate(-25  ,32) scale(2)"
+         id="use93" />
+      <use
+         xlink:href="#spot"
+         transform="translate(-32.5,28) scale(2)"
+         id="use95" />
+    </g>
+    <g
+       transform="translate(-30,-67)"
+       filter="url(#filter_shadow)"
+       id="g203">
+      <g
+         transform="translate( 0, 0)"
+         id="g103">
+        <use
+           xlink:href="#box"
+           fill="#ff0000"
+           id="use99" />
+        <text
+           x="0"
+           y="0.7ex"
+           id="text101">0000</text>
+      </g>
+      <g
+         transform="translate(20, 0)"
+         id="g109">
+        <use
+           xlink:href="#box"
+           fill="#cc0066"
+           id="use105" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text107">0001</text>
+      </g>
+      <g
+         transform="translate(40, 0)"
+         id="g115">
+        <use
+           xlink:href="#box"
+           fill="#9933cc"
+           id="use111" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text113">0011</text>
+      </g>
+      <g
+         transform="translate(60, 0)"
+         id="g121">
+        <use
+           xlink:href="#box"
+           fill="#3366ff"
+           id="use117" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text119">0010</text>
+      </g>
+      <g
+         transform="translate( 0,10)"
+         id="g127">
+        <use
+           xlink:href="#box"
+           fill="#ff9900"
+           id="use123" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text125">0100</text>
+      </g>
+      <g
+         transform="translate(20,10)"
+         id="g133">
+        <use
+           xlink:href="#box"
+           fill="#cc9966"
+           id="use129" />
+        <text
+           x="0"
+           y="0.7ex"
+           id="text131">0101</text>
+      </g>
+      <g
+         transform="translate(40,10)"
+         id="g139">
+        <use
+           xlink:href="#box"
+           fill="#6699cc"
+           id="use135" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text137">0111</text>
+      </g>
+      <g
+         transform="translate(60,10)"
+         id="g145">
+        <use
+           xlink:href="#box"
+           fill="#0099ff"
+           id="use141" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text143">0110</text>
+      </g>
+      <g
+         transform="translate( 0,20)"
+         id="g151">
+        <use
+           xlink:href="#box"
+           fill="#ffcc00"
+           id="use147" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text149">1100</text>
+      </g>
+      <g
+         transform="translate(20,20)"
+         id="g157">
+        <use
+           xlink:href="#box"
+           fill="#cccc66"
+           id="use153" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text155">1101</text>
+      </g>
+      <g
+         transform="translate(40,20)"
+         id="g163">
+        <use
+           xlink:href="#box"
+           fill="#66cccc"
+           id="use159" />
+        <text
+           x="0"
+           y="0.7ex"
+           id="text161">1111</text>
+      </g>
+      <g
+         transform="translate(60,20)"
+         id="g169">
+        <use
+           xlink:href="#box"
+           fill="#00ccff"
+           id="use165" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text167">1110</text>
+      </g>
+      <g
+         transform="translate( 0,30)"
+         id="g175">
+        <use
+           xlink:href="#box"
+           fill="#ffff00"
+           id="use171" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text173">1000</text>
+      </g>
+      <g
+         transform="translate(20,30)"
+         id="g181">
+        <use
+           xlink:href="#box"
+           fill="#ccff66"
+           id="use177" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text179">1001</text>
+      </g>
+      <g
+         transform="translate(40,30)"
+         id="g187">
+        <use
+           xlink:href="#box"
+           fill="#66ffcc"
+           id="use183" />
+        <text
+           x="0"
+           y="0.69999999ex"
+           id="text185">1011</text>
+      </g>
+      <g
+         transform="translate(60,30)"
+         id="g193">
+        <use
+           xlink:href="#box"
+           fill="#00ffff"
+           id="use189" />
+        <text
+           x="0"
+           y="0.7ex"
+           id="text191">1010</text>
+      </g>
+      <use
+         xlink:href="#spot"
+         transform="translate(-8,-3)"
+         id="use195" />
+      <use
+         xlink:href="#spot"
+         transform="translate(68,-3)"
+         id="use197" />
+      <use
+         xlink:href="#spot"
+         transform="translate(-8,33)"
+         id="use199" />
+      <use
+         xlink:href="#spot"
+         transform="translate(68,33)"
+         id="use201" />
+    </g>
+    <!--
+  <ellipse cx="0"  cy="0" rx="15" ry="10"/>
+  <ellipse cx="0" cy="-4" rx="30" ry="20"/>
+  <ellipse cx="0"  cy="2" rx="45" ry="30"/>
+  <ellipse cx="0" cy="12" rx="50" ry="40"/>
+  <path d="M 0,2 Q 6,2 12,6 Q 7,0 9,-8 Q 11,-16 18,-20 Q 24,-23 27,-22 M 39,-13 L 30,44 Q 32,39 27,26 Q 22,15 18,12 Q 13,8 9,8"/>
+  <circle cx="0" cy="0" r="99999" fill="url(#pattern_grid50)"/>
+  <pattern id="pattern_grid1" patternUnits="userSpaceOnUse" width="1" height="1">
+   <rect x="0" y="0" width="1" height="1" fill="none"/>
+  </pattern>
+  <pattern id="pattern_grid5" patternUnits="userSpaceOnUse" width="5" height="5">
+   <rect x="0" y="0" width="5" height="5" fill="url(#pattern_grid1)"/>
+  </pattern>
+  <pattern id="pattern_grid10" patternUnits="userSpaceOnUse" width="10" height="10">
+   <rect x="0" y="0" width="10" height="10" fill="url(#pattern_grid5)"/>
+  </pattern>
+  <pattern id="pattern_grid50" patternUnits="userSpaceOnUse" width="50" height="50">
+   <rect x="0" y="0" width="50" height="50" fill="url(#pattern_grid10)"/>
+  </pattern>
+  -->
+  </g>
+</svg>

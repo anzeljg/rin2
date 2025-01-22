@@ -1,0 +1,659 @@
+1
+00:00:00,120 --> 00:00:05,020
+Evalvacija (vrednotenje, ocenjevanje) je pomemben element
+
+2
+00:00:05,040 --> 00:00:06,820
+na vseh področjih znanosti in razvoja tehnologij.
+
+3
+00:00:06,840 --> 00:00:10,580
+Enako velja za
+
+4
+00:00:10,600 --> 00:00:12,940
+strojno učenje in umetno inteligenco.
+
+5
+00:00:12,960 --> 00:00:16,420
+Evalvacija je bistvenega pomena, ko govorimo o programski opremi (softver).
+
+6
+00:00:16,440 --> 00:00:21,900
+Programsko opremo naj bi uporabljali na varen način.
+
+7
+00:00:21,920 --> 00:00:25,300
+Evalviramo (ovrednotimo, ocenimo) jo lahko
+na dva tipična načina.
+
+8
+00:00:25,320 --> 00:00:27,700
+Prvi je s pomočjo matematike,
+
+9
+00:00:27,720 --> 00:00:30,100
+kjer gre za "dokazovanje".
+
+10
+00:00:30,120 --> 00:00:32,620
+Drugi način je testiranje.
+
+11
+00:00:32,640 --> 00:00:38,580
+Inženirji programske opreme porabijo
+veliko časa za testiranje svojih izdelkov.
+
+12
+00:00:38,600 --> 00:00:42,580
+Tudi v primeru umetne inteligence
+in strojnega učenja
+
+13
+00:00:42,600 --> 00:00:45,700
+je to izredno pomembno.
+
+14
+00:00:45,720 --> 00:00:47,140
+Toda pristop je pri vsakem drugačen.
+
+15
+00:00:47,160 --> 00:00:52,260
+Medtem ko pri programski opremi ves
+čas pričakujemo pravilen odgovor,
+
+16
+00:00:52,280 --> 00:00:54,020
+v primeru strojnega učenja
+
+17
+00:00:54,040 --> 00:00:57,260
+ne pričakujemo vedno pravilnega odgovora.
+
+18
+00:00:57,280 --> 00:01:03,140
+Pričakujemo le, da bo sistem naredil
+določeno število napak, kar je sprejemljivo.
+
+19
+00:01:03,160 --> 00:01:05,960
+Pri strojnem učenju si torej v resnici prizadevamo
+
+20
+00:01:05,960 --> 00:01:09,700
+zanesljivo izvedeti,
+
+21
+00:01:09,720 --> 00:01:13,700
+koliko napak bo naredil sistem.
+
+22
+00:01:13,720 --> 00:01:15,570
+Poglejmo primer.
+
+23
+00:01:15,600 --> 00:01:19,360
+Recimo, da imamo
+
+24
+00:01:19,360 --> 00:01:22,850
+programsko opremo, ki
+temelji na strojnem učenju
+
+25
+00:01:22,880 --> 00:01:26,700
+in ki naj bi nam pomagala pri ocenjevanju
+
+26
+00:01:26,720 --> 00:01:30,020
+testov, ki so
+jih pisali učenci.
+
+27
+00:01:30,040 --> 00:01:34,660
+In zakaj bi takšna programska
+oprema delala napake?
+
+28
+00:01:34,680 --> 00:01:36,570
+Razlogov je več.
+
+29
+00:01:36,600 --> 00:01:40,420
+Prvi je, da sistem morda ni bil
+ustrezno naučen.
+
+30
+00:01:40,440 --> 00:01:44,060
+Vemo, da strojno učenje
+temelji na primerih.
+
+31
+00:01:44,080 --> 00:01:47,820
+In seveda, če se je sistem
+učil na premalem številu primerov,
+
+32
+00:01:47,840 --> 00:01:49,850
+število napak, ki jih bo naredil,
+
+33
+00:01:49,880 --> 00:01:55,490
+ne bo tako veliko kot če bi se
+učil na veliko več primerih.
+
+34
+00:01:55,520 --> 00:01:56,800
+Drugi razlog je, da morda primeri,
+
+35
+00:01:56,800 --> 00:02:00,420
+na katerih se je stroj učil,
+
+36
+00:02:00,440 --> 00:02:05,460
+niso podobni našim učencem.
+
+37
+00:02:05,480 --> 00:02:10,700
+Lahko da je tako, ker učenci prihajajo
+iz dveh različnih držav.
+
+38
+00:02:10,720 --> 00:02:12,560
+Zato vedno ne moremo uporabljati
+
+39
+00:02:12,560 --> 00:02:16,170
+programske opreme, ki "se je
+učila" nekje drugje.
+
+40
+00:02:16,200 --> 00:02:17,280
+Tretji razlog je lahko,
+
+41
+00:02:17,280 --> 00:02:19,560
+da uporabljamo programsko opremo,
+
+42
+00:02:19,560 --> 00:02:22,450
+ki sicer ponuja določena zagotovila,
+
+43
+00:02:22,480 --> 00:02:25,040
+hkrati pa ne ustreza
+
+44
+00:02:25,040 --> 00:02:29,020
+načinu uporabe v učilnici, ki ga želimo.
+
+45
+00:02:29,040 --> 00:02:31,780
+Tudi o tem velja razmisliti.
+
+46
+00:02:31,800 --> 00:02:33,860
+Ko govorimo o napakah, vidimo,
+
+47
+00:02:33,880 --> 00:02:39,020
+da so pogosto prikazane kot
+"magične" številke: 3 %, 2 %, 5 %.
+
+48
+00:02:39,040 --> 00:02:41,660
+Nas pa zanima pomen teh številk.
+
+49
+00:02:41,680 --> 00:02:43,420
+Kaj torej pomenijo?
+
+50
+00:02:43,440 --> 00:02:48,660
+Na primer, napaka 3 % v določenem
+klasifikacijskem sistemu
+
+51
+00:02:48,680 --> 00:02:54,420
+pomeni, da bodo v 100
+primerih trije napačni.
+
+52
+00:02:54,440 --> 00:02:56,640
+Morda bo nek učenec namesto pozitivne ocene dobil negativno,
+
+53
+00:02:56,640 --> 00:03:00,100
+ali obratno.
+
+54
+00:03:00,120 --> 00:03:03,940
+V sistemih, ki
+pomagajo pri ocenjevanju,
+
+55
+00:03:03,960 --> 00:03:06,100
+lahko napaka pri merjenju pomeni,
+
+56
+00:03:06,120 --> 00:03:10,900
+da je sistem napovedal drugačno oceno
+
+57
+00:03:10,920 --> 00:03:14,640
+od tiste, ki bi jo učencu dal učitelj.
+
+58
+00:03:15,000 --> 00:03:17,700
+Zato moramo poskrbeti, da te sisteme, ki zagotovo delajo napake,
+
+59
+00:03:17,720 --> 00:03:20,540
+pravilno interpretiramo.
+
+60
+00:03:20,560 --> 00:03:22,640
+Poglejmo še en skrajni primer:
+
+61
+00:03:22,640 --> 00:03:27,940
+recimo, da želimo napovedati, ali
+bo otrok postal zdravnik ali ne.
+
+62
+00:03:27,960 --> 00:03:30,860
+Sistem, ki bo vedno napovedal negativen rezultat,
+
+63
+00:03:30,880 --> 00:03:37,340
+bo pravzaprav zelo
+zanesljiv z vidika "magičnih številk",
+
+64
+00:03:37,360 --> 00:03:42,380
+saj naj bi bilo v zahodnem
+svetu v populaciji
+
+65
+00:03:42,400 --> 00:03:47,820
+v povprečju 1,5 zdravnika
+na 1000 prebivalcev;
+
+66
+00:03:47,840 --> 00:03:52,180
+kar dejansko pomeni, da je napaka sistema
+manjša, veliko manjša od 1 %
+
+67
+00:03:52,200 --> 00:03:56,500
+vsakič, ko napove, da nihče
+nikoli ne bo postal zdravnik.
+
+68
+00:03:56,520 --> 00:04:01,610
+S tem se seveda ukvarjajo strokovnjaki na podorčju strojnega učenja,
+
+69
+00:04:01,640 --> 00:04:04,820
+toda to vprašanje je zelo zapleteno.
+
+70
+00:04:04,840 --> 00:04:07,820
+Na kakšen način torej želimo oceniti stopnjo napake?
+
+71
+00:04:07,840 --> 00:04:11,580
+V starih časih so se zanašali na princip,
+"počakajamo-in-bomo-videli".
+
+72
+00:04:11,600 --> 00:04:14,580
+Zavedati se moramo, da je
+napovedovanje vedno obstajalo.
+
+73
+00:04:14,600 --> 00:04:16,260
+V srednjem veku so tistim,
+
+74
+00:04:16,280 --> 00:04:18,880
+ki so napovedovali prihodnost,
+
+75
+00:04:18,880 --> 00:04:22,060
+rekli čarovnice in
+jih sežigali na grmadah.
+
+76
+00:04:22,080 --> 00:04:24,940
+Tega si seveda danes ne želimo.
+
+77
+00:04:24,960 --> 00:04:26,740
+Zato tega ne počnemo na ta način.
+
+78
+00:04:26,760 --> 00:04:29,980
+Ljudje želijo zagotovilo,
+še preden se kaj zgodi.
+
+79
+00:04:30,000 --> 00:04:33,180
+Zato moramo
+eksperimentirati
+
+80
+00:04:33,200 --> 00:04:37,660
+kar nam omogoča ne le napovedovanje rezultatov,
+
+81
+00:04:37,680 --> 00:04:41,740
+temveč tudi napovedovanje števila napak
+v prihodnosti,
+
+82
+00:04:41,760 --> 00:04:45,060
+ko bomo določen sistem uporabljali.
+
+83
+00:04:45,080 --> 00:04:48,100
+Obstajajo številni teoretični
+
+84
+00:04:48,120 --> 00:04:52,420
+in praktični protokoli, ki
+jih uporabljajo znanstveniki
+
+85
+00:04:52,440 --> 00:04:55,220
+na področju umetne inteligence.
+
+86
+00:04:55,240 --> 00:05:00,940
+Nekateri so zelo podobni
+tistim, ki jih uporabljajo zdravniki,
+
+87
+00:05:00,960 --> 00:05:04,220
+ko uvajajo nova zdravila.
+
+88
+00:05:04,240 --> 00:05:06,540
+Na primer, v dveh skupinah
+
+89
+00:05:06,560 --> 00:05:10,600
+ena uporablja
+staro zdravilo, druga pa
+
+90
+00:05:10,600 --> 00:05:13,460
+novo zdravilo.
+
+91
+00:05:13,480 --> 00:05:16,180
+Nihče ne ve, katero zdravilo uporablja.
+
+92
+00:05:16,200 --> 00:05:21,500
+Uspeh se nato izmeri
+po nekaj mesecih zdravljenja.
+
+93
+00:05:21,520 --> 00:05:25,740
+Podobno počnemo na podorčju UI, kar imenujemo A/B testiranje.
+
+94
+00:05:25,760 --> 00:05:29,820
+Toda ves čas se moramo
+zavedati, da s testiranjem
+
+95
+00:05:29,840 --> 00:05:32,740
+dobimo le oceno napake.
+
+96
+00:05:32,760 --> 00:05:36,820
+Nobene gotovosti ni
+o tem, kaj se bo v resnici zgodilo,
+
+97
+00:05:36,840 --> 00:05:41,940
+saj se populacije
+sčasoma spreminjajo.
+
+98
+00:05:41,960 --> 00:05:47,820
+To seveda velja predvsem za izobraževanje.
+
+99
+00:05:47,840 --> 00:05:53,460
+Pomembno vprašanje pri testiranju
+je vprašanje pristranskosti.
+
+100
+00:05:53,480 --> 00:05:55,380
+Kaj je pristranskost?
+
+101
+00:05:55,400 --> 00:06:01,660
+Izraz pristranskost se v tem kontekstu
+uporablja, kadar govorimo o modelu,
+
+102
+00:06:01,680 --> 00:06:04,500
+katerega rezultat bo
+
+103
+00:06:04,520 --> 00:06:09,340
+pozitivna ali
+negativna tendenca
+
+104
+00:06:09,360 --> 00:06:13,700
+v odnosu do posameznika ali
+do skupine posameznikov.
+
+105
+00:06:13,720 --> 00:06:17,620
+To doživljamo kot nepošteno.
+
+106
+00:06:17,640 --> 00:06:22,380
+Skupini, na katero se takšna tendenca nanaša,
+
+107
+00:06:22,400 --> 00:06:26,940
+se to najbrž ne bo zdelo nepošteno,
+toda zdelo se bo nepošteno drugim.
+
+108
+00:06:26,960 --> 00:06:29,860
+Pristranskost in predsodki se lahko
+pojavijo na več načinov.
+
+109
+00:06:29,880 --> 00:06:32,860
+Za to je lahko kriv
+proces zbiranja podatkov.
+
+110
+00:06:32,880 --> 00:06:35,340
+Ko smo zbirali podatke,
+
+111
+00:06:35,360 --> 00:06:40,620
+smo jih zbirali samo za
+neko določeno podskupino.
+
+112
+00:06:40,640 --> 00:06:43,220
+Predsodki in pristranskost pa so prisotni tudi v družbi nasploh,
+
+113
+00:06:43,240 --> 00:06:45,700
+zato bodo podatki, ki jih zbiramo,
+
+114
+00:06:45,720 --> 00:06:47,140
+četudi to počnemo na pošten način,
+
+115
+00:06:47,160 --> 00:06:50,420
+odražali pristranskost družbe.
+
+116
+00:06:50,440 --> 00:06:54,060
+Kaj pa se zgodi z učnimi algoritmi?
+
+117
+00:06:54,080 --> 00:06:57,060
+Učni algoritem poskuša doseči uspeh.
+
+118
+00:06:57,080 --> 00:06:59,980
+Njegov cilj je poskušati doseči rezultate,
+
+119
+00:07:00,000 --> 00:07:02,860
+ki so boljši od rezultatov
+človeškega strokovnjaka
+
+120
+00:07:02,880 --> 00:07:05,300
+in včasih je najboljša pot do uspeha
+
+121
+00:07:05,320 --> 00:07:10,220
+žal ta, da smo pristranski.
+
+122
+00:07:10,240 --> 00:07:16,080
+Zato moramo to pristranskost preveriti
+in preizkusiti na različne načine.
+
+123
+00:07:16,360 --> 00:07:20,640
+V zadnjih nekaj letih je bilo
+opravljenega veliko dela
+
+124
+00:07:20,640 --> 00:07:24,020
+na področju pristranskosti v umetni inteligenci.
+
+125
+00:07:24,040 --> 00:07:28,420
+Naj omenimo na tem mestu le eno raziskavo,
+
+126
+00:07:28,440 --> 00:07:33,940
+v kateri je UNESCO raziskoval
+različne oblike predsodkov in pristranskosti,
+
+127
+00:07:33,960 --> 00:07:37,460
+večinoma v povezavi s spolom,
+toda ne izključno.
+
+128
+00:07:37,480 --> 00:07:42,620
+Raziskava je bila objavljena leta 2019 in
+
+129
+00:07:42,640 --> 00:07:46,300
+omogoča razumevanje tega, kako se pristranskost,
+
+130
+00:07:46,320 --> 00:07:51,020
+če je prisotna v podatkih, odraža tudi v programski opremi.
+
+131
+00:07:51,040 --> 00:07:54,700
+Statistični podatki nam
+povedo le del zgodbe.
+
+132
+00:07:54,720 --> 00:08:00,300
+Ob zadnjem diapozitivu želimo
+poudariti,
+
+133
+00:08:00,320 --> 00:08:06,780
+da kadar kot učitelji oz. vzgojitelji
+uporabljamo te sisteme -
+
+134
+00:08:06,800 --> 00:08:08,820
+ki so lahko sicer odlični sistemi -
+
+135
+00:08:08,840 --> 00:08:12,540
+ne smemo dovoliti, da nas ti odstotki zaslepijo.
+
+136
+00:08:12,560 --> 00:08:17,460
+Te številke nam v resnici povedo le, da
+so bili temeljito preizkušeni.
+
+137
+00:08:17,480 --> 00:08:22,580
+Toda naš cilj ni nujno, da se odločimo za sistem, ki deluje s 5 % stopnjo napake,
+
+138
+00:08:22,600 --> 00:08:25,620
+ker morda to ni tisti sistem, ki bi najbolje ustrezal
+
+139
+00:08:25,640 --> 00:08:30,460
+izobraževalnemu namenu, ki ga
+pravzaprav želimo doseči.
+
+140
+00:08:30,480 --> 00:08:32,580
+To je prvi poudarek.
+
+141
+00:08:32,600 --> 00:08:35,020
+Druga zadeva, ki jo želim izpostaviti je,
+
+142
+00:08:35,040 --> 00:08:39,140
+da je napovedovanje prihodnosti
+vedno povezano s tveganjem,
+
+143
+00:08:39,160 --> 00:08:41,460
+da želite v skladu z določeno napovedjo
+
+144
+00:08:41,480 --> 00:08:45,500
+sami zagotoviti, da se
+bo ta napoved uresničila.
+
+145
+00:08:45,520 --> 00:08:48,540
+Na primer, ko nam nek sistem
+
+146
+00:08:48,560 --> 00:08:51,580
+napoveduje, kakšne ocene
+bodo naši učenci
+
+147
+00:08:51,600 --> 00:08:55,020
+dosegli čez šest mesecev,
+
+148
+00:08:55,040 --> 00:08:58,920
+moramo biti previdni, da se kot vzgojitelji
+
+149
+00:08:58,920 --> 00:09:04,900
+ne počutimo "dolžni", da
+izpolnimo to napoved,
+
+150
+00:09:04,920 --> 00:09:11,000
+torej da bi učence ocenili tako,
+kot nam predlaga sistem.

@@ -1,0 +1,32 @@
+#karnaugh{
+	width: 240px;
+	margin: auto;
+}
+
+h1{
+	font-family: arial, "sans-serif";
+	font-size: 26px;	
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.settings{
+	font-family: sans-serif;
+	font-size: 16px;
+	margin-bottom: 3px;	
+	text-align: center;
+}
+	
+#Map{
+	margin: 10px 0;
+	line-height: 0;
+	display: flex;
+	justify-content: center;
+}
+
+#result{
+	font-family: serif;
+	font-size: 18px;
+	padding-left: 1.6em;
+    text-indent:-1.6em;
+}

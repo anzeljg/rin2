@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Generativna umetna inteligenca</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+	<style>
+		blockquote {
+			font-size: 1em;
+			font-style: italic;
+			margin-bottom: 10px;
+		}
+	</style>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					<li class="active"><a href="../2307/index.html">Umetna inteligenca</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu5" role="button" aria-expanded="false">Digitalna vezja*</a>
+				  <div id="menu5" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2501/index.html">Logična vrata*</a></li>
+					<li><a href="../2502/index.html">Logični izrazi in vezja*</a></li>
+					<li><a href="../2503/index.html">Minimizacija logičnih vezij*</a></li>
+					<li><a href="../2504/index.html">Osnove digitalnega računalništva*</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Modal (popup) window: Družine -->
+		<div id="druzine" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Družine velikih jezikovnih modelov (LLM)</h4>
+					</div>
+					<div class="modal-body">
+						<p align="center"><img src="img/llm-families.png" class="img-responsive"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Generativna umetna inteligenca</h1>
+
+<p align="justify">V središču uporabe generativne UI so veliki jezikovni modeli (LLM) ali <b>slikovni</b> oziroma <b>difuzijski modeli</b> (<i>ang. diffusion models</i>). Kot je dejal jezikoslovec Noam Chomsky »grobo rečeno, [veliki jezikovni modeli] iščejo vzorce v ogromnih količinah podatkov in postajajo vse bolj spretni pri ustvarjanju statistično verjetnih rezultatov &ndash; kot sta, vsaj tako se zdi, človeškemu podoben jezik in način razmišljanja.« <i>BERT</i>, <i>BLOOM</i>, <i>GPT</i>, <i>LLaMA</i> in <i>PaLM</i> so vsi veliki jezikovni modeli. Slikovni modeli globokega učenja pa se imenujejo difuzijski modeli. <i>Stable diffusion</i> in <i>Midjourney</i> sta priljubljena primera slednjih.</p>
+
+<p align="center"><a href="#druzine" title="Družine LLM" data-toggle="modal" data-target="#druzine"><img src="img/llm-families.png" class="img-responsive"></a></p>
+
+<p align="justify">Podjetje, ki je produkt razvilo, ali tretja oseba, lahko model LLM dodatno usposobi (natančno uravna) za posebne naloge, npr. za odgovarjanje na vprašanja ali povzemanje esejev. Lahko pa modelu LLM ali klepetalnemu robotu dodajo nekaj pozivov ali ga nadgradijo z obsežnim programiranjem ter nato rezultat predstavijo kot aplikacijski paket (Chatpdf, Elicit, Compose AI, DreamStudio, NightCafe, PhotoSonic, Pictory ...).</p>
+
+<p align="justify">Na ta način je OpenAI natančno uravnal svoj GPT3 in GPT4 z vzorci vprašanj in odgovorov ter s pravili o sprejemljivosti vsebine in tako je nastal ChatGPT. Googlova raziskovalna ekipa je učila model PaLM z znanstvenimi in matematičnimi podatki in nastala je Minerva. Ta jezikovni model je dosegel najboljše rezultate med aplikacijami jezikovnih modelov za reševanje kvantitativnih problemov sklepanja: rešiti je znal skoraj tretjino problemov na dodiplomski ravni v fiziki, biologiji, kemiji, ekonomiji in drugih vedah, ki zahtevajo kvantitativno sklepanje.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Dejstvo, da je bil jezikovni model natančno uravnan za določeno nalogo ali pa ne, bo vplivalo na njegovo učinkovitost pri tej nalogi. Glede na to, ali celoten paket zagotavlja eno samo podjetje (na primer OpenAI je lastnik ChatGPT), ali pa je model nadalje razvijalo drugo podjetje, vpliva na varnost in zasebnost podatkov. Ko raziskuješ kateri model bi uporabil(-a), se splača preučiti tako uspehe kot omejitve izbranega modela.</p>
+
+<p align="justify">Če se odločiš za uporabo generativne UI, moraš biti pozoren(-na) na njene napake in pomanjkljivosti ter biti pripravljen(-a), da jih odpraviš. Te napake vključujejo:
+<ul align="justify">
+<li>Netočnosti v vsebini, saj jezikovni model ni banka znanja ali iskalnik. Celo najnovejši modeli halucinirajo in navajajo dejstva in vire, ki so izmišljeni.</li>
+<li>Pristranskost, ki se prikrade zato, ker so tudi podatki, na katerih so se ti modeli učili, vsebovali predsodke (pristranskost).</li>
+<li>Učinkovitost, ki je zelo odvisna od uporabljenih iztočnic (vprašanj, pozivov), uporabniške zgodovine in včasih od nepredvidljivih dejavnikov.</li>
+</ul>
+</p>
+
+<p align="justify">Čeprav lahko generativna UI zmanjša obremenitev uporabnikov in pomaga pri določenih nalogah, temelji na statističnih modelih, ki so nastali na podlagi ogromnih količin spletnih podatkov. Ti podatki ne morejo nadomestiti resničnega sveta, življenjskih okoliščin (kontekstov) in odnosov. ChatGPT ne more opisati konteksta ali razložiti, kaj dejansko vpliva na uporabnikovo vsakdanje življenje. Ne more ponuditi novih idej ali rešitev za izzive v resničnem svetu.</p>
+
+<p align="justify">Zmogljivost generativne UI ni niti blizu zmožnostim človeškega uma &ndash; še posebej v smislu tega, kar lahko človek razume in naredi z omejenimi podatki.</p>
+
+<blockquote>»Največja pomanjkljivost generativne UI je sicer odsotnost najbolj ključne zmogljivosti kakršnekoli inteligence: povedati ne le, kaj se dogaja, kaj se je zgodilo in kaj se bo zgodilo &ndash; to je opisovanje in napovedovanje &ndash; temveč tudi, kaj se ni zgodilo ter kaj bi se lahko zgodilo in kaj se ne bi moglo zgoditi.«
+<p align="right"><b>Noam Chomsky, Ian Roberts in Jeffrey Watumull</b></p>
+</blockquote>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="col-md-12">
+				<center>
+				<ul class="pagination pagination-sm">
+					<li><a href="../2306/index.html" aria-label="Previous Unit"><span aria-hidden="true">&laquo;</span></a></li>
+					<li><a href="../2307/index19.html" aria-label="Previous Page"><span aria-hidden="true">&#x2039;</span></a></li>
+					<li><a href="../2307/index.html">251</a></li>
+					<li><a href="../2307/index1.html">252</a></li>
+					<li><a href="../2307/index2.html">253</a></li>
+					<li><a href="../2307/index3.html">254</a></li>
+					<li><a href="../2307/index4.html">255</a></li>
+					<li><a href="../2307/index5.html">256</a></li>
+					<li><a href="../2307/index6.html">257</a></li>
+					<li><a href="../2307/index7.html">258</a></li>
+					<li><a href="../2307/index8.html">259</a></li>
+					<li><a href="../2307/index9.html">260</a></li>
+					<li><a href="../2307/index10.html">261</a></li>
+					<li><a href="../2307/index11.html">262</a></li>
+					<li><a href="../2307/index12.html">263</a></li>
+					<li><a href="../2307/index13.html">264</a></li>
+					<li><a href="../2307/index14.html">265</a></li>
+					<li><a href="../2307/index15.html">266</a></li>
+					<li><a href="../2307/index16.html">267</a></li>
+					<li><a href="../2307/index17.html">268</a></li>
+					<li><a href="../2307/index18.html">269</a></li>
+					<li><a href="../2307/index19.html">270</a></li>
+					<li class="active"><a href="#">271</a></li>
+					<li><a href="../2307/index21.html">272</a></li>
+					<li><a href="../2307/index22.html">273</a></li>
+					<li><a href="../2307/index23.html">274</a></li>
+					<li><a href="../2307/index24.html">275</a></li>
+					<li><a href="../2307/index25.html">276</a></li>
+					<li><a href="../2307/index26.html">277</a></li>
+					<li><a href="../2307/index27.html">278</a></li>
+					<li><a href="../2307/index28.html">279</a></li>
+					<li><a href="../2307/index21.html" aria-label="Next Page"><span aria-hidden="true">&#x203A;</span></a></li>
+					<li><a href="../2401/index.html" aria-label="Next Unit"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+				</center>
+			</div>
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+		console.log(window.location.origin);
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2307/index19.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2307/index21.html");
+    }
+});
+</script>
+
+</body>
+
+</html>

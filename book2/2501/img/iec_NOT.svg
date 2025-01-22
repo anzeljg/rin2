@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="103px"
+   height="63px"
+   viewBox="-0.5 -0.5 103 62"
+   style="background-color: rgb(255, 255, 255);"
+   id="svg30"
+   sodipodi:docname="iec_NOT.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata34">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview32"
+     showgrid="false"
+     inkscape:zoom="3.8064516"
+     inkscape:cx="51.5"
+     inkscape:cy="31"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g20" />
+  <defs
+     id="defs2" />
+  <g
+     id="g20">
+    <rect
+       x="21"
+       y="1"
+       width="60"
+       height="60"
+       fill="rgb(255, 255, 255)"
+       stroke="rgb(0, 0, 0)"
+       stroke-width="2"
+       pointer-events="none"
+       id="rect4" />
+    <g
+       transform="matrix(1.5,0,0,1.5,-25.614746,-15.84375)"
+       id="g10">
+      <switch
+         id="switch8">
+        <foreignObject
+           pointer-events="none"
+           width="100%"
+           height="100%"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           style="overflow: visible; text-align: left;">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 58px; height: 1px; padding-top: 31px; margin-left: 22px;">
+            <xhtml:div
+               data-drawio-colors="color: rgb(0, 0, 0); "
+               style="box-sizing: border-box; font-size: 0px; text-align: center;">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; white-space: normal; overflow-wrap: normal;">
+                <xhtml:font
+                   style="font-size: 20px;">=1</xhtml:font>
+              </xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           x="51"
+           y="35"
+           font-size="12px"
+           id="text6"
+           style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000">1</text>
+      </switch>
+    </g>
+    <path
+       d="M 81 31 L 101 31"
+       fill="none"
+       stroke="rgb(0, 0, 0)"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path12" />
+    <path
+       d="M 1 16 L 21 16"
+       fill="none"
+       stroke="rgb(0, 0, 0)"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path14" />
+    <path
+       d="M 1 46 L 21 46"
+       fill="none"
+       stroke="rgb(0, 0, 0)"
+       stroke-width="2"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path16" />
+    <ellipse
+       cx="86"
+       cy="31"
+       rx="4"
+       ry="4"
+       fill="rgb(255, 255, 255)"
+       stroke="rgb(0, 0, 0)"
+       stroke-width="2"
+       pointer-events="none"
+       id="ellipse18" />
+  </g>
+</svg>

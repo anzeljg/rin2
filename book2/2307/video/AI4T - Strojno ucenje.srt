@@ -1,0 +1,447 @@
+1
+00:00:00,600 --> 00:00:02,120
+Ker igra strojno učenje
+
+2
+00:00:02,120 --> 00:00:05,340
+pomembno vlogo v umetni inteligenci,
+
+3
+00:00:05,360 --> 00:00:07,360
+si pobliže oglejmo,
+
+4
+00:00:07,360 --> 00:00:09,860
+kaj sploh je strojno učenje.
+
+5
+00:00:09,880 --> 00:00:12,260
+Kaj je strojno učenje?
+
+6
+00:00:12,280 --> 00:00:16,380
+Strojno učenje je tipičen
+način reševanja problemov,
+
+7
+00:00:16,400 --> 00:00:19,500
+kjer odgovore
+
+8
+00:00:19,520 --> 00:00:23,900
+namesto iz resničnega sveta pridobivamo od modelov.
+
+9
+00:00:23,920 --> 00:00:28,540
+Ti modeli so bili izdelani prav s tem namenom.
+
+10
+00:00:28,560 --> 00:00:33,900
+Modele
+lahko gradijo strokovnjaki,
+
+11
+00:00:33,920 --> 00:00:39,860
+ali pa nastanejo z uporabo strojnega učenja.
+
+12
+00:00:39,880 --> 00:00:44,140
+To pomeni, da imamo
+ogromno količino podatkov,
+
+13
+00:00:44,160 --> 00:00:49,300
+ki so bili preoblikovani v modele
+z algoritmi strojnega učenja;
+
+14
+00:00:49,320 --> 00:00:55,940
+modeli pa so le zbirke objektov, ki jih je znotraj teh zbirk lažje "premetavati" in z njimi manipulirati,
+
+15
+00:00:55,960 --> 00:00:58,460
+v primerjavi z izhodiščno ogromno količino podatkov.
+
+16
+00:00:58,480 --> 00:01:01,820
+Obstajata dve glavni vrsti učenja:
+
+17
+00:01:01,840 --> 00:01:06,980
+nadzorovano učenje
+in nenadzorovano učenje.
+
+18
+00:01:07,000 --> 00:01:12,180
+Pri nadzorovanem učenju je
+prva naloga klasifikacija.
+
+19
+00:01:12,200 --> 00:01:20,260
+Želim le dobiti odgovor: da ali ne,
+rdeča ali modra, ena ali nič.
+
+20
+00:01:20,280 --> 00:01:23,210
+Poglejmo primer.
+
+21
+00:01:23,240 --> 00:01:25,480
+Imam skupino učencev in podatke o
+
+22
+00:01:25,480 --> 00:01:28,380
+njihovi starosti, o tem, ali
+radi hodijo v šolo ali ne
+
+23
+00:01:28,400 --> 00:01:30,140
+in o državi, od koder prihajajo.
+
+24
+00:01:30,160 --> 00:01:34,660
+Napovedati oz. predvideti skušam, ali
+imajo radi šport ali ne.
+
+25
+00:01:34,680 --> 00:01:38,900
+Izmed dveh učencev, to sta Alicia in Bob,
+
+26
+00:01:38,920 --> 00:01:42,900
+ima eden rad šport, drugi pa ne.
+
+27
+00:01:42,920 --> 00:01:45,700
+Na podlagi teh dveh
+primerov - toda v resničnem življenju
+
+28
+00:01:45,720 --> 00:01:49,180
+ne bi imel dveh primerov,
+ampak na stotine, tisoče,
+
+29
+00:01:49,200 --> 00:01:55,490
+ali celo več sto tisoč primerov -
+oblikujem pravilo ali sklop pravil.
+
+30
+00:01:55,520 --> 00:02:02,020
+Obstaja veliko algoritmov, ki omogočajo
+učenje različnih vrst pravil.
+
+31
+00:02:02,040 --> 00:02:05,200
+No, s pomočjo klasifikatorja sedaj
+
+32
+00:02:05,200 --> 00:02:07,700
+za novega učenca Carla,
+
+33
+00:02:07,720 --> 00:02:10,890
+glede na njegovo starost,
+glede na vse, kar vem o njem
+
+34
+00:02:10,920 --> 00:02:14,140
+(ali rad hodi v šolo ali ne; država, iz katere prihaja),
+
+35
+00:02:14,160 --> 00:02:17,730
+želim predvideti, ali ima
+rad šport ali ne.
+
+36
+00:02:17,760 --> 00:02:19,730
+To se imenuje klasifikacija.
+
+37
+00:02:19,760 --> 00:02:24,020
+Namesto napovedanja zgolj DA ali NE, lahko poskušam
+
+38
+00:02:24,040 --> 00:02:28,100
+napovedati število, ali
+vrednost, ali oceno
+
+39
+00:02:28,120 --> 00:02:33,540
+v primeru Alicie, Boba in Carla.
+
+40
+00:02:33,560 --> 00:02:37,450
+Določene podatke imam, Alicia in Bob,
+
+41
+00:02:37,480 --> 00:02:40,820
+tj. za nekatere učence vem,
+kakšen je njihov rezultat.
+
+42
+00:02:40,840 --> 00:02:44,660
+Za oba poznam oceno iz matematike.
+
+43
+00:02:44,680 --> 00:02:50,610
+Zdaj pa bi rad napovedal oceno iz
+matematike za novega učenca Carla.
+
+44
+00:02:50,640 --> 00:02:53,260
+Carlo je star 10 let.
+
+45
+00:02:53,280 --> 00:02:55,580
+Rad hodi v šolo in živi v Italiji.
+
+46
+00:02:55,600 --> 00:02:58,980
+Ali lahko napovem njegovo oceno?
+
+47
+00:02:59,000 --> 00:03:02,060
+Kot vidite, je to problem (naloga),
+
+48
+00:03:02,080 --> 00:03:05,060
+ki lahko ima
+različne rešitve.
+
+49
+00:03:05,080 --> 00:03:09,260
+Te rešitve - odgovori bodo odvisni
+od modela, ki ga gradimo.
+
+50
+00:03:09,280 --> 00:03:13,060
+Za to obstaja veliko različnih algoritmov.
+
+51
+00:03:13,080 --> 00:03:17,540
+Skupna značilnost je, da v strojnem učenju
+
+52
+00:03:17,560 --> 00:03:18,700
+ni enega samega, univerzalnega ali "najboljšega" algoritma.
+
+53
+00:03:18,720 --> 00:03:20,610
+Obstaja veliko različnih,
+
+54
+00:03:20,640 --> 00:03:25,660
+in nekateri so primernejši v
+določenih primerih, drugi pa v drugih.
+
+55
+00:03:25,680 --> 00:03:28,140
+Nenadzorovano učenje.
+
+56
+00:03:28,160 --> 00:03:33,380
+Nenadzorovano učenje, obratno od nadzorovanega učenja,
+
+57
+00:03:33,400 --> 00:03:39,740
+poteka takrat, ko podatki, iz katerih
+se učimo, nimajo znane oznake.
+
+58
+00:03:39,760 --> 00:03:44,860
+Vrednosti, povezane z vsakim
+elementom, ne poznamo vnaprej,
+
+59
+00:03:44,880 --> 00:03:48,860
+zato moramo nekako preurediti podatke,
+
+60
+00:03:48,880 --> 00:03:51,540
+raje kot pridobiti vrednost iz njih.
+
+61
+00:03:51,560 --> 00:03:54,180
+Tu govorimo o grozdenju.
+
+62
+00:03:54,200 --> 00:03:56,980
+Pri grozdenju imamo na voljo podatke in
+
+63
+00:03:57,000 --> 00:04:01,100
+na voljo imamo način za merjenje podobnosti.
+
+64
+00:04:01,120 --> 00:04:02,780
+To se imenuje razdalja.
+
+65
+00:04:02,800 --> 00:04:08,980
+Lahko rečemo, da je en podatek
+bližje drugemu kot tretjemu.
+
+66
+00:04:09,000 --> 00:04:11,940
+Potem imamo številko,
+na osnovi katere
+
+67
+00:04:11,960 --> 00:04:16,020
+oblikujemo določeno števile skupin.
+
+68
+00:04:16,040 --> 00:04:17,980
+Cilj je razvrstiti podatke
+
+69
+00:04:18,000 --> 00:04:23,500
+v skupine, v katerih so si
+vsi elementi skupine blizu (majhna razdalja).
+
+70
+00:04:23,520 --> 00:04:26,320
+Po drugi strani pa so
+elementi iz ene skupine
+
+71
+00:04:26,320 --> 00:04:29,580
+daleč od elementov druge skupine (velika razdalja).
+
+72
+00:04:29,600 --> 00:04:31,780
+Poglejmo preprost primer.
+
+73
+00:04:31,800 --> 00:04:34,180
+Ste učitelj in imate učilnico,
+
+74
+00:04:34,200 --> 00:04:37,540
+imate učence, ki so pripravljeni
+za izvajanje aktivnosti,
+
+75
+00:04:37,560 --> 00:04:41,500
+in odločili ste se, da želite imeti skupine
+
+76
+00:04:41,520 --> 00:04:47,100
+v katerih so člani na podobni ravni znanja.
+
+77
+00:04:47,120 --> 00:04:50,780
+Algoritem za grozdenje uporabite
+tako, da imate toliko skupin,
+
+78
+00:04:50,800 --> 00:04:55,540
+kolikor imate miz, nato pa
+organizirate želeno aktivnost.
+
+79
+00:04:55,560 --> 00:05:00,060
+Kot vidite, je
+beseda "ODLOČILI" poudarjena,
+
+80
+00:05:00,080 --> 00:05:03,340
+saj algoritem grozdenja ni odgovoren
+
+81
+00:05:03,360 --> 00:05:06,620
+za napačno odločitev,
+
+82
+00:05:06,640 --> 00:05:09,900
+da v isto skupino uvrstite učence na isti ravni znanja.
+
+83
+00:05:09,920 --> 00:05:13,300
+To je seveda pedagoška odločitev,
+
+84
+00:05:13,320 --> 00:05:17,020
+ki bo v določenih primerih
+verjetno zelo primerna,
+
+85
+00:05:17,040 --> 00:05:18,940
+v drugih pa morda ne toliko.
+
+86
+00:05:18,960 --> 00:05:23,300
+Tako kot pri vseh algoritmih
+umetne inteligence,
+
+87
+00:05:23,320 --> 00:05:25,200
+želimo in moramo razumeti namen algoritma,
+
+88
+00:05:25,200 --> 00:05:31,660
+preden ga uporabimo
+v izobraževalnem okolju.
+
+89
+00:05:31,680 --> 00:05:35,540
+Tu je sklop tehnik spodbujevalnega učenja,
+
+90
+00:05:35,560 --> 00:05:40,020
+ki ni niti nadzorovano niti nenadzorovano.
+
+91
+00:05:40,040 --> 00:05:45,400
+Je bolj aktivna oblika, v smislu, da algoritem sam
+
+92
+00:05:45,400 --> 00:05:48,560
+na različne načine producira primere,
+
+93
+00:05:48,560 --> 00:05:54,260
+ki jih potrebuje za
+učenje, običajno s spodbujevanjem.
+
+94
+00:05:54,280 --> 00:05:59,140
+To pomeni, da algoritem
+vsakič, ko ustvari rešitev,
+
+95
+00:05:59,160 --> 00:06:05,540
+preizkusi to rešitev in
+dobi pozitivno spodbudo,
+
+96
+00:06:05,560 --> 00:06:08,780
+ker rešitev daje dobre rezultate,
+
+97
+00:06:08,800 --> 00:06:10,840
+ali pa negativno spodbudo,
+
+98
+00:06:10,840 --> 00:06:16,140
+ker rešitev morda ne
+daje dobrih rezultatov.
+
+99
+00:06:16,160 --> 00:06:21,020
+Te tehnike so bile zelo uspešno uporabljene
+
+100
+00:06:21,040 --> 00:06:26,820
+v dobro znanih algoritmih,
+ki so premagali
+
+101
+00:06:26,840 --> 00:06:31,260
+najboljše človeške igralce
+v šahu in igri Go
+
+102
+00:06:31,280 --> 00:06:35,280
+že v letih 2015 in 2016.

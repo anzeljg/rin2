@@ -15,6 +15,26 @@
 	<!-- Bootstrap Core CSS -->
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 
+	<!-- MathJax - Beautiful math in all browsers -->
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
+
 	<!-- Custom CSS -->
 	<link href="../css/simple-sidebar.css" rel="stylesheet">
 	<link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -162,13 +182,13 @@
 <!-- Left column start -->
 <h1>Tranzistor</h1>
 
-<p align="justify">Osnovni gradnik digitalnih elektronskih vezij je <b>tranzistor</b> (<i>ang. transistor</i>). Njegova vloga v digitalnih vezjih je največkrat vloga krmiljenega stikala: z enim signalom »preklapljamo« tranzistor, ki predstavlja stikalo za drug signal. Pred iznajdbo tranzistorja so za stikalo uporabljali mehansko stikalo, električni rele in elektronko. Prednosti tranzistorja so njegove majhne dimenzije, hitrost, tihost, majhna poraba električnega toka in možnost integracije velikega števila tranzistorjev na majhnem prostoru.</p>
+<p align="justify">Osnovni gradnik digitalnih elektronskih vezij je <b>tranzistor</b> (<i>ang. transistor</i>). Tranzistor je elektronsko stikalo, ki ga upravlja električni signal &ndash; ko pride signal na vhod, tranzistor omogoči ali onemogoči pretok elektrike skozi sebe. Pred iznajdbo tranzistorja so za stikalo uporabljali mehansko stikalo, električni rele in elektronko. Prednosti tranzistorja so njegove majhne dimenzije, hitrost, tihost, majhna poraba električnega toka in možnost integracije velikega števila tranzistorjev na majhnem prostoru.</p>
 
-<p align="justify">Tranzistor je izdelan iz polprevodnih snovi (silicij, germanij) z dodatki (galij, arzen, indij in druge snovi).</p>
+<p align="justify">Tranzistor je izdelan iz polprevodnih materialov (silicij, germanij) z dodatki (galij, arzen, indij in druge snovi).</p>
 
 <p align="justify">Tranzistorje na splošno razvrščamo v dve kategoriji: bipolarni spojni tranzistor (<i>ang. bipolar junction transistor &ndash; BJT</i>) in tranzistor z učinkom polja (<i>ang. field-effect tranzistor &ndash; FET</i>).</p>
 
-<p align="justify">Koncept tranzistorja z učinkom polja je leta 1925 predlagal Julius Edgar Lilienfeld. John Bardeen, Walter Brattain in William Shockley so v Bell Labs leta 1947 izumili prvi delujoči tranzistor. Shockley je leta 1948 predstavil izboljšan bipolarni spojni tranzistor, ki so ga začeli proizvajati v zgodnjih petdesetih letih 20. stoletja in je vodil do prve široke uporabe tranzistorji.</p>
+<p align="justify">Koncept tranzistorja z učinkom polja je leta 1925 predlagal Julius Edgar Lilienfeld. John Bardeen, Walter Brattain in William Shockley so v Bell Labs leta 1947 izumili prvi delujoči tranzistor. Shockley je leta 1948 predstavil izboljšan bipolarni spojni tranzistor, ki so ga začeli proizvajati v zgodnjih petdesetih letih 20. stoletja, kar je vodilo v široko uporabo tranzistorjev.</p>
 
 <p>
 <div id="gallery" class="carousel slide" data-ride="carousel">
@@ -229,7 +249,7 @@
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">Tranzistorji MOSFET porabijo še manj energije, kar je pripeljalo do množične proizvodnje tranzistorjev MOS za široko uporabo. MOSFET je od takrat postal najbolj razširjena naprava v zgodovini.</p>
+<p align="justify">Tranzistorji MOSFET so zaradi svoje nizke porabe energije postali najbolj razširjena elektronska komponenta v zgodovini.</p>
 
 <p align="center">
 <img src="img/tranzistor-fizicno.svg" style="padding:0 2em">
@@ -241,7 +261,7 @@
 
 <p align="justify">Velika omejitev v začetnega obdobja sta bili hitrost in velika občutljivost na statične razelektritve. Današnja vezja s tranzistorji MOS imajo izboljšano odpornost na opisane motnje in izboljšano hitrost in predvsem &ndash; dosti nižjo porabo energije za delovanje.</p>
 
-<p align="justify">Če združimo dva MOSFET tranzistorja v  komplementarni par (<i>ang. CMOS &ndash; Complementary MOS</i>), dobimo še znatno izboljšane stikalne lastnosti, predvsem izjemno nizko porabo električnega toka. Komplementarni par MOS tranzistorjev je zgrajen iz dveh tranzistorjev različnih tipov (pnp-tipa in npn-tipa), ki imata kanala povezana zaporedno, krmiljena pa sta komplementarno.</p>
+<p align="justify">Če združimo dva MOSFET tranzistorja v  komplementarni par (<i>ang. CMOS &ndash; Complementary MOS</i>), dobimo še znatno izboljšane stikalne lastnosti, predvsem izjemno nizko porabo električnega toka. Komplementarni par MOS tranzistorjev je zgrajen iz dveh tranzistorjev različnih tipov (pnp in npn), ki imata kanala povezana zaporedno (glej sliko spodaj) krmiljena pa sta nasprotno.</p>
 
 <div class="alert alert-info" role="alert">
 <p align="justify" style="padding-bottom:4px">Preizkusi interaktivno delovanje tranzistorja MOS.</p>

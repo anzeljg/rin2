@@ -183,15 +183,15 @@
 <!-- Left column start -->
 <h1>Logični izrazi</h1>
 
-<p align="justify">Izjave gotovo poznaš že iz matematike. <b>Izjava</b> (<i>ang. expression</i>) je vsak smiseln povedni stavek. Izjava je lahko pravilna ali nepravilna &ndash; temu pravimo vrednost izjave. Podobno, kot v matematiki, tudi v računalništvu in informatiki izjave označujemo s črkami. Na primer:<br />
+<p align="justify"><b>Izjava</b> (<i>ang. expression</i>) je trditev, ki je lahko samo pravilna (1) ali nepravilna (0). V računalništvu in matematiki izjave običajno označujemo s črkami. Poglejmo primer:<br />
 <dl>
-  <dt>D</dt>
+  <dt>D:</dt>
   <dd>Marko dela.</dd>
-  <dt>L</dt>
+  <dt>L:</dt>
   <dd>Marko je lačen.</dd>
-  <dt>S</dt>
+  <dt>S:</dt>
   <dd>Sončno je.</dd>
-  <dt>U</dt>
+  <dt>U:</dt>
   <dd>Marko je utrujen.</dd>
 </dl>
 </p>
@@ -202,14 +202,14 @@
 					<div class="col-md-6">
 						<br />
 <!-- Right column start -->
-<p align="justify">Iz osnovnih izjav (oziroma spremenljivk) lahko z logičnimi operacijami sestavljamo sestavljene izjave, ki jih lahko zapišemo z logičnimi izrazi. Pravilnost take sestavljene izjave preverimo s pravilnostno tabelo. Oglejmo si primer takšne sestavljene izjave.</p>
+<p align="justify">Iz teh osnovnih izjav lahko z logičnimi operacijami (IN, ALI, NE) sestavljamo bolj kompleksne izjave. Na primer:</p>
 
 <p align="justify"><i>
-Marko je utrujen, če
+Marko je utrujen (U), če
 <ul>
-  <li>dela in je lačen,</li>
-  <li>dela in ni sončno,</li>
-  <li>ne dela in ni lačen.</li>
+  <li>dela in je lačen (D IN L),</li>
+  <li>dela in ni sončno (D IN NE S),</li>
+  <li>ne dela in ni lačen (NE D IN NE L).</li>
 </ul>
 </i></p>
 
@@ -217,7 +217,7 @@ Marko je utrujen, če
 $$U = D \cdot L + D \cdot S' + D' \cdot L'$$
 </p>
 
-<p align="justify">Vsak logični izraz lahko predstavimo tudi s pravilnostno tabelo, pri čemer osnovne izraze oziroma spremenljivke navedemo na levi strani pravilnostne tabele, sestavljeno izjavo oziroma logični izraz na sredini pravilnostne tabele in končni rezultat na desni strani pravilnostne tabele. Pri enostavnejših primerih lahko navedemo samo spremenljivke na levi in končni rezultat na desni strani pravilnostne tabele.</p>
+<p align="justify">Logični izraz lahko predstavimo s pravilnostno tabelo, kjer na levi strani navedemo osnovne spremenljivke, v sredini morebitne vmesne izraze in na desni končni rezultat. Pri enostavnih primerih zadostuje le prikaz vhodnih spremenljivk in končnega rezultata.</p>
 
 <p align="justify">
 <center>

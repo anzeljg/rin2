@@ -1,0 +1,2171 @@
+<!DOCTYPE html><html lang="sl"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="../css/bootstrap.min.css" rel="stylesheet"><link href="../css/font-awesome.min.css" rel="stylesheet"><link href="game2/app.js" rel="preload" as="script"><link href="game2/app.css" rel="preload" as="style"><link href="game2/chunk-vendors.js" rel="preload" as="script"><link href="../css/jquery.quickflip.min.css" rel="stylesheet"><link href="game2/chunk-vendors.css" rel="preload" as="style"><link href="game2/app.css" rel="stylesheet"><link href="game2/chunk-vendors.css" rel="stylesheet"><link href="css/data-bias.css" rel="stylesheet"><link href="../css/style.css" rel="stylesheet"></head><body><div id="wrapper"><div id="page-content-wrapper"><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Umetna inteligenca</h1>
+
+<p align="justify">V literaturi in na spletu obstaja več različnih definicij umetne inteligence &ndash; UI (<i>ang. Artificial Intelligence &ndash; AI</i>). Povsem enoznačne opredelitve tega, kaj je UI, kje se uporablja in kakšno vlogo ima, pravzaprav ni. Lahko gre za kompleksen samostojen sistem (kot so npr. roboti ali avtonomna vozila), lahko pa gre le za nekaj vrstic kode znotraj določene programske opreme, ki v tem programu igra zelo majhno vlogo.</p>
+
+<p align="justify">Poleg tega se številni strokovnjaki ne strinjajo z uporabo besede »inteligenca« v tej besedni zvezi &ndash; umetna inteligenca namreč ni zares podobna človeški inteligenci, vsaj zaenkrat ne.</p>
+
+<br />
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Pri/po tej učni enoti boš:</h3>
+	</div>
+	<div class="panel-body">
+		<ul>
+			<li>poznal(-a) različna področja uporabe umetne inteligence,</li>
+			<li>poznal(-a) splošen način delovanja različnih sistemov umetne inteligence.</li>
+		</ul>
+	</div>
+</div>
+
+<p align="justify">Ta učna enota je povzeta po interaktivnem spletnem priročniku <a href="https://aiopentext.itd.cnr.it/umetnainteligenca" target="_blank">Umetna inteligenca za učitelje</a>, katerega avtorja sta Colin de la Higuera in Jotsna Iyer.</p>
+
+<p align="center"><img src="img/ai4t-eu-logo-350x96.jpg"></p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="center">
+<img src="img/ai-7111802_1280.jpg" class="img-responsive" />
+<i>UI ni omejena na robotiko &ndash; je širše področje, ki vključuje različne tehnologije,<br>kot so iskalni algoritmi in obdelava naravnega jezika.</i>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer -->
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Umetna inteligenca je povsod</h1>
+
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Kaj je UI.jpg">
+	<source src="video/AI4T - Kaj je UI.mp4" type="video/mp4">
+	<track src="video/AI4T - Kaj je UI.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<p align="justify">V literaturi in na spletu obstaja več različnih definicij <b>umetne inteligence &ndash; UI</b> (<i>ang. Artificial Intelligence &ndash; AI</i>). Povsem enoznačne opredelitve tega, kaj je UI, kje se uporablja in kakšno vlogo ima, pravzaprav ni. Lahko gre za kompleksen samostojen sistem (kot so npr. roboti ali avtonomna vozila), lahko pa gre le za nekaj vrstic kode znotraj določene programske opreme, ki v tem programu igra zelo majhno vlogo.</p>
+
+<p align="justify">UI vključuje skupek programov, ki opravljajo različne naloge. V strogo matematičnem smislu so meje med tem, kje se začne UI in končajo druge tehnologije, zabrisane.</p>
+
+<p align="justify">Poleg tega se številni strokovnjaki ne strinjajo z uporabo besede »inteligenca« v tej besedni zvezi &ndash; umetna inteligenca namreč ni zares podobna človeški inteligenci, vsaj zaenkrat ne.</p>
+
+<p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#5-idej">Pet velikih idej na področju UI</button>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Kljub temu pa nam ta izraz pove nekaj o tem, kaj naj bi bili takšni programi sposobni narediti. Sistemi UI so torej zasnovani na strojih (napravah). Predvidevanja, priporočila ali odločitve sprejemajo na podlagi:
+<ul align="justify">
+<li>zaznavanja resnične ali virtualne okolice (s pomočjo različnih senzorjev, na primer s pomočjo mikrofona ali kamere),</li>
+<li>poenostavitve in analize podatkov.</li>
+</ul>
+Analizirane podatke nato uporabijo za sprejemanje odločitev ali napovedi.
+</p>
+
+<div class="alert alert-success" role="alert">
+<p style="font-size:1.4em">Definicije UI, ki uporabljajo »intelligence«, »mind« ali »thinking«</p>
+<div style="border-bottom:1px solid green; margin-top:5px; margin-bottom:6px;"></div>
+<p align="justify"><b>»The exciting new effort to make computers think... [as] machines with minds, in the full and literal sense.«</b> (Haugeland, 1985)</p>
+<p align="justify"><b>»The art of creating machines that perform functions that require intelligence when performed by people.«</b> (Kurzweil, 1990)</p>
+<p align="justify"><b>»The study of how to make computers do things which, at the moment, people are better.«</b> (Rich and Knight, 1991)</p>
+<p align="justify"><b>»Making machines intelligent; intelligence is that quality that enables an entity to function appropriately and with foresight in its environment.«</b> (Nils Nilsson)</p>
+</div>
+
+<p align="justify">Kako veš, da sistem uporablja UI?
+<ul align="justify">
+<li>Sistem prepozna, kaj si napisal(-a) ali kaj govoriš (programska oprema za prevajanje / prepoznavanje besedila / prepoznavanje obraza; osebni asistenti, klepetalnice ipd.).</li>
+<li>Dlje ko uporabljaš določen sistem, bolje te pozna (priporočila za videoposnetke na YouTubu / novice / izdelke na Amazonu; predlogi za prijateljstva na Facebooku, ciljno usmerjeni oglasi ipd.).</li>
+<li>Sistem je sposoben napovedati izid na podlagi nepopolnih in hitro spreminjajočih se informacij (najhitrejša pot do želene destinacije, cene delnic v bližnji prihodnosti ipd.).</li>
+</ul>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Modeli in priporočila</h1>
+
+<h4>Aktivnost</h4>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Na spodnjih slikah so prikazane kartične transakcije dveh oseb, ki živita v Nantesu. Razmišljata o tem, kaj bi počela naslednji konec tedna. Kaj bi priporočili Arnaudu in kaj Yannicku? Izbirate lahko med naslednjimi možnostmi:
+<ul align="justify">
+<li>Obisk nove poslovalnice s hitro prehrano</li>
+<li>Degustacija oljčnega olja</li>
+<li>Obisk spletne trgovine s potovalno opremo</li>
+<li>Koncert ob reki</li>
+<li>Tečaj plavanja za otroke</li>
+</ul>
+</p>
+
+<div id="tabs" style="margin-top:5px">	
+<ul class="nav nav-pills">
+  <li>&nbsp;&nbsp;&nbsp;</li>
+  <li class="active"><a href="#racun1" data-toggle="tab">Arnaud Fèvre</a></li>
+  <li><a href="#racun2" data-toggle="tab">Yannick Garçon</a></li>
+</ul>
+
+<div class="tab-content clearfix">
+<!-- Račun 1 tab -->
+<div class="tab-pane active" id="racun1">
+  <br><p align="center"><img src="img/racun1.png" width="90%" class="img-responsive"></p>
+</div>
+
+<!-- Račun 2 tab -->
+<div class="tab-pane" id="racun2">
+  <br><p align="center"><img src="img/racun2.png" width="90%" class="img-responsive"></p>
+</div>
+
+</div>
+</div>
+
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Sistemi priporočil obstajajo vsaj tako dolgo kot turistični vodniki ali seznami tipa »deset najboljših«. Medtem ko izbor časnika <i>The Guardian &ndash; Best Books of 2022</i> vsem priporoča isti seznam knjig, bi si ga verjetno prilagodil(-a), če bi izbiral(-a) zase: izbral(-a) bi le nekaj knjig in spremenil(-a) bi vrstni red branja glede na svoje osebne preference.</p>
+
+<p align="justify">Kako pa priporočiti nekaj nekomu, ki ga ne poznamo? Pri aktivnosti si si verjetno poskušal(-a) predstavljati Arnaudove in Yannickove osebnosti na podlagi danih informacij: uporabil(-a) si lastno presojo in vsaj nezavedno so nate vplivali tudi stereotipi. Nato si na podlagi ustvarjene predstave o tipu njunih osebnosti s seznama izbral(-a) tiste možnosti, ki bi lahko bile (ali pa tudi ne) pomembne zanju. Priporočilni sistemi podjetij, kot so Amazon, Netflix ali YouTube, uporabljajo podoben postopek.</p>
+
+<p align="justify">Ko danes iščemo informacije ali želimo poiskati določene vsebine na spletu, vsi uporabljamo določeno vrsto personaliziranih sistemov priporočil. Ena od glavnih funkcij YouTuba je, da uporabnikom predlaga, kaj naj si ogledajo izmed vseh videoposnetkov, ki so na voljo na platformi. Pri vpisanih (prijavljenih) uporabnikih se zanaša na njihove pretekle aktivnosti, na podlagi katerih ustvari »model« ali tip osebnosti. Ko ustvari model za Yannicka, lahko prepozna druge s podobnim modelom. Yannicku zato priporoči videoposnetke, podobne tistim, ki jih je že gledal in videoposnetke, podobne tistim, ki so si jih ogledali drugi, njemu podobni uporabniki.</p>
+
+<p align="justify">Model je poenostavljena reprezentacija oziroma predstavitev sveta, zaradi katere se lahko stroj »pretvarja«, da razume svet okrog sebe:</p>
+
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Modeli.jpg">
+	<source src="video/AI4T - Modeli.mp4" type="video/mp4">
+	<track src="video/AI4T - Modeli.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Modeli in priporočila</h1>
+
+<p align="justify">Vsi <b>sistemi priporočil</b> (<i>ang. Recommendation systems</i>) vključujejo podvprašanja. Najosnovnejše vprašanje &ndash; <i>kaj priporočiti?</i> &ndash; je nekoliko preveč splošno in nenatančno za algoritem. YouTube sprašuje po času (trajanju) gledanja za določenega uporabnika v določenem kontekstu. Izbira tega, kaj vprašati (in kaj napovedati), ima velik vpliv na to, kakšno priporočilo bo prikazano. Ideja v ozadju je, da bo pravilna napoved pripeljala do dobrega priporočila. Sama napoved pa temelji na drugih uporabnikih z zgodovino podobnih iskanj, torej na uporabnikih, ki jih predstavljajo podobni <i>modeli</i>.</p>
+
+<h2>Uporabniški modeli</h2>
+
+<p align="justify">YouTube sistem priporočanja razdeli na dva koraka in za vsakega uporablja različne modele. Tukaj bomo uporabili nekoliko preprostejšo razlago.</p>
+
+<p align="justify">Za izdelavo uporabniškega modela se morajo njegovi razvijalci vprašati, kateri podatki so pomembni za priporočanje videoposnetkov. Kaj si je uporabnik že ogledal? Kakšne ocene je podal in kakšne preference je izrazil? Kaj je iskal? Veliko bolj kot takšne eksplicitne informacije YouTube uporablja tiste bolj implicitne, saj so lažje dostopne. Ali je uporabnik samo kliknil na videoposnetek, ali si ga je dejansko ogledal? Če si ga je ogledal, kako dolgo je trajal ogled? Kako se je odzval na pretekla priporočila? Ali je katera od priporočil prezrl? Poleg odgovorov na ta vprašanja so pomembni tudi demografski podatki, kot so spol, jezik, lokacija in vrsta naprave, če je uporabnik nov ali ni prijavljen/vpisan.</p>
+
+<p align="justify">Ko je za vsakega uporabnika izdelan model, postane razvidno, kateri uporabniki so si med seboj podobni, in te informacije uporabijo za oblikovanje priporočil.</p>
+
+<h2>Video modeli</h2>
+
+<p align="justify">Na podoben način kot pri uporabnikih YouTube označuje videoposnetke, ki so si med seboj podobni (ali različni). Za vsak videoposnetek pregleda njegovo vsebino, naslov in opis ter kakovost posnetka, število ljudi, ki si ga je ogledalo (število ogledov), ga všečkalo, ga dodalo med priljubljene, ga komentiralo ali delilo, čas, ko je bil naložen in število uporabnikov, ki spremljajo dotični kanal.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Razdalja do videa.jpg">
+	<source src="video/AI4T - Razdalja do videa.mp4" type="video/mp4">
+	<track src="video/AI4T - Razdalja do videa.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<p align="justify">Kaj si bo uporabnik ogledal po izbranem posnetku je odvisno tudi od tega, ali je videoposnetek element obsežnejše serije in ali je morda del seznama predvajanja (<i>ang. playlist</i>). Če uporabnik, na primer, šele odkriva določenega glasbenega izvajalca, bo morda nadaljeval od najbolj priljubljene skladbe k manj znanim. Verjetno je tudi, da uporabnik ne bo kliknil na videoposnetke, ki so opremljeni s sličicami (<i>ang. thumbnails</i>) slabe kakovosti. Vse te informacije so vključene v proces ustvarjanja modela.</p>
+
+<p align="justify">Eden od bistvenih elementov sistema priporočil je prehod od enega videoposnetka na seznam sorodnih videoposnetkov. V tem kontekstu velja, da so sorodni videoposnetki tisti, ki si jih bo uporabnik verjetno naslednje ogledal. Namen sistemov priporočanja je iz podatkov izluščiti kar največ in tako ustvarjati boljša priporočila.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Modeli in priporočila</h1>
+
+<p align="justify">Google v vseh svojih produktih uporablja globoke nevronske mreže za strojno učenje. Na podlagi video modela YouTubova nevronska mreža zabeleži videoposnetke, podobne tistim, ki jih je uporabnik že gledal. Nato poskuša napovedati čas gledanja vsakega novega videoposnetka za dani uporabniški model in jih razvrsti na podlagi napovedi. Na koncu prikaže 10 do 20 videoposnetkov (odvisno od naprave) z najvišjimi ocenami.</p>
+
+<p align="justify">Proces je podoben modelu strojnega učenja, ki smo ga že opisali. Stroj v tem primeru najprej zabeleži značilnosti uporabniških in video modelov, ki jih je podal programer. Iz sklopa učnih podatkov se nauči, kakšno utež naj dodeli posamezni značilnosti, da bo pravilno napovedal čas (trajanje) ogleda. Nato, po testiranju in potrditvi, da pravilno deluje, lahko začne ustvarjati oziroma generirati napovedi in priporočila.</p>
+
+<p align="center"><img src="img/strojno_ucenje.png" width="60%" class="img-responsive"></p>
+
+<h2>Učenje</h2>
+
+<p align="justify">V fazi učenja se sistemu posreduje na milijone pozitivnih in negativnih primerov. Pozitiven primer je, ko uporabnik klikne na videoposnetek in si ga določen čas ogleduje. Negativen primer je, ko uporabnik ne klikne na videoposnetek ali si ga ne ogleduje dovolj dolgo.</p>
+
+<p align="justify">Nevronska mreža dobi informacijo o značilnostih uporabnika in videoposnetka. Utež vsake vhodne značilnosti prilagodi tako, da preveri, ali je bil čas gledanja za določen videoposnetek in uporabnika pravilno napovedan. Na stotinah milijard primerov se nauči približno milijardo parametrov (uteži vsake značilnosti). Mreža se lahko nauči tudi, da določenih značilnosti ne upošteva (dodeli jim ničelno pomembnost/utež). Zato je lahko model, ki ga ustvari algoritem, zelo drugačen od tistega, ki so si ga zamislili razvijalci.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Testiranje</h2>
+
+<p align="justify">Ko nevronska mreža konča z učenjem, jo preizkusijo na že razpoložljivih podatkih in po potrebi prilagodijo. Poleg natančnosti napovedi mora programer nastaviti izhod sistema na podlagi več vrednostnih sodb.</p>
+
+<p align="justify">Prikazovanje videoposnetkov, ki so preveč podobni že videnim zagotovo ne bo preveč zanimivo. Kaj v resnici pomeni, da je neko priporočilo dobro? Koliko podobnih posnetkov je treba prikazati in kako raznoliki naj bodo &ndash; z ozirom na druge posnetke in na zgodovino uporabnika? Koliko uporabnikovih interesov naj upošteva? Katere vrste priporočil imajo za posledico takojšnje zadovoljstvo, in katere dolgoročno uporabo? To so pomembna vprašanja, ki jih je treba upoštevati.</p>
+
+<p align="justify">Testiranju sledi ocenjevanje priporočil v realnem času. Izmeri se skupni čas gledanja za posamezen sklop napovedanih posnetkov. Dlje, kot si uporabnik ogleduje priporočeni sklop videoposnetkov, uspešnejši je model. Zgolj podatek o številu klikov na videoposnetke ne zadostuje za objektivno ocenjevanje. YouTube ocenjuje svoje priporočilne sisteme na podlagi tega, koliko priporočenih videoposnetkov je bilo pogledanih (skoraj) v celoti ter na podlagi skupne dolžine seje, časa do prvega daljšega ogleda in deleža prijavljenih uporabnikov.</p>
+
+<p align="center"><img src="img/koraki_strojnega_ucenja.png" width="60%" class="img-responsive"></p>
+
+<h2>Vmesnik</h2>
+
+<p align="justify">Na koncu si poglejmo še, kako so priporočila predstavljena gledalcu: koliko posnetkov naj se prikaže? Ali naj se najboljša priporočila prikažejo naenkrat, ali naj sistem nekatera prihrani za pozneje? Kakšen način prikaza izbrati za sličice in naslove videoposnetkov? Katere druge informacije je potrebno prikazati? Katere nastavitve lahko nadzoruje uporabnik? V odgovorih na ta vprašanja se skriva YouTubova skrivnost ohranjanja dveh milijard uporabnikov pred zasloni 24 ur na dan.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Strojno prevajanje</h1>
+
+<p align="justify">Orodja za samodejno <b>strojno prevajanje</b> (<i>ang. machine translation</i>), ki so danes na voljo na spletu, so preprosta za uporabo in omogčajo strojne prevode besedil v številne svetovne jezike. Nekatera od teh orodij so razvili spletni velikani (na primer Google Prevajalnik / Google Translate), na trgu pa so tudi specializirana orodja neodvisnih razvijalcev programske opreme (na primer DeepL).</p>
+
+<p align="justify">Samodejno prevajanje je predstavljalo zgodovinski izziv za UI. V zadnjih letih so v ta namen uporabili in preizkusili različne tehnologije UI. Sisteme, ki temeljijo na pravilih so z dostopnostjo podatkovnih baz vzporednih besedil nadomestile statistične tehnike strojnega učenja. V zadnjih petih letih najsodobnejšo tehnologijo na tem področju predstavljajo tehnike globokega učenja.</p>
+
+<p align="justify">Če ste se lahko še pred nekaj leti ob preizkušanju takšnih orodij prijetno razvedrili, celo zabavali ob prevodih besedil priljubljenih pesmi ali raznih menijev, danes to ni več tako.
+<ul align="justify">
+<li>Številne mednarodne institucije razmišljajo o uporabi orodij za samodejno prevajanje kot podpori večjezičnosti.</li>
+<li>Velike medijske video platforme uporabljajo samodejno prevajanje za boljši stik z uporabniki.</li>
+<li>Dvojezični posamezniki in profesionalni prevajalci takšna orodja uporabljajo v poklicnem in zasebnem življenju.</li>
+</ul>
+</p>
+
+<p align="justify">Pri samodejnem prepisovanju oziroma transkripciji uporabljamo tudi umetno inteligenco: gre za pretvorbo glasovnega vnosa v izhodno besedilo. To se lahko izvede na videoposnetkih ali zvočnih posnetkih brez povezave ali na spletu: nekatere platforme za videokonference na ta način omogočajo pridobitev podnapisov, ki jih lahko uporabimo za izboljšanje dostopnosti in/ali razumevanje govora iz drugega jezika.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="center">
+  <video width="560" height="315" controls poster="video/Machine Translation.jpg">
+	<source src="video/Machine Translation.mp4" type="video/mp4">
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<p align="justify">Tehnike sinteze glasu prevzamejo besedilo in glasovni model, ki besedilo govori s tem glasom. Glasovni model je lahko standarden ali pa ga je mogoče tudi usposobiti, da ustreza resničnim ljudem!</p>
+
+<p align="justify">Orodja za ustvarjanje besedila se uporabljajo za ustvarjanje novega besedila s pomočjo umetne inteligence: to novo besedilo lahko temelji na obstoječem besedilu (na primer oblikovanje povzetkov, poenostavitev ali reformulacija obstoječega besedila) ali temelji na pogovornih modelih, pri katerih umetna inteligenca ustvari besedilo o določeni temi.</p>
+
+<p align="justify">V prihodnje se obeta še veliko več izboljšav strojnih prevajalnikov. Kakovost prevodov se povečuje. Razne rešitve, ki združujejo prevode, transkripcije in sintezo govora, kar omogoča približevanje idealu brezhibne večjezične komunikacije, bodo v kratkem postale nekaj običajnega.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Globoke nevronske mreže</h1>
+
+<p align="justify">Človeško znanje je obsežno, spremenljivo in težko opredeljivo. Človeški um je sposoben absorbirati in uporabljati znanje, ker je, kot so zapisali Chomsky, Roberts in Watumull, <i><nobr>»... presenetljivo</nobr> učinkovit, celo eleganten sistem, ki obdeluje majhne količine informacij. Ne stremi k sklepanju o surovih povezavah med podatki, ampak k razlaganju.«</i></p>
+
+<p align="justify">Strojno učenje naj bi to počelo z iskanjem vzorcev v velikih količinah podatkov. Prej pa so morali programerji ročno kodirati, določiti katere značilnosti podatkov so pomembne za obravnavani problem, in jih posredovati stroju v obliki »parametrov«. Kot smo že povedali, je delovanje sistema močno odvisno od kakovosti podatkov in parametrov, ki jih ni vedno enostavno natančno določiti.</p>
+
+<p align="justify"><b>Globoke nevronske mreže</b> (<i>ang. deep neural networks</i>) ali <b>globoko učenje</b> (<i>ang. deep learning</i>) predstavlja vejo strojnega učenja, ki omenjeno premaguje:
+<ul align="justify">
+<li>z ekstrahiranjem lastnih parametrov iz podatkov v fazi učenja;</li>
+<li>z uporabo več plasti, ki gradijo razmerja med parametri, postopoma gredo od preprostih reprezentacij v najbolj zunanji plasti do bolj kompleksnih in abstraktnih. To globokemu učenju omogoča, da določene naloge opravi bolje kot običajni algoritmi strojnega učenja.</li>
+</ul>
+</p>
+
+<p align="justify">Vse več zmogljivih aplikacij strojnega učenja se vedno bolj zanaša na globoko učenje. Sem spadajo iskalniki, sistemi priporočil, transkripcija govora in tudi prevod tega priročnika iz angleščine v slovenščino. Brez pretiravanja lahko rečemo, da je prav globoko učenje omogočilo uspeh UI pri številnih nalogah.</p>
+
+<p align="justify">Izraz »globoke« (globoke nevronske mreže) se nanaša na to, kako se plasti nalagajo ena na drugo, da ustvarijo mrežo. Izraz »nevronske« odraža dejstvo, da so določene vidike njihove zasnove navdihnile povezave med nevroni v človeških bioloških možganih. Kljub temu pa, in čeprav zagotavljajo vpogled v naše lastne miselne procese, so to strogo matematični modeli, ki v resnici niso podobni nobenemu biološkemu elementu ali procesu.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="center"><img src="img/sistemi_ucenja.png" width="90%" class="img-responsive"></p>
+
+<h2>Oblikovanje globoke nevronske mreže</h2>
+
+<p align="justify">Ko se programer odloči za uporabo globokega učenja in pripravi podatke, mora najprej zasnovati tako imenovano arhitekturo svoje nevronske mreže. Določiti mora število plasti (globina mreže) in število parametrov na plast (širina mreže). Nato se mora odločiti, kako vzpostaviti povezave med plastmi &ndash; ali bo vsaka enota plasti povezana z vsako enoto prejšnje plasti ali ne.</p>
+
+<p align="justify">Idealna arhitektura za določeno nalogo pogosto se pogosto izkaže kot posledica eksperimentiranja. Večje kot je število plasti, manj parametrov je potrebnih na vsaki plasti. Mreže delujejo bolje s splošnimi podatki, čeprav jih je zato težje optimizirati. Manj povezav bi pomenilo manj parametrov in manj računanja, vendar bi to zmanjšalo prilagodljivost mreže.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnove globokega učenja</h1>
+
+<p align="justify">Ko ljudje gledamo sliko, na njej avtomatično prepoznamo predmete in obraze. Za algoritem pa slika ni nič drugega, kot le zbirka slikovnih točk oziroma pikslov. Med mešanico barv in različnimi stopnjami svetlosti ter prepoznavanjem obrazov je velikanski preskok, ki ga je preveč zapleteno izvesti.</p>
+
+<p align="justify">Globoka nevrosnka mreža to doseže tako, da proces razdeli na zelo preproste reprezentacije v prvi plasti &ndash; na primer tako, da primerja svetlost dveh sosednjih pikslov in tako ugotovi prisotnost ali odsotnost robov na različnih predelih slike. Naslednja plast na podlagi robov išče bolj kompleksne entitete &ndash; na primer, vogale in obrobe, pri čemer zanemari majhna odstopanja pri položajih robov. Naslednja plast išče dele predmetov z uporabo obrob in vogalov. Postopoma se kompleksnost povečuje do točke, ko lahko zadnja plast združi različne dele dovolj dobro, da prepozna obraz ali identificira predmet.</p>
+
+<p align="center"><img src="img/nevronska_mreza_zgradba.png"></p>
+
+<p align="justify">Tega, kar je treba upoštevati v vsaki plasti, ne določajo programerji, temveč se tega sistem nauči iz podatkov v procesu učenja. S primerjanjem napovedi z dejanskimi rezultati v učnem sklopu podatkov se delovanje vsake plasti uravna na nekoliko drugačen način, kar obrodi vsakič nekoliko boljši rezultat.</p>
+
+<p align="justify">Če je vse to izvedeno pravilno in pod pogojem, da je na voljo dovolj kakovostnih podatkov, bi se morala mreža razviti tako, da bo prezrla nepomembne dele slike, na primer natančno lokacijo entitet, kot in osvetlitev, ter se osredotočila na tiste dele, ki ji omogočajo prepoznavanje.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Tukaj je treba opozoriti na dejstvo, da je kljub naši uporabi robov in obrob za razumevanje procesa tisto, kar je dejansko predstavljeno v plasteh, niz številk, ki lahko ustrezajo stvarem, ki jih razumemo, ali pa tudi ne. Kar se pri tem ne spremeni, je vse večja abstraktnost in kompleksnost.</p>
+
+<h2>Učenje globoke nevronske mreže</h2>
+
+<p align="justify">Vzemimo primer usmerjene nevronske mreže z nadzorovanim učenjem. Informacije tečejo naprej od ene plasti k naslednji, globlji plasti, brez povratnih zank. Kot pri vseh tehnikah strojnega učenja je tudi tukaj cilj ugotoviti, kako so vhodi povezani z izhodi &ndash; kateri parametri se združijo in kako se združijo, preden ustvarijo rezultat. Predpostavimo razmerje oziroma funkcijo $f$, ki povezuje vhod $x$ z izhodom $y$. Nato uporabimo mrežo, da poiščemo niz parametrov $θ$, ki dajejo najboljše ujemanje za napovedane in dejanske izhodne vrednosti.</p>
+
+<p align="justify">Pri tem je napoved za $y$ končni rezultat, sklop podatkov $x$ pa je vhod. Pri prepoznavanju obraza je $x$ običajno sklop pikslov na sliki, $y$ je lahko ime osebe. V mreži plasti delujejo podobno kot delavci v proizvodni liniji, kjer se vsak delavec loti tistega, kar mu je bilo dodeljeno, potem pa to posreduje naprej naslednjemu delavcu. Prvi delavec vzame vhodno vrednost in jo malo preoblikuje, nato jo da drugemu v liniji. Drugi naredi isto, nato preda tretjemu in tako naprej, dokler se vhodna vrednost ne preoblikuje v končni rezultat.</p>
+
+<p align="justify">Matematično je funkcija f razdeljena na več funkcij $f1$, $f2$, $f3$ ... pri čemer je $f = … f3(f2(f1(x)))$. Plast poleg vhoda preoblikuje parametre vhoda z uporabo $f1$, naslednja plast z uporabo $f2$ in tako naprej. Programer lahko pri tem posreduje, tako da pomaga izbrati pravilno družino funkcij na podlagi poznavanja problema.</p>
+
+<p align="center"><img src="img/nevronska_mreza_funkcija.png"></p>
+
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnove globokega učenja</h1>
+
+<p align="justify">Naloga vsake plasti je, da dodeli raven pomembnosti &ndash; utež, ki jo dodeli vsakemu prejetemu parametru. Uteži so kot stikala, ki na koncu opredelijo razmerje med predvidenim izhodom in vhodom v določeni plasti. V povprečnem sistemu globokega učenja je takšnih »stikal« na stotine milijonov, kot je tudi na stotine milijonov učnih primerov. Ker ne določamo, niti ne moremo videti izhodnih vrednosti in uteži v plasteh med vhodno in izhodno vrednostjo, se takšne plasti imenujejo <i>skrite</i> plasti.</p>
+
+<div class="alert alert-success" role="alert">
+<p align="justify">Ključno vprašanje: Pri katerem parametru $θ$ je napovedani $y$ enak $f(x, θ)$?</p>
+</div>
+
+<p align="justify">Pri prejšnjem primeru prepoznavanja predmeta je naloga prvega »delavca« v globoki nevronski mreži, da zazna robove in jih preda drugemu delavcu, ki bo zaznal obrobe, in tako naprej.</p>
+
+<p align="justify">V fazi učenja se napovedana izhodna vrednost primerja z dejansko izhodno vrednostjo. Če med njima obstaja velika razlika, je treba toliko bolj spremeniti uteži, dodeljene v vsaki plasti. Če je razlika majhna, je potrebno le malo prilagoditi vrednosti uteži. Ta proces poteka v dveh delih. Najprej se izračuna razlika med napovedjo in rezultatom (izhodom), nato pa drug algoritem izračuna, kako prilagoditi uteži v vsaki plasti, začenši z izhodno plastjo (v tem primeru informacije tečejo nazaj iz globljih plasti). Tako je na koncu procesa učenja mreža z vsemi svojimi utežmi in funkcijami pripravljena za obdelavo testnih podatkov. Preostali del procesa je enak kot pri klasičnem strojnem učenju.</p>
+
+<p align="center"><img src="img/koraki_strojnega_ucenja.png" width="60%" class="img-responsive"></p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h1>Obdelava naravnega jezika</h1>
+
+<p align="justify"><b>Obdelava naravnega jezika</b> (<i>ang. Natural language processing &ndash; NLP</i>) je tema številnih raziskav že zadnjih 50 let. Nekatera izmed raziskovalnih prizadevanj na tem področju so privedla do razvoja orodij, ki jih uporabljamo vsak dan:
+<ul align="justify">
+<li>urejevalniki besedil,</li>
+<li>samodejni predlogi za slovnične in pravopisne popravke,</li>
+<li>samodejno zapolnjevanje podatkov,</li>
+<li><a href="#" data-toggle="modal" data-target="#ocr">optično prepoznavanje znakov (OCR)</a>.</li>
+</ul>
+</p>
+
+<p align="justify">V zadnjem času imajo na vseh področjih življenja velik vpliv predvsem klepetalni roboti, pametni/hišni/osebni asistenti in prevajalniki.</p>
+
+<img src="img/Girls_learning_sign_language.jpg" width="50%" style="float:right; margin:0 0 10px 10px;">
+<p align="justify">Dolgo časa je raziskave in industrijo na tem področju upočasnjevala notranja zapletenost jezika. Ob koncu 20. stoletja so slovnice (rezultat dela področnih strokovnjakov) različnih jezikov vsebovale tudi do 50.000 pravil. Takšni <b>ekspertni sistemi</b> so nakazovali možnost izboljšav s pomočjo tehnologije, vendar so bile zanesljive oziroma univerzalne rešitve prezapletene za razvoj.</p>
+
+<p align="justify">Po drugi strani je tehnologija <b>prepoznavanja govora</b> zahtevala obdelavo akustičnih podatkov in njihovo pretvorbo v besedilo. Ob vsej raznolikosti govorcev je bil to zares trd oreh.</p>
+
+<p align="justify">Raziskovalci so dojeli, da bo to lažje izvedljivo s pomočjo modela jezika. Če model pozna besedišče izbranega jezika in pravila za tvorjenje stavkov, bo iz serije predlogov lažje izbral tisti pravi stavek, ki bo ustrezal zapisanemu/izrečenemu, oziroma, lažje bo izbral prevodno ustreznico izmed niza možnih zaporedij besed.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Obdelava naravnega jezika</h1>
+
+<p align="justify">Drug ključni vidik pri tem je <b>semantika</b> (pomenoslovje). Največ, kar lahko tehnologija stori pri reševanju jezikovnih vprašanj, je pravzaprav površinske narave: algoritem predlaga odgovor na podlagi določenih skladenjskih pravil. Nič zato, če na koncu besedilo nima nobenega smisla. Podobno bi se lahko zgodilo pri branju besedil učencev &ndash; če bi samo popravljali napake, ne da bi zares razumeli, o čem besedilo govori. Bistvo je v seveda v pomenu, ki ga pripišemo besedilom oziroma izrečenim besedam.</p>
+
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Razdalja urejanja.jpg">
+	<source src="video/AI4T - Razdalja urejanja.mp4" type="video/mp4">
+	<track src="video/AI4T - Razdalja urejanja.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<p align="justify">Leta 2008 je prišlo do preboja: ustvarjen je bil edinstven jezikovni model, ki se je učil iz velikanske količine podatkov in ga je bilo mogoče uporabiti za različne jezikovne naloge. Dejansko je deloval bolje kot modeli, ki so bili naučeni izvajati posamezne od teh nalog.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Ta model je bil globoka nevronska mreža. Čeprav ni bila niti približno tako globoka kot mreže, ki se uporabljajo danes, so bili rezultati dovolj prepričljivi, da so raziskovalci pričeli verjeti, da bo strojno učenje, natančneje globoko učenje, odgovor na številna vprašanja glede NLP.</p>
+
+<p align="justify">Od takrat tehnologije NLP niso več sledile pristopu na osnovi modelov, temveč se je uveljavil pristop, ki temelji na podatkih. Jezikovne naloge v tem smislu razdelimo na dva sklopa: tiste, ki vključujejo ustvarjanje modelov, in tiste, ki vključujejo dekodiranje.</p>
+
+<h2>Ustvarjanje modelov</h2>
+
+<p align="justify">Če želite prepis (transkripcijo), odgovor na vprašanje, dialog ali prevod, morate najprej vedeti, ali je na primer stavek »Je parle Français« res veljaven stavek v francoščini ali ne. In ker pri govorjenem jeziku slovnična pravila niso vedno natančno upoštevana, bo odgovor izražen z verjetnostjo: stavek je <i>bolj ali manj</i> francoski. Na podlagi tega tudi sistem pripravi različne predloge stavkov (transkripcijo slišanega, prevod stavka itd.), in verjetnost ustreznosti tudi razvrsti (oceni). Uporabnik nato lahko izbere stavek z najvišjo oceno (tj. z najvišjo verjetnostjo ustreznosti) ali pa to informacijo kombinira z drugimi viri informacij (pomen stavka).</p>
+
+<p align="justify">Prav to počnejo jezikovni modeli: verjetnosti izračunajo na podlagi algoritmov strojnega učenja. Čim več podatkov je na voljo, tem bolje. Za nekatere jezike je na voljo veliko podatkov, na podlagi katerih lahko ustvarimo jezikovne modele, pri drugih jezikih pa ni tako.</p>
+
+<p align="justify">Za nalogo prevajanja nista potrebna dva, temveč trije modeli: jezikovni model za vsakega izmed obeh jezikov in še en model za prevode, ki nam pove, kateri prevodi fragmentov jezika so boljši oziroma ustreznejši. Takšne modele je težko izdelati, če je podatkov malo. Medtem, ko je modele za pogoste »jezikovne pare« lažje izdelati, to ne velja za jezike, ki se ne uporabljajo pogosto »v paru« (na primer portugalščina in slovenščina). Tipična rešitev pri tem je uporaba / prevajanje preko <i>vmesnega jezika</i> (običajno angleščine): iz portugalščine v angleščino in nato iz angleščine v slovenščino. To seveda vodi do manj ustreznih rezultatov, saj se napake kopičijo.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Obdelava naravnega jezika</h1>
+
+<h2>Dekodiranje</h2>
+
+<p align="justify"><b>Dekodiranje</b> (<i>ang. decoding</i>) je proces, pri katerem algoritem sprejme vhodno zaporedje (v obliki signala ali besedila) in na podlagi informacij, ki jih vsebuje model, sprejme odločitev, pogosto v obliki izhodnega besedila. Pri tem je treba upoštevati določene zakonitostmi algoritmov: transkripcija in prevajanje morata običajno potekati v realnem času, zato je pri tem ključno vprašanje zmanjševanje časovnega zaostanka. Prostora za delovanje UI je tu veliko.</p>
+
+<h2>Celovit pristop</h2>
+
+<p align="justify">Procese ločenega ustvarjanja in kasneje kombiniranja teh komponent je danes nadomestil celovit pristop, pri katerem sistem zapiše / prevede / interpretira vhodne podatke s pomočjo edinstvenega modela. Trenutno se taki modeli učijo s pomočjo izjemno zapletenih globokih nevronskih mrež: največji model GPT3 naj bi obsegal več sto milijonov parametrov.</p>
+
+<img src="img/autoencoder_structure.png" width="380" style="float:right">
+<p align="justify">Poskusimo poenostaviti: recimo, da imamo določene podatke. Te surove podatke lahko na poljuben način zakodiramo. Toda kodiranje je lahko redundantno in morda celo zelo drago. Zato izdelamo posebno napravo, <b>samodejni kodirnik</b> (<i>ang. autoencoder</i>) &ndash; glej sliko. Stroj izvorno besedilo prenese v majhen vektor (kodirnik), nato pa vektor razširi (dekodirnik) in ponovno vzpostavi besedilo, ki je nekako blizu izvornemu besedilu. Ideja je v tem, da ta mehanizem ustvari zelo koristen vmesni vektor &ndash; zaradi dveh zaželenih lastnosti: je majhen, in »vsebuje« informacije o izvornem besedilu.</p>
+
+<h2>Prihodnost</h2>
+
+<p align="justify">Verjetno bodo takšni celoviti pristopi kmalu omogočali, da bo vmesnik (1) slišal in prepoznal, kateri jezik govorite, (2) zapisal izgovorjeno besedilo, (3) ga prevedel v jezik, ki ga ne poznate, (4) usposobil sistem za sintezo govora za prepoznavanje vašega glasu in (5) z vašim glasom prebral ustrezno prevedeno besedilo v drugem jeziku.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Na posnetkih spodaj si oglejte dva primera, ki so ju zasnovali raziskovalci na Universidad Politecnica de Valencia v Španiji, v katerih je za sinhronizacijo uporabljen model lastnega glasu govorca.</p>
+
+<p align="center">
+  <video width="560" height="315" controls>
+	<source src="video/Demo4.mp4" type="video/mp4">
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<p align="center">
+  <video width="560" height="315" controls>
+	<source src="video/Demo1.mp4" type="video/mp4">
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Generativna umetna inteligenca</h1>
+
+<h2>Zgodovina</h2>
+
+<p align="justify">Konec novembra 2022 je bil svetu predstavljen sistem ChatGPT, na UI zasnovan sistem klepetalnih robotov, utemeljen na jezikovnem modelu GPT-3.5, ki uporablja obdelavo naravnega jezika (NLP) za ustvarjanje oziroma generiranje pogovorov. Sistem ChatGPT je zadnji v celi vrsti takih orodij, vendar je za razliko od prejšnjih orodij pritegnil zanimanje javnosti in začel buriti človeško domišljijo. Že v prvem tednu po prihodu na tržišče je pridobil več kot milijon uporabnikov, zaradi človeku podobne sposobnosti generiranja besedil in potencialnih posledic uporabe v izobraževanju, na delovnih mestih in v vsakdanjem življenju. ChatGPT odgovarja na vprašanja in uporabniku pomaga pri nalogah, kot so pisanje e-poštnih sporočil, esejev in računalniške kode.</p>
+
+<p align="justify">GPT-3 (<i>ang. Generative Pre-trained Transformer-3</i>) je <b>velik jezikovni model</b> (<i>ang. Large language model &ndash; LLM</i>), ki se je učil s pomočjo globokega učenja na ogromni količini podatkov (499 milijard podatkovnih točk &ndash; 800 GB podatkov), približno stokrat večji model kot kateri koli izmed prejšnjih modelov. ChatGPT pa s tem modelom omogoča »človeški« klepet. Povedano zelo preprosto, velik jezikovni model se nauči predvideti naslednjo besedo v stavku, na podoben način, kot to počne funkcija predvidevanja naslednje besede pri SMS sporočilih, in nato nadaljuje s tem procesom ter tako ustvari daljša besedila.</p>
+
+<p align="center"><a href="#casovnica" title="Časovnica" data-toggle="modal" data-target="#casovnica"><img src="img/casovnica_generativne_ui.svg" class="img-responsive"></a></p>
+
+<p align="justify">Od prihoda sistema ChatGPT je prišlo do številnih sprememb v zvezi z ustvarjanjem in razvojem orodij generativne UI. Nekatera izmed njih so prikazana na gornji časovnici. Pred novembrom 2022 je zelo malo ljudi vedelo, kaj sploh je generativna UI, nato pa je ChatGPT kar naenkrat postal vsakdanji izraz za milijone ljudi. Smernice kažejo, da se bodo te tehnologije še naprej razvijale in postajale vedno bolj uporabne.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Kaj je generativna UI?</h2>
+
+<p align="justify">Sistemi generativne UI ustvarjajo nove vsebine v obliki slik, besedil, zvoka, videoposnetkov, zmorejo pa še več ko to, na primer:
+<ul align="justify">
+<li>ustvarjanje nove slike na podlagi obstoječe, npr. ustvarjanje novega portreta na podlagi obstoječe slike obraza ali nove pokrajine na podlagi obstoječe slike pokrajine;</li>
+<li>pisanje novic, poezije in celo scenarijev. Tudi prevajanje besedil iz enega jezika v drugega;</li>
+<li>ustvarjanje novih glasbenih posnetkov, zvočnih učinkov in glasovne sinhronizacije.</li>
+</ul>
+</p>
+
+<p align="justify">Seznam opravil se daljša. A začeli bomo tako, da bomo nekaj orodij generativne UI vprašali, kako je ChatGPT dobil svoje ime.</p>
+
+<p align="justify">Izbranim orodjem (Google Gemini, Microsoft Copilot in OpenAi ChatGPT 3.5) smo postavili naslednjo iztočnico, poziv oziroma vprašanje (<i>ang. prompt</i>):</p>
+
+<div class="alert" role="alert" style="background-color:#ddd">
+<p align="justify">Si strokovnjak za UI. Predstavljaj si, da mladostnikom, starim od 12 do 18 let, razlagaš, kaj je ChatGPT in kako je dobil ime. Razloži, zakaj vključuje izraz »chat« (klepet), in opiši nekaj primerov uporabe. Odgovor napiši v obliki prepričljivega sestavka, ki razloži delovanje ChatGPT.</p>
+
+<p align="center">
+<a href="#gemini" class="btn btn-default" data-toggle="modal" data-target="#gemini">Google Gemini</a>
+<a href="#copilot" class="btn btn-default" data-toggle="modal" data-target="#copilot">Microsoft Copilot</a>
+<a href="#chatgpt" class="btn btn-default" data-toggle="modal" data-target="#chatgpt">OpenAI ChatGPT 3.5</a>
+</p>
+</div>
+
+<p align="justify">Ta orodja nam torej omogočajo pisanje iztočnic in nato pogovor (odtod izraz pogovorna UI) s sistemom ChatBot. Obstaja čedalje več načinov, mnoge načine omenjamo tudi v tej učni enoti, kako lahko ta orodja pomagajo uporabnikom. Orodja omogočajo seveda tudi pogovor oziroma klepet, zato razmisli, kdaj bi ti lahko bila ta orodja v pomoč &ndash; s sistemom lahko klepetaš o temi, ki jo moraš raziskati, se pripraviš na razgovor za službo ali ustvarite zamisel za raziskovalno nalogo. Zanimivo je primerjati podobnosti in razlike v rezultatih različnih sistemov pogovorne UI in nato izbrati najboljše glede na namen.</p>
+
+<p align="justify">Orodja generativne UI lahko torej »oplemenitijo« tvoje delo ali ti pomagajo, da postaneš bolj ustvarjalen(-na), produktiven(-na) ali učinkovit(-a), s tem da združiš svoje umske sposobnosti s sposobnostmi stroja. Zabavaj se ob učenju oziroma preizkušanju klepetanja s temi orodji in se prepričaj o tem, kaj ustvarjajo ter ali lahko orodja uporabiš pri svojem delu.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Umetna inteligenca okoli nas</h1>
+
+<p align="justify">Danes je prav UI tista vrsta tehnologije, ki uporabniku zagotavlja konkurenčnost, potrebno za uspeh. UI se v takšni ali drugačni obliki uporablja praktično na vseh področjih človekovega delovanja:
+<ul align="justify">
+<li>V poslovnem svetu in v raziskovalni dejavnosti so v uporabi različni programi za procesiranje jezika, ki v realnem času zapisujejo govor ali generirajo prevode besedil.</li>
+<li>Medicina izkorišča prednosti UI pri analizi medicinskih slik in pri orodjih za podporo odločanju.</li>
+<li>V kmetijskem sektorju sistemi, podprti z UI, pomagajo optimizirati uporabo razpoložljivih virov.</li>
+<li>Skoraj vsakodnevno beremo o novih prebojih tehnologij UI na področjih računalniških iger, umetnosti, industrije in trgovine.</li>
+<li>V šolah UI lahko pomaga pri izbiri učnega gradiva, pri personalizaciji učenja, pri konstruktivnem vrednotenju opravljenega dela in pri raznih logističnih nalogah.</li>
+</ul>
+</p>
+
+<h4>Aktivnost</h4>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Sestavi seznam petih tehnologij, ki si jih uporabljal(-a) v zadnjih dveh letih. Koliko jih je podprtih z delovanjem UI?</p>
+</div>
+
+<p align="justify">Vse vrste podjetij danes uporabljajo podatke za odločanje o tem, kaj prodati, komu prodati, kakšno ceno določiti izdelkom ali storitvam in kako izbrati oglaševanje. Algoritmi strojnega učenja pa so tisto, kar vse te podatke osmisli. Zmaga tisti, ki ima boljše podatke in boljši algoritem: podatki so v sodobnem času dragoceni kot zlato, toda hkrati kot Ahilova peta predstavljajo potencialno šibkost.</p>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Ali s »podatki« tukaj mislimo le na osebne naslove in številke bančnih računov? Kaj pa, na primer, število klikov z miško, ki jih uporabnik naredi med obiskom spletnega mesta?</p>
+</div>
+
+<h2>Alan Turing in umetna inteligenca</h2>
+
+<p align="justify">Alan Turing je po mnenju mnogih oče računalništva. Veliko novih idej na področju umetne inteligence je pravzaprav predstavil Alan Turing, še preden je bil izumljen izraz »umetna inteligenca«!</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Alan Turing.jpg">
+	<source src="video/AI4T - Alan Turing.mp4" type="video/mp4">
+	<track src="video/AI4T - Alan Turing.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<p align="justify">Pri uporabi tehnologij je treba vselej imeti v mislih dve skrajnosti:
+<ul align="justify">
+<li>neuporaba ali neizkoriščenje tehnologij zaradi strahu ali neznanja ter</li>
+<li>neselektivna uporaba, ki povzroča nezaželene sekundarne učinke.</li>
+</ul>
+</p>
+
+<p align="justify">Na primer, gotovo obstajajo potencialne nevarnosti, ki jih prinaša uporaba mobilnih telefonov. Določene skupnosti gredo v prvo skrajnost in mobilnih telefonov sploh ne uporabljajo. Večina od nas mobilne telefone uporablja »pravilno« in pri tem ne zlorablja možnih načinov njihove uporabe. Preudarna uporaba mobilne tehnologije je tudi že velikokrat rešila življenja.</p>
+
+<div class="alert alert-success" role="alert">
+<p align="justify">Umetna inteligenca, ki bi bila sposobna kopirati človeške sposobnosti (učenje, razumevanje, dojemanje, sklepanje, odločanje, vest, čustva itd.) Tako imenovana <b>»močna« umetna inteligenca</b>, ki bi bila sposobna samostojnosti in vsestranskosti v nepričakovanih situacijah, je znanstveni cilj. Vendar pa trenutno obstajajo rezultati, ki kažejo, da je ta idealni cilj močne umetne inteligence (zaenkrat) tehnično nemogoč. Do danes močna umetna inteligenca še ne obstaja.</p>
+
+<p align="justify">Umetna inteligenca, ki jo poznamo danes je <b>»šibka« umetna inteligenca</b>: gre za algoritem, ki se »uči« tako, da svoje parametre prilagaja učnim podatkom in ni obdarjen z umskimi in kognitivnimi sposobnostmi, vendar lahko določeno nalogo včasih opravi veliko učinkoviteje kot človek.</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Generativna umetna inteligenca</h1>
+
+<p align="justify">V središču uporabe generativne UI so veliki jezikovni modeli (LLM) ali <b>slikovni</b> oziroma <b>difuzijski modeli</b> (<i>ang. diffusion models</i>). Kot je dejal jezikoslovec Noam Chomsky »grobo rečeno, [veliki jezikovni modeli] iščejo vzorce v ogromnih količinah podatkov in postajajo vse bolj spretni pri ustvarjanju statistično verjetnih rezultatov &ndash; kot sta, vsaj tako se zdi, človeškemu podoben jezik in način razmišljanja.« <i>BERT</i>, <i>BLOOM</i>, <i>GPT</i>, <i>LLaMA</i> in <i>PaLM</i> so vsi veliki jezikovni modeli. Slikovni modeli globokega učenja pa se imenujejo difuzijski modeli. <i>Stable diffusion</i> in <i>Midjourney</i> sta priljubljena primera slednjih.</p>
+
+<p align="center"><a href="#druzine" title="Družine LLM" data-toggle="modal" data-target="#druzine"><img src="img/llm-families.png" class="img-responsive"></a></p>
+
+<p align="justify">Podjetje, ki je produkt razvilo, ali tretja oseba, lahko model LLM dodatno usposobi (natančno uravna) za posebne naloge, npr. za odgovarjanje na vprašanja ali povzemanje esejev. Lahko pa modelu LLM ali klepetalnemu robotu dodajo nekaj pozivov ali ga nadgradijo z obsežnim programiranjem ter nato rezultat predstavijo kot aplikacijski paket (Chatpdf, Elicit, Compose AI, DreamStudio, NightCafe, PhotoSonic, Pictory ...).</p>
+
+<p align="justify">Na ta način je OpenAI natančno uravnal svoj GPT3 in GPT4 z vzorci vprašanj in odgovorov ter s pravili o sprejemljivosti vsebine in tako je nastal ChatGPT. Googlova raziskovalna ekipa je učila model PaLM z znanstvenimi in matematičnimi podatki in nastala je Minerva. Ta jezikovni model je dosegel najboljše rezultate med aplikacijami jezikovnih modelov za reševanje kvantitativnih problemov sklepanja: rešiti je znal skoraj tretjino problemov na dodiplomski ravni v fiziki, biologiji, kemiji, ekonomiji in drugih vedah, ki zahtevajo kvantitativno sklepanje.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Dejstvo, da je bil jezikovni model natančno uravnan za določeno nalogo ali pa ne, bo vplivalo na njegovo učinkovitost pri tej nalogi. Glede na to, ali celoten paket zagotavlja eno samo podjetje (na primer OpenAI je lastnik ChatGPT), ali pa je model nadalje razvijalo drugo podjetje, vpliva na varnost in zasebnost podatkov. Ko raziskuješ kateri model bi uporabil(-a), se splača preučiti tako uspehe kot omejitve izbranega modela.</p>
+
+<p align="justify">Če se odločiš za uporabo generativne UI, moraš biti pozoren(-na) na njene napake in pomanjkljivosti ter biti pripravljen(-a), da jih odpraviš. Te napake vključujejo:
+<ul align="justify">
+<li>Netočnosti v vsebini, saj jezikovni model ni banka znanja ali iskalnik. Celo najnovejši modeli halucinirajo in navajajo dejstva in vire, ki so izmišljeni.</li>
+<li>Pristranskost, ki se prikrade zato, ker so tudi podatki, na katerih so se ti modeli učili, vsebovali predsodke (pristranskost).</li>
+<li>Učinkovitost, ki je zelo odvisna od uporabljenih iztočnic (vprašanj, pozivov), uporabniške zgodovine in včasih od nepredvidljivih dejavnikov.</li>
+</ul>
+</p>
+
+<p align="justify">Čeprav lahko generativna UI zmanjša obremenitev uporabnikov in pomaga pri določenih nalogah, temelji na statističnih modelih, ki so nastali na podlagi ogromnih količin spletnih podatkov. Ti podatki ne morejo nadomestiti resničnega sveta, življenjskih okoliščin (kontekstov) in odnosov. ChatGPT ne more opisati konteksta ali razložiti, kaj dejansko vpliva na uporabnikovo vsakdanje življenje. Ne more ponuditi novih idej ali rešitev za izzive v resničnem svetu.</p>
+
+<p align="justify">Zmogljivost generativne UI ni niti blizu zmožnostim človeškega uma &ndash; še posebej v smislu tega, kar lahko človek razume in naredi z omejenimi podatki.</p>
+
+<blockquote>»Največja pomanjkljivost generativne UI je sicer odsotnost najbolj ključne zmogljivosti kakršnekoli inteligence: povedati ne le, kaj se dogaja, kaj se je zgodilo in kaj se bo zgodilo &ndash; to je opisovanje in napovedovanje &ndash; temveč tudi, kaj se ni zgodilo ter kaj bi se lahko zgodilo in kaj se ne bi moglo zgoditi.«
+<p align="right"><b>Noam Chomsky, Ian Roberts in Jeffrey Watumull</b></p>
+</blockquote>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Pristranskost</h1>
+
+<p align="justify"><b>Pristranskost</b> (<i>ang. bias</i>) pomeni imeti predsodke v odnosu do določene identitete, v pozitivnem ali negativnem smislu, namerno ali nenamerno. Poštenost je nasprotje pristranskosti in se nanaša na pravično obravnavo vseh ljudi, ne glede na njihovo identiteto ali položaj. Zato je treba vzpostaviti in slediti jasno določenim postopkom, če želimo zagotoviti, da bodo vsi obravnavani enako in da bodo imeli enake možnosti.</p>
+
+<h4>Aktivnost</h4>
+
+<div class="alert alert-info" role="alert">
+<div id="instruction-area">
+  <p align="justify" id="instruction-text">Klikni vsako piko, ki jo vidiš na zaslonu, nato klikni gumb »Naslednji korak« za prikaz odgovora.</p>
+  <div id="background-colour-slider-container">
+    <div id="background-colour-slider" style="width:95%;margin:2% 3% 2% 2%;"></div>
+  </div>
+</div>
+<div id="circles-area"></div>
+<p align="center" style="margin-top:10px">
+  <button id="next-stage" class="btn btn-info"><span class="fa fa-step-forward"></span> Naslednji korak</button>
+  <button id="start-again" class="btn btn-info d-none"><span class="fa fa-refresh"></span> Začni znova</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Sistemi, ki jih je zasnoval človek, pogosto vsebujejo veliko mero pristranskosti in diskriminacije. Vsi ljudje imamo svoja mnenja in tudi predsodke. Lahko bi rekli, da smo tudi ljudje »črne skrinjice«, katerih odločitve je včasih težko razumeti. Toda razvili smo tudi strategije in vzpostavili strukture, ki nam pomagajo, da smo pozorni na takšne prakse in o njih kritično razpravljamo.</p>
+
+<p align="justify">Avtomatizirane sisteme včasih dojemamo kot čudežno zdravilo za človeško subjektivnost: algoritmi temeljijo na številkah, le kako bi lahko bili pristranski? Toda algoritmi, ki temeljijo na napačnih podatkih, ne le zaznajo in se naučijo obstoječih predsodkov v zvezi s spolom, raso, kulturo ali invalidnostjo, temveč jih lahko dejansko tudi okrepijo.</p>
+
+<h2>Kaj je pristranskost podatkov?</h2>
+
+<p align="justify">Pristranskost podatkov se pojavi, ko pristranskosti, ki so prisotne v naborih podatkov za usposabljanje in natančno uravnavanje modelov umetne inteligence, negativno vplivajo na obnašanje modela. Modeli UI so programi, ki so bili usposobljeni na naborih podatkov za prepoznavanje določenih vzorcev ali sprejemanje določenih odločitev. Uporabljajo različne algoritme za ustrezne vnose podatkov, da dosežejo naloge ali rezultate, za katere so bili programirani.</p>
+
+<p align="justify">Usposabljanje modela umetne inteligence na <b>pristranskih podatkih</b> (<i>ang. bias data</i>), kot je zgodovinska ali reprezentativna pristranskost, bi lahko privedlo do pristranskih ali izkrivljenih rezultatov, ki bi lahko nepravično predstavljali ali drugače diskriminirali določene skupine ali posameznike. Ti vplivi zmanjšujejo zaupanje v umetno inteligenco in organizacije, ki uporabljajo umetno inteligenco. Prav tako lahko povzročijo pravne in regulativne kazni za podjetja.</p>
+
+<p align="justify">Pristranskost podatkov je pomemben vidik za panoge z velikimi vložki, kot so zdravstvo, človeški viri in finance, ki vse pogosteje uporabljajo umetno inteligenco za pomoč pri sprejemanju odločitev. Organizacije lahko ublažijo pristranskost podatkov z razumevanjem različnih vrst pristranskosti podatkov in njihovega pojava ter z odkrivanjem, zmanjšanjem in upravljanjem teh pristranskosti v celotnem življenjskem ciklu umetne inteligence.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Pristranskost</h1>
+
+<h2>Katere so različne vrste pristranskosti podatkov?</h2>
+
+<p align="justify">Ko ljudje obdelujejo informacije in presojajo, nanje neizogibno vplivajo njihove izkušnje in preference. Posledično lahko ljudje te pristranskosti vgradijo v sisteme umetne inteligence z izbiro podatkov ali načinom tehtanja podatkov. <b>Kognitivna pristranskost</b> (<i>ang. Cognitive bias</i>) bi lahko povzročila sistematične napake, kot je dajanje prednosti naborom podatkov, zbranih od Američanov, namesto vzorčenja iz različnih populacij po vsem svetu.</p>
+
+<p align="justify"><b>Pristranskost avtomatizacije</b> (<i>ang. Automation bias</i>) se pojavi, ko se uporabniki pretirano zanašajo na avtomatizirane tehnologije, kar vodi v nekritično sprejemanje njihovih izhodov, kar lahko ohranja in povečuje obstoječe pristranskosti podatkov. Na primer, v zdravstvu se lahko zdravnik močno zanaša na diagnostično orodje z umetno inteligenco, da predlaga načrte zdravljenja za bolnike. Če zdravnik rezultatov orodja ne preveri glede na lastne klinične izkušnje, bi lahko bolniku postavil napačno diagnozo, če bi odločitev orodja izhajala iz pristranskih podatkov.</p>
+
+<p align="justify"><b>Pristranskost potrditve</b> (<i>ang. Confirmation bias</i>) se pojavi, ko so podatki selektivno vključeni za potrditev že obstoječih prepričanj ali hipotez. Na primer, pristranskost potrditve se pojavi pri predvidljivem policijskem delu, ko organi kazenskega pregona osredotočijo zbiranje podatkov na soseske z zgodovinsko visoko stopnjo kriminala. Posledica tega je pretirano policijsko nadzorovanje teh sosesk zaradi selektivnega vključevanja podatkov, ki podpirajo obstoječe predpostavke o območju.</p>
+
+<p align="justify"><b>Pristranskost izključitve</b> (<i>ang. Exclusion bias</i>) se zgodi, ko so pomembni podatki izpuščeni iz nizov podatkov. V ekonomskih napovedih sistematično izključevanje podatkov z območij z nizkimi dohodki povzroči nize podatkov, ki so natančno reprezentativni za prebivalstvo, kar vodi do gospodarskih napovedi, ki se nagibajo v korist bogatejših območij.
+</p>
+
+<p align="justify"><b>Zgodovinska pristranskost</b> (<i>ang. Historical bias</i>), znana tudi kot <b>časovna pristranskost</b> (<i>ang. Temporal bias</i>), se pojavi, ko podatki odražajo zgodovinske neenakosti ali pristranskosti, ki so obstajale med zbiranjem podatkov, v nasprotju s trenutnim kontekstom. Primeri pristranskosti podatkov v tej kategoriji vključujejo sisteme zaposlovanja z umetno inteligenco, ki so usposobljeni na preteklih podatkih o zaposlovanju. V teh nizih podatkov so lahko temnopolti ljudje premalo zastopani na visokih delovnih mestih in model lahko ohranja neenakost.
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify"><b>Implicitna pristranskost</b> (<i>ang. Implicit bias</i>) se pojavi, ko se v gradnjo ali testiranje strojnega učenja vnesejo predpostavke ljudi, ki temeljijo na osebnih izkušnjah, namesto bolj splošnih podatkov. Na primer, sistem umetne inteligence, usposobljen za ocenjevanje prosilcev za zaposlitev, bi lahko dal prednost življenjepisom z moškim kodiranim jezikom, kar odraža nezavedno pristranskost razvijalca, čeprav spol ni izrecni dejavnik v modelu.</p>
+
+<p align="justify"><b>Pristranskost pri merjenju</b> (<i>ang. Measurement bias</i>) se lahko pojavi, če se natančnost ali kakovost podatkov razlikuje med skupinami ali ko so ključne spremenljivke študije netočno izmerjene ali razvrščene. Na primer, model vpisa na fakulteto, ki uporablja visoke povprečne ocene kot glavni dejavnik za sprejem, ne upošteva, da bi bilo višje ocene na določenih šolah lažje doseči kot na drugih.</p>
+
+<p align="justify"><b>Pristranskost poročanja</b> (<i>ang. Reporting bias</i>) se pojavi, ko pogostost dogodkov ali rezultatov v naboru podatkov ni reprezentativna za dejansko pogostost. Ta pristranskost se pogosto pojavi, ko so ljudje vključeni v izbor podatkov, saj je večja verjetnost, da bodo dokumentirali dokaze, ki se zdijo pomembni ali nepozabni.</p>
+
+<p align="justify"><b>Pristranskost izbire</b> (<i>ang. Selection bias</i>) se zgodi, ko nabor podatkov, uporabljen za usposabljanje, ni dovolj reprezentativen, premalo velik ali preveč nepopoln, da bi zadostno usposobil sistem. Usposabljanje avtonomnega avtomobila na podlagi podatkov o vožnji podnevi na primer ni reprezentativno za celoten nabor scenarijev vožnje, s katerimi se lahko vozilo sreča v resničnem svetu.</p>
+
+<p align="justify"><b>Pristranskost vzorčenja</b> (<i>ang. Sampling bias</i>) je vrsta pristranskosti izbire, ki se pojavi, ko so vzorčni podatki zbrani na način, pri katerem je verjetneje, da bodo nekatere informacije vključene kot druge, brez ustrezne naključnosti. Na primer, če bi bil sistem medicinske umetne inteligence, zasnovan za napovedovanje tveganja za bolezni srca, usposobljen izključno na podatkih moških pacientov srednjih let, bi lahko zagotovil netočne napovedi. Ta sistem bi še posebej prizadel ženske in ljudi drugih starostnih skupin.</p>
+
+<p align="center"><img src="img/pristranskost_podatkov.svg" class="img-responsive"></p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Zmanjšanje pristranskosti podatkov</h1>
+
+<p align="justify">Zmanjšanje pristranskosti znotraj umetne inteligence se začne z upravljanjem umetne inteligence. Upravljanje UI se nanaša na smernice, ki pomagajo zagotoviti, da so orodja in sistemi UI varni in etični. Odgovorne prakse umetne inteligence, ki poudarjajo preglednost, odgovornost in etične vidike, lahko vodijo organizacije pri krmarjenju s kompleksnostjo zmanjševanja pristranskosti.</p>
+
+<p align="justify">Široka zastopanost v virih podatkov pomaga zmanjšati pristranskost. Postopek zbiranja podatkov bi moral zajemati široko paleto demografskih podatkov, kontekstov in pogojev, ki so vsi ustrezno zastopani. Na primer, če podatki, zbrani za orodja za prepoznavanje obrazov, pretežno vključujejo slike belcev, model morda ne bo natančno prepoznal ali razlikoval temnopoltih obrazov. Podobno velja za <a href="#labeling" data-toggle="modal" data-target="#labeling">pristranskost pri označevanju podatkov</a>.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Sintetični podatki so umetno ustvarjeni podatki, ustvarjeni z računalniško simulacijo ali algoritmi, ki nadomestijo vire podatkov iz resničnega sveta. Sintetični podatki so koristna alternativa, kadar podatki niso na voljo in ker nudijo večjo zaščito zasebnosti podatkov. Sintetični podatki blažijo pristranskost tako, da omogočajo namerno ustvarjanje uravnoteženih podatkovnih nizov, ki vključujejo premalo zastopane skupine in scenarije.</p>
+
+<p align="justify">Uporaba orodij in ogrodij za algoritemsko pravičnost lahko pomaga pri odkrivanju in ublažitvi pristranskosti v modelih strojnega učenja. <a href="https://aif360.res.ibm.com/" target="_blank">AI Fairness 360</a>, odprtokodni komplet orodij, ki ga je razvil IBM, ponuja različne meritve za odkrivanje pristranskosti v virih podatkov in modelih strojnega učenja.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+<!-- Video player start -->
+<div style="width:80%; float:left;">
+  <video id="videoarea" controls="controls" poster="" src=""></video>
+  <ul id="playlist">
+    <li class="title"><b>HOW AI WORKS</b></li>
+	<li movieurl="video/CodeOrg - Intro to AI.mp4" moviesposter="">Intro to AI</li>
+	<li movieurl="video/CodeOrg - Machine Learning.mp4">Machine Learning</li>
+	<li movieurl="video/CodeOrg - Training Data & Bias.mp4">Training Data and Bias</li>
+	<li movieurl="video/CodeOrg - Neural Networks.mp4">Neural Networks</li>
+	<li movieurl="video/CodeOrg - Computer Vision.mp4">Computer Vision</li>
+	<li movieurl="video/CodeOrg - ChatBots & LLMs.mp4">ChatBots and Large Language Models</li>
+	<li movieurl="video/CodeOrg - Creativity & Imagination.mp4">Creativity and Imagination</li>
+    <li class="title"><b>ETHICS AND AI</b></li>
+	<li movieurl="video/CodeOrg - Equal Access & Algorithmic Bias.mp4">Equal Access and Algorithmic Bias</li>
+	<li movieurl="video/CodeOrg - Privacy & the Future of Work.mp4">Privacy & the Future of Work</li>
+	<li movieurl="video/CodeOrg - Why AI Matters.mp4">Why AI Matters</li>
+  </ul>
+</div>
+<div class="pull-right" style="width:20%">
+  <div class="alert alert-success" role="alert">
+    <p align="center"><img src="img/code-org-ai-oceans.png" class="img-thumbnail"></p>
+	<p align="justify">Code.org ponuja zelo dobro aktivnost, da spoznaš osnove UI in strojnega učenja.</p>
+	<p align="justify">Pomagaj UI očistiti oceane tako, da jo naučiš odkrivati smeti. Spoznaj učenje UI in mogoče pristranskosti ter kako lahko UI pomaga pri reševanju težav.</p>
+	<p align="center"><a href="https://studio.code.org/s/oceans/lessons/1/levels/1" target="_blank" class="btn btn-success">Preizkusi aktivnost</a></p>
+  </div>
+  <p align="right"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir videoposnetkov</button></p>
+</div>
+<!-- Video player end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Strojno učenje v praksi</h1>
+
+<p align="justify">Uporabili bomo <a href="https://teachablemachine.withgoogle.com/train" target="_blank" rel="noopener" data-cke-saved-href="https://teachablemachine.withgoogle.com/train">Google’s Teachable Machine</a> in z njim naučili stroj, da klasificira sliko bodisi kot kolo ali kot motorno kolo. Spomnimo, da je aplikacije strojnega učenja potrebno naučiti in testirati pred njihovo uporabo v praksi. Zbrali in razvrstili bomo vzorčne primere kategorij, ki jih bo kasneje razvrščal stroj, nato bomo model usposobili (naučili) ter testirali, ali vzorčne slike pravilno kategorizira.</p>
+
+<p align="center"><img src="img/koraki_strojnega_ucenja.png" width="60%" class="img-responsive"></p>
+
+<div id="tabs">	
+<ul class="nav nav-tabs">
+  <li>&nbsp;&nbsp;&nbsp;</li>
+  <li class="active"><a href="#korak1" data-toggle="tab">Zbiranje in kategoriziranje vzorčnih slik</a></li>
+  <li><a href="#korak2" data-toggle="tab">Učenje modela</a></li>
+  <li><a href="#korak3" data-toggle="tab">Testiranje modela</a></li>
+</ul>
+
+<div class="tab-content clearfix">
+<!-- Prvi korak -->
+<div class="tab-pane active" id="korak1" style="min-height:400px">
+  <br /><p align="justify">Izvedi naslednja dejanja:
+  <ol align="justify">
+    <li>Prenesi slike koles, ki jih najdeš <a href="https://drive.google.com/drive/folders/1cqDQHXn4SiYsHNOjV3aZpIFf7fArAvwc" target="_blank" rel="noopener" data-cke-saved-href="https://drive.google.com/drive/folders/1cqDQHXn4SiYsHNOjV3aZpIFf7fArAvwc">tukaj</a>.</li>
+    <li>Po potrebi prenesi vsebino stisnjene mape (zip) v lokalno mapo na tvojem računalniku. Služila bo za učne podatke aplikaciji strojnega učenja.</li>
+    <li>Prenesi slike motornih koles, ki jih najdeš <a href="https://drive.google.com/drive/folders/1cqDQHXn4SiYsHNOjV3aZpIFf7fArAvwc" target="_blank" rel="noopener" data-cke-saved-href="https://drive.google.com/drive/folders/1cqDQHXn4SiYsHNOjV3aZpIFf7fArAvwc">tukaj</a>.</li>
+    <li>Po potrebi prenesi vsebino stisnjene mape (zip) v lokalno mapo na tvojem računalniku. Tudi ta vsebina bo služila za učne podatke aplikaciji strojnega učenja.</li>
+    <li>Prenesi vse slike, ki jih najdeš <a href="https://drive.google.com/drive/folders/10VQn2N9P997aUJMhyBWwnvs0KRVpw3Hs" target="_blank" rel="noopener" data-cke-saved-href="https://drive.google.com/drive/folders/10VQn2N9P997aUJMhyBWwnvs0KRVpw3Hs">tukaj</a>.</li>
+    <li>Po potrebi prenesi vsebino stisnjene mape (zip) v lokalno mapo na tvojem računalniku. Služila bo za testne podatke.</li>
+    <li>Klikni na <a href="https://teachablemachine.withgoogle.com/train" target="_blank" rel="noopener" data-cke-saved-href="https://teachablemachine.withgoogle.com/train">Google’s Teachable Machine</a> in izberi <b>Image Project &gt; Standard Image Model</b>.</li>
+    <li>Pod <b>Kategorija 1 (Class 1)</b>, klikni na: <b>Upload &gt; Choose images from your files &gt;</b> odpri mapo s slikami koles, ki si jo ustvaril(-a) v korakih 1 in 2 in iz nje uvozi shranjene slike.</li>
+    <li>Pod <b>Kategorija 2 (Class 2)</b>, klikni na: <b>Upload &gt; Choose images from your files &gt;</b> odpri mapo s slikami motornih koles, ki si jo ustvaril(-a) v korakih 3 in 4 in iz nje uvozi shranjene slike.</li>
+  </ol>
+  </p>
+</div>
+
+<!-- Drugi korak -->
+<div class="tab-pane" id="korak2" style="min-height:400px">
+  <br /><p align="justify">Izberi <b>Učenje (Training)</b>, nato klikni na <b>Učenje modela (Train Model)</b>. Model se bo sedaj naučil, kako prepoznati kolesa in motorna kolesa. Počakaj na obvestilo <b>Model naučen / Model usposobljen (Model Trained)</b>.</p>
+  <p align="justify">Verjetno boš opazil(-a), da ni potrebno ročno izbirati in vnašati posameznih lastnosti (značilnosti) koles in motornih koles. Algoritmi jih znajo namreč sami poiskati na slikah!</p>
+  <p align="center"><img src="img/google-teachable-machine.png" class="img-responsive"></p>
+</div>
+
+<!-- Tretji korak -->
+<div class="tab-pane" id="korak3" style="min-height:400px">
+  <br /><p align="justify">Izvedi naslednja dejanja:
+  <ol align="justify">
+    <li>Pod <b>Predogled (Preview)</b>, klikni na puščico poleg <b>spletne kamere (webcam)</b> in izberite vrsto vnosa: <b>Datoteka (File)</b>.</li>
+    <li>Klikni, da <b>izbereš slike iz datotek na tvojem računalniku (choose images from your files)</b> ter nato izberi testno sliko, izmed slik, ki si jih shranil(-a) v korakih 5 in 6.</li>
+    <li>Z miško se premakni navzdol in preveri izhod.</li>
+    <li>Ponovi postopek z drugimi slikami ter primerjaj učinek.</li>
+  </ol>
+  </p>
+  <p align="justify">Če uporabiš sliko za učenje klasifikatorja, bo stroj že zabeležil ustrezno oznako za dotično sliko. Prikaz te slike stroju v fazi testiranja ne bo omogočil merjenja uspešnosti generalizacije. Zato se morajo učni in testni podatki med seboj razlikovati!</p>
+  <p align="justify"><b>Opomba:</b> Naložiš lahko tudi svoje slike ter z njimi model učiš in testiraš. <a href="https://wordpress.org/openverse/?referrer=creativecommons.org" target="_blank" rel="noopener" data-cke-saved-href="https://wordpress.org/openverse/?referrer=creativecommons.org">Tukaj</a> najdeš dober in brezplačen vir najrazličnejših slik.</p>
+</div>
+
+</div>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h1>Rudarjenje podatkov</h1>
+
+<p align="justify">Znanost o podatkih, zlasti metode strojnega učenja, služijo kot katalizatorji sprememb na različnih področjih, kot so znanost, inženiring in tehnologija, ki pomembno vplivajo na naše vsakdanje življenje. Računalniške tehnike, kot je na primer <b>rudarjenje podatkov</b> (<i>ang. data mining</i>), s katerimi je mogoče presejati obsežne nize podatkov, identificirati zanimive vzorce in konstruirati napovedne modele, postajajo vseprisotne. Vendar ima le nekaj strokovnjakov temeljno razumevanje znanosti o podatkih, še manj jih je aktivno vključenih v izgradnjo modelov iz svojih podatkov. V dobi, ko AI tiho oblikuje naš svet, se morajo vsi zavedati njenih zmogljivosti, prednosti in potencialnih tveganj. Vzpostaviti moramo metode za učinkovito komuniciranje in poučevanje konceptov, povezanih s podatkovno znanostjo, širokemu občinstvu. Načela in tehnike strojnega učenja, znanosti o podatkih in umetne inteligence morajo postati splošno znana.</p>
+
+<p align="justify">Rudarjenja podatkov se lahko lotimo tako, da začnemo z vprašanjem, poiščemo ustrezne podatke in nato odgovorimo na vprašanje z iskanjem ustreznih podatkovnih vzorcev in modelov. <a href="https://pumice.si/" target="_blank"><img src="img/pumice-logo.png" width="180" style="float:left; margin:5px 15px 5px 0px;"></a> V projektu <a href="https://pumice.si/" target="_blank">Pumice</a> razvijamo izobraževalne aktivnosti, s katerimi lahko obogatimo različne šolske predmete. Uporabljamo podatke, povezane s predmetom, in jih raziskujemo z uporabo AI in pristopov strojnega učenja. V sodelovanju z učitelji smo razvili učne predloge in razlage ozadja za učitelje in učence.</p>
+
+<p align="justify"><a href="http://orangedatamining.com/" target="_blank"><img src="img/orange-ilustration-2023.png" width="220" style="float:right; margin:5px 0px 5px 15px;"></a> Aktivnosti in usposabljanje projekta Pumice podpira <a href="http://orangedatamining.com/" target="_blank">Orange</a>, program za strojno učenje, ki ima intuitiven vmesnik, interaktivne vizualizacije in vizualno programiranje. Ključ do enostavnosti, ki je potrebna pri usposabljanju, in vsestranskosti za pokrivanje večine osrednjih tem in prilagajanje različnim področjem uporabe je konstrukcija analitičnih cevovodov, podobna kockam Lego, in interaktivnost vseh komponent (glej <a href="#orange" title="Orange Data Mining" data-toggle="modal" data-target="#orange">sliko</a>). Za nadaljnjo podporo poučevanju in osredotočenost na koncepte namesto na osnovno mehaniko, Orange izvaja enostaven dostop do podatkov, ponovljivost s shranjevanjem potekov dela z vsemi različnimi nastavitvami in izbirami, ki temeljijo na uporabniku, ter enostavno prilagajanje z oblikovanjem novih komponent. Kritični vidik usposabljanja vključuje pripovedovanje zgodb s pregledovanjem potekov dela in specializiranimi funkcijami za eksperimentiranje, kot je risanje nizov eksperimentalnih podatkov ali učenje o prekomernem prilagajanju polinomske linearne regresije. Orange je na voljo kot odprtokodna programska oprema in jo dopolnjuje <a href="https://www.youtube.com/orangedatamining" target="_blank">jedrnat videoposnetek za usposabljanje</a>.</p>
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+
+<p align="justify"></p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+<!-- Summary start -->
+<h1>Povzetek</h1>
+
+<p align="justify">Za ponovitev učne snovi najprej navedi definicijo pojma, nato s klikom pojma preveri svoj odgovor.</p>
+
+<div class="card1">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Generativna UI</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Generativna UI</div></a>
+    <p>Sistemi generativne UI ustvarjajo nove vsebine v obliki slik, besedil, zvoka, videoposnetkov in še več. Delujejo s pomočjo velikih jezikovnih modelov.</p>
+  </div>
+</div>
+<div class="card2">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Klasifikacija</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Klasifikacija</div></a>
+    <p>Se pogosto uporablja v aplikacijah strojnega učenja. Na izbiro sta dve ali več skupin, pplikacija mora nove podatke razvrstiti v eno od teh skupin.</p>
+  </div>
+</div>
+<div class="card3">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Model</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Model</div></a>
+    <p>Model je poenostavljena reprezentacija oziroma predstavitev sveta, zaradi katere se lahko stroj »pretvarja«, da razume svet okrog sebe.</p>
+  </div>
+</div>
+<div class="card4">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Obdelava naravnega jezika</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Obdelava naravnega jezika</div></a>
+    <p>Obdelava naravnega jezika je preučevanje in uporaba tehnik in orodij, ki računalnikom omogočajo obdelavo, analizo, interpretacijo in razmišljanje o človeškem jeziku.</p>
+  </div>
+</div>
+<div class="card5">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Pomen podatkov</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Pomen podatkov</div></a>
+    <p>Dobra izbira ustreznih podatkov je ključnega pomena za učinkovite aplikacije strojnega učenja, bolj kot pri drugih vrstah programov.</p>
+  </div>
+</div>
+<div class="card6">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Pristranskost</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Pristranskost</div></a>
+    <p>Pristranskost pomeni imeti predsodke v odnosu do določene identitete, v pozitivnem ali negativnem smislu, namerno ali nenamerno.</p>
+  </div>
+</div>
+<div class="card7">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Sintetični podatki</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Sintetični podatki</div></a>
+    <p>So umetno ustvarjeni podatki, ki nadomestijo vire podatkov iz resničnega sveta. Sintetični podatki so koristna alternativa, kadar podatki niso na voljo.</p>
+  </div>
+</div>
+<div class="card8">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Strojno prevajanje</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Strojno prevajanje</div></a>
+    <p>Strojno prevajanje pomeni, da stroj prevede besedilo iz enega v drugi jezik. Dandanes to stroji počnejo s pomočjo nevronskih mrež oziroma globokega učenja.</p>
+  </div>
+</div>
+<div class="card9">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Strojno učenje</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Strojno učenje</div></a>
+    <p>Algoritmi strojnega učenja analizirajo podatke za prepoznavanje vzorcev, ki jih nato uporabijo za sprejemanje odločitev ali generiranje napovedi.</p>
+  </div>
+</div>
+<!-- Summary end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>1</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Si oskrbnik(-ca) živali v živalskem vrtu in odgovoren(-na) za hranjenje opic. Opice so videti zelo srčkane, vendar moraš paziti, saj nekatere opice grizejo. Za opice iz živalskega vrta že veš, ali grizejo, ali ne. Tem opicam se bodo kmalu pridružile nove in razmisliti moraš kako ugotoviti, katere nove opice grizejo in katere ne &ndash; po možnosti ne preblizu njihovih zob.</p>
+<p align="justify">Vse opice živijo v živalskem vrtu, to pomeni, da že vemo, če grizejo. Razdeljene so na učno skupino (levo) in testno skupino (desno). Za učno skupino so podatki prikazani in na podlagi teh podatkov razmislimo o merilih / pravilih, ki določajo, ali opice grizejo. Nato njihovo zanesljivost preverimo s pomočjo testne skupine.</p>
+<p><span class="group_name">Opice, ki grizejo</span></p>
+<div class="img-rounded" style="background-color:rgba(100,100,100,0.15);padding:13px;">
+<img src="game/monkey06.png" width="77" class="biting bg-danger">
+<img src="game/monkey07.png" width="77" class="biting bg-danger">
+<img src="game/monkey08.png" width="77" class="biting bg-danger">
+<img src="game/monkey15.png" width="77" class="biting bg-danger">
+</div>
+<p style="margin-top:10px"><span class="group_name">Opice, ki ne grizejo</span></p>
+<div class="img-rounded" style="background-color:rgba(100,100,100,0.15);padding:13px;">
+<img src="game/monkey01.png" width="77" class="non-biting bg-success">
+<img src="game/monkey02.png" width="77" class="non-biting bg-success">
+<img src="game/monkey04.png" width="77" class="non-biting bg-success">
+<img src="game/monkey09.png" width="77" class="non-biting bg-success">
+<img src="game/monkey12.png" width="77" class="non-biting bg-success">
+<img src="game/monkey14.png" width="77" class="non-biting bg-success">
+<img src="game/monkey17.png" width="77" class="non-biting bg-success">
+<img src="game/monkey18.png" width="77" class="non-biting bg-success">
+</div>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>1</b></span>
+	<span class="label label-info">nadaljevanje</span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">(a) Sestavi pravila, ki določajo ali določena opica grize.
+<a href="#solution1" class="btn btn-info" data-toggle="modal" data-target="#solution1"><span class="fa fa-check"></span> Rešitev (a)</a>
+</p>
+<p align="justify">(b) Preveri zanesljivost pravil tako, da jih uporabiš pri razvrščanju opic iz testne skupine.</p>
+
+<script src="../js/h5utils/h5utils.js"></script>
+<style type="text/css">
+.non-biting {
+  margin: 3px 2px;
+  padding: 4px;
+  border: 1px solid #5cb85c;
+}
+.biting {
+  margin: 3px 2px;
+  padding: 4px;
+  border: 1px solid #d9534f;
+}
+.group_name {
+  color: #333;
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.anwserdragdropfix {
+  text-decoration: none;
+  color: #000 !important;
+  margin: 3px;
+  width: auto;
+  padding: 4px;
+  display: inline-block !important;
+  background: none repeat scroll 0 0 #c8d6ff;
+  border: 1px solid #7ac4dd !important;
+  line-height: 1 !important;
+}
+*[draggable=true] {
+  -moz-user-select:none;
+  -khtml-user-drag: element;
+  cursor: move;
+}
+*:-khtml-drag {
+  background-color: rgba(238,238,238, 0.5);
+}
+.binBasketDrop {
+  border: 0px;
+  width: 270px;
+  height: 300px;
+  margin-top: 10px;
+}
+.bin_containerBasketDrop {
+  display: inline-block;
+  width: 270px;
+  float:left;
+}
+.binBasketDrop p {
+  text-align: center;
+  width: 270px;
+  margin-top: 0px;
+  position: absolute;
+}
+.binBasketDrop p.right {
+  color: green;
+}
+.binBasketDrop p.wrong {
+  color: red;
+}
+.binBasketDrop span.basket_name {
+  position:absolute; 
+  margin-top: -18px;
+  padding-left:20px;
+  color:#333;
+  width: 250px; 
+  font-size: 18px;
+}
+.correct_anwsers > * {
+  display: block;
+}
+.correct_anwsers {
+  padding-top: 13px;
+  width: 270px;
+  padding-left: 13px;
+}
+.iskalnik, .imenik {
+  background: url('img/list-w.png') top center no-repeat;
+}
+#anwser_containerBasketDrop {
+  background-color: #f0f0f0;
+  border: 2px dashed #d3d3d3;
+  min-height: 20px !important;
+  margin-bottom: 5px;
+  min-height: 170px!important;
+  height: 170px!important;
+}
+</style>
+<script>
+	var rightAnswers=0;
+	var wrongAnswers=0;
+    var addEvent = (function () {
+        if (document.addEventListener) {
+            return function (el, type, fn) {
+                if (el && el.nodeName || el === window) {
+                    el.addEventListener(type, fn, false);
+                } else if (el && el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                }
+            };
+        } else {
+            return function (el, type, fn) {
+                if (el && el.nodeName || el === window) {
+                    el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
+                } else if (el && el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                }
+            };
+        }
+    })();
+    window.onload = function() {
+    var result_text = document.createElement('p');
+    var msie = /*@cc_on!@*/0;
+    result_text.style.opacity = 1;
+    var links = document.querySelectorAll('.anwserdragdropfix'), el = null;
+    for (var i = 0; i < links.length; i++) {
+        el = links[i];
+  
+        el.setAttribute('draggable', 'true');
+  
+        addEvent(el, 'dragstart', function (e) {
+            e.dataTransfer.effectAllowed = 'copy'; // only dropEffect='copy' will be dropable
+            e.dataTransfer.setData('Text', this.id); // required otherwise doesn't work
+        });
+    }
+    var bin = document.querySelectorAll('.binBasketDrop');
+    addEvent(bin, 'dragover', function (e) {
+        if (e.preventDefault) {
+            e.preventDefault(); // allows us to drop
+        }
+        e.dataTransfer.dropEffect = 'copy';
+        return false;
+    });
+    // to get IE to work
+    addEvent(bin, 'dragenter', function (e) {
+        return false;
+    });
+    addEvent(bin, 'dragleave', function () {
+        //this.className = '';
+    });
+    addEvent(bin, 'drop', function (e) {
+        if (e.preventDefault) {
+            e.preventDefault(); // stops the browser from redirecting
+        }
+        var el = document.getElementById(e.dataTransfer.getData('Text'));
+        console.log(el);
+        var correct_bin = el.getAttribute("data-correct-bin");
+        if (this.id == correct_bin) {
+            el.parentNode.removeChild(el)
+            var el_c = el.cloneNode(true);
+            this.parentNode.getElementsByClassName("correct_anwsers")[0].appendChild(el_c);
+            //el.parentNode.removeChild(el);
+            result_text.innerHTML = "Pravilno";
+            result_text.className = "right";
+			rightAnswers+=1;
+        } else {
+            result_text.innerHTML = "Napačno";
+	        result_text.className = "wrong";
+			wrongAnswers+=1;
+        }
+        var y = result_text.cloneNode(true);
+        this.appendChild(y);
+        setTimeout(function () {
+        var t = setInterval(function () {
+            if (y.style.opacity <= 0.2) {
+                if (msie) { // don't bother with the animation
+                    y.style.display = 'none';
+                }
+                clearInterval(t); 
+                y.parentNode.removeChild(y);
+            } else {
+                y.style.opacity -= 0.1;
+            }
+       }, 50);
+       }, 700);
+       return false;
+    });
+    // Shuffle the anwsers
+    function shuffle(items) {
+        var cached = items.slice(0), temp, i = cached.length, rand;
+        while(--i) {
+            rand = Math.floor(i * Math.random());
+            temp = cached[rand];
+            cached[rand] = cached[i];
+            cached[i] = temp;
+        }
+        return cached;
+    }
+    function shuffleNodes(list) {
+        var nodes = list.children, i = 0;
+        nodes = Array.prototype.slice.call(nodes);
+        nodes = shuffle(nodes);
+        while(i < nodes.length) {
+            list.appendChild(nodes[i]);
+            ++i;
+        }
+    }
+    shuffleNodes(document.getElementById('anwser_containerBasketDrop'));
+	};
+</script>	
+<!-- 
+Additional modifications done (+IE DnD fix) by: Rok Penšek <rok.pensek@gmail.com>
+Modifications done by: Matjaž Črnko <matjaz.crnko@gmail.com>
+Based on: http://html5demos.com/drag
+Icon: https://www.iconfinder.com/icons/63470/basket_commerce_ecommerce_shop_icon#size=128
+Shuffle: http://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
+-->
+<div style="margin-top:10px">
+  <div id="anwser_containerBasketDrop" style="width:100%">
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an1" draggable="true"><img src="game/monkey03.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an2" draggable="true"><img src="game/monkey05.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an3" draggable="true"><img src="game/monkey10.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an4" draggable="true"><img src="game/monkey11.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an5" draggable="true"><img src="game/monkey13.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an6" draggable="true"><img src="game/monkey16.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an7" draggable="true"><img src="game/monkey19.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an8" draggable="true"><img src="game/monkey20.png" width="65"></span>
+    </div>
+	<div style="min-height:320px;padding-top:10px;">
+		<div class="bin_containerBasketDrop">
+			<div class="binBasketDrop imenik" id="basket_1">
+				<span class="basket_name">Opice, ki grizejo</span>
+				<div class="correct_anwsers"></div>
+			</div><!-- zapre .bin­-->
+		</div>
+		  <div class="bin_containerBasketDrop">
+			<div class="binBasketDrop iskalnik" id="basket_2">
+				<span class="basket_name">Opice, ki ne grizejo</span>
+				<div class="correct_anwsers"></div>
+			</div><!-- zapre .bin­-->
+		</div>
+	</div>
+</div>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>2</b></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Še vedno si oskrbnik(-ca) živali v živalskem vrtu in odgovoren(-na) za hranjenje opic. Ta naloga je enaka, kot prejšnja, le da je težja, saj je v živalskem vrtu zdaj več opic. Opice so še vedno razdeljene na učno skupino (levo) in testno skupino (desno).</p>
+<p><span class="group_name">Opice, ki grizejo</span></p>
+<div class="img-rounded" style="background-color:rgba(100,100,100,0.15);padding:13px;">
+<img src="game/monkey01.png" width="77" class="biting bg-danger">
+<img src="game/monkey02.png" width="77" class="biting bg-danger">
+<img src="game/monkey05.png" width="77" class="biting bg-danger">
+<img src="game/monkey09.png" width="77" class="biting bg-danger">
+<img src="game/monkey10.png" width="77" class="biting bg-danger">
+<img src="game/monkey14.png" width="77" class="biting bg-danger">
+<img src="game/monkey15.png" width="77" class="biting bg-danger">
+<img src="game/monkey16.png" width="77" class="biting bg-danger">
+<img src="game/monkey17.png" width="77" class="biting bg-danger">
+<img src="game/monkey28.png" width="77" class="biting bg-danger">
+<img src="game/monkey33.png" width="77" class="biting bg-danger">
+<img src="game/monkey35.png" width="77" class="biting bg-danger">
+</div>
+<p style="margin-top:10px"><span class="group_name">Opice, ki ne grizejo</span></p>
+<div class="img-rounded" style="background-color:rgba(100,100,100,0.15);padding:13px;">
+<img src="game/monkey04.png" width="77" class="non-biting bg-success">
+<img src="game/monkey07.png" width="77" class="non-biting bg-success">
+<img src="game/monkey12.png" width="77" class="non-biting bg-success">
+<img src="game/monkey19.png" width="77" class="non-biting bg-success">
+<img src="game/monkey22.png" width="77" class="non-biting bg-success">
+<img src="game/monkey23.png" width="77" class="non-biting bg-success">
+<img src="game/monkey24.png" width="77" class="non-biting bg-success">
+<img src="game/monkey25.png" width="77" class="non-biting bg-success">
+<img src="game/monkey30.png" width="77" class="non-biting bg-success">
+<img src="game/monkey32.png" width="77" class="non-biting bg-success">
+<img src="game/monkey37.png" width="77" class="non-biting bg-success">
+<img src="game/monkey38.png" width="77" class="non-biting bg-success">
+<img src="game/monkey39.png" width="77" class="non-biting bg-success">
+<img src="game/monkey40.png" width="77" class="non-biting bg-success">
+</div>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>2</b></span>
+	<span class="label label-info">nadaljevanje</span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">(a) Sestavi pravila, ki določajo ali določena opica grize.
+<a href="#solution2" class="btn btn-info" data-toggle="modal" data-target="#solution2"><span class="fa fa-check"></span> Rešitev (a) in opomba (b)</a>
+</p>
+<p align="justify">(b) Preveri zanesljivost pravil tako, da jih uporabiš pri razvrščanju opic iz testne skupine.</p>
+
+<script src="../js/h5utils/h5utils.js"></script>
+<style type="text/css">
+.non-biting {
+  margin: 3px 2px;
+  padding: 4px;
+  border: 1px solid #5cb85c;
+}
+.biting {
+  margin: 3px 2px;
+  padding: 4px;
+  border: 1px solid #d9534f;
+}
+.group_name {
+  color: #333;
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.anwserdragdropfix {
+  text-decoration: none;
+  color: #000 !important;
+  margin: 3px;
+  width: auto;
+  padding: 4px;
+  display: inline-block !important;
+  background: none repeat scroll 0 0 #c8d6ff;
+  border: 1px solid #7ac4dd !important;
+  line-height: 1 !important;
+}
+*[draggable=true] {
+  -moz-user-select:none;
+  -khtml-user-drag: element;
+  cursor: move;
+}
+*:-khtml-drag {
+  background-color: rgba(238,238,238, 0.5);
+}
+.binBasketDrop {
+  border: 0px;
+  width: 270px;
+  height: 300px;
+  margin-top: 10px;
+}
+.bin_containerBasketDrop {
+  display: inline-block;
+  width: 270px;
+  float:left;
+}
+.binBasketDrop p {
+  text-align: center;
+  width: 270px;
+  margin-top: 0px;
+  position: absolute;
+}
+.binBasketDrop p.right {
+  color: green;
+}
+.binBasketDrop p.wrong {
+  color: red;
+}
+.binBasketDrop span.basket_name {
+  position:absolute; 
+  margin-top: -18px;
+  padding-left:20px;
+  color:#333;
+  width: 250px; 
+  font-size: 18px;
+}
+.correct_anwsers > * {
+  display: block;
+}
+.correct_anwsers {
+  padding-top: 13px;
+  width: 270px;
+  padding-left: 13px;
+}
+.iskalnik, .imenik {
+  background: url('img/list-w.png') top center no-repeat;
+}
+#anwser_containerBasketDrop {
+  background-color: #f0f0f0;
+  border: 2px dashed #d3d3d3;
+  min-height: 20px !important;
+  margin-bottom: 5px;
+  min-height: 250px!important;
+  height: 250px!important;
+}
+</style>
+<script>
+	var rightAnswers=0;
+	var wrongAnswers=0;
+    var addEvent = (function () {
+        if (document.addEventListener) {
+            return function (el, type, fn) {
+                if (el && el.nodeName || el === window) {
+                    el.addEventListener(type, fn, false);
+                } else if (el && el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                }
+            };
+        } else {
+            return function (el, type, fn) {
+                if (el && el.nodeName || el === window) {
+                    el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
+                } else if (el && el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                }
+            };
+        }
+    })();
+    window.onload = function() {
+    var result_text = document.createElement('p');
+    var msie = /*@cc_on!@*/0;
+    result_text.style.opacity = 1;
+    var links = document.querySelectorAll('.anwserdragdropfix'), el = null;
+    for (var i = 0; i < links.length; i++) {
+        el = links[i];
+  
+        el.setAttribute('draggable', 'true');
+  
+        addEvent(el, 'dragstart', function (e) {
+            e.dataTransfer.effectAllowed = 'copy'; // only dropEffect='copy' will be dropable
+            e.dataTransfer.setData('Text', this.id); // required otherwise doesn't work
+        });
+    }
+    var bin = document.querySelectorAll('.binBasketDrop');
+    addEvent(bin, 'dragover', function (e) {
+        if (e.preventDefault) {
+            e.preventDefault(); // allows us to drop
+        }
+        e.dataTransfer.dropEffect = 'copy';
+        return false;
+    });
+    // to get IE to work
+    addEvent(bin, 'dragenter', function (e) {
+        return false;
+    });
+    addEvent(bin, 'dragleave', function () {
+        //this.className = '';
+    });
+    addEvent(bin, 'drop', function (e) {
+        if (e.preventDefault) {
+            e.preventDefault(); // stops the browser from redirecting
+        }
+        var el = document.getElementById(e.dataTransfer.getData('Text'));
+        console.log(el);
+        var correct_bin = el.getAttribute("data-correct-bin");
+        if (this.id == correct_bin) {
+            el.parentNode.removeChild(el)
+            var el_c = el.cloneNode(true);
+            this.parentNode.getElementsByClassName("correct_anwsers")[0].appendChild(el_c);
+            //el.parentNode.removeChild(el);
+            result_text.innerHTML = "Pravilno";
+            result_text.className = "right";
+			rightAnswers+=1;
+        } else {
+            result_text.innerHTML = "Napačno";
+	        result_text.className = "wrong";
+			wrongAnswers+=1;
+        }
+        var y = result_text.cloneNode(true);
+        this.appendChild(y);
+        setTimeout(function () {
+        var t = setInterval(function () {
+            if (y.style.opacity <= 0.2) {
+                if (msie) { // don't bother with the animation
+                    y.style.display = 'none';
+                }
+                clearInterval(t); 
+                y.parentNode.removeChild(y);
+            } else {
+                y.style.opacity -= 0.1;
+            }
+       }, 50);
+       }, 700);
+       return false;
+    });
+    // Shuffle the anwsers
+    function shuffle(items) {
+        var cached = items.slice(0), temp, i = cached.length, rand;
+        while(--i) {
+            rand = Math.floor(i * Math.random());
+            temp = cached[rand];
+            cached[rand] = cached[i];
+            cached[i] = temp;
+        }
+        return cached;
+    }
+    function shuffleNodes(list) {
+        var nodes = list.children, i = 0;
+        nodes = Array.prototype.slice.call(nodes);
+        nodes = shuffle(nodes);
+        while(i < nodes.length) {
+            list.appendChild(nodes[i]);
+            ++i;
+        }
+    }
+    shuffleNodes(document.getElementById('anwser_containerBasketDrop'));
+	};
+</script>	
+<!-- 
+Additional modifications done (+IE DnD fix) by: Rok Penšek <rok.pensek@gmail.com>
+Modifications done by: Matjaž Črnko <matjaz.crnko@gmail.com>
+Based on: http://html5demos.com/drag
+Icon: https://www.iconfinder.com/icons/63470/basket_commerce_ecommerce_shop_icon#size=128
+Shuffle: http://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
+-->
+<div style="margin-top:10px">
+  <div id="anwser_containerBasketDrop" style="width:100%">
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an1" draggable="true"><img src="game/monkey03.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an2" draggable="true"><img src="game/monkey06.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an3" draggable="true"><img src="game/monkey08.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an4" draggable="true"><img src="game/monkey11.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an5" draggable="true"><img src="game/monkey13.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an6" draggable="true"><img src="game/monkey18.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an7" draggable="true"><img src="game/monkey20.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="" id="an8" draggable="true"><img src="game/monkey21.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an9" draggable="true"><img src="game/monkey26.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an10" draggable="true"><img src="game/monkey27.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an11" draggable="true"><img src="game/monkey29.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_2" id="an12" draggable="true"><img src="game/monkey31.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an13" draggable="true"><img src="game/monkey34.png" width="65"></span>
+    <span class="anwserdragdropfix" data-correct-bin="basket_1" id="an14" draggable="true"><img src="game/monkey36.png" width="65"></span>
+    </div>
+	<div style="min-height:320px;padding-top:10px;">
+		<div class="bin_containerBasketDrop">
+			<div class="binBasketDrop imenik" id="basket_1">
+				<span class="basket_name">Opice, ki grizejo</span>
+				<div class="correct_anwsers"></div>
+			</div><!-- zapre .bin­-->
+		</div>
+		  <div class="bin_containerBasketDrop">
+			<div class="binBasketDrop iskalnik" id="basket_2">
+				<span class="basket_name">Opice, ki ne grizejo</span>
+				<div class="correct_anwsers"></div>
+			</div><!-- zapre .bin­-->
+		</div>
+	</div>
+</div>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+<!-- Content start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert" style="min-height:750px">
+<p>
+	<span class="label label-primary"><b>3</b></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<noscript><strong>We're sorry but game doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+<div id="app"></div>
+</div>
+<p align="center"><a href="index28.html">Igraj proti krokodilom</a> &bull; <a href="index28.html?robots=true">Igraj proti robotom</a> &bull; <a href="index28.html?cornelsen=true">Različica založbe Cornelsen</a></p>
+<!-- Content end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Umetna inteligenca okoli nas</h1>
+
+<p align="justify">Druga skrajnost v zvezi z uporabo UI je neselektivna uporaba tehnologije, ali tudi zloraba tehnologije. UI deluje drugače kot človeška inteligenca. Sistemi UI lahko zaradi narave specifičnih okoliščin, zaradi njihove zasnove ali zaradi podatkov samih delujejo drugače od pričakovanega.</p>
+
+<p align="justify">Na primer, aplikacija, ki je bila razvita na podlagi določenih podatkov za določen namen, ne bo delovala enako dobro na podlagi drugačnih podatkih za drugačen namen. Dobro je poznati omejitve UI in jih odpraviti. Torej ne moremo preprosto preklopiti na UI, temveč se moramo seznaniti s prednostmi in omejitvami njene uporabe.</p>
+
+<h2>Ohranjanje stereotipov</h2>
+
+<p align="center"><img src="img/GooglePrevajalnik.png" class="img-responsive" style="border:1px solid black"></p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Google Prevajalnik se uči prevajati s pomočjo interneta. Z rudarjenjem podatkov se uči iz informacij, prosto dostopnih na spletu. Poleg jezika se UI nauči, na primer, da je med mehaniki več moških kot žensk, med zdravstvenimi tehniki pa več žensk kot moških. UI ni sposobna razlikovati med tem, kaj je »resnica« in kaj je posledica stereotipov in drugih predsodkov. Na ta način Google Prevajalnik promovira in širi informacije o vsem, kar se nauči, in s tem še bolj utrdi stereotipe.</p>
+
+<p align="justify">Oglejmo si primer, ki ga prikazuje slika. Ko s pomočjo Google Prevajalnika prevedemo besedilo iz francoščine v angleščino in nato ponovno nazaj v francoščino, se mehanik (v ženskem spolu) spremeni v mehanika (v moškem spolu) in medicinski tehnik (v moškem spolu) v medicinskega tehnika (v ženskem spolu).</p>
+
+<p align="justify">Težave se v delovanje UI prikradejo takrat, ko se posamezen primer razlikuje od večine (ne glede na to, ali gre zares za večino v resničnem svetu, ali le za večino po podatkih interneta).</p>
+
+<h4>Aktivnost</h4>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Poskusi v <a href="https://translate.google.com/" target="_blank">Google Prevajalniku</a> izslediti kakšen stereotip. Poigraj se s prevajanjem v različne jezike in iz njih. S klikom na dve puščici med obema poljema obrni smer prevajanja.</p>
+
+<p align="justify">Nekateri jeziki, na primer turščina, ne poznajo slovnične kategorije spola. Pri prevajanju iz turškega jezika in v turščino se pokažejo številni stereotipi. V turščini in v številnih drugih jezikih je namreč nakazana moška spolna nevtralnost (raba moških generičnih oblik v položajih, ko so mišljeni osebki obeh spolov) kot odraz »naravnega« jezikovnega stanja. V zgornjem primeru je nenavadno to, da se spremeni spol samostalnika pri prevodu iz angleščine v francoščino.</p>
+</div>
+
+<p align="justify">Sistemi UI lahko pripravijo različne napovedi, priporočila ali odločitve. Verjetnost napovedi je pogosto izražena v odstotkih. Ta številka nam pove, kako verjetne so po lastni oceni sistema UI njegove napovedi.</p>
+
+<p align="justify">Po svoji naravi so lahko napovedi napačne. Velikokrat so napake sprejemljive, v nekaterih primerih pa ne. Poleg tega obstaja veliko različnih načinov izračunavanja stopnje napake, po različnih merilih – in programer izbere tisto, ki se mu zdi najprimernejša. Pogosto se zanesljivost napovedi spreminja glede na značilnosti vhodnih podatkov.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Iskanje informacij</h1>
+
+<p align="justify">Junija 1993 je bilo v spletu objavljenih le 130 strani. Leto kasneje je število naraslo na skoraj 3000. V začetku leta 1996 jih je bilo že 100.000. Po različnih ocenah naj bi jih bilo jeseni leta 2022 že 1,7 milijarde.</p>
+
+<p align="justify">Ta eksplozija spletnih strani ne bi imela prav veliko smisla, če nam ne bi omogočala iskanja točno tistih informacij, ki jih želimo. In prav to počnejo spletni iskalniki. Odlikujeta jih enostaven vnos s pomočjo tipkovnice ter praktično brezhibno oziroma skoraj nevidno delovanje, kadar so integrirani v brskalnik. Preberejo naše na hitro in pogosto napačno napisane poizvedbe in nato iz spleta izvlečejo besedila, slike, videoposnetke za vse vrste iskanih vsebin.</p>
+
+<h4>Aktivnost</h4>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">S spodnjega seznama izberi iskalnik in ga uporabljaj v naslednjem tednu:
+<table border="0" width="100%">
+<tr>
+<td width="35%">
+<ul>
+<li><a href="https://www.bing.com/" target="_blank">Bing</a></li>
+<li><a href="https://search.brave.com/" target="_blank">Brave</a></li>
+<li><a href="https://duckduckgo.com/" target="_blank">DuckDuckGo</a></li>
+<li><a href="https://www.ecosia.org/" target="_blank">Ecosia</a></li>
+<li><a href="https://www.google.com/" target="_blank">Google</a></li>
+<li><a href="https://metager.org/" target="_blank">MetaGer</a></li>
+</ul>
+</td>
+<td width="65%">
+<ul>
+<li><a href="https://www.onesearch.com/" target="_blank">OneSearch</a></li>
+<li><a href="https://www.qwant.com/" target="_blank">Qwant</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spotlight_(software)" target="_blank">Spotlight</a></li>
+<li><a href="https://www.startpage.com/" target="_blank">Startpage</a></li>
+<li><a href="https://swisscows.com/en" target="_blank">Swisscows</a></li>
+<li><a href="https://search.yahoo.com/" target="_blank">Yahoo!</a></li>
+</ul>
+</td>
+</tr>
+</table>
+</p>
+
+<p align="justify">
+<ol align="justify">
+<li>Ali so rezultati iskanja tako dobri kot pri iskalniku, ki ga običajno uporabljaš?</li>
+<li>Iz katerih informacijskih virov črpa iskalnik? Ali so rezultati, ki jih prikaže, odvisni od drugih iskalnikov?</li>
+<li>Preberi, kaj je o iskalniku napisano v razdelkih <i>Vizitka</i>, <i>Politika zasebnosti</i> ali <i>Pogoji uporabe</i>.</li>
+<li>Čemu so (glede na zapisano) namenjeni tvoji podatki? Ali iskalnik omogoča, da spremeniš privzete nastavitve zasebnosti?</li>
+</ol>
+</p>
+
+<p align="justify">Ko boš zaključi(-a), si oglej opise teh iskalnikov s klikom na spodnji gumb.</p>
+<p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#iskalniki"><span class="fa fa-info-circle"></span> Opisi iskalnikov</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Iskalniki so torej UI, ki jo imate vedno pri roki. To je doslej najbolj izpopolnjen način uporabe UI, ki se ga redno poslužujemo praktično vsi. Učinkovitost spletnih iskalnikov je posledica:
+<ul align="justify">
+<li>eksplozije vsebin na svetovnem spletu,</li>
+<li>sposobnosti iskalnika, da to vsebino <i>osmisli</i>&thinsp;<a href="#" data-toggle="modal" data-target="#opomba">*</a> in označi za prihodnje poizvedbe (indeksiranje),</li>
+<li>sposobnosti iskalnika, da <i>razume</i>&thinsp;<a href="#" data-toggle="modal" data-target="#opomba">*</a>, kar ga sprašujete in</li>
+<li>sposobnosti iskalnika, da najprej prikaže najustreznejše vsebine (razvrščanje).</li>
+</ul>
+V ozadju zadnjih treh dejavnikov so algoritmi UI.</p>
+
+<h2>Kaj in kako vprašati?</h2>
+
+<p align="justify">Različne študije v Evropi in v svetu kažejo, da se uporabniki srečujejo z mnogimi težavami pri spletnem iskanju informacij. Pogosto so razočarani, ko njihovo iskanje ne obrodi nobenih rezultatov. Ne vedo, kako oceniti ustreznost rezultatov iskanja. Mlajši uporabniki imajo pri iskanju informacij na spletu težave z ustvarjanjem iskalnih poizvedb, z izbiro ustrezne spletne strani s seznama rezultatov iskanja, s pravilnim črkovanjem iskanih izrazov in z razumevanjem jezika, ki je prikazan v rezultatih iskanja. Poznavanje različnih tehnik iskanja je uporabnikom v veliko pomoč pri izkorišanju potenciala spletnih iskalnikov.</p>
+
+<p align="center">
+  <video width="560" height="315" controls poster="video/Effective Search Strategies.jpg">
+	<source src="video/Effective Search Strategies.mp4" type="video/mp4">
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Strojno učenje</h1>
+
+<p align="justify">Algoritem je določeno zaporedje navodil za izvedbo naloge. Nalogo razdeli na preproste, lahko razumljive korake, kot dobro napisan recept. Programski jeziki so jeziki, ki jim računalnik lahko sledi in jih izvaja. Delujejo kot most med tem, kar razumemo, in tem, kar lahko razume stroj. Algoritem, zapisan v programskem jeziku, postane program. Aplikacije so programi, napisani za končnega uporabnika.</p>
+
+<p align="justify">Tradicionalni programi sprejemajo podatke in sledijo navodilom, da dobijo rezultat. Številni zgodnji programi UI so bili v tem pogledu tradicionalni. Ker se navodila ne morejo prilagajati podatkom, ti programi niso bili prav uspešni pri nalogah, kot je na primer napovedovanje na podlagi nepopolnih informacij in naravna obdelava jezika (<i>ang. natural language processing &ndash; NLP</i>).</p>
+
+<img src="img/diagram_UI.svg" width="40%" style="float:left; padding: 10px 10px 0 0;">
+<p align="justify">Spletne iskalnike poganjajo tradicionalni algoritmi in <b>algoritmi strojnega učenja</b> (<i>ang. machine learning algorithms</i>). Za razliko od prvih slednji analizirajo podatke za prepoznavanje vzorcev, ki jih nato uporabijo za sprejemanje odločitev ali generiranje napovedi. Lahko bi rekli, da na podlagi podatkov (dobrih in slabih primerov) ustvarijo svoj lasten »recept« za delovanje.</p>
+
+<p align="justify">Takšni algoritmi so primerni za zelo kompleksne situacije z veliko manjkajočimi podatki. Sposobni so sami spremljajati izvajanje zadanih nalog in povratne informacije uporabiti za izboljšanje svojega delovanja.</p>
+
+<p align="justify">V tem so pravzaprav podobni ljudem, zlasti dojenčkom, ki se veščin učijo izven izobraževalnega sistema. Dojenčki opazujejo, ponavljajo (posnemajo), se učijo, preizkušajo naučeno in se izboljšujejo. Če je treba, tudi improvizirajo. Vendar je podobnost med stroji in ljudmi precej površinska. Učenje ljudi je drugačno, veliko bolj diferencirano, podrobno in zapleteno kot učenje strojev.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Strojno ucenje.jpg">
+	<source src="video/AI4T - Strojno ucenje.mp4" type="video/mp4">
+	<track src="video/AI4T - Strojno ucenje.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<div class="alert alert-success" role="alert">
+<p align="justify"><b>Simbolni pristop k umetni inteligenci</b><br />
+Znan tudi kot »na pravilih temelječa« ali »klasična« umetna inteligenca, ki temelji na logiki in apriornem znanju, ki ga zagotavljajo človeški strokovnjaki. Zgodovinsko gledano je simbolni pristop starejši, ustreza ekspertnim sistemom, v zadnjem času pa tako imenovanemu semantičnemu spletu.</p>
+
+<p align="justify"><b>Pristop strojnega učenja</b><br />
+Znan tudi kot »digitalni« pristop, temelji na podatkih in učenju. Numerični pristop ali pristop strojnega učenja (<i>ang. machine learning &ndash; ML</i>) vključuje umetne nevronske mreže in globoko učenje, kadar je več plasti takšnih računalniških enot. Učinkovit je postal v zadnjem času in prav ta pristop nam omogoča samodejno prepisovanje besedil, ki jih narekujemo, ali prepoznavanje predmetov na slikah. Zahteva veliko podatkov in temelji na statističnih pristopih.</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Strojno učenje</h1>
+
+<h2>Problem klasifikacije</h2>
+
+<p align="justify">Ena od pogostih nalog, ki se uporablja v aplikacijah strojnega učenja, je klasifikacija. Je na fotografiji pes ali mačka? Ali ima učenec težave pri reševanju nalog, ali je opravil preizkus znanja? Stroj ima na izbiro dve ali več skupin. Aplikacija mora nove podatke razvrstiti v eno od teh skupin.</p>
+
+<img src="img/klasifikacija1.png" width="380" style="float:left; padding: 10px 10px 0 0;">
+<p align="justify">Vzemimo za primer komplet igralnih kart, ki ga po nekem ključu razdelimo na dva kupčka, skupino A in skupino B. Naslednjo karto (karov as) moramo razvrstiti v skupino A ali skupino B.</p>
+
+<p align="justify">Najprej moramo razumeti, po kašnem ključu je razdeljen komplet kart &ndash; torej potrebujemo primere. Izberemo štiri karte iz skupine A in štiri iz skupine B. Teh osem primerov predstavlja naše <b>učne podatke</b> &ndash; podatke, ki nam pomagajo prepoznati vzorec, oziroma, nas s tem »učijo«, kako priti do rezultata.</p>
+
+<p align="justify">Takoj ko vidimo razporeditev (gornja slika), nas večina ugane, da karov as spada v skupino B. Pri tem ne potrebujemo posebnih navodil, človeški možgani so čudežni iskalec vzorcev. Kako pa bi to nalogo opravil stroj?</p>
+
+<p align="justify">Algoritmi strojnega učenja temeljijo na uveljavljenih statističnih teorijah. Različni algoritmi temeljijo na različnih matematičnih enačbah, ki jih je treba skrbno izbrati, da ustrezajo dani nalogi. Naloga programerja je, da izbere podatke, analizira, katere značilnosti podatkov so pomembne za določen problem, in izbere pravilen algoritem.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Pomen podatkov</h2>
+
+<p align="justify">Vendar pa bi lahko v omenjenem primeru klasifikacije šlo narobe več stvari. Oglej si spodnjo sliko. V skupini 1 je premalo kart, da bi lahko ugibali. V skupini 2 je sicer več kart, vendar so vse enake barve, zato ne moremo predvideti, kam uvrstiti karo. Če skupine ne bi bile enako velike, bi v skupini 3 karte s številkami spadale v skupino A, karte s podobami pa v skupino B.</p>
+
+<p align="center"><img src="img/klasifikacija2.png" width="430">
+</p>
+
+<p align="justify">Problemi strojnega učenja so običajno bolj odprti in vključujejo nabore podatkov, veliko večje od kompleta kart. Učne podatke je treba izbrati s pomočjo statistične analize, sicer se vanje prikradejo napake. Dobra izbira podatkov je ključnega pomena za učinkovite aplikacije strojnega učenja, bolj kot pri drugih vrstah programov. Strojno učenje potrebuje veliko število relevantnih podatkov. Osnovni model strojnega učenja mora vsebovati najmanj desetkrat več podatkov, kot je skupno število značilnosti. Kljub temu je strojno učenje posebej primerno tudi za obdelavo neurejenih in nasprotujočih si podatkov.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Strojno učenje</h1>
+
+<h2>Pridobivanje značilnosti</h2>
+
+<p align="justify">Ko smo si v prejšnjem primeru ogledali skupini A in B, smo verjetno najprej opazili barvo kart. Šele nato pa številko ali črko. Pri algoritmih je treba vse te posamezne značilnosti vnesti posebej. Algoritem ne more samodejno vedeti, kaj je pomembno za dano nalogo.</p>
+
+<p align="center"><img src="img/strojno_ucenje.png" width="60%" class="img-responsive"></p>
+
+<p align="justify">Pri izbiri značilnosti si morajo programerji zastaviti številna vprašanja. <i>Koliko značilnosti je premalo, da bi bile uporabne? Koliko jih je preveč? Katere značilnosti so pomembne za nalogo? Kakšno je razmerje med izbranimi značilnostmi – ali je ena značilnost odvisna od druge? Ali je z izbranimi značilnostmi mogoče doseči natančen rezultat?</i></p>
+
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Vloga znacilnosti.jpg">
+	<source src="video/AI4T - Vloga znacilnosti.mp4" type="video/mp4">
+	<track src="video/AI4T - Vloga znacilnosti.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Postopek</h2>
+
+<p align="justify">Ko programer ustvarja aplikacijo, vzame podatke, iz njih pridobi oziroma izvleče značilnosti, izbere ustrezen algoritem strojnega učenja (matematična funkcija, ki določa postopek) in ga usposobi z uporabo označenih podatkov (v primeru, ko je izhod znan &ndash; npr. skupina A ali skupina B), tako da stroj razume vzorec, ki se skriva za problemom.</p>
+
+<p align="justify">Za stroj <i>razumevanje</i> pomeni zapis v oblik niza številk ali <b>uteži</b>, ki jih dodeli vsaki značilnosti. S pravilno dodelitvijo uteži lahko izračuna verjetnost, da nova karta spada v skupino A ali B. Običajno v fazi učenja programer pomaga stroju tako, da ročno spremeni nekatere vrednosti (uglaševanje). Za tem je treba program pred začetkom uporabe preizkusiti. Pri tem se vanj vnesejo takšni označeni podatki, ki niso bili uporabljeni v fazi učenja, imenujemo jih <b>testni podatki</b>.</p>
+
+<p align="justify">Nato se oceni učinkovitost stroja pri napovedovanju rezultatov. Ko učinkovitost doseže zadovoljivo stopnjo, lahko začnemo z uporabo programa, ki je sedaj pripravljen za vnos povsem novih podatkov, na podlagi katerih sprejema odločitve ali generira napovedi.</p>
+
+<p align="center"><img src="img/koraki_strojnega_ucenja.png" width="60%" class="img-responsive"></p>
+
+<p align="justify">Algoritem nato lastno delovanje v realnem času nenehno spremlja in se izboljšuje (prilagoditev uteži za boljše rezultate). Učinkovitost delovanja v realnem času se pogosto razlikuje od izmerjene učinkovitosti v fazi preizkušanja (testiranja). Ker je eksperimentiranje z resničnimi uporabniki drago, zahteva veliko truda in pogosto s seboj prinaša določeno tveganje, se algoritmi praviloma preizkušajo na podlagi preteklih uporabniških podatkov, zaradi česar pa morda ni možno oceniti vpliva na vedenje uporabnikov. Zato je pomembno, da se pred uporabo aplikacij strojnega učenja opravi celovita ocena njihovega delovanja:</p>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Morajo biti podatki vedno označeni? Preberite več o nadzorovanem, nenadzorovanem in spodbujevanem učenju.</p>
+<p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vrste_ucenja"><span class="fa fa-info-circle"></span> Nadzorovano, nenadzorovano in spodbujevano učenje</button>
+</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Strojno učenje</h1>
+
+<h2>Evalvacija</h2>
+
+<p align="justify">Algoritem nato lastno delovanje v realnem času nenehno spremlja in se izboljšuje (prilagoditev uteži za boljše rezultate). Učinkovitost delovanja v realnem času se pogosto razlikuje od izmerjene učinkovitosti v fazi preizkušanja (testiranja). Ker je eksperimentiranje z resničnimi uporabniki drago, zahteva veliko truda in pogosto s seboj prinaša določeno tveganje, algoritme praviloma preizkušajo na podlagi preteklih uporabniških podatkov, zaradi česar pa morda ni možno oceniti vpliva na vedenje uporabnikov. Zato je pomembno, da pred uporabo aplikacij strojnega učenja opravijo celovito ocena njihovega delovanja:</p>
+
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Evalvacija.jpg">
+	<source src="video/AI4T - Evalvacija.mp4" type="video/mp4">
+	<track src="video/AI4T - Evalvacija.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<h1>Več o podatkih</h1>
+
+<p align="justify"><b>Podatki</b> (<i>ang. data</i>) se v splošnem vedno nanašajo na določeno entiteto iz sveta okrog nas &ndash; na primer na osebo, predmet ali dogodek. Vsako entiteto lahko opišemo s številnimi <b>atributi</b> (<b>lastnostmi</b>, <b>značilnostmi</b> ali <b>spremenljivkami</b>). Na primer, ime, starost in ime so nekatere izmed lastnosti vsakega uporabnika. Celota teh lastnosti predstavlja podatke, ki jih imamo o uporabniku. Ti podatki sicer niti približno niso enaki entiteti kot takšni (uporabniku samemu), vendar nam o njej povedo vsaj nekaj.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify"><b>Podatkovni niz</b> (<i>ang. data set</i>) &ndash; tudi: nabor podatkov, sklop podatkov &ndash; vsebuje podatke o zbirki entitet, pri čemer so ti podatki razporejeni v vrstice in stolpce. Evidenca prisotnosti delavcev na delovnem mestu je primer podatkovnega niza. Vsaka vrstica vsebuje zapis o enem delavcu/delavki. Stolpci pa lahko, na primer, vsebujejo podatke o prisotnosti ali odsotnosti na določen dan v tednu. Vsak stolpec torej pomeni določen atribut.</p>
+
+<p align="center">
+  <video width="560" height="315" controls poster="video/AI4T - Podatki.jpg">
+	<source src="video/AI4T - Podatki.mp4" type="video/mp4">
+	<track src="video/AI4T - Podatki.vtt" label="Slovenščina" kind="captions" srclang="sl" default />
+	Brskalnik ne podpira oznake &lt;video&gt;.
+  </video>
+</p>
+
+<p align="justify">Podatke ustvarimo z izbiro in merjenjem atributov; vsak podatek je rezultat človeških odločitev in izbir. Zato je ustvarjanje podatkov subjektiven, parcialen in neurejen proces, dovzeten za različne tehnične težave. Poleg tega ima lahko to, kar merimo in česar ne, bistven vpliv na pričakovane rezultate.</p>
+
+<p align="justify"><b>Podatkovne sledi</b> (<i>ang. data traces</i>) se nanašajo na podatke, ki so ustvarjeni kot rezultat aktivnosti uporabnikov, na primer število klikov z miško, število odprtih strani, čas interakcij ali število pritiskov na tipkovnico. <b>Metapodatki</b> (<i>ang. metadata</i>) so podatki, ki opisujejo druge podatke. <b>Izpeljani podatki</b> (<i>ang. derived data</i>) so podatki, izračunani ali izpeljani iz drugih podatkov, na primer posamezen rezultat nekega učenca je podatek, povprečje celega razreda pa je izpeljan podatek. Pogosto so izpeljani podatki bolj uporabni pri raznih vpogledih, iskanju vzorcev in napovedovanju. Aplikacije za strojno učenje ustvarjajo izpeljane podatke in jih povežejo z metapodatkovnimi sledmi ter tako ustvarjajo poglobljene učne modele, ki pomagajo pri personalizaciji.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --><div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Več o masovnih podatkih</h1>
+
+<p align="justify">Splošna praksa shranjevanja vseh vrst podatkov se imenuje <b>masovni podatki</b> (<i>ang. Big data</i>). To je smiselno, saj je shranjevanje podatkov postalo zelo poceni, zmogljivi procesorji in algoritmi (zlasti obdelava naravnega jezika in strojno učenje) pa olajšajo analizo masovnih podatkov.</p>
+
+<p align="justify">Kot je opisano v videoposnetku »Podatki vseh oblik in velikosti«, je za masovne podatke značilna velika količina (volume), hitro nastajanje (velocity), raznolikost (variety) podatkov, ki se ustvarjajo iz več virov. Tako pridobljeni podatki so običajno nepopolni in nenatančni (verodostojnost), njihova pomembnost pa se s časom spreminja (nestanovitnost). Za združevanje, obdelavo in vizualizacijo tovrstnih podatkov so potrebni zapleteni algoritmi. Vendar pa so lahko sklepi, ki izhajajo iz njih, zlasti v kombinaciji s tradicionalnimi podatki, zelo močni in zato vredni truda.</p>
+
+<p align="center"><img src="img/lastnosti_masovnih_podatkov.svg" width="350"></p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Nekateri strokovnjaki presegajo 3V (oziroma 4V, 5V, 7V, 9V ali najnovejšo 10V) in poudarjajo tri osi, ki sestavljajo velike podatke:
+<ol align="justify">
+<li>Tehnologija, ki omogoča zbiranje, analiziranje, povezovanje in primerjanje velikih podatkovnih baz.
+<li>Analiza, ki v velikih podatkovnih nizih prepoznava vzorce za podajanje gospodarskih, družbenih, tehničnih in pravnih zahtev.</li>
+<li>Prepričanje, da veliki podatkovni nizi ponujajo višjo obliko inteligence in znanja, ki lahko ustvarja vpoglede, ki so bili prej nemogoči, z auro resnice, objektivnosti in natančnosti.</li>
+</ol>
+</p>
+
+<h2>Zakonodaja, ki jo moraš poznati</h2>
+
+<p align="justify">Zaradi bistveno nižjih stroškov shranjevanja podatkov se danes shranjuje vse več podatkov in metapodatkov, ki se tudi hranijo veliko dlje. To lahko privede do kršitev zasebnosti in pravic. Zakoni, kot je <b>Splošna uredba o varstvu podatkov (GDPR)</b>, odvračajo od takšnih praks in državljanom EU omogočajo večji nadzor nad njihovimi osebnimi podatki. Zagotavljajo pravno izvršljive predpise o varstvu podatkov v vseh državah članicah EU.</p>
+
+<img src="img/gdpr-shield.png" width="120" style="float:right">
+<p align="justify">V skladu z omenjeno uredbo so osebni podatki vse informacije v zvezi z določeno ali določljivo osebo (osebo, na katero se podatki nanašajo).</p>
+
+<p align="justify">Pravice, določene s Splošno uredbo o varstvu podatkov, vključujejo:
+<ul align="justify">
+<li>pravico do <b>dostopa</b>, na podlagi katere morajo biti posamezniki obvezno seznanjeni s tem, kateri podatki se zbirajo o njih;</li>
+<li>pravico do <b>obveščenosti</b> o načinih uporabe njihovih podatkov;</li>
+<li>pravico do <b>izbrisa podatkov</b>, ki posamezniku, katerega podatke je zbrala določena platforma, omogoča, da zahteva odstranitev teh podatkov iz nabora podatkov te platforme (ki so lahko predmet prodje tretjim osebam);</li>
+<li>pravico do <b>pojasnila</b>, pri čemer je treba zagotoviti pojasnilo, kadarkoli je to potrebno, v zvezi z avtomatiziranimi postopki odločanja, ki vplivajo na posameznika.</li>
+</ul>
+</p>
+
+<p align="justify">Uredba sicer dovoljuje zbiranje nekaterih podatkov v okviru <i>zakonitega interesa</i> in uporabo izpeljanih, združenih ali anonimiziranih podatkov za nedoločen čas in brez privolitve. Novi <b>Akt o digitalnih storitvah</b> omejuje uporabo osebnih podatkov za namene ciljnega oglaševanja. Omenimo še <b>Zasebnostni ščit EU-ZDA</b>, ki krepi pravice do varstva podatkov za državljane EU v primeru, ko so bili njihovi podatki preneseni zunaj EU.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Pagination in Footer --></div></div><script src="../js/jquery.js"></script><script src="../js/bootstrap.min.js"></script><script src="../js/responsive-paginate.js"></script><script src="../js/exe/common.js"></script><script type="text/javascript" src="../js/google-cse.js"></script><script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+		console.log(window.location.origin);
+	});
+	</script><script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><script>
+	$(function() {
+        $("#playlist li").on("click", function() {
+            $("#videoarea").attr({
+                "src": $(this).attr("movieurl"),
+                "poster": "",
+                "autoplay": "autoplay"
+            })
+			for (i = 0; i <= 9; i++) {
+			    $("#playlist li").eq(i).css("font-weight", "normal");
+			}
+			$(this).css("font-weight", "bold");
+        })
+        $("#videoarea").attr({
+            "src": $("#playlist li").eq(1).attr("movieurl"),
+            "poster": $("#playlist li").eq(1).attr("moviesposter")
+        })
+    })
+	</script><script src="../js/h5utils/h5utils.js"></script>
+	<script src="js/data-bias.js"></script><script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script><script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script><script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script><script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2307/index.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2307/index2.html");
+    }
+});
+</script><script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2307/index13.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2307/index15.html");
+    }
+});
+</script><script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2307/index8.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2307/index10.html");
+    }
+});
+</script><script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2307/index25.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2307/index27.html");
+    }
+});
+</script><script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2307/index24.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2307/index26.html");
+    }
+});
+</script><script src="game2/app.js"></script><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="game2/chunk-vendors.js"></script>
+<script>
+	var rightAnswers=0;
+	var wrongAnswers=0;
+    var addEvent = (function () {
+        if (document.addEventListener) {
+            return function (el, type, fn) {
+                if (el && el.nodeName || el === window) {
+                    el.addEventListener(type, fn, false);
+                } else if (el && el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                }
+            };
+        } else {
+            return function (el, type, fn) {
+                if (el && el.nodeName || el === window) {
+                    el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
+                } else if (el && el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                }
+            };
+        }
+    })();
+    window.onload = function() {
+    var result_text = document.createElement('p');
+    var msie = /*@cc_on!@*/0;
+    result_text.style.opacity = 1;
+    var links = document.querySelectorAll('.anwserdragdropfix'), el = null;
+    for (var i = 0; i < links.length; i++) {
+        el = links[i];
+  
+        el.setAttribute('draggable', 'true');
+  
+        addEvent(el, 'dragstart', function (e) {
+            e.dataTransfer.effectAllowed = 'copy'; // only dropEffect='copy' will be dropable
+            e.dataTransfer.setData('Text', this.id); // required otherwise doesn't work
+        });
+    }
+    var bin = document.querySelectorAll('.binBasketDrop');
+    addEvent(bin, 'dragover', function (e) {
+        if (e.preventDefault) {
+            e.preventDefault(); // allows us to drop
+        }
+        e.dataTransfer.dropEffect = 'copy';
+        return false;
+    });
+    // to get IE to work
+    addEvent(bin, 'dragenter', function (e) {
+        return false;
+    });
+    addEvent(bin, 'dragleave', function () {
+        //this.className = '';
+    });
+    addEvent(bin, 'drop', function (e) {
+        if (e.preventDefault) {
+            e.preventDefault(); // stops the browser from redirecting
+        }
+        var el = document.getElementById(e.dataTransfer.getData('Text'));
+        console.log(el);
+        var correct_bin = el.getAttribute("data-correct-bin");
+        if (this.id == correct_bin) {
+            el.parentNode.removeChild(el)
+            var el_c = el.cloneNode(true);
+            this.parentNode.getElementsByClassName("correct_anwsers")[0].appendChild(el_c);
+            //el.parentNode.removeChild(el);
+            result_text.innerHTML = "Pravilno";
+            result_text.className = "right";
+			rightAnswers+=1;
+        } else {
+            result_text.innerHTML = "Napačno";
+	        result_text.className = "wrong";
+			wrongAnswers+=1;
+        }
+        var y = result_text.cloneNode(true);
+        this.appendChild(y);
+        setTimeout(function () {
+        var t = setInterval(function () {
+            if (y.style.opacity <= 0.2) {
+                if (msie) { // don't bother with the animation
+                    y.style.display = 'none';
+                }
+                clearInterval(t); 
+                y.parentNode.removeChild(y);
+            } else {
+                y.style.opacity -= 0.1;
+            }
+       }, 50);
+       }, 700);
+       return false;
+    });
+    // Shuffle the anwsers
+    function shuffle(items) {
+        var cached = items.slice(0), temp, i = cached.length, rand;
+        while(--i) {
+            rand = Math.floor(i * Math.random());
+            temp = cached[rand];
+            cached[rand] = cached[i];
+            cached[i] = temp;
+        }
+        return cached;
+    }
+    function shuffleNodes(list) {
+        var nodes = list.children, i = 0;
+        nodes = Array.prototype.slice.call(nodes);
+        nodes = shuffle(nodes);
+        while(i < nodes.length) {
+            list.appendChild(nodes[i]);
+            ++i;
+        }
+    }
+    shuffleNodes(document.getElementById('anwser_containerBasketDrop'));
+	};
+</script><script src="../js/jquery.quickflip.min.js"></script>
+</body></html>

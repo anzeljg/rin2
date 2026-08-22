@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<title>Razredi in objekti</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- CodeMirror -->
+	<link href="../css/codemirrorepl.css" rel="stylesheet">
+
+	<!-- MathJax - Beautiful math in all browsers -->
+	<script>
+	window.MathJax = {
+	  chtml: {scale: 0.9},
+	  tex: {
+		inlineMath: [["$","$"]],
+		displayMath: [["$$","$$"]],
+		processEscapes: true,
+		autoload: {color: [], colorv2: ['color']},
+		packages: {'[+]': ['noerrors']}
+	  },
+	  options: {
+	    ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+	  },
+	  loader: {load: ['[tex]/noerrors']}
+	};
+	</script>
+ 	<script src="../js/mathjax/es5/tex-chtml.js" async id="MathJax-script"></script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<link href="../css/jsxgraph.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../css/simple-sidebar.css" rel="stylesheet">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="../css/style.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu1" role="button" aria-expanded="false">Uvod</a>
+				  <div id="menu1" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2101/index.html">O učbeniku</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu2" role="button" aria-expanded="false">Predstavitev informacij</a>
+				  <div id="menu2" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2201/index.html">Predstavitev informacij</a></li>
+					<li><a href="../2202/index.html">Predstavitev števil</a></li>
+					<li><a href="../2203/index.html">Pisna predstavitev</a></li>
+					<li><a href="../2204/index.html">Slikovna predstavitev</a></li>
+					<li><a href="../2205/index.html">Zvočna predstavitev</a></li>
+					<li><a href="../2206/index.html">Predstavitev z gibljivo sliko</a></li>
+					<li><a href="../2207/index.html">Računalniška grafika in računalniški vid*</a></li>
+					<li><a href="../2208/index.html">Spletna predstavitev</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu3" role="button" aria-expanded="false">Tehnologije znanja</a>
+				  <div id="menu3" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2301/index.html">Osnove preglednic</a></li>
+					<li><a href="../2302/index.html">Osnove grafikonov</a></li>
+					<li><a href="../2303/index.html">Modeliranje in simulacije</a></li>
+					<li><a href="../2304/index.html">Podatkovne baze</a></li>
+					<li><a href="../2305/index.html">Osnove SQL</a></li>
+					<li><a href="../2306/index.html">Ekspertni sistemi</a></li>
+					<li><a href="../2307/index.html">Umetna inteligenca</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu4" role="button" aria-expanded="false">Objektno usmerjeno programiranje</a>
+				  <div id="menu4" class="collapse in">
+					<ul class="sidebar-subnav">
+					<li class="active"><a href="../2401/index.html">Razredi in objekti</a></li>
+					<li><a href="../2402/index.html">Razredi in objekti II</a></li>
+					<li><a href="../2403/index.html">Zbirke objektov</a></li>
+					<li><a href="../2404/index.html">Dedovanje</a></li>
+					<li><a href="../2405/index.html">Dogodki</a></li>
+					</ul>
+				  </div>
+				</li>
+				<li>
+				  <a href="#" data-toggle="collapse" data-target="#menu5" role="button" aria-expanded="false">Digitalna vezja*</a>
+				  <div id="menu5" class="collapse">
+					<ul class="sidebar-subnav">
+					<li><a href="../2501/index.html">Logična vrata*</a></li>
+					<li><a href="../2502/index.html">Logični izrazi in vezja*</a></li>
+					<li><a href="../2503/index.html">Minimizacija logičnih vezij*</a></li>
+					<li><a href="../2504/index.html">Osnove digitalnega računalništva*</a></li>
+					</ul>
+				  </div>
+				</li>
+			</ul>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.html">Računalništvo in informatika 2</a>
+			</div>
+			<div id="google_cse_wrapper">
+                <script type="text/javascript" src="../js/google-cse.js"></script>
+                <gcse:search linktarget="_self"></gcse:search>
+                <link href="../css/google-cse.css" rel="stylesheet">
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#menu-toggle" id="menu-toggle" title="Pokaži/Skrij kazalo"><span class="fa fa-file-text-o"></span></a></li>
+					<li><a href="#license" title="Licenca" data-toggle="modal" data-target="#license"><span class="fa fa-creative-commons"></span></a></li>
+					<li><a href="../2901/index.html" title="Kolofon"><span class="fa fa-book"></span></a></li>
+					<li><a href="../2901/index1.html" title="Viri"><span class="fa fa-paperclip"></span></a></li>
+					<li><a href="mailto:eUcbenik@lusy.fri.uni-lj.si" title="Komentar"><span class="fa fa-commenting-o"></span></a></li>
+					<li><a href="http://github.com/anzeljg/rin2/archive/v1.00.zip" title="Prenos"><span class="fa fa-download"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+		</nav>
+
+		<!-- Modal (popup) window: License -->
+		<div id="license" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Licenca</h4>
+					</div>
+					<div class="modal-body">
+						<p>To delo je na voljo pod pogoji slovenske licence Creative Commons 2.5:</p>
+						<p><strong>priznanje avtorstva - nekomercialno - deljenje pod enakimi pogoji.</strong></p>
+						<p align="justify">Celotna licenca je na voljo na spletu na naslovu <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/si/" target="_blank">http://creativecommons.org/licenses/by-nc-sa/2.5/si/</a>. V skladu s to licenco je dovoljeno vsakemu uporabniku delo razmnoževati, distribuirati, javno priobčevati, dajati v najem in tudi predelovati, vendar samo v nekomercialne namene in ob pogoju, da navede avtorja oziroma avtorje in izdajatelja tega dela. Če uporabnik delo predela, kar pomeni, da ga spremeni, preoblikuje, prevede ali uporabi to delo v svojem delu, lahko predelavo dela ponudi na voljo le pod pogoji, ki so enaki pogojem iz te licence oziroma pod enako licenco.</p>
+						<p><img src="../img/by-nc-sa.eu.png" height="35" border="0"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Razredi in objekti</h1>
+
+<p align="justify">Pri sestavljanju večine programov do zdaj, si pri njihovem razvoju uporabil(-a) postopkovno programiranje. Pri postopkovnem programiranju je poudarek na tem, da problem razgradimo na več funkcij ali postopkov, ki delujejo na podatkih.</p>
+
+<p align="justify">Objektno usmerjeno programiranje (srečamo tudi izraz predmetno usmerjeno programiranje) se je razvilo kot odgovor na vprašanje, kako obvladovati vedno obsežnejše in zapletenejše sisteme programske opreme ter kako uspešno upravljati takšne sisteme v daljšem časovnem obdobju. Pri objektno usmerjenem programiranju je poudarek na ustvarjanju objektov oziroma predmetov, ki združujejo tako podatke, kot funkcije, ki delujejo na teh podatkih.</p>
+
+<br />
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Pri/po tej učni enoti boš:</h3>
+	</div>
+	<div class="panel-body">
+		<ul>
+			<li>znal(-a) opredeliti strukturirano, objektno in dogodkovno programiranje,</li>
+			<li>spoznal(-a) osnovne koncepte objektno usmerjenega programiranja.</li>
+		</ul>
+	</div>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="center">
+<img src="img/bake-1786926.jpg" class="img-responsive" />
+<i>Testo je računalniški pomnilnik, v katerega z modelčkom za piškote (razred) izrežemo oziroma ustvarimo posamezne piškote (objekte ali primerke razreda).</i>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Kaj je objektno usmerjeno programiranje</h1>
+
+<h2>Strukturirano programiranje</h2>
+
+<p align="justify">Če si kdaj napisal(-a) in uporabil(-a) lastno funkcijo, potem si programiral(-a) v slogu programiranja, ki ga imenujemo <b>strukturirano programiranje</b> (<i>ang. structured programming</i>) ali postopkovno programiranje (<i>ang. procedural programming</i>). Cilj strukturiranega programiranja je napisati jasno in učinkovito programsko kodo tako, da problem razbijemo na zaporedje manjših problemov. Vsakega od teh manjših problemov se lotimo tako, da v obliki podprograma (<i>ang. procedure, subroutine</i>) ali funkcije (<i>ang. function</i>) napišemo postopek, ki rešuje ta podproblem.</p>
+
+<p align="justify">Pri strukturiranem programiranju podatke običajno shranimo v programski jezik vgrajene osnovne podatkovne strukture &ndash; števila, nize, tabele itd. &ndash; v katerih hranimo podatke, potem pa jih posredujemo funkcijam, ki delujejo nad temi podatki. Pri stukturiranem programiranju se torej osredotočimo na sam proces, ki mu posredujemo podatke, potrebne za ta proces. Podatki so načeloma neodvisni od procesa in le od programerja je na primer odvisno, ali bo v postopku med sabo zmnožil dve spremenljivki s števili (kar je smiselno, če števili predstavljata na primer dolžini in ne, če števili predstavljata število prebivalcev v dveh mestih).</p>
+
+<h2>Objektno usmerjeno programiranje</h2>
+
+<p align="justify">Pri <b>objektno usmerjenem programiranju</b> (<i>ang. object-oriented programming &ndash; OOP</i>) pa izhajamo iz samih podatkov za katere določimo postopke, ki jih lahko nad temi podatki izvajamo. Tako so podatki in funkcije, ki delujejo nad temi podatki, združeni v samostojno enoto oziroma entiteto, ki ji rečemo <b>objekt</b> (<i>ang. object</i>). Namesto, da bi funkcijam posredovali podatke, naložimo podatke, s katerimi želimo delati, v objekt ter nato pokličemo funkcije objekta, ki na podlagi podatkov objekta ustvarijo želeni rezultat.</p>
+
+<p align="justify">Poglejmo enostaven primer. Denimo, da imamo podatka o dolžini stranic pravokotnika. Pri »navadnem« programiranju bi ta dva podatka shranili v dve spremenljivki. V kodi med spremenljivkama ni nobene povezave, je le v programerjevi glavi. Ko želimo izračunati ploščino tega pravokotnika, napišemo funkcijo, ki sprejme dva parametra (dolžini stranic) in vrne ploščino. </p>
+
+<p align="justify">Pri objektno usmerjenem programiranju pa bi ustvarili razred <code>Pravokotnik</code>. Ta bi omogočal tako hranjenje podatkov o dolžini stranic določenega pravokotnika, kot tudi vseboval funkcijo, ki pove ploščino tega pravokotnika. Podatka sta sedaj povezana, saj sta del istega objekta. Prav tako funkcija, ki računa ploščino, »ve«, da podatka predstavljata dolžini stranic.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Objekti, ki jih ustvarimo, pogosto odražajo entitete v resničnem svetu. Na primer, če bi želeli napisati programsko kodo za forum na spletni strani, bi zelo verjetno ustvarili objekt <code>Oseba</code>, ki bi vseboval vse informacije o nekem članu foruma (na primer ime, uporabniško ime, e-poštni naslov, geslo itd.), kot tudi funkcije, ki bi delovale s temi podatki ali nad temi podatki (na primer registracija, prijava, odjava, prepoved itd.).</p>
+
+<p align="justify"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#differences"><span class="fa fa-balance-scale"></span> Razlike med strukturiranim in objektno usmerjenim programiranjem</a></p>
+
+<p align="justify">Z objektno usmerjenim programiranjem dobimo možnost ustvarjanja novih podatkovnih tipov oziroma podatkovnih struktur. S tem lahko predpišemo, kaj smemo z določenimi podatki početi. Za podatkovne tipe, ki so vgrajeni v jezik, je poskrbljeno (dveh nizov ne moremo zmnožiti), a načeloma ne dovolj.</p>
+
+<p align="justify">Recimo, da imamo podatek o tem, koliko sporočil je v forumu objavil uporabnik. Dobro bi bilo, če bi ta podatek imeli shranjen v podatkovnem tipu, ki ne bi dovolil, da dva tovrstna podatka med sabo zmnožimo!</p>
+
+<p align="center">
+<img src="img/PhpBB_forum.png" data-toggle="modal" data-target="#image" class="img-responsive" style="cursor:pointer" />
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Kaj je objektno usmerjeno programiranje</h1>
+
+<p align="justify">Zelo pomembno pri objektno usmerjenem programiranju je tudi to, da na enostaven način omogoča, da podatke o določeni stvari hranimo na en način, uporabljamo pa na drug način.</p>
+
+<p align="justify">Verjetno si že opazil(-a), da programi za preglednice datume hranijo v obliki celega števila, nam pa jih prikazujejo na »običajen način« (denimo kot 21. 3. 2019). Zaradi takega načina se lahko zelo poenostavijo določeni postopki, denimo računanje števila dni med dvema datumoma. Prav tako je enostavneje omogočiti prikaz datumov še na druge načine (denimo kot 21-Mar-2019).</p>
+
+<p align="justify">Ne zanima nas način, kako je podatek (o objektu vrste <code>Datum</code>) shranjen, objektu le naročimo (nad njim izvedemo funkcijo), v kakšni obliki naj posreduje hranjeni datum.</p>
+
+<h2>Dogodkovno programiranje</h2>
+
+<p align="justify"><b>Dogodkovno programiranje</b> (<i>ang. event-driven programming</i>) je slog programiranja, pri katerem tok programa določajo različni dogodki, kot na primer dejanja uporabnikov (klik z miško, pritisk tipke), izhodi senzorjev ali sporočila, ustvarjena v tem ali v drugih programih. Dogodkovno programiranje je prevladujoči slog programiranja pri programih, opremljenih z grafičnimi uporabniškimi vmesniki (take so danes praktično vse aplikacije). Deluje tako, da izvaja določena dejanja kot odgovor na dejanja uporabnikov (klik z miško, vnos podatka itd.)</p>
+
+<p align="justify">Programi, razviti z uporabo dogodkovnega programiranja, običajno delujejo tako, da zaženejo glavno zanko (<i>ang. main loop</i>), ki čaka na dogodke. Ko se zgodi eden izmed dogodkov, glavna zanka sproži povratno funkcijo tega dogodka (<i>ang. callback function</i>). Ta izvede določeno dejanje oziroma postopek.</p>
+
+<h1>Prednosti objektno usmerjenega programiranja</h1>
+
+<p align="justify">Strukturirano in objektno usmerjeno programiranje sta dva različna načina za dosego istega cilja. Nobeden izmed obeh načinov ni »boljši« od drugega, to je v veliki meri odvisno od osebnega okusa programerja oziroma razvijalca programske kode. Obstaja nekaj prednosti, ki jih programrerjem oziroma razvijalcem ponuja uporaba objektno usmerjenega sloga programiranja:</p>
+
+<p align="justify"><b>Enostavna preslikava situacij iz resničnega življenja:</b> Objekte je enostavno preslikati v »objekte« v resničnem življenju, kot so na primer osebe, različni predmeti, izdelki, nakupovalni vozički v spletnih trgovinah, objave v spletnem dnevniku itd. To zelo olajša pisanje programov. Vnaprej je precej jasna vloga vsakega objekta, podobno pa so jasni tudi odnosi oziroma povezave med posameznimi objekti.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify"><b>Enostavno pisanje modularne kode:</b> Objektno usmerjen slog programiranja je zelo primeren za pisanje kode v ločenih modulih. Z ločevanjem kode v ločene module je koda bolj obvladljiva, saj so moduli namenski &ndash; rešujejo točno določene probleme oziroma naloge nad določeno vrsto podatkov. Posledično je tako kodo lažje razhroščevati in razširiti njene zmožnosti.</p>
+
+<p align="justify"><b>Enostavno pisanje kode za večkratno uporabo:</b> Objektno usmerjeno programiranje omogoča relativno enostavno pisanje kode za večkratno uporabo, saj so podatkovne strukture in funkcije združene v enem objektu, primernem za večkratno uporabo. To nam pri pisanju aplikacij prihrani veliko časa. Sčasoma lahko zgradimo celo knjižnico modulov kode za večkratno uporabo. Te module potem lahko uporabimo v različnih aplikacijah. Prav tako je mogoče vzeti obstoječi objekt in ga razširiti za uporabo v novi aplikaciji tako, da objektu dodamo nove funkcionalnosti. Tudi tako lahko objekte na enostaven način uporabimo večkrat.</p>
+
+<p align="justify"><b>Določanje novih podatkovnih tipov:</b> Na posamezne razrede lahko gledamo kot na nove podatkovne tipe. Razrede lahko sestavimo tako, da so podatki, ki opisujejo določen objekt vedno smiselni oziroma v določenem stanju. Na primer razred <code>Ulomek</code> lahko sestavimo tako, da bo imenovalec vedno pozitiven. Na ta način lahko poenostavimo delo s podatki, ki nam predstavljajo ulomke, saj ni treba paziti na to, da je imenovalec morda enak 0. Prav tako lahko ločimo način, kako podatke hranimo in kako so predstavljeni &ndash; na primer v objektu tipa <code>Datum</code> lahko datum hranimo v obliki števila (datum je predstavljen na primer kot število dni po 1. 1. 1800), ob prirejanju in izpisovanju pa lahko uporabimo »običajni« zapis kot »21/3/2018«.</p>
+
+<p align="center">
+<img src="img/building-674828_1280.jpg" class="img-responsive" />
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnovni koncepti objektnega programiranja</h1>
+
+<h2>Razredi</h2>
+
+<p align="justify"><b>Razred</b> (<i>ang. class</i>) je načrt oziroma recept za izdelavo objektov. To je del kode, ki v programu definira:
+<ul algn="justify">
+<li>kje in kakšne tipe podatkov bodo objekti, izdelani iz razreda, shranjevali in</li>
+<li>funkcije, ki jih bodo ti objekti vsebovali.</li>
+</ul>
+</p>
+
+
+<p align="justify">Ko gradimo oziroma izdelujemo objektno usmerjeno aplikacijo najprej ugotovimo, katere različne tipe entitet v aplikaciji potrebujemo. Običajno v knjižnicah nimamo na voljo vseh ustreznih. Zato ustvarimo enega ali več razredov, ki predstavljajo manjkajoče tipe entitet. Če na primer izdelujemo spletni forum, potem bomo zelo verjetno ustvarili razrede, imenovane <code>Forum</code>, <code>Tema</code>, <code>Objava</code> in <code>Oseba</code>. Predstavljamo si lahko, da z razredom ustvarimo nov podatkovni tip.</p>
+
+<h2>Objekti</h2>
+
+<p align="justify"><b>Objekt</b> (<i>ang. object</i>) je posebna vrsta spremenljivke, ki je izdelana oziroma ustvarjena iz razreda. Vsebuje dejanske podatke in vedenje o tem, katere so funkcije objekta, ki jih lahko pokličemo, da nekaj naredijo s podatki objekta. Iz enega razreda lahko ustvarimo poljubno mnogo objektov te vrste. Vsak objekt deluje neodvisno od drugih, čeprav vsi izvirajo iz istega razreda.</p>
+
+<p align="justify">Če uporabimo primer iz resničnega življenja:
+<ul align="justify">
+<li><b>Razred je kot načrt za avto.</b> Definira, kako bo avto, ki ga bomo izdelali po tem načrtu, izgledal in kako se bo obnašal, še vedno pa je to abstrakten koncept. Če imamo le načrt, s tem še nimamo nobenega avtomobila.</li>
+<li><b>Objekt je resničen avto, ki ga izdelamo po načrtu.</b> Ima resnične lastnosti (na primer kakšne barve je, kakšna je njegova trenutna hitrost itd.) in resnično obnašanje (na primer »pospeši« in »zaviraj«).</li>
+</ul>
+</p>
+
+<p align="justify">Ker objekt izdelamo iz razreda, pogosto rečemo, da je objekt <b>primerek</b> (<i>ang. instance</i>) razreda.</p>
+
+<h2>Lastnosti</h2>
+
+<p align="justify">Vrednosti podatkov, ki jih vsebuje objekt, so shranjene v posebnih spremenljivkah, ki jih imenujemo <b>lastnosti</b> (<i>ang. properties</i>). Lastnosti objekta so tesno povezane s samim objektom. Čeprav imajo vsi objekti, ki jih ustvarimo iz danega razreda, iste lastnosti, se vrednosti teh lastnosti med posameznimi objekti razlikujejo.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Metode</h2>
+
+<p align="justify">Funkcije, ki so definirane znotraj razreda &ndash; in uporabljene v objektu &ndash; imenujemo <b>metode</b> (<i>ang. methods</i>). V veliko pogledih so to kot običajne funkcije &ndash; lahko jim posredujemo vrednosti, lahko vsebujejo lokalne spremenljivke in lahko vračajo vrednosti. Vendar metode objekta tipično uporabljamo za delo z lastnostmi objekta.</p>
+
+<p align="justify">Na primer metoda <code>prijava()</code>, ki jo uporabimo, da prijavimo člana v spletni forum, nastavi članovo lastnost <code>prijavljen</code> na resnično oziroma <code>True</code>. Podobno bo metoda <code>obseg()</code> v razredu <code>Pravokotnik</code> iz podatkov o pravokotniku izračunala in vrnila njegov obseg.</p>
+
+<p align="justify">Metode se od funkcij razlikujejo tudi po tem, da vedno »vedo«, nad katerim objektom jih izvajamo.</p>
+
+<p align="center">
+<img src="img/atom_punk_car_sketch_by_fernand0fc.jpg" class="img-responsive" />
+</p>
+<p align="center"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir slike</button></p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnovni koncepti objektno usmerjenega programiranja</h1>
+
+<p align="justify">Objektno usmerjeno programiranje ima štiri osnovne koncepte: <b>ograjevanje</b> ali <b>enkapsulacijo</b> (<i>ang. encapsulation</i>), <b>zakrivanje</b> ali <b>abstrakcijo</b> (<i>ang. abstraction</i>), <b>dedovanje</b> (<i>ang. inheritance</i>) in <b>večobličnost</b> ali <b>polimorfizem</b> (<i>ang. polymorphism</i>). Čeprav se ti koncepti morda zdijo zapleteni, ti bo razumevanje njihovega delovanja pomagalo razumeti osnove objektno usmerjenega programa.</p>
+
+<h2>Ograjevanje ali enkapsulacija</h2>
+
+<p align="justify">Na podoben način kot pilula »ogradi« zdravilo od zunanjega sveta, deluje tudi ograjevanje v objektno usmerjenem programiranju. Pri ograjevanju oblikujemo zaščitno pregrado okoli informacij, ki jih vsebuje objekt, od preostale programske kode.</p>
+
+<p align="justify"><img src="img/tablets-4019447_1280.jpg" class="img-responsive" width="50%" style="float:right;margin:5px 0 10px 10px;">To storimo tako, da povežemo podatke in metode, ki delujejo nad temi podatki, v eno samo enoto, imenovano razred. Tako zakrijemo zasebne podrobnosti razreda pred zunanjim svetom in izpostavimo samo funkcionalnost, ki je pomembna za povezovanje oziroma komuniciranje razreda z zunanjim svetom. Kadar razred ne dovoli neposrednega dostopa do svojih zasebnih podatkov, pravimo, da je dobro ograjen.</p>
+
+<h4>Primer</h4>
+
+<p align="justify">Recimo, da imamo razred, ki predstavlja osebo. Ta razred lahko vsebuje zasebne podatke razreda, kot je na primer številka zdravstvenega zavarovanja <code>stevilka_zzzs</code>. Ko iz razreda ustvarimo objekt, številka zdravstvenega zavarovanja tega objekta ne sme biti izpostavljena drugim objektom v programu. Z ograjevanjem te lastnosti razreda zunanja koda nima neposrednega dostopa do nje &ndash; lastnost tako ostane varna znotraj razreda osebe.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Če je v razredu osebe zapisana metoda, ki preveri ali ima oseba predpisano zdravilo, imenovana <code>predpisano_zdravilo()</code>, lahko ta metoda nato po potrebi dostopa do spremenljivke <code>stevilka_zzzs</code> in preveri ali je zdravnik osebi s to številko zdravstvenega zavarovanja predpisal določeno zdravilo. Zasebni podatki osebe so tako dobro ograjeni v razredu.</p>
+
+<h2>Zakrivanje ali abstrakcija</h2>
+
+<p align="justify">Pogosto je lažje razmišljati in oblikovati program, ko lahko ločimo vmesnik razreda od njegove izvedbe in se osredotočimo samo na vmesnik. To je podobno obravnavanju sistema kot »črne skrinjice«, kjer za uporabo ni pomembno razumeti podrobnosti notranjega delovanja.</p>
+
+<p align="justify">Ta proces pri objektno usmerjenem programiranju imenujemo »zakrivanje«, ker zakrijemo podrobnosti izvedbe razreda in predstavimo samo vmesnik, ki je enostaven in omogoča uporabo samo preko javnih metod razreda. Ustrezno uporabljena abstrakcija pomaga izolirati vpliv sprememb programske kode. To pomeni, da bodo spremembe kode, če gre kaj narobe, vplivale samo na podrobnosti izvedbe razreda in ne na zunanjo programsko kodo.</p>
+
+<h4>Primer</h4>
+
+<p align="justify"><img src="img/ipod-1752963_1280.jpg" class="img-responsive" width="40%" style="float:right;margin:5px 0 10px 10px;">Predstavljajmo si zvočni predvajalnik kot objekt, ki v notranjosti vsebuje zapleteno logično vezje. Na zunanji strani ima gumbe, ki omogočajo interakcijo z objektom. Ko pritisnemo gumb, ne razmišljamo o tem, kaj se dogaja v notranjosti, ker tega ne vidimo. Čeprav ne vidimo, da zaradi pritiska na gumb logično vezje izpolni določeno funkcijo, logično vezje to funkcijo še vedno izvede.</p>
+
+<p align="justify">Zakrivanje skrije podrobnosti pred uporabnikom. Včasih je bila notranjost zvočnega predvajalnika povsem drugačna, glasba pa je bila shranjena na avdio kasetah. Danes je glasba shranjena v datotekah in tudi postopek predvajanja je povsem drugačen. Za uporabnika pa se zaradi zakrivanja ni spremenilo praktično nič. Za predvajanje zvočnih posnetkov mora samo pritisniti gumb <button type="button" class="btn btn-default btn-sm"><span class="fa fa-play"></span></button>.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Osnovni koncepti objektno usmerjenega programiranja</h1>
+
+<h2>Večobličnost ali polimorfizem</h2>
+
+<p align="justify">Večobličnost v objektno usmerjenem programiranju omogoča enotno obravnavo razredov v hierarhiji. Zato je treba klicno kodo napisati samo za obravnavo objektov iz korena hierarhije in vsak objekt, ki bo primerek katerega koli podrejenega razreda v hierarhiji, bo obravnavan na enak način.</p>
+
+<p align="justify">Ker imajo izpeljani objekti isti vmesnik kot njihovi starši, lahko klicna koda pokliče katero koli funkcijo v vmesniku tega razreda. V času izvajanja bo program poklical ustrezno metodo glede na vrsto posredovanega objekta, kar lahko povzroči različno vedenje.</p>
+
+<h4>Primer</h4>
+
+<p align="justify"><img src="img/dog-cat-3438453_1280.jpg" class="img-responsive" width="50%" style="float:right;margin:0 0 10px 10px;">Recimo, da imamo razred z imenom <code>Žival</code> ter dva podrejena razreda <code>Mačka</code> in <code>Pes</code>. Če ima razred <code>Žival</code> metodo za oglašanje, imenovano <code>glas()</code>, potem lahko metodo <code>glas()</code>, ki jo podedujeta podrazreda <code>Mačka</code> in <code>Pes</code>, preoblikujemo tako, da vrne »mijav« oziroma »hov«.</p>
+
+<p align="justify">Nato lahko napišemo drugo funkcijo, ki kot parameter sprejme kateri koli objekt <code>Žival</code> in pokliče njegovo metodo <code>glas()</code>. Torej bo oglašanje različno: bodisi »mijavkanje« ali »lajanje«, odvisno od vrste živalskega objekta, ki smo ga dejansko posredovali funkciji.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h2>Dedovanje</h2>
+
+<p align="justify">Objektno usmerjeni jeziki, ki podpirajo razrede, skoraj vedno podpirajo pojem »dedovanja«. Razrede lahko organiziramo v hierarhije, kjer ima lahko razred enega ali več nadrejenih ali podrejenih razredov. Če ima razred nadrejeni razred, pravimo, da je izpeljan ali podedovan iz nadrejenega razreda in predstavlja razmerje tipa »je« (<i>ang. is-a</i>). To pomeni, da podrejeni razred »je« tipa nadrejenega razreda.</p>
+
+<p align="justify">Če torej razred deduje od drugega razreda, samodejno pridobi večino enake funkcionalnosti in lastnosti od tega razreda in ga lahko razširimo tako, da vsebuje ločeno kodo in podatke. Podrejeni razred bo torej dedoval lastnosti nadrejenega razreda in zelo verjetno spremenil ali razširil njegovo vedenje. Lepa značilnost dedovanja je, da pogosto vodi do dobre ponovne uporabe kode, saj metod nadrejenega razreda ni treba ponovno definirati v katerem koli od njegovih podrejenih razredov.</p>
+
+<h4>Primer</h4>
+
+<p align="justify"><img src="img/ladybug-1486479_1280.jpg" class="img-responsive" width="50%" style="float:right;margin:0 0 10px 10px;">Na primer, v živalskem svetu lahko žuželko predstavlja nadrazred <code>Žuželka</code>. Vse žuželke imajo podobne lastnosti, na primer šest nog in eksoskelet. Podrazrede lahko definiramo za pikapolonice in mravlje. Ker izhajajo iz razreda <code>Žuželka</code>, samodejno dedujejo vse lastnosti in obnašanje (oziroma metode) žuželk.</p>
+
+<p align="justify">Če se na primer mravlje obnašajo drugače, kot druge žuželke, moramo v razredu <code>Mravlja</code> samo spremeniti ustrezno metodo. Če pa mravlje počnejo nekaj, česar ne počnejo druge žuželke, moramo razredu <code>Mravlja</code> v tem primeru dodati novo metodo.</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Razred</h1>
+
+<p align="justify">V preteklosti smo že uporabljali razrede kot so <code>str</code>, <code>int</code>, <code>float</code> (imenovali smo jih podatkovni tipi) in pa <code>Turtle</code>. Ustvarimo svoj lasten razred, imenovan <code>Tocka</code>.</p>
+
+<p align="justify">Razmislimo o konceptu matematične točke. V ravnini točko predstavljata dve števili (koordinati), ki ju obravnavamo kot en predmet. Točke zapisujemo v oklepajih, z vejico, ki ločuje koordinati. Na primer <code>(0, 0)</code> predstavlja koordinatno izhodišče $O$, <code>(4, 3)</code> pa predstavlja točko $A$, ki je 4 enote desno in 3 enote nad koordinatnim izhodiščem.</p>
+
+<div id="jxgbox14" class="jxgbox" style="width:438px;height:200px;margin:8px auto;"></div>
+
+<p align="justify">Tipične operacije, ki jih povezujemo s točkami so računanje razdalje od točke do koordinatnega izhodišča ali do druge točke, računanje središča med dvema točkama, ugotavljanje ali leži točka znotraj danega pravokotnika ali kroga. Kmalu bomo videli, kako lahko te operacije organiziramo skupaj s podatki.</p>
+
+<p align="justify">Naravna predstavitev točke je z dvema številskima vrednostima. Za delo s točkami bomo ustvarili <b>razred</b> <code>Tocka</code>, ki bo za vsako točko vseboval dve lastnosti <code>_x</code> in <code>_y</code>, ki predstavljata koordinati točke. Kre gre za lastnosti objekta, torej notranji spremenljivki, njuni imeni pišemo s podčrtajem. Naš razred izgleda takole:
+<pre>
+class Tocka:
+
+  def __init__(self):
+    self._x = 0
+    self._y = 0
+</pre>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Definicije razredov so lahko kjerkoli v programu, vendar jih običajno postavimo na začetek programa (takoj za uvozom zunanjih knjižnic &ndash; stavki <code>import</code>).</p>
+
+<p align="justify">Razred  ima posebno metodo, ki se imenuje <code>__init__</code>. Ta metoda se samodejno izvede vsakokrat, ko se ustvari nov primerek objekta. V tej metodi nastavimo lastnosti objekta oziroma začetne vrednosti teh lastnosti. Parameter <code>self</code> označuje na novo ustvarjeni objekt, ki mu nastavljamo začetne vrednosti.</p>
+
+<div class="alert alert-info">
+<p align="justify">Pri objektnem programiranju do lastnosti objekta običajno ne dostopamo neposredno. Običajno za delo z lastnostmi objekta uporabljamo metodi <b>vrni</b> (<i>ang. get</i>; od tod izraz <i>getter</i>) in <b>nastavi</b> (<i>ang. set</i>; od tod izraz <i>setter</i>), ki ju moramo definirati.</p>
+
+<p align="justify">Lastnost objekta pa lahko tudi izbrišemo z metodo <b>izbrisi</b> (<i>ang. delete</i>; od tod izraz <i>deleter</i>), ki pa jo redko uporabljamo. Poleg lastnosti so lahko zasebne tudi metode, kar pomeni, da jih ne moremo klicati neposredno.</p>
+</div>
+
+<p align="justify">Dodajmo metodi za nastavljanje in vračanje vrednosti lastnosti:
+<pre>
+class Tocka:
+
+  def __init__(self):
+    self._x = 0
+    self._y = 0
+
+  def vrni_x(self):
+    return self._x
+
+  def nastavi_x(self, x):
+    self._x = x
+
+  def vrni_y(self):
+    return self._y
+
+  def nastavi_y(self, y):
+    self._y = y
+</pre>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Izboljšajmo inicializator</h1>
+
+<p align="justify">Če želimo ustvariti točko <code>(7, 6)</code> trenutno potrebujemo tri vrstice kode:</p>
+
+<p>
+<pre>
+t = Tocka()
+t.nastavi_x(7)
+t.nastavi_y(6)
+</pre>
+</p>
+
+<p align="justify">Inicializator &ndash; t.j. metodo <code>__init__</code>, ki nastavi začetne vrednosti &ndash; lahko posplošimo tako, da ji dodamo dodatna parametra. Oba parametra <code>x</code> in <code>y</code> sta neobvezna. Če ju ne vključimo, bosta lastnosti dobili privzeto vrednost 0. Naš izboljšani razred sedaj izgleda takole:</p>
+
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+
+p = Tocka(4, 2)
+q = Tocka(6, 3)
+r = Tocka()     # Koordinatno izhodišče (0, 0)
+
+print(p.vrni_x(), p.vrni_y())
+print(q.vrni_x(), q.vrni_y())
+print(r.vrni_x(), r.vrni_y())
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše:
+<pre>
+4 2
+6 3
+0 0
+</pre>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h1>Delo z lastnostmi</h1>
+
+<p align="justify">Izboljšani inicializator nam omogoča, da lahko hkrati ko ustvarimo novo točko, nastavimo tudi vrednosti lastnosti <code>_x</code> in <code>_y</code>, ki predstavljata absciso in ordinato točke.</p>
+
+<p align="justify">Oglejmo si, kako uporabljamo inicializator in metodi za vračanje oziroma spreminjanje lastnosti točke. Najprej ustvarimo točko <code>(7, 6)</code>. Če želimo na primer spremeniti absciso točke iz vrednosti <code>7</code> na vrednost <code>(3)</code>, to storimo z metodo <code>nastavi_x(<i>vrednost</i>)</code>.
+<pre>
+a = Tocka(7, 6)
+a.nastavi_x(3)
+</pre>
+</p>
+
+<p align="justify">Podobno za spreminjanje ordinate točke uporabimo metodo <code>nastavi_y(<i>vrednost</i>)</code>. Če pa želimo samo izvedeti absciso ali ordinato točke, potem uporabimo metodi <code>vrni_x()</code> oziroma <code>vrni_y()</code>.</p>
+
+<p align="justify">Vse skupaj postane bolj zanimivo, če želimo vrednost abscise ali ordinate točke povečati ali zmanjšati glede na trenutno vrednost abscise oziroma ordinate.</p>
+
+<p align="justify">Oglejmo si primer, pri katerem ustvarimo točko ter nato povečamo odrinato točke za 1. To storimo tako, da najprej s pomočjo inicializatorja usvarimo nov objekt. Nato z metodo <code>vrni_y()</code> preberemo trenutno vrednost ordinate točke, ki jo nato povečamo za 1 ter s pomočjo metode <code>nastavi_y(<i>vrednost</i>)</code> ustrezno spremenimo oziroma popravimo vrednost lastnosti objekta.
+<pre>
+b = Tocka(2, -3)
+b.nastavi_y(b.vrni_y() + 1) # Povečamo trenutno vrednost ordinate za 1
+</pre>
+</p>
+
+<p align="justify">Če bi sedaj točko izpisali, bi dobili naslednji izpis:
+<pre>
+2 -2
+</pre>
+</p>
+
+<div class="alert alert-info" role="alert">
+<p align="justify">Pri objektnem programiranju lahko lastnosti objekta vračamo ali spreminjamo samo z metodama <b>vrni</b> oziroma <b>nastavi</b> (ki ju lahko imenujemo tudi drugače, dokler vemo, da gre za metodi <i>getter</i> in <i>setter</i>).</p>
+
+<p align="justify">Python nam omogoča elegantnejši in razumljivejši zapis klica teh metod, ki si ga bomo ogledali v nadaljevanju. Gre za to, da spremenljivki, ki jo lahko poimenujemo enako kot lastnost objekta, dinamično priredimo metode <i>getter</i>, <i>setter</i> in po potrebi tudi <i>deleter</i>. To naredimo s funkcijo <code>property()</code>. Glede na sintakso Python poskrbi za to, da pokliče ustrezno (zasebno) metodo.</p>
+</div>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Delo z lastnostmi</h1>
+
+<p align="justify">Omenili smo, da do lastnostmi posameznega objekta ne moremo dostopati neposredno, ampak z uporabo ustreznih metod. Pri Pythonu pa lahko spremenljivki, ki ima enako ime kot zasebna lastnost priredimo funkcijo <code>property()</code> s katero lahko dinamično kličemo ustrezne (zasebne) metode, s katerimi vračamo ali spreminjamo vrednost zasebne lastnosti.</p>
+
+<p align="justify">Tole zveni precej zapleteno, zato si oglejmo primer:
+<pre>
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    return self._x
+
+  def _nastavi_x(self, x):
+    self._x = x
+
+  def _vrni_y(self):
+    return self._y
+
+  def _nastavi_y(self, y):
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+</pre>
+</p>
+
+<p align="justify">Oglejmo si še delovanje oziroma uporabo tega primera v interaktivnem urejevalniku.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+
+p = Tocka(4, 2)
+print(p.x, p.y)
+p.x = 8
+p.y = 3
+print(p.x, p.y)
+p.y += 1
+print(p.x, p.y)
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše naslednje:
+<pre>
+4 2
+8 3
+8 4
+</pre>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Metode</h1>
+
+<p align="justify">Ustvarjanje razreda, kot na primer <code>Tocka</code>, prinaša našemu razmišljanju in programom, ki jih ustvarimo, izjemno količino »organizacijske moči«. To pomeni, da lahko združimo različne vrste podatkov s smiselnimi operacijami nad temi podatki. Vsak primerek razreda pa lahko ima tudi svoje stanje, ki je neodvisno od stanj drugih primerkov.</p>
+
+<p align="justify">Najprej ponovimo, kako izračunamo razdaljo $d$ med poljubno točko in koordinatnim izhodiščem. Ta razdalja je enaka kvadratnemu korenu vsote kvadratov obeh koordinat točke. Izračunamo jo s pomočjo spodnje formule: $$d = \sqrt{x^2 + y^2}$$
+Če imamo na primer točko $A = (4, 3)$ je njena razdalja od koordinatnega izhodišča enaka 5.</p>
+
+<div id="jxgbox16" class="jxgbox" style="width:438px;height:200px;margin:8px auto;"></div>
+<br />
+
+<p align="justify">Sedaj, ko smo ponovili, kako izračunamo razdaljo med točko in koordinatnim izhodiščem, dodajmo razredu <code>Tocka</code> metodo <code>razdalja</code>, da bomo lažje razumeli, kako metode delujejo in kako jih uporabljamo:</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+
+p = Tocka(4, 3)
+print(p.razdalja())
+
+q = Tocka(5, 12)
+print(q.razdalja())
+
+r = Tocka() # Koordinatno izhodisce
+print(r.razdalja())
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše naslednje razdalje od koordinatnega izhodišča:
+<pre>
+5.0
+13.0
+0.0
+</pre>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Objekti kot argumenti</h1>
+
+<p align="justify">Objekte lahko uporabimo kot argumente funkcij na čisto običajen način, ki smo ga vajeni. Pri tem ne smemo pozabiti, da spremenljivka vsebuje samo sklic na dejanski objekt. Če torej spremenljivko kot argument posredujemo neki funkciji, to ustvari le nov sklic. Tako obe &ndash; spremenljivka in funkcija &ndash; vsebujeta sklica na objekt, ki pa je en sam.</p>
+
+<p align="center"><img src="img/argument.svg" onerror="this.src='argument.png'" class="img-responsive"></p>
+
+<p align="justify">Oglejmo si primer enostavne funkcije, ki vključuje objekt <code>Tocka</code>:
+<pre>
+def izpisi_tocko(t):
+  print("(" + str(t.x) + ", " + str(t.y) + ")")
+</pre>
+</p>
+
+<p align="justify">Funkcija <code>izpisi_tocko</code> kot argument vzame oziroma sprejme objekt <code>Tocka</code> in oblikuje izpis na kateri koli način, ki ga izberemo oziroma določimo. Če funkcijo <code>izpisi_tocko(p)</code> pokličemo s točko <code>p</code>, ki smo jo definirali prej, bo izpis funkcije enak <code>(4, 3)</code>.</p>
+
+<div class="alert alert-success" role="alert">
+<p align="justify">Ustrezno dokumentiranje izvorne kode je zelo pomembno, zato je priporočena uporaba <b>dokumentacijskih nizov</b> (<i>ang. documentation strings &ndash; docstrings</i>), ki so priročen način povezovanja dokumentacije z moduli, funkcijami, razredi in metodami.</p>
+<p align="justify">Dokumentacijske nize uporabljamo za dokumentiranje določenih delov izvorne kode, podobno kot uporabljamo običajne komentarje. Za razliko od običajnih komentarjev mora dokumentacijski niz opisovati, kaj funkcija počne in ne, kako to počne.</p>
+<p>
+<a href="#docstring" class="btn btn-success" data-toggle="modal" data-target="#docstring">Uporaba dokumentacijskih nizov</a>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+
+def izpisi_tocko(t):
+  """ Izpiše koordinati točke """
+  print("(" + str(t.x) + ", " + str(t.y) + ")")
+
+
+p = Tocka(4, 3)
+izpisi_tocko(p)
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Pretvarjanje objekta v niz</h1>
+
+<p align="justify">Večina objektno usmerjenih programerjev verjetno ne bi napisala in uporabila funkcije <code>izpisi_tocko</code>. Kadar delamo z razredi in objekti, raje dodamo novo metodo razredu. Prav tako ne maramo preveč metod, ki bi uporabljale funkcijo <code>print</code>. Boljši pristop je, da razred vsebuje metodo, ki omogoča vsakemu objektu, da ustvari niz oziroma besedilno predstavitev samega sebe. Ustvarimo takšno metodo in jo poimenujmo <code>v_niz</code>:
+<pre>
+class Tocka:
+  # ...
+
+  def v_niz(self):
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+</pre>
+</p>
+
+<p align="justify">V gornjem primeru in od tu dalje, bo komentar s tremi pikami (<code># ...</code>) označeval, da smo izpustili druge metode tega razreda.</p>
+
+<p align="justify">Metodo lahko uporabimo takole:
+<pre>
+&gt;&gt;&gt; t = Tocka(7, 8)
+&gt;&gt;&gt; print(t.v_niz())
+(7, 8)
+</pre>
+</p>
+
+<p align="justify">Toda, ali ne obstaja funkcija <code>str</code>, ki samodejno pretvarja tip podatkov iz objekta v niz. Seveda obstaja! Tudi funkcija <code>print</code> samodejno pretvarja objekte v nize, ko jih izpisuje? Tudi to drži! Vendar ti samodejni mehanizmi še ne delujejo, kot bi si želeli:</p>
+
+<p><pre>
+&gt;&gt;&gt; str(t)
+'<__main__.Tocka object>'
+&gt;&gt;&gt; print(t)
+'<__main__.Tocka object>'
+</pre></p>
+
+<p align="justify">To lahko zelo enostavno popravimo tako, da našo metodo <code>v_niz</code> preimenujemo v <code>__str__</code>. Tako se bo ta metoda izvedla vsakokrat, ko bomo želeli objekt <code>Tocka</code> spremeniti v niz, na primer, kadar bomo uporabili funkciji <code>str</code> in <code>print</code>.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<p align="justify">Spremenimo oziroma ustrezno dopolnimo naš program:</p>
+
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+
+p = Tocka(4, 3)
+print(p)
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+
+<p align="justify">Gornji program izpiše koordinati točke:
+<pre>
+(4, 3)
+</pre>
+</p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Objekti kot vrnjene vrednosti</h1>
+
+<p align="justify">Funkcije in metode lahko vračajo objekte. Na primer, če imamo dva objekta <code>Tocka</code>, lahko izračunamo njuno sredino oziroma središčno točko. Najprej napišimo kodo kot običajno funkcijo:
+<pre>
+def sredina(p1, p2):
+  mx = (p1.x + p2.x) / 2
+  my = (p1.y + p2.y) / 2
+  return Tocka(mx, my)
+</pre>
+</p>
+
+<p align="justify">Ta funkcija ustvari in vrne nov objekt <code>Tocka</code>:
+<pre>
+&gt;&gt;&gt; p = Tocka(4, 3)
+&gt;&gt;&gt; q = Tocka(12, 6)
+&gt;&gt;&gt; r = sredina(p, q)
+&gt;&gt;&gt; r
+(8.0, 4.5)
+</pre>
+</p>
+
+<p align="justify">Sedaj pa namesto funkcije kodo raje zapišimo v obliki metode. Recimo, da imamo objekt <code>Tocka</code> in želimo najti središčno točko na pol poti do drugega ciljnega objekta <code>Tocka</code>:
+<pre>
+class Tocka:
+  # ...
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
+    return Tocka(mx, my)
+</pre>
+</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2
+    my = (self._y + tocka._y) / 2
+    return Tocka(mx, my)
+
+
+p = Tocka(4, 3)
+q = Tocka(12, 6)
+r = p.sredina(q)
+print(r)
+# Alternativni zapis brez uporabe spremenljivk
+print(Tocka(4, 3).sredina(Tocka(12, 6)))
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Sprememba perspektive</h1>
+
+<p align="justify">Izvirna sintaksa klica funkcije, na primer <code>izpisi_cas(trenutni_cas)</code>, kaže na to, da je funkcija aktivni predstavnik. Pravi nekako takole: <i>»Hej <tt>izpisi_cas</tt>! Tu imaš objekt, ki ga izpiši.«</i></p>
+
+<p align="justify">Pri objektno usmerjenem programiranju pa kot aktivne predstavnike obravnavamo objekte. Poziv kot na primer <code>trenutni_cas.izpisi_cas()</code> pravi: <i>»Hej <tt>trenutni_cas</tt>! Izpiši samega sebe!«</i></p>
+
+<p align="justify">Ta sprememba v perspektivi je morda bolj vljudna, vendar na prvi pogled ni videti, da bi bila uporabna. Vendar včasih premik odgovornosti iz funkcij na objekte omogoča pisanje bolj raznolikih funkcij ter posledično lažje vzdrževanje in ponovno uporabo kode.</p>
+
+<p align="justify">Najpomembnejša prednost objektno usmerjenega sloga programiranja je v tem, da se natančno prilega našemu miselnemu razčlenjevanju in izkušnjam iz resničnega življenja. V resničnem življenju je metoda <code>kuhaj</code> del mikrovalovne pečice &ndash; funkcija <code>kuhaj</code> ne sedi nekje v kotu kuhinje in čaka, da ji posredujemo mikrovalovno pečico! Podobno uporabljamo lastne metode mobilnega telefona za pošiljanje SMS sporočil in za utišanje mobilnega telefona.</p>
+
+<p align="justify">Funkcionalnost predmetov v resničnem življenju je običajno tesno povezana s predmeti samimi. Objektno usmerjeno programiranje nam omogoča, da to natančno preslikamo, ko načrtujemo, organiziramo in izdelujemo programe.</p>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+<!-- Right column start -->
+<h1>Objekti lahko imajo stanje</h1>
+
+<p align="justify">Objekti so najbolj koristni takrat, kadar moramo spremljati tudi neko stanje, ki se od časa do časa spremeni. Razmislimo na primer o objektu avtomobil. Stanje avtomobila sestoji iz stvari, kot so na primer njegov položaj, njegova smer, njegova barva, njegova oblika itd. Metoda <code>levo(90)</code> posodobi smer avtomobila, metoda <code>naprej</code> spremeni njegov položaj itd.</p>
+
+<p align="justify">Glavna komponenta stanja objekta bančni račun, bi najverjetneje bilo trenutno stanje na bančnem računu in morda dnevnik vseh transakcij. Metode bi omogočale da se pozanimamo o trenutnem stanju, položimo denar na račun ali izvedemo plačilo. Izvedba plačila bi vsebovala znesek in opis, kar bi se zapisalo v dnevnik transakcij. Verjetno bi potrebovali tudi metodo za izpis dnevnika transakcij.</p>
+
+<p align="center">
+<img src="img/bmw_kreditkarte_p90171210-b.jpg" class="img-responsive" style="width:75%" />
+</p>
+<p align="center"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#source">Vir fotografije</button></p>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+<!-- Summary start -->
+<h1>Povzetek</h1>
+
+<p align="justify">Za ponovitev učne snovi najprej navedi definicijo pojma, nato s klikom pojma preveri svoj odgovor.</p>
+
+<div class="card1">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Inicializator</div></a>
+    <p>Posebna metoda (imenovana <code>__init__</code>), ki se izvede samodejno, ko se ustvari nov objekt in nastavi lastnosti objekta na začetno (»tovarniško«) vrednost.</p>
+  </div>
+</div>
+<div class="card2">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Konstruktor</div></a>
+    <p>Vsak razred ima »tovarno«, ki ima isto ime kot razred, za izdelavo novih primerkov razreda oz. objektov.</p>
+  </div>
+</div>
+<div class="card3">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Lastnost</div></a>
+    <p>Eden izmed poimenovanih podatkovnih elementov, ki sestavljajo objekt oz. primerek razreda.</p>
+  </div>
+</div>
+<div class="card4">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Metoda</div></a>
+    <p>Funkcija, ki je definira znotraj definicije razreda in je uporabljena nad primerki tega razreda.</p>
+  </div>
+</div>
+<div class="card5">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Objekt</div></a>
+    <p>Sestavljen podatkovni tip, ki ga uporabimo, da modeliramo stvari ali koncepte iz resničnega sveta. Skupaj združuje podatke in operacije, ki so smiselne nad temi podatki.</p>
+  </div>
+</div>
+<div class="card6">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjen jezik</div></a>
+    <p>Programski jezik, ki podpira uporabniško definirane razrede in dedovanje, kar omogoča uporabo objektno usmerjenega sloga programiranja.</p>
+  </div>
+</div>
+<div class="card7">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Objektno usmerjeno programiranje</div></a>
+    <p>Slog programinranje, pri katerem so podatki in operacije, ki spreminjajo te podatke, organizirani v objekte.</p>
+  </div>
+</div>
+<div class="card8">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Primerek razreda</div></a>
+    <p>Objekt, katerega tip je nek razred. Pojma primerek razreda in objekt pomenita isto oziroma ju lahko uporabljamo izmenično.</p>
+  </div>
+</div>
+<div class="card9">
+  <div class="front">
+    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
+  </div>
+  <div class="back">
+    <a href="#" class="quickFlipCta"><div class="term">Razred</div></a>
+    <p>Uporabniško definiran sestavljeni tip. Razred lahko vidimo tudi kot predlogo, s katero zgradimo posamezne objekte.</p>
+  </div>
+</div>
+<!-- Summary end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>1</b></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodi <code>zrcali_x</code> in <code>zrcali_y</code>, ki vrneta nov objekt <code>Tocka</code>. Ta objekt predstavlja točko, prezrcaljeno preko $x$-osi oziroma $y$-osi.<br />
+Na primer <code>Tocka(3, 5).zrcali_x()</code> vrne <code>(3, -5)</code>, <nobr><code>Tocka(3, 5).zrcali_y()</code></nobr> pa vrne <code>(-3, 5)</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution1"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>2</b></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>zrcali</code>, ki vrne nov objekt <code>Tocka</code>. Ta objekt predstavlja točko, prezrcaljeno preko koordinatnega izhodišča.<br />
+Na primer <code>Tocka(3, 5).zrcali()</code> vrne <code>(-3, -5)</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution2"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>3</b></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>naklon</code>, ki vrne smerni koeficient oziroma naklon premice skozi koordinatno izhodišče in dano točko. Smerni koeficient premice lahko izračunaš s pomočjo enačbe $$k = 
+{\frac {\Delta y}{\Delta x}}$$
+Na primer <code>Tocka(4, 10).naklon()</code> vrne <code>2.5</code>.</p>
+<p align="justify">Kdaj ta metoda ne bo delovala?</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution3"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2.0
+    my = (self._y + tocka._y) / 2.0
+    return Tocka(mx, my)
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>4</b></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>razdalja_do</code>, ki vrne razdaljo med dvema točkama.<br />
+Na primer <code>Tocka(3, 5).razdalja_do(Tocka(-1, 2))</code> vrne <code>5.0</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution4"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>5</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Enačba premice je $y = kx + n$. Koeficienta $k$ in $n$ v celoti opisujeta premico. Razredu <code>Tocka</code> dodaj metodo <code>premica_skozi</code>, ki bo izračunala premico skozi dani točki. Metoda naj vrne oba koeficienta, kot dvojico vrednosti $(k, n)$.<br />
+Na primer <code>Tocka(4, 11).premica_skozi(Tocka(6, 15))</code> vrne <code>(2.0, 3.0)</code>.<p align="justify">Kdaj ta metoda ne bo delovala?</p>
+</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution5"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>6</b></span>
+	<span class="fa fa-star pull-right"></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Napiši funkcijo, ki izračuna koordinati središča krožnice in polmer krožnice, če imaš podane tri točke, ki ležijo na tej krožnici.</p>
+<p align="justify"><b>Primer:</b> Če imaš podane točke $A = (1, 1)$, $B = (2, 4)$ in $C = (5, 3)$, potem je središče krožnice točka $S = (3, 2)$ in polmer krožnice $r = \sqrt{5}$.</p>
+<p align="justify"><b>Namig:</b> Preden sploh začneš razmišljati o programiranju moraš poznati geometrijsko rešitev tega problema. Ne moreš sprogramirati rešitve problema, če ne razumeš, kaj naj bi računalnik sploh naredil!</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#construction6"><span class="fa fa-location-arrow"></span> Načrtovanje</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#explanation6"><span class="fa fa-info"></span> Razlaga</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution6"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2.0
+    my = (self._y + tocka._y) / 2.0
+    return Tocka(mx, my)
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Right column end -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+<!-- Left column start -->
+<h1>Naloge</h1>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>7</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>polarno</code>, ki vrne točko v polarni obliki, kot par $(r, \varphi)$.<br />
+Na primer <code>Tocka(3, 5).polarno()</code> vrne <code>(5.830951894845301, 30.96375653207352)</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution7"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>8</b></span>
+</p>
+<p align="justify">Razredu <code>Tocka</code> dodaj metodo <code>premik</code>, ki točko premakne za vektor, predstavljen z drugo točko.<br />
+Na primer <code>Tocka(3, 5).premik(Tocka(-1, 2))</code> vrne <code>(2, 7)</code>.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution8"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+
+<div class="alert alert-info" role="alert">
+<p>
+	<span class="label label-primary"><b>9</b></span>
+	<span class="fa fa-star pull-right"></span>
+</p>
+<p align="justify">Napiši kodo za razred <code>Tocka3D</code>, ki opisuje točke v prostoru. Koda razreda mora vsebovati metodi <code>__init__</code> in <code>__str__</code>. Razredu <code>Tocka3D</code> dodaj še naslednje metode:
+<ul>
+  <li><code>zrcali</code></li>
+  <li><code>razdalja</code></li>
+  <li><code>razdalja_do</code></li>
+  <li><code>sredina</code></li>
+</ul>
+</p>
+<p align="justify"><b>Namig:</b> Pomagaj si z metodami razreda <code>Tocka</code>, v urejevalniku.</p>
+<p>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#solution9"><span class="fa fa-check"></span> Rešitev</button>
+</p>
+</div>
+<!-- Left column end -->
+					</div>
+					<div class="col-md-6">
+						<br />
+<!-- Right column start -->
+<div>
+<form>
+<p><textarea id="code">
+class Tocka:
+
+  def __init__(self, x=0, y=0):
+    """ Inicializator """
+    self._x = x
+    self._y = y
+
+  def _vrni_x(self):
+    """ Vrne vrednost lastnosti x """
+    return self._x
+
+  def _nastavi_x(self, x):
+    """ Nastavi vrednost lastnosti x """
+    self._x = x
+
+  def _vrni_y(self):
+    """ Vrne vrednost lastnosti y """
+    return self._y
+
+  def _nastavi_y(self, y):
+    """ Nastavi vrednost lastnosti y """
+    self._y = y
+
+  x = property(
+    fget = _vrni_x,    # Ime metode getter
+    fset = _nastavi_x  # Ime metode setter
+  )
+
+  y = property(
+    fget = _vrni_y,    # Ime metode getter
+    fset = _nastavi_y  # Ime metode setter
+  )
+
+  def razdalja(self):
+    """ Vrne razdaljo točke od koordinatnega izhodišča """
+    return ((self._x ** 2) + (self._y ** 2)) ** 0.5
+
+  def __str__(self):
+    """ Vrne niz, ki vsebuje koordinati točke """
+    return "(" + str(self._x) + ", " + str(self._y) + ")"
+
+  def sredina(self, tocka):
+    """ Vrne središče med točkama """
+    mx = (self._x + tocka._x) / 2.0
+    my = (self._y + tocka._y) / 2.0
+    return Tocka(mx, my)
+
+  def zrcali_x(self):
+    """ Vrne točko, zrcaljeno preko x-osi """
+    return Tocka(self._x, -self._y)
+
+  def zrcali_y(self):
+    """ Vrne točko, zrcaljeno preko y-osi """
+    return Tocka(-self._x, self._y)
+
+  def zrcali(self):
+    """ Vrne točko, zrcaljeno preko koordinatnega izhodišča """
+    return Tocka(-self._x, -self._y)
+
+  def razdalja_do(self, tocka):
+    """ Vrne razdaljo do druge točke """
+    dx = self._x - tocka._x
+    dy = self._y - tocka._y
+    return (dx ** 2 + dy ** 2) ** 0.5
+
+  def premica_skozi(self, tocka):
+    """ Vrne koeficienta premice skozi dani točki """
+    k = (self._y - tocka._y) / (self._x - tocka._x)
+    n = self._y - k * self._x
+    return "(" + str(k) + ", " + str(n) + ")"
+</textarea></p>
+<p>
+<a href="#" class="btn btn-primary"  onclick="runit()"><span class="fa fa-play"></span> Izvedi</a>
+<a href="#" class="btn btn-primary"  onclick="clearit()">Počisti</a>
+<input type="checkbox" id="theme" data-toggle="toggle" data-on="Temno" data-off="Svetlo">
+</p>
+</form>
+</div>
+<pre id="output"></pre>
+<!-- Right column end -->
+					</div>
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!-- rPage: Highly responsive pagination for Bootstrap -->
+	<script src="../js/responsive-paginate.js"></script>
+	<script>
+	$(document).ready(function () {
+		$(".pagination").rPage();
+	});
+	</script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+	});
+	</script>
+
+	<!-- eXe Project -->
+	<script src="../js/exe/common.js"></script>
+
+	<!-- JSXGraph - Dynamic Mathematics with JavaScript -->
+	<script src="../js/jsxgraph/jsxgraphcore.js"></script>
+
+<script type='text/javascript'>
+  var brd14;
+
+  function init14() {
+    if (brd14 != null) JXG.JSXGraph.freeBoard(brd14);
+    brd14 = JXG.JSXGraph.initBoard('jxgbox14', {boundingbox:[-2, 4, 8, -1], keepaspectratio:true, axis:true, grid:true});
+    var o = brd14.create('point', [0, 0], {name:'O', size:3, fixed:true});
+    var p = brd14.create('point', [4, 3], {name:'A', size:3});	  
+  }
+
+  init14();
+</script>
+
+
+
+<!-- CookieCuttr -->
+<script type="text/javascript" src="../cc/jquery.cookie.js"></script>
+<script type="text/javascript" src="../cc/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="../cc/cookiecuttr.css">
+<script type="text/javascript" src="../cc/google-analytics.js"></script>
+<script type="text/javascript" src="../cc/setup.cookiecuttr.js"></script>
+
+
+<script>
+document.body.addEventListener("keydown", function (event) {
+    var code = event.keyCode || event.which;
+    var alt  = event.altKey;
+    if (alt && code === 33 /* Alt+PgUp */) {
+        window.location.replace("../2307/index28.html");
+    }
+    if (alt && code === 34 /* Alt+PgDn */) {
+        window.location.replace("../2401/index1.html");
+    }
+});
+</script>
+
+</body>
+
+</html>
